@@ -65,7 +65,9 @@
 * [双强链](chain-theory/01-two-strong-link-chain.md)
 * [同数链和异数链](chain-theory/02-x-chain-and-multidigit-chain/README.md)
   * [同数链和异数链的定义](chain-theory/02-x-chain-and-multidigit-chain/01-definition-of-x-chain-and-multidigit-chain.md)
-  * [有技巧名的异数链](chain-theory/02-x-chain-and-multidigit-chain/02-named-multidigit-chain.md)
+  * [头尾异数链的删数规则](chain-theory/02-x-chain-and-multidigit-chain/02-elimination-rule-on-nodes-with-different-digits.md)
+  * [不连续环的两种模式](chain-theory/02-x-chain-and-multidigit-chain/03-two-types-of-discontinuous-nice-loop.md)
+  * [有技巧名的异数链](chain-theory/02-x-chain-and-multidigit-chain/04-named-multidigit-chain.md)
 
 ## 附录 <a href="#appendix" id="appendix"></a>
 
