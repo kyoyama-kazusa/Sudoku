@@ -337,8 +337,6 @@ public abstract partial class Chain :
 				}
 				else
 				{
-					// FIXME: This branch may throws "AccessViolationException" sometimes, and we cannot always be reproduced.
-					// If may be a .NET bug for type FrozenDictionary<,>.
 					var span = ValidNodes;
 					var resultLength = Length - LoopIdentity;
 					var result = new Link[resultLength];

@@ -94,7 +94,7 @@ public partial class Hub
 			public static Technique GetTechnique(NamedChain chain, ConclusionSet conclusions)
 				=> chain switch
 				{
-					AlternatingInferenceChain { IsX: var isX, IsGrouped: var isGrouped, Links: var links } instance => instance switch
+					AlternatingInferenceChain { IsX: var isX, IsStrictlyGrouped: var isGrouped, Links: var links } instance => instance switch
 					{
 						{ IsOverlapped: true } and [{ Map: var map1 }, .., { Map: var map2 }] when map1 == map2
 							=> isGrouped ? Technique.GroupedSelfConstraint : Technique.SelfConstraint,
@@ -147,7 +147,7 @@ public partial class Hub
 									_ => isGrouped ? Technique.GroupedXyXChain : Technique.XyXChain
 								}
 					},
-					ContinuousNiceLoop { IsX: var isX, IsY: var isY, IsGrouped: var isGrouped } instance => instance switch
+					ContinuousNiceLoop { IsX: var isX, IsY: var isY, IsStrictlyGrouped: var isGrouped } instance => instance switch
 					{
 						{ IsAlmostLockedSetSequence: true, AlmostLockedSetsCount: 2 } => Technique.DoublyLinkedAlmostLockedSetsXzRule,
 						_ => (isX, isY) switch
