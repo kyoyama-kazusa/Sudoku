@@ -122,9 +122,9 @@ public partial class Hub
 						{
 #pragma warning disable format
 							[
-								{ FirstNode.Map.Cells: var cells11, SecondNode.Map.Cells: var cells12 },
+								({ Map.Cells: var cells11 }, { Map.Cells: var cells12 }),
 								_,
-								{ FirstNode.Map.Cells: var cells21, SecondNode.Map.Cells: var cells22 }
+								({ Map.Cells: var cells21 }, { Map.Cells: var cells22 })
 							] => (
 								HouseMask.TrailingZeroCount((cells11 | cells12).SharedHouses).ToHouseType(),
 								HouseMask.TrailingZeroCount((cells21 | cells22).SharedHouses).ToHouseType()

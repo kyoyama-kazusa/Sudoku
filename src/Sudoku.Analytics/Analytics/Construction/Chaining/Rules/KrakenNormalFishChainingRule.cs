@@ -206,10 +206,8 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 		var links = context.Links;
 		foreach (var link in links)
 		{
-			if (link is not
+			if (link is not ({ Map.Cells: var firstCells }, { Map.Cells: var secondCells })
 				{
-					FirstNode.Map.Cells: var firstCells,
-					SecondNode.Map.Cells: var secondCells,
 					GroupedLinkPattern: FishPattern { Digit: var digit, BaseSets: var baseSets, CoverSets: var coverSets }
 				})
 			{
@@ -229,8 +227,7 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 			// Filter eliminations on strong links.
 			foreach (var otherLink in links)
 			{
-				if (otherLink is { IsStrong: true, FirstNode.Map.Cells: var map1, SecondNode.Map.Cells: var map2 }
-					&& otherLink != link)
+				if (otherLink is ({ Map.Cells: var map1 }, { Map.Cells: var map2 }, true) && otherLink != link)
 				{
 					elimMap &= ~map1;
 					elimMap &= ~map2;

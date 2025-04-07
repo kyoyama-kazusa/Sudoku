@@ -170,11 +170,8 @@ public sealed class AlmostLockedSetsChainingRule : ChainingRule
 		var result = ConclusionSet.Empty;
 		foreach (var element in context.Links)
 		{
-			if (element is
+			if (element is ({ Map.Digits: var digitsMask1 }, { Map.Digits: var digitsMask2 }, true)
 				{
-					IsStrong: true,
-					FirstNode.Map.Digits: var digitsMask1,
-					SecondNode.Map.Digits: var digitsMask2,
 					GroupedLinkPattern: AlmostLockedSetPattern(var digitsMask, var alsCells)
 				})
 			{

@@ -355,9 +355,9 @@ internal partial class ChainingDriver
 		var result = ConclusionSet.Empty;
 
 		// Collect on eliminations from weak links.
-		foreach (var link in patternLinks)
+		foreach (var (firstNode, secondNode) in patternLinks)
 		{
-			foreach (var conclusion in EliminationCalculator.Chain.GetConclusions(grid, link.FirstNode, link.SecondNode))
+			foreach (var conclusion in EliminationCalculator.Chain.GetConclusions(grid, firstNode, secondNode))
 			{
 				result.Add(conclusion);
 			}

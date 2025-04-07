@@ -146,7 +146,7 @@ public abstract partial class Chain :
 		{
 			foreach (var link in StrongLinks)
 			{
-				if (link is { FirstNode.Map.Digits: var digits1, SecondNode.Map.Digits: var digits2 } && digits1 == digits2)
+				if (link is ({ Map.Digits: var digits1 }, { Map.Digits: var digits2 }) && digits1 == digits2)
 				{
 					return false;
 				}
@@ -282,7 +282,7 @@ public abstract partial class Chain :
 		{
 			foreach (var link in StrongLinks)
 			{
-				if (link is { GroupedLinkPattern: var groupedPattern, FirstNode.Map.Count: var d1, SecondNode.Map.Count: var d2 }
+				if (link is ({ Map.Count: var d1 }, { Map.Count: var d2 }) { GroupedLinkPattern: var groupedPattern }
 					&& (d1 != 1 || d2 != 1 || groupedPattern is not null))
 				{
 					return true;
@@ -302,7 +302,7 @@ public abstract partial class Chain :
 		{
 			foreach (var link in WeakLinks)
 			{
-				if (link is { GroupedLinkPattern: var groupedPattern, FirstNode.Map.Count: var d1, SecondNode.Map.Count: var d2 }
+				if (link is ({ Map.Count: var d1 }, { Map.Count: var d2 }) { GroupedLinkPattern: var groupedPattern }
 					&& (d1 != 1 || d2 != 1 || groupedPattern is not null))
 				{
 					return true;

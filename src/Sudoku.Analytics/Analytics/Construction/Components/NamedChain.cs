@@ -30,14 +30,13 @@ public abstract class NamedChain(Node lastNode, bool isLoop) : Chain(lastNode, i
 			{
 				switch (link)
 				{
-					case { IsStrong: true, IsBivalueCellLink: true }:
+					case (_, _, true) { IsBivalueCellLink: true }:
 					{
 						continue;
 					}
-					case { IsStrong: true, GroupedLinkPattern: not AlmostLockedSetPattern }:
-					case { IsStrong: false, GroupedLinkPattern: not null }:
-					case { IsStrong: false, FirstNode.Map.Digits: var d1, SecondNode.Map.Digits: var d2 }
-					when d1 != d2 || !Mask.IsPow2(d1):
+					case (_, _, true) { GroupedLinkPattern: not AlmostLockedSetPattern }:
+					case (_, _, false) { GroupedLinkPattern: not null }:
+					case ({ Map.Digits: var d1 }, { Map.Digits: var d2 }, false) when d1 != d2 || !Mask.IsPow2(d1):
 					{
 						return false;
 					}

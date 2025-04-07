@@ -93,7 +93,7 @@ public sealed partial class BinaryForcingChains(
 			}
 
 			var j = 0;
-			foreach (var link in chain.Links)
+			foreach (var (firstNode, secondNode, isStrong) in chain.Links)
 			{
 				// Skip the link if there are >= 2 conclusions.
 				if (newConclusions.Length >= 2 && j++ == 0)
@@ -101,12 +101,7 @@ public sealed partial class BinaryForcingChains(
 					continue;
 				}
 
-				var currentViewNode = new ChainLinkViewNode(
-					ColorIdentifier.Normal,
-					link.FirstNode.Map,
-					link.SecondNode.Map,
-					link.IsStrong
-				);
+				var currentViewNode = new ChainLinkViewNode(ColorIdentifier.Normal, firstNode.Map, secondNode.Map, isStrong);
 				globalView.Add(currentViewNode);
 				subview.Add(currentViewNode);
 			}

@@ -85,10 +85,8 @@ public sealed class LockedCandidatesChainingRule : ChainingRule
 		var result = ConclusionSet.Empty;
 		foreach (var element in context.Links)
 		{
-			if (element is
+			if (element is ({ Map: { Digits: var digitsMask1, Cells: var cells1 } }, { Map: { Digits: var digitsMask2, Cells: var cells2 } })
 				{
-					FirstNode.Map: { Digits: var digitsMask1, Cells: var cells1 },
-					SecondNode.Map: { Digits: var digitsMask2, Cells: var cells2 },
 					GroupedLinkPattern: null
 				}
 				&& digitsMask1 == digitsMask2 && Mask.IsPow2(digitsMask1) && Mask.IsPow2(digitsMask2)

@@ -41,12 +41,21 @@ public sealed partial class Link(
 	/// Indicates whether the link is inside a cell.
 	/// </summary>
 	public bool IsBivalueCellLink
-		=> this is { FirstNode.Map: { Cells: [var c1], Digits: var d1 }, SecondNode.Map: { Cells: [var c2], Digits: var d2 } }
+		=> this is ({ Map: { Cells: [var c1], Digits: var d1 } }, { Map: { Cells: [var c2], Digits: var d2 } })
 		&& c1 == c2 && d1 != d2 && Mask.IsPow2(d1) && Mask.IsPow2(d2);
 
 	/// <inheritdoc/>
 	ComponentType IComponent.Type => ComponentType.ChainLink;
 
+
+	/// <include file="../../global-doc-comments.xml" path="g/csharp7/feature[@name='deconstruction-method']/target[@name='method']"/>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void Deconstruct(out Node firstNode, out Node secondNode) => (firstNode, secondNode) = (FirstNode, SecondNode);
+
+	/// <include file="../../global-doc-comments.xml" path="g/csharp7/feature[@name='deconstruction-method']/target[@name='method']"/>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void Deconstruct(out Node firstNode, out Node secondNode, out bool isStrong)
+		=> ((firstNode, secondNode), isStrong) = (this, IsStrong);
 
 	/// <inheritdoc/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
