@@ -150,7 +150,7 @@ public sealed class HardPatternPuzzleGenerator : IGenerator<Grid>
 	/// <param name="pattern">The pointer that points to an array of the pattern values.</param>
 	private void RecreatePattern(Span<Cell> pattern)
 	{
-		var target = (stackalloc[] { (23, 0, 1), (47, 24, -23), (53, 48, -47), (80, 54, 27) });
+		var target = (ReadOnlySpan<(Cell, Cell, Cell)>)[(23, 0, 1), (47, 24, -23), (53, 48, -47), (80, 54, 27)];
 		for (var index = 0; index < 4; index++)
 		{
 			var (initial, boundary, delta) = target[index];
