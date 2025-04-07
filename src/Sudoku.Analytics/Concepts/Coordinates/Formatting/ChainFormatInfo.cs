@@ -267,12 +267,7 @@ public sealed class ChainFormatInfo : FormatInfo<Chain>
 			{ } tempConverter => tempConverter,
 			_ => throw new InvalidOperationException()
 		};
-		var candidateConverter = originalConverter with
-		{
-			DefaultSeparator = DefaultSeparator,
-			NotationBracket = NotationBracket
-		};
-
+		var candidateConverter = originalConverter with { DefaultSeparator = DefaultSeparator, NotationBracket = NotationBracket };
 		var needAddingBrackets_Digits = Enum.IsDefined(DigitBracketInCandidateGroups) && DigitBracketInCandidateGroups != NotationBracket.None;
 		var needAddingBrackets_Cells = Enum.IsDefined(NotationBracket) && NotationBracket != NotationBracket.None;
 		var span = obj.ValidNodes;
