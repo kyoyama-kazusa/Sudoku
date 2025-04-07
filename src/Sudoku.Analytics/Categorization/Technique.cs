@@ -5686,18 +5686,6 @@ public enum Technique
 	HouseDeathBlossom,
 
 	/// <summary>
-	/// Indicates death blossom (rectangle blooming).
-	/// </summary>
-	[TechniqueMetadata(
-		Rating = 85,
-		DifficultyLevel = DifficultyLevel.Nightmare,
-		ContainingGroup = TechniqueGroup.DeathBlossom,
-		StepType = typeof(RectangleDeathBlossomStep),
-		StepSearcherType = typeof(DeathBlossomStepSearcher),
-		Links = ["http://sudopedia.enjoysudoku.com/Death_Blossom.html"])]
-	RectangleDeathBlossom,
-
-	/// <summary>
 	/// Indicates death blossom (A^nLS blooming).
 	/// </summary>
 	[TechniqueMetadata(

@@ -2460,13 +2460,6 @@
   <data name="TechniqueFormat_HouseDeathBlossomStep" xml:space="preserve">
     <value>区域 {0}，每个分支：{1}</value>
   </data>
-  <data name="RectangleDeathBlossom" xml:space="preserve">
-    <value>死亡绽放・矩形绽放</value>
-    <comment>Technique Name</comment>
-  </data>
-  <data name="TechniqueFormat_RectangleDeathBlossomStep" xml:space="preserve">
-    <value>矩形：{0}，每个分支：{1}</value>
-  </data>
   <data name="StepSearcherName_ExtendedSubsetPrincipleStepSearcher" xml:space="preserve">
     <value>伪数组</value>
     <comment>Step Searcher Name</comment>
@@ -2983,12 +2976,6 @@
   </data>
   <data name="Factor_NTimesAlmostLockedSetsDeathBlossomPetalsCountFactor" xml:space="preserve">
     <value>死亡绽放（待定数组类型）的花瓣数</value>
-  </data>
-  <data name="Factor_RectangleDeathBlossomIsAvoidableFactor" xml:space="preserve">
-    <value>死亡绽放（矩形类型）的矩形是否是可规避矩形</value>
-  </data>
-  <data name="Factor_RectangleDeathBlossomPetalsCountFactor" xml:space="preserve">
-    <value>死亡绽放（矩形类型）的花瓣数</value>
   </data>
   <data name="Factor_ComplexFishCannibalismFactor" xml:space="preserve">
     <value>复杂鱼的自噬</value>

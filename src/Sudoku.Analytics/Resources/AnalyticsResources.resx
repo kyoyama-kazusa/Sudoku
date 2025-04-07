@@ -2364,12 +2364,6 @@
   <data name="TechniqueFormat_HouseDeathBlossomStep" xml:space="preserve">
     <value>House: {0}, Branches: {1}</value>
   </data>
-  <data name="RectangleDeathBlossom" xml:space="preserve">
-    <value>Death Blossom (Rectangle Blooming)</value>
-  </data>
-  <data name="TechniqueFormat_RectangleDeathBlossomStep" xml:space="preserve">
-    <value>Rectangle cells: {0}, Branches: {1}</value>
-  </data>
   <data name="StepSearcherName_ExtendedSubsetPrincipleStepSearcher" xml:space="preserve">
     <value>Extended Subset Principle</value>
   </data>
@@ -2879,12 +2873,6 @@ Error grid: '{0:#}'</value>
   </data>
   <data name="Factor_NTimesAlmostLockedSetsDeathBlossomPetalsCountFactor" xml:space="preserve">
     <value>The number of petals in death blossom (A^nLS type)</value>
-  </data>
-  <data name="Factor_RectangleDeathBlossomIsAvoidableFactor" xml:space="preserve">
-    <value>Death blossom (rectangle type) uses avoidable rectangle</value>
-  </data>
-  <data name="Factor_RectangleDeathBlossomPetalsCountFactor" xml:space="preserve">
-    <value>The number of petals in death blossom (rectangle type)</value>
   </data>
   <data name="Factor_ComplexFishCannibalismFactor" xml:space="preserve">
     <value>Cannibalism in complex fish</value>

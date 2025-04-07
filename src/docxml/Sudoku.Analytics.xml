@@ -5433,26 +5433,6 @@
         <member name="M:Sudoku.Analytics.Construction.Components.NTimesAlmostLockedSetsBlossomBranchCollection.op_Inequality(Sudoku.Analytics.Construction.Components.NTimesAlmostLockedSetsBlossomBranchCollection,Sudoku.Analytics.Construction.Components.NTimesAlmostLockedSetsBlossomBranchCollection)">
             <inheritdoc cref="M:System.Numerics.IEqualityOperators`3.op_Inequality(`0,`1)"/>
         </member>
-        <member name="T:Sudoku.Analytics.Construction.Components.RectangleBlossomBranchCollection">
-            <summary>
-            Represents for a rectangle blossom branch collection.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.RectangleBlossomBranchCollection.Equals(Sudoku.Analytics.Construction.Components.RectangleBlossomBranchCollection)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.RectangleBlossomBranchCollection.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.RectangleBlossomBranchCollection.Equals(System.Object)">
-            <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.RectangleBlossomBranchCollection.op_Equality(Sudoku.Analytics.Construction.Components.RectangleBlossomBranchCollection,Sudoku.Analytics.Construction.Components.RectangleBlossomBranchCollection)">
-            <inheritdoc cref="M:System.Numerics.IEqualityOperators`3.op_Equality(`0,`1)"/>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.RectangleBlossomBranchCollection.op_Inequality(Sudoku.Analytics.Construction.Components.RectangleBlossomBranchCollection,Sudoku.Analytics.Construction.Components.RectangleBlossomBranchCollection)">
-            <inheritdoc cref="M:System.Numerics.IEqualityOperators`3.op_Inequality(`0,`1)"/>
-        </member>
         <member name="T:Sudoku.Analytics.Construction.Components.RectangleForcingChains">
             <summary>
             Represents a multiple forcing chains that is applied to a unique rectangle.
@@ -14023,71 +14003,6 @@
         <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.NTimesAlmostLockedSetsDeathBlossomStep.FreedomDegree">
             <summary>
             The generated property declaration for parameter <c>freedomDegree</c>.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Analytics.Steps.AlmostLockedSets.RectangleDeathBlossomStep">
-            <summary>
-            Provides with a step that is a <b>Death Blossom (Rectangle Blooming)</b> technique.
-            </summary>
-            <param name="conclusions"><inheritdoc/></param>
-            <param name="views"><inheritdoc/></param>
-            <param name="options"><inheritdoc/></param>
-            <param name="pattern">Indicates the pattern used.</param>
-            <param name="isAvoidable">Indicates whether the pattern is an avoidable rectangle.</param>
-            <param name="branches">Indicates the branches.</param>
-            <param name="zDigitsMask">Indicates the digits mask as eliminations.</param>
-        </member>
-        <member name="M:Sudoku.Analytics.Steps.AlmostLockedSets.RectangleDeathBlossomStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Concepts.CellMap@,System.Boolean,Sudoku.Analytics.Construction.Components.RectangleBlossomBranchCollection,System.Int16)">
-            <summary>
-            Provides with a step that is a <b>Death Blossom (Rectangle Blooming)</b> technique.
-            </summary>
-            <param name="conclusions"><inheritdoc/></param>
-            <param name="views"><inheritdoc/></param>
-            <param name="options"><inheritdoc/></param>
-            <param name="pattern">Indicates the pattern used.</param>
-            <param name="isAvoidable">Indicates whether the pattern is an avoidable rectangle.</param>
-            <param name="branches">Indicates the branches.</param>
-            <param name="zDigitsMask">Indicates the digits mask as eliminations.</param>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.RectangleDeathBlossomStep.BaseDifficulty">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.RectangleDeathBlossomStep.Code">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.RectangleDeathBlossomStep.DigitsUsed">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.RectangleDeathBlossomStep.Interpolations">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.RectangleDeathBlossomStep.Factors">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.RectangleDeathBlossomStep.Sudoku#Analytics#Traits#IBranchTrait#BranchesCount">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Analytics.Steps.AlmostLockedSets.RectangleDeathBlossomStep.Equals(Sudoku.Analytics.Step)">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.RectangleDeathBlossomStep.Pattern">
-            <summary>
-            The generated property declaration for parameter <c>pattern</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.RectangleDeathBlossomStep.IsAvoidable">
-            <summary>
-            The generated property declaration for parameter <c>isAvoidable</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.RectangleDeathBlossomStep.Branches">
-            <summary>
-            The generated property declaration for parameter <c>branches</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.RectangleDeathBlossomStep.ZDigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>zDigitsMask</c>.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Chains.BinaryForcingChainsStep">
@@ -25779,11 +25694,6 @@
             Indicates death blossom (house blooming).
             </summary>
         </member>
-        <member name="F:Sudoku.Categorization.Technique.RectangleDeathBlossom">
-            <summary>
-            Indicates death blossom (rectangle blooming).
-            </summary>
-        </member>
         <member name="F:Sudoku.Categorization.Technique.NTimesAlmostLockedSetsDeathBlossom">
             <summary>
             Indicates death blossom (A^nLS blooming).
@@ -30515,16 +30425,6 @@
               Looks up a localized string similar to Number of conjugate pairs appeared in rectangle.
             </summary>
         </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.Factor_RectangleDeathBlossomIsAvoidableFactor">
-            <summary>
-              Looks up a localized string similar to Death blossom (rectangle type) uses avoidable rectangle.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.Factor_RectangleDeathBlossomPetalsCountFactor">
-            <summary>
-              Looks up a localized string similar to The number of petals in death blossom (rectangle type).
-            </summary>
-        </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.Factor_RectangleIsAvoidableFactor">
             <summary>
               Looks up a localized string similar to Rectangle is avoidable.
@@ -31946,11 +31846,6 @@
         <member name="P:Sudoku.Resources.AnalyticsResources.QiuDeadlyPatternType4">
             <summary>
               Looks up a localized string similar to Qiu&apos;s Deadly Pattern Type 4.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.RectangleDeathBlossom">
-            <summary>
-              Looks up a localized string similar to Death Blossom (Rectangle Blooming).
             </summary>
         </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.RectangleForcingChains">
@@ -33906,11 +33801,6 @@
         <member name="P:Sudoku.Resources.AnalyticsResources.TechniqueFormat_QiuDeadlyPatternType4Step">
             <summary>
               Looks up a localized string similar to Cells {0} will be a deadly pattern if another digit in either cells lying on the conjugate pair {1} is true.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.TechniqueFormat_RectangleDeathBlossomStep">
-            <summary>
-              Looks up a localized string similar to Rectangle cells: {0}, Branches: {1}.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.TechniqueFormat_RectangleForcingChainsStep">

@@ -2428,24 +2428,6 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Death blossom (rectangle type) uses avoidable rectangle.
-        /// </summary>
-        public static string Factor_RectangleDeathBlossomIsAvoidableFactor {
-            get {
-                return ResourceManager.GetString("Factor_RectangleDeathBlossomIsAvoidableFactor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The number of petals in death blossom (rectangle type).
-        /// </summary>
-        public static string Factor_RectangleDeathBlossomPetalsCountFactor {
-            get {
-                return ResourceManager.GetString("Factor_RectangleDeathBlossomPetalsCountFactor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Rectangle is avoidable.
         /// </summary>
         public static string Factor_RectangleIsAvoidableFactor {
@@ -5001,15 +4983,6 @@ namespace Sudoku.Resources {
         public static string QiuDeadlyPatternType4 {
             get {
                 return ResourceManager.GetString("QiuDeadlyPatternType4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Death Blossom (Rectangle Blooming).
-        /// </summary>
-        public static string RectangleDeathBlossom {
-            get {
-                return ResourceManager.GetString("RectangleDeathBlossom", resourceCulture);
             }
         }
         
@@ -8529,15 +8502,6 @@ namespace Sudoku.Resources {
         public static string TechniqueFormat_QiuDeadlyPatternType4Step {
             get {
                 return ResourceManager.GetString("TechniqueFormat_QiuDeadlyPatternType4Step", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Rectangle cells: {0}, Branches: {1}.
-        /// </summary>
-        public static string TechniqueFormat_RectangleDeathBlossomStep {
-            get {
-                return ResourceManager.GetString("TechniqueFormat_RectangleDeathBlossomStep", resourceCulture);
             }
         }
         
