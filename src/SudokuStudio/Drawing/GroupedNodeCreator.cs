@@ -232,6 +232,9 @@ file sealed class ConvexHullHelper
 
 	private static Point[] GetConvexHull(Point[] points)
 	{
+		// There's a bug that will be fixed:
+		// ..37.82......1....4..9.5..71.9...3.4.3...+1.6.7.6...8.12..1.7..9....5......16.95..:512 612 328 255 455 855 365 475 388 488 395 398
+
 		if (points.Length <= 1)
 		{
 			return points;
