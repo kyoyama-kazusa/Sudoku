@@ -28746,34 +28746,6 @@
             <param name="this">The instance.</param>
             <returns>An array of <typeparamref name="TStep"/> instances.</returns>
         </member>
-        <member name="T:Sudoku.Linq.DeathBlossomBranchCollectionEnumerable">
-            <summary>
-            Represents a list of methods that is used as LINQ methods on type <see cref="T:Sudoku.Analytics.Construction.Components.DeathBlossomBranchCollection`2"/>.
-            </summary>
-            <seealso cref="T:Sudoku.Analytics.Construction.Components.DeathBlossomBranchCollection`2"/>
-        </member>
-        <member name="M:Sudoku.Linq.DeathBlossomBranchCollectionEnumerable.Select``3(Sudoku.Analytics.Construction.Components.DeathBlossomBranchCollection{``0,``1},System.Func{System.Collections.Generic.KeyValuePair{``1,Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern},``2})">
-            <summary>
-            Transforms the current collection into another representation, using the specified function to transform.
-            </summary>
-            <typeparam name="TSelf"><self-type-constraint>
-		<para>Indicates the type implementing this interface.</para>
-		<para>
-			This type doesn't use any extra syntax to constraint such usage, but C# will check for it.
-			The type will include a <see langword="where" /> constraint that implements the interface itself
-			to declare such "self constraint" usage:
-			<code><![CDATA[interface ISelfType<TSelf> where TSelf : ISelfType<TSelf>]]></code>
-			In addition, the type should be named <c>TSelf</c> in order to tell type parameters with the others.
-		</para>
-	</self-type-constraint></typeparam>
-            <typeparam name="TKey">
-            <inheritdoc cref="T:Sudoku.Analytics.Construction.Components.DeathBlossomBranchCollection`2" path="/typeparam[@name='TKey']" />
-            </typeparam>
-            <typeparam name="TResult">The type of the results.</typeparam>
-            <param name="this">The current collection.</param>
-            <param name="selector">The selector to transform elements.</param>
-            <returns>The results.</returns>
-        </member>
         <member name="T:Sudoku.Linq.TechniqueSetEnumerable">
             <summary>
             Represents a list of methods that is used for LINQ on <see cref="T:Sudoku.Categorization.TechniqueSet"/>.
