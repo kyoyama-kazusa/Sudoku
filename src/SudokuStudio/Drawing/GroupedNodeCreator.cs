@@ -98,8 +98,6 @@ internal sealed class GroupedNodeCreator(SudokuPane pane, SudokuPanePositionConv
 	/// <inheritdoc/>
 	public override ReadOnlySpan<Path> CreateShapes(ReadOnlySpan<GroupedNodeInfo> nodes)
 	{
-		const double radius = 10D;
-
 		// Iterate on each inference to draw the links and grouped nodes (if so).
 		var ((ow, _), _) = Converter;
 		var drawnGroupedNodes = new HashSet<CandidateMap>();
@@ -117,7 +115,7 @@ internal sealed class GroupedNodeCreator(SudokuPane pane, SudokuPanePositionConv
 					{
 						Data = ConvexHullHelper.BuildClosedPath(
 							[.. from candidate in node select Converter.GetPosition(candidate)],
-							radius,
+							Converter.CandidateSize.Width / 2,
 							ow
 						),
 						Stroke = stroke,
@@ -178,21 +176,21 @@ file sealed class ConvexHullHelper
 			// Calculate for directions of arcs.
 			var toCurrentEnd = Subtract(currentEnd, center);
 			var toNextStart = Subtract(nextStart, center);
-			var angleCurrent = Atan2(toCurrentEnd.Y, toCurrentEnd.X) * 180 / PI;
-			var angleNext = Atan2(toNextStart.Y, toNextStart.X) * 180 / PI;
+			var angleCurrent = Atan(toCurrentEnd.Y / toCurrentEnd.X) * 180 / PI;
+			var angleNext = Atan(toNextStart.Y / toNextStart.X) * 180 / PI;
 
 			// Determine the sweep direction and whether it is a large arc.
-			var isLargeArc = Abs(angleNext - angleCurrent) > 180;
-			var sweepDirection = isClockwise ? SweepDirection.Clockwise : SweepDirection.Counterclockwise;
+			var rotateAngle = Abs(angleNext - angleCurrent);
+			var isLargeArc = rotateAngle > 180;
+			var sweepDirection = !isClockwise ? SweepDirection.Clockwise : SweepDirection.Counterclockwise;
 
 			// Add the arc.
 			var arcSegment = new ArcSegment
 			{
 				Point = Subtract(nextStart, offsetPoint),
-				Size = new Size(radius, radius),
+				Size = new(radius, radius),
 				SweepDirection = sweepDirection,
-				IsLargeArc = isLargeArc,
-				RotationAngle = 0
+				IsLargeArc = isLargeArc
 			};
 			pathFigure.Segments.Add(arcSegment);
 		}
