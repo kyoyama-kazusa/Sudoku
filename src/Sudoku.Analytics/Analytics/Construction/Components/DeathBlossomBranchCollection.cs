@@ -9,8 +9,7 @@ namespace Sudoku.Analytics.Construction.Components;
 public abstract partial class DeathBlossomBranchCollection<TSelf, TKey> :
 	Dictionary<TKey, AlmostLockedSetPattern>,
 	IComponent,
-	IEquatable<TSelf>,
-	ISelectMethod<TSelf, KeyValuePair<TKey, AlmostLockedSetPattern>>
+	IEquatable<TSelf>
 	where TSelf : DeathBlossomBranchCollection<TSelf, TKey>, IEquatable<TSelf>, IEqualityOperators<TSelf, TSelf, bool>, new()
 	where TKey : notnull, IAdditiveIdentity<TKey, TKey>, IEquatable<TKey>, IEqualityOperators<TKey, TKey, bool>, new()
 {
@@ -36,8 +35,4 @@ public abstract partial class DeathBlossomBranchCollection<TSelf, TKey> :
 
 	/// <inheritdoc/>
 	public abstract bool Equals([NotNullWhen(true)] TSelf? other);
-
-	/// <inheritdoc/>
-	IEnumerable<TResult> ISelectMethod<TSelf, KeyValuePair<TKey, AlmostLockedSetPattern>>.Select<TResult>(Func<KeyValuePair<TKey, AlmostLockedSetPattern>, TResult> selector)
-		=> this.Select(selector).ToArray();
 }

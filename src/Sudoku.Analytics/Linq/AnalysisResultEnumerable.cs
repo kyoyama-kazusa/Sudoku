@@ -7,42 +7,6 @@ namespace Sudoku.Linq;
 public static class AnalysisResultEnumerable
 {
 	/// <summary>
-	/// Determines whether all <see cref="Step"/> instances satisfy the specified condition.
-	/// </summary>
-	/// <param name="this">The instance to be checked.</param>
-	/// <param name="predicate">The match method.</param>
-	/// <returns>A <see cref="bool"/> result indicating that.</returns>
-	public static bool All(this AnalysisResult @this, Func<Step, bool> predicate)
-	{
-		foreach (var step in @this)
-		{
-			if (!predicate(step))
-			{
-				return false;
-			}
-		}
-		return true;
-	}
-
-	/// <summary>
-	/// Determines whether at least one <see cref="Step"/> instance satisfies the specified condition.
-	/// </summary>
-	/// <param name="this">The instance to be checked.</param>
-	/// <param name="predicate">The match method.</param>
-	/// <returns>A <see cref="bool"/> result indicating that.</returns>
-	public static bool Any(this AnalysisResult @this, Func<Step, bool> predicate)
-	{
-		foreach (var step in @this)
-		{
-			if (predicate(step))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
-	/// <summary>
 	/// Cast the object into a <see cref="ReadOnlySpan{T}"/> of <typeparamref name="TStep"/> instances.
 	/// </summary>
 	/// <typeparam name="TStep">The type of each element casted.</typeparam>

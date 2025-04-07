@@ -386,6 +386,40 @@ public sealed partial record AnalysisResult([property: EquatableMember] in Grid 
 		return false;
 	}
 
+	/// <summary>
+	/// Determines whether all <see cref="Step"/> instances satisfy the specified condition.
+	/// </summary>
+	/// <param name="predicate">The match method.</param>
+	/// <returns>A <see cref="bool"/> result indicating that.</returns>
+	public bool TrueForAll(Func<Step, bool> predicate)
+	{
+		foreach (var step in this)
+		{
+			if (!predicate(step))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/// <summary>
+	/// Determines whether at least one <see cref="Step"/> instance satisfies the specified condition.
+	/// </summary>
+	/// <param name="predicate">The match method.</param>
+	/// <returns>A <see cref="bool"/> result indicating that.</returns>
+	public bool Exists(Func<Step, bool> predicate)
+	{
+		foreach (var step in this)
+		{
+			if (predicate(step))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
 	/// <inheritdoc/>
 	public override int GetHashCode() => Puzzle.GetHashCode();
 
@@ -686,10 +720,10 @@ public sealed partial record AnalysisResult([property: EquatableMember] in Grid 
 	bool IAnyAllMethod<AnalysisResult, Step>.Any() => StepsSpan.Length != 0;
 
 	/// <inheritdoc/>
-	bool IAnyAllMethod<AnalysisResult, Step>.Any(Func<Step, bool> predicate) => this.Any(predicate);
+	bool IAnyAllMethod<AnalysisResult, Step>.Any(Func<Step, bool> predicate) => Exists(predicate);
 
 	/// <inheritdoc/>
-	bool IAnyAllMethod<AnalysisResult, Step>.All(Func<Step, bool> predicate) => this.All(predicate);
+	bool IAnyAllMethod<AnalysisResult, Step>.All(Func<Step, bool> predicate) => TrueForAll(predicate);
 
 	/// <inheritdoc/>
 	bool IReadOnlyDictionary<Grid, Step>.ContainsKey(Grid key) => HasGrid(key);

@@ -305,6 +305,20 @@
             <param name="grid">The grid to be checked.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
+        <member name="M:Sudoku.Analytics.AnalysisResult.TrueForAll(System.Func{Sudoku.Analytics.Step,System.Boolean})">
+            <summary>
+            Determines whether all <see cref="T:Sudoku.Analytics.Step"/> instances satisfy the specified condition.
+            </summary>
+            <param name="predicate">The match method.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.AnalysisResult.Exists(System.Func{Sudoku.Analytics.Step,System.Boolean})">
+            <summary>
+            Determines whether at least one <see cref="T:Sudoku.Analytics.Step"/> instance satisfies the specified condition.
+            </summary>
+            <param name="predicate">The match method.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
         <member name="M:Sudoku.Analytics.AnalysisResult.GetHashCode">
             <inheritdoc/>
         </member>
@@ -3672,9 +3686,6 @@
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Components.DeathBlossomBranchCollection`2.Equals(`0)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.DeathBlossomBranchCollection`2.System#Linq#Providers#ISelectMethod{TSelf,System#Collections#Generic#KeyValuePair{TKey,Sudoku#Analytics#Construction#Patterns#AlmostLockedSetPattern}}#Select``1(System.Func{System.Collections.Generic.KeyValuePair{`1,Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern},``0})">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Components.DeathBlossomBranchCollection`2.Equals(System.Object)">
@@ -28699,22 +28710,6 @@
             Provides with some LINQ methods for type <see cref="T:Sudoku.Analytics.AnalysisResult"/>.
             </summary>
             <seealso cref="T:Sudoku.Analytics.AnalysisResult"/>
-        </member>
-        <member name="M:Sudoku.Linq.AnalysisResultEnumerable.All(Sudoku.Analytics.AnalysisResult,System.Func{Sudoku.Analytics.Step,System.Boolean})">
-            <summary>
-            Determines whether all <see cref="T:Sudoku.Analytics.Step"/> instances satisfy the specified condition.
-            </summary>
-            <param name="this">The instance to be checked.</param>
-            <param name="predicate">The match method.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-        </member>
-        <member name="M:Sudoku.Linq.AnalysisResultEnumerable.Any(Sudoku.Analytics.AnalysisResult,System.Func{Sudoku.Analytics.Step,System.Boolean})">
-            <summary>
-            Determines whether at least one <see cref="T:Sudoku.Analytics.Step"/> instance satisfies the specified condition.
-            </summary>
-            <param name="this">The instance to be checked.</param>
-            <param name="predicate">The match method.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
         <member name="M:Sudoku.Linq.AnalysisResultEnumerable.Cast``1(Sudoku.Analytics.AnalysisResult)">
             <summary>
