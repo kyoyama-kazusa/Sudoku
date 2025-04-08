@@ -443,7 +443,7 @@
         <member name="M:Sudoku.Analytics.AnalysisResult.System#Linq#Providers#IOfTypeMethod{Sudoku#Analytics#AnalysisResult,Sudoku#Analytics#Step}#OfType``1">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.AnalysisResult.EvaluateRatingUnsafe(System.ReadOnlySpan{Sudoku.Analytics.Step},,System.Int32)">
+        <member name="M:Sudoku.Analytics.AnalysisResult.EvaluateRating(System.ReadOnlySpan{Sudoku.Analytics.Step},System.Func{System.ReadOnlySpan{Sudoku.Analytics.Step},System.Func{Sudoku.Analytics.Step,System.Int32},System.Int32},System.Int32)">
             <summary>
             The inner executor to get the difficulty value (total, average).
             </summary>

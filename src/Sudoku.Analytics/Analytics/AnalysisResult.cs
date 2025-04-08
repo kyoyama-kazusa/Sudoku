@@ -11,10 +11,8 @@ public sealed partial record AnalysisResult([property: EquatableMember] in Grid 
 	IAnyAllMethod<AnalysisResult, Step>,
 	ICastMethod<AnalysisResult, Step>,
 	IEnumerable<Step>,
-	IEnumerable<KeyValuePair<Grid, Step>>,
 	IFormattable,
 	IOfTypeMethod<AnalysisResult, Step>,
-	IReadOnlyCollection<KeyValuePair<Grid, Step>>,
 	IReadOnlyDictionary<Grid, Step>,
 	ISelectMethod<AnalysisResult, Step>,
 	IWhereMethod<AnalysisResult, Step>
@@ -137,7 +135,7 @@ public sealed partial record AnalysisResult([property: EquatableMember] in Grid 
 	/// </remarks>
 	/// <seealso cref="Analyzer"/>
 	/// <seealso cref="MaximumRatingValueTheory"/>
-	public unsafe int MaxDifficulty => EvaluateRatingUnsafe(StepsSpan, &SpanEnumerable.MaxUnsafe, MaximumRatingValueTheory);
+	public int MaxDifficulty => EvaluateRating(StepsSpan, SpanEnumerable.Max, MaximumRatingValueTheory);
 
 	/// <summary>
 	/// Indicates the total difficulty rating of the puzzle.
@@ -150,7 +148,7 @@ public sealed partial record AnalysisResult([property: EquatableMember] in Grid 
 	/// </remarks>
 	/// <seealso cref="Analyzer"/>
 	/// <seealso cref="StepsSpan"/>
-	public unsafe int TotalDifficulty => EvaluateRatingUnsafe(StepsSpan, &SpanEnumerable.SumUnsafe, MinimumRatingValue);
+	public int TotalDifficulty => EvaluateRating(StepsSpan, SpanEnumerable.Sum, MinimumRatingValue);
 
 	/// <summary>
 	/// Indicates the pearl difficulty rating of the puzzle, calculated during only by <see cref="Analyzer"/>.
@@ -781,15 +779,9 @@ public sealed partial record AnalysisResult([property: EquatableMember] in Grid 
 	/// <returns>The result.</returns>
 	/// <seealso cref="StepsSpan"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	private static unsafe int EvaluateRatingUnsafe(
+	private static int EvaluateRating(
 		ReadOnlySpan<Step> steps,
-		delegate*<ReadOnlySpan<Step>, delegate*<Step, int>, int> executor,
+		Func<ReadOnlySpan<Step>, Func<Step, int>, int> executor,
 		int defaultRating
-	)
-	{
-		return steps.IsEmpty ? defaultRating : executor(steps, &difficultySelector);
-
-
-		static int difficultySelector(Step step) => step.Difficulty;
-	}
+	) => steps.IsEmpty ? defaultRating : executor(steps, static step => step.Difficulty);
 }
