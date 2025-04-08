@@ -509,10 +509,7 @@ public sealed partial class DeathBlossomStepSearcher : StepSearcher
 			var houseOffset = new HouseViewNode(ColorIdentifier.Normal, house);
 			var detailViews = new View[branches.Count];
 			var i = 0;
-			foreach (ref var view in detailViews.AsSpan())
-			{
-				view = [houseOffset, new CandidateViewNode(ColorIdentifier.Auxiliary2, targetCells[i++] * 9 + disappearedDigit)];
-			}
+			detailViews.InitializeArray(([NotNull] ref view) => view = [houseOffset, new CandidateViewNode(ColorIdentifier.Auxiliary2, targetCells[i++] * 9 + disappearedDigit)]);
 
 			var indexOfAls = 0;
 			foreach (var (_, (_, alsCells)) in branches)
