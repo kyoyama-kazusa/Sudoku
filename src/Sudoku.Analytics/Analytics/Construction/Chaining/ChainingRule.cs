@@ -48,11 +48,24 @@ public abstract partial class ChainingRule
 
 	/// <summary>
 	/// Collects nodes that is supposed to "on" from the current node supposed to "off",
-	/// and store them into <see cref="ChainingRuleNextOnNodeContext.Nodes"/>.
+	/// and store them into <paramref name="nodes"/>.
 	/// </summary>
-	/// <param name="context">The context.</param>
-	/// <seealso cref="ChainingRuleNextOnNodeContext"/>
-	public virtual void CollectOnNodes(ref ChainingRuleNextOnNodeContext context) => context.Nodes = [];
+	/// <param name="currentNode">Indicates the current node.</param>
+	/// <param name="grid">Indicates the grid.</param>
+	/// <param name="originalGrid">Indicates the original grid.</param>
+	/// <param name="nodesSupposedOff">Indicates the nodes that are supposed to "off".</param>
+	/// <param name="options">Indicates the options.</param>
+	/// <param name="nodes">The nodes collected.</param>
+	public virtual void CollectOnNodes(
+		Node currentNode,
+		in Grid grid,
+		in Grid originalGrid,
+		HashSet<Node> nodesSupposedOff,
+		StepGathererOptions options,
+		HashSet<Node> nodes
+	)
+	{
+	}
 
 	/// <summary>
 	/// Collects nodes that is supposed to "off" from the current node supposed to "on",

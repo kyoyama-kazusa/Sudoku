@@ -2293,13 +2293,17 @@
             <param name="weakLinks">Indicates the weak links.</param>
             <param name="options">Indicates the options.</param>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRule.CollectOnNodes(Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRule.CollectOnNodes(Sudoku.Analytics.Construction.Components.Node,Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,System.Collections.Generic.HashSet{Sudoku.Analytics.Construction.Components.Node},Sudoku.Analytics.Configuration.StepGathererOptions,System.Collections.Generic.HashSet{Sudoku.Analytics.Construction.Components.Node})">
             <summary>
             Collects nodes that is supposed to "on" from the current node supposed to "off",
-            and store them into <see cref="P:Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext.Nodes"/>.
+            and store them into <paramref name="nodes"/>.
             </summary>
-            <param name="context">The context.</param>
-            <seealso cref="T:Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext"/>
+            <param name="currentNode">Indicates the current node.</param>
+            <param name="grid">Indicates the grid.</param>
+            <param name="originalGrid">Indicates the original grid.</param>
+            <param name="nodesSupposedOff">Indicates the nodes that are supposed to "off".</param>
+            <param name="options">Indicates the options.</param>
+            <param name="nodes">The nodes collected.</param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRule.CollectOffNodes(Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOffNodeContext@)">
             <summary>
@@ -2485,63 +2489,6 @@
         <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOffNodeContext.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
-        <member name="T:Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext">
-            <summary>
-            Represents the properties used while chaining.
-            </summary>
-            <param name="currentNode">Indicates the current node.</param>
-            <param name="grid">Indicates the current grid.</param>
-            <param name="originalGrid">Indicates the original grid to be used.</param>
-            <param name="nodesSupposedOff">Indicates the nodes supposed to be "off".</param>
-            <param name="options">Indicates the step searcher options to be used.</param>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext.#ctor(Sudoku.Analytics.Construction.Components.Node,Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,System.Collections.Generic.HashSet{Sudoku.Analytics.Construction.Components.Node},Sudoku.Analytics.Configuration.StepGathererOptions)">
-            <summary>
-            Represents the properties used while chaining.
-            </summary>
-            <param name="currentNode">Indicates the current node.</param>
-            <param name="grid">Indicates the current grid.</param>
-            <param name="originalGrid">Indicates the original grid to be used.</param>
-            <param name="nodesSupposedOff">Indicates the nodes supposed to be "off".</param>
-            <param name="options">Indicates the step searcher options to be used.</param>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext.Nodes">
-            <inheritdoc/>
-        </member>
-        <member name="F:Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext.CurrentNode">
-            <summary>
-            The generated field declaration for parameter <c>currentNode</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext.Grid">
-            <summary>
-            The generated field declaration for parameter <c>grid</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext.OriginalGrid">
-            <summary>
-            The generated field declaration for parameter <c>originalGrid</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext.NodesSupposedOff">
-            <summary>
-            The generated field declaration for parameter <c>nodesSupposedOff</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext.Options">
-            <summary>
-            The generated field declaration for parameter <c>options</c>.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext.Equals(System.Object)">
-            <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext.GetHashCode">
-            <inheritdoc cref="M:System.Object.GetHashCode"/>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext.ToString">
-            <inheritdoc cref="M:System.Object.ToString"/>
-        </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.ChainingRuleViewNodeContext">
             <summary>
             Represents the properties used while chaining.
@@ -2705,7 +2652,7 @@
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.XChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.XChainingRule.CollectOnNodes(Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.XChainingRule.CollectOnNodes(Sudoku.Analytics.Construction.Components.Node,Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,System.Collections.Generic.HashSet{Sudoku.Analytics.Construction.Components.Node},Sudoku.Analytics.Configuration.StepGathererOptions,System.Collections.Generic.HashSet{Sudoku.Analytics.Construction.Components.Node})">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.XChainingRule.CollectOffNodes(Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOffNodeContext@)">
@@ -2732,7 +2679,7 @@
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.YChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.YChainingRule.CollectOnNodes(Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.YChainingRule.CollectOnNodes(Sudoku.Analytics.Construction.Components.Node,Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,System.Collections.Generic.HashSet{Sudoku.Analytics.Construction.Components.Node},Sudoku.Analytics.Configuration.StepGathererOptions,System.Collections.Generic.HashSet{Sudoku.Analytics.Construction.Components.Node})">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.YChainingRule.CollectOffNodes(Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOffNodeContext@)">

@@ -64,21 +64,24 @@ public sealed class XChainingRule : ChainingRule
 	}
 
 	/// <inheritdoc/>
-	public override void CollectOnNodes(ref ChainingRuleNextOnNodeContext context)
+	public override void CollectOnNodes(
+		Node currentNode,
+		in Grid grid,
+		in Grid originalGrid,
+		HashSet<Node> nodesSupposedOff,
+		StepGathererOptions options,
+		HashSet<Node> nodes
+	)
 	{
-		var currentNode = context.CurrentNode;
 		if (currentNode is not { Map: [var startCandidate], IsOn: false })
 		{
 			return;
 		}
 
-		ref readonly var grid = ref context.Grid;
-		ref readonly var originalGrid = ref context.OriginalGrid;
 		var candidatesMap = grid.CandidatesMap;
 		var startCell = startCandidate / 9;
 		var digit = startCandidate % 9;
 		var resultNodes = new HashSet<Node>();
-		var nodesSupposedOff = context.NodesSupposedOff;
 		foreach (var houseType in HouseTypes)
 		{
 			if ((HousesMap[startCell.ToHouse(houseType)] & candidatesMap[digit]) - startCell is [var endCell])
@@ -98,7 +101,7 @@ public sealed class XChainingRule : ChainingRule
 				);
 			}
 		}
-		context.Nodes.AddRange(resultNodes);
+		nodes.AddRange(resultNodes);
 	}
 
 	/// <inheritdoc/>

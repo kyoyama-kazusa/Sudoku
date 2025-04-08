@@ -45,21 +45,24 @@ public sealed class YChainingRule : ChainingRule
 	}
 
 	/// <inheritdoc/>
-	public override void CollectOnNodes(ref ChainingRuleNextOnNodeContext context)
+	public override void CollectOnNodes(
+		Node currentNode,
+		in Grid grid,
+		in Grid originalGrid,
+		HashSet<Node> nodesSupposedOff,
+		StepGathererOptions options,
+		HashSet<Node> nodes
+	)
 	{
-		var currentNode = context.CurrentNode;
 		if (currentNode is not { Map: [var startCandidate], IsOn: false })
 		{
 			return;
 		}
 
-		ref readonly var grid = ref context.Grid;
-		ref readonly var originalGrid = ref context.OriginalGrid;
 		var cell = startCandidate / 9;
 		var startDigit = startCandidate % 9;
 		var digitsMask = (Mask)(grid.GetCandidates(cell) & ~(1 << startDigit));
 		var resultNodes = new HashSet<Node>();
-		var nodesSupposedOff = context.NodesSupposedOff;
 		if (Mask.IsPow2(digitsMask))
 		{
 			var endDigit = Mask.Log2(digitsMask);
@@ -77,7 +80,7 @@ public sealed class YChainingRule : ChainingRule
 				)
 			);
 		}
-		context.Nodes.AddRange(resultNodes);
+		nodes.AddRange(resultNodes);
 	}
 
 	/// <inheritdoc/>

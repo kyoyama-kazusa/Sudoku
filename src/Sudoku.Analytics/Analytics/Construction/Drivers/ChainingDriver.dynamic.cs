@@ -631,11 +631,11 @@ internal partial class ChainingDriver
 		in Grid originalGrid
 	)
 	{
-		var context = new ChainingRuleNextOnNodeContext(node, grid, originalGrid, nodesSupposedOff, options);
+		var nodes = new HashSet<Node>();
 		foreach (var chainingRule in chainingRules)
 		{
-			chainingRule.CollectOnNodes(ref context);
+			chainingRule.CollectOnNodes(node, grid, originalGrid, nodesSupposedOff, options, nodes);
 		}
-		return context.Nodes.ToArray();
+		return nodes.ToArray();
 	}
 }
