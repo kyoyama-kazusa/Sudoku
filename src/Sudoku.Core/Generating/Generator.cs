@@ -30,7 +30,8 @@ public ref partial struct Generator() : IGenerator<Grid>
 	/// <summary>
 	/// Indicates whether the solution grid can be configured by user.
 	/// </summary>
-	private readonly bool _useCustomizedSolution; // 2024/10/28: Add this field.
+	/// <!--2024/10/28: Add this field.-->
+	private readonly bool _useCustomizedSolution;
 
 	/// <summary>
 	/// The order in which cells are set when generating a full grid.

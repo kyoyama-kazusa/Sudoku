@@ -9687,6 +9687,7 @@
             <summary>
             Indicates whether the solution grid can be configured by user.
             </summary>
+            <!--2024/10/28: Add this field.-->
         </member>
         <member name="F:Sudoku.Generating.Generator._generateIndices">
             <summary>
