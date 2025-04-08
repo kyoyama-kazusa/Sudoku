@@ -3505,20 +3505,76 @@
         </member>
         <member name="T:SudokuStudio.Drawing.GroupedNodeCreator">
             <summary>
-            Extracted type that creates the capsule instances.
+            Extracted type that creates the instances of grouped node outside borders.
             </summary>
             <param name="pane">Indicates the sudoku pane control.</param>
             <param name="converter">Indicates the position converter.</param>
         </member>
         <member name="M:SudokuStudio.Drawing.GroupedNodeCreator.#ctor(SudokuStudio.Views.Controls.SudokuPane,SudokuStudio.Input.SudokuPanePositionConverter)">
             <summary>
-            Extracted type that creates the capsule instances.
+            Extracted type that creates the instances of grouped node outside borders.
             </summary>
             <param name="pane">Indicates the sudoku pane control.</param>
             <param name="converter">Indicates the position converter.</param>
         </member>
         <member name="M:SudokuStudio.Drawing.GroupedNodeCreator.CreateShapes(System.ReadOnlySpan{SudokuStudio.BindableSource.GroupedNodeInfo})">
             <inheritdoc/>
+        </member>
+        <member name="T:SudokuStudio.Drawing.ConvexHullHelper">
+            <summary>
+            Provides an internal type that calculates for convex hull.
+            </summary>
+            <remarks>
+            A <see href="https://en.wikipedia.org/wiki/Convex_hull">Convex Hull</see> is a minimal polygon that covers all specified points.
+            </remarks>
+        </member>
+        <member name="M:SudokuStudio.Drawing.ConvexHullHelper.Cross(Windows.Foundation.Point,Windows.Foundation.Point,Windows.Foundation.Point)">
+            <summary>
+            Calculates for the cross product of points <paramref name="a"/> and <paramref name="b"/>.
+            </summary>
+            <param name="a">The first point.</param>
+            <param name="b">The second point.</param>
+            <param name="c">Used for auxiliary value as subtraction.</param>
+            <returns>The result.</returns>
+        </member>
+        <member name="M:SudokuStudio.Drawing.ConvexHullHelper.IsClockwise(System.ReadOnlySpan{Windows.Foundation.Point})">
+            <summary>
+            Determine whether the polygon specified as point set is clockwise.
+            </summary>
+            <param name="polygon">The polygon points to be checked.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
+        <member name="M:SudokuStudio.Drawing.ConvexHullHelper.BuildClosedPath(Windows.Foundation.Point[],System.Double,System.Double)">
+            <summary>
+            Try to build a <see cref="T:Microsoft.UI.Xaml.Media.PathGeometry"/> instance that makes a closed path of polygon.
+            </summary>
+            <param name="centers">The center points.</param>
+            <param name="radius">The radius of each vertex.</param>
+            <param name="ow">The offset.</param>
+            <returns>The instance.</returns>
+        </member>
+        <member name="M:SudokuStudio.Drawing.ConvexHullHelper.GetOuterTangentPoints(Windows.Foundation.Point[],System.Double)">
+            <summary>
+            Creates a sequence of pairs of <see cref="T:Windows.Foundation.Point"/> instances indicating lines start and end point.
+            </summary>
+            <param name="centers">The center points.</param>
+            <param name="radius">The radius.</param>
+            <returns>The sequence.</returns>
+        </member>
+        <member name="M:SudokuStudio.Drawing.ConvexHullHelper.GetConvexHull(Windows.Foundation.Point[])">
+            <summary>
+            Try to get convex hull points.
+            </summary>
+            <param name="points">The points.</param>
+            <returns>A list of <see cref="T:Windows.Foundation.Point"/> instances indicating the vertex of a convex hull.</returns>
+        </member>
+        <member name="M:SudokuStudio.Drawing.ConvexHullHelper.Subtract(Windows.Foundation.Point,Windows.Foundation.Point)">
+            <summary>
+            Make subtraction of two <see cref="T:Windows.Foundation.Point"/> values.
+            </summary>
+            <param name="left">The first instance.</param>
+            <param name="right">The second instance.</param>
+            <returns>A <see cref="T:Windows.Foundation.Point"/> instance as result.</returns>
         </member>
         <member name="T:SudokuStudio.Drawing.PathCreator">
             <summary>

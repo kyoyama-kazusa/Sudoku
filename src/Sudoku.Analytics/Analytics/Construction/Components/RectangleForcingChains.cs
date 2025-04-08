@@ -25,15 +25,13 @@ public sealed partial class RectangleForcingChains(
 	/// <inheritdoc/>
 	protected internal override void PrepareFinnedChainViewNodes(
 		NamedChain finnedChain,
-		ref int cachedAlsIndex,
-		ref int cachedUrIndex,
 		ChainingRuleCollection supportedRules,
 		in Grid grid,
 		in CandidateMap fins,
 		out View[] views
 	)
 	{
-		base.PrepareFinnedChainViewNodes(finnedChain, ref cachedAlsIndex, ref cachedUrIndex, supportedRules, grid, fins, out views);
+		base.PrepareFinnedChainViewNodes(finnedChain, supportedRules, grid, fins, out views);
 		foreach (var cell in Cells)
 		{
 			var node = new CellViewNode(ColorIdentifier.Rectangle1, cell);

@@ -21,15 +21,13 @@ public sealed partial class BivalueUniversalGraveForcingChains([Property] in Can
 	/// <inheritdoc/>
 	protected internal override void PrepareFinnedChainViewNodes(
 		NamedChain finnedChain,
-		ref int cachedAlsIndex,
-		ref int cachedUrIndex,
 		ChainingRuleCollection supportedRules,
 		in Grid grid,
 		in CandidateMap fins,
 		out View[] views
 	)
 	{
-		base.PrepareFinnedChainViewNodes(finnedChain, ref cachedAlsIndex, ref cachedUrIndex, supportedRules, grid, fins, out views);
+		base.PrepareFinnedChainViewNodes(finnedChain, supportedRules, grid, fins, out views);
 		foreach (var candidate in Candidates)
 		{
 			var node = new CandidateViewNode(ColorIdentifier.Auxiliary1, candidate);
