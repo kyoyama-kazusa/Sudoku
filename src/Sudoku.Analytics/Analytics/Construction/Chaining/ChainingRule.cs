@@ -81,13 +81,20 @@ public abstract partial class ChainingRule
 	/// Collects for extra view nodes for the pattern.
 	/// This method will be useful in advanced chaining rules such as ALS and AUR extra maps checking.
 	/// </summary>
-	/// <param name="context">The context.</param>
-	/// <remarks>
-	/// The method by default will do nothing, with an empty sequence
-	/// assigned to <see cref="ChainingRuleViewNodeContext.ProducedViewNodes"/>
-	/// </remarks>
-	/// <seealso cref="ChainingRuleViewNodeContext.ProducedViewNodes"/>
-	public virtual void GetViewNodes(ref ChainingRuleViewNodeContext context) => context.ProducedViewNodes = [];
+	/// <param name="grid">Indicates the grid used.</param>
+	/// <param name="pattern">Indicates the chain pattern.</param>
+	/// <param name="view">Indicates the view.</param>
+	/// <param name="currentAlsIndex">The temporary index that records the current ALS index applied.</param>
+	/// <param name="currentUrIndex">The temporary index that records the current UR index applied.</param>
+	/// <param name="producedViewNodes">Indicates the produced view nodes.</param>
+	public virtual void GetViewNodes(
+		in Grid grid,
+		Chain pattern,
+		View view,
+		ref int currentAlsIndex,
+		ref int currentUrIndex,
+		out ReadOnlySpan<ViewNode> producedViewNodes
+	) => producedViewNodes = [];
 
 	/// <summary>
 	/// Try to find extra eliminations that can only be created inside a Grouped Continuous Nice Loop.
@@ -100,9 +107,6 @@ public abstract partial class ChainingRule
 	/// to collect conclusions.
 	/// </param>
 	/// <returns>A list of found conclusions.</returns>
-	/// <remarks>
-	/// This method should not be overridden if no eliminations exists in the loop pattern.
-	/// </remarks>
 	/// <seealso cref="ConclusionSet.op_BitwiseOr(ConclusionSet, ConclusionSet)"/>
 	[Cached]
 	public virtual void GetLoopConclusions(in Grid grid, ReadOnlySpan<Link> links, ref ConclusionSet conclusions)

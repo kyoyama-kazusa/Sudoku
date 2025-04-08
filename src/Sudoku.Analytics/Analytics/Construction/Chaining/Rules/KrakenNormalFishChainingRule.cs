@@ -153,11 +153,15 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 	}
 
 	/// <inheritdoc/>
-	public override void GetViewNodes(ref ChainingRuleViewNodeContext context)
+	public override void GetViewNodes(
+		in Grid grid,
+		Chain pattern,
+		View view,
+		ref int currentAlsIndex,
+		ref int currentUrIndex,
+		out ReadOnlySpan<ViewNode> producedViewNodes
+	)
 	{
-		ref readonly var grid = ref context.Grid;
-		var pattern = context.Pattern;
-		var view = context.View;
 		var candidatesMap = grid.CandidatesMap;
 		var result = new List<ViewNode>();
 		foreach (var link in pattern.Links)
@@ -183,7 +187,7 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 				}
 			}
 		}
-		context.ProducedViewNodes = result.AsSpan();
+		producedViewNodes = result.AsSpan();
 	}
 
 	/// <inheritdoc/>

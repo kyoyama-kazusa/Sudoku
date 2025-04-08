@@ -86,10 +86,15 @@ public sealed class XyzWingChainingRule : ChainingRule
 	}
 
 	/// <inheritdoc/>
-	public override void GetViewNodes(ref ChainingRuleViewNodeContext context)
+	public override void GetViewNodes(
+		in Grid grid,
+		Chain pattern,
+		View view,
+		ref int currentAlsIndex,
+		ref int currentUrIndex,
+		out ReadOnlySpan<ViewNode> producedViewNodes
+	)
 	{
-		var pattern = context.Pattern;
-		var view = context.View;
 		var result = new List<ViewNode>();
 		foreach (var link in pattern.Links)
 		{
@@ -105,6 +110,6 @@ public sealed class XyzWingChainingRule : ChainingRule
 				result.Add(node);
 			}
 		}
-		context.ProducedViewNodes = result.AsSpan();
+		producedViewNodes = result.AsSpan();
 	}
 }

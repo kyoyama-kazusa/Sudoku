@@ -12,9 +12,16 @@ internal static class ChainViewNodeExtensions
 	/// <param name="this">The chain to be checked.</param>
 	/// <param name="grid">The grid.</param>
 	/// <param name="supportedRules">The supported rules.</param>
-	/// <param name="alsIndex">Indicates the currently operated ALS index.</param>
+	/// <param name="alsIndex">Indicates the currently-operated ALS index.</param>
+	/// <param name="urIndex">Indicaets the currently-operated UR index.</param>
 	/// <returns>The views.</returns>
-	public static View[] GetViews_Monoparental(this Chain @this, in Grid grid, ChainingRuleCollection supportedRules, ref int alsIndex)
+	public static View[] GetViews_Monoparental(
+		this Chain @this,
+		in Grid grid,
+		ChainingRuleCollection supportedRules,
+		ref int alsIndex,
+		ref int urIndex
+	)
 	{
 		var result = (View[])[
 			[
@@ -29,9 +36,8 @@ internal static class ChainViewNodeExtensions
 
 		foreach (var supportedRule in supportedRules)
 		{
-			var context = new ChainingRuleViewNodeContext(grid, @this, result[0]) { CurrentAlmostLockedSetIndex = alsIndex };
-			supportedRule.GetViewNodes(ref context);
-			alsIndex = context.CurrentAlmostLockedSetIndex;
+			supportedRule.GetViewNodes(grid, @this, result[0], ref alsIndex, ref urIndex, out var producedViewNodes);
+			result[0].AddRange(producedViewNodes);
 		}
 		return result;
 

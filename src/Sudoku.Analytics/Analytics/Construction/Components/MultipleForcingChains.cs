@@ -354,7 +354,8 @@ public partial class MultipleForcingChains([Property(Setter = PropertySetters.In
 	/// Try to prepare initial view nodes that will be displayed as a finned chain.
 	/// </summary>
 	/// <param name="grid">The grid.</param>
-	/// <param name="cachedAlsIndex">Indicates currently used ALS index.</param>
+	/// <param name="cachedAlsIndex">Indicates currently-used ALS index.</param>
+	/// <param name="cachedUrIndex">Indicates currently-used UR index.</param>
 	/// <param name="supportedRules">Indicates the supported rules.</param>
 	/// <param name="finnedChain">Indicates the finned chain.</param>
 	/// <param name="fins">Indicates the fins.</param>
@@ -362,6 +363,7 @@ public partial class MultipleForcingChains([Property(Setter = PropertySetters.In
 	protected internal virtual void PrepareFinnedChainViewNodes(
 		NamedChain finnedChain,
 		ref int cachedAlsIndex,
+		ref int cachedUrIndex,
 		ChainingRuleCollection supportedRules,
 		in Grid grid,
 		in CandidateMap fins,
@@ -371,7 +373,7 @@ public partial class MultipleForcingChains([Property(Setter = PropertySetters.In
 		views = [
 			[
 				.. from candidate in fins select new CandidateViewNode(ColorIdentifier.Auxiliary1, candidate),
-				.. finnedChain.GetViews_Monoparental(grid, supportedRules, ref cachedAlsIndex)[0]
+				.. finnedChain.GetViews_Monoparental(grid, supportedRules, ref cachedAlsIndex, ref cachedUrIndex)[0]
 			]
 		];
 

@@ -9,44 +9,54 @@ public abstract class UniqueRectangleChainingRule : ChainingRule
 	public abstract override void GetLinks(in Grid grid, LinkDictionary strongLinks, LinkDictionary weakLinks, StepGathererOptions options);
 
 	/// <inheritdoc/>
-	public override void GetViewNodes(ref ChainingRuleViewNodeContext context)
+	public sealed override void GetViewNodes(
+		in Grid grid,
+		Chain pattern,
+		View view,
+		ref int currentAlsIndex,
+		ref int currentUrIndex,
+		out ReadOnlySpan<ViewNode> producedViewNodes
+	)
 	{
-		ref readonly var grid = ref context.Grid;
-		var pattern = context.Pattern;
-		var view = context.View;
-
+		var urIndex = currentUrIndex;
 		var result = new List<ViewNode>();
 		foreach (var link in pattern.Links)
 		{
-			if (link.GroupedLinkPattern is UniqueRectanglePattern { Cells: var cells, DigitsMask: var digitsMask })
+			if (link.GroupedLinkPattern is not UniqueRectanglePattern { Cells: var cells, DigitsMask: var digitsMask })
 			{
-				// If the cell has already been colorized, we should change the color into UR-categorized one.
-				foreach (var cell in cells)
+				continue;
+			}
+
+			// If the cell has already been colorized, we should change the color into UR-categorized one.
+			var id = (ColorIdentifier)(urIndex + WellKnownColorIdentifierKind.Rectangle1);
+			foreach (var cell in cells)
+			{
+				foreach (var digit in (Mask)(grid.GetCandidates(cell) & digitsMask))
 				{
-					foreach (var digit in (Mask)(grid.GetCandidates(cell) & digitsMask))
+					var candidate = cell * 9 + digit;
+					if (view.FindCandidate(candidate) is { } candidateViewNode)
 					{
-						var candidate = cell * 9 + digit;
-						if (view.FindCandidate(candidate) is { } candidateViewNode)
-						{
-							view.Remove(candidateViewNode);
-						}
-						var node = new CandidateViewNode(ColorIdentifier.Rectangle1, candidate);
-						view.Add(node);
-						result.Add(node);
+						view.Remove(candidateViewNode);
 					}
-				}
-				foreach (var cell in cells)
-				{
-					if (view.FindCell(cell) is { } cellViewNode)
-					{
-						view.Remove(cellViewNode);
-					}
-					var node = new CellViewNode(ColorIdentifier.Rectangle1, cell);
+					var node = new CandidateViewNode(id, candidate);
 					view.Add(node);
 					result.Add(node);
 				}
 			}
+			foreach (var cell in cells)
+			{
+				if (view.FindCell(cell) is { } cellViewNode)
+				{
+					view.Remove(cellViewNode);
+				}
+				var node = new CellViewNode(id, cell);
+				view.Add(node);
+				result.Add(node);
+			}
+			urIndex = (urIndex + 1) % 3;
 		}
-		context.ProducedViewNodes = result.AsSpan();
+
+		currentUrIndex = urIndex;
+		producedViewNodes = result.AsSpan();
 	}
 }

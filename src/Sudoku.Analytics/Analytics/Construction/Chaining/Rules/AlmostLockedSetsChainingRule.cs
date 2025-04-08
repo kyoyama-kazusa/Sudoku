@@ -112,22 +112,25 @@ public sealed class AlmostLockedSetsChainingRule : ChainingRule
 	}
 
 	/// <inheritdoc/>
-	public override void GetViewNodes(ref ChainingRuleViewNodeContext context)
+	public override void GetViewNodes(
+		in Grid grid,
+		Chain pattern,
+		View view,
+		ref int currentAlsIndex,
+		ref int currentUrIndex,
+		out ReadOnlySpan<ViewNode> producedViewNodes
+	)
 	{
-		ref readonly var grid = ref context.Grid;
-		var pattern = context.Pattern;
-		var view = context.View;
-
-		var alsIndex = context.CurrentAlmostLockedSetIndex;
+		var alsIndex = currentAlsIndex;
 		var result = new List<ViewNode>();
 		foreach (var link in pattern.Links)
 		{
-			if (link.GroupedLinkPattern is not AlmostLockedSetPattern { Cells: var cells })
+			if (link is not ({ Map: var map1 }, { Map: var map2 }) { GroupedLinkPattern: AlmostLockedSetPattern { Cells: var cells } })
 			{
 				continue;
 			}
 
-			var linkMap = link.FirstNode.Map | link.SecondNode.Map;
+			var linkMap = map1 | map2;
 			var id = (ColorIdentifier)(alsIndex + WellKnownColorIdentifierKind.AlmostLockedSet1);
 			foreach (var cell in cells)
 			{
@@ -148,8 +151,8 @@ public sealed class AlmostLockedSetsChainingRule : ChainingRule
 			alsIndex = (alsIndex + 1) % 5;
 		}
 
-		context.CurrentAlmostLockedSetIndex = alsIndex;
-		context.ProducedViewNodes = result.AsSpan();
+		currentAlsIndex = alsIndex;
+		producedViewNodes = result.AsSpan();
 	}
 
 	/// <inheritdoc/>

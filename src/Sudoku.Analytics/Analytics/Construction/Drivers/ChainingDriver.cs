@@ -26,12 +26,12 @@ internal static partial class ChainingDriver
 		ref readonly var grid = ref context.Grid;
 		InitializeLinks(grid, linkTypes.Aggregate(@delegate.EnumFlagMerger), context.Options, out var supportedRules);
 
-		var cachedAlsIndex = 0;
+		var (cachedAlsIndex, cachedUrIndex) = (0, 0);
 		foreach (var chain in CollectChains(context.Grid, allowsAdvancedLinks, context.OnlyFindOne, makeConclusionAroundBackdoors))
 		{
 			var step = new NormalChainStep(
 				CollectChainConclusions(chain, grid, supportedRules),
-				chain.GetViews_Monoparental(grid, supportedRules, ref cachedAlsIndex),
+				chain.GetViews_Monoparental(grid, supportedRules, ref cachedAlsIndex, ref cachedUrIndex),
 				context.Options,
 				chain
 			);
@@ -195,10 +195,10 @@ internal static partial class ChainingDriver
 			var otherViews = new View[blossomLoop.Count];
 			otherViews.InitializeArray(static ([NotNull] ref view) => view = View.Empty);
 
-			var (i, cachedAlsIndex) = (0, 0);
+			var (i, cachedAlsIndex, cachedUrIndex) = (0, 0, 0);
 			foreach (var (startCandidate, branch) in blossomLoop)
 			{
-				var viewNodes = branch.GetViews_Monoparental(grid, supportedRules, ref cachedAlsIndex)[0];
+				var viewNodes = branch.GetViews_Monoparental(grid, supportedRules, ref cachedAlsIndex, ref cachedUrIndex)[0];
 				globalView |= viewNodes;
 				otherViews[i] |= viewNodes;
 				globalView.Add(new CandidateViewNode(ColorIdentifier.Normal, startCandidate));
@@ -300,11 +300,11 @@ internal static partial class ChainingDriver
 
 		foreach (var chain in chainsCollector(context.Grid, context.OnlyFindOne))
 		{
-			var cachedAlsIndex = 0;
+			var (cachedAlsIndex, cachedUrIndex) = (0, 0);
 			if (onlyFindFinnedChain && chain.TryCastToFinnedChain(out var finnedChain, out var f))
 			{
 				ref readonly var fins = ref Nullable.GetValueRefOrDefaultRef(in f);
-				chain.PrepareFinnedChainViewNodes(finnedChain, ref cachedAlsIndex, supportedRules, grid, fins, out var views);
+				chain.PrepareFinnedChainViewNodes(finnedChain, ref cachedAlsIndex, ref cachedUrIndex, supportedRules, grid, fins, out var views);
 
 				var finnedChainStep = new FinnedChainStep(
 					chain.Conclusions,

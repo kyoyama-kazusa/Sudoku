@@ -53,16 +53,14 @@ internal interface IForcingChains : IChainOrForcingChains, IFormattable
 			];
 		}
 
-		var (viewIndex, cachedAlsIndex) = (1, 0);
+		var (viewIndex, cachedAlsIndex, cachedUrIndex) = (1, 0, 0);
 		foreach (var branch in Branches)
 		{
-			var context = new ChainingRuleViewNodeContext(grid, branch, result[viewIndex++]) { CurrentAlmostLockedSetIndex = cachedAlsIndex };
 			foreach (var supportedRule in supportedRules)
 			{
-				supportedRule.GetViewNodes(ref context);
-				result[0].AddRange(context.ProducedViewNodes);
+				supportedRule.GetViewNodes(grid, branch, result[viewIndex++], ref cachedAlsIndex, ref cachedUrIndex, out var producedViewNodes);
+				result[0].AddRange(producedViewNodes);
 			}
-			cachedAlsIndex = context.CurrentAlmostLockedSetIndex;
 		}
 		return result;
 	}
