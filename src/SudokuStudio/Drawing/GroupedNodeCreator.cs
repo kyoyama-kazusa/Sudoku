@@ -5,7 +5,7 @@ namespace SudokuStudio.Drawing;
 /// </summary>
 /// <param name="pane">Indicates the sudoku pane control.</param>
 /// <param name="converter">Indicates the position converter.</param>
-#if true
+#if false
 internal sealed class GroupedNodeCreator(SudokuPane pane, SudokuPanePositionConverter converter) :
 	CreatorBase<GroupedNodeInfo, Rectangle>(pane, converter)
 {

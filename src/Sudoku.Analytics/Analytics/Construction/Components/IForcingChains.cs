@@ -58,9 +58,10 @@ internal interface IForcingChains : IChainOrForcingChains, IFormattable
 		{
 			foreach (var supportedRule in supportedRules)
 			{
-				supportedRule.GetViewNodes(grid, branch, result[viewIndex++], ref cachedAlsIndex, ref cachedUrIndex, out var producedViewNodes);
+				supportedRule.GetViewNodes(grid, branch, result[viewIndex], ref cachedAlsIndex, ref cachedUrIndex, out var producedViewNodes);
 				result[0].AddRange(producedViewNodes);
 			}
+			viewIndex++;
 		}
 		return result;
 	}
