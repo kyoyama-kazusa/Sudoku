@@ -47,8 +47,7 @@ public abstract partial class ChainingRule
 	public abstract void GetLinks(in Grid grid, LinkDictionary strongLinks, LinkDictionary weakLinks, StepGathererOptions options);
 
 	/// <summary>
-	/// Collects nodes that is supposed to "on" from the current node supposed to "off",
-	/// and store them into <paramref name="nodes"/>.
+	/// Collects nodes that is supposed to "on" from the current node supposed to "off", storing them into <paramref name="nodes"/>.
 	/// </summary>
 	/// <param name="currentNode">Indicates the current node.</param>
 	/// <param name="grid">Indicates the grid.</param>
@@ -62,18 +61,21 @@ public abstract partial class ChainingRule
 		in Grid originalGrid,
 		HashSet<Node> nodesSupposedOff,
 		StepGathererOptions options,
-		HashSet<Node> nodes
+		ref HashSet<Node> nodes
 	)
 	{
 	}
 
 	/// <summary>
-	/// Collects nodes that is supposed to "off" from the current node supposed to "on",
-	/// and store them into <see cref="ChainingRuleNextOffNodeContext.Nodes"/>.
+	/// Collects nodes that is supposed to "off" from the current node supposed to "on", storing them into <paramref name="nodes"/>.
 	/// </summary>
-	/// <param name="context">The context.</param>
-	/// <seealso cref="ChainingRuleNextOffNodeContext"/>
-	public virtual void CollectOffNodes(ref ChainingRuleNextOffNodeContext context) => context.Nodes = [];
+	/// <param name="currentNode">Indicates the current node.</param>
+	/// <param name="grid">Indicates the grid.</param>
+	/// <param name="options">Indicates the options.</param>
+	/// <param name="nodes">The nodes collected.</param>
+	public virtual void CollectOffNodes(Node currentNode, in Grid grid, StepGathererOptions options, ref HashSet<Node> nodes)
+	{
+	}
 
 	/// <summary>
 	/// Collects for extra view nodes for the pattern.

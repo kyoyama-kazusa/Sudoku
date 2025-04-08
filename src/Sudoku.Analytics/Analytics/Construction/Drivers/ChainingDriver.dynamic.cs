@@ -599,12 +599,12 @@ internal partial class ChainingDriver
 	/// <seealso cref="InterceptorMethodCallerAttribute"/>
 	private static ReadOnlySpan<Node> GetNodesFromOnToOff(Node node, ChainingRuleCollection chainingRules, StepGathererOptions options, in Grid grid)
 	{
-		var context = new ChainingRuleNextOffNodeContext(node, grid, options);
+		var nodes = new HashSet<Node>();
 		foreach (var chainingRule in chainingRules)
 		{
-			chainingRule.CollectOffNodes(ref context);
+			chainingRule.CollectOffNodes(node, grid, options, ref nodes);
 		}
-		return context.Nodes.ToArray();
+		return nodes.ToArray();
 	}
 
 	/// <summary>
@@ -634,7 +634,7 @@ internal partial class ChainingDriver
 		var nodes = new HashSet<Node>();
 		foreach (var chainingRule in chainingRules)
 		{
-			chainingRule.CollectOnNodes(node, grid, originalGrid, nodesSupposedOff, options, nodes);
+			chainingRule.CollectOnNodes(node, grid, originalGrid, nodesSupposedOff, options, ref nodes);
 		}
 		return nodes.ToArray();
 	}

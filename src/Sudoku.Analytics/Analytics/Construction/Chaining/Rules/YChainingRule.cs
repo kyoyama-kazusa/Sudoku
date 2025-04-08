@@ -51,7 +51,7 @@ public sealed class YChainingRule : ChainingRule
 		in Grid originalGrid,
 		HashSet<Node> nodesSupposedOff,
 		StepGathererOptions options,
-		HashSet<Node> nodes
+		ref HashSet<Node> nodes
 	)
 	{
 		if (currentNode is not { Map: [var startCandidate], IsOn: false })
@@ -84,15 +84,13 @@ public sealed class YChainingRule : ChainingRule
 	}
 
 	/// <inheritdoc/>
-	public override void CollectOffNodes(ref ChainingRuleNextOffNodeContext context)
+	public override void CollectOffNodes(Node currentNode, in Grid grid, StepGathererOptions options, ref HashSet<Node> nodes)
 	{
-		var currentNode = context.CurrentNode;
 		if (currentNode is not { Map: [var startCandidate], IsOn: true })
 		{
 			return;
 		}
 
-		ref readonly var grid = ref context.Grid;
 		var cell = startCandidate / 9;
 		var startDigit = startCandidate % 9;
 		var resultNodes = new HashSet<Node>();
@@ -100,6 +98,6 @@ public sealed class YChainingRule : ChainingRule
 		{
 			resultNodes.Add(new((cell * 9 + endDigit).AsCandidateMap(), false, currentNode));
 		}
-		context.Nodes.AddRange(resultNodes);
+		nodes.AddRange(resultNodes);
 	}
 }

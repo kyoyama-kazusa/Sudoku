@@ -70,7 +70,7 @@ public sealed class XChainingRule : ChainingRule
 		in Grid originalGrid,
 		HashSet<Node> nodesSupposedOff,
 		StepGathererOptions options,
-		HashSet<Node> nodes
+		ref HashSet<Node> nodes
 	)
 	{
 		if (currentNode is not { Map: [var startCandidate], IsOn: false })
@@ -105,15 +105,13 @@ public sealed class XChainingRule : ChainingRule
 	}
 
 	/// <inheritdoc/>
-	public override void CollectOffNodes(ref ChainingRuleNextOffNodeContext context)
+	public override void CollectOffNodes(Node currentNode, in Grid grid, StepGathererOptions options, ref HashSet<Node> nodes)
 	{
-		var currentNode = context.CurrentNode;
 		if (currentNode is not { Map: [var startCandidate], IsOn: true })
 		{
 			return;
 		}
 
-		ref readonly var grid = ref context.Grid;
 		var candidatesMap = grid.CandidatesMap;
 		var startCell = startCandidate / 9;
 		var digit = startCandidate % 9;
@@ -125,6 +123,6 @@ public sealed class XChainingRule : ChainingRule
 				resultNodes.Add(new((endCell * 9 + digit).AsCandidateMap(), false, currentNode));
 			}
 		}
-		context.Nodes.AddRange(resultNodes);
+		nodes.AddRange(resultNodes);
 	}
 }
