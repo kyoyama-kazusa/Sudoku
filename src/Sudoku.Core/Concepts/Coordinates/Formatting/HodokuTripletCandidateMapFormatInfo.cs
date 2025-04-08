@@ -33,7 +33,7 @@ public sealed class HodokuTripletCandidateMapFormatInfo : CandidateMapFormatInfo
 	/// <inheritdoc/>
 	protected internal override CandidateMap ParseCore(string str)
 	{
-		var segments = str.SplitBy(' ').ToArray();
+		var segments = str.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 		if (Array.IndexOf(segments, string.Empty) != -1)
 		{
 			throw new FormatException(SR.ExceptionMessage("ContainsEmptySegmentOnParsing"));

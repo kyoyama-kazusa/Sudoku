@@ -159,7 +159,7 @@ public static class TechniqueExtensions
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static string[]? GetAliasedNames(this Technique @this, IFormatProvider? formatProvider)
 		=> SR.TryGet($"TechniqueAlias_{@this}", out var resource, formatProvider as CultureInfo ?? CultureInfo.CurrentUICulture)
-			? resource.SplitBy(';').ToArray()
+			? resource.Split(';', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
 			: null;
 
 	/// <summary>

@@ -230,9 +230,10 @@ public sealed partial class AlmostLockedSetPattern(
 	/// <inheritdoc/>
 	public static AlmostLockedSetPattern Parse(string s, IFormatProvider? provider)
 	{
+		const StringSplitOptions options = StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries;
 		var parser = CoordinateParser.GetInstance(provider);
-		return s.SplitBy('/') is [var digitsStr, var cellsStrAndHouseStr]
-			? cellsStrAndHouseStr.SplitBy(' ') is [var cellsStr, _, _]
+		return s.Split('/', options) is [var digitsStr, var cellsStrAndHouseStr]
+			? cellsStrAndHouseStr.Split(' ', options) is [var cellsStr, _, _]
 				? new(parser.DigitParser(digitsStr), parser.CellParser(cellsStr), [], [])
 				: throw new FormatException(SR.ExceptionMessage("AlsMissingCellsInTargetHouse"))
 			: throw new FormatException(SR.ExceptionMessage("AlsMissingSlash"));

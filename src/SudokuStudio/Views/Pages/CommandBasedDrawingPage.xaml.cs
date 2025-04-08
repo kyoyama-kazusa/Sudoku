@@ -97,7 +97,7 @@ public sealed partial class CommandBasedDrawingPage : Page
 			return null;
 		}
 
-		var lines = text.SplitBy('\r', '\n');
+		var lines = text.Split(['\r', '\n'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
 		// Find for grid showing command.
 		foreach (var line in lines)

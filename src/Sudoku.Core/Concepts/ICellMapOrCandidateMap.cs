@@ -48,7 +48,8 @@ public interface ICellMapOrCandidateMap<TSelf, TElement, out TEnumerator> :
 	/// Gets all chunks of the current collection, meaning a list of <see cref="string"/> values that can describe
 	/// all offset values (cell indices and candidate indices), grouped with same row/column.
 	/// </summary>
-	public virtual ReadOnlySpan<string> StringChunks => (TSelf)this ? ToString().SplitBy(',', ' ').ToArray() : [];
+	public virtual ReadOnlySpan<string> StringChunks
+		=> (TSelf)this ? ToString().Split([',', ' '], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries) : [];
 
 	/// <summary>
 	/// Indicates the peer intersection of the current instance.

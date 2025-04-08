@@ -90,7 +90,7 @@ public readonly ref partial struct DrawingCommandParser
 		parser ??= new RxCyParser();
 
 		var result = View.Empty;
-		foreach (var line in str.SplitBy('\r', '\n'))
+		foreach (var line in str.Split(['\r', '\n'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
 		{
 			if (!line.StartsWith("cell") && !line.StartsWith("candidate") && !line.StartsWith("icon")
 				&& !line.StartsWith("house") && !line.StartsWith("chute") && !line.StartsWith("link")
@@ -103,7 +103,8 @@ public readonly ref partial struct DrawingCommandParser
 				//throw new FormatException("Invalid keyword.");
 			}
 
-			if (line.SplitBy(' ') is not [var keyword, ['#' or '!' or '&', ..] colorIdentifierString, .. var args])
+			if (line.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+				is not [var keyword, ['#' or '!' or '&', ..] colorIdentifierString, .. var args])
 			{
 				throw new FormatException($"Invalid line string: '{line}'.");
 			}

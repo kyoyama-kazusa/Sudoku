@@ -40,7 +40,7 @@ public sealed class CsvGridFormatInfo : GridFormatInfo<Grid>
 			return Grid.Undefined;
 		}
 
-		if (str.SplitBy('\r', '\n') is not { Length: 9 } values)
+		if (str.Split(['\r', '\n'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries) is not { Length: 9 } values)
 		{
 			return Grid.Undefined;
 		}
