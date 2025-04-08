@@ -6,7 +6,7 @@ namespace Sudoku.Analytics.Construction.Chaining.Rules;
 public abstract class UniqueRectangleChainingRule : ChainingRule
 {
 	/// <inheritdoc/>
-	public abstract override void GetLinks(ref ChainingRuleLinkContext context);
+	public abstract override void GetLinks(in Grid grid, LinkDictionary strongLinks, LinkDictionary weakLinks, StepGathererOptions options);
 
 	/// <inheritdoc/>
 	public override void GetViewNodes(ref ChainingRuleViewNodeContext context)

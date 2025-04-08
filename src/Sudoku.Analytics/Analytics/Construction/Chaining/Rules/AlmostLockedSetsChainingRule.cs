@@ -8,22 +8,20 @@ public sealed class AlmostLockedSetsChainingRule : ChainingRule
 {
 	/// <inheritdoc/>
 	[InterceptorMethodCaller]
-	public override void GetLinks(ref ChainingRuleLinkContext context)
+	public override void GetLinks(in Grid grid, LinkDictionary strongLinks, LinkDictionary weakLinks, StepGathererOptions options)
 	{
-		if (context.GetLinkOption(LinkType.AlmostLockedSets) == LinkOption.None)
+		if (options.GetLinkOption(LinkType.AlmostLockedSets) == LinkOption.None)
 		{
 			return;
 		}
-
-		ref readonly var grid = ref context.Grid;
 
 		// VARIABLE_DECLARATION_BEGIN
 		_ = grid is { CandidatesMap: var __CandidatesMap };
 		// VARIABLE_DECLARATION_END
 
-		var linkOption = context.GetLinkOption(LinkType.AlmostLockedSets);
+		var linkOption = options.GetLinkOption(LinkType.AlmostLockedSets);
 		var maskTempList = (stackalloc Mask[81]);
-		foreach (var als in AlmostLockedSetPattern.Collect(grid)) // Here might raise an conflict to call nested-level interceptor.
+		foreach (var als in AlmostLockedSetPattern.Collect(grid)) // Here might raise a conflict to call nested-level interceptor.
 		{
 			if (als is not (var digitsMask, var cells) { IsBivalueCell: false, StrongLinks: var links, House: var house })
 			{
@@ -79,7 +77,7 @@ public sealed class AlmostLockedSetsChainingRule : ChainingRule
 				var node2Cells = HousesMap[house] & cells & __CandidatesMap[digit2];
 				var node1 = new Node(node1Cells * digit1, false);
 				var node2 = new Node(node2Cells * digit2, true);
-				context.StrongLinks.AddEntry(node1, node2, true, als);
+				strongLinks.AddEntry(node1, node2, true, als);
 			}
 
 			// Weak.
@@ -106,7 +104,7 @@ public sealed class AlmostLockedSetsChainingRule : ChainingRule
 						}
 
 						var node4 = new Node(cells4 * digit, false);
-						context.WeakLinks.AddEntry(node3, node4);
+						weakLinks.AddEntry(node3, node4);
 					}
 				}
 			}

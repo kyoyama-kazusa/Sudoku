@@ -7,14 +7,13 @@ namespace Sudoku.Analytics.Construction.Chaining.Rules;
 public sealed class UniqueRectangleSingleSideExternalChainingRule : UniqueRectangleChainingRule
 {
 	/// <inheritdoc/>
-	public override void GetLinks(ref ChainingRuleLinkContext context)
+	public override void GetLinks(in Grid grid, LinkDictionary strongLinks, LinkDictionary weakLinks, StepGathererOptions options)
 	{
-		if (context.GetLinkOption(LinkType.UniqueRectangle_SingleSideExternal) == LinkOption.None)
+		if (options.GetLinkOption(LinkType.UniqueRectangle_SingleSideExternal) == LinkOption.None)
 		{
 			return;
 		}
 
-		ref readonly var grid = ref context.Grid;
 		if (grid.GetUniqueness() != Uniqueness.Unique)
 		{
 			return;
@@ -24,7 +23,7 @@ public sealed class UniqueRectangleSingleSideExternalChainingRule : UniqueRectan
 		_ = grid is { EmptyCells: var __EmptyCells, CandidatesMap: var __CandidatesMap };
 		// VARIABLE_DECLARATION_END
 
-		var linkOption = context.GetLinkOption(LinkType.UniqueRectangle_SingleSideExternal);
+		var linkOption = options.GetLinkOption(LinkType.UniqueRectangle_SingleSideExternal);
 		foreach (var pattern in UniqueRectanglePattern.AllPatterns)
 		{
 			var urCells = pattern.AsCellMap();
@@ -74,7 +73,7 @@ public sealed class UniqueRectangleSingleSideExternalChainingRule : UniqueRectan
 					{
 						var node1 = new Node(cells1 * d1, false);
 						var node2 = new Node(cells2 * d2, true);
-						context.StrongLinks.AddEntry(node1, node2, true, ur);
+						strongLinks.AddEntry(node1, node2, true, ur);
 					}
 				}
 			}

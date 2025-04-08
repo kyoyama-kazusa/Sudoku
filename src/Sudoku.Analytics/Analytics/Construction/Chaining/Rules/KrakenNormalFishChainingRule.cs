@@ -7,15 +7,15 @@ namespace Sudoku.Analytics.Construction.Chaining.Rules;
 public sealed class KrakenNormalFishChainingRule : ChainingRule
 {
 	/// <inheritdoc/>
-	public override void GetLinks(ref ChainingRuleLinkContext context)
+	public override void GetLinks(in Grid grid, LinkDictionary strongLinks, LinkDictionary weakLinks, StepGathererOptions options)
 	{
-		if (context.GetLinkOption(LinkType.KrakenNormalFish) == LinkOption.None)
+		if (options.GetLinkOption(LinkType.KrakenNormalFish) == LinkOption.None)
 		{
 			return;
 		}
 
 		// VARIABLE_DECLARATION_BEGIN
-		_ = context.Grid is { ValuesMap: var __ValuesMap, CandidatesMap: var __CandidatesMap };
+		_ = grid is { ValuesMap: var __ValuesMap, CandidatesMap: var __CandidatesMap };
 		// VARIABLE_DECLARATION_END
 
 		// Collect for available rows and columns.
@@ -42,22 +42,15 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 		{
 			for (var digit = 0; digit < 9; digit++)
 			{
-				collect(context, true, size, digit, sets, __CandidatesMap);
-				collect(context, false, size, digit, sets, __CandidatesMap);
+				collect(true, size, digit, sets, __CandidatesMap);
+				collect(false, size, digit, sets, __CandidatesMap);
 			}
 		}
 
 
-		static void collect(
-			in ChainingRuleLinkContext context,
-			bool isRow,
-			Digit size,
-			Digit digit,
-			Span<HouseMask> sets,
-			ReadOnlySpan<CellMap> candidatesMap
-		)
+		void collect(bool isRow, Digit size, Digit digit, Span<HouseMask> sets, ReadOnlySpan<CellMap> candidatesMap)
 		{
-			var linkOption = context.GetLinkOption(LinkType.KrakenNormalFish);
+			var linkOption = options.GetLinkOption(LinkType.KrakenNormalFish);
 			var baseSetsToIterate = (sets[digit] & ~(isRow ? HouseMaskOperations.AllColumnsMask : HouseMaskOperations.AllRowsMask)).GetAllSets();
 			var coverSetsToIterate = (sets[digit] & ~(isRow ? HouseMaskOperations.AllRowsMask : HouseMaskOperations.AllColumnsMask)).GetAllSets();
 			if (baseSetsToIterate.Length < size || coverSetsToIterate.Length < size)
@@ -128,7 +121,7 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 
 					var node1 = new Node(cells1 * digit, false);
 					var node2 = new Node(fins * digit, true);
-					context.StrongLinks.AddEntry(node1, node2, true, fish);
+					strongLinks.AddEntry(node1, node2, true, fish);
 
 					// Weak.
 					// Please note that weak links may not contain pattern objects,
@@ -152,7 +145,7 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 						}
 
 						var node4 = new Node(cells4 * digit, false);
-						context.WeakLinks.AddEntry(node3, node4);
+						weakLinks.AddEntry(node3, node4);
 					}
 				}
 			}

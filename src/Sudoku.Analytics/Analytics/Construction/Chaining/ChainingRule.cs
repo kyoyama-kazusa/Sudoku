@@ -36,14 +36,15 @@ public abstract partial class ChainingRule
 
 
 	/// <summary>
-	/// Collects for both strong links and weak links appeared <see cref="ChainingRuleLinkContext.Grid"/>
-	/// and insert all found links into <see cref="ChainingRuleLinkContext.StrongLinks"/>
-	/// and <see cref="ChainingRuleLinkContext.WeakLinks"/> respectively.
+	/// Collects for both strong links and weak links appeared in <paramref name="grid"/>,
+	/// and insert all found links into <paramref name="strongLinks"/> and <paramref name="weakLinks"/> respectively.
 	/// </summary>
-	/// <param name="context">The context.</param>
-	/// <seealso cref="ChainingRuleLinkContext"/>
+	/// <param name="grid">Indicates the grid used.</param>
+	/// <param name="strongLinks">Indicates the strong links.</param>
+	/// <param name="weakLinks">Indicates the weak links.</param>
+	/// <param name="options">Indicates the options.</param>
 	[Cached]
-	public abstract void GetLinks(ref ChainingRuleLinkContext context);
+	public abstract void GetLinks(in Grid grid, LinkDictionary strongLinks, LinkDictionary weakLinks, StepGathererOptions options);
 
 	/// <summary>
 	/// Collects nodes that is supposed to "on" from the current node supposed to "off",

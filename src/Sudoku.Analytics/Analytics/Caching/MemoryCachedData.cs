@@ -187,10 +187,9 @@ internal static class MemoryCachedData
 		if (!StrongLinkTypesCollected.HasFlag(linkTypes) || !WeakLinkTypesCollected.HasFlag(linkTypes))
 		{
 			var (strongDic, weakDic) = (new LinkDictionary(), new LinkDictionary());
-			var context = new ChainingRuleLinkContext(grid, strongDic, weakDic, options);
 			foreach (var rule in rules)
 			{
-				rule.GetLinks(ref context);
+				rule.GetLinks(grid, strongDic, weakDic, options);
 			}
 
 			if (strongDic.Count != 0)

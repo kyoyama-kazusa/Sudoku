@@ -7,22 +7,19 @@ namespace Sudoku.Analytics.Construction.Chaining.Rules;
 public sealed class XyzWingChainingRule : ChainingRule
 {
 	/// <inheritdoc/>
-	public override void GetLinks(ref ChainingRuleLinkContext context)
+	public override void GetLinks(in Grid grid, LinkDictionary strongLinks, LinkDictionary weakLinks, StepGathererOptions options)
 	{
-		if (context.GetLinkOption(LinkType.XyzWing) == LinkOption.None)
+		if (options.GetLinkOption(LinkType.XyzWing) == LinkOption.None)
 		{
 			return;
 		}
-
-		ref readonly var grid = ref context.Grid;
 
 		// VARIABLE_DECLARATION_BEGIN
 		_ = grid is { CandidatesMap: var __CandidatesMap, EmptyCells: var __EmptyCells };
 		// VARIABLE_DECLARATION_END
 
-		var linkOption = context.GetLinkOption(LinkType.XyzWing);
-
 		// Iterate on each XYZ-Wing pattern, to get strong links.
+		var linkOption = options.GetLinkOption(LinkType.XyzWing);
 		foreach (var pattern in new XyzWingPatternSearcher().Search(grid))
 		{
 			var (pivot, leafCell1, leafCell2, _, _, _, zDigit) = pattern;
@@ -45,7 +42,7 @@ public sealed class XyzWingChainingRule : ChainingRule
 				// Strong.
 				var node1 = new Node(cells1 * zDigit, false);
 				var node2 = new Node(cells2 * zDigit, true);
-				context.StrongLinks.AddEntry(node1, node2, true, pattern);
+				strongLinks.AddEntry(node1, node2, true, pattern);
 
 			CollectWeak:
 				// Weak.
@@ -70,7 +67,7 @@ public sealed class XyzWingChainingRule : ChainingRule
 
 					var node3 = new Node(cells1 * zDigit, true);
 					var node4 = new Node(cells * zDigit, false);
-					context.WeakLinks.AddEntry(node3, node4);
+					weakLinks.AddEntry(node3, node4);
 				}
 				foreach (ref readonly var cells in possibleCells2 | limit2)
 				{
@@ -82,7 +79,7 @@ public sealed class XyzWingChainingRule : ChainingRule
 
 					var node3 = new Node(cells2 * zDigit, true);
 					var node4 = new Node(cells * zDigit, false);
-					context.WeakLinks.AddEntry(node3, node4);
+					weakLinks.AddEntry(node3, node4);
 				}
 			}
 		}

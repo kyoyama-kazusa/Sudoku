@@ -7,15 +7,15 @@ namespace Sudoku.Analytics.Construction.Chaining.Rules;
 public sealed class LockedCandidatesChainingRule : ChainingRule
 {
 	/// <inheritdoc/>
-	public override void GetLinks(ref ChainingRuleLinkContext context)
+	public override void GetLinks(in Grid grid, LinkDictionary strongLinks, LinkDictionary weakLinks, StepGathererOptions options)
 	{
-		if (context.GetLinkOption(LinkType.LockedCandidates) == LinkOption.None)
+		if (options.GetLinkOption(LinkType.LockedCandidates) == LinkOption.None)
 		{
 			return;
 		}
 
 		// VARIABLE_DECLARATION_BEGIN
-		_ = context.Grid is { CandidatesMap: var __CandidatesMap };
+		_ = grid is { CandidatesMap: var __CandidatesMap };
 		// VARIABLE_DECLARATION_END
 
 		// Strong.
@@ -36,7 +36,7 @@ public sealed class LockedCandidatesChainingRule : ChainingRule
 				var cells2 = cells & HousesMap[h2];
 				var node1 = new Node(cells1 * digit, false);
 				var node2 = new Node(cells2 * digit, true);
-				context.StrongLinks.AddEntry(node1, node2);
+				strongLinks.AddEntry(node1, node2);
 			}
 		}
 
@@ -66,7 +66,7 @@ public sealed class LockedCandidatesChainingRule : ChainingRule
 
 						var node1 = new Node(cells1 * digit, true);
 						var node2 = new Node(cells2 * digit, false);
-						context.WeakLinks.AddEntry(node1, node2);
+						weakLinks.AddEntry(node1, node2);
 					}
 				}
 			}

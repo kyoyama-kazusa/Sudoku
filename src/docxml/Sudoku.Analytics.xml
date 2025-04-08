@@ -2257,6 +2257,16 @@
             </list>
             </remarks>
         </member>
+        <member name="M:Sudoku.Analytics.Configuration.StepGathererOptions.GetLinkOption(Sudoku.Analytics.Construction.Components.LinkType)">
+            <summary>
+            Try to get the link option for the specified link type.
+            </summary>
+            <param name="linkType">The link type.</param>
+            <returns>
+            The link option returned. If there's no overridden link option, return <see cref="P:Sudoku.Analytics.Configuration.StepGathererOptions.DefaultLinkOption"/>.
+            </returns>
+            <seealso cref="P:Sudoku.Analytics.Configuration.StepGathererOptions.DefaultLinkOption"/>
+        </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.ChainingRule">
             <summary>
             Represents a rule that make inferences (strong or weak) between two <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> instances.
@@ -2273,14 +2283,15 @@
             Indicates the advanced link types.
             </summary>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRule.GetLinks(Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <summary>
-            Collects for both strong links and weak links appeared <see cref="F:Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext.Grid"/>
-            and insert all found links into <see cref="F:Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext.StrongLinks"/>
-            and <see cref="F:Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext.WeakLinks"/> respectively.
+            Collects for both strong links and weak links appeared in <paramref name="grid"/>,
+            and insert all found links into <paramref name="strongLinks"/> and <paramref name="weakLinks"/> respectively.
             </summary>
-            <param name="context">The context.</param>
-            <seealso cref="T:Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext"/>
+            <param name="grid">Indicates the grid used.</param>
+            <param name="strongLinks">Indicates the strong links.</param>
+            <param name="weakLinks">Indicates the weak links.</param>
+            <param name="options">Indicates the options.</param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRule.CollectOnNodes(Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext@)">
             <summary>
@@ -2391,64 +2402,6 @@
             <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleCollection.ToString">
-            <inheritdoc cref="M:System.Object.ToString"/>
-        </member>
-        <member name="T:Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext">
-            <summary>
-            Represents the properties used while chaining.
-            </summary>
-            <param name="grid">The grid to be checked.</param>
-            <param name="strongLinks">The dictionary that stores a list of strong links.</param>
-            <param name="weakLinks">The dictionary that stores a list of weak links.</param>
-            <param name="options">Indicates the step searcher options to be used.</param>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext.#ctor(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
-            <summary>
-            Represents the properties used while chaining.
-            </summary>
-            <param name="grid">The grid to be checked.</param>
-            <param name="strongLinks">The dictionary that stores a list of strong links.</param>
-            <param name="weakLinks">The dictionary that stores a list of weak links.</param>
-            <param name="options">Indicates the step searcher options to be used.</param>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext.GetLinkOption(Sudoku.Analytics.Construction.Components.LinkType)">
-            <summary>
-            Try to get the link option for the specified link type.
-            </summary>
-            <param name="linkType">The link type.</param>
-            <returns>
-            The link option returned.
-            If there's no overridden link option, return <see cref="P:Sudoku.Analytics.Configuration.StepGathererOptions.DefaultLinkOption"/>.
-            </returns>
-            <seealso cref="P:Sudoku.Analytics.Configuration.StepGathererOptions.DefaultLinkOption"/>
-        </member>
-        <member name="F:Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext.Grid">
-            <summary>
-            The generated field declaration for parameter <c>grid</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext.StrongLinks">
-            <summary>
-            The generated field declaration for parameter <c>strongLinks</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext.WeakLinks">
-            <summary>
-            The generated field declaration for parameter <c>weakLinks</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext.Options">
-            <summary>
-            The generated field declaration for parameter <c>options</c>.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext.Equals(System.Object)">
-            <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext.GetHashCode">
-            <inheritdoc cref="M:System.Object.GetHashCode"/>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext">
@@ -2645,7 +2598,7 @@
             </summary>
             <seealso cref="F:Sudoku.Analytics.Construction.Components.LinkType.AlmostLockedSets"/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.AlmostLockedSetsChainingRule.GetLinks(Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.AlmostLockedSetsChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.AlmostLockedSetsChainingRule.GetViewNodes(Sudoku.Analytics.Construction.Chaining.ChainingRuleViewNodeContext@)">
@@ -2660,7 +2613,7 @@
             </summary>
             <seealso cref="F:Sudoku.Analytics.Construction.Components.LinkType.AvoidableRectangle"/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.AvoidableRectangleChainingRule.GetLinks(Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.AvoidableRectangleChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.AvoidableRectangleChainingRule.GetViewNodes(Sudoku.Analytics.Construction.Chaining.ChainingRuleViewNodeContext@)">
@@ -2672,7 +2625,7 @@
             </summary>
             <seealso cref="F:Sudoku.Analytics.Construction.Components.LinkType.KrakenNormalFish"/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.KrakenNormalFishChainingRule.GetLinks(Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.KrakenNormalFishChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.KrakenNormalFishChainingRule.GetViewNodes(Sudoku.Analytics.Construction.Chaining.ChainingRuleViewNodeContext@)">
@@ -2687,7 +2640,7 @@
             </summary>
             <seealso cref="F:Sudoku.Analytics.Construction.Components.LinkType.LockedCandidates"/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.LockedCandidatesChainingRule.GetLinks(Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.LockedCandidatesChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.LockedCandidatesChainingRule.GetLoopConclusions(Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext@)">
@@ -2698,7 +2651,7 @@
             Represents a chaining rule on AUR rule.
             </summary>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleChainingRule.GetLinks(Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleChainingRule.GetViewNodes(Sudoku.Analytics.Construction.Chaining.ChainingRuleViewNodeContext@)">
@@ -2710,7 +2663,7 @@
             </summary>
             <seealso cref="F:Sudoku.Analytics.Construction.Components.LinkType.UniqueRectangle_DifferentDigit"/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDifferentDigitChainingRule.GetLinks(Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDifferentDigitChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDoubleSideExternalChainingRule">
@@ -2719,7 +2672,7 @@
             </summary>
             <seealso cref="F:Sudoku.Analytics.Construction.Components.LinkType.UniqueRectangle_DoubleSideExternal"/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDoubleSideExternalChainingRule.GetLinks(Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDoubleSideExternalChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSameDigitChainingRule">
@@ -2728,7 +2681,7 @@
             </summary>
             <seealso cref="F:Sudoku.Analytics.Construction.Components.LinkType.UniqueRectangle_SameDigit"/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSameDigitChainingRule.GetLinks(Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSameDigitChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSingleSideExternalChainingRule">
@@ -2737,7 +2690,7 @@
             </summary>
             <seealso cref="F:Sudoku.Analytics.Construction.Components.LinkType.UniqueRectangle_SingleSideExternal"/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSingleSideExternalChainingRule.GetLinks(Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSingleSideExternalChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSingleSideExternalChainingRule.GetLoopConclusions(Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext@)">
@@ -2749,7 +2702,7 @@
             </summary>
             <seealso cref="F:Sudoku.Analytics.Construction.Components.LinkType.SingleDigit"/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.XChainingRule.GetLinks(Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.XChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.XChainingRule.CollectOnNodes(Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext@)">
@@ -2764,7 +2717,7 @@
             </summary>
             <seealso cref="F:Sudoku.Analytics.Construction.Components.LinkType.XyzWing"/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.XyzWingChainingRule.GetLinks(Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.XyzWingChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.XyzWingChainingRule.GetViewNodes(Sudoku.Analytics.Construction.Chaining.ChainingRuleViewNodeContext@)">
@@ -2776,7 +2729,7 @@
             </summary>
             <seealso cref="F:Sudoku.Analytics.Construction.Components.LinkType.SingleCell"/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.YChainingRule.GetLinks(Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.YChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.YChainingRule.CollectOnNodes(Sudoku.Analytics.Construction.Chaining.ChainingRuleNextOnNodeContext@)">
@@ -34874,7 +34827,7 @@
             Interceptor method that will replace implementation on such referenced method invocation.
             </summary>
         </member>
-        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__ChainingRule_GetLinks_Intercepted.GetLinks_SwitchEntry(Sudoku.Analytics.Construction.Chaining.ChainingRule,Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__ChainingRule_GetLinks_Intercepted.GetLinks_SwitchEntry(Sudoku.Analytics.Construction.Chaining.ChainingRule,Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <summary>
             The backing entry that can route functions by checking the target type of instance parameter <paramref cref="!:this"/>.
             </summary>
@@ -34884,7 +34837,7 @@
             Interceptor method that will replace implementation on such referenced method invocation.
             </summary>
         </member>
-        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__XChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.XChainingRule,Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__XChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.XChainingRule,Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
             <!-- Nothing inserts here -->
         </member>
@@ -34893,7 +34846,7 @@
             Interceptor method that will replace implementation on such referenced method invocation.
             </summary>
         </member>
-        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__YChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.YChainingRule,Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__YChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.YChainingRule,Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
             <!-- Nothing inserts here -->
         </member>
@@ -34902,7 +34855,7 @@
             Interceptor method that will replace implementation on such referenced method invocation.
             </summary>
         </member>
-        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__LockedCandidatesChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.LockedCandidatesChainingRule,Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__LockedCandidatesChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.LockedCandidatesChainingRule,Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
             <!-- Nothing inserts here -->
         </member>
@@ -34911,7 +34864,7 @@
             Interceptor method that will replace implementation on such referenced method invocation.
             </summary>
         </member>
-        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__AlmostLockedSetsChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.AlmostLockedSetsChainingRule,Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__AlmostLockedSetsChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.AlmostLockedSetsChainingRule,Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
             <!-- Nothing inserts here -->
         </member>
@@ -34920,7 +34873,7 @@
             Interceptor method that will replace implementation on such referenced method invocation.
             </summary>
         </member>
-        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__UniqueRectangleSameDigitChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSameDigitChainingRule,Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__UniqueRectangleSameDigitChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSameDigitChainingRule,Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
             <!-- Nothing inserts here -->
         </member>
@@ -34929,7 +34882,7 @@
             Interceptor method that will replace implementation on such referenced method invocation.
             </summary>
         </member>
-        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__UniqueRectangleDifferentDigitChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDifferentDigitChainingRule,Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__UniqueRectangleDifferentDigitChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDifferentDigitChainingRule,Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
             <!-- Nothing inserts here -->
         </member>
@@ -34938,7 +34891,7 @@
             Interceptor method that will replace implementation on such referenced method invocation.
             </summary>
         </member>
-        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__UniqueRectangleSingleSideExternalChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSingleSideExternalChainingRule,Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__UniqueRectangleSingleSideExternalChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSingleSideExternalChainingRule,Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
             <!-- Nothing inserts here -->
         </member>
@@ -34947,7 +34900,7 @@
             Interceptor method that will replace implementation on such referenced method invocation.
             </summary>
         </member>
-        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__UniqueRectangleDoubleSideExternalChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDoubleSideExternalChainingRule,Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__UniqueRectangleDoubleSideExternalChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDoubleSideExternalChainingRule,Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
             <!-- Nothing inserts here -->
         </member>
@@ -34956,7 +34909,7 @@
             Interceptor method that will replace implementation on such referenced method invocation.
             </summary>
         </member>
-        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__AvoidableRectangleChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.AvoidableRectangleChainingRule,Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__AvoidableRectangleChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.AvoidableRectangleChainingRule,Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
             <!-- Nothing inserts here -->
         </member>
@@ -34965,7 +34918,7 @@
             Interceptor method that will replace implementation on such referenced method invocation.
             </summary>
         </member>
-        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__KrakenNormalFishChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.KrakenNormalFishChainingRule,Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__KrakenNormalFishChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.KrakenNormalFishChainingRule,Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
             <!-- Nothing inserts here -->
         </member>
@@ -34974,7 +34927,7 @@
             Interceptor method that will replace implementation on such referenced method invocation.
             </summary>
         </member>
-        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__XyzWingChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.XyzWingChainingRule,Sudoku.Analytics.Construction.Chaining.ChainingRuleLinkContext@)">
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__XyzWingChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.XyzWingChainingRule,Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
             <!-- Nothing inserts here -->
         </member>

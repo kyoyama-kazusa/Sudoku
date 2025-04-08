@@ -7,15 +7,15 @@ namespace Sudoku.Analytics.Construction.Chaining.Rules;
 public sealed class XChainingRule : ChainingRule
 {
 	/// <inheritdoc/>
-	public override void GetLinks(ref ChainingRuleLinkContext context)
+	public override void GetLinks(in Grid grid, LinkDictionary strongLinks, LinkDictionary weakLinks, StepGathererOptions options)
 	{
-		if (context.GetLinkOption(LinkType.SingleDigit) == LinkOption.None)
+		if (options.GetLinkOption(LinkType.SingleDigit) == LinkOption.None)
 		{
 			return;
 		}
 
 		// VARIABLE_DECLARATION_BEGIN
-		_ = context.Grid is { CandidatesMap: var __CandidatesMap };
+		_ = grid is { CandidatesMap: var __CandidatesMap };
 		// VARIABLE_DECLARATION_END
 
 		// Strong.
@@ -38,7 +38,7 @@ public sealed class XChainingRule : ChainingRule
 				var pos2 = mask.GetNextSet(pos1);
 				var node1 = new Node((HousesCells[house][pos1] * 9 + digit).AsCandidateMap(), false);
 				var node2 = new Node((HousesCells[house][pos2] * 9 + digit).AsCandidateMap(), true);
-				context.StrongLinks.AddEntry(node1, node2);
+				strongLinks.AddEntry(node1, node2);
 			}
 		}
 
@@ -57,7 +57,7 @@ public sealed class XChainingRule : ChainingRule
 				{
 					var node1 = new Node((HousesCells[house][combinationPair[0]] * 9 + digit).AsCandidateMap(), true);
 					var node2 = new Node((HousesCells[house][combinationPair[1]] * 9 + digit).AsCandidateMap(), false);
-					context.WeakLinks.AddEntry(node1, node2);
+					weakLinks.AddEntry(node1, node2);
 				}
 			}
 		}

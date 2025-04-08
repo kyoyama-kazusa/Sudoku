@@ -118,4 +118,17 @@ public sealed record StepGathererOptions
 	/// </list>
 	/// </remarks>
 	public static StepGathererOptions Default => new();
+
+
+	/// <summary>
+	/// Try to get the link option for the specified link type.
+	/// </summary>
+	/// <param name="linkType">The link type.</param>
+	/// <returns>
+	/// The link option returned. If there's no overridden link option, return <see cref="DefaultLinkOption"/>.
+	/// </returns>
+	/// <seealso cref="DefaultLinkOption"/>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public LinkOption GetLinkOption(LinkType linkType)
+		=> OverriddenLinkOptions is { } p && p.TryGetValue(linkType, out var lo) ? lo : DefaultLinkOption;
 }
