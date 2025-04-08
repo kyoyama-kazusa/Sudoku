@@ -313,12 +313,26 @@ public interface IGrid<TSelf> :
 	/// </param>
 	/// <param name="aggregator">
 	/// Indicates the aggregator method.
-	/// <list type="bullet">
-	/// <item><c>'<![CDATA[&]]>'</c>: Use <b>bitwise and</b> operator to merge masks.</item>
-	/// <item><c>'<![CDATA[|]]>'</c>: Use <b>bitwise or</b> operator to merge masks.</item>
-	/// <item><c>'<![CDATA[~]]>'</c>: Use <b>bitwise nand</b> operator to merge masks.</item>
+	/// <list type="table">
+	/// <listheader>
+	/// <term>Value</term>
+	/// <description>Meaning</description>
+	/// </listheader>
+	/// <item>
+	/// <term><see cref="MaskAggregator.And"/></term>
+	/// <description>Use <b>bitwise and</b> operator to merge masks</description>
+	/// </item>
+	/// <item>
+	/// <term><see cref="MaskAggregator.Or"/></term>
+	/// <description>Use <b>bitwise or</b> operator to merge masks</description>
+	/// </item>
+	/// <item>
+	/// <term><see cref="MaskAggregator.AndNot"/></term>
+	/// <description>Use <b>bitwise nand</b> operator to merge masks</description>
+	/// </item>
 	/// </list>
-	/// By default, the value is <c>'<![CDATA[|]]>'</c>. You can reference <see cref="MaskAggregator"/> constants to set values.
+	/// By default, the value is <see cref="MaskAggregator.Or"/>.
+	/// You can reference <see cref="MaskAggregator"/> constants to set values.
 	/// </param>
 	/// <returns><inheritdoc cref="this[in CellMap]" path="/returns"/></returns>
 	/// <exception cref="ArgumentOutOfRangeException">Throws when <paramref name="aggregator"/> is not defined.</exception>
