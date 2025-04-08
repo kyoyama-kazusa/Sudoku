@@ -240,11 +240,10 @@ file sealed class ConvexHullHelper
 			return points;
 		}
 
-		var targetPoints = from p in points orderby p.X, p.Y select p;
 		var result = new List<Point>();
 
 		// Lower hull.
-		foreach (ref readonly var pt in targetPoints)
+		foreach (ref readonly var pt in from p in points orderby p.X, p.Y select p)
 		{
 			while (result.Count >= 2 && Cross(result[^2], result[^1], pt) <= 0)
 			{
@@ -255,9 +254,8 @@ file sealed class ConvexHullHelper
 
 		// Upper hull.
 		var t = result.Count + 1;
-		for (var i = targetPoints.Length - 2; i >= 0; i--)
+		foreach (ref readonly var pt in from p in points orderby p.X descending, p.Y descending select p)
 		{
-			ref readonly var pt = ref targetPoints[i];
 			while (result.Count >= t && Cross(result[^2], result[^1], pt) <= 0)
 			{
 				result.RemoveAt(^1);
