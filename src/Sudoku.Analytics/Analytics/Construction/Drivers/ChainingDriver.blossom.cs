@@ -364,11 +364,9 @@ internal partial class ChainingDriver
 		}
 
 		// Collect on patterns (like ALSes).
-		var context = new ChainingRuleLoopConclusionContext(grid, patternLinks.AsSpan());
 		foreach (var rule in supportedRules)
 		{
-			rule.GetLoopConclusions(ref context);
-			result |= context.Conclusions;
+			rule.GetLoopConclusions(grid, patternLinks.AsSpan(), ref result);
 		}
 
 		// Collect on end-point nodes.

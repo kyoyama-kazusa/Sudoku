@@ -93,11 +93,19 @@ public abstract partial class ChainingRule
 	/// Try to find extra eliminations that can only be created inside a Grouped Continuous Nice Loop.
 	/// This method will be useful in advanced chaining rules such as ALS, AHS and AUR eliminations checking.
 	/// </summary>
-	/// <param name="context">The context.</param>
+	/// <param name="grid">Indicates the grid.</param>
+	/// <param name="links">Indicates the links.</param>
+	/// <param name="conclusions">
+	/// Indicates the conclusions. Use operator <see cref="ConclusionSet.op_BitwiseOr(ConclusionSet, ConclusionSet)"/>
+	/// to collect conclusions.
+	/// </param>
 	/// <returns>A list of found conclusions.</returns>
 	/// <remarks>
 	/// This method should not be overridden if no eliminations exists in the loop pattern.
 	/// </remarks>
+	/// <seealso cref="ConclusionSet.op_BitwiseOr(ConclusionSet, ConclusionSet)"/>
 	[Cached]
-	public virtual void GetLoopConclusions(ref ChainingRuleLoopConclusionContext context) => context.Conclusions = ConclusionSet.Empty;
+	public virtual void GetLoopConclusions(in Grid grid, ReadOnlySpan<Link> links, ref ConclusionSet conclusions)
+	{
+	}
 }

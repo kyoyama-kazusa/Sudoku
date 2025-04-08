@@ -2325,16 +2325,22 @@
             </remarks>
             <seealso cref="P:Sudoku.Analytics.Construction.Chaining.ChainingRuleViewNodeContext.ProducedViewNodes"/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRule.GetLoopConclusions(Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRule.GetLoopConclusions(Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
             <summary>
             Try to find extra eliminations that can only be created inside a Grouped Continuous Nice Loop.
             This method will be useful in advanced chaining rules such as ALS, AHS and AUR eliminations checking.
             </summary>
-            <param name="context">The context.</param>
+            <param name="grid">Indicates the grid.</param>
+            <param name="links">Indicates the links.</param>
+            <param name="conclusions">
+            Indicates the conclusions. Use operator <see cref="M:Sudoku.Concepts.ConclusionSet.op_BitwiseOr(Sudoku.Concepts.ConclusionSet,Sudoku.Concepts.ConclusionSet)"/>
+            to collect conclusions.
+            </param>
             <returns>A list of found conclusions.</returns>
             <remarks>
             This method should not be overridden if no eliminations exists in the loop pattern.
             </remarks>
+            <seealso cref="M:Sudoku.Concepts.ConclusionSet.op_BitwiseOr(Sudoku.Concepts.ConclusionSet,Sudoku.Concepts.ConclusionSet)"/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRule.Equals(System.Object)">
             <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
@@ -2408,44 +2414,6 @@
         <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleCollection.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
-        <member name="T:Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext">
-            <summary>
-            Represents the properties used while chaining.
-            </summary>
-            <param name="grid">The grid to be checked.</param>
-            <param name="links">The links inside the loop or loop-like pattern.</param>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext.#ctor(Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link})">
-            <summary>
-            Represents the properties used while chaining.
-            </summary>
-            <param name="grid">The grid to be checked.</param>
-            <param name="links">The links inside the loop or loop-like pattern.</param>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext.Conclusions">
-            <summary>
-            Indicates the found conclusions.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext.Grid">
-            <summary>
-            The generated field declaration for parameter <c>grid</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext.Links">
-            <summary>
-            The generated field declaration for parameter <c>links</c>.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext.Equals(System.Object)">
-            <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext.GetHashCode">
-            <inheritdoc cref="M:System.Object.GetHashCode"/>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext.ToString">
-            <inheritdoc cref="M:System.Object.ToString"/>
-        </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.ChainingRuleViewNodeContext">
             <summary>
             Represents the properties used while chaining.
@@ -2508,7 +2476,7 @@
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.AlmostLockedSetsChainingRule.GetViewNodes(Sudoku.Analytics.Construction.Chaining.ChainingRuleViewNodeContext@)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.AlmostLockedSetsChainingRule.GetLoopConclusions(Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.AlmostLockedSetsChainingRule.GetLoopConclusions(Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.Rules.AvoidableRectangleChainingRule">
@@ -2535,7 +2503,7 @@
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.KrakenNormalFishChainingRule.GetViewNodes(Sudoku.Analytics.Construction.Chaining.ChainingRuleViewNodeContext@)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.KrakenNormalFishChainingRule.GetLoopConclusions(Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.KrakenNormalFishChainingRule.GetLoopConclusions(Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.Rules.LockedCandidatesChainingRule">
@@ -2547,7 +2515,7 @@
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.LockedCandidatesChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.LockedCandidatesChainingRule.GetLoopConclusions(Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.LockedCandidatesChainingRule.GetLoopConclusions(Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleChainingRule">
@@ -2597,7 +2565,7 @@
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSingleSideExternalChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSingleSideExternalChainingRule.GetLoopConclusions(Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSingleSideExternalChainingRule.GetLoopConclusions(Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.Rules.XChainingRule">
@@ -34852,7 +34820,7 @@
             Interceptor method that will replace implementation on such referenced method invocation.
             </summary>
         </member>
-        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__ChainingRule_GetLoopConclusions_Intercepted.GetLoopConclusions_SwitchEntry(Sudoku.Analytics.Construction.Chaining.ChainingRule,Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext@)">
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__ChainingRule_GetLoopConclusions_Intercepted.GetLoopConclusions_SwitchEntry(Sudoku.Analytics.Construction.Chaining.ChainingRule,Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
             <summary>
             The backing entry that can route functions by checking the target type of instance parameter <paramref cref="!:this"/>.
             </summary>
@@ -34862,7 +34830,7 @@
             Interceptor method that will replace implementation on such referenced method invocation.
             </summary>
         </member>
-        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__AlmostLockedSetsChainingRule_GetLoopConclusions_Intercepted.GetLoopConclusions(Sudoku.Analytics.Construction.Chaining.Rules.AlmostLockedSetsChainingRule,Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext@)">
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__AlmostLockedSetsChainingRule_GetLoopConclusions_Intercepted.GetLoopConclusions(Sudoku.Analytics.Construction.Chaining.Rules.AlmostLockedSetsChainingRule,Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
             <inheritdoc/>
             <!-- Nothing inserts here -->
         </member>
@@ -34871,7 +34839,7 @@
             Interceptor method that will replace implementation on such referenced method invocation.
             </summary>
         </member>
-        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__KrakenNormalFishChainingRule_GetLoopConclusions_Intercepted.GetLoopConclusions(Sudoku.Analytics.Construction.Chaining.Rules.KrakenNormalFishChainingRule,Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext@)">
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__KrakenNormalFishChainingRule_GetLoopConclusions_Intercepted.GetLoopConclusions(Sudoku.Analytics.Construction.Chaining.Rules.KrakenNormalFishChainingRule,Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
             <inheritdoc/>
             <!-- Nothing inserts here -->
         </member>
@@ -34880,7 +34848,7 @@
             Interceptor method that will replace implementation on such referenced method invocation.
             </summary>
         </member>
-        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__LockedCandidatesChainingRule_GetLoopConclusions_Intercepted.GetLoopConclusions(Sudoku.Analytics.Construction.Chaining.Rules.LockedCandidatesChainingRule,Sudoku.Analytics.Construction.Chaining.ChainingRuleLoopConclusionContext@)">
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__LockedCandidatesChainingRule_GetLoopConclusions_Intercepted.GetLoopConclusions(Sudoku.Analytics.Construction.Chaining.Rules.LockedCandidatesChainingRule,Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
             <inheritdoc/>
             <!-- Nothing inserts here -->
         </member>

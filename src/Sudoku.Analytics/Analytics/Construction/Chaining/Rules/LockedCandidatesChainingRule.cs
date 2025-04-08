@@ -74,16 +74,14 @@ public sealed class LockedCandidatesChainingRule : ChainingRule
 	}
 
 	/// <inheritdoc/>
-	public override void GetLoopConclusions(ref ChainingRuleLoopConclusionContext context)
+	public override void GetLoopConclusions(in Grid grid, ReadOnlySpan<Link> links, ref ConclusionSet conclusions)
 	{
-		ref readonly var grid = ref context.Grid;
-
 		// VARIABLE_DECLARATION_BEGIN
 		_ = grid is { CandidatesMap: var __CandidatesMap };
 		// VARIABLE_DECLARATION_END
 
 		var result = ConclusionSet.Empty;
-		foreach (var element in context.Links)
+		foreach (var element in links)
 		{
 			if (element is ({ Map: { Digits: var digitsMask1, Cells: var cells1 } }, { Map: { Digits: var digitsMask2, Cells: var cells2 } })
 				{
@@ -96,6 +94,6 @@ public sealed class LockedCandidatesChainingRule : ChainingRule
 				result.AddRange(from cell in intersection select new Conclusion(Elimination, cell, digit));
 			}
 		}
-		context.Conclusions = result;
+		conclusions |= result;
 	}
 }

@@ -358,11 +358,9 @@ internal static partial class ChainingDriver
 		var conclusions = pattern.GetConclusions(grid);
 		if (pattern is ContinuousNiceLoop { Links: var links })
 		{
-			var context = new ChainingRuleLoopConclusionContext(grid, links);
 			foreach (var rule in supportedRules)
 			{
-				rule.GetLoopConclusions(ref context);
-				conclusions |= context.Conclusions;
+				rule.GetLoopConclusions(grid, links, ref conclusions);
 			}
 		}
 		return [.. conclusions];

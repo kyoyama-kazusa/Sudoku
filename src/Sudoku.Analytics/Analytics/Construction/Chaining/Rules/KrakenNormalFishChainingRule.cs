@@ -187,16 +187,13 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 	}
 
 	/// <inheritdoc/>
-	public override void GetLoopConclusions(ref ChainingRuleLoopConclusionContext context)
+	public override void GetLoopConclusions(in Grid grid, ReadOnlySpan<Link> links, ref ConclusionSet conclusions)
 	{
-		ref readonly var grid = ref context.Grid;
-
 		// VARIABLE_DECLARATION_BEGIN
 		_ = grid is { CandidatesMap: var __CandidatesMap };
 		// VARIABLE_DECLARATION_END
 
 		var result = ConclusionSet.Empty;
-		var links = context.Links;
 		foreach (var link in links)
 		{
 			if (link is not ({ Map.Cells: var firstCells }, { Map.Cells: var secondCells })
@@ -228,6 +225,6 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 			}
 			result.AddRange(from cell in elimMap select new Conclusion(Elimination, cell, digit));
 		}
-		context.Conclusions = result;
+		conclusions |= result;
 	}
 }

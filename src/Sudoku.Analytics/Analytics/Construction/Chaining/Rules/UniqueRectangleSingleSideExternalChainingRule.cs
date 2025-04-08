@@ -81,7 +81,7 @@ public sealed class UniqueRectangleSingleSideExternalChainingRule : UniqueRectan
 	}
 
 	/// <inheritdoc/>
-	public override void GetLoopConclusions(ref ChainingRuleLoopConclusionContext context)
+	public override void GetLoopConclusions(in Grid grid, ReadOnlySpan<Link> links, ref ConclusionSet conclusions)
 	{
 		// VARIABLE_DECLARATION_BEGIN
 		_ = 42;
@@ -111,6 +111,6 @@ public sealed class UniqueRectangleSingleSideExternalChainingRule : UniqueRectan
 		// This will be implemented in the future.
 		//
 		// Binds with issue #680: https://github.com/KyouyamaKazusa0805/Sudoku/issues/680
-		base.GetLoopConclusions(ref context);
+		base.GetLoopConclusions(grid, links, ref conclusions);
 	}
 }
