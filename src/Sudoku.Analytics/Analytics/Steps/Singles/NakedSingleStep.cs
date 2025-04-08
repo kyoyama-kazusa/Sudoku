@@ -67,6 +67,12 @@ public sealed partial class NakedSingleStep(
 			return lastingHouseTypeComparisonResult;
 		}
 
+		var culture = GetCulture(formatProvider);
+		if (!SR.IsChinese(culture))
+		{
+			return base.NameCompareTo(other, formatProvider);
+		}
+
 		var leftName = GetName(formatProvider);
 		var rightName = other.GetName(formatProvider);
 		var leftDigit = TechniqueNaming.GetChineseDigit(TechniqueNaming.ChineseDigitsPattern.Match(leftName).Value[0]);
