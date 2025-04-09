@@ -11,6 +11,7 @@ namespace Sudoku.Analytics.StepSearchers.Chains;
 /// The step searcher will include the following techniques:
 /// <list type="bullet">
 /// <item>Whip</item>
+/// <item>Grouped Whip</item>
 /// </list>
 /// </summary>
 [StepSearcher(
