@@ -5982,6 +5982,16 @@
             Represents a subset searching driver.
             </summary>
         </member>
+        <member name="F:Sudoku.Analytics.Construction.Drivers.SubsetDriver.MethodSet1">
+            <summary>
+            Represents a method set.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Analytics.Construction.Drivers.SubsetDriver.MethodSet2">
+            <summary>
+            Represents a method set.
+            </summary>
+        </member>
         <member name="M:Sudoku.Analytics.Construction.Drivers.SubsetDriver.CollectCore(System.Boolean,Sudoku.Analytics.StepAnalysisContext@)">
             <summary>
             The internal method to create subset steps.
@@ -10834,6 +10844,16 @@
             </list>
             </summary>
         </member>
+        <member name="F:Sudoku.Analytics.StepSearchers.Singles.DirectSubsetStepSearcher.MethodSet1">
+            <summary>
+            Represents a method set.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Analytics.StepSearchers.Singles.DirectSubsetStepSearcher.MethodSet2">
+            <summary>
+            Represents a method set.
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.StepSearchers.Singles.DirectSubsetStepSearcher.AllowDirectHiddenSubset">
             <summary>
             Indicates whether the step searcher allows searching for direct hidden subset.
@@ -10977,6 +10997,26 @@
             </list>
             </item>
             </list>
+            </summary>
+        </member>
+        <member name="F:Sudoku.Analytics.StepSearchers.Singles.SingleStepSearcher.MethodSet1">
+            <summary>
+            Represents a method set.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Analytics.StepSearchers.Singles.SingleStepSearcher.MethodSet2">
+            <summary>
+            Represents a method set.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Analytics.StepSearchers.Singles.SingleStepSearcher.MethodSet3">
+            <summary>
+            Represents a method set.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Analytics.StepSearchers.Singles.SingleStepSearcher.MethodSet4">
+            <summary>
+            Represents a method set.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.StepSearchers.Singles.SingleStepSearcher.EnableFullHouse">

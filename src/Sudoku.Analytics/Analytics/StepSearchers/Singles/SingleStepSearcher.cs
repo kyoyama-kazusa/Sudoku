@@ -1,7 +1,5 @@
 namespace Sudoku.Analytics.StepSearchers.Singles;
 
-using unsafe SingleModuleSearcherFuncPtr = delegate*<SingleStepSearcher, ref StepAnalysisContext, in Grid, Step?>;
-
 /// <summary>
 /// Provides with a <b>Single</b> step searcher.
 /// The step searcher will include the following techniques:
@@ -38,6 +36,16 @@ using unsafe SingleModuleSearcherFuncPtr = delegate*<SingleStepSearcher, ref Ste
 	RuntimeFlags = StepSearcherRuntimeFlags.SkipVerification)]
 public sealed partial class SingleStepSearcher : StepSearcher
 {
+	/// <summary>
+	/// Represents a method set.
+	/// </summary>
+	private static readonly unsafe delegate*<SingleStepSearcher, ref StepAnalysisContext, in Grid, Step?>[]
+		MethodSet1 = [&CheckFullHouse, &CheckNakedSingle, &CheckHiddenSingle],
+		MethodSet2 = [&CheckFullHouse, &CheckHiddenSingle, &CheckNakedSingle],
+		MethodSet3 = [&CheckNakedSingle, &CheckHiddenSingle],
+		MethodSet4 = [&CheckHiddenSingle, &CheckNakedSingle];
+
+
 	/// <summary>
 	/// Indicates whether the current searcher enables the technique full house.
 	/// </summary>
@@ -293,20 +301,16 @@ public sealed partial class SingleStepSearcher : StepSearcher
 		// Please note that, by default we should start with hidden singles. However, if a user has set the option
 		// that a step searcher should distinct with direct mode and in-direct mode (i.e. all candidates are displayed),
 		// we should start with a naked single because they are "direct" in such mode.
-		var p = stackalloc SingleModuleSearcherFuncPtr[] { &CheckFullHouse, &CheckNakedSingle, &CheckHiddenSingle };
-		var q = stackalloc SingleModuleSearcherFuncPtr[] { &CheckFullHouse, &CheckHiddenSingle, &CheckNakedSingle };
-		var r = stackalloc SingleModuleSearcherFuncPtr[] { &CheckNakedSingle, &CheckHiddenSingle };
-		var s = stackalloc SingleModuleSearcherFuncPtr[] { &CheckHiddenSingle, &CheckNakedSingle };
-		var searchers = (EnableFullHouse, !context.Options.IsDirectMode) switch
+		var methodSet = (EnableFullHouse, !context.Options.IsDirectMode) switch
 		{
-			(true, true) => p,
-			(true, _) => q,
-			(_, true) => r,
-			_ => s
+			(true, true) => MethodSet1,
+			(true, _) => MethodSet2,
+			(_, true) => MethodSet3,
+			_ => MethodSet4
 		};
-		for (var i = 0; i < (searchers == p || searchers == q ? 3 : 2); i++)
+		for (var i = 0; i < (ReferenceEquals(methodSet, MethodSet1) || ReferenceEquals(methodSet, MethodSet2) ? 3 : 2); i++)
 		{
-			if (searchers[i](this, ref context, grid) is { } step)
+			if (methodSet[i](this, ref context, grid) is { } step)
 			{
 				return step;
 			}

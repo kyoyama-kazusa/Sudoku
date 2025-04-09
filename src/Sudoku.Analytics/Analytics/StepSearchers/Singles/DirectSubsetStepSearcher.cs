@@ -1,7 +1,5 @@
 namespace Sudoku.Analytics.StepSearchers.Singles;
 
-using unsafe DirectSubsetHandlerFuncPtr = delegate*<DirectSubsetStepSearcher, HashSet<DirectSubsetStep>, ref StepAnalysisContext, in Grid, int, bool, in CellMap, ReadOnlySpan<CellMap>, DirectSubsetStep?>;
-
 /// <summary>
 /// Provides with a <b>Direct Subset</b> step searcher.
 /// The step searcher will include the following techniques:
@@ -57,6 +55,14 @@ using unsafe DirectSubsetHandlerFuncPtr = delegate*<DirectSubsetStepSearcher, Ha
 public sealed partial class DirectSubsetStepSearcher : StepSearcher
 {
 	/// <summary>
+	/// Represents a method set.
+	/// </summary>
+	private static readonly unsafe delegate*<DirectSubsetStepSearcher, HashSet<DirectSubsetStep>, ref StepAnalysisContext, in Grid, int, bool, in CellMap, ReadOnlySpan<CellMap>, DirectSubsetStep?>[]
+		MethodSet1 = [&HiddenSubset, &NakedSubset],
+		MethodSet2 = [&NakedSubset, &HiddenSubset];
+
+
+	/// <summary>
 	/// Indicates whether the step searcher allows searching for direct hidden subset.
 	/// </summary>
 	[SettingItemName(SettingItemNames.AllowDirectLockedSubset)]
@@ -97,10 +103,6 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 	/// <inheritdoc/>
 	protected internal override unsafe Step? Collect(ref StepAnalysisContext context)
 	{
-		var first = stackalloc DirectSubsetHandlerFuncPtr[] { &HiddenSubset, &NakedSubset };
-		var second = stackalloc DirectSubsetHandlerFuncPtr[] { &NakedSubset, &HiddenSubset };
-		var searchers = context.Options switch { { IsDirectMode: true } => first, _ => second };
-
 		ref readonly var grid = ref context.Grid;
 		var emptyCells = grid.EmptyCells;
 		var candidatesMap = grid.CandidatesMap;
@@ -115,15 +117,16 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 		emptyCells &= ~nakedSingleCells;
 
 		var accumulator = new HashSet<DirectSubsetStep>();
+		var methodSet = context.Options.IsDirectMode ? MethodSet1 : MethodSet2;
 		foreach (var searchingForLocked in (true, false))
 		{
 			for (var size = 2; size <= (searchingForLocked ? 3 : 4); size++)
 			{
-				if (searchers[0](this, accumulator, ref context, grid, size, searchingForLocked, emptyCells, candidatesMap) is { } step1)
+				if (methodSet[0](this, accumulator, ref context, grid, size, searchingForLocked, emptyCells, candidatesMap) is { } step1)
 				{
 					return step1;
 				}
-				if (searchers[1](this, accumulator, ref context, grid, size, searchingForLocked, emptyCells, candidatesMap) is { } step2)
+				if (methodSet[1](this, accumulator, ref context, grid, size, searchingForLocked, emptyCells, candidatesMap) is { } step2)
 				{
 					return step2;
 				}

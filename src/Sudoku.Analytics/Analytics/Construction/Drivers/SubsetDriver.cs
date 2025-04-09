@@ -6,6 +6,14 @@ namespace Sudoku.Analytics.Construction.Drivers;
 internal static class SubsetDriver
 {
 	/// <summary>
+	/// Represents a method set.
+	/// </summary>
+	private static readonly unsafe delegate*<ref StepAnalysisContext, in Grid, in CellMap, ReadOnlySpan<CellMap>, int, bool, Step?>[]
+		MethodSet1 = [&HiddenSubset, &NakedSubset],
+		MethodSet2 = [&NakedSubset, &HiddenSubset];
+
+
+	/// <summary>
 	/// The internal method to create subset steps.
 	/// </summary>
 	/// <param name="searchingForLocked">Indicates whether the module only searches for locked subsets.</param>
@@ -13,10 +21,6 @@ internal static class SubsetDriver
 	/// <returns>The collected steps.</returns>
 	public static unsafe Step? CollectCore(bool searchingForLocked, ref StepAnalysisContext context)
 	{
-		var p = stackalloc delegate*<ref StepAnalysisContext, in Grid, in CellMap, ReadOnlySpan<CellMap>, int, bool, Step?>[] { &HiddenSubset, &NakedSubset };
-		var q = stackalloc delegate*<ref StepAnalysisContext, in Grid, in CellMap, ReadOnlySpan<CellMap>, int, bool, Step?>[] { &NakedSubset, &HiddenSubset };
-		var searchers = context.Options is { IsDirectMode: true } ? p : q;
-
 		ref readonly var grid = ref context.Grid;
 		var emptyCellsForGrid = grid.EmptyCells;
 		var candidatesMapForGrid = grid.CandidatesMap;
@@ -30,11 +34,12 @@ internal static class SubsetDriver
 		}
 		emptyCellsForGrid &= ~nakedSingleCells;
 
+		var methodSet = context.Options.IsDirectMode ? MethodSet1 : MethodSet2;
 		for (var size = 2; size <= (searchingForLocked ? 3 : 4); size++)
 		{
 			for (var i = 0; i < 2; i++)
 			{
-				if (searchers[i](ref context, grid, emptyCellsForGrid, candidatesMapForGrid, size, searchingForLocked) is { } step)
+				if (methodSet[i](ref context, grid, emptyCellsForGrid, candidatesMapForGrid, size, searchingForLocked) is { } step)
 				{
 					return step;
 				}
