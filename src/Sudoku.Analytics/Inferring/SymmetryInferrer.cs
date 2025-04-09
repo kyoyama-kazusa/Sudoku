@@ -8,7 +8,11 @@ public sealed unsafe class SymmetryInferrer : IInferrable<SymmetryInferredResult
 	/// <summary>
 	/// The internal methods.
 	/// </summary>
-	private static readonly delegate*<in Grid, out SymmetricType, out ReadOnlySpan<Digit?>, out Mask, bool>[] Checkers = [&Diagonal, &AntiDiagonal, &Central];
+	private static readonly delegate*<in Grid, out SymmetricType, out ReadOnlySpan<Digit?>, out Mask, bool>[] Checkers = [
+		&Diagonal,
+		&AntiDiagonal,
+		&Central
+	];
 
 
 	/// <inheritdoc/>
@@ -60,6 +64,46 @@ public sealed unsafe class SymmetryInferrer : IInferrable<SymmetryInferredResult
 
 		var index = symmetricType switch { SymmetricType.Diagonal => 0, SymmetricType.AntiDiagonal => 1, _ => 2 };
 		return Checkers[index](grid, out _, out mappingDigits, out selfPairedDigitsMask);
+	}
+
+	/// <summary>
+	/// Check for the symmetry behavior on axes or center point.
+	/// </summary>
+	/// <param name="grid">The grid to be checked.</param>
+	/// <param name="symmetricType">The symmetric type.</param>
+	/// <param name="nonselfPairedDigitsMask">The mask that holds a list of digits that is non-self-paired.</param>
+	/// <returns>A <see cref="bool"/> result indicating that.</returns>
+	internal static bool CheckAxesOrCenterPointForSymmetry(in Grid grid, SymmetricType symmetricType, Mask nonselfPairedDigitsMask)
+	{
+		foreach (var cell in symmetricType.GetCellsInSymmetryAxis())
+		{
+			switch (grid.GetState(cell))
+			{
+				case CellState.Given or CellState.Modifiable when (nonselfPairedDigitsMask >> grid.GetDigit(cell) & 1) != 0:
+				{
+					return false;
+				}
+				case CellState.Empty when grid.GetCandidates(cell) is var digitsMask:
+				{
+					var allDigitsAreNonselfPaired = true;
+					foreach (var digit in digitsMask)
+					{
+						if ((nonselfPairedDigitsMask >> digit & 1) == 0)
+						{
+							allDigitsAreNonselfPaired = false;
+							break;
+						}
+					}
+					if (allDigitsAreNonselfPaired)
+					{
+						return false;
+					}
+					break;
+				}
+			}
+		}
+
+		return true;
 	}
 
 	/// <summary>
@@ -118,46 +162,6 @@ public sealed unsafe class SymmetryInferrer : IInferrable<SymmetryInferredResult
 		{
 			cellOffsets.Add(new(colorIndices[grid.GetDigit(cell)], cell));
 		}
-	}
-
-	/// <summary>
-	/// Check for the symmetry behavior on axes or center point.
-	/// </summary>
-	/// <param name="grid">The grid to be checked.</param>
-	/// <param name="symmetricType">The symmetric type.</param>
-	/// <param name="nonselfPairedDigitsMask">The mask that holds a list of digits that is non-self-paired.</param>
-	/// <returns>A <see cref="bool"/> result indicating that.</returns>
-	private static bool CheckAxesOrCenterPointForSymmetry(in Grid grid, SymmetricType symmetricType, Mask nonselfPairedDigitsMask)
-	{
-		foreach (var cell in symmetricType.GetCellsInSymmetryAxis())
-		{
-			switch (grid.GetState(cell))
-			{
-				case CellState.Given or CellState.Modifiable when (nonselfPairedDigitsMask >> grid.GetDigit(cell) & 1) != 0:
-				{
-					return false;
-				}
-				case CellState.Empty when grid.GetCandidates(cell) is var digitsMask:
-				{
-					var allDigitsAreNonselfPaired = true;
-					foreach (var digit in digitsMask)
-					{
-						if ((nonselfPairedDigitsMask >> digit & 1) == 0)
-						{
-							allDigitsAreNonselfPaired = false;
-							break;
-						}
-					}
-					if (allDigitsAreNonselfPaired)
-					{
-						return false;
-					}
-					break;
-				}
-			}
-		}
-
-		return true;
 	}
 
 	/// <summary>
