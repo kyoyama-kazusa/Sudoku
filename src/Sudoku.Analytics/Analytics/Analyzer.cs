@@ -8,9 +8,7 @@ namespace Sudoku.Analytics;
 /// </summary>
 /// <seealso cref="AnalysisResult"/>
 /// <seealso cref="Analyzer"/>
-public sealed class Analyzer :
-	IAnalyzer<Analyzer, AnalysisResult>,
-	meta_analysis::IAnalyzer<Analyzer, AnalysisResult, Grid, Step>
+public sealed class Analyzer : StepGatherer, meta_analysis::IAnalyzer<Analyzer, AnalysisResult, Grid, Step>
 {
 	/// <summary>
 	/// Indicates the default steps capacity.
@@ -24,11 +22,15 @@ public sealed class Analyzer :
 	private readonly Random _random = new();
 
 
-	/// <inheritdoc/>
-	public bool RandomizedChoosing { get; set; }
-
-	/// <inheritdoc/>
+	/// <summary>
+	/// Indicates whether the solver will apply all found steps in a step searcher, in order to solve a puzzle faster.
+	/// </summary>
 	public bool IsFullApplying { get; set; }
+
+	/// <summary>
+	/// Indicates whether the solver will choose a step to be applied after having searched all possible steps, in random.
+	/// </summary>
+	public bool RandomizedChoosing { get; set; }
 
 	/// <summary>
 	/// Indicates whether the solver will ignore slow step searchers being configured <see cref="StepSearcherRuntimeFlags.TimeComplexity"/>.
@@ -49,30 +51,13 @@ public sealed class Analyzer :
 	public bool IgnoreHighAllocationAlgorithms { get; set; }
 
 	/// <inheritdoc/>
-	public ReadOnlyMemory<StepSearcher> StepSearchers
-	{
-		get;
-
-		set => ResultStepSearchers = IStepGatherer<Analyzer, AnalysisResult>.FilterStepSearchers(
-			field = value,
-			StepSearcherRunningArea.Searching
-		);
-	}
-
-	/// <inheritdoc/>
-	public ReadOnlyMemory<StepSearcher> ResultStepSearchers { get; internal set; } =
+	public override ReadOnlyMemory<StepSearcher> ResultStepSearchers { get; internal set; } =
 		from searcher in StepSearcherFactory.StepSearchers
 		where searcher.RunningArea.HasFlag(StepSearcherRunningArea.Searching)
 		select searcher;
 
 	/// <inheritdoc/>
-	public StepGathererOptions Options { get; set; } = StepGathererOptions.Default;
-
-	/// <inheritdoc/>
-	public ICollection<Action<StepSearcher>> Setters { get; } = [];
-
-	/// <inheritdoc/>
-	Random IAnalyzer<Analyzer, AnalysisResult>.RandomNumberGenerator => _random;
+	protected override StepSearcherRunningArea RunningArea => StepSearcherRunningArea.Searching;
 
 
 	/// <summary>
@@ -198,7 +183,13 @@ public sealed class Analyzer :
 	public event AnalyzerExceptionThrownEventHandler? ExceptionThrown;
 
 
-	/// <inheritdoc/>
+	/// <summary>
+	/// Analyze the specified puzzle, and return an instance of <see cref="AnalysisResult"/> indicating the analyzed result.
+	/// </summary>
+	/// <param name="grid">Indicates the grid to be checked.</param>
+	/// <param name="progress">Indicates the progress reporter object.</param>
+	/// <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
+	/// <returns>The result value.</returns>
 	public AnalysisResult Analyze(
 		in Grid grid,
 		IProgress<StepGathererProgressPresenter>? progress = null,
@@ -211,7 +202,7 @@ public sealed class Analyzer :
 			throw new InvalidOperationException(SR.ExceptionMessage("GridAlreadySolved"));
 		}
 
-		IStepGatherer<Analyzer, AnalysisResult>.ApplySetters(this);
+		ApplySetters(this);
 
 		var result = new AnalysisResult(puzzle) { IsSolved = false };
 		var solution = puzzle.GetSolutionGrid();

@@ -11467,15 +11467,11 @@
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerUseIttoryuMode">
             <inheritdoc cref="P:Sudoku.Analytics.Configuration.StepGathererOptions.UseIttoryuMode"/>
         </member>
-        <member name="M:SudokuStudio.Views.Attached.AnalyzerProperties.WithRuntimeIdentifierSetter``2(``0,System.Object,System.String,System.Boolean@)">
+        <member name="M:SudokuStudio.Views.Attached.AnalyzerProperties.WithRuntimeIdentifierSetter``1(``0,System.Object,System.String,System.Boolean@)">
             <summary>
             Sets the specified property in a <see cref="T:Sudoku.Analytics.StepSearcher"/> with the target value via attached properties
             stored in type <see cref="T:SudokuStudio.Views.Attached.AnalyzerProperties"/>.
             </summary>
-            <typeparam name="TAnalyzerOrCollector">
-            The type of the instance. The type must implement <see cref="T:Sudoku.Analytics.IStepGatherer`2"/>.
-            </typeparam>
-            <typeparam name="TResult">The type of the result.</typeparam>
             <param name="this">The analyzer instance.</param>
             <param name="attachedPropertyValue">The attached property.</param>
             <param name="methodName">The name of the property <paramref name="attachedPropertyValue"/>.</param>
@@ -11486,19 +11482,15 @@
             <returns>The same reference as <paramref name="this"/>.</returns>
             <seealso cref="T:SudokuStudio.Views.Attached.AnalyzerProperties"/>
         </member>
-        <member name="M:SudokuStudio.Views.Attached.AnalyzerProperties.WithRuntimeIdentifierSetters``2(``0,SudokuStudio.Views.Controls.SudokuPane)">
+        <member name="M:SudokuStudio.Views.Attached.AnalyzerProperties.WithRuntimeIdentifierSetters``1(``0,SudokuStudio.Views.Controls.SudokuPane)">
             <summary>
-            Calls the method <see cref="M:SudokuStudio.Views.Attached.AnalyzerProperties.WithRuntimeIdentifierSetter``2(``0,System.Object,System.String,System.Boolean@)"/> for all properties in type <see cref="T:SudokuStudio.Views.Attached.AnalyzerProperties"/>.
+            Calls the method <see cref="M:SudokuStudio.Views.Attached.AnalyzerProperties.WithRuntimeIdentifierSetter``1(``0,System.Object,System.String,System.Boolean@)"/> for all properties in type <see cref="T:SudokuStudio.Views.Attached.AnalyzerProperties"/>.
             </summary>
-            <typeparam name="TAnalyzerOrCollector">
-            The type of the instance. The type must implement <see cref="T:Sudoku.Analytics.IStepGatherer`2"/>.
-            </typeparam>
-            <typeparam name="TResult">The type of the result.</typeparam>
             <param name="this">The analyzer instance.</param>
             <param name="attachedPane">Indicates the <see cref="T:SudokuStudio.Views.Controls.SudokuPane"/> instance that all properties in this type attached to.</param>
             <returns>The same reference with argument <paramref name="this"/>.</returns>
             <exception cref="T:System.InvalidOperationException">Throws when the matched property is invalid.</exception>
-            <seealso cref="M:SudokuStudio.Views.Attached.AnalyzerProperties.WithRuntimeIdentifierSetter``2(``0,System.Object,System.String,System.Boolean@)"/>
+            <seealso cref="M:SudokuStudio.Views.Attached.AnalyzerProperties.WithRuntimeIdentifierSetter``1(``0,System.Object,System.String,System.Boolean@)"/>
         </member>
         <member name="F:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIsFullApplyingProperty">
             <summary>

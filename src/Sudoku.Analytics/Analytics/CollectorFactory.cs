@@ -32,7 +32,7 @@ public static class CollectorFactory
 	}
 
 	/// <summary>
-	/// Sets the property <see cref="Collector.StepSearchers"/> with the target value.
+	/// Sets the property <see cref="StepGatherer.StepSearchers"/> with the target value.
 	/// </summary>
 	/// <param name="instance">The instance to be set or updated.</param>
 	/// <param name="stepSearchers">The value to be set or updated.</param>
@@ -44,7 +44,7 @@ public static class CollectorFactory
 	}
 
 	/// <summary>
-	/// Sets the property <see cref="Collector.Options"/> with the target value.
+	/// Sets the property <see cref="StepGatherer.Options"/> with the target value.
 	/// </summary>
 	/// <param name="instance">The instance to be set or updated.</param>
 	/// <param name="options">The value to be set or updated.</param>
@@ -56,7 +56,7 @@ public static class CollectorFactory
 	}
 
 	/// <summary>
-	/// Appends an element into the property <see cref="Collector.Setters"/>.
+	/// Appends an element into the property <see cref="StepGatherer.Setters"/>.
 	/// </summary>
 	/// <typeparam name="TStepSearcher">The type of step searcher.</typeparam>
 	/// <param name="instance">The instance to be updated.</param>
@@ -79,7 +79,7 @@ public static class CollectorFactory
 	}
 
 	/// <summary>
-	/// Appends an element into the property <see cref="Collector.Setters"/>.
+	/// Appends an element into the property <see cref="StepGatherer.Setters"/>.
 	/// </summary>
 	/// <param name="instance">The instance to be updated.</param>
 	/// <param name="setters">The value to be added.</param>
@@ -91,7 +91,7 @@ public static class CollectorFactory
 	}
 
 	/// <summary>
-	/// Appends an element into the property <see cref="Collector.Setters"/>.
+	/// Appends an element into the property <see cref="StepGatherer.Setters"/>.
 	/// </summary>
 	/// <param name="instance">The instance to be set or updated.</param>
 	/// <param name="setters">A list of values to be added.</param>

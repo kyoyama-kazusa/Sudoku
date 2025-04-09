@@ -1,17 +1,9 @@
 namespace Sudoku.Analytics;
 
 /// <summary>
-/// Represents an instance that describes the result after executed the method
-/// <see cref="IAnalyzer{TSolver, TSolverResult}.Analyze"/>.
+/// Represents an instance that describes the result after executed.
 /// </summary>
-/// <typeparam name="TSelf">
-/// <include file="../../global-doc-comments.xml" path="/g/self-type-constraint"/>
-/// </typeparam>
-/// <typeparam name="TAnalyzer">The solver's type.</typeparam>
-/// <seealso cref="IAnalyzer{TSolver, TSolverResult}.Analyze"/>
-public interface IAnalysisResult<out TSelf, in TAnalyzer>
-	where TSelf : IAnalysisResult<TSelf, TAnalyzer>, allows ref struct
-	where TAnalyzer : IAnalyzer<TAnalyzer, TSelf>, allows ref struct
+public interface IAnalysisResult
 {
 	/// <summary>
 	/// Indicates whether the solver has solved the puzzle.

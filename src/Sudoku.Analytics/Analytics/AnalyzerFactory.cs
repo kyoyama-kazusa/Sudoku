@@ -56,7 +56,7 @@ public static class AnalyzerFactory
 	}
 
 	/// <summary>
-	/// Sets the property <see cref="Analyzer.StepSearchers"/> with the target value.
+	/// Sets the property <see cref="StepGatherer.StepSearchers"/> with the target value.
 	/// </summary>
 	/// <param name="instance">The instance to be set or updated.</param>
 	/// <param name="stepSearchers">The value to be set or updated.</param>
@@ -68,7 +68,7 @@ public static class AnalyzerFactory
 	}
 
 	/// <summary>
-	/// Sets the property <see cref="Analyzer.Options"/> with the target value.
+	/// Sets the property <see cref="StepGatherer.Options"/> with the target value.
 	/// </summary>
 	/// <param name="instance">The instance to be set or updated.</param>
 	/// <param name="options">The value to be set or updated.</param>
@@ -80,13 +80,13 @@ public static class AnalyzerFactory
 	}
 
 	/// <summary>
-	/// Try to set property <see cref="Analyzer.StepSearchers"/> with the specified value.
+	/// Try to set property <see cref="StepGatherer.StepSearchers"/> with the specified value.
 	/// </summary>
 	/// <param name="this">The current <see cref="Analyzer"/> instance.</param>
 	/// <param name="stepSearchers">The custom collection of <see cref="StepSearcher"/>s.</param>
 	/// <param name="level">Indicates the difficulty level preserved.</param>
 	/// <returns>The result.</returns>
-	/// <seealso cref="Analyzer.StepSearchers"/>
+	/// <seealso cref="StepGatherer.StepSearchers"/>
 	/// <seealso cref="StepSearcher"/>
 	public static Analyzer WithStepSearchers(this Analyzer @this, StepSearcher[] stepSearchers, DifficultyLevel level = DifficultyLevel.Unknown)
 		=> @this.WithStepSearchers(
@@ -99,7 +99,7 @@ public static class AnalyzerFactory
 		);
 
 	/// <summary>
-	/// Appends an element into the property <see cref="Analyzer.Setters"/>.
+	/// Appends an element into the property <see cref="StepGatherer.Setters"/>.
 	/// </summary>
 	/// <typeparam name="TStepSearcher">The type of step searcher.</typeparam>
 	/// <param name="instance">The instance to be updated.</param>
@@ -122,7 +122,7 @@ public static class AnalyzerFactory
 	}
 
 	/// <summary>
-	/// Appends an element into the property <see cref="Analyzer.Setters"/>.
+	/// Appends an element into the property <see cref="StepGatherer.Setters"/>.
 	/// </summary>
 	/// <param name="instance">The instance to be updated.</param>
 	/// <param name="setters">The value to be added.</param>
@@ -134,7 +134,7 @@ public static class AnalyzerFactory
 	}
 
 	/// <summary>
-	/// Appends an element into the property <see cref="Analyzer.Setters"/>.
+	/// Appends an element into the property <see cref="StepGatherer.Setters"/>.
 	/// </summary>
 	/// <param name="instance">The instance to be set or updated.</param>
 	/// <param name="setters">A list of values to be added.</param>

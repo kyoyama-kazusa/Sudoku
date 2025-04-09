@@ -230,10 +230,10 @@ public partial struct ParallelAsyncCollectorAwaitable
 			}
 
 			// Apply setters.
-			IStepGatherer<Collector, ReadOnlySpan<Step>>.ApplySetters(_collector);
+			StepGatherer.ApplySetters(_collector);
 
 			// Initialize values.
-			MemoryCachedData.Initialize(_grid, _grid.GetSolutionGrid());
+			Initialize(_grid, _grid.GetSolutionGrid());
 
 			// Create a list of tasks by the searchers to be checked.
 			foreach (var searcher in _collector.ResultStepSearchers)

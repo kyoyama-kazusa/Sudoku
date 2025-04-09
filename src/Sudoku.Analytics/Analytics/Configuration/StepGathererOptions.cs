@@ -3,8 +3,7 @@ namespace Sudoku.Analytics.Configuration;
 /// <summary>
 /// <para>
 /// Represents a type that encapsulates a list of options adjusted by users,
-/// consumed by <seealso cref="IStepGatherer{TSelf, TResult}"/> object
-/// (especially for types <see cref="Analyzer"/> and <see cref="Collector"/>).
+/// consumed by <see cref="Analyzer"/> or <see cref="Collector"/>.
 /// </para>
 /// <para>
 /// Some options may not relate to a real <see cref="StepSearcher"/> instance directly,
@@ -12,7 +11,7 @@ namespace Sudoku.Analytics.Configuration;
 /// For example, setting notation to the coordinates.
 /// </para>
 /// </summary>
-/// <seealso cref="IStepGatherer{TSelf, TResult}"/>
+/// <seealso cref="StepGatherer"/>
 /// <seealso cref="StepSearcher"/>
 /// <seealso cref="Analyzer"/>
 /// <seealso cref="Collector"/>

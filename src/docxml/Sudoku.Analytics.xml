@@ -8,16 +8,16 @@
             <summary>
             Provides the result after <see cref="T:Sudoku.Analytics.Analyzer"/> solving a puzzle.
             </summary>
-            <param name="Puzzle"><inheritdoc cref="P:Sudoku.Analytics.IAnalysisResult`2.Puzzle" path="/summary"/></param>
+            <param name="Puzzle"><inheritdoc cref="P:Sudoku.Analytics.IAnalysisResult.Puzzle" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.AnalysisResult.#ctor(Sudoku.Concepts.Grid@)">
             <summary>
             Provides the result after <see cref="T:Sudoku.Analytics.Analyzer"/> solving a puzzle.
             </summary>
-            <param name="Puzzle"><inheritdoc cref="P:Sudoku.Analytics.IAnalysisResult`2.Puzzle" path="/summary"/></param>
+            <param name="Puzzle"><inheritdoc cref="P:Sudoku.Analytics.IAnalysisResult.Puzzle" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.Puzzle">
-            <summary><inheritdoc cref="P:Sudoku.Analytics.IAnalysisResult`2.Puzzle" path="/summary"/></summary>
+            <summary><inheritdoc cref="P:Sudoku.Analytics.IAnalysisResult.Puzzle" path="/summary"/></summary>
         </member>
         <member name="F:Sudoku.Analytics.AnalysisResult.MaximumRatingValueTheory">
             <summary>
@@ -243,7 +243,7 @@
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.UnhandledException">
             <summary>
-            <inheritdoc cref="P:Sudoku.Analytics.IAnalysisResult`2.UnhandledException" path="/summary"/>
+            <inheritdoc cref="P:Sudoku.Analytics.IAnalysisResult.UnhandledException" path="/summary"/>
             </summary>
             <remarks>
             You can visit the property value if the property <see cref="P:Sudoku.Analytics.AnalysisResult.FailedReason"/>
@@ -611,11 +611,15 @@
             The random number generator.
             </summary>
         </member>
-        <member name="P:Sudoku.Analytics.Analyzer.RandomizedChoosing">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Analyzer.IsFullApplying">
-            <inheritdoc/>
+            <summary>
+            Indicates whether the solver will apply all found steps in a step searcher, in order to solve a puzzle faster.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Analyzer.RandomizedChoosing">
+            <summary>
+            Indicates whether the solver will choose a step to be applied after having searched all possible steps, in random.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Analyzer.IgnoreSlowAlgorithms">
             <summary>
@@ -635,19 +639,10 @@
             </remarks>
             <seealso cref="F:Sudoku.Analytics.StepSearchers.StepSearcherRuntimeFlags.SpaceComplexity"/>
         </member>
-        <member name="P:Sudoku.Analytics.Analyzer.StepSearchers">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Analyzer.ResultStepSearchers">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Analyzer.Options">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Analyzer.Setters">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Analyzer.Sudoku#Analytics#IAnalyzer{Sudoku#Analytics#Analyzer,Sudoku#Analytics#AnalysisResult}#RandomNumberGenerator">
+        <member name="P:Sudoku.Analytics.Analyzer.RunningArea">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Analyzer.Default">
@@ -706,7 +701,13 @@
             </summary>
         </member>
         <member name="M:Sudoku.Analytics.Analyzer.Analyze(Sudoku.Concepts.Grid@,System.IProgress{Sudoku.Analytics.StepGathererProgressPresenter},System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <summary>
+            Analyze the specified puzzle, and return an instance of <see cref="T:Sudoku.Analytics.AnalysisResult"/> indicating the analyzed result.
+            </summary>
+            <param name="grid">Indicates the grid to be checked.</param>
+            <param name="progress">Indicates the progress reporter object.</param>
+            <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
+            <returns>The result value.</returns>
         </member>
         <member name="M:Sudoku.Analytics.Analyzer.Puzzles#Meta#Analytics#IAnalyzer{Sudoku#Analytics#Analyzer,Sudoku#Analytics#AnalysisResult,Sudoku#Concepts#Grid,Sudoku#Analytics#Step}#Analyze(Sudoku.Concepts.Grid,System.Threading.CancellationToken)">
             <inheritdoc/>
@@ -783,7 +784,7 @@
         </member>
         <member name="M:Sudoku.Analytics.AnalyzerFactory.WithStepSearchers(Sudoku.Analytics.Analyzer,Sudoku.Analytics.StepSearcher[])">
             <summary>
-            Sets the property <see cref="P:Sudoku.Analytics.Analyzer.StepSearchers"/> with the target value.
+            Sets the property <see cref="P:Sudoku.Analytics.StepGatherer.StepSearchers"/> with the target value.
             </summary>
             <param name="instance">The instance to be set or updated.</param>
             <param name="stepSearchers">The value to be set or updated.</param>
@@ -791,7 +792,7 @@
         </member>
         <member name="M:Sudoku.Analytics.AnalyzerFactory.WithUserDefinedOptions(Sudoku.Analytics.Analyzer,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <summary>
-            Sets the property <see cref="P:Sudoku.Analytics.Analyzer.Options"/> with the target value.
+            Sets the property <see cref="P:Sudoku.Analytics.StepGatherer.Options"/> with the target value.
             </summary>
             <param name="instance">The instance to be set or updated.</param>
             <param name="options">The value to be set or updated.</param>
@@ -799,18 +800,18 @@
         </member>
         <member name="M:Sudoku.Analytics.AnalyzerFactory.WithStepSearchers(Sudoku.Analytics.Analyzer,Sudoku.Analytics.StepSearcher[],Sudoku.Analytics.DifficultyLevel)">
             <summary>
-            Try to set property <see cref="P:Sudoku.Analytics.Analyzer.StepSearchers"/> with the specified value.
+            Try to set property <see cref="P:Sudoku.Analytics.StepGatherer.StepSearchers"/> with the specified value.
             </summary>
             <param name="this">The current <see cref="T:Sudoku.Analytics.Analyzer"/> instance.</param>
             <param name="stepSearchers">The custom collection of <see cref="T:Sudoku.Analytics.StepSearcher"/>s.</param>
             <param name="level">Indicates the difficulty level preserved.</param>
             <returns>The result.</returns>
-            <seealso cref="P:Sudoku.Analytics.Analyzer.StepSearchers"/>
+            <seealso cref="P:Sudoku.Analytics.StepGatherer.StepSearchers"/>
             <seealso cref="T:Sudoku.Analytics.StepSearcher"/>
         </member>
         <member name="M:Sudoku.Analytics.AnalyzerFactory.AddStepSearcherSetter``1(Sudoku.Analytics.Analyzer,System.Action{``0})">
             <summary>
-            Appends an element into the property <see cref="P:Sudoku.Analytics.Analyzer.Setters"/>.
+            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
             </summary>
             <typeparam name="TStepSearcher">The type of step searcher.</typeparam>
             <param name="instance">The instance to be updated.</param>
@@ -819,7 +820,7 @@
         </member>
         <member name="M:Sudoku.Analytics.AnalyzerFactory.AddStepSearcherSetter(Sudoku.Analytics.Analyzer,System.Action{Sudoku.Analytics.StepSearcher})">
             <summary>
-            Appends an element into the property <see cref="P:Sudoku.Analytics.Analyzer.Setters"/>.
+            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
             </summary>
             <param name="instance">The instance to be updated.</param>
             <param name="setters">The value to be added.</param>
@@ -827,7 +828,7 @@
         </member>
         <member name="M:Sudoku.Analytics.AnalyzerFactory.AddStepSearcherSetter(Sudoku.Analytics.Analyzer,System.ReadOnlySpan{System.Action{Sudoku.Analytics.StepSearcher}})">
             <summary>
-            Appends an element into the property <see cref="P:Sudoku.Analytics.Analyzer.Setters"/>.
+            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
             </summary>
             <param name="instance">The instance to be set or updated.</param>
             <param name="setters">A list of values to be added.</param>
@@ -1762,27 +1763,32 @@
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Collector.MaxStepsCollected">
-            <inheritdoc/>
+            <summary>
+            Indicates the maximum steps can be collected.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Collector.DifficultyLevelMode">
             <summary>
             Indicates the difficulty level mode that the step searcher will be called and checked.
             </summary>
         </member>
-        <member name="P:Sudoku.Analytics.Collector.StepSearchers">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Collector.ResultStepSearchers">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Collector.Options">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Collector.Setters">
+        <member name="P:Sudoku.Analytics.Collector.RunningArea">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Collector.Collect(Sudoku.Concepts.Grid@,System.IProgress{Sudoku.Analytics.StepGathererProgressPresenter},System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <summary>
+            Search for all possible <see cref="T:Sudoku.Analytics.Step"/> instances appeared at the specified grid state.
+            </summary>
+            <param name="grid">Indicates the grid to be checked.</param>
+            <param name="progress">Indicates the progress reporter object.</param>
+            <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
+            <returns>The result value.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Throws when property <see cref="P:Sudoku.Analytics.Collector.DifficultyLevelMode"/> is not defined.
+            </exception>
         </member>
         <member name="M:Sudoku.Analytics.Collector.Puzzles#Meta#Analytics#ICollector{Sudoku#Concepts#Grid,Sudoku#Analytics#Step}#Collect(Sudoku.Concepts.Grid,System.Threading.CancellationToken)">
             <inheritdoc/>
@@ -1812,7 +1818,7 @@
         </member>
         <member name="M:Sudoku.Analytics.CollectorFactory.WithStepSearchers(Sudoku.Analytics.Collector,Sudoku.Analytics.StepSearcher[])">
             <summary>
-            Sets the property <see cref="P:Sudoku.Analytics.Collector.StepSearchers"/> with the target value.
+            Sets the property <see cref="P:Sudoku.Analytics.StepGatherer.StepSearchers"/> with the target value.
             </summary>
             <param name="instance">The instance to be set or updated.</param>
             <param name="stepSearchers">The value to be set or updated.</param>
@@ -1820,7 +1826,7 @@
         </member>
         <member name="M:Sudoku.Analytics.CollectorFactory.WithUserDefinedOptions(Sudoku.Analytics.Collector,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <summary>
-            Sets the property <see cref="P:Sudoku.Analytics.Collector.Options"/> with the target value.
+            Sets the property <see cref="P:Sudoku.Analytics.StepGatherer.Options"/> with the target value.
             </summary>
             <param name="instance">The instance to be set or updated.</param>
             <param name="options">The value to be set or updated.</param>
@@ -1828,7 +1834,7 @@
         </member>
         <member name="M:Sudoku.Analytics.CollectorFactory.AddStepSearcherSetter``1(Sudoku.Analytics.Collector,System.Action{``0})">
             <summary>
-            Appends an element into the property <see cref="P:Sudoku.Analytics.Collector.Setters"/>.
+            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
             </summary>
             <typeparam name="TStepSearcher">The type of step searcher.</typeparam>
             <param name="instance">The instance to be updated.</param>
@@ -1837,7 +1843,7 @@
         </member>
         <member name="M:Sudoku.Analytics.CollectorFactory.AddStepSearcherSetter(Sudoku.Analytics.Collector,System.Action{Sudoku.Analytics.StepSearcher})">
             <summary>
-            Appends an element into the property <see cref="P:Sudoku.Analytics.Collector.Setters"/>.
+            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
             </summary>
             <param name="instance">The instance to be updated.</param>
             <param name="setters">The value to be added.</param>
@@ -1845,7 +1851,7 @@
         </member>
         <member name="M:Sudoku.Analytics.CollectorFactory.AddStepSearcherSetter(Sudoku.Analytics.Collector,System.ReadOnlySpan{System.Action{Sudoku.Analytics.StepSearcher}})">
             <summary>
-            Appends an element into the property <see cref="P:Sudoku.Analytics.Collector.Setters"/>.
+            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
             </summary>
             <param name="instance">The instance to be set or updated.</param>
             <param name="setters">A list of values to be added.</param>
@@ -2147,8 +2153,7 @@
             <summary>
             <para>
             Represents a type that encapsulates a list of options adjusted by users,
-            consumed by <seealso cref="T:Sudoku.Analytics.IStepGatherer`2"/> object
-            (especially for types <see cref="T:Sudoku.Analytics.Analyzer"/> and <see cref="T:Sudoku.Analytics.Collector"/>).
+            consumed by <see cref="T:Sudoku.Analytics.Analyzer"/> or <see cref="T:Sudoku.Analytics.Collector"/>.
             </para>
             <para>
             Some options may not relate to a real <see cref="T:Sudoku.Analytics.StepSearcher"/> instance directly,
@@ -2156,7 +2161,7 @@
             For example, setting notation to the coordinates.
             </para>
             </summary>
-            <seealso cref="T:Sudoku.Analytics.IStepGatherer`2"/>
+            <seealso cref="T:Sudoku.Analytics.StepGatherer"/>
             <seealso cref="T:Sudoku.Analytics.StepSearcher"/>
             <seealso cref="T:Sudoku.Analytics.Analyzer"/>
             <seealso cref="T:Sudoku.Analytics.Collector"/>
@@ -8193,32 +8198,17 @@
             <param name="size">The number of cells used in a subset.</param>
             <returns>The name of the subset.</returns>
         </member>
-        <member name="T:Sudoku.Analytics.IAnalysisResult`2">
+        <member name="T:Sudoku.Analytics.IAnalysisResult">
             <summary>
-            Represents an instance that describes the result after executed the method
-            <see cref="M:Sudoku.Analytics.IAnalyzer`2.Analyze(Sudoku.Concepts.Grid@,System.IProgress{Sudoku.Analytics.StepGathererProgressPresenter},System.Threading.CancellationToken)" />.
+            Represents an instance that describes the result after executed.
             </summary>
-            <typeparam name="TSelf">
-            <self-type-constraint>
-		<para>Indicates the type implementing this interface.</para>
-		<para>
-			This type doesn't use any extra syntax to constraint such usage, but C# will check for it.
-			The type will include a <see langword="where" /> constraint that implements the interface itself
-			to declare such "self constraint" usage:
-			<code><![CDATA[interface ISelfType<TSelf> where TSelf : ISelfType<TSelf>]]></code>
-			In addition, the type should be named <c>TSelf</c> in order to tell type parameters with the others.
-		</para>
-	</self-type-constraint>
-            </typeparam>
-            <typeparam name="TAnalyzer">The solver's type.</typeparam>
-            <seealso cref="M:Sudoku.Analytics.IAnalyzer`2.Analyze(Sudoku.Concepts.Grid@,System.IProgress{Sudoku.Analytics.StepGathererProgressPresenter},System.Threading.CancellationToken)" />
         </member>
-        <member name="P:Sudoku.Analytics.IAnalysisResult`2.IsSolved">
+        <member name="P:Sudoku.Analytics.IAnalysisResult.IsSolved">
             <summary>
             Indicates whether the solver has solved the puzzle.
             </summary>
         </member>
-        <member name="P:Sudoku.Analytics.IAnalysisResult`2.ElapsedTime">
+        <member name="P:Sudoku.Analytics.IAnalysisResult.ElapsedTime">
             <summary>
             Indicates the elapsed time used during solving the puzzle. The value may not be an useful value.
             Some case if the puzzle doesn't contain a valid unique solution, the value may be
@@ -8226,262 +8216,22 @@
             </summary>
             <seealso cref="F:System.TimeSpan.Zero"/>
         </member>
-        <member name="P:Sudoku.Analytics.IAnalysisResult`2.Puzzle">
+        <member name="P:Sudoku.Analytics.IAnalysisResult.Puzzle">
             <summary>
             Indicates the original puzzle to be solved.
             </summary>
         </member>
-        <member name="P:Sudoku.Analytics.IAnalysisResult`2.Solution">
+        <member name="P:Sudoku.Analytics.IAnalysisResult.Solution">
             <summary>
             Indicates the result sudoku grid solved. If the solver can't solve this puzzle, the value will be
             <see cref="F:Sudoku.Concepts.Grid.Undefined"/>.
             </summary>
             <seealso cref="F:Sudoku.Concepts.Grid.Undefined"/>
         </member>
-        <member name="P:Sudoku.Analytics.IAnalysisResult`2.UnhandledException">
+        <member name="P:Sudoku.Analytics.IAnalysisResult.UnhandledException">
             <summary>
             Indicates the unhandled exception thrown.
             </summary>
-        </member>
-        <member name="T:Sudoku.Analytics.IAnalyzer`2">
-            <summary>
-            Represents an analyzer, which can solve a puzzle and return not a solution <see cref="T:Sudoku.Concepts.Grid" />.
-            The result is a <typeparamref name="TResult" /> instance that encapsulates all possible information
-            produced in the whole analysis time-cycle.
-            </summary>
-            <typeparam name="TSelf"><self-type-constraint>
-		<para>Indicates the type implementing this interface.</para>
-		<para>
-			This type doesn't use any extra syntax to constraint such usage, but C# will check for it.
-			The type will include a <see langword="where" /> constraint that implements the interface itself
-			to declare such "self constraint" usage:
-			<code><![CDATA[interface ISelfType<TSelf> where TSelf : ISelfType<TSelf>]]></code>
-			In addition, the type should be named <c>TSelf</c> in order to tell type parameters with the others.
-		</para>
-	</self-type-constraint></typeparam>
-            <typeparam name="TResult">The type of the target result.</typeparam>
-        </member>
-        <member name="P:Sudoku.Analytics.IAnalyzer`2.IsFullApplying">
-            <summary>
-            Indicates whether the solver will apply all found steps in a step searcher, in order to solve a puzzle faster.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.IAnalyzer`2.RandomizedChoosing">
-            <summary>
-            Indicates whether the solver will choose a step to be applied after having searched all possible steps, in random.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.IAnalyzer`2.RandomNumberGenerator">
-            <summary>
-            The internal <see cref="T:System.Random"/> instance to be used.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Analytics.IAnalyzer`2.Analyze(Sudoku.Concepts.Grid@,System.IProgress{Sudoku.Analytics.StepGathererProgressPresenter},System.Threading.CancellationToken)">
-            <summary>
-            Analyze the specified puzzle, and return a <typeparamref name="TResult"/> instance indicating the analyzed result.
-            </summary>
-            <param name="grid">Indicates the grid to be checked.</param>
-            <param name="progress">Indicates the progress reporter object.</param>
-            <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
-            <returns>The result value.</returns>
-        </member>
-        <member name="T:Sudoku.Analytics.ICollector`2">
-            <summary>
-            Represents a collector type.
-            </summary>
-            <typeparam name="TSelf"><self-type-constraint>
-		<para>Indicates the type implementing this interface.</para>
-		<para>
-			This type doesn't use any extra syntax to constraint such usage, but C# will check for it.
-			The type will include a <see langword="where" /> constraint that implements the interface itself
-			to declare such "self constraint" usage:
-			<code><![CDATA[interface ISelfType<TSelf> where TSelf : ISelfType<TSelf>]]></code>
-			In addition, the type should be named <c>TSelf</c> in order to tell type parameters with the others.
-		</para>
-	</self-type-constraint></typeparam>
-            <typeparam name="TResult">The type of the result value.</typeparam>
-        </member>
-        <member name="P:Sudoku.Analytics.ICollector`2.MaxStepsCollected">
-            <summary>
-            Indicates the maximum steps can be collected.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.ICollector`2.DifficultyLevelMode">
-            <summary>
-            Indicates whether the solver only displays the techniques with the same displaying level.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Analytics.ICollector`2.Collect(Sudoku.Concepts.Grid@,System.IProgress{Sudoku.Analytics.StepGathererProgressPresenter},System.Threading.CancellationToken)">
-            <summary>
-            Search for all possible <see cref="T:Sudoku.Analytics.Step"/> instances appeared at the specified grid state.
-            </summary>
-            <param name="grid">Indicates the grid to be checked.</param>
-            <param name="progress">Indicates the progress reporter object.</param>
-            <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
-            <returns>The result value.</returns>
-            <exception cref="T:System.InvalidOperationException">
-            Throws when property <see cref="P:Sudoku.Analytics.ICollector`2.DifficultyLevelMode"/> is not defined.
-            </exception>
-        </member>
-        <member name="T:Sudoku.Analytics.IStepGatherer`2">
-            <summary>
-            Represents a type that support collecting <see cref="T:Sudoku.Analytics.Step" /> instances from a grid puzzle.
-            </summary>
-            <typeparam name="TSelf"><self-type-constraint>
-		<para>Indicates the type implementing this interface.</para>
-		<para>
-			This type doesn't use any extra syntax to constraint such usage, but C# will check for it.
-			The type will include a <see langword="where" /> constraint that implements the interface itself
-			to declare such "self constraint" usage:
-			<code><![CDATA[interface ISelfType<TSelf> where TSelf : ISelfType<TSelf>]]></code>
-			In addition, the type should be named <c>TSelf</c> in order to tell type parameters with the others.
-		</para>
-	</self-type-constraint></typeparam>
-            <typeparam name="TResult">The type of the result value.</typeparam>
-            <seealso cref="T:Sudoku.Analytics.Step" />
-        </member>
-        <member name="P:Sudoku.Analytics.IStepGatherer`2.StepSearchers">
-            <summary>
-            <para>
-            Indicates the custom <see cref="T:Sudoku.Analytics.StepSearcher"/>s you defined to solve a puzzle.
-            By default, the solver will use <see cref="P:Sudoku.Analytics.StepSearcherFactory.StepSearchers"/> to solve a puzzle.
-            If you assign a new array of <see cref="T:Sudoku.Analytics.StepSearcher"/>s into this property
-            the step searchers will use this property instead of <see cref="P:Sudoku.Analytics.StepSearcherFactory.StepSearchers"/> to solve a puzzle.
-            </para>
-            <para>
-            Please note that the property will keep the <see langword="null"/> value if you don't assign any values into it;
-            however, if you want to use the customized collection to solve a puzzle, assign a non-<see langword="null"/> array into it.
-            </para>
-            </summary>
-            <seealso cref="P:Sudoku.Analytics.StepSearcherFactory.StepSearchers"/>
-        </member>
-        <member name="P:Sudoku.Analytics.IStepGatherer`2.ResultStepSearchers">
-            <summary>
-            Indicates the result step searchers used in the current analyzer or collector.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.IStepGatherer`2.Options">
-            <summary>
-            Indicates the extra options to be set. The options will be passed into <see cref="T:Sudoku.Analytics.Step"/> instances collected
-            in internal method called <c>Collect</c>, and create <see cref="T:Sudoku.Analytics.Step"/> instances and pass into constructor.
-            </summary>
-            <seealso cref="T:Sudoku.Analytics.Step"/>
-        </member>
-        <member name="P:Sudoku.Analytics.IStepGatherer`2.Setters">
-            <summary>
-            Represents a list of <see cref="T:System.Action`1"/> of <see cref="T:Sudoku.Analytics.StepSearcher"/> instances
-            to assign extra configuration to step searcher instances.
-            </summary>
-            <seealso cref="T:System.Action`1"/>
-            <seealso cref="T:Sudoku.Analytics.StepSearcher"/>
-        </member>
-        <member name="M:Sudoku.Analytics.IStepGatherer`2.ApplySetters(`0)">
-            <summary>
-            Try to apply setters.
-            </summary>
-            <param name="instance">The instance itself.</param>
-            <remarks>
-            <feature name="static-dim">
-			<para>
-				The keyword combinations <see langword="static abstract" />, <see langword="static virtual" />
-				and <see langword="static sealed" /> are basic of DIM (default interface implementation)
-				for <see langword="static" /> members, introduced from C# 11.
-				<list type="table">
-					<listheader>
-						<term>Keyword combination</term>
-						<description>Meaning</description>
-					</listheader>
-					<item>
-						<term>
-							<see langword="static abstract" />
-						</term>
-						<description>
-							Such members must be implemented by concrete types
-							(<see langword="class" />, <see langword="struct" />, etc.).
-						</description>
-					</item>
-					<item>
-						<term>
-							<see langword="static virtual" />
-						</term>
-						<description>
-							Such members has a default implementation, no matter whether the member is re-implemented
-							(same meaning with "overridding" for instance members in <see langword="class" /> types,
-							but is <see langword="static" /> version) in concrete types, no compiler errors will be produced.
-							If such members don't have an overridden one, default implementation will be invoked;
-							otherwise, overridden one will be invoked.
-						</description>
-					</item>
-					<item>
-						<term>
-							<see langword="static sealed" />
-						</term>
-						<description>
-							Such members cannot be re-implemented. Default implmentation will be frozen and no way to override it.
-						</description>
-					</item>
-				</list>
-			</para>
-			<para>
-				Please note that the rule can only be used inside a <see langword="interface" />.
-			</para>
-		</feature>
-            </remarks>
-        </member>
-        <member name="M:Sudoku.Analytics.IStepGatherer`2.FilterStepSearchers(System.ReadOnlyMemory{Sudoku.Analytics.StepSearcher},Sudoku.Analytics.StepSearchers.StepSearcherRunningArea)">
-            <summary>
-            Try to filter step searchers via the specified running area; removing all step searchers if running area does not match.
-            </summary>
-            <param name="in">The step searchers passed in.</param>
-            <param name="runningArea">The running area to be checked.</param>
-            <returns>Filtered collection.</returns>
-            <remarks>
-            <feature name="static-dim">
-			<para>
-				The keyword combinations <see langword="static abstract" />, <see langword="static virtual" />
-				and <see langword="static sealed" /> are basic of DIM (default interface implementation)
-				for <see langword="static" /> members, introduced from C# 11.
-				<list type="table">
-					<listheader>
-						<term>Keyword combination</term>
-						<description>Meaning</description>
-					</listheader>
-					<item>
-						<term>
-							<see langword="static abstract" />
-						</term>
-						<description>
-							Such members must be implemented by concrete types
-							(<see langword="class" />, <see langword="struct" />, etc.).
-						</description>
-					</item>
-					<item>
-						<term>
-							<see langword="static virtual" />
-						</term>
-						<description>
-							Such members has a default implementation, no matter whether the member is re-implemented
-							(same meaning with "overridding" for instance members in <see langword="class" /> types,
-							but is <see langword="static" /> version) in concrete types, no compiler errors will be produced.
-							If such members don't have an overridden one, default implementation will be invoked;
-							otherwise, overridden one will be invoked.
-						</description>
-					</item>
-					<item>
-						<term>
-							<see langword="static sealed" />
-						</term>
-						<description>
-							Such members cannot be re-implemented. Default implmentation will be frozen and no way to override it.
-						</description>
-					</item>
-				</list>
-			</para>
-			<para>
-				Please note that the rule can only be used inside a <see langword="interface" />.
-			</para>
-		</feature>
-            </remarks>
         </member>
         <member name="T:Sudoku.Analytics.PencilmarkVisibilities">
             <summary>
@@ -8569,17 +8319,17 @@
         </member>
         <member name="T:Sudoku.Analytics.RuntimeAnalysisException">
             <summary>
-            Represents an exception type that will be thrown by an <see cref="T:Sudoku.Analytics.IAnalyzer`2"/> instance.
+            Represents an exception type that will be thrown by an <see cref="T:Sudoku.Analytics.Analyzer"/> instance.
             </summary>
             <param name="grid">Indicates the grid to be analyzed.</param>
-            <seealso cref="T:Sudoku.Analytics.IAnalyzer`2"/>
+            <seealso cref="T:Sudoku.Analytics.Analyzer"/>
         </member>
         <member name="M:Sudoku.Analytics.RuntimeAnalysisException.#ctor(Sudoku.Concepts.Grid@)">
             <summary>
-            Represents an exception type that will be thrown by an <see cref="T:Sudoku.Analytics.IAnalyzer`2"/> instance.
+            Represents an exception type that will be thrown by an <see cref="T:Sudoku.Analytics.Analyzer"/> instance.
             </summary>
             <param name="grid">Indicates the grid to be analyzed.</param>
-            <seealso cref="T:Sudoku.Analytics.IAnalyzer`2"/>
+            <seealso cref="T:Sudoku.Analytics.Analyzer"/>
         </member>
         <member name="P:Sudoku.Analytics.RuntimeAnalysisException.Message">
             <inheritdoc/>
@@ -8982,21 +8732,72 @@
         <member name="M:Sudoku.Analytics.StepAnalysisContext.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
+        <member name="T:Sudoku.Analytics.StepGatherer">
+            <summary>
+            Represents a type that support collecting <see cref="T:Sudoku.Analytics.Step"/> instances on a certain checking logic for a grid.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.StepGatherer.StepSearchers">
+            <summary>
+            <para>
+            Indicates the <see cref="T:Sudoku.Analytics.StepSearcher"/> instances to run.
+            By default, the solver will use <see cref="P:Sudoku.Analytics.StepSearcherFactory.StepSearchers"/> to solve a puzzle.
+            If you assign a new array of <see cref="T:Sudoku.Analytics.StepSearcher"/>s into this property
+            the step searchers will use this property instead of <see cref="P:Sudoku.Analytics.StepSearcherFactory.StepSearchers"/> to solve a puzzle.
+            </para>
+            <para>
+            Please note that the property will keep the <see langword="null"/> value if you don't assign any values into it;
+            however, if you want to use the customized collection to solve a puzzle, assign a non-<see langword="null"/> array into it.
+            </para>
+            </summary>
+            <seealso cref="P:Sudoku.Analytics.StepSearcherFactory.StepSearchers"/>
+        </member>
+        <member name="P:Sudoku.Analytics.StepGatherer.ResultStepSearchers">
+            <summary>
+            Indicates the result step searchers used in the current analyzer or collector.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.StepGatherer.Options">
+            <summary>
+            Indicates the extra options to be set. The options will be passed into <see cref="T:Sudoku.Analytics.Step"/> instances collected
+            in internal method called <c>Collect</c>, and create <see cref="T:Sudoku.Analytics.Step"/> instances and pass into constructor.
+            </summary>
+            <seealso cref="T:Sudoku.Analytics.Step"/>
+        </member>
+        <member name="P:Sudoku.Analytics.StepGatherer.Setters">
+            <summary>
+            Represents a list of <see cref="T:System.Action`1"/> of <see cref="T:Sudoku.Analytics.StepSearcher"/> instances
+            to assign extra configuration to step searcher instances.
+            </summary>
+            <seealso cref="T:System.Action`1"/>
+            <seealso cref="T:Sudoku.Analytics.StepSearcher"/>
+        </member>
+        <member name="P:Sudoku.Analytics.StepGatherer.RunningArea">
+            <summary>
+            Indicates the running area.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGatherer.ApplySetters(Sudoku.Analytics.StepGatherer)">
+            <summary>
+            Try to apply setters.
+            </summary>
+            <param name="instance">The instance itself.</param>
+        </member>
         <member name="T:Sudoku.Analytics.StepGathererProgressPresenter">
             <summary>
-            Represents a progress used by <see cref="T:Sudoku.Analytics.IStepGatherer`2"/> instances.
+            Represents a progress used by <see cref="T:Sudoku.Analytics.StepGatherer"/> instances.
             </summary>
             <param name="StepSearcherName">Indicates the currently used step searcher.</param>
             <param name="Percent">The percent value.</param>
-            <seealso cref="T:Sudoku.Analytics.IStepGatherer`2"/>
+            <seealso cref="T:Sudoku.Analytics.StepGatherer"/>
         </member>
         <member name="M:Sudoku.Analytics.StepGathererProgressPresenter.#ctor(System.String,System.Double)">
             <summary>
-            Represents a progress used by <see cref="T:Sudoku.Analytics.IStepGatherer`2"/> instances.
+            Represents a progress used by <see cref="T:Sudoku.Analytics.StepGatherer"/> instances.
             </summary>
             <param name="StepSearcherName">Indicates the currently used step searcher.</param>
             <param name="Percent">The percent value.</param>
-            <seealso cref="T:Sudoku.Analytics.IStepGatherer`2"/>
+            <seealso cref="T:Sudoku.Analytics.StepGatherer"/>
         </member>
         <member name="P:Sudoku.Analytics.StepGathererProgressPresenter.StepSearcherName">
             <summary>Indicates the currently used step searcher.</summary>

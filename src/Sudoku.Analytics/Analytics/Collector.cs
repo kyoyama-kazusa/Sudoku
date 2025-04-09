@@ -3,9 +3,11 @@ namespace Sudoku.Analytics;
 /// <summary>
 /// Represents an instance that can collect all possible <see cref="Step"/>s in a grid for one state.
 /// </summary>
-public sealed class Collector : ICollector<Collector, ReadOnlySpan<Step>>, meta_analysis::ICollector<Grid, Step>
+public sealed class Collector : StepGatherer, meta_analysis::ICollector<Grid, Step>
 {
-	/// <inheritdoc/>
+	/// <summary>
+	/// Indicates the maximum steps can be collected.
+	/// </summary>
 	public int MaxStepsCollected { get; set; } = 1000;
 
 	/// <summary>
@@ -14,30 +16,25 @@ public sealed class Collector : ICollector<Collector, ReadOnlySpan<Step>>, meta_
 	public CollectorDifficultyLevelMode DifficultyLevelMode { get; set; } = CollectorDifficultyLevelMode.OnlySame;
 
 	/// <inheritdoc/>
-	public ReadOnlyMemory<StepSearcher> StepSearchers
-	{
-		get;
-
-		set => ResultStepSearchers = IStepGatherer<Collector, ReadOnlySpan<Step>>.FilterStepSearchers(
-			field = value,
-			StepSearcherRunningArea.Collecting
-		);
-	}
-
-	/// <inheritdoc/>
-	public ReadOnlyMemory<StepSearcher> ResultStepSearchers { get; internal set; } =
+	public override ReadOnlyMemory<StepSearcher> ResultStepSearchers { get; internal set; } =
 		from searcher in StepSearcherFactory.StepSearchers
 		where searcher.RunningArea.HasFlag(StepSearcherRunningArea.Collecting)
 		select searcher;
 
 	/// <inheritdoc/>
-	public StepGathererOptions Options { get; set; } = StepGathererOptions.Default;
-
-	/// <inheritdoc/>
-	public ICollection<Action<StepSearcher>> Setters { get; } = [];
+	protected override StepSearcherRunningArea RunningArea => StepSearcherRunningArea.Collecting;
 
 
-	/// <inheritdoc/>
+	/// <summary>
+	/// Search for all possible <see cref="Step"/> instances appeared at the specified grid state.
+	/// </summary>
+	/// <param name="grid">Indicates the grid to be checked.</param>
+	/// <param name="progress">Indicates the progress reporter object.</param>
+	/// <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
+	/// <returns>The result value.</returns>
+	/// <exception cref="InvalidOperationException">
+	/// Throws when property <see cref="DifficultyLevelMode"/> is not defined.
+	/// </exception>
 	public ReadOnlySpan<Step> Collect(
 		scoped in Grid grid,
 		IProgress<StepGathererProgressPresenter>? progress = null,
@@ -55,7 +52,7 @@ public sealed class Collector : ICollector<Collector, ReadOnlySpan<Step>>, meta_
 			return [];
 		}
 
-		IStepGatherer<Collector, ReadOnlySpan<Step>>.ApplySetters(this);
+		ApplySetters(this);
 
 		try
 		{
