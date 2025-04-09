@@ -54,7 +54,7 @@ public sealed unsafe partial class BitwiseSolver : ISolver, ISolutionEnumerableS
 
 
 	/// <inheritdoc/>
-	public event SolverSolutionFoundEventHandler? SolutionFound;
+	public event EventHandler<SolverSolutionFoundEventArgs>? SolutionFound;
 
 
 	/// <inheritdoc/>

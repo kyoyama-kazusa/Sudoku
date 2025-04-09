@@ -13811,13 +13811,6 @@
             The generated property declaration for parameter <c>solution</c>.
             </summary>
         </member>
-        <member name="T:Sudoku.Solving.SolverSolutionFoundEventHandler">
-            <summary>
-            Provides a mechanism to declare a callback to be called when a solution is found in solving operation by a solver.
-            </summary>
-            <param name="sender">The sender which triggers this event.</param>
-            <param name="e">The event arguments provided.</param>
-        </member>
         <member name="T:Sudoku.Solving.SolverType">
             <summary>
             Represents a solver type.

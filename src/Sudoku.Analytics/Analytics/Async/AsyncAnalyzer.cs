@@ -69,6 +69,6 @@ public static class AsyncAnalyzer
 		}
 
 
-		void this_StepFound(Analyzer sender, AnalyzerStepFoundEventArgs e) => channel.Writer.TryWrite(e.Step);
+		void this_StepFound(object? sender, AnalyzerStepFoundEventArgs e) => channel.Writer.TryWrite(e.Step);
 	}
 }

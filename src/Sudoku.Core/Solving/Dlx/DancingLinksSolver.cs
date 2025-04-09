@@ -32,7 +32,7 @@ public sealed class DancingLinksSolver : ISolver, ISolutionEnumerableSolver
 
 
 	/// <inheritdoc/>
-	public event SolverSolutionFoundEventHandler? SolutionFound;
+	public event EventHandler<SolverSolutionFoundEventArgs>? SolutionFound;
 
 
 	/// <inheritdoc/>

@@ -9,7 +9,7 @@ public interface ISolutionEnumerableSolver
 	/// Provide a way to detect event to be triggered when a solution is found;
 	/// no matter whether the puzzle has a unique solution or not (multiple solutions).
 	/// </summary>
-	public abstract event SolverSolutionFoundEventHandler? SolutionFound;
+	public abstract event EventHandler<SolverSolutionFoundEventArgs>? SolutionFound;
 
 
 	/// <summary>

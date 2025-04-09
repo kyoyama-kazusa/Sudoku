@@ -170,17 +170,17 @@ public sealed class Analyzer : StepGatherer, meta_analysis::IAnalyzer<Analyzer, 
 	/// <summary>
 	/// Indicates the event to be triggered when a new step is found.
 	/// </summary>
-	public event AnalyzerStepFoundEventHandler? StepFound;
+	public event EventHandler<AnalyzerStepFoundEventArgs>? StepFound;
 
 	/// <summary>
 	/// Indicates the event to be triggered when the whole analysis operation is finished.
 	/// </summary>
-	public event AnalyzerFinishedEventHandler? Finished;
+	public event EventHandler<AnalyzerFinishedEventArgs>? Finished;
 
 	/// <summary>
 	/// Indicates the event to be triggered when an exception is thrown.
 	/// </summary>
-	public event AnalyzerExceptionThrownEventHandler? ExceptionThrown;
+	public event EventHandler<AnalyzerExceptionThrownEventArgs>? ExceptionThrown;
 
 
 	/// <summary>
