@@ -47,120 +47,118 @@ public static class AnalysisResultExtensions
 			: pencilmarkMode.HasFlag(PencilmarkVisibility.PartialMarking)
 				? PencilmarkVisibility.PartialMarking
 				: PencilmarkVisibility.Direct;
-		switch (filters.FirstRefOrNullRef((ref readonly f) => f.Visibility == filterMode).Type)
+		return (filters.FirstRefOrNullRef((ref readonly f) => f.Visibility == filterMode).Type, filterMode) switch
 		{
-			// Find single-only steps.
-			case BottleneckType.SingleStepOnly when filterMode is PencilmarkVisibility.Direct or PencilmarkVisibility.PartialMarking:
-			{
-				var collector = GridPartialMarkingExtensions.Collector;
-				var result = new List<Step>();
-				foreach (var (g, s) in StepMarshal.Combine(@this.GridsSpan, @this.StepsSpan))
-				{
-					if ((
-						from step in collector.Collect(g)
-						select (SingleStep)step into step
-						select step.Cell * 9 + step.Digit
-					).AsCandidateMap().Count == 1)
-					{
-						result.Add(s);
-					}
-				}
-				return result.AsSpan();
-			}
+			(BottleneckType.SingleStepOnly, PencilmarkVisibility.Direct or PencilmarkVisibility.PartialMarking) => singleStepOnly(),
+			(BottleneckType.SingleStepSameLevelOnly, PencilmarkVisibility.PartialMarking) => singleStepSameLevelOnly(),
+			(BottleneckType.EliminationGroup, PencilmarkVisibility.FullMarking) => eliminationGroup(steps),
+			(BottleneckType.SequentialInversion, not PencilmarkVisibility.Direct) => sequentialInversion(steps),
+			(BottleneckType.HardestRating, _) when steps.MaxBy(static s => s.Difficulty) is { } maxStep
+				=> hardestRating(steps, maxStep),
+			(BottleneckType.HardestLevel, not PencilmarkVisibility.Direct) when steps.MaxBy(static s => (int)s.DifficultyLevel) is { } maxStep
+				=> hardestLevel(steps, maxStep),
+			_ => throw new ArgumentOutOfRangeException(nameof(filters))
+		};
 
-			// Find single-only steps on same difficulty level.
-			case BottleneckType.SingleStepSameLevelOnly when filterMode == PencilmarkVisibility.PartialMarking:
-			{
-				var collector = GridPartialMarkingExtensions.Collector;
-				var result = new List<Step>();
-				foreach (var (g, s) in StepMarshal.Combine(@this.GridsSpan, @this.StepsSpan))
-				{
-					var currentStepPencilmarkVisibility = s.PencilmarkType;
-					if ((
-						from step in collector.Collect(g)
-						select ((SingleStep)step) into step
-						where step.PencilmarkType <= currentStepPencilmarkVisibility
-						select step.Cell * 9 + step.Digit
-					).AsCandidateMap().Count == 1)
-					{
-						result.Add(s);
-					}
-				}
-				return result.AsSpan();
-			}
 
-			// Find elimination group steps.
-			case BottleneckType.EliminationGroup when filterMode == PencilmarkVisibility.FullMarking:
+		ReadOnlySpan<Step> singleStepOnly()
+		{
+			var collector = GridPartialMarkingExtensions.Collector;
+			var result = new List<Step>();
+			foreach (var (g, s) in StepMarshal.Combine(@this.GridsSpan, @this.StepsSpan))
 			{
-				var result = new List<Step>();
-				for (var i = 0; i < steps.Length - 1; i++)
+				if ((
+					from step in collector.Collect(g)
+					select (SingleStep)step into step
+					select step.Cell * 9 + step.Digit
+				).AsCandidateMap().Count == 1)
 				{
-					if (steps[i].IsAssignment is false)
+					result.Add(s);
+				}
+			}
+			return result.AsSpan();
+		}
+
+		ReadOnlySpan<Step> singleStepSameLevelOnly()
+		{
+			var collector = GridPartialMarkingExtensions.Collector;
+			var result = new List<Step>();
+			foreach (var (g, s) in StepMarshal.Combine(@this.GridsSpan, @this.StepsSpan))
+			{
+				var currentStepPencilmarkVisibility = s.PencilmarkType;
+				if ((
+					from step in collector.Collect(g)
+					select ((SingleStep)step) into step
+					where step.PencilmarkType <= currentStepPencilmarkVisibility
+					select step.Cell * 9 + step.Digit
+				).AsCandidateMap().Count == 1)
+				{
+					result.Add(s);
+				}
+			}
+			return result.AsSpan();
+		}
+
+		static ReadOnlySpan<Step> eliminationGroup(ReadOnlySpan<Step> steps)
+		{
+			var result = new List<Step>();
+			for (var i = 0; i < steps.Length - 1; i++)
+			{
+				if (steps[i].IsAssignment is false)
+				{
+					for (var j = i + 1; j < steps.Length; j++)
 					{
-						for (var j = i + 1; j < steps.Length; j++)
+						if (steps[j].IsAssignment is not false)
 						{
-							if (steps[j].IsAssignment is not false)
-							{
-								// Okay. Now we have a group of steps that only produce eliminations.
-								// Set the outer loop pointer to skip elimination steps.
-								result.Add(steps[i = j]);
-								break;
-							}
+							// Okay. Now we have a group of steps that only produce eliminations.
+							// Set the outer loop pointer to skip elimination steps.
+							result.Add(steps[i = j]);
+							break;
 						}
 					}
 				}
-				return result.AsSpan();
 			}
+			return result.AsSpan();
+		}
 
-			// Find sequential-inverted steps.
-			case BottleneckType.SequentialInversion when filterMode != PencilmarkVisibility.Direct:
+		static ReadOnlySpan<Step> sequentialInversion(ReadOnlySpan<Step> steps)
+		{
+			var result = new List<Step>();
+			for (var i = 0; i < steps.Length - 1; i++)
 			{
-				var result = new List<Step>();
-				for (var i = 0; i < steps.Length - 1; i++)
+				var (previous, next) = (steps[i], steps[i + 1]);
+				if (previous.DifficultyLevel > next.DifficultyLevel && next.DifficultyLevel != DifficultyLevel.Unknown)
 				{
-					var (previous, next) = (steps[i], steps[i + 1]);
-					if (previous.DifficultyLevel > next.DifficultyLevel && next.DifficultyLevel != DifficultyLevel.Unknown)
-					{
-						result.Add(previous);
-					}
+					result.Add(previous);
 				}
-				return result.AsSpan();
 			}
+			return result.AsSpan();
+		}
 
-			// Find the hardest steps.
-			case BottleneckType.HardestRating when steps.MaxBy(static step => step.Difficulty) is { } maxStep:
+		static ReadOnlySpan<Step> hardestRating(ReadOnlySpan<Step> steps, Step maxStep)
+		{
+			var result = new List<Step>();
+			foreach (var element in steps)
 			{
-				var result = new List<Step>();
-				foreach (var element in steps)
+				if (element.Code == maxStep.Code)
 				{
-					if (element.Code == maxStep.Code)
-					{
-						result.Add(element);
-					}
+					result.Add(element);
 				}
-				return result.AsSpan();
 			}
+			return result.AsSpan();
+		}
 
-			// Find the hardest level steps.
-			case BottleneckType.HardestLevel
-			when filterMode != PencilmarkVisibility.Direct && steps.MaxBy(static step => (int)step.DifficultyLevel) is { } maxStep:
+		static ReadOnlySpan<Step> hardestLevel(ReadOnlySpan<Step> steps, Step maxStep)
+		{
+			var result = new List<Step>();
+			foreach (var element in steps)
 			{
-				var result = new List<Step>();
-				foreach (var element in steps)
+				if (element.DifficultyLevel == maxStep.DifficultyLevel)
 				{
-					if (element.DifficultyLevel == maxStep.DifficultyLevel)
-					{
-						result.Add(element);
-					}
+					result.Add(element);
 				}
-				return result.AsSpan();
 			}
-
-			// Invalid configuration.
-			default:
-			{
-				throw new ArgumentOutOfRangeException(nameof(filters));
-			}
+			return result.AsSpan();
 		}
 	}
 }
