@@ -53,10 +53,8 @@ public static class AnalysisResultExtensions
 			(BottleneckType.SingleStepSameLevelOnly, PencilmarkVisibility.PartialMarking) => singleStepSameLevelOnly(),
 			(BottleneckType.EliminationGroup, PencilmarkVisibility.FullMarking) => eliminationGroup(steps),
 			(BottleneckType.SequentialInversion, not PencilmarkVisibility.Direct) => sequentialInversion(steps),
-			(BottleneckType.HardestRating, _) when steps.MaxBy(static s => s.Difficulty) is { } maxStep
-				=> hardestRating(steps, maxStep),
-			(BottleneckType.HardestLevel, not PencilmarkVisibility.Direct) when steps.MaxBy(static s => (int)s.DifficultyLevel) is { } maxStep
-				=> hardestLevel(steps, maxStep),
+			(BottleneckType.HardestRating, _) => hardestRating(steps, steps.MaxBy(static s => s.Difficulty)!),
+			(BottleneckType.HardestLevel, not PencilmarkVisibility.Direct) => hardestLevel(steps, steps.MaxBy(static s => (int)s.DifficultyLevel)!),
 			_ => throw new ArgumentOutOfRangeException(nameof(filters))
 		};
 
