@@ -22,12 +22,6 @@ namespace Sudoku.Generating;
 public ref partial struct Generator() : IGenerator<Grid>
 {
 	/// <summary>
-	/// Indicates the auto clues count.
-	/// </summary>
-	public const int AutoClues = -1;
-
-
-	/// <summary>
 	/// Indicates whether the solution grid can be configured by user.
 	/// </summary>
 	/// <!--2024/10/28: Add this field.-->
@@ -79,12 +73,13 @@ public ref partial struct Generator() : IGenerator<Grid>
 	/// Try to generate a puzzle randomly, or return <see cref="Grid.Undefined"/> if a user cancelled the operation.
 	/// </summary>
 	/// <param name="cluesCount">
-	/// <para>Indicates the number of clues the generator supports for <b>approximately</b>.</para>
+	/// <para>Indicates the number of clues of a puzzle generated. Assign -1 if the value is not required.</para>
 	/// <para>
 	/// Please note that the target puzzle may not contain the same number of givens as this value.
 	/// If the number of givens from a puzzle is below this value but it also has a unique solution,
 	/// this puzzle will be still treated as valid one.
 	/// </para>
+	/// <para>The default value is -1.</para>
 	/// </param>
 	/// <param name="symmetricType">The symmetric type to be specified. The value is <see cref="SymmetricType.Central"/> by default.</param>
 	/// <param name="cancellationToken">The cancellation token that can cancel the operation.</param>
@@ -93,12 +88,12 @@ public ref partial struct Generator() : IGenerator<Grid>
 	/// Throws when the argument <paramref name="symmetricType"/> holds multiple flags,
 	/// or the argument <paramref name="cluesCount"/> is invalid.
 	/// </exception>
-	public Grid Generate(int cluesCount = AutoClues, SymmetricType symmetricType = SymmetricType.Central, CancellationToken cancellationToken = default)
+	public Grid Generate(int cluesCount = -1, SymmetricType symmetricType = SymmetricType.Central, CancellationToken cancellationToken = default)
 	{
 		_stack.Fill(new());
 
 		ArgumentOutOfRangeException.ThrowIfNotEqual(symmetricType.IsFlag(), true);
-		ArgumentOutOfRangeException.ThrowIfNotEqual(cluesCount is >= 17 and <= 80 or AutoClues, true);
+		ArgumentOutOfRangeException.ThrowIfNotEqual(cluesCount is >= 17 and <= 80 or -1, true);
 
 		try
 		{
