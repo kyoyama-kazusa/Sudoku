@@ -9,7 +9,7 @@ public sealed class UniqueRectangleSameDigitChainingRule : UniqueRectangleChaini
 	/// <inheritdoc/>
 	public override void GetLinks(in Grid grid, LinkDictionary strongLinks, LinkDictionary weakLinks, StepGathererOptions options)
 	{
-		if (options.GetLinkOption(LinkType.UniqueRectangle_SameDigit) == LinkOption.None)
+		if (options.GetLinkOption(LinkType.UniqueRectangle_SameDigit) is not (var linkOption and not LinkOption.None))
 		{
 			return;
 		}
@@ -23,7 +23,6 @@ public sealed class UniqueRectangleSameDigitChainingRule : UniqueRectangleChaini
 		_ = grid is { EmptyCells: var __EmptyCells, CandidatesMap: var __CandidatesMap };
 		// VARIABLE_DECLARATION_END
 
-		var linkOption = options.GetLinkOption(LinkType.UniqueRectangle_SameDigit);
 		foreach (var pattern in UniqueRectanglePattern.AllPatterns)
 		{
 			var urCells = pattern.AsCellMap();

@@ -10,7 +10,7 @@ public sealed class AlmostLockedSetsChainingRule : ChainingRule
 	[InterceptorMethodCaller]
 	public override void GetLinks(in Grid grid, LinkDictionary strongLinks, LinkDictionary weakLinks, StepGathererOptions options)
 	{
-		if (options.GetLinkOption(LinkType.AlmostLockedSets) == LinkOption.None)
+		if (options.GetLinkOption(LinkType.AlmostLockedSets) is not (var linkOption and not LinkOption.None))
 		{
 			return;
 		}
@@ -19,7 +19,6 @@ public sealed class AlmostLockedSetsChainingRule : ChainingRule
 		_ = grid is { CandidatesMap: var __CandidatesMap };
 		// VARIABLE_DECLARATION_END
 
-		var linkOption = options.GetLinkOption(LinkType.AlmostLockedSets);
 		var maskTempList = (stackalloc Mask[81]);
 		foreach (var als in AlmostLockedSetPattern.Collect(grid)) // Here might raise a conflict to call nested-level interceptor.
 		{

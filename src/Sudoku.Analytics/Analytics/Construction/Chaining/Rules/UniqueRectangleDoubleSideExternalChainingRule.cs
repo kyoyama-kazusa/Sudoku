@@ -9,7 +9,7 @@ public sealed class UniqueRectangleDoubleSideExternalChainingRule : UniqueRectan
 	/// <inheritdoc/>
 	public override void GetLinks(in Grid grid, LinkDictionary strongLinks, LinkDictionary weakLinks, StepGathererOptions options)
 	{
-		if (options.GetLinkOption(LinkType.UniqueRectangle_DoubleSideExternal) == LinkOption.None)
+		if (options.GetLinkOption(LinkType.UniqueRectangle_DoubleSideExternal) is not (var linkOption and not LinkOption.None))
 		{
 			return;
 		}
@@ -23,7 +23,6 @@ public sealed class UniqueRectangleDoubleSideExternalChainingRule : UniqueRectan
 		_ = grid is { EmptyCells: var __EmptyCells, CandidatesMap: var __CandidatesMap };
 		// VARIABLE_DECLARATION_END
 
-		var linkOption = options.GetLinkOption(LinkType.UniqueRectangle_DoubleSideExternal);
 		foreach (var pattern in UniqueRectanglePattern.AllPatterns)
 		{
 			var urCells = pattern.AsCellMap();

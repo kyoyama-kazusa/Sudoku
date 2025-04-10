@@ -9,7 +9,7 @@ public sealed class XyzWingChainingRule : ChainingRule
 	/// <inheritdoc/>
 	public override void GetLinks(in Grid grid, LinkDictionary strongLinks, LinkDictionary weakLinks, StepGathererOptions options)
 	{
-		if (options.GetLinkOption(LinkType.XyzWing) == LinkOption.None)
+		if (options.GetLinkOption(LinkType.XyzWing) is not (var linkOption and not LinkOption.None))
 		{
 			return;
 		}
@@ -19,7 +19,6 @@ public sealed class XyzWingChainingRule : ChainingRule
 		// VARIABLE_DECLARATION_END
 
 		// Iterate on each XYZ-Wing pattern, to get strong links.
-		var linkOption = options.GetLinkOption(LinkType.XyzWing);
 		foreach (var pattern in new XyzWingPatternSearcher().Search(grid))
 		{
 			var (pivot, leafCell1, leafCell2, _, _, _, zDigit) = pattern;

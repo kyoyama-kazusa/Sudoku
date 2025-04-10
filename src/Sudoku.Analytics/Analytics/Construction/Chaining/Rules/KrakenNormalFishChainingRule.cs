@@ -9,7 +9,7 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 	/// <inheritdoc/>
 	public override void GetLinks(in Grid grid, LinkDictionary strongLinks, LinkDictionary weakLinks, StepGathererOptions options)
 	{
-		if (options.GetLinkOption(LinkType.KrakenNormalFish) == LinkOption.None)
+		if (options.GetLinkOption(LinkType.KrakenNormalFish) is not (var linkOption and not LinkOption.None))
 		{
 			return;
 		}
@@ -50,7 +50,6 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 
 		void collect(bool isRow, Digit size, Digit digit, Span<HouseMask> sets, ReadOnlySpan<CellMap> candidatesMap)
 		{
-			var linkOption = options.GetLinkOption(LinkType.KrakenNormalFish);
 			var baseSetsToIterate = (sets[digit] & ~(isRow ? HouseMaskOperations.AllColumnsMask : HouseMaskOperations.AllRowsMask)).GetAllSets();
 			var coverSetsToIterate = (sets[digit] & ~(isRow ? HouseMaskOperations.AllRowsMask : HouseMaskOperations.AllColumnsMask)).GetAllSets();
 			if (baseSetsToIterate.Length < size || coverSetsToIterate.Length < size)

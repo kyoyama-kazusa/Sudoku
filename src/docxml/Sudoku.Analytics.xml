@@ -719,17 +719,17 @@
         </member>
         <member name="T:Sudoku.Analytics.AnalyzerExceptionThrownEventArgs">
             <summary>
-            Provides extra data for event handler <see cref="!:AnalyzerExceptionThrownEventHandler"/>.
+            Provides extra data for event handler <see cref="E:Sudoku.Analytics.Analyzer.ExceptionThrown"/>.
             </summary>
             <param name="exception">Indicates the exception thrown.</param>
-            <seealso cref="!:AnalyzerExceptionThrownEventHandler"/>
+            <seealso cref="E:Sudoku.Analytics.Analyzer.ExceptionThrown"/>
         </member>
         <member name="M:Sudoku.Analytics.AnalyzerExceptionThrownEventArgs.#ctor(System.Exception)">
             <summary>
-            Provides extra data for event handler <see cref="!:AnalyzerExceptionThrownEventHandler"/>.
+            Provides extra data for event handler <see cref="E:Sudoku.Analytics.Analyzer.ExceptionThrown"/>.
             </summary>
             <param name="exception">Indicates the exception thrown.</param>
-            <seealso cref="!:AnalyzerExceptionThrownEventHandler"/>
+            <seealso cref="E:Sudoku.Analytics.Analyzer.ExceptionThrown"/>
         </member>
         <member name="P:Sudoku.Analytics.AnalyzerExceptionThrownEventArgs.Exception">
             <summary>
@@ -829,17 +829,17 @@
         </member>
         <member name="T:Sudoku.Analytics.AnalyzerFinishedEventArgs">
             <summary>
-            Provides extra data for event handler <see cref="!:AnalyzerFinishedEventHandler"/>.
+            Provides extra data for event handler <see cref="E:Sudoku.Analytics.Analyzer.Finished"/>.
             </summary>
             <param name="result">Indicates the result created.</param>
-            <seealso cref="!:AnalyzerFinishedEventHandler"/>
+            <seealso cref="E:Sudoku.Analytics.Analyzer.Finished"/>
         </member>
         <member name="M:Sudoku.Analytics.AnalyzerFinishedEventArgs.#ctor(Sudoku.Analytics.AnalysisResult)">
             <summary>
-            Provides extra data for event handler <see cref="!:AnalyzerFinishedEventHandler"/>.
+            Provides extra data for event handler <see cref="E:Sudoku.Analytics.Analyzer.Finished"/>.
             </summary>
             <param name="result">Indicates the result created.</param>
-            <seealso cref="!:AnalyzerFinishedEventHandler"/>
+            <seealso cref="E:Sudoku.Analytics.Analyzer.Finished"/>
         </member>
         <member name="P:Sudoku.Analytics.AnalyzerFinishedEventArgs.Result">
             <summary>
@@ -848,17 +848,17 @@
         </member>
         <member name="T:Sudoku.Analytics.AnalyzerStepFoundEventArgs">
             <summary>
-            Provides extra data for event handler <see cref="!:AnalyzerStepFoundEventHandler"/>.
+            Provides extra data for event handler <see cref="E:Sudoku.Analytics.Analyzer.StepFound"/>.
             </summary>
             <param name="step">Indicates the found step.</param>
-            <seealso cref="!:AnalyzerStepFoundEventHandler"/>
+            <seealso cref="E:Sudoku.Analytics.Analyzer.StepFound"/>
         </member>
         <member name="M:Sudoku.Analytics.AnalyzerStepFoundEventArgs.#ctor(Sudoku.Analytics.Step)">
             <summary>
-            Provides extra data for event handler <see cref="!:AnalyzerStepFoundEventHandler"/>.
+            Provides extra data for event handler <see cref="E:Sudoku.Analytics.Analyzer.StepFound"/>.
             </summary>
             <param name="step">Indicates the found step.</param>
-            <seealso cref="!:AnalyzerStepFoundEventHandler"/>
+            <seealso cref="E:Sudoku.Analytics.Analyzer.StepFound"/>
         </member>
         <member name="P:Sudoku.Analytics.AnalyzerStepFoundEventArgs.Step">
             <summary>
@@ -2453,9 +2453,6 @@
             <summary>
             Represents a chaining rule on AUR rule.
             </summary>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
-            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleChainingRule.GetViewNodes(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.Chain,Sudoku.Drawing.View,System.Int32@,System.Int32@,System.ReadOnlySpan{Sudoku.Drawing.ViewNode}@)">
             <inheritdoc/>
