@@ -86,26 +86,17 @@ public abstract partial class StepSearcher(
 	/// </para>
 	/// </param>
 	/// <returns>
-	/// Returns the first found step. The nullability of the return value is described as follow:
-	/// <list type="bullet">
-	/// <item>
-	/// <see langword="null"/>:
-	/// <list type="bullet">
-	/// <item><c><paramref name="context"/>.OnlyFindOne == <see langword="false"/></c>.</item>
-	/// <item><c><paramref name="context"/>.OnlyFindOne == <see langword="true"/></c>, but nothing found.</item>
-	/// </list>
-	/// </item>
-	/// <item>
-	/// Not <see langword="null"/>:
-	/// <list type="bullet">
-	/// <item>
-	/// <c><paramref name="context"/>.OnlyFindOne == <see langword="true"/></c>,
-	/// and found <b>at least one step</b>. In this case the return value is the first found step.
-	/// </item>
-	/// </list>
-	/// </item>
-	/// </list>
+	/// Returns the first found step. The return value is not <see langword="null"/>
+	/// if <paramref name="context"/>.OnlyFindOne equals <see langword="true"/>, and at least one step is found.
+	/// If so, the first found step will be returned; otherwise, <see langword="null"/>.
 	/// </returns>
+	/// <exception cref="WrongStepException">Throws when a wrong step is found.</exception>
+	/// <exception cref="PuzzleInvalidException">Throws when a puzzle is invalid (e.g. no solution).</exception>
+	/// <exception cref="OperationCanceledException">
+	/// Throws when the <see cref="StepAnalysisContext.CancellationToken"/> is requested.
+	/// </exception>
+	/// <exception cref="NotImplementedException">Throws when a big or small function is not implemented.</exception>
+	/// <exception cref="NotSupportedException">Throws when a big or small function is not supported on purpose.</exception>
 	/// <seealso cref="Step"/>
 	/// <seealso cref="StepAnalysisContext"/>
 	protected internal abstract Step? Collect(ref StepAnalysisContext context);

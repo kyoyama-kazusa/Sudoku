@@ -25,6 +25,7 @@ namespace Sudoku.Analytics.StepSearchers.Chains;
 
 	// Loops
 	Technique.ContinuousNiceLoop, Technique.XyCycle, Technique.FishyCycle,
+
 	RuntimeFlags = StepSearcherRuntimeFlags.SkipVerification)]
 public sealed partial class ChainStepSearcher : StepSearcher
 {

@@ -78,7 +78,9 @@ using TargetCellsGroup = CellMapOrCandidateMapGrouping<CellMap, Cell, CellMap.En
 	Technique.AdvancedFrankenSeniorExocet, Technique.AdvancedMutantSeniorExocet,
 
 	// Miscellaneous
-	Technique.PatternLockedQuadruple)]
+	Technique.PatternLockedQuadruple,
+
+	RuntimeFlags = StepSearcherRuntimeFlags.TimeComplexity)]
 public sealed partial class ExocetStepSearcher : StepSearcher
 {
 	/// <inheritdoc/>
@@ -94,11 +96,6 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 			for (var size = 2; size <= 4; size++)
 #endif
 			{
-				if (context.CancellationToken.IsCancellationRequested)
-				{
-					return null;
-				}
-
 #if SIZE_ONLY_THREE
 				const int size = 3;
 #endif
@@ -144,6 +141,9 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 							// Iterate on each empty cells, or a cell group whose length is equal to iteration variable 'baseCellsSize'.
 							foreach (ref readonly var minilineBaseCells in Miniline.MinilinesGroupedByChuteIndex[i].AsReadOnlySpan())
 							{
+								// Set cancellation token handling logic here.
+								context.CancellationToken.ThrowIfCancellationRequested();
+
 								if ((minilineBaseCells & EmptyCells) is not (var baseEmptyCellsToBeIterated and not []))
 								{
 									// No cells can be iterated.
@@ -360,12 +360,6 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		// Here is an example:
 		//   98.7.....6.....97...7.....54...3..2...86..4.......4..1..68..5......1...4.....2.3.
 		// We should treat the digit as a non-locked member.
-
-		if (context.CancellationToken.IsCancellationRequested)
-		{
-			return null;
-		}
-
 		if (!CheckValidityAndLockedMembersExistence(
 			grid, baseCellsDigitsMask, baseCells, targetCells, crossline, size - 1, out var digitsMaskExactlySizeMinusOneTimes,
 			out var digitsMaskAppearedInCrossline, out var lockedMembers, out var lockedMemberDigitsMask))
@@ -518,11 +512,6 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		int chuteIndex
 	)
 	{
-		if (context.CancellationToken.IsCancellationRequested)
-		{
-			return null;
-		}
-
 		var crosslineIncludingTarget = CellMap.Empty;
 		foreach (var house in housesMask)
 		{
@@ -624,11 +613,6 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		in CellMap housesCells
 	)
 	{
-		if (context.CancellationToken.IsCancellationRequested)
-		{
-			return null;
-		}
-
 		if (GetComplexHouses(isRow, baseCells) is not (var extraHousesMask and not 0))
 		{
 			// No houses will be iterated.
@@ -777,11 +761,6 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		in CellMap housesCells
 	)
 	{
-		if (context.CancellationToken.IsCancellationRequested)
-		{
-			return null;
-		}
-
 		if (GetComplexHouses(isRow, baseCells) is not (var extraHousesMask and not 0))
 		{
 			// No houses will be iterated.
@@ -791,11 +770,6 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		// Now iterate on each combination of extra houses.
 		foreach (var extraHouse in extraHousesMask.GetAllSets())
 		{
-			if (context.CancellationToken.IsCancellationRequested)
-			{
-				return null;
-			}
-
 			// Create a map that contains both cross-line cells and extra houses cells.
 			var expandedCrossline = (crossline | HousesMap[extraHouse]) & ~baseCells.PeerIntersection;
 			var expandedCrosslineIncludingTarget = (housesCells | HousesMap[extraHouse]) & ~baseCells.PeerIntersection;
@@ -804,11 +778,6 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 			// Iterate on each empty cells in the above map, to get the other target cell.
 			foreach (var endoTargetCell in expandedCrossline & EmptyCells)
 			{
-				if (context.CancellationToken.IsCancellationRequested)
-				{
-					return null;
-				}
-
 				if (Mask.IsPow2((targetCell.AsCellMap() + endoTargetCell).BlockMask))
 				{
 					// The target selected endo-target cell cannot share a same block with target cell.
@@ -1134,11 +1103,6 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		// A weak exocet may contain some extra eliminations that a normal JE pattern (even not containing the missing-value cell) doesn't have.
 		#endregion
 
-		if (context.CancellationToken.IsCancellationRequested)
-		{
-			return null;
-		}
-
 		// Target cells must be 2.
 		if (groupsOfTargetCells.Length != 2)
 		{
@@ -1412,11 +1376,6 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		int chuteIndex
 	)
 	{
-		if (context.CancellationToken.IsCancellationRequested)
-		{
-			return null;
-		}
-
 		// Before the checking we have a normal JE pattern. Now we should check for the other one, to form a double JE.
 		// A double JE is not two combined JEs. A double JE can contain extra eliminations that won't be formed in a single JE pattern.
 
@@ -1847,11 +1806,6 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 
 		foreach (ref readonly var cellGroup in cellGroups)
 		{
-			if (context.CancellationToken.IsCancellationRequested)
-			{
-				return null;
-			}
-
 			if (cellGroup.Count == 2)
 			{
 				// If the number of target cells in one side is 2, we cannot determine which one is correct.
@@ -1966,11 +1920,6 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		var singleMirrors = CellMap.Empty;
 		foreach (ref readonly var cellGroup in targetCells.GroupTargets(housesMask))
 		{
-			if (context.CancellationToken.IsCancellationRequested)
-			{
-				return null;
-			}
-
 			if (cellGroup.Count == 2)
 			{
 				// This side contain 2 target empty cells. We cannot conclude for this case.
@@ -2524,11 +2473,6 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 			// Now check for empty cells in this house, removing all cells located in the miniline that the target cell located in.
 			foreach (var coveredHouse in mirrorEmptyCells.SharedHouses)
 			{
-				if (context.CancellationToken.IsCancellationRequested)
-				{
-					return null;
-				}
-
 				var otherCells = HousesMap[coveredHouse] & EmptyCells & ~miniline;
 				if (otherCells.Count < 2)
 				{
@@ -4388,11 +4332,6 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		scoped ReadOnlySpan<TargetCellsGroup> groupsOfTargetCells
 	)
 	{
-		if (context.CancellationToken.IsCancellationRequested)
-		{
-			return null;
-		}
-
 		// Adjacent target cannot be used for same-side target cells.
 		if (targetCells.FirstSharedHouse != 32)
 		{
@@ -4410,11 +4349,6 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 
 			foreach (var targetCell in cellGroup)
 			{
-				if (context.CancellationToken.IsCancellationRequested)
-				{
-					return null;
-				}
-
 				var mirrorCells = GetMirrorCells(targetCell, chuteIndex, out _);
 				if ((mirrorCells & EmptyCells) is not [var theOnlyMirrorCell])
 				{
@@ -4521,11 +4455,6 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		scoped ReadOnlySpan<TargetCellsGroup> groupsOfTargetCells
 	)
 	{
-		if (context.CancellationToken.IsCancellationRequested)
-		{
-			return null;
-		}
-
 		// Mirror conjugate pair cannot be used for same-side target cells.
 		if (targetCells.Count != 2 || targetCells.FirstSharedHouse != 32)
 		{
@@ -4541,11 +4470,6 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 
 		foreach (ref readonly var cellGroup in groupsOfTargetCells)
 		{
-			if (context.CancellationToken.IsCancellationRequested)
-			{
-				return null;
-			}
-
 			if (cellGroup.Count == 2)
 			{
 				// If the number of target cells in one side is 2, we cannot determine which one is correct.
