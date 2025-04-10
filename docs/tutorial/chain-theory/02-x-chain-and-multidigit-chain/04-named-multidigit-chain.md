@@ -176,3 +176,11 @@ description: Named Multidigit Chain
 这便是技巧名称误传的根本原因。
 
 > X-Wing 是二阶鱼，看起来似乎跟 XY-Wing 的逻辑也不沾边。但是在之后的内容我们会提到，X-Wing 也是有链的视角的，而 X-Wing 命名从根本上没有取一个鱼的名字（反倒是有个 wing 的名字），它的真正原因还是在于 X-Wing 这个技巧比鱼体系诞生要早，所以它比较特殊。它的链的视角也确实比较特殊，而且现在讲有些超纲，因此我们以后再对这个技巧进行补充说明。
+
+## 总结 <a href="#phased-conclusion" id="phased-conclusion"></a>
+
+至此，同数链和异数链的内容就介绍完了。下面我们对目前我们学到的链总结一下。
+
+<figure><img src="../../.gitbook/assets/images_0291.png" alt=""><figcaption><p>链的分类（第一阶段结束）</p></figcaption></figure>
+
+图片里整理了前面全部学过的、有技巧名称的链的类型，以及他们划分的分类。这个图以后还会继续往后延伸。链是一个非常庞大的体系，所以我们还不能掉以轻心。
