@@ -8,7 +8,7 @@ namespace Sudoku.Analytics;
 /// </summary>
 /// <seealso cref="AnalysisResult"/>
 /// <seealso cref="Analyzer"/>
-public sealed class Analyzer : StepGatherer, meta_analysis::IAnalyzer<Analyzer, AnalysisResult, Grid, Step>
+public sealed class Analyzer : StepGatherer, IAnalyzer<Analyzer, AnalysisResult, Grid, Step>
 {
 	/// <summary>
 	/// Indicates the default steps capacity.
@@ -724,7 +724,7 @@ public sealed class Analyzer : StepGatherer, meta_analysis::IAnalyzer<Analyzer, 
 	}
 
 	/// <inheritdoc/>
-	AnalysisResult meta_analysis::IAnalyzer<Analyzer, AnalysisResult, Grid, Step>.Analyze(Grid board, CancellationToken cancellationToken)
+	AnalysisResult IAnalyzer<Analyzer, AnalysisResult, Grid, Step>.Analyze(Grid board, CancellationToken cancellationToken)
 		=> Analyze(board, cancellationToken: cancellationToken);
 
 

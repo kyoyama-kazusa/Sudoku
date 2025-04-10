@@ -3,11 +3,10 @@ namespace Sudoku.Analytics;
 /// <summary>
 /// Provides the result after <see cref="Analyzer"/> solving a puzzle.
 /// </summary>
-/// <param name="Puzzle"><inheritdoc cref="IAnalysisResult.Puzzle" path="/summary"/></param>
+/// <param name="Puzzle">Indicates the original puzzle to be solved.</param>
 [TypeImpl(TypeImplFlags.Equatable)]
 public sealed partial record AnalysisResult([property: EquatableMember] in Grid Puzzle) :
-	IAnalysisResult,
-	meta_analysis::IAnalysisResult<AnalysisResult, Grid, Step>,
+	IAnalysisResult<AnalysisResult, Grid, Step>,
 	IAnyAllMethod<AnalysisResult, Step>,
 	ICastMethod<AnalysisResult, Step>,
 	IEnumerable<Step>,
@@ -43,7 +42,9 @@ public sealed partial record AnalysisResult([property: EquatableMember] in Grid 
 		| FormattingOptions.ShowElapsedTime;
 
 
-	/// <inheritdoc/>
+	/// <summary>
+	/// Indicates whether the solver has solved the puzzle.
+	/// </summary>
 	[MemberNotNullWhen(true, nameof(InterimSteps), nameof(InterimGrids))]
 	[MemberNotNullWhen(true, nameof(PearlStep), nameof(DiamondStep))]
 	[MemberNotNullWhen(true, nameof(MemoryUsed))]
@@ -190,10 +191,19 @@ public sealed partial record AnalysisResult([property: EquatableMember] in Grid 
 	/// </summary>
 	public DifficultyLevel DifficultyLevel => (DifficultyLevel)StepsSpan.Max(static step => (int)step.DifficultyLevel);
 
-	/// <inheritdoc/>
+	/// <summary>
+	/// Indicates the result sudoku grid solved. If the solver can't solve this puzzle, the value will be
+	/// <see cref="Grid.Undefined"/>.
+	/// </summary>
+	/// <seealso cref="Grid.Undefined"/>
 	public Grid Solution { get; init; }
 
-	/// <inheritdoc/>
+	/// <summary>
+	/// Indicates the elapsed time used during solving the puzzle. The value may not be an useful value.
+	/// Some case if the puzzle doesn't contain a valid unique solution, the value may be
+	/// <see cref="TimeSpan.Zero"/>.
+	/// </summary>
+	/// <seealso cref="TimeSpan.Zero"/>
 	public TimeSpan ElapsedTime { get; init; }
 
 	/// <summary>
@@ -277,7 +287,7 @@ public sealed partial record AnalysisResult([property: EquatableMember] in Grid 
 	public TechniqueSet TechniquesUsed => [.. from step in StepsSpan select step.Code];
 
 	/// <summary>
-	/// <inheritdoc cref="IAnalysisResult.UnhandledException" path="/summary"/>
+	/// Indicates the unhandled exception thrown.
 	/// </summary>
 	/// <remarks>
 	/// You can visit the property value if the property <see cref="FailedReason"/>
@@ -304,7 +314,7 @@ public sealed partial record AnalysisResult([property: EquatableMember] in Grid 
 	int IReadOnlyCollection<KeyValuePair<Grid, Step>>.Count => Span.Length;
 
 	/// <inheritdoc/>
-	meta_analysis::FailedReason meta_analysis::IAnalysisResult<AnalysisResult, Grid, Step>.FailedReason
+	meta_analysis::FailedReason IAnalysisResult<AnalysisResult, Grid, Step>.FailedReason
 	{
 		get => FailedReason switch
 		{
@@ -328,7 +338,7 @@ public sealed partial record AnalysisResult([property: EquatableMember] in Grid 
 	}
 
 	/// <inheritdoc/>
-	ReadOnlySpan<Step> meta_analysis::IAnalysisResult<AnalysisResult, Grid, Step>.Steps => StepsSpan;
+	ReadOnlySpan<Step> IAnalysisResult<AnalysisResult, Grid, Step>.Steps => StepsSpan;
 
 	/// <inheritdoc/>
 	IEnumerable<Grid> IReadOnlyDictionary<Grid, Step>.Keys => InterimGrids ?? [];

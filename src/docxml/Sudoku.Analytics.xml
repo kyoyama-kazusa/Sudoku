@@ -8,16 +8,16 @@
             <summary>
             Provides the result after <see cref="T:Sudoku.Analytics.Analyzer"/> solving a puzzle.
             </summary>
-            <param name="Puzzle"><inheritdoc cref="P:Sudoku.Analytics.IAnalysisResult.Puzzle" path="/summary"/></param>
+            <param name="Puzzle">Indicates the original puzzle to be solved.</param>
         </member>
         <member name="M:Sudoku.Analytics.AnalysisResult.#ctor(Sudoku.Concepts.Grid@)">
             <summary>
             Provides the result after <see cref="T:Sudoku.Analytics.Analyzer"/> solving a puzzle.
             </summary>
-            <param name="Puzzle"><inheritdoc cref="P:Sudoku.Analytics.IAnalysisResult.Puzzle" path="/summary"/></param>
+            <param name="Puzzle">Indicates the original puzzle to be solved.</param>
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.Puzzle">
-            <summary><inheritdoc cref="P:Sudoku.Analytics.IAnalysisResult.Puzzle" path="/summary"/></summary>
+            <summary>Indicates the original puzzle to be solved.</summary>
         </member>
         <member name="F:Sudoku.Analytics.AnalysisResult.MaximumRatingValueTheory">
             <summary>
@@ -40,7 +40,9 @@
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.IsSolved">
-            <inheritdoc/>
+            <summary>
+            Indicates whether the solver has solved the puzzle.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.IsPartiallySolved">
             <summary>
@@ -172,10 +174,19 @@
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.Solution">
-            <inheritdoc/>
+            <summary>
+            Indicates the result sudoku grid solved. If the solver can't solve this puzzle, the value will be
+            <see cref="F:Sudoku.Concepts.Grid.Undefined"/>.
+            </summary>
+            <seealso cref="F:Sudoku.Concepts.Grid.Undefined"/>
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.ElapsedTime">
-            <inheritdoc/>
+            <summary>
+            Indicates the elapsed time used during solving the puzzle. The value may not be an useful value.
+            Some case if the puzzle doesn't contain a valid unique solution, the value may be
+            <see cref="F:System.TimeSpan.Zero"/>.
+            </summary>
+            <seealso cref="F:System.TimeSpan.Zero"/>
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.GridsSpan">
             <summary>
@@ -243,7 +254,7 @@
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.UnhandledException">
             <summary>
-            <inheritdoc cref="P:Sudoku.Analytics.IAnalysisResult.UnhandledException" path="/summary"/>
+            Indicates the unhandled exception thrown.
             </summary>
             <remarks>
             You can visit the property value if the property <see cref="P:Sudoku.Analytics.AnalysisResult.FailedReason"/>
@@ -8179,41 +8190,6 @@
             </summary>
             <param name="size">The number of cells used in a subset.</param>
             <returns>The name of the subset.</returns>
-        </member>
-        <member name="T:Sudoku.Analytics.IAnalysisResult">
-            <summary>
-            Represents an instance that describes the result after executed.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.IAnalysisResult.IsSolved">
-            <summary>
-            Indicates whether the solver has solved the puzzle.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.IAnalysisResult.ElapsedTime">
-            <summary>
-            Indicates the elapsed time used during solving the puzzle. The value may not be an useful value.
-            Some case if the puzzle doesn't contain a valid unique solution, the value may be
-            <see cref="F:System.TimeSpan.Zero"/>.
-            </summary>
-            <seealso cref="F:System.TimeSpan.Zero"/>
-        </member>
-        <member name="P:Sudoku.Analytics.IAnalysisResult.Puzzle">
-            <summary>
-            Indicates the original puzzle to be solved.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.IAnalysisResult.Solution">
-            <summary>
-            Indicates the result sudoku grid solved. If the solver can't solve this puzzle, the value will be
-            <see cref="F:Sudoku.Concepts.Grid.Undefined"/>.
-            </summary>
-            <seealso cref="F:Sudoku.Concepts.Grid.Undefined"/>
-        </member>
-        <member name="P:Sudoku.Analytics.IAnalysisResult.UnhandledException">
-            <summary>
-            Indicates the unhandled exception thrown.
-            </summary>
         </member>
         <member name="T:Sudoku.Analytics.PencilmarkVisibilities">
             <summary>
