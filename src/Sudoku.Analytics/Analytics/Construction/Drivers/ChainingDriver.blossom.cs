@@ -344,6 +344,8 @@ internal partial class ChainingDriver
 		typeof(AlmostLockedSetsChainingRule),
 		typeof(KrakenNormalFishChainingRule),
 		typeof(LockedCandidatesChainingRule),
+		typeof(UniqueRectangleSameDigitChainingRule),
+		typeof(UniqueRectangleDifferentDigitChainingRule),
 		DefaultBehavior = InterceptorPolymorphicBehavior.DoNothingOrReturnDefault)]
 	private static ConclusionSet CollectBlossomConclusions(
 		in Grid grid,

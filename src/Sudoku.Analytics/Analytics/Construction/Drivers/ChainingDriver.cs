@@ -349,7 +349,11 @@ internal static partial class ChainingDriver
 	/// <returns>Found conclusions.</returns>
 	[InterceptorMethodCaller]
 	[InterceptorPolymorphic(
-		typeof(AlmostLockedSetsChainingRule), typeof(KrakenNormalFishChainingRule), typeof(LockedCandidatesChainingRule),
+		typeof(AlmostLockedSetsChainingRule),
+		typeof(KrakenNormalFishChainingRule),
+		typeof(LockedCandidatesChainingRule),
+		typeof(UniqueRectangleSameDigitChainingRule),
+		typeof(UniqueRectangleDifferentDigitChainingRule),
 		DefaultBehavior = InterceptorPolymorphicBehavior.DoNothingOrReturnDefault)]
 	private static Conclusion[] CollectChainConclusions(NamedChain pattern, in Grid grid, ChainingRuleCollection supportedRules)
 	{

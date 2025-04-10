@@ -2466,6 +2466,9 @@
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDifferentDigitChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDifferentDigitChainingRule.GetLoopConclusions(Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDoubleSideExternalChainingRule">
             <summary>
             Represents a chaining rule on AUR rule (i.e. <see cref="F:Sudoku.Analytics.Construction.Components.LinkType.UniqueRectangle_DoubleSideExternal"/>).
@@ -2482,6 +2485,9 @@
             <seealso cref="F:Sudoku.Analytics.Construction.Components.LinkType.UniqueRectangle_SameDigit"/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSameDigitChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSameDigitChainingRule.GetLoopConclusions(Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSingleSideExternalChainingRule">
@@ -34611,6 +34617,24 @@
             </summary>
         </member>
         <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__LockedCandidatesChainingRule_GetLoopConclusions_Intercepted.GetLoopConclusions(Sudoku.Analytics.Construction.Chaining.Rules.LockedCandidatesChainingRule,Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
+            <inheritdoc/>
+            <!-- Nothing inserts here -->
+        </member>
+        <member name="T:Sudoku.Runtime.InterceptorServices.Generated.__UniqueRectangleSameDigitChainingRule_GetLoopConclusions_Intercepted">
+            <summary>
+            Interceptor method that will replace implementation on such referenced method invocation.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__UniqueRectangleSameDigitChainingRule_GetLoopConclusions_Intercepted.GetLoopConclusions(Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleSameDigitChainingRule,Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
+            <inheritdoc/>
+            <!-- Nothing inserts here -->
+        </member>
+        <member name="T:Sudoku.Runtime.InterceptorServices.Generated.__UniqueRectangleDifferentDigitChainingRule_GetLoopConclusions_Intercepted">
+            <summary>
+            Interceptor method that will replace implementation on such referenced method invocation.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__UniqueRectangleDifferentDigitChainingRule_GetLoopConclusions_Intercepted.GetLoopConclusions(Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDifferentDigitChainingRule,Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
             <inheritdoc/>
             <!-- Nothing inserts here -->
         </member>

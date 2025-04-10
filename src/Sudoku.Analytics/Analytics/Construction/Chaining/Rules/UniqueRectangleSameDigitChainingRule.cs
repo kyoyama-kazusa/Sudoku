@@ -85,4 +85,22 @@ public sealed class UniqueRectangleSameDigitChainingRule : UniqueRectangleChaini
 			}
 		}
 	}
+
+	/// <inheritdoc/>
+	public override void GetLoopConclusions(in Grid grid, ReadOnlySpan<Link> links, ref ConclusionSet conclusions)
+	{
+		// VARIABLE_DECLARATION_BEGIN
+		_ = 42;
+		// VARIABLE_DECLARATION_END
+
+		var result = ConclusionSet.Empty;
+		foreach (var element in links)
+		{
+			if (element is { IsStrong: true, GroupedLinkPattern: UniqueRectanglePattern(var cells, var digitsMask) })
+			{
+				result.AddRange(EliminationCalculator.UniqueRectangle.GetConclusions(cells, digitsMask, grid));
+			}
+		}
+		conclusions |= result;
+	}
 }
