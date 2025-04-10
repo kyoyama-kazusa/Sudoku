@@ -6,7 +6,6 @@ namespace Sudoku.Analytics.StepSearchers.AlmostLockedSets;
 /// <list type="bullet">
 /// <item>Death Blossom</item>
 /// <item>Death Blossom (House Blooming)</item>
-/// <item>Death Blossom (Rectangle Blooming)</item>
 /// <item>Death Blossom (A^nLS Blooming)</item>
 /// </list>
 /// </summary>
@@ -390,7 +389,7 @@ public sealed partial class DeathBlossomStepSearcher : StepSearcher
 		{
 			foreach (var alsCell in alsCells)
 			{
-				var alsColor = GetColor(indexOfAls);
+				var alsColor = WellKnownColorIdentifierKind.AlmostLockedSet1 + indexOfAls;
 				foreach (var digit in grid.GetCandidates(alsCell))
 				{
 					var node = new CandidateViewNode(
@@ -516,7 +515,7 @@ public sealed partial class DeathBlossomStepSearcher : StepSearcher
 			{
 				foreach (var alsCell in alsCells)
 				{
-					var alsColor = GetColor(indexOfAls);
+					var alsColor = WellKnownColorIdentifierKind.AlmostLockedSet1 + indexOfAls;
 					foreach (var digit in grid.GetCandidates(alsCell))
 					{
 						var node = new CandidateViewNode(
@@ -670,16 +669,20 @@ public sealed partial class DeathBlossomStepSearcher : StepSearcher
 			var targetAls = alses[indexUsed2All[usedAlsIndex]];
 			foreach (var cell in targetAls.Cells)
 			{
-				var cellNode = new CellViewNode(GetColor(alsIndex), cell);
+				var cellNode = new CellViewNode(WellKnownColorIdentifierKind.AlmostLockedSet1 + alsIndex, cell);
 				view.Add(cellNode);
 				cellOffsets.Add(cellNode);
 
 				foreach (var digit in grid.GetCandidates(cell))
 				{
-					var colorIdentifier = (rcc >> digit & 1) != 0
-						? ColorIdentifier.Auxiliary2
-						: (zDigitsMask >> digit & 1) != 0 ? ColorIdentifier.Auxiliary1 : GetColor(alsIndex);
-					var candidateNode = new CandidateViewNode(colorIdentifier, cell * 9 + digit);
+					var candidateNode = new CandidateViewNode(
+						(rcc >> digit & 1) != 0
+							? ColorIdentifier.Auxiliary2
+							: (zDigitsMask >> digit & 1) != 0
+								? ColorIdentifier.Auxiliary1
+								: WellKnownColorIdentifierKind.AlmostLockedSet1 + alsIndex,
+						cell * 9 + digit
+					);
 					view.Add(candidateNode);
 					candidateOffsets.Add(candidateNode);
 				}
@@ -731,21 +734,4 @@ public sealed partial class DeathBlossomStepSearcher : StepSearcher
 		accumulator.Add(step);
 		return null;
 	}
-
-
-	/// <summary>
-	/// Try to fetch the ALS color.
-	/// </summary>
-	/// <param name="index">The index of the target ALS.</param>
-	/// <returns>The color identifier.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	private static ColorIdentifier GetColor(int index)
-		=> (index % 5) switch
-		{
-			0 => ColorIdentifier.AlmostLockedSet1,
-			1 => ColorIdentifier.AlmostLockedSet2,
-			2 => ColorIdentifier.AlmostLockedSet3,
-			3 => ColorIdentifier.AlmostLockedSet4,
-			4 => ColorIdentifier.AlmostLockedSet5
-		};
 }

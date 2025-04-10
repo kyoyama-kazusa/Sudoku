@@ -9014,7 +9014,6 @@
             <list type="bullet">
             <item>Death Blossom</item>
             <item>Death Blossom (House Blooming)</item>
-            <item>Death Blossom (Rectangle Blooming)</item>
             <item>Death Blossom (A^nLS Blooming)</item>
             </list>
             </summary>
@@ -9062,13 +9061,6 @@
             Search for A^nLS blooming type, and create a <see cref="T:Sudoku.Analytics.Steps.AlmostLockedSets.NTimesAlmostLockedSetsDeathBlossomStep"/> instance
             and add it into the accumulator if worth.
             </summary>
-        </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.AlmostLockedSets.DeathBlossomStepSearcher.GetColor(System.Int32)">
-            <summary>
-            Try to fetch the ALS color.
-            </summary>
-            <param name="index">The index of the target ALS.</param>
-            <returns>The color identifier.</returns>
         </member>
         <member name="T:Sudoku.Analytics.StepSearchers.AlmostLockedSets.EmptyRectangleIntersectionPairStepSearcher">
             <summary>
