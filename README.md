@@ -228,6 +228,6 @@ Please see file [CODE_OF_CONDUCT](CODE_OF_CONDUCT).
 
 I'm not a developer, but I like it!
 
-Please visit file [CONTACTS](CONTACTS) to contact me if you want.
+Please visit file [CONTACTS](CONTACTS.md) to contact me if you want.
 
 [^1]: W-Wing is implemented by a single technique searcher type, while other irregular wing types are implemented by AIC searchers.

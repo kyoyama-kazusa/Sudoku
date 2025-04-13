@@ -227,4 +227,4 @@
 
 一个热爱开发的非开发人员。
 
-如果要联系我，请查看 [CONTACTS-zh-cn](CONTACTS-zh-cn) 文件了解我的联系方式。
+如果要联系我，请查看 [CONTACTS-zh-cn](CONTACTS-zh-cn.md) 文件了解我的联系方式。
