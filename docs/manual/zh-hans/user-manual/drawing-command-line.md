@@ -8,7 +8,7 @@ description: Drawing Command Line
 
 ## 外貌 <a href="#looking" id="looking"></a>
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>外貌</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/images_0001.png" alt=""><figcaption><p>外貌</p></figcaption></figure>
 
 ## 命令行语法 <a href="#command-line-syntax" id="command-line-syntax"></a>
 
@@ -47,7 +47,7 @@ candidate !o r5c5(9)
 
 可以产生如下的输出内容：
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/images_0002.png" alt=""><figcaption></figcaption></figure>
 
 ### 载入题目 <a href="#load-puzzle" id="load-puzzle"></a>
 
@@ -76,6 +76,8 @@ cell <color-identifier> <cell|cell-group>
 ```bash
 candidate <color-identifier> <candidate|candidate-group>
 ```
+
+另外，你也可以使用 `r1c1` 这种单元格语法来直接高亮这个单元格里的全部候选数。不过这个用法只支持在你前面用了 `load` 指令导入了盘面的情况。
 
 ### 区域高亮 <a href="#house-highlight" id="house-highlight"></a>
 
@@ -133,11 +135,13 @@ link <color-identifier> <link-shape> <start-candidates> <end-candidates> [<extra
 * 强弱链（用 `chain` 表示）
 * 共轭对（用于致命结构的类型 4，用 `conjugate` 表示）
 
+另外，链的记号会用到 `=` 来表示强链，`-` 来表示弱链。比如说 `link !n chain r1c1(1) r1c2(1) =` 表示在 `r1c1(1)` 和 `r1c2(1)` 之间有一个强链。另外，这个语法还支持区块节点，如 `r1c123(1)` 这种组合候选数的情况。
+
 ## 坐标语法 <a href="#coordinate-syntax" id="coordinate-syntax"></a>
 
 对于上述提及的坐标，你需要使用要么 RxCy 表示、要么 K9 表示，要么 Excel 表示的方式来呈现他们。具体哪一个取决于你在设置页里配置的那个。
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>设置页里配置的坐标类型</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/images_0003.png" alt=""><figcaption><p>设置页里配置的坐标类型</p></figcaption></figure>
 
 ## 颜色标识符语法 <a href="#color-identifier-syntax" id="color-identifier-syntax"></a>
 

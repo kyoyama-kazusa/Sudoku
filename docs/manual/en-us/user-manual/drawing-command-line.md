@@ -4,7 +4,7 @@ This page will help you use drawing command line.
 
 ## Looking
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Page looking</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/images_0001.png" alt=""><figcaption><p>Page looking</p></figcaption></figure>
 
 This page will allow you using command line to draw pictures.
 
@@ -45,7 +45,7 @@ candidate !o r5c5(9)
 
 can produce such output:
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Output</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/images_0002.png" alt=""><figcaption><p>Output</p></figcaption></figure>
 
 ### Load puzzle
 
@@ -74,6 +74,8 @@ If you want to highlight a candidte, you should use `candidate` command:
 ```bash
 candidate <color-identifier> <candidate|candidate-group>
 ```
+
+In addition, if you want to append all candidates from a cell appeared in a grid, you can just use cell notation instead. For example, `r1c1` represents all candidates in `r1c1`, instead of writting multiple candidates like `r1c1(13579)`. However, this command must be placed after `load` command because it relies on a real grid to reference states of candidates.
 
 ### House highlight
 
@@ -133,11 +135,15 @@ By the way, the supported link shapes are:
 * chain: a chain link
 * conjugate: a conjugate pair link (used by Type 4 of Deadly Patterns)
 
+For example, `link !n chain r1c1(1) r1c2(1) =` will create a strong link between `r1c1(1)` and `r1c2(1)`. The equals token `=` represents a strong link, and minus token `-` represents a weak link.
+
+In addition, grouped nodes are also supported.
+
 ## Coordinate syntax
 
 For the coordinates mentioned above, you should use one of RxCy, K9, Excel notation defined in settings page:
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Coordinate kind in settings page</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/images_0003.png" alt=""><figcaption><p>Coordinate kind in settings page</p></figcaption></figure>
 
 ## Color identifier syntax
 
@@ -211,4 +217,3 @@ candidate !e r5c5(12)
 # with other shown candidates overlapped
 candidate !o r5c5(9)
 ```
-
