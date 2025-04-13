@@ -1,10 +1,10 @@
 # Table of contents
 
-## 数独概述 <a href="#basics-of-sudoku" id="basics-of-sudoku"></a>
+## 数独概述 <a href="#sudoku-basics" id="sudoku-basics"></a>
 
 * [初来乍到](README.md)
-* [坐标](basics-of-sudoku/02-coordinate.md)
-* [数独历史](basics-of-sudoku/03-history-of-sudoku.md)
+* [坐标](sudoku-basics/02-coordinate.md)
+* [数独历史](sudoku-basics/03-history-of-sudoku.md)
 
 ## 直观技巧 <a href="#direct-technique" id="direct-technique"></a>
 
