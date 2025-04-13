@@ -75,6 +75,8 @@ If you want to highlight a candidte, you should use `candidate` command:
 candidate <color-identifier> <candidate|candidate-group>
 ```
 
+In addition, if you want to append all candidates from a cell appeared in a grid, you can just use cell notation instead. For example, `r1c1` represents all candidates in `r1c1`, instead of writting multiple candidates like `r1c1(13579)`. However, this command must be placed after `load` command because it relies on a real grid to reference states of candidates.
+
 ### House highlight
 
 If you want to highlight a house, you should use `house` command:
@@ -132,6 +134,10 @@ By the way, the supported link shapes are:
 * cell: a cell link (used by Unique Loop)
 * chain: a chain link
 * conjugate: a conjugate pair link (used by Type 4 of Deadly Patterns)
+
+For example, `link !n chain r1c1(1) r1c2(1) =` will create a strong link between `r1c1(1)` and `r1c2(1)`. The equals token `=` represents a strong link, and minus token `-` represents a weak link.
+
+In addition, grouped nodes are also supported.
 
 ## Coordinate syntax
 
@@ -211,4 +217,3 @@ candidate !e r5c5(12)
 # with other shown candidates overlapped
 candidate !o r5c5(9)
 ```
-
