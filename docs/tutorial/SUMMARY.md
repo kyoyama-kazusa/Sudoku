@@ -69,6 +69,8 @@
   * [不连续环的两种模式](chain-theory/02-x-chain-and-multidigit-chain/03-two-types-of-discontinuous-nice-loop.md)
   * [有技巧名的异数链](chain-theory/02-x-chain-and-multidigit-chain/04-named-multidigit-chain.md)
 * [区块链](chain-theory/03-grouped-chain.md)
+* [待定数组链](chain-theory/04-almost-locked-set-chain/README.md)
+  * [链关系的第二定义](chain-theory/04-almost-locked-set-chain/01-the-second-definition-of-inferences.md)
 
 ## 附录 <a href="#appendix" id="appendix"></a>
 
