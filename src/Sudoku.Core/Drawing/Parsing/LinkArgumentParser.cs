@@ -6,7 +6,12 @@ namespace Sudoku.Drawing.Parsing;
 internal sealed class LinkArgumentParser : ArgumentParser
 {
 	/// <inheritdoc/>
-	public override ReadOnlySpan<ViewNode> Parse(ReadOnlySpan<string> arguments, ColorIdentifier colorIdentifier, CoordinateParser coordinateParser)
+	public override ReadOnlySpan<ViewNode> Parse(
+		ReadOnlySpan<string> arguments,
+		[AllowNull] ref readonly Grid grid,
+		ColorIdentifier colorIdentifier,
+		CoordinateParser coordinateParser
+	)
 	{
 		if (arguments is not [var linkKeyword, .. { Length: var linkArgsLength } linkArgs])
 		{

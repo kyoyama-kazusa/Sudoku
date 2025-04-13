@@ -3,12 +3,13 @@ namespace Sudoku.Drawing.Parsing;
 /// <summary>
 /// Represents a parser that generates a list of drawing items.
 /// </summary>
+/// <param name="grid">Indicates the reference to the grid. The reference can be <see langword="null"/>.</param>
 /// <remarks>
 /// Please visit <see href="https://sudokustudio.kazusa.tech/user-manual/drawing-command-line">this link</see>
 /// to learn more information about drawing command syntax.
 /// </remarks>
 [TypeImpl(TypeImplFlags.AllObjectMethods)]
-public readonly ref partial struct DrawingCommandParser
+public readonly ref partial struct DrawingCommandParser([Field, AllowNull] ref readonly Grid grid)
 {
 	/// <summary>
 	/// Indicates the well-known identifiers, and their own key used in parsing.
@@ -111,7 +112,7 @@ public readonly ref partial struct DrawingCommandParser
 
 			result.AddRange(
 				ArgumentParsers.TryGetValue(keyword, out var parserCreator)
-					? parserCreator().Parse(args, ParseColorIdentifier(colorIdentifierString), parser)
+					? parserCreator().Parse(args, in _grid, ParseColorIdentifier(colorIdentifierString), parser)
 					: throw new FormatException($"Invalid keyword '{keyword}'.")
 			);
 		}
