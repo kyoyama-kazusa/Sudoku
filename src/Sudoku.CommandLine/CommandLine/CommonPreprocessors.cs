@@ -107,9 +107,9 @@ internal static class CommonPreprocessors
 
 		Output:
 			OutputTextTo(
-				in tempGridGenerated,
+				tempGridGenerated,
 				outputFileStream ?? Console.Out,
-				(ref readonly grid) => (alsoOutputInfo, outputTargetGridRatherThanOriginalGrid, matchedKvp) switch
+				(in grid) => (alsoOutputInfo, outputTargetGridRatherThanOriginalGrid, matchedKvp) switch
 				{
 					(true, true, var (targetGrid, step)) => $"{targetGrid:#}{separator}{step.GetName(null)}",
 					(true, _, (_, var step)) => $"{grid:.}{separator}{step.GetName(null)}",
@@ -131,10 +131,10 @@ internal static class CommonPreprocessors
 	/// The method that converts the object <paramref name="obj"/> to <see cref="string"/> representation.
 	/// </param>
 	/// <param name="appendNewLine">Indicates whether the new line characters will be appended after the output text.</param>
-	public static void OutputTextTo<T>(ref readonly T obj, TextWriter writer, FuncRefReadOnly<T, string> outputTextCreator, bool appendNewLine)
+	public static void OutputTextTo<T>(in T obj, TextWriter writer, ObjectOutputHandler<T> outputTextCreator, bool appendNewLine)
 		where T : allows ref struct
 	{
-		writer.Write(outputTextCreator(in obj));
+		writer.Write(outputTextCreator(obj));
 		if (appendNewLine)
 		{
 			writer.WriteLine();

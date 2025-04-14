@@ -406,7 +406,7 @@
             </param>
             <param name="separator">The separator that splits the output grid and detailed information (if available).</param>
         </member>
-        <member name="M:Sudoku.CommandLine.CommonPreprocessors.OutputTextTo``1(``0@,System.IO.TextWriter,System.FuncRefReadOnly{``0,System.String},System.Boolean)">
+        <member name="M:Sudoku.CommandLine.CommonPreprocessors.OutputTextTo``1(``0@,System.IO.TextWriter,Sudoku.CommandLine.ObjectOutputHandler{``0},System.Boolean)">
             <summary>
             Output the object of type <typeparamref name="T"/> to a certain text writer.
             </summary>
@@ -458,6 +458,14 @@
             Represents an option.
             </summary>
             <typeparam name="T">The type of the result parsed from the option.</typeparam>
+        </member>
+        <member name="T:Sudoku.CommandLine.ObjectOutputHandler`1">
+            <summary>
+            Represents a method that performs a transformation and return a <see cref="T:System.String"/> value representing the instance.
+            </summary>
+            <typeparam name="T">The type of argument.</typeparam>
+            <param name="instance">The instance.</param>
+            <returns>The string converted.</returns>
         </member>
         <member name="T:Sudoku.CommandLine.Options.CluesCountOption">
             <summary>
