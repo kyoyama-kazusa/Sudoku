@@ -8,6 +8,7 @@ namespace Sudoku.Drawing.Parsing;
 /// Please visit <see href="https://sudokustudio.kazusa.tech/user-manual/drawing-command-line">this link</see>
 /// to learn more information about drawing command syntax.
 /// </remarks>
+[StructLayout(LayoutKind.Auto)]
 [TypeImpl(TypeImplFlags.AllObjectMethods)]
 public readonly ref partial struct DrawingCommandParser([Field, AllowNull] ref readonly Grid grid)
 {
@@ -57,24 +58,29 @@ public readonly ref partial struct DrawingCommandParser([Field, AllowNull] ref r
 
 
 	/// <summary>
+	/// Indicates whether the comparison will ignore casing. By default it's <see langword="true"/>.
+	/// </summary>
+	public bool IgnoreCase { get; init; } = true;
+
+	/// <summary>
+	/// Represents a coordinate parser. By default it's <see langword="new"/> <see cref="RxCyParser"/>().
+	/// </summary>
+	[AllowNull]
+	public CoordinateParser CoordinateParser { get; init => field = value ?? new RxCyParser(); } = new RxCyParser();
+
+
+	/// <summary>
 	/// Try to parse the string, split by line separator; return <see langword="false"/> if failed to be parsed.
 	/// This method never throws <see cref="FormatException"/>.
 	/// </summary>
 	/// <param name="str">The string.</param>
 	/// <param name="result">The result view.</param>
-	/// <param name="parser">The parser. By default it's <see langword="new"/> <see cref="RxCyParser"/>().</param>
-	/// <param name="comparison">The comparison. By default it's <see cref="StringComparison.OrdinalIgnoreCase"/>.</param>
 	/// <returns>A <see cref="bool"/> result indicating whether the command-line syntax is valid.</returns>
-	public bool TryParse(
-		string str,
-		[NotNullWhen(true)] out View? result,
-		CoordinateParser? parser = null,
-		StringComparison comparison = StringComparison.OrdinalIgnoreCase
-	)
+	public bool TryParse(string str, [NotNullWhen(true)] out View? result)
 	{
 		try
 		{
-			result = Parse(str, parser, comparison);
+			result = Parse(str);
 			return true;
 		}
 		catch (FormatException)
@@ -88,31 +94,29 @@ public readonly ref partial struct DrawingCommandParser([Field, AllowNull] ref r
 	/// Parses the string, split by line separator.
 	/// </summary>
 	/// <param name="str">The string.</param>
-	/// <param name="parser">The parser. By default it's <see langword="new"/> <see cref="RxCyParser"/>().</param>
-	/// <param name="comparison">The comparison. By default it's <see cref="StringComparison.OrdinalIgnoreCase"/>.</param>
 	/// <exception cref="FormatException">Throws when a line is invalid.</exception>
-	public View Parse(string str, CoordinateParser? parser = null, StringComparison comparison = StringComparison.OrdinalIgnoreCase)
+	public View Parse(string str)
 	{
-		parser ??= new RxCyParser();
+		const StringSplitOptions splitOptions = StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries;
 
-		const StringSplitOptions options = StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries;
+		var ignoreCaseOption = IgnoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;
 		var result = View.Empty;
-		foreach (var line in str.Split(Environment.NewLine, options))
+		foreach (var line in str.Split(Environment.NewLine, splitOptions))
 		{
-			if (!Array.Exists(ValidNames, line.StartsWith))
+			if (!Array.Exists(ValidNames, e => line.StartsWith(e, ignoreCaseOption)))
 			{
 				// Skip for invalid keyword (like 'load').
 				continue;
 			}
 
-			if (line.Split(' ', options) is not [var keyword, ['#' or '!' or '&', ..] colorIdentifierString, .. var args])
+			if (line.Split(' ', splitOptions) is not [var keyword, ['#' or '!' or '&', ..] colorIdentifierString, .. var args])
 			{
 				throw new FormatException($"Invalid line string: '{line}'.");
 			}
 
 			result.AddRange(
 				ArgumentParsers.TryGetValue(keyword, out var parserCreator)
-					? parserCreator().Parse(args, in _grid, ParseColorIdentifier(colorIdentifierString), parser)
+					? parserCreator().Parse(args, in _grid, ParseColorIdentifier(colorIdentifierString), CoordinateParser)
 					: throw new FormatException($"Invalid keyword '{keyword}'.")
 			);
 		}
@@ -123,10 +127,10 @@ public readonly ref partial struct DrawingCommandParser([Field, AllowNull] ref r
 	/// Parses a string and returns the equivalent color identifier.
 	/// </summary>
 	/// <param name="str">The string to be parsed.</param>
-	/// <param name="comparison">The comparison. By default it's <see cref="StringComparison.OrdinalIgnoreCase"/>.</param>
 	/// <returns>A <see cref="ColorIdentifier"/> value returned.</returns>
-	private ColorIdentifier ParseColorIdentifier(string str, StringComparison comparison = StringComparison.OrdinalIgnoreCase)
+	private ColorIdentifier ParseColorIdentifier(string str)
 	{
+		var comparisonOption = IgnoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;
 		return str switch
 		{
 			['#', .. { Length: 6 or 8 } hex] => (from s in hex.Chunk(2) select (byte)Convert.ToInt32(s, 16)) switch
@@ -152,7 +156,7 @@ public readonly ref partial struct DrawingCommandParser([Field, AllowNull] ref r
 			{
 				foreach (var key in keys)
 				{
-					if (key.Equals(aliasOrIdString, comparison))
+					if (key.Equals(aliasOrIdString, comparisonOption))
 					{
 						return value;
 					}

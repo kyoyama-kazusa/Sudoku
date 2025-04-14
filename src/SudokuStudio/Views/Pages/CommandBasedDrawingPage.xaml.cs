@@ -153,7 +153,8 @@ public sealed partial class CommandBasedDrawingPage : Page
 
 		var coordinateParser = Application.Current.AsApp().Preference.UIPreferences.ConceptNotationBasedKind.GetParser();
 		var parser = grid is { } g ? new DrawingCommandParser(in g) : new DrawingCommandParser();
-		valid = parser.TryParse(text, out var result, coordinateParser);
+		parser = parser with { CoordinateParser = coordinateParser };
+		valid = parser.TryParse(text, out var result);
 		return result;
 	}
 
