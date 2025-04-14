@@ -12,6 +12,11 @@ namespace Sudoku.Drawing.Parsing;
 public readonly ref partial struct DrawingCommandParser([Field, AllowNull] ref readonly Grid grid)
 {
 	/// <summary>
+	/// Indicates the valid names.
+	/// </summary>
+	private static readonly string[] ValidNames = ["cell", "candidate", "icon", "house", "chute", "link", "baba"];
+
+	/// <summary>
 	/// Indicates the well-known identifiers, and their own key used in parsing.
 	/// </summary>
 	private static readonly (string[] Keys, WellKnownColorIdentifierKind Kind)[] WellKnownIdentifiers = [
@@ -94,15 +99,10 @@ public readonly ref partial struct DrawingCommandParser([Field, AllowNull] ref r
 		var result = View.Empty;
 		foreach (var line in str.Split(Environment.NewLine, options))
 		{
-			if (!line.StartsWith("cell") && !line.StartsWith("candidate") && !line.StartsWith("icon")
-				&& !line.StartsWith("house") && !line.StartsWith("chute") && !line.StartsWith("link")
-				&& !line.StartsWith("baba"))
+			if (!Array.Exists(ValidNames, line.StartsWith))
 			{
 				// Skip for invalid keyword (like 'load').
 				continue;
-
-				// Other keywords should be ignored in order not to throw exceptions.
-				//throw new FormatException("Invalid keyword.");
 			}
 
 			if (line.Split(' ', options) is not [var keyword, ['#' or '!' or '&', ..] colorIdentifierString, .. var args])
