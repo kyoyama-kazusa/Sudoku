@@ -1,6 +1,6 @@
 namespace Sudoku.Analytics.StepSearchers.Uniqueness;
 
-using TargetCandidatesGroup = CellMapOrCandidateMapGrouping<CandidateMap, Candidate, CandidateMap.Enumerator, Cell>;
+using TargetCandidatesGroup = CellMapOrCandidateMapGrouping<CandidateMap, Candidate, Cell>;
 
 /// <summary>
 /// Provides with a <b>Bi-value Universal Grave</b> step searcher.

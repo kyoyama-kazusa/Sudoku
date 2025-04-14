@@ -5,8 +5,7 @@ namespace Sudoku.Concepts;
 /// </summary>
 /// <typeparam name="TSelf"><include file="../../global-doc-comments.xml" path="/g/self-type-constraint"/></typeparam>
 /// <typeparam name="TElement">The type of each element.</typeparam>
-/// <typeparam name="TEnumerator">The type of the enumerator.</typeparam>
-public interface ICellMapOrCandidateMap<TSelf, TElement, out TEnumerator> :
+public interface ICellMapOrCandidateMap<TSelf, TElement> :
 	IAdditiveIdentity<TSelf, TSelf>,
 	IAdditionOperators<TSelf, TElement, TSelf>,
 	IComparable<TSelf>,
@@ -31,9 +30,8 @@ public interface ICellMapOrCandidateMap<TSelf, TElement, out TEnumerator> :
 	ISubtractionOperators<TSelf, TElement, TSelf>,
 	IUtf8SpanFormattable,
 	IWhereMethod<TSelf, TElement>
-	where TSelf : unmanaged, ICellMapOrCandidateMap<TSelf, TElement, TEnumerator>
+	where TSelf : unmanaged, ICellMapOrCandidateMap<TSelf, TElement>
 	where TElement : unmanaged, IBinaryInteger<TElement>
-	where TEnumerator : struct, IEnumerator<TElement>, allows ref struct
 {
 	/// <summary>
 	/// Indicates the size of combinatorial calculation.
@@ -224,7 +222,7 @@ public interface ICellMapOrCandidateMap<TSelf, TElement, out TEnumerator> :
 	/// Gets the enumerator of the current instance in order to use <see langword="foreach"/> loop.
 	/// </summary>
 	/// <returns>The enumerator instance.</returns>
-	public new abstract TEnumerator GetEnumerator();
+	public new abstract AnonymousSpanEnumerator<TElement> GetEnumerator();
 
 	/// <inheritdoc/>
 	void ICollection<TElement>.Clear() => Clear();

@@ -5,7 +5,6 @@ namespace Sudoku.Linq;
 /// </summary>
 /// <typeparam name="TMap">The type of the map that stores the <see cref="Values"/>.</typeparam>
 /// <typeparam name="TElement">The type of elements stored in <see cref="Values"/>.</typeparam>
-/// <typeparam name="TEnumerator">The type of enumerator.</typeparam>
 /// <typeparam name="TKey">The type of the key in the group.</typeparam>
 /// <param name="key">Indicates the key used.</param>
 /// <param name="values">Indicates the candidates.</param>
@@ -14,19 +13,18 @@ namespace Sudoku.Linq;
 [TypeImpl(
 	TypeImplFlags.Object_Equals | TypeImplFlags.Object_GetHashCode | TypeImplFlags.EqualityOperators | TypeImplFlags.Equatable,
 	IsLargeStructure = true)]
-public readonly partial struct CellMapOrCandidateMapGrouping<TMap, TElement, TEnumerator, TKey>(
+public readonly partial struct CellMapOrCandidateMapGrouping<TMap, TElement, TKey>(
 	[Property] TKey key,
 	[Property, HashCodeMember] in TMap values
 ) :
 	IEnumerable<TElement>,
-	IEquatable<CellMapOrCandidateMapGrouping<TMap, TElement, TEnumerator, TKey>>,
-	IEqualityOperators<CellMapOrCandidateMapGrouping<TMap, TElement, TEnumerator, TKey>, CellMapOrCandidateMapGrouping<TMap, TElement, TEnumerator, TKey>, bool>,
+	IEquatable<CellMapOrCandidateMapGrouping<TMap, TElement, TKey>>,
+	IEqualityOperators<CellMapOrCandidateMapGrouping<TMap, TElement, TKey>, CellMapOrCandidateMapGrouping<TMap, TElement, TKey>, bool>,
 	IGrouping<TKey, TElement>,
 	ISelectMethod<TMap, TElement>,
 	IWhereMethod<TMap, TElement>
-	where TMap : unmanaged, ICellMapOrCandidateMap<TMap, TElement, TEnumerator>
+	where TMap : unmanaged, ICellMapOrCandidateMap<TMap, TElement>
 	where TElement : unmanaged, IBinaryInteger<TElement>
-	where TEnumerator : struct, IEnumerator<TElement>, allows ref struct
 	where TKey : notnull
 {
 	/// <summary>
@@ -39,7 +37,7 @@ public readonly partial struct CellMapOrCandidateMapGrouping<TMap, TElement, TEn
 	private TMap ValuesEntry => Values;
 
 
-	/// <inheritdoc cref="ICellMapOrCandidateMap{TSelf, TElement, TEnumerator}.this[TElement]"/>
+	/// <inheritdoc cref="ICellMapOrCandidateMap{TSelf, TElement}.this[TElement]"/>
 	public TElement this[TElement index] => Values[index];
 
 
@@ -52,15 +50,15 @@ public readonly partial struct CellMapOrCandidateMapGrouping<TMap, TElement, TEn
 	/// </summary>
 	/// <returns>An enumerator object that can be used to iterate through the collection.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public TEnumerator GetEnumerator() => Values.GetEnumerator();
+	public AnonymousSpanEnumerator<TElement> GetEnumerator() => Values.GetEnumerator();
 
 	/// <summary>
 	/// Makes a <see cref="CellMap"/> instance that is concatenated by a list of groups
-	/// of type <see cref="CellMapOrCandidateMapGrouping{TMap, TElement, TEnumerator, TKey}"/>, adding their keys.
+	/// of type <see cref="CellMapOrCandidateMapGrouping{TMap, TElement, TKey}"/>, adding their keys.
 	/// </summary>
 	/// <param name="groups">The groups.</param>
 	/// <returns>A <see cref="CellMap"/> instance.</returns>
-	public static CellMap CreateMapByKeys(ReadOnlySpan<CellMapOrCandidateMapGrouping<TMap, TElement, TEnumerator, Cell>> groups)
+	public static CellMap CreateMapByKeys(ReadOnlySpan<CellMapOrCandidateMapGrouping<TMap, TElement, Cell>> groups)
 	{
 		var result = CellMap.Empty;
 		foreach (ref readonly var group in groups)

@@ -1,7 +1,5 @@
 namespace Sudoku.Linq;
 
-using CandidateMapPredicate = CellMapOrCandidateMapPredicate<CandidateMap, Candidate, CandidateMap.Enumerator>;
-
 /// <summary>
 /// Represents a list of LINQ methods that can operate with <see cref="CandidateMap"/> instances.
 /// </summary>
@@ -33,7 +31,7 @@ public static class CandidateMapEnumerable
 	/// <param name="grid">The grid to be used.</param>
 	/// <param name="match">The condition to be used.</param>
 	/// <returns>The first found candidate or -1 if none found.</returns>
-	public static Candidate First(this in CandidateMap @this, in Grid grid, CandidateMapPredicate match)
+	public static Candidate First(this in CandidateMap @this, in Grid grid, CellMapOrCandidateMapPredicate<CandidateMap, Candidate> match)
 	{
 		foreach (var candidate in @this.Offsets)
 		{
@@ -79,7 +77,7 @@ public static class CandidateMapEnumerable
 	}
 
 	/// <inheritdoc cref="CellMapEnumerable.GroupBy{TKey}(in CellMap, Func{int, TKey})"/>
-	public static ReadOnlySpan<CellMapOrCandidateMapGrouping<CandidateMap, Candidate, CandidateMap.Enumerator, TKey>> GroupBy<TKey>(
+	public static ReadOnlySpan<CellMapOrCandidateMapGrouping<CandidateMap, Candidate, TKey>> GroupBy<TKey>(
 		this scoped in CandidateMap @this,
 		Func<Candidate, TKey> keySelector
 	) where TKey : notnull
@@ -96,7 +94,7 @@ public static class CandidateMapEnumerable
 			}
 		}
 
-		var result = new CellMapOrCandidateMapGrouping<CandidateMap, Candidate, CandidateMap.Enumerator, TKey>[dictionary.Count];
+		var result = new CellMapOrCandidateMapGrouping<CandidateMap, Candidate, TKey>[dictionary.Count];
 		var i = 0;
 		foreach (var kvp in dictionary)
 		{

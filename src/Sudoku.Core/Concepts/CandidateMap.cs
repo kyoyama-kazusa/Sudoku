@@ -1,6 +1,6 @@
 namespace Sudoku.Concepts;
 
-using CandidateMapBase = ICellMapOrCandidateMap<CandidateMap, Candidate, CandidateMap.Enumerator>;
+using CandidateMapBase = ICellMapOrCandidateMap<CandidateMap, Candidate>;
 
 /// <summary>
 /// Encapsulates a binary series of candidate state table.
@@ -406,7 +406,7 @@ public partial struct CandidateMap : CandidateMapBase, IDrawableItem
 
 	/// <inheritdoc/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public readonly Enumerator GetEnumerator() => new(Offsets);
+	public readonly AnonymousSpanEnumerator<Candidate> GetEnumerator() => new(Offsets);
 
 	/// <summary>
 	/// Try to enumerate cells on each candidate.

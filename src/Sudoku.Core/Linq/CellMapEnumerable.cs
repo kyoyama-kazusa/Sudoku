@@ -1,7 +1,5 @@
 namespace Sudoku.Linq;
 
-using CellMapPredicate = CellMapOrCandidateMapPredicate<CellMap, Cell, CellMap.Enumerator>;
-
 /// <summary>
 /// Represents a list of LINQ methods that can operate with <see cref="CellMap"/> instances.
 /// </summary>
@@ -33,7 +31,7 @@ public static class CellMapEnumerable
 	/// <param name="grid">The grid to be used.</param>
 	/// <param name="match">The condition to be used.</param>
 	/// <returns>The first found cell or -1 if none found.</returns>
-	public static Cell First(this in CellMap @this, in Grid grid, CellMapPredicate match)
+	public static Cell First(this in CellMap @this, in Grid grid, CellMapOrCandidateMapPredicate<CellMap, Cell> match)
 	{
 		foreach (var cell in @this.Offsets)
 		{
@@ -95,10 +93,10 @@ public static class CellMapEnumerable
 	/// <inheritdoc cref="Enumerable.GroupBy{TSource, TKey}(IEnumerable{TSource}, Func{TSource, TKey})" path="/param[@name='keySelector']"/>
 	/// </param>
 	/// <returns>
-	/// A list of <see cref="CellMapOrCandidateMapGrouping{TMap, TElement, TEnumerator, TKey}"/> instances where each value object contains a sequence of objects and a key.
+	/// A list of <see cref="CellMapOrCandidateMapGrouping{TMap, TElement, TKey}"/> instances where each value object contains a sequence of objects and a key.
 	/// </returns>
-	/// <seealso cref="CellMapOrCandidateMapGrouping{TMap, TElement, TEnumerator, TKey}"/>
-	public static ReadOnlySpan<CellMapOrCandidateMapGrouping<CellMap, Cell, CellMap.Enumerator, TKey>> GroupBy<TKey>(
+	/// <seealso cref="CellMapOrCandidateMapGrouping{TMap, TElement, TKey}"/>
+	public static ReadOnlySpan<CellMapOrCandidateMapGrouping<CellMap, Cell, TKey>> GroupBy<TKey>(
 		this scoped in CellMap @this,
 		Func<Cell, TKey> keySelector
 	) where TKey : notnull
@@ -115,7 +113,7 @@ public static class CellMapEnumerable
 			}
 		}
 
-		var result = new CellMapOrCandidateMapGrouping<CellMap, Cell, CellMap.Enumerator, TKey>[dictionary.Count];
+		var result = new CellMapOrCandidateMapGrouping<CellMap, Cell, TKey>[dictionary.Count];
 		var i = 0;
 		foreach (var kvp in dictionary)
 		{

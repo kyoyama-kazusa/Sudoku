@@ -9346,7 +9346,7 @@
         <member name="M:Sudoku.Analytics.StepSearchers.Exocets.ExocetStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.ExocetStepSearcher.CollectJuniorExocets(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.ReadOnlySpan{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CellMap,System.Int32,Sudoku.Concepts.CellMap.Enumerator,System.Int32}},Sudoku.Concepts.CellMap@,System.Int16,System.Int32,System.Boolean,System.Int32,System.Int32)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.ExocetStepSearcher.CollectJuniorExocets(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.ReadOnlySpan{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CellMap,System.Int32,System.Int32}},Sudoku.Concepts.CellMap@,System.Int16,System.Int32,System.Boolean,System.Int32,System.Int32)">
             <summary>
             The core method to check for Junior Exocet sub-types.
             </summary>
@@ -9370,7 +9370,7 @@
             <param name="chuteIndex">The chute index to be used. Valid values are between 0 and 6.</param>
             <returns>A valid <see cref="T:Sudoku.Analytics.Steps.Exocets.ExocetStep"/> instance calculated and found.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.ExocetStepSearcher.CollectSeniorExocets(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMap@,System.Int32,System.ReadOnlySpan{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CellMap,System.Int32,Sudoku.Concepts.CellMap.Enumerator,System.Int32}},Sudoku.Concepts.CellMap@,System.Int16,System.Int32,System.Boolean,System.Int32,System.Int32)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.ExocetStepSearcher.CollectSeniorExocets(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMap@,System.Int32,System.ReadOnlySpan{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CellMap,System.Int32,System.Int32}},Sudoku.Concepts.CellMap@,System.Int16,System.Int32,System.Boolean,System.Int32,System.Int32)">
             <summary>
             The core method to check for Senior Exocet sub-types.
             </summary>
@@ -9392,7 +9392,7 @@
             <param name="chuteIndex">The chute index to be used. Valid values are between 0 and 6.</param>
             <returns>A valid <see cref="T:Sudoku.Analytics.Steps.Exocets.ExocetStep"/> instance calculated and found.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.ExocetStepSearcher.CollectComplexJuniorExocets(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.ReadOnlySpan{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CellMap,System.Int32,Sudoku.Concepts.CellMap.Enumerator,System.Int32}},Sudoku.Concepts.CellMap@,System.Int16,System.Int32,System.Boolean,System.Int32,System.Int32,Sudoku.Concepts.CellMap@)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.ExocetStepSearcher.CollectComplexJuniorExocets(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.ReadOnlySpan{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CellMap,System.Int32,System.Int32}},Sudoku.Concepts.CellMap@,System.Int16,System.Int32,System.Boolean,System.Int32,System.Int32,Sudoku.Concepts.CellMap@)">
             <summary>
             The core method to check for Complex Junior Exocet sub-types.
             </summary>
@@ -9439,7 +9439,7 @@
             <param name="housesCells">The houses cells to be used for the base houses.</param>
             <returns>A valid <see cref="T:Sudoku.Analytics.Steps.Exocets.ExocetStep"/> instance calculated and found.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.ExocetStepSearcher.CollectWeakExocets(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.ReadOnlySpan{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CellMap,System.Int32,Sudoku.Concepts.CellMap.Enumerator,System.Int32}},Sudoku.Concepts.CellMap@,System.Int16,System.Int32,System.Boolean,System.Int32,System.Int32)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.ExocetStepSearcher.CollectWeakExocets(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.ReadOnlySpan{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CellMap,System.Int32,System.Int32}},Sudoku.Concepts.CellMap@,System.Int16,System.Int32,System.Boolean,System.Int32,System.Int32)">
             <summary>
             The core method to check for Weak Exocet sub-types.
             </summary>
@@ -9463,7 +9463,7 @@
             <param name="chuteIndex">The chute index to be used. Valid values are between 0 and 6.</param>
             <returns>A valid <see cref="T:Sudoku.Analytics.Steps.Exocets.ExocetStep"/> instance calculated and found.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.ExocetStepSearcher.CollectDoubleExocets(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.ReadOnlySpan{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CellMap,System.Int32,Sudoku.Concepts.CellMap.Enumerator,System.Int32}},Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int16,System.Int32,System.Boolean,System.Int32,System.Int32)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.ExocetStepSearcher.CollectDoubleExocets(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.ReadOnlySpan{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CellMap,System.Int32,System.Int32}},Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int16,System.Int32,System.Boolean,System.Int32,System.Int32)">
             <summary>
             The core method to check for Double Exocet sub-types.
             </summary>
@@ -9564,9 +9564,9 @@
             <param name="this">The target cells to be split.</param>
             <param name="houses">The mask value holding a list of houses to be matched.</param>
             <returns>
-            A list of <see cref="T:Sudoku.Concepts.CellMap"/> grouped, representing as a <see cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`4"/>.
+            A list of <see cref="T:Sudoku.Concepts.CellMap"/> grouped, representing as a <see cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3"/>.
             </returns>
-            <seealso cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`4"/>
+            <seealso cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3"/>
         </member>
         <member name="T:Sudoku.Analytics.StepSearchers.Fishes.ComplexFishStepSearcher">
             <summary>

@@ -722,10 +722,10 @@
             </summary>
         </member>
         <member name="F:Sudoku.Concepts.CandidateMap.Empty">
-            <inheritdoc cref="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.Empty"/>
+            <inheritdoc cref="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.Empty"/>
         </member>
         <member name="F:Sudoku.Concepts.CandidateMap.Full">
-            <inheritdoc cref="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.Full"/>
+            <inheritdoc cref="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.Full"/>
         </member>
         <member name="F:Sudoku.Concepts.CandidateMap._bits">
             <summary>
@@ -788,19 +788,19 @@
             Indicates the cell offsets in this collection.
             </summary>
         </member>
-        <member name="P:Sudoku.Concepts.CandidateMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CandidateMap,System#Int32,Sudoku#Concepts#CandidateMap#Enumerator}#Shifting">
+        <member name="P:Sudoku.Concepts.CandidateMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CandidateMap,System#Int32}#Shifting">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Concepts.CandidateMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CandidateMap,System#Int32,Sudoku#Concepts#CandidateMap#Enumerator}#Offsets">
+        <member name="P:Sudoku.Concepts.CandidateMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CandidateMap,System#Int32}#Offsets">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Concepts.CandidateMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CandidateMap,System#Int32,Sudoku#Concepts#CandidateMap#Enumerator}#MaxCount">
+        <member name="P:Sudoku.Concepts.CandidateMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CandidateMap,System#Int32}#MaxCount">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Concepts.CandidateMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CandidateMap,System#Int32,Sudoku#Concepts#CandidateMap#Enumerator}#Empty">
+        <member name="P:Sudoku.Concepts.CandidateMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CandidateMap,System#Int32}#Empty">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Concepts.CandidateMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CandidateMap,System#Int32,Sudoku#Concepts#CandidateMap#Enumerator}#Full">
+        <member name="P:Sudoku.Concepts.CandidateMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CandidateMap,System#Int32}#Full">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Concepts.CandidateMap.Item(System.Int32)">
@@ -1173,13 +1173,13 @@
             <inheritdoc/>
         </member>
         <member name="F:Sudoku.Concepts.CellMap.Shifting">
-            <inheritdoc cref="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.Shifting"/>
+            <inheritdoc cref="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.Shifting"/>
         </member>
         <member name="F:Sudoku.Concepts.CellMap.Empty">
-            <inheritdoc cref="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.Empty"/>
+            <inheritdoc cref="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.Empty"/>
         </member>
         <member name="F:Sudoku.Concepts.CellMap.Full">
-            <inheritdoc cref="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.Full"/>
+            <inheritdoc cref="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.Full"/>
         </member>
         <member name="F:Sudoku.Concepts.CellMap.BitwiseNotConstant">
             <summary>
@@ -1338,19 +1338,19 @@
             Indicates the cell offsets in this collection.
             </summary>
         </member>
-        <member name="P:Sudoku.Concepts.CellMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CellMap,System#Int32,Sudoku#Concepts#CellMap#Enumerator}#Shifting">
+        <member name="P:Sudoku.Concepts.CellMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CellMap,System#Int32}#Shifting">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Concepts.CellMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CellMap,System#Int32,Sudoku#Concepts#CellMap#Enumerator}#Offsets">
+        <member name="P:Sudoku.Concepts.CellMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CellMap,System#Int32}#Offsets">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Concepts.CellMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CellMap,System#Int32,Sudoku#Concepts#CellMap#Enumerator}#MaxCount">
+        <member name="P:Sudoku.Concepts.CellMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CellMap,System#Int32}#MaxCount">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Concepts.CellMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CellMap,System#Int32,Sudoku#Concepts#CellMap#Enumerator}#Empty">
+        <member name="P:Sudoku.Concepts.CellMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CellMap,System#Int32}#Empty">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Concepts.CellMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CellMap,System#Int32,Sudoku#Concepts#CellMap#Enumerator}#Full">
+        <member name="P:Sudoku.Concepts.CellMap.Sudoku#Concepts#ICellMapOrCandidateMap{Sudoku#Concepts#CellMap,System#Int32}#Full">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Concepts.CellMap.Item(System.Int32)">
@@ -1672,7 +1672,7 @@
         <member name="M:Sudoku.Concepts.CellMap.System#IEquatable{Sudoku#Concepts#CellMap}#Equals(Sudoku.Concepts.CellMap)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Concepts.CellMapOrCandidateMapPredicate`3">
+        <member name="T:Sudoku.Concepts.CellMapOrCandidateMapPredicate`2">
             <summary>
             Represents a method that checks for an offset of type <typeparamref name="TElement" />
             in the collection of type <typeparamref name="TSelf" />, referenced from <paramref name="grid" />,
@@ -1691,7 +1691,6 @@
             <typeparam name="TElement">
             The type of each element in the collection of type <typeparamref name="TSelf" />.
             </typeparam>
-            <typeparam name="TEnumerator">The type of enumerator.</typeparam>
             <param name="offset">The <typeparamref name="TElement" /> offset value to be checked.</param>
             <param name="grid">The grid as candidate reference.</param>
             <returns>A <see cref="T:System.Boolean" /> result indicating that.</returns>
@@ -5676,7 +5675,7 @@
             <param name="this">The house type.</param>
             <returns>The program order.</returns>
         </member>
-        <member name="T:Sudoku.Concepts.ICellMapOrCandidateMap`3">
+        <member name="T:Sudoku.Concepts.ICellMapOrCandidateMap`2">
             <summary>
             Extracts a base type that describes state table from elements of <typeparamref name="TSelf" /> type.
             </summary>
@@ -5691,23 +5690,22 @@
 		</para>
 	</self-type-constraint></typeparam>
             <typeparam name="TElement">The type of each element.</typeparam>
-            <typeparam name="TEnumerator">The type of the enumerator.</typeparam>
         </member>
-        <member name="F:Sudoku.Concepts.ICellMapOrCandidateMap`3.MaxLimit">
+        <member name="F:Sudoku.Concepts.ICellMapOrCandidateMap`2.MaxLimit">
             <summary>
             Indicates the size of combinatorial calculation.
             </summary>
         </member>
-        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.Count">
+        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.Count">
             <inheritdoc cref="P:System.Collections.Generic.IReadOnlyCollection`1.Count"/>
         </member>
-        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.StringChunks">
+        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.StringChunks">
             <summary>
             Gets all chunks of the current collection, meaning a list of <see cref="T:System.String"/> values that can describe
             all offset values (cell indices and candidate indices), grouped with same row/column.
             </summary>
         </member>
-        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.PeerIntersection">
+        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.PeerIntersection">
             <summary>
             Indicates the peer intersection of the current instance.
             </summary>
@@ -5716,50 +5714,50 @@
             For more information please visit <see href="http://sudopedia.enjoysudoku.com/Peer.html">this link</see>.
             </remarks>
         </member>
-        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.Shifting">
+        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.Shifting">
             <summary>
             Indicates the size of each unit.
             </summary>
         </member>
-        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.Offsets">
+        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.Offsets">
             <summary>
             Indicates the offsets in this collection.
             </summary>
         </member>
-        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#ICollection{TElement}#IsReadOnly">
+        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#ICollection{TElement}#IsReadOnly">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.Empty">
+        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.Empty">
             <summary>
             Indicates an empty instance containing no elements.
             </summary>
         </member>
-        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.Full">
+        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.Full">
             <summary>
             Indicates an instance that contains all possible elements.
             </summary>
         </member>
-        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.MaxCount">
+        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.MaxCount">
             <summary>
             Indicates the maximum number of elements that the collection can be reached.
             </summary>
         </member>
-        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Numerics#IAdditiveIdentity{TSelf,TSelf}#AdditiveIdentity">
+        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Numerics#IAdditiveIdentity{TSelf,TSelf}#AdditiveIdentity">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Numerics#IMinMaxValue{TSelf}#MinValue">
+        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Numerics#IMinMaxValue{TSelf}#MinValue">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Numerics#IMinMaxValue{TSelf}#MaxValue">
+        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Numerics#IMinMaxValue{TSelf}#MaxValue">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.Item(`1)">
+        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.Item(`1)">
             <inheritdoc cref="P:System.Collections.Generic.IReadOnlyCollection`1.Count"/>
         </member>
-        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#IReadOnlyList{TElement}#Item(System.Int32)">
+        <member name="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#IReadOnlyList{TElement}#Item(System.Int32)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.AddRange(System.ReadOnlySpan{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.AddRange(System.ReadOnlySpan{`1})">
             <summary>
             Adds a list of offsets into the current collection.
             </summary>
@@ -5778,7 +5776,7 @@
             </param>
             <returns>The number of offsets succeeded to be added.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.RemoveRange(System.ReadOnlySpan{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.RemoveRange(System.ReadOnlySpan{`1})">
             <summary>
             Removes a list of offsets from the current collection.
             </summary>
@@ -5797,7 +5795,7 @@
             </param>
             <returns>The number of offsets succeeded to be removed.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.CopyTo(`1@,System.Int32)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.CopyTo(`1@,System.Int32)">
             <summary>
             Copies the current instance to the target sequence specified as a reference
             to an element of type <typeparamref name="TElement"/>.
@@ -5813,26 +5811,26 @@
             Throws when the capacity isn't enough to store all values.
             </exception>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.ForEach(System.Action{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.ForEach(System.Action{`1})">
             <summary>
             Iterates on each element in this collection.
             </summary>
             <param name="action">The visitor that handles for each element in this collection.</param>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.Toggle(`1)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.Toggle(`1)">
             <summary>
             Try to toggle the offset, which means the value will be added if not exist in collection, or removed if exists.
             </summary>
             <param name="offset">The offset to be added or removed.</param>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.IndexOf(`1)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.IndexOf(`1)">
             <summary>
             Try to get the specified index of the offset.
             </summary>
             <param name="offset">The desired offset.</param>
             <returns>The index of the offset.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.CompareTo(`0@)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.CompareTo(`0@)">
             <summary>
             <inheritdoc cref="M:System.IComparable`1.CompareTo(`0)" path="/summary"/>
             </summary>
@@ -5868,22 +5866,22 @@
             </para>
             </returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.Equals(`0@)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.Equals(`0@)">
             <inheritdoc cref="M:System.IEquatable`1.Equals(`0)"/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.ToString">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.ToString(System.IFormatProvider)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.ToString(System.IFormatProvider)">
             <inheritdoc cref="M:System.IFormattable.ToString(System.String,System.IFormatProvider)"/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.ToArray">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.ToArray">
             <summary>
             Returns an array of <typeparamref name="TElement"/> offsets having stored in the current collection.
             </summary>
             <returns>An array of offsets.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.Slice(System.Int32,System.Int32)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.Slice(System.Int32,System.Int32)">
             <summary>
             Slices the current instance, and get the new instance with some of elements between two indices.
             </summary>
@@ -5891,118 +5889,118 @@
             <param name="count">The number of elements.</param>
             <returns>The target instance.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.GetEnumerator">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.GetEnumerator">
             <summary>
             Gets the enumerator of the current instance in order to use <see langword="foreach"/> loop.
             </summary>
             <returns>The enumerator instance.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#ICollection{TElement}#Clear">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#ICollection{TElement}#Clear">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#ICollection{TElement}#CopyTo(`1[],System.Int32)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#ICollection{TElement}#CopyTo(`1[],System.Int32)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#IReadOnlySet{TElement}#Contains(`1)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#IReadOnlySet{TElement}#Contains(`1)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#IEquatable{TSelf}#Equals(`0)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#IEquatable{TSelf}#Equals(`0)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#ICollection{TElement}#Add(`1)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#ICollection{TElement}#Add(`1)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#ISet{TElement}#Add(`1)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#ISet{TElement}#Add(`1)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#ISet{TElement}#IsProperSubsetOf(System.Collections.Generic.IEnumerable{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#ISet{TElement}#IsProperSubsetOf(System.Collections.Generic.IEnumerable{`1})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#ISet{TElement}#IsProperSupersetOf(System.Collections.Generic.IEnumerable{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#ISet{TElement}#IsProperSupersetOf(System.Collections.Generic.IEnumerable{`1})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#ISet{TElement}#IsSubsetOf(System.Collections.Generic.IEnumerable{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#ISet{TElement}#IsSubsetOf(System.Collections.Generic.IEnumerable{`1})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#ISet{TElement}#IsSupersetOf(System.Collections.Generic.IEnumerable{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#ISet{TElement}#IsSupersetOf(System.Collections.Generic.IEnumerable{`1})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#ISet{TElement}#Overlaps(System.Collections.Generic.IEnumerable{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#ISet{TElement}#Overlaps(System.Collections.Generic.IEnumerable{`1})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#ISet{TElement}#SetEquals(System.Collections.Generic.IEnumerable{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#ISet{TElement}#SetEquals(System.Collections.Generic.IEnumerable{`1})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#ISet{TElement}#ExceptWith(System.Collections.Generic.IEnumerable{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#ISet{TElement}#ExceptWith(System.Collections.Generic.IEnumerable{`1})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#ISet{TElement}#IntersectWith(System.Collections.Generic.IEnumerable{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#ISet{TElement}#IntersectWith(System.Collections.Generic.IEnumerable{`1})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#ISet{TElement}#SymmetricExceptWith(System.Collections.Generic.IEnumerable{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#ISet{TElement}#SymmetricExceptWith(System.Collections.Generic.IEnumerable{`1})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#ISet{TElement}#UnionWith(System.Collections.Generic.IEnumerable{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#ISet{TElement}#UnionWith(System.Collections.Generic.IEnumerable{`1})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#IReadOnlySet{TElement}#Overlaps(System.Collections.Generic.IEnumerable{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#IReadOnlySet{TElement}#Overlaps(System.Collections.Generic.IEnumerable{`1})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#IReadOnlySet{TElement}#SetEquals(System.Collections.Generic.IEnumerable{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#IReadOnlySet{TElement}#SetEquals(System.Collections.Generic.IEnumerable{`1})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#IReadOnlySet{TElement}#IsProperSubsetOf(System.Collections.Generic.IEnumerable{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#IReadOnlySet{TElement}#IsProperSubsetOf(System.Collections.Generic.IEnumerable{`1})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#IReadOnlySet{TElement}#IsProperSupersetOf(System.Collections.Generic.IEnumerable{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#IReadOnlySet{TElement}#IsProperSupersetOf(System.Collections.Generic.IEnumerable{`1})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#IReadOnlySet{TElement}#IsSubsetOf(System.Collections.Generic.IEnumerable{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#IReadOnlySet{TElement}#IsSubsetOf(System.Collections.Generic.IEnumerable{`1})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#IReadOnlySet{TElement}#IsSupersetOf(System.Collections.Generic.IEnumerable{`1})">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#IReadOnlySet{TElement}#IsSupersetOf(System.Collections.Generic.IEnumerable{`1})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#ICollection{TElement}#Remove(`1)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#ICollection{TElement}#Remove(`1)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Linq#Providers#IContainsMethod{TSelf,TElement}#Contains(`1)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Linq#Providers#IContainsMethod{TSelf,TElement}#Contains(`1)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Linq#Providers#ICountMethod{TSelf,TElement}#Count">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Linq#Providers#ICountMethod{TSelf,TElement}#Count">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#IComparable{TSelf}#CompareTo(`0)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#IComparable{TSelf}#CompareTo(`0)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Linq#Providers#IElementAtMethod{TSelf,TElement}#ElementAt(System.Int32)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Linq#Providers#IElementAtMethod{TSelf,TElement}#ElementAt(System.Int32)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Linq#Providers#IElementAtMethod{TSelf,TElement}#ElementAt(System.Index)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Linq#Providers#IElementAtMethod{TSelf,TElement}#ElementAt(System.Index)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Linq#Providers#IElementAtMethod{TSelf,TElement}#ElementAtOrDefault(System.Int32)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Linq#Providers#IElementAtMethod{TSelf,TElement}#ElementAtOrDefault(System.Int32)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Linq#Providers#IElementAtMethod{TSelf,TElement}#ElementAtOrDefault(System.Index)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Linq#Providers#IElementAtMethod{TSelf,TElement}#ElementAtOrDefault(System.Index)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#IFiniteSet{TSelf,TElement}#Negate">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#IFiniteSet{TSelf,TElement}#Negate">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#IInfiniteSet{TSelf,TElement}#ExceptWith(`0)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#IInfiniteSet{TSelf,TElement}#ExceptWith(`0)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#IEnumerable#GetEnumerator">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#IEnumerable#GetEnumerator">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Collections#Generic#IEnumerable{TElement}#GetEnumerator">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Collections#Generic#IEnumerable{TElement}#GetEnumerator">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Linq#Providers#IGetSubsetMethod{TSelf,TElement}#GetSubsets(System.Int32)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Linq#Providers#IGetSubsetMethod{TSelf,TElement}#GetSubsets(System.Int32)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.op_LogicalNot(`0@)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.op_LogicalNot(`0@)">
             <summary>
             Determines whether the current collection is empty.
             </summary>
@@ -6019,7 +6017,7 @@
             will invert the result of above expression. This is why I use <see langword="operator"/> <c>!</c> to determine on this.
             </remarks>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.op_OnesComplement(`0@)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.op_OnesComplement(`0@)">
             <summary>
             Reverse state for all offsets, which means all <see langword="true"/> bits
             will be set <see langword="false"/>, and all <see langword="false"/> bits
@@ -6028,27 +6026,27 @@
             <param name="offsets">The instance to negate.</param>
             <returns>The negative result.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.op_True(`0@)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.op_True(`0@)">
             <summary>
             Determines whether the specified <typeparamref name="TSelf"/> collection is not empty.
             </summary>
             <param name="map">The collection.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.op_False(`0@)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.op_False(`0@)">
             <summary>
             Determines whether the specified <typeparamref name="TSelf"/> collection is empty.
             </summary>
             <param name="map">The collection.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.op_Equality(`0@,`0@)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.op_Equality(`0@,`0@)">
             <inheritdoc cref="M:System.Numerics.IEqualityOperators`3.op_Equality(`0,`1)"/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.op_Inequality(`0@,`0@)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.op_Inequality(`0@,`0@)">
             <inheritdoc cref="M:System.Numerics.IEqualityOperators`3.op_Inequality(`0,`1)"/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.op_Addition(`0@,`1)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.op_Addition(`0@,`1)">
             <summary>
             Adds the specified <paramref name="offset"/> to the <paramref name="collection"/>,
             and returns the added result.
@@ -6057,7 +6055,7 @@
             <param name="offset">The offset to be added.</param>
             <returns>The result collection.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.op_Subtraction(`0@,`1)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.op_Subtraction(`0@,`1)">
             <summary>
             Removes the specified <paramref name="offset"/> from the <paramref name="collection"/>,
             and returns the removed result.
@@ -6066,7 +6064,7 @@
             <param name="offset">The offset to be removed.</param>
             <returns>The result collection.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.op_BitwiseAnd(`0@,`0@)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.op_BitwiseAnd(`0@,`0@)">
             <summary>
             Get the elements that both <paramref name="left"/> and <paramref name="right"/> contain.
             </summary>
@@ -6074,7 +6072,7 @@
             <param name="right">The right instance.</param>
             <returns>The result.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.op_BitwiseOr(`0@,`0@)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.op_BitwiseOr(`0@,`0@)">
             <summary>
             Combine the elements from <paramref name="left"/> and <paramref name="right"/>,
             and return the merged result.
@@ -6083,7 +6081,7 @@
             <param name="right">The right instance.</param>
             <returns>The result.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.op_ExclusiveOr(`0@,`0@)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.op_ExclusiveOr(`0@,`0@)">
             <summary>
             Get the elements that either <paramref name="left"/> or <paramref name="right"/> contains.
             </summary>
@@ -6091,7 +6089,7 @@
             <param name="right">The right instance.</param>
             <returns>The result.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.op_Modulus(`0@,`0@)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.op_Modulus(`0@,`0@)">
             <summary>
             Expands the operator to <c><![CDATA[(a & b).PeerIntersection & b]]></c>.
             </summary>
@@ -6116,7 +6114,7 @@
             </para>
             </remarks>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.op_BitwiseAnd(`0@,System.Int32)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.op_BitwiseAnd(`0@,System.Int32)">
             <summary>
             Gets the subsets of the current collection via the specified size indicating the number of elements of the each subset.
             </summary>
@@ -6154,7 +6152,7 @@
             the method will return an array of 3 elements given below: <c>r1c12</c>, <c>r1c13</c> and <c>r1c23</c>.
             </remarks>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.op_BitwiseOr(`0@,System.Int32)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.op_BitwiseOr(`0@,System.Int32)">
             <summary>
             Gets all subsets of the current collection via the specified size
             indicating the <b>maximum</b> number of elements of the each subset.
@@ -6162,11 +6160,11 @@
             <param name="map">The instance to check subsets.</param>
             <param name="subsetSize">The desired size.</param>
             <returns>
-            All possible subsets. If <paramref name="subsetSize"/> is greater than <see cref="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.Count"/>,
+            All possible subsets. If <paramref name="subsetSize"/> is greater than <see cref="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.Count"/>,
             this method will return all possible subsets without throwing exceptions.
             </returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.op_BitwiseOr(`0@,System.Range)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.op_BitwiseOr(`0@,System.Range)">
             <summary>
             Gets all subsets of the current collection via the specified range of the subset size.
             </summary>
@@ -6174,34 +6172,34 @@
             <param name="subsetSizeRange">The desired size.</param>
             <returns>All possible subsets.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#ILogicalOperators{TSelf}#op_LogicalNot(`0)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#ILogicalOperators{TSelf}#op_LogicalNot(`0)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Numerics#IEqualityOperators{TSelf,TSelf,System#Boolean}#op_Equality(`0,`0)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Numerics#IEqualityOperators{TSelf,TSelf,System#Boolean}#op_Equality(`0,`0)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Numerics#IEqualityOperators{TSelf,TSelf,System#Boolean}#op_Inequality(`0,`0)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Numerics#IEqualityOperators{TSelf,TSelf,System#Boolean}#op_Inequality(`0,`0)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Numerics#IAdditionOperators{TSelf,TElement,TSelf}#op_Addition(`0,`1)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Numerics#IAdditionOperators{TSelf,TElement,TSelf}#op_Addition(`0,`1)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Numerics#ISubtractionOperators{TSelf,TElement,TSelf}#op_Subtraction(`0,`1)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Numerics#ISubtractionOperators{TSelf,TElement,TSelf}#op_Subtraction(`0,`1)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Numerics#IModulusOperators{TSelf,TSelf,TSelf}#op_Modulus(`0,`0)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Numerics#IModulusOperators{TSelf,TSelf,TSelf}#op_Modulus(`0,`0)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Numerics#IBitwiseOperators{TSelf,TSelf,TSelf}#op_OnesComplement(`0)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Numerics#IBitwiseOperators{TSelf,TSelf,TSelf}#op_OnesComplement(`0)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Numerics#IBitwiseOperators{TSelf,TSelf,TSelf}#op_BitwiseAnd(`0,`0)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Numerics#IBitwiseOperators{TSelf,TSelf,TSelf}#op_BitwiseAnd(`0,`0)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Numerics#IBitwiseOperators{TSelf,TSelf,TSelf}#op_BitwiseOr(`0,`0)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Numerics#IBitwiseOperators{TSelf,TSelf,TSelf}#op_BitwiseOr(`0,`0)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`3.System#Numerics#IBitwiseOperators{TSelf,TSelf,TSelf}#op_ExclusiveOr(`0,`0)">
+        <member name="M:Sudoku.Concepts.ICellMapOrCandidateMap`2.System#Numerics#IBitwiseOperators{TSelf,TSelf,TSelf}#op_ExclusiveOr(`0,`0)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Concepts.IGrid`1">
@@ -10427,7 +10425,7 @@
             <param name="match">The condition to be used.</param>
             <returns>The first found candidate or -1 if none found.</returns>
         </member>
-        <member name="M:Sudoku.Linq.CandidateMapEnumerable.First(Sudoku.Concepts.CandidateMap@,Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMapOrCandidateMapPredicate{Sudoku.Concepts.CandidateMap,System.Int32,Sudoku.Concepts.CandidateMap.Enumerator})">
+        <member name="M:Sudoku.Linq.CandidateMapEnumerable.First(Sudoku.Concepts.CandidateMap@,Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMapOrCandidateMapPredicate{Sudoku.Concepts.CandidateMap,System.Int32})">
             <summary>
             Finds the first candidate that satisfies the specified condition.
             </summary>
@@ -10497,7 +10495,7 @@
             <param name="match">The condition to be used.</param>
             <returns>The first found cell or -1 if none found.</returns>
         </member>
-        <member name="M:Sudoku.Linq.CellMapEnumerable.First(Sudoku.Concepts.CellMap@,Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMapOrCandidateMapPredicate{Sudoku.Concepts.CellMap,System.Int32,Sudoku.Concepts.CellMap.Enumerator})">
+        <member name="M:Sudoku.Linq.CellMapEnumerable.First(Sudoku.Concepts.CellMap@,Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMapOrCandidateMapPredicate{Sudoku.Concepts.CellMap,System.Int32})">
             <summary>
             Finds the first cell that satisfies the specified condition.
             </summary>
@@ -10538,9 +10536,9 @@
             <inheritdoc cref="M:System.Linq.Enumerable.GroupBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})" path="/param[@name='keySelector']"/>
             </param>
             <returns>
-            A list of <see cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`4"/> instances where each value object contains a sequence of objects and a key.
+            A list of <see cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3"/> instances where each value object contains a sequence of objects and a key.
             </returns>
-            <seealso cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`4"/>
+            <seealso cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3"/>
         </member>
         <member name="M:Sudoku.Linq.CellMapEnumerable.SelectMany``1(Sudoku.Concepts.CellMap@,System.Func{System.Int32,System.Int16},System.Func{System.Int32,System.Int32,``0})">
             <summary>
@@ -10573,42 +10571,40 @@
             <param name="match">The match method.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating whether all elements satisfy the specified condition.</returns>
         </member>
-        <member name="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`4">
+        <member name="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3">
             <summary>
             Represents a map group for <see cref="T:Sudoku.Concepts.CandidateMap"/> and <see cref="T:Sudoku.Concepts.CellMap"/>.
             </summary>
-            <typeparam name="TMap">The type of the map that stores the <see cref="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.Values"/>.</typeparam>
-            <typeparam name="TElement">The type of elements stored in <see cref="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.Values"/>.</typeparam>
-            <typeparam name="TEnumerator">The type of enumerator.</typeparam>
+            <typeparam name="TMap">The type of the map that stores the <see cref="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.Values"/>.</typeparam>
+            <typeparam name="TElement">The type of elements stored in <see cref="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.Values"/>.</typeparam>
             <typeparam name="TKey">The type of the key in the group.</typeparam>
             <param name="key">Indicates the key used.</param>
             <param name="values">Indicates the candidates.</param>
             <seealso cref="T:Sudoku.Concepts.CellMap"/>
             <seealso cref="T:Sudoku.Concepts.CandidateMap"/>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.#ctor(`3,`0@)">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.#ctor(`2,`0@)">
             <summary>
             Represents a map group for <see cref="T:Sudoku.Concepts.CandidateMap"/> and <see cref="T:Sudoku.Concepts.CellMap"/>.
             </summary>
-            <typeparam name="TMap">The type of the map that stores the <see cref="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.Values"/>.</typeparam>
-            <typeparam name="TElement">The type of elements stored in <see cref="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.Values"/>.</typeparam>
-            <typeparam name="TEnumerator">The type of enumerator.</typeparam>
+            <typeparam name="TMap">The type of the map that stores the <see cref="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.Values"/>.</typeparam>
+            <typeparam name="TElement">The type of elements stored in <see cref="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.Values"/>.</typeparam>
             <typeparam name="TKey">The type of the key in the group.</typeparam>
             <param name="key">Indicates the key used.</param>
             <param name="values">Indicates the candidates.</param>
             <seealso cref="T:Sudoku.Concepts.CellMap"/>
             <seealso cref="T:Sudoku.Concepts.CandidateMap"/>
         </member>
-        <member name="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.Count">
+        <member name="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.Count">
             <summary>
-            Indicates the number of values stored in <see cref="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.Values"/>, i.e. the shorthand of expression <c>Values.Count</c>.
+            Indicates the number of values stored in <see cref="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.Values"/>, i.e. the shorthand of expression <c>Values.Count</c>.
             </summary>
-            <seealso cref="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.Values"/>
+            <seealso cref="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.Values"/>
         </member>
-        <member name="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.Item(`1)">
-            <inheritdoc cref="P:Sudoku.Concepts.ICellMapOrCandidateMap`3.Item(`1)"/>
+        <member name="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.Item(`1)">
+            <inheritdoc cref="P:Sudoku.Concepts.ICellMapOrCandidateMap`2.Item(`1)"/>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.Deconstruct(`3@,`0@)">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.Deconstruct(`2@,`0@)">
             <target name="method">
 				<summary>
 					Deconstruct the current instance into multiple values, which means you can use
@@ -10616,83 +10612,82 @@
 				</summary>
 			</target>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.GetEnumerator">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.GetEnumerator">
             <summary>
             Returns an enumerator that iterates through a collection.
             </summary>
             <returns>An enumerator object that can be used to iterate through the collection.</returns>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.CreateMapByKeys(System.ReadOnlySpan{Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2,System.Int32}})">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.CreateMapByKeys(System.ReadOnlySpan{Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,System.Int32}})">
             <summary>
             Makes a <see cref="T:Sudoku.Concepts.CellMap"/> instance that is concatenated by a list of groups
-            of type <see cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`4"/>, adding their keys.
+            of type <see cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3"/>, adding their keys.
             </summary>
             <param name="groups">The groups.</param>
             <returns>A <see cref="T:Sudoku.Concepts.CellMap"/> instance.</returns>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.System#Collections#IEnumerable#GetEnumerator">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.System#Collections#IEnumerable#GetEnumerator">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.System#Linq#Providers#IWhereMethod{TMap,TElement}#Where(System.Func{`1,System.Boolean})">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.System#Linq#Providers#IWhereMethod{TMap,TElement}#Where(System.Func{`1,System.Boolean})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.System#Collections#Generic#IEnumerable{TElement}#GetEnumerator">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.System#Collections#Generic#IEnumerable{TElement}#GetEnumerator">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.System#Linq#Providers#ISelectMethod{TMap,TElement}#Select``1(System.Func{`1,``0})">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.System#Linq#Providers#ISelectMethod{TMap,TElement}#Select``1(System.Func{`1,``0})">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.Key">
+        <member name="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.Key">
             <summary>
             The generated property declaration for parameter <c>key</c>.
             </summary>
         </member>
-        <member name="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.Values">
+        <member name="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.Values">
             <summary>
             The generated property declaration for parameter <c>values</c>.
             </summary>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.Equals(System.Object)">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.Equals(System.Object)">
             <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.GetHashCode">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.op_Equality(Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2,`3}@,Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2,`3}@)">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.op_Equality(Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2}@,Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2}@)">
             <inheritdoc cref="M:System.Numerics.IEqualityOperators`3.op_Equality(`0,`1)"/>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.op_Inequality(Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2,`3}@,Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2,`3}@)">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.op_Inequality(Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2}@,Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2}@)">
             <inheritdoc cref="M:System.Numerics.IEqualityOperators`3.op_Inequality(`0,`1)"/>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.System#Numerics#IEqualityOperators{Sudoku#Linq#CellMapOrCandidateMapGrouping{TMap,TElement,TEnumerator,TKey},Sudoku#Linq#CellMapOrCandidateMapGrouping{TMap,TElement,TEnumerator,TKey},System#Boolean}#op_Equality(Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2,`3},Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2,`3})">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.System#Numerics#IEqualityOperators{Sudoku#Linq#CellMapOrCandidateMapGrouping{TMap,TElement,TKey},Sudoku#Linq#CellMapOrCandidateMapGrouping{TMap,TElement,TKey},System#Boolean}#op_Equality(Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2},Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.System#Numerics#IEqualityOperators{Sudoku#Linq#CellMapOrCandidateMapGrouping{TMap,TElement,TEnumerator,TKey},Sudoku#Linq#CellMapOrCandidateMapGrouping{TMap,TElement,TEnumerator,TKey},System#Boolean}#op_Inequality(Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2,`3},Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2,`3})">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.System#Numerics#IEqualityOperators{Sudoku#Linq#CellMapOrCandidateMapGrouping{TMap,TElement,TKey},Sudoku#Linq#CellMapOrCandidateMapGrouping{TMap,TElement,TKey},System#Boolean}#op_Inequality(Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2},Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2})">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.Equals(Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2,`3}@)">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.Equals(Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2}@)">
             <inheritdoc cref="M:System.IEquatable`1.Equals(`0)"/>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.System#IEquatable{Sudoku#Linq#CellMapOrCandidateMapGrouping{TMap,TElement,TEnumerator,TKey}}#Equals(Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2,`3})">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.System#IEquatable{Sudoku#Linq#CellMapOrCandidateMapGrouping{TMap,TElement,TKey}}#Equals(Sudoku.Linq.CellMapOrCandidateMapGrouping{`0,`1,`2})">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Linq.CellMapOrCandidateMapGroupingEnumerable">
             <summary>
-            Represents a list of LINQ methods used by <see cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`4"/> instances.
+            Represents a list of LINQ methods used by <see cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3"/> instances.
             </summary>
-            <seealso cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`4"/>
+            <seealso cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3"/>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGroupingEnumerable.Where``4(Sudoku.Linq.CellMapOrCandidateMapGrouping{``0,``1,``2,``3},System.Func{``1,System.Boolean})">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGroupingEnumerable.Where``3(Sudoku.Linq.CellMapOrCandidateMapGrouping{``0,``1,``2},System.Func{``1,System.Boolean})">
             <summary>
             Filters a sequence of values based on a predicate.
             </summary>
             <typeparam name="TMap">
-            The type of the map that stores the <see cref="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.Values"/>.
+            The type of the map that stores the <see cref="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.Values"/>.
             </typeparam>
             <typeparam name="TElement">
-            The type of elements stored in <see cref="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`4.Values"/>.
+            The type of elements stored in <see cref="P:Sudoku.Linq.CellMapOrCandidateMapGrouping`3.Values"/>.
             </typeparam>
-            <typeparam name="TEnumerator">The type of enumerator.</typeparam>
             <typeparam name="TKey">The type of the key in the group.</typeparam>
             <param name="this">The instance to be checked.</param>
             <param name="predicate">A function to test each element for a condition.</param>
@@ -10701,21 +10696,18 @@
             that contains elements from the input sequence that satisfy the condition.
             </returns>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGroupingEnumerable.Select``5(Sudoku.Linq.CellMapOrCandidateMapGrouping{``0,``1,``2,``3},System.Func{``1,``4})">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGroupingEnumerable.Select``4(Sudoku.Linq.CellMapOrCandidateMapGrouping{``0,``1,``2},System.Func{``1,``3})">
             <summary>
             <inheritdoc cref="M:System.Linq.Enumerable.Select``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})" path="/summary"/>
             </summary>
             <typeparam name="TMap">
-            <inheritdoc cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`4" path="/typeparam[@name='TMap']"/>
+            <inheritdoc cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3" path="/typeparam[@name='TMap']"/>
             </typeparam>
             <typeparam name="TElement">
-            <inheritdoc cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`4" path="/typeparam[@name='TElement']"/>
+            <inheritdoc cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3" path="/typeparam[@name='TElement']"/>
             </typeparam>
             <typeparam name="TKey">
-            <inheritdoc cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`4" path="/typeparam[@name='TKey']"/>
-            </typeparam>
-            <typeparam name="TEnumerator">
-            The type of enumerator.
+            <inheritdoc cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3" path="/typeparam[@name='TKey']"/>
             </typeparam>
             <typeparam name="TResult">
             <inheritdoc cref="M:System.Linq.Enumerable.Select``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})" path="/typeparam[@name='TResult']"/>
@@ -10729,9 +10721,9 @@
             whose elements are the result of invoking the transform function on each element of the current instance.
             </returns>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGroupingEnumerable.Select``1(System.ReadOnlySpan{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CellMap,System.Int32,Sudoku.Concepts.CellMap.Enumerator,``0}},System.Func{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CellMap,System.Int32,Sudoku.Concepts.CellMap.Enumerator,``0},System.Int32})">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGroupingEnumerable.Select``1(System.ReadOnlySpan{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CellMap,System.Int32,``0}},System.Func{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CellMap,System.Int32,``0},System.Int32})">
             <summary>
-            Projects a list of <see cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`4"/> of types <see cref="T:Sudoku.Concepts.CellMap"/>,
+            Projects a list of <see cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3"/> of types <see cref="T:Sudoku.Concepts.CellMap"/>,
             <see cref="T:System.Int32"/> and <typeparamref name="TKey"/>, into a <see cref="T:System.Int32"/> value; collect converted results and merge
             into a <see cref="T:Sudoku.Concepts.CellMap"/> instance.
             </summary>
@@ -10740,9 +10732,9 @@
             <param name="selector">The transform method to apply to each element.</param>
             <returns>The result.</returns>
         </member>
-        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGroupingEnumerable.Select``1(System.ReadOnlySpan{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CandidateMap,System.Int32,Sudoku.Concepts.CandidateMap.Enumerator,``0}},System.Func{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CandidateMap,System.Int32,Sudoku.Concepts.CandidateMap.Enumerator,``0},System.Int32})">
+        <member name="M:Sudoku.Linq.CellMapOrCandidateMapGroupingEnumerable.Select``1(System.ReadOnlySpan{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CandidateMap,System.Int32,``0}},System.Func{Sudoku.Linq.CellMapOrCandidateMapGrouping{Sudoku.Concepts.CandidateMap,System.Int32,``0},System.Int32})">
             <summary>
-            Projects a list of <see cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`4"/> of types <see cref="T:Sudoku.Concepts.CandidateMap"/>,
+            Projects a list of <see cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3"/> of types <see cref="T:Sudoku.Concepts.CandidateMap"/>,
             <see cref="T:System.Int32"/> and <typeparamref name="TKey"/>, into a <see cref="T:System.Int32"/> value; collect converted results
             and merge into a <see cref="T:Sudoku.Concepts.CandidateMap"/> instance.
             </summary>

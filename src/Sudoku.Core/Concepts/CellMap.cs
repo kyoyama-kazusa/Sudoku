@@ -1,6 +1,6 @@
 namespace Sudoku.Concepts;
 
-using CellMapBase = ICellMapOrCandidateMap<CellMap, Cell, CellMap.Enumerator>;
+using CellMapBase = ICellMapOrCandidateMap<CellMap, Cell>;
 
 /// <summary>
 /// Encapsulates a binary series of cell state table.
@@ -595,7 +595,7 @@ public partial struct CellMap : CellMapBase
 
 	/// <inheritdoc/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public readonly Enumerator GetEnumerator() => new(Offsets);
+	public readonly AnonymousSpanEnumerator<Cell> GetEnumerator() => new(Offsets);
 
 	/// <inheritdoc/>
 	public readonly CellMap Slice(int start, int count)
