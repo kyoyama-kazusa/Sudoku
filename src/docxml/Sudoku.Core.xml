@@ -8461,6 +8461,164 @@
             </summary>
             <remarks>Note that the size of this 2D array is always 28 by 28.</remarks>
         </member>
+        <member name="T:Sudoku.Drawing.Parsing.DrawingCommandParser">
+            <summary>
+            Represents a parser that generates a list of drawing items.
+            </summary>
+            <param name="grid">Indicates the reference to the grid. The reference can be <see langword="null"/>.</param>
+            <remarks>
+            Please visit <see href="https://sudokustudio.kazusa.tech/user-manual/drawing-command-line">this link</see>
+            to learn more information about drawing command syntax.
+            </remarks>
+        </member>
+        <member name="M:Sudoku.Drawing.Parsing.DrawingCommandParser.#ctor(Sudoku.Concepts.Grid@)">
+            <summary>
+            Represents a parser that generates a list of drawing items.
+            </summary>
+            <param name="grid">Indicates the reference to the grid. The reference can be <see langword="null"/>.</param>
+            <remarks>
+            Please visit <see href="https://sudokustudio.kazusa.tech/user-manual/drawing-command-line">this link</see>
+            to learn more information about drawing command syntax.
+            </remarks>
+        </member>
+        <member name="F:Sudoku.Drawing.Parsing.DrawingCommandParser.WellKnownIdentifiers">
+            <summary>
+            Indicates the well-known identifiers, and their own key used in parsing.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Drawing.Parsing.DrawingCommandParser.ArgumentParsers">
+            <summary>
+            Indicates argument parsers.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Drawing.Parsing.DrawingCommandParser.TryParse(System.String,Sudoku.Drawing.View@,Sudoku.Concepts.Coordinates.CoordinateParser,System.StringComparison)">
+            <summary>
+            Try to parse the string, split by line separator; return <see langword="false"/> if failed to be parsed.
+            This method never throws <see cref="T:System.FormatException"/>.
+            </summary>
+            <param name="str">The string.</param>
+            <param name="result">The result view.</param>
+            <param name="parser">The parser. By default it's <see langword="new"/> <see cref="T:Sudoku.Concepts.Coordinates.RxCyParser"/>().</param>
+            <param name="comparison">The comparison. By default it's <see cref="F:System.StringComparison.OrdinalIgnoreCase"/>.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating whether the command-line syntax is valid.</returns>
+        </member>
+        <member name="M:Sudoku.Drawing.Parsing.DrawingCommandParser.Parse(System.String,Sudoku.Concepts.Coordinates.CoordinateParser,System.StringComparison)">
+            <summary>
+            Parses the string, split by line separator.
+            </summary>
+            <param name="str">The string.</param>
+            <param name="parser">The parser. By default it's <see langword="new"/> <see cref="T:Sudoku.Concepts.Coordinates.RxCyParser"/>().</param>
+            <param name="comparison">The comparison. By default it's <see cref="F:System.StringComparison.OrdinalIgnoreCase"/>.</param>
+            <exception cref="T:System.FormatException">Throws when a line is invalid.</exception>
+        </member>
+        <member name="M:Sudoku.Drawing.Parsing.DrawingCommandParser.ParseColorIdentifier(System.String,System.StringComparison)">
+            <summary>
+            Parses a string and returns the equivalent color identifier.
+            </summary>
+            <param name="str">The string to be parsed.</param>
+            <param name="comparison">The comparison. By default it's <see cref="F:System.StringComparison.OrdinalIgnoreCase"/>.</param>
+            <returns>A <see cref="T:Sudoku.Drawing.ColorIdentifier"/> value returned.</returns>
+        </member>
+        <member name="F:Sudoku.Drawing.Parsing.DrawingCommandParser._grid">
+            <summary>
+            The generated field declaration for parameter <c>grid</c>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Drawing.Parsing.DrawingCommandParser.Equals(System.Object)">
+            <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
+        </member>
+        <member name="M:Sudoku.Drawing.Parsing.DrawingCommandParser.GetHashCode">
+            <inheritdoc cref="M:System.Object.GetHashCode"/>
+        </member>
+        <member name="M:Sudoku.Drawing.Parsing.DrawingCommandParser.ToString">
+            <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="T:Sudoku.Drawing.Parsing.ArgumentParser">
+            <summary>
+            Represents a parser type that parses arguments for one kind of drawing item.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Drawing.Parsing.ArgumentParser.TryParse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser,System.ReadOnlySpan{Sudoku.Drawing.ViewNode}@)">
+            <summary>
+            Try to parse the arguments and return a list of <see cref="T:Sudoku.Drawing.ViewNode"/> instances indicating the result,
+            assigned to <paramref name="result"/>.
+            </summary>
+            <param name="arguments">The raw arguments.</param>
+            <param name="grid">The reference to the grid. The reference can be a <see langword="null"/> reference.</param>
+            <param name="colorIdentifier">The color identifier.</param>
+            <param name="coordinateParser">The coordinate parser.</param>
+            <param name="result">A list of <see cref="T:Sudoku.Drawing.ViewNode"/> instances.</param>
+            <returns>
+            A <see cref="T:System.Boolean"/> result indicating whether the operation is successfully handled, and arguments are valid.
+            </returns>
+        </member>
+        <member name="M:Sudoku.Drawing.Parsing.ArgumentParser.Parse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser)">
+            <summary>
+            Parses the arguments and returns a list of <see cref="T:Sudoku.Drawing.ViewNode"/> instances indicating the result.
+            </summary>
+            <param name="arguments">The raw arguments.</param>
+            <param name="grid">The reference to the grid. The reference can be a <see langword="null"/> reference.</param>
+            <param name="colorIdentifier">The color identifier.</param>
+            <param name="coordinateParser">The coordinate parser.</param>
+            <returns>A list of <see cref="T:Sudoku.Drawing.ViewNode"/> instances.</returns>
+            <exception cref="T:System.FormatException">Throws when the arguments are invalid.</exception>
+        </member>
+        <member name="T:Sudoku.Drawing.Parsing.BabaGroupArgumentParser">
+            <summary>
+            Represents a baba group argument parser.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Drawing.Parsing.BabaGroupArgumentParser.Parse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Drawing.Parsing.CandidateArgumentParser">
+            <summary>
+            Represents a candidate argument parser.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Drawing.Parsing.CandidateArgumentParser.Parse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Drawing.Parsing.CellArgumentParser">
+            <summary>
+            Represents a cell argument parser.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Drawing.Parsing.CellArgumentParser.Parse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Drawing.Parsing.ChuteArgumentParser">
+            <summary>
+            Represents a chute argument parser.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Drawing.Parsing.ChuteArgumentParser.Parse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Drawing.Parsing.HouseArgumentParser">
+            <summary>
+            Represents a house argument parser.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Drawing.Parsing.HouseArgumentParser.Parse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Drawing.Parsing.IconArgumentParser">
+            <summary>
+            Represents an icon argument parser.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Drawing.Parsing.IconArgumentParser.Parse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Drawing.Parsing.LinkArgumentParser">
+            <summary>
+            Represents link argument parser.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Drawing.Parsing.LinkArgumentParser.Parse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Drawing.IDrawable">
             <summary>
             Represents a drawable instance that can be used for drawing, providing with base data structure to be used by drawing APIs.
@@ -9179,164 +9337,6 @@
         </member>
         <member name="M:Sudoku.Drawing.PaletteIdColorIdentifier.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
-        </member>
-        <member name="T:Sudoku.Drawing.Parsing.ArgumentParser">
-            <summary>
-            Represents a parser type that parses arguments for one kind of drawing item.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Drawing.Parsing.ArgumentParser.TryParse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser,System.ReadOnlySpan{Sudoku.Drawing.ViewNode}@)">
-            <summary>
-            Try to parse the arguments and return a list of <see cref="T:Sudoku.Drawing.ViewNode"/> instances indicating the result,
-            assigned to <paramref name="result"/>.
-            </summary>
-            <param name="arguments">The raw arguments.</param>
-            <param name="grid">The reference to the grid. The reference can be a <see langword="null"/> reference.</param>
-            <param name="colorIdentifier">The color identifier.</param>
-            <param name="coordinateParser">The coordinate parser.</param>
-            <param name="result">A list of <see cref="T:Sudoku.Drawing.ViewNode"/> instances.</param>
-            <returns>
-            A <see cref="T:System.Boolean"/> result indicating whether the operation is successfully handled, and arguments are valid.
-            </returns>
-        </member>
-        <member name="M:Sudoku.Drawing.Parsing.ArgumentParser.Parse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser)">
-            <summary>
-            Parses the arguments and returns a list of <see cref="T:Sudoku.Drawing.ViewNode"/> instances indicating the result.
-            </summary>
-            <param name="arguments">The raw arguments.</param>
-            <param name="grid">The reference to the grid. The reference can be a <see langword="null"/> reference.</param>
-            <param name="colorIdentifier">The color identifier.</param>
-            <param name="coordinateParser">The coordinate parser.</param>
-            <returns>A list of <see cref="T:Sudoku.Drawing.ViewNode"/> instances.</returns>
-            <exception cref="T:System.FormatException">Throws when the arguments are invalid.</exception>
-        </member>
-        <member name="T:Sudoku.Drawing.Parsing.BabaGroupArgumentParser">
-            <summary>
-            Represents a baba group argument parser.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Drawing.Parsing.BabaGroupArgumentParser.Parse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Drawing.Parsing.CandidateArgumentParser">
-            <summary>
-            Represents a candidate argument parser.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Drawing.Parsing.CandidateArgumentParser.Parse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Drawing.Parsing.CellArgumentParser">
-            <summary>
-            Represents a cell argument parser.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Drawing.Parsing.CellArgumentParser.Parse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Drawing.Parsing.ChuteArgumentParser">
-            <summary>
-            Represents a chute argument parser.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Drawing.Parsing.ChuteArgumentParser.Parse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Drawing.Parsing.DrawingCommandParser">
-            <summary>
-            Represents a parser that generates a list of drawing items.
-            </summary>
-            <param name="grid">Indicates the reference to the grid. The reference can be <see langword="null"/>.</param>
-            <remarks>
-            Please visit <see href="https://sudokustudio.kazusa.tech/user-manual/drawing-command-line">this link</see>
-            to learn more information about drawing command syntax.
-            </remarks>
-        </member>
-        <member name="M:Sudoku.Drawing.Parsing.DrawingCommandParser.#ctor(Sudoku.Concepts.Grid@)">
-            <summary>
-            Represents a parser that generates a list of drawing items.
-            </summary>
-            <param name="grid">Indicates the reference to the grid. The reference can be <see langword="null"/>.</param>
-            <remarks>
-            Please visit <see href="https://sudokustudio.kazusa.tech/user-manual/drawing-command-line">this link</see>
-            to learn more information about drawing command syntax.
-            </remarks>
-        </member>
-        <member name="F:Sudoku.Drawing.Parsing.DrawingCommandParser.WellKnownIdentifiers">
-            <summary>
-            Indicates the well-known identifiers, and their own key used in parsing.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Drawing.Parsing.DrawingCommandParser.ArgumentParsers">
-            <summary>
-            Indicates argument parsers.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Drawing.Parsing.DrawingCommandParser.TryParse(System.String,Sudoku.Drawing.View@,Sudoku.Concepts.Coordinates.CoordinateParser,System.StringComparison)">
-            <summary>
-            Try to parse the string, split by line separator; return <see langword="false"/> if failed to be parsed.
-            This method never throws <see cref="T:System.FormatException"/>.
-            </summary>
-            <param name="str">The string.</param>
-            <param name="result">The result view.</param>
-            <param name="parser">The parser. By default it's <see langword="new"/> <see cref="T:Sudoku.Concepts.Coordinates.RxCyParser"/>().</param>
-            <param name="comparison">The comparison. By default it's <see cref="F:System.StringComparison.OrdinalIgnoreCase"/>.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating whether the command-line syntax is valid.</returns>
-        </member>
-        <member name="M:Sudoku.Drawing.Parsing.DrawingCommandParser.Parse(System.String,Sudoku.Concepts.Coordinates.CoordinateParser,System.StringComparison)">
-            <summary>
-            Parses the string, split by line separator.
-            </summary>
-            <param name="str">The string.</param>
-            <param name="parser">The parser. By default it's <see langword="new"/> <see cref="T:Sudoku.Concepts.Coordinates.RxCyParser"/>().</param>
-            <param name="comparison">The comparison. By default it's <see cref="F:System.StringComparison.OrdinalIgnoreCase"/>.</param>
-            <exception cref="T:System.FormatException">Throws when a line is invalid.</exception>
-        </member>
-        <member name="M:Sudoku.Drawing.Parsing.DrawingCommandParser.ParseColorIdentifier(System.String,System.StringComparison)">
-            <summary>
-            Parses a string and returns the equivalent color identifier.
-            </summary>
-            <param name="str">The string to be parsed.</param>
-            <param name="comparison">The comparison. By default it's <see cref="F:System.StringComparison.OrdinalIgnoreCase"/>.</param>
-            <returns>A <see cref="T:Sudoku.Drawing.ColorIdentifier"/> value returned.</returns>
-        </member>
-        <member name="F:Sudoku.Drawing.Parsing.DrawingCommandParser._grid">
-            <summary>
-            The generated field declaration for parameter <c>grid</c>.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Drawing.Parsing.DrawingCommandParser.Equals(System.Object)">
-            <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
-        </member>
-        <member name="M:Sudoku.Drawing.Parsing.DrawingCommandParser.GetHashCode">
-            <inheritdoc cref="M:System.Object.GetHashCode"/>
-        </member>
-        <member name="M:Sudoku.Drawing.Parsing.DrawingCommandParser.ToString">
-            <inheritdoc cref="M:System.Object.ToString"/>
-        </member>
-        <member name="T:Sudoku.Drawing.Parsing.HouseArgumentParser">
-            <summary>
-            Represents a house argument parser.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Drawing.Parsing.HouseArgumentParser.Parse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Drawing.Parsing.IconArgumentParser">
-            <summary>
-            Represents an icon argument parser.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Drawing.Parsing.IconArgumentParser.Parse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Drawing.Parsing.LinkArgumentParser">
-            <summary>
-            Represents link argument parser.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Drawing.Parsing.LinkArgumentParser.Parse(System.ReadOnlySpan{System.String},Sudoku.Concepts.Grid@,Sudoku.Drawing.ColorIdentifier,Sudoku.Concepts.Coordinates.CoordinateParser)">
-            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Drawing.View">
             <summary>
