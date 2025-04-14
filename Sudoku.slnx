@@ -40,9 +40,6 @@
     <Project Path="PuzzlesMeta/src/RootLevelSourceGeneration/RootLevelSourceGeneration.csproj">
       <BuildType Solution="Build|*" Project="Debug" />
     </Project>
-    <Project Path="PuzzlesMeta/src/System.SourceGeneration/SystemExtensions.SourceGeneration.csproj">
-      <BuildType Solution="Build|*" Project="Debug" />
-    </Project>
     <Project Path="src/Sudoku.Analytics.SourceGeneration/Sudoku.Analytics.SourceGeneration.csproj" />
     <Project Path="src/SudokuStudio.SourceGeneration/SudokuStudio.SourceGeneration.csproj" />
   </Folder>

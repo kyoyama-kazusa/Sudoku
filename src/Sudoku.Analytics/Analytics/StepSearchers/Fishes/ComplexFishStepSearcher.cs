@@ -72,7 +72,7 @@ public sealed partial class ComplexFishStepSearcher : StepSearcher
 
 		// Gather the POM eliminations to get all possible fish eliminations.
 		var pomElims = GetPomEliminationsFirstly(grid, ref context);
-		if (pomElims.All(static (ref readonly p) => !p))
+		if (pomElims.All(static (in p) => !p))
 		{
 			return null;
 		}
@@ -505,3 +505,27 @@ public sealed partial class ComplexFishStepSearcher : StepSearcher
 		return result;
 	}
 }
+
+/// <include file='../../global-doc-comments.xml' path='g/csharp11/feature[@name="file-local"]/target[@name="class" and @when="extension"]'/>
+file static class Extensions
+{
+	/// <inheritdoc cref="IAnyAllMethod{TSelf, TSource}.All(Func{TSource, bool})"/>
+	public static bool All(this ReadOnlySpan<CellMap> @this, CellMapPredicate match)
+	{
+		foreach (ref readonly var element in @this)
+		{
+			if (!match(element))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+}
+
+/// <summary>
+/// Represents a file-local <see cref="CellMap"/> predicate.
+/// </summary>
+/// <param name="map">The map.</param>
+/// <returns>A <see cref="bool"/> result.</returns>
+file delegate bool CellMapPredicate(in CellMap map);

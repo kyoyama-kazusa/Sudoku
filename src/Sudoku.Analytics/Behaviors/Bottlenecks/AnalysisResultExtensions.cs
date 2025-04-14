@@ -47,7 +47,7 @@ public static class AnalysisResultExtensions
 			: pencilmarkMode.HasFlag(PencilmarkVisibility.PartialMarking)
 				? PencilmarkVisibility.PartialMarking
 				: PencilmarkVisibility.Direct;
-		return (filters.FirstRefOrNullRef((ref readonly f) => f.Visibility == filterMode).Type, filterMode) switch
+		return (filters.FirstRefOrNullRef((in f) => f.Visibility == filterMode).Type, filterMode) switch
 		{
 			(BottleneckType.SingleStepOnly, PencilmarkVisibility.Direct or PencilmarkVisibility.PartialMarking) => singleStepOnly(),
 			(BottleneckType.SingleStepSameLevelOnly, PencilmarkVisibility.PartialMarking) => singleStepSameLevelOnly(),
@@ -160,3 +160,28 @@ public static class AnalysisResultExtensions
 		}
 	}
 }
+
+/// <include file='../../global-doc-comments.xml' path='g/csharp11/feature[@name="file-local"]/target[@name="class" and @when="extension"]'/>
+file static class Extensions
+{
+	/// <inheritdoc cref="IFirstLastMethod{TSelf, TSource}.FirstOrDefault(Func{TSource, bool})"/>
+	public static ref readonly T FirstRefOrNullRef<T>(this ReadOnlySpan<T> @this, LargePreicate<T> predicate)
+	{
+		foreach (ref readonly var element in @this)
+		{
+			if (predicate(element))
+			{
+				return ref element;
+			}
+		}
+		return ref Unsafe.NullRef<T>();
+	}
+}
+
+/// <summary>
+/// Represents a type that determine the instance satisfies the specified condition.
+/// </summary>
+/// <typeparam name="T">The type of instance.</typeparam>
+/// <param name="instance">The instance.</param>
+/// <returns>A <see cref="bool"/> result.</returns>
+file delegate bool LargePreicate<T>(in T instance);

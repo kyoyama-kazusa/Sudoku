@@ -9628,6 +9628,23 @@
             <param name="context">The context.</param>
             <returns>The dictionary that contains all eliminations grouped by digit used.</returns>
         </member>
+        <member name="T:Sudoku.Analytics.StepSearchers.Fishes.Extensions">
+            <target name="class" when="extension">
+				<summary>
+					Provides with file-local extension methods.
+				</summary>
+			</target>
+        </member>
+        <member name="M:Sudoku.Analytics.StepSearchers.Fishes.Extensions.All(System.ReadOnlySpan{Sudoku.Concepts.CellMap},Sudoku.Analytics.StepSearchers.Fishes.CellMapPredicate)">
+            <inheritdoc cref="M:System.Linq.Providers.IAnyAllMethod`2.All(System.Func{`1,System.Boolean})"/>
+        </member>
+        <member name="T:Sudoku.Analytics.StepSearchers.Fishes.CellMapPredicate">
+            <summary>
+            Represents a file-local <see cref="T:Sudoku.Concepts.CellMap"/> predicate.
+            </summary>
+            <param name="map">The map.</param>
+            <returns>A <see cref="T:System.Boolean"/> result.</returns>
+        </member>
         <member name="T:Sudoku.Analytics.StepSearchers.Fishes.NormalFishStepSearcher">
             <summary>
             Provides with a <b>Normal Fish</b> step searcher. The step searcher will include the following techniques:
@@ -22043,6 +22060,24 @@
             <exception cref="T:System.ArgumentOutOfRangeException">
             Throws when argument <paramref name="filters"/> contains one filter holding an undefined <see cref="T:Sudoku.Behaviors.Bottlenecks.BottleneckType"/> flag.
             </exception>
+        </member>
+        <member name="T:Sudoku.Behaviors.Bottlenecks.Extensions">
+            <target name="class" when="extension">
+				<summary>
+					Provides with file-local extension methods.
+				</summary>
+			</target>
+        </member>
+        <member name="M:Sudoku.Behaviors.Bottlenecks.Extensions.FirstRefOrNullRef``1(System.ReadOnlySpan{``0},Sudoku.Behaviors.Bottlenecks.LargePreicate{``0})">
+            <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.FirstOrDefault(System.Func{`1,System.Boolean})"/>
+        </member>
+        <member name="T:Sudoku.Behaviors.Bottlenecks.LargePreicate`1">
+            <summary>
+            Represents a type that determine the instance satisfies the specified condition.
+            </summary>
+            <typeparam name="T">The type of instance.</typeparam>
+            <param name="instance">The instance.</param>
+            <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
         <member name="T:Sudoku.Behaviors.Bottlenecks.BottleneckFilter">
             <summary>
