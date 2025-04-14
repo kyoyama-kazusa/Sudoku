@@ -57,6 +57,11 @@ public sealed partial class Link(
 	public void Deconstruct(out Node firstNode, out Node secondNode, out bool isStrong)
 		=> ((firstNode, secondNode), isStrong) = (this, IsStrong);
 
+	/// <include file="../../global-doc-comments.xml" path="g/csharp7/feature[@name='deconstruction-method']/target[@name='method']"/>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void Deconstruct(out Node firstNode, out Node secondNode, out bool isStrong, out Pattern? groupedLinkPattern)
+		=> ((firstNode, secondNode, isStrong), groupedLinkPattern) = (this, GroupedLinkPattern);
+
 	/// <inheritdoc/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public bool Equals([NotNullWhen(true)] Link? other) => other is not null && Equals(other, LinkComparison.Undirected);

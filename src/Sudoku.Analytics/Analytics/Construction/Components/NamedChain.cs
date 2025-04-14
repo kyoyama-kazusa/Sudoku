@@ -34,8 +34,8 @@ public abstract class NamedChain(Node lastNode, bool isLoop) : Chain(lastNode, i
 					{
 						continue;
 					}
-					case (_, _, true) { GroupedLinkPattern: not AlmostLockedSetPattern }:
-					case (_, _, false) { GroupedLinkPattern: not null }:
+					case (_, _, true, not AlmostLockedSetPattern) :
+					case (_, _, false, not null):
 					case ({ Map.Digits: var d1 }, { Map.Digits: var d2 }, false) when d1 != d2 || !Mask.IsPow2(d1):
 					{
 						return false;

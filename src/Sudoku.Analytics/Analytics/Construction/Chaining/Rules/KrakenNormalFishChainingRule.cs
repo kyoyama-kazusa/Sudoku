@@ -199,10 +199,12 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 		var result = ConclusionSet.Empty;
 		foreach (var link in links)
 		{
-			if (link is not ({ Map.Cells: var firstCells }, { Map.Cells: var secondCells })
-				{
-					GroupedLinkPattern: FishPattern { Digit: var digit, BaseSets: var baseSets, CoverSets: var coverSets }
-				})
+			if (link is not (
+				{ Map.Cells: var firstCells },
+				{ Map.Cells: var secondCells },
+				_,
+				FishPattern { Digit: var digit, BaseSets: var baseSets, CoverSets: var coverSets }
+			))
 			{
 				continue;
 			}

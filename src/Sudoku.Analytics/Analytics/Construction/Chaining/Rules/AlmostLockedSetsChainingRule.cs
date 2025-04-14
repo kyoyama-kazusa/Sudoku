@@ -124,7 +124,7 @@ public sealed class AlmostLockedSetsChainingRule : ChainingRule
 		var result = new List<ViewNode>();
 		foreach (var link in pattern.Links)
 		{
-			if (link is not ({ Map: var map1 }, { Map: var map2 }) { GroupedLinkPattern: AlmostLockedSetPattern { Cells: var cells } })
+			if (link is not ({ Map: var map1 }, { Map: var map2 }, _, AlmostLockedSetPattern { Cells: var cells }))
 			{
 				continue;
 			}
@@ -168,10 +168,12 @@ public sealed class AlmostLockedSetsChainingRule : ChainingRule
 		var result = ConclusionSet.Empty;
 		foreach (var element in links)
 		{
-			if (element is ({ Map.Digits: var digitsMask1 }, { Map.Digits: var digitsMask2 }, true)
-				{
-					GroupedLinkPattern: AlmostLockedSetPattern(var digitsMask, var alsCells)
-				})
+			if (element is (
+				{ Map.Digits: var digitsMask1 },
+				{ Map.Digits: var digitsMask2 },
+				true,
+				AlmostLockedSetPattern(var digitsMask, var alsCells)
+			))
 			{
 				var elimDigitsMask = (Mask)(digitsMask & ~(digitsMask1 | digitsMask2));
 				foreach (var digit in elimDigitsMask)

@@ -83,12 +83,10 @@ public sealed class LockedCandidatesChainingRule : ChainingRule
 		var result = ConclusionSet.Empty;
 		foreach (var element in links)
 		{
-			if (element is ({ Map: { Digits: var digitsMask1, Cells: var cells1 } }, { Map: { Digits: var digitsMask2, Cells: var cells2 } })
-				{
-					GroupedLinkPattern: null
-				}
-				&& digitsMask1 == digitsMask2 && Mask.IsPow2(digitsMask1) && Mask.IsPow2(digitsMask2)
-				&& Mask.Log2(digitsMask1) is var digit
+			if (element is ({ Map: { Digits: var digits1, Cells: var cells1 } }, { Map: { Digits: var digits2, Cells: var cells2 } }, _, null)
+				&& digits1 == digits2 && Mask.IsPow2(digits1)
+				&& digits1 == digits2 && Mask.IsPow2(digits1)
+				&& Mask.Log2(digits1) is var digit
 				&& (cells1 & cells2 & __CandidatesMap[digit]) is { Count: not 0 } intersection)
 			{
 				result.AddRange(from cell in intersection select new Conclusion(Elimination, cell, digit));

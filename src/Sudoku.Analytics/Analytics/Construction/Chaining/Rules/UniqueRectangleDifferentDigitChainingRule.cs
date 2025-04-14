@@ -75,7 +75,7 @@ public sealed class UniqueRectangleDifferentDigitChainingRule : UniqueRectangleC
 		var result = ConclusionSet.Empty;
 		foreach (var element in links)
 		{
-			if (element is { IsStrong: true, GroupedLinkPattern: UniqueRectanglePattern(var cells, var digitsMask) })
+			if (element is (_, _, true, UniqueRectanglePattern(var cells, var digitsMask)))
 			{
 				result.AddRange(EliminationCalculator.UniqueRectangle.GetConclusions(cells, digitsMask, grid));
 			}

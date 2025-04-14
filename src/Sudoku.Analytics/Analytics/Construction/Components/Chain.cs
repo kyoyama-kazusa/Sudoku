@@ -282,7 +282,7 @@ public abstract partial class Chain :
 		{
 			foreach (var link in StrongLinks)
 			{
-				if (link is ({ Map.Count: var d1 }, { Map.Count: var d2 }) { GroupedLinkPattern: var groupedPattern }
+				if (link is ({ Map.Count: var d1 }, { Map.Count: var d2 }, _, var groupedPattern)
 					&& (d1 != 1 || d2 != 1 || groupedPattern is not null))
 				{
 					return true;
@@ -302,7 +302,7 @@ public abstract partial class Chain :
 		{
 			foreach (var link in WeakLinks)
 			{
-				if (link is ({ Map.Count: var d1 }, { Map.Count: var d2 }) { GroupedLinkPattern: var groupedPattern }
+				if (link is ({ Map.Count: var d1 }, { Map.Count: var d2 }, _, var groupedPattern)
 					&& (d1 != 1 || d2 != 1 || groupedPattern is not null))
 				{
 					return true;
