@@ -63,7 +63,7 @@ public static class CollectorFactory
 	/// <param name="setter">The value to be added.</param>
 	/// <returns>The value same as <see cref="Collector"/>.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Collector AddStepSearcherSetter<TStepSearcher>(this Collector instance, Action<TStepSearcher> setter)
+	public static Collector ApplySetter<TStepSearcher>(this Collector instance, Action<TStepSearcher> setter)
 		where TStepSearcher : StepSearcher
 	{
 		instance.Setters.Add(
@@ -84,7 +84,7 @@ public static class CollectorFactory
 	/// <param name="instance">The instance to be updated.</param>
 	/// <param name="setters">The value to be added.</param>
 	/// <returns>The value same as <see cref="Collector"/>.</returns>
-	public static Collector AddStepSearcherSetter(this Collector instance, Action<StepSearcher> setters)
+	public static Collector ApplySetter(this Collector instance, Action<StepSearcher> setters)
 	{
 		instance.Setters.Add(setters);
 		return instance;
@@ -96,7 +96,7 @@ public static class CollectorFactory
 	/// <param name="instance">The instance to be set or updated.</param>
 	/// <param name="setters">A list of values to be added.</param>
 	/// <returns>The value same as <see cref="Collector"/>.</returns>
-	public static Collector AddStepSearcherSetter(this Collector instance, params ReadOnlySpan<Action<StepSearcher>> setters)
+	public static Collector ApplySetters(this Collector instance, params ReadOnlySpan<Action<StepSearcher>> setters)
 	{
 		foreach (var element in setters)
 		{

@@ -813,7 +813,7 @@
             <seealso cref="P:Sudoku.Analytics.StepGatherer.StepSearchers"/>
             <seealso cref="T:Sudoku.Analytics.StepSearcher"/>
         </member>
-        <member name="M:Sudoku.Analytics.AnalyzerFactory.AddStepSearcherSetter``1(Sudoku.Analytics.Analyzer,System.Action{``0})">
+        <member name="M:Sudoku.Analytics.AnalyzerFactory.ApplySetter``1(Sudoku.Analytics.Analyzer,System.Action{``0})">
             <summary>
             Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
             </summary>
@@ -822,7 +822,7 @@
             <param name="setter">The value to be added.</param>
             <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.AnalyzerFactory.AddStepSearcherSetter(Sudoku.Analytics.Analyzer,System.Action{Sudoku.Analytics.StepSearcher})">
+        <member name="M:Sudoku.Analytics.AnalyzerFactory.ApplySetter(Sudoku.Analytics.Analyzer,System.Action{Sudoku.Analytics.StepSearcher})">
             <summary>
             Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
             </summary>
@@ -830,7 +830,7 @@
             <param name="setters">The value to be added.</param>
             <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.AnalyzerFactory.AddStepSearcherSetter(Sudoku.Analytics.Analyzer,System.ReadOnlySpan{System.Action{Sudoku.Analytics.StepSearcher}})">
+        <member name="M:Sudoku.Analytics.AnalyzerFactory.ApplySetters(Sudoku.Analytics.Analyzer,System.ReadOnlySpan{System.Action{Sudoku.Analytics.StepSearcher}})">
             <summary>
             Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
             </summary>
@@ -1822,7 +1822,7 @@
             <param name="options">The value to be set or updated.</param>
             <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.CollectorFactory.AddStepSearcherSetter``1(Sudoku.Analytics.Collector,System.Action{``0})">
+        <member name="M:Sudoku.Analytics.CollectorFactory.ApplySetter``1(Sudoku.Analytics.Collector,System.Action{``0})">
             <summary>
             Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
             </summary>
@@ -1831,7 +1831,7 @@
             <param name="setter">The value to be added.</param>
             <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.CollectorFactory.AddStepSearcherSetter(Sudoku.Analytics.Collector,System.Action{Sudoku.Analytics.StepSearcher})">
+        <member name="M:Sudoku.Analytics.CollectorFactory.ApplySetter(Sudoku.Analytics.Collector,System.Action{Sudoku.Analytics.StepSearcher})">
             <summary>
             Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
             </summary>
@@ -1839,7 +1839,7 @@
             <param name="setters">The value to be added.</param>
             <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.CollectorFactory.AddStepSearcherSetter(Sudoku.Analytics.Collector,System.ReadOnlySpan{System.Action{Sudoku.Analytics.StepSearcher}})">
+        <member name="M:Sudoku.Analytics.CollectorFactory.ApplySetters(Sudoku.Analytics.Collector,System.ReadOnlySpan{System.Action{Sudoku.Analytics.StepSearcher}})">
             <summary>
             Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
             </summary>

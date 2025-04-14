@@ -72,13 +72,13 @@ public sealed class Analyzer : StepGatherer, IAnalyzer<Analyzer, AnalysisResult,
 		=> Balanced
 			.WithIgnoreHighTimeComplexityStepSearchers(false)
 			.WithIgnoreHighSpaceComplexityStepSearchers(false)
-			.AddStepSearcherSetter<NormalFishStepSearcher>(static s => { s.DisableFinnedOrSashimiXWing = false; s.AllowSiamese = true; })
-			.AddStepSearcherSetter<RegularWingStepSearcher>(static s => s.MaxSearchingPivotsCount = 9)
-			.AddStepSearcherSetter<ReverseBivalueUniversalGraveStepSearcher>(static s => { s.MaxSearchingEmptyCellsCount = 4; s.AllowPartiallyUsedTypes = true; })
-			.AddStepSearcherSetter<ComplexFishStepSearcher>(static s => { s.MaxSize = 7; s.AllowSiamese = true; })
-			.AddStepSearcherSetter<XyzRingStepSearcher>(static s => s.AllowSiamese = false)
-			.AddStepSearcherSetter<BowmanBingoStepSearcher>(static s => s.MaxLength = 64)
-			.AddStepSearcherSetter<AlignedExclusionStepSearcher>(static s => s.MaxSearchingSize = 5);
+			.ApplySetter<NormalFishStepSearcher>(static s => { s.DisableFinnedOrSashimiXWing = false; s.AllowSiamese = true; })
+			.ApplySetter<RegularWingStepSearcher>(static s => s.MaxSearchingPivotsCount = 9)
+			.ApplySetter<ReverseBivalueUniversalGraveStepSearcher>(static s => { s.MaxSearchingEmptyCellsCount = 4; s.AllowPartiallyUsedTypes = true; })
+			.ApplySetter<ComplexFishStepSearcher>(static s => { s.MaxSize = 7; s.AllowSiamese = true; })
+			.ApplySetter<XyzRingStepSearcher>(static s => s.AllowSiamese = false)
+			.ApplySetter<BowmanBingoStepSearcher>(static s => s.MaxLength = 64)
+			.ApplySetter<AlignedExclusionStepSearcher>(static s => s.MaxSearchingSize = 5);
 
 	/// <summary>
 	/// Indicates an <see cref="Analyzer"/> instance that has some extra configuration, suitable for a whole analysis lifecycle.
@@ -87,18 +87,18 @@ public sealed class Analyzer : StepGatherer, IAnalyzer<Analyzer, AnalysisResult,
 		=> Default
 			.WithIgnoreHighTimeComplexityStepSearchers(false)
 			.WithIgnoreHighSpaceComplexityStepSearchers(true)
-			.AddStepSearcherSetter<SingleStepSearcher>(static s => { s.EnableFullHouse = true; s.EnableLastDigit = true; s.HiddenSinglesInBlockFirst = true; s.EnableOrderingStepsByLastingValue = false; })
-			.AddStepSearcherSetter<NormalFishStepSearcher>(static s => { s.DisableFinnedOrSashimiXWing = false; s.AllowSiamese = false; })
-			.AddStepSearcherSetter<UniqueRectangleStepSearcher>(static s => { s.AllowIncompleteUniqueRectangles = true; s.SearchForExtendedUniqueRectangles = true; })
-			.AddStepSearcherSetter<BivalueUniversalGraveStepSearcher>(static s => s.SearchExtendedTypes = true)
-			.AddStepSearcherSetter<ReverseBivalueUniversalGraveStepSearcher>(static s => { s.MaxSearchingEmptyCellsCount = 2; s.AllowPartiallyUsedTypes = true; })
-			.AddStepSearcherSetter<RegularWingStepSearcher>(static s => s.MaxSearchingPivotsCount = 5)
-			.AddStepSearcherSetter<TemplateStepSearcher>(static s => s.TemplateDeleteOnly = false)
-			.AddStepSearcherSetter<ComplexFishStepSearcher>(static s => { s.MaxSize = 5; s.AllowSiamese = false; })
-			.AddStepSearcherSetter<XyzRingStepSearcher>(static s => s.AllowSiamese = false)
-			.AddStepSearcherSetter<BowmanBingoStepSearcher>(static s => s.MaxLength = 64)
-			.AddStepSearcherSetter<AlmostLockedCandidatesStepSearcher>(static s => s.CheckAlmostLockedQuadruple = false)
-			.AddStepSearcherSetter<AlignedExclusionStepSearcher>(static s => s.MaxSearchingSize = 3);
+			.ApplySetter<SingleStepSearcher>(static s => { s.EnableFullHouse = true; s.EnableLastDigit = true; s.HiddenSinglesInBlockFirst = true; s.EnableOrderingStepsByLastingValue = false; })
+			.ApplySetter<NormalFishStepSearcher>(static s => { s.DisableFinnedOrSashimiXWing = false; s.AllowSiamese = false; })
+			.ApplySetter<UniqueRectangleStepSearcher>(static s => { s.AllowIncompleteUniqueRectangles = true; s.SearchForExtendedUniqueRectangles = true; })
+			.ApplySetter<BivalueUniversalGraveStepSearcher>(static s => s.SearchExtendedTypes = true)
+			.ApplySetter<ReverseBivalueUniversalGraveStepSearcher>(static s => { s.MaxSearchingEmptyCellsCount = 2; s.AllowPartiallyUsedTypes = true; })
+			.ApplySetter<RegularWingStepSearcher>(static s => s.MaxSearchingPivotsCount = 5)
+			.ApplySetter<TemplateStepSearcher>(static s => s.TemplateDeleteOnly = false)
+			.ApplySetter<ComplexFishStepSearcher>(static s => { s.MaxSize = 5; s.AllowSiamese = false; })
+			.ApplySetter<XyzRingStepSearcher>(static s => s.AllowSiamese = false)
+			.ApplySetter<BowmanBingoStepSearcher>(static s => s.MaxLength = 64)
+			.ApplySetter<AlmostLockedCandidatesStepSearcher>(static s => s.CheckAlmostLockedQuadruple = false)
+			.ApplySetter<AlignedExclusionStepSearcher>(static s => s.MaxSearchingSize = 3);
 
 	/// <summary>
 	/// Indicates an <see cref="Analyzer"/> instance that has some extra configuration, suitable for a whole analysis lifecycle.
@@ -107,18 +107,18 @@ public sealed class Analyzer : StepGatherer, IAnalyzer<Analyzer, AnalysisResult,
 		=> Default
 			.WithIgnoreHighTimeComplexityStepSearchers(false)
 			.WithIgnoreHighSpaceComplexityStepSearchers(true)
-			.AddStepSearcherSetter<SingleStepSearcher>(static s => { s.EnableFullHouse = true; s.EnableLastDigit = true; s.HiddenSinglesInBlockFirst = true; s.EnableOrderingStepsByLastingValue = false; })
-			.AddStepSearcherSetter<NormalFishStepSearcher>(static s => { s.DisableFinnedOrSashimiXWing = false; s.AllowSiamese = false; })
-			.AddStepSearcherSetter<UniqueRectangleStepSearcher>(static s => { s.AllowIncompleteUniqueRectangles = true; s.SearchForExtendedUniqueRectangles = true; })
-			.AddStepSearcherSetter<BivalueUniversalGraveStepSearcher>(static s => s.SearchExtendedTypes = true)
-			.AddStepSearcherSetter<ReverseBivalueUniversalGraveStepSearcher>(static s => { s.MaxSearchingEmptyCellsCount = 2; s.AllowPartiallyUsedTypes = true; })
-			.AddStepSearcherSetter<RegularWingStepSearcher>(static s => s.MaxSearchingPivotsCount = 5)
-			.AddStepSearcherSetter<TemplateStepSearcher>(static s => s.TemplateDeleteOnly = false)
-			.AddStepSearcherSetter<ComplexFishStepSearcher>(static s => { s.MaxSize = 5; s.AllowSiamese = false; })
-			.AddStepSearcherSetter<XyzRingStepSearcher>(static s => s.AllowSiamese = false)
-			.AddStepSearcherSetter<BowmanBingoStepSearcher>(static s => s.MaxLength = 64)
-			.AddStepSearcherSetter<AlmostLockedCandidatesStepSearcher>(static s => s.CheckAlmostLockedQuadruple = false)
-			.AddStepSearcherSetter<AlignedExclusionStepSearcher>(static s => s.MaxSearchingSize = 3);
+			.ApplySetter<SingleStepSearcher>(static s => { s.EnableFullHouse = true; s.EnableLastDigit = true; s.HiddenSinglesInBlockFirst = true; s.EnableOrderingStepsByLastingValue = false; })
+			.ApplySetter<NormalFishStepSearcher>(static s => { s.DisableFinnedOrSashimiXWing = false; s.AllowSiamese = false; })
+			.ApplySetter<UniqueRectangleStepSearcher>(static s => { s.AllowIncompleteUniqueRectangles = true; s.SearchForExtendedUniqueRectangles = true; })
+			.ApplySetter<BivalueUniversalGraveStepSearcher>(static s => s.SearchExtendedTypes = true)
+			.ApplySetter<ReverseBivalueUniversalGraveStepSearcher>(static s => { s.MaxSearchingEmptyCellsCount = 2; s.AllowPartiallyUsedTypes = true; })
+			.ApplySetter<RegularWingStepSearcher>(static s => s.MaxSearchingPivotsCount = 5)
+			.ApplySetter<TemplateStepSearcher>(static s => s.TemplateDeleteOnly = false)
+			.ApplySetter<ComplexFishStepSearcher>(static s => { s.MaxSize = 5; s.AllowSiamese = false; })
+			.ApplySetter<XyzRingStepSearcher>(static s => s.AllowSiamese = false)
+			.ApplySetter<BowmanBingoStepSearcher>(static s => s.MaxLength = 64)
+			.ApplySetter<AlmostLockedCandidatesStepSearcher>(static s => s.CheckAlmostLockedQuadruple = false)
+			.ApplySetter<AlignedExclusionStepSearcher>(static s => s.MaxSearchingSize = 3);
 
 	/// <summary>
 	/// Indicates an <see cref="Analyzer"/> instance that only contains SSTS techniques:
@@ -136,12 +136,21 @@ public sealed class Analyzer : StepGatherer, IAnalyzer<Analyzer, AnalysisResult,
 	public static Analyzer SstsOnly
 		=> Default
 			.WithStepSearchers(
-				new SingleStepSearcher { EnableFullHouse = true, EnableLastDigit = true, HiddenSinglesInBlockFirst = true, EnableOrderingStepsByLastingValue = false },
+				new SingleStepSearcher(),
 				new LockedSubsetStepSearcher(),
 				new LockedCandidatesStepSearcher(),
 				new NormalSubsetStepSearcher()
 			)
-			.WithUserDefinedOptions(new() { IsDirectMode = true });
+			.WithUserDefinedOptions(new() { IsDirectMode = true })
+			.ApplySetter<SingleStepSearcher>(
+				static s =>
+				{
+					s.EnableFullHouse = true;
+					s.EnableLastDigit = true;
+					s.HiddenSinglesInBlockFirst = true;
+					s.EnableOrderingStepsByLastingValue = false;
+				}
+			);
 
 	/// <summary>
 	/// Indicates an <see cref="Analyzer"/> instance that only supports for techniques used in Sudoku Explainer.
@@ -151,20 +160,40 @@ public sealed class Analyzer : StepGatherer, IAnalyzer<Analyzer, AnalysisResult,
 			.WithIgnoreHighTimeComplexityStepSearchers(false)
 			.WithIgnoreHighSpaceComplexityStepSearchers(false)
 			.WithStepSearchers(
-				new SingleStepSearcher { EnableFullHouse = true, EnableLastDigit = true, HiddenSinglesInBlockFirst = true, EnableOrderingStepsByLastingValue = false },
+				new SingleStepSearcher(),
 				new LockedSubsetStepSearcher(),
 				new LockedCandidatesStepSearcher(),
 				new NormalSubsetStepSearcher(),
-				new NormalFishStepSearcher { AllowSiamese = false },
-				new RegularWingStepSearcher { MaxSearchingPivotsCount = 3 },
-				new UniqueRectangleStepSearcher { AllowIncompleteUniqueRectangles = false, SearchForExtendedUniqueRectangles = false },
+				new NormalFishStepSearcher(),
+				new RegularWingStepSearcher(),
+				new UniqueRectangleStepSearcher(),
 				new UniqueLoopStepSearcher(),
-				new BivalueUniversalGraveStepSearcher { SearchExtendedTypes = false },
-				new AlignedExclusionStepSearcher { MaxSearchingSize = 3 },
+				new BivalueUniversalGraveStepSearcher(),
+				new AlignedExclusionStepSearcher(),
 				new ChainStepSearcher(),
 				new MultipleForcingChainsStepSearcher()
 			)
-			.WithUserDefinedOptions(new() { IsDirectMode = true });
+			.WithUserDefinedOptions(new() { IsDirectMode = true })
+			.ApplySetter<SingleStepSearcher>(
+				static s =>
+				{
+					s.EnableFullHouse = true;
+					s.EnableLastDigit = true;
+					s.HiddenSinglesInBlockFirst = true;
+					s.EnableOrderingStepsByLastingValue = false;
+				}
+			)
+			.ApplySetter<NormalFishStepSearcher>(static s => s.AllowSiamese = false)
+			.ApplySetter<RegularWingStepSearcher>(static s => s.MaxSearchingPivotsCount = 3)
+			.ApplySetter<UniqueRectangleStepSearcher>(
+				static s =>
+				{
+					s.AllowIncompleteUniqueRectangles = false;
+					s.SearchForExtendedUniqueRectangles = false;
+				}
+			)
+			.ApplySetter<BivalueUniversalGraveStepSearcher>(static s => s.SearchExtendedTypes = false)
+			.ApplySetter<AlignedExclusionStepSearcher>(static s => s.MaxSearchingSize = 3);
 
 
 	/// <summary>

@@ -106,7 +106,7 @@ public static class AnalyzerFactory
 	/// <param name="setter">The value to be added.</param>
 	/// <returns>The value same as <see cref="Analyzer"/>.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Analyzer AddStepSearcherSetter<TStepSearcher>(this Analyzer instance, Action<TStepSearcher> setter)
+	public static Analyzer ApplySetter<TStepSearcher>(this Analyzer instance, Action<TStepSearcher> setter)
 		where TStepSearcher : StepSearcher
 	{
 		instance.Setters.Add(
@@ -127,7 +127,7 @@ public static class AnalyzerFactory
 	/// <param name="instance">The instance to be updated.</param>
 	/// <param name="setters">The value to be added.</param>
 	/// <returns>The value same as <see cref="Analyzer"/>.</returns>
-	public static Analyzer AddStepSearcherSetter(this Analyzer instance, Action<StepSearcher> setters)
+	public static Analyzer ApplySetter(this Analyzer instance, Action<StepSearcher> setters)
 	{
 		instance.Setters.Add(setters);
 		return instance;
@@ -139,7 +139,7 @@ public static class AnalyzerFactory
 	/// <param name="instance">The instance to be set or updated.</param>
 	/// <param name="setters">A list of values to be added.</param>
 	/// <returns>The value same as <see cref="Analyzer"/>.</returns>
-	public static Analyzer AddStepSearcherSetter(this Analyzer instance, params ReadOnlySpan<Action<StepSearcher>> setters)
+	public static Analyzer ApplySetters(this Analyzer instance, params ReadOnlySpan<Action<StepSearcher>> setters)
 	{
 		foreach (var element in setters)
 		{
