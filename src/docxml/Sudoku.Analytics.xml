@@ -26737,7 +26737,7 @@
         </member>
         <member name="P:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.Standard">
             <summary>
-            Indicates the standard format.
+            Indicates the standard format. This format supports for both parsing and formatting.
             </summary>
             <remarks>
             Example output:<br/><c><![CDATA[r4c4(6) == r4c1(6) -- r4c1(8) == r4c9(8) -- r9c9(8) == r9c4(8)]]></c>
@@ -26745,9 +26745,11 @@
         </member>
         <member name="P:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.Eureka">
             <summary>
-            Indicates Eureka chain format.
+            <para>Indicates Eureka chain format. This format supports for both parsing and formatting.</para>
+            <para>
             Visit <see href="http://sudopedia.enjoysudoku.com/Eureka.html">this link</see> to learn more information
             about Eureka Notation.
+            </para>
             </summary>
             <remarks>
             Example output:<br/><c><![CDATA[6r4c4=(6-8)r4c1=8r4c9-8r9c9=8r9c4]]></c>
@@ -26755,9 +26757,11 @@
         </member>
         <member name="P:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.BivalueBilocationPlot">
             <summary>
-            Indicates B/B plot (Bilocation/Bivalue Plot) notation format.
+            <para>Indicates B/B plot (Bilocation/Bivalue Plot) notation format. This format only supports for formatting.</para>
+            <para>
             Visit <see href="http://forum.enjoysudoku.com/the-notation-used-in-nice-loops-and-sins-t3628.html">this link</see>
             to learn more information about this notation.
+            </para>
             </summary>
             <remarks>
             Example output:<br/><c><![CDATA[[r4c4]=6=[r4c1]-6|8-[r4c1]=8=[r4c9]-8-[r9c9]=8=[r9c4]]]></c>
@@ -26765,9 +26769,11 @@
         </member>
         <member name="P:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.OnOffPlot">
             <summary>
-            Indicates On/Off plot notation format.
+            <para>Indicates On/Off plot notation format. This format only supports for formatting.</para>
+            <para>
             I may miss the main page of introduction about this notation,
             but you can visit <see href="https://www.sudokuwiki.org/Alternating_Inference_Chains">this link</see> to see such usages.
+            </para>
             </summary>
             <remarks>
             Example output:<br/><c><![CDATA[+6[D4]-6[D1]+8[D1]-8[D9]+8[I9]-8[I4]]]></c>

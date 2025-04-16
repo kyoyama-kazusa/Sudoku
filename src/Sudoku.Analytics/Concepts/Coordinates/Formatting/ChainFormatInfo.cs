@@ -153,7 +153,7 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 
 
 	/// <summary>
-	/// Indicates the standard format.
+	/// Indicates the standard format. This format supports for both parsing and formatting.
 	/// </summary>
 	/// <remarks>
 	/// Example output:<br/><c><![CDATA[r4c4(6) == r4c1(6) -- r4c1(8) == r4c9(8) -- r9c9(8) == r9c4(8)]]></c>
@@ -161,9 +161,11 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 	public static IFormatProvider Standard => new ChainFormatInfo();
 
 	/// <summary>
-	/// Indicates Eureka chain format.
+	/// <para>Indicates Eureka chain format. This format supports for both parsing and formatting.</para>
+	/// <para>
 	/// Visit <see href="http://sudopedia.enjoysudoku.com/Eureka.html">this link</see> to learn more information
 	/// about Eureka Notation.
+	/// </para>
 	/// </summary>
 	/// <remarks>
 	/// Example output:<br/><c><![CDATA[6r4c4=(6-8)r4c1=8r4c9-8r9c9=8r9c4]]></c>
@@ -181,9 +183,11 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 		};
 
 	/// <summary>
-	/// Indicates B/B plot (Bilocation/Bivalue Plot) notation format.
+	/// <para>Indicates B/B plot (Bilocation/Bivalue Plot) notation format. This format only supports for formatting.</para>
+	/// <para>
 	/// Visit <see href="http://forum.enjoysudoku.com/the-notation-used-in-nice-loops-and-sins-t3628.html">this link</see>
 	/// to learn more information about this notation.
+	/// </para>
 	/// </summary>
 	/// <remarks>
 	/// Example output:<br/><c><![CDATA[[r4c4]=6=[r4c1]-6|8-[r4c1]=8=[r4c9]-8-[r9c9]=8=[r9c4]]]></c>
@@ -200,9 +204,11 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 		};
 
 	/// <summary>
-	/// Indicates On/Off plot notation format.
+	/// <para>Indicates On/Off plot notation format. This format only supports for formatting.</para>
+	/// <para>
 	/// I may miss the main page of introduction about this notation,
 	/// but you can visit <see href="https://www.sudokuwiki.org/Alternating_Inference_Chains">this link</see> to see such usages.
+	/// </para>
 	/// </summary>
 	/// <remarks>
 	/// Example output:<br/><c><![CDATA[+6[D4]-6[D1]+8[D1]-8[D9]+8[I9]-8[I4]]]></c>
@@ -385,44 +391,37 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 		coordinateParser ??= new RxCyParser();
 		if (StandardFormatPattern.IsMatch(str))
 		{
-			return parseAsStandard(str);
+			verifyStandardOrEureka(str, out var lastLinkIsStrong);
+			return parseAsStandardOrEureka(str, lastLinkIsStrong);
 		}
 		if (EurekaFormatPattern.IsMatch(str))
 		{
-			return parseAsEureka(str);
+			verifyStandardOrEureka(str, out var lastLinkIsStrong);
+			return parseAsStandardOrEureka(str, lastLinkIsStrong);
 		}
 		throw new FormatException();
 
 
-		Chain parseAsStandard(string str)
+		static void verifyStandardOrEureka(string str, out bool lastLinkIsStrong)
 		{
-			// e.g.
-			//   r4c4(6) == r4c1(6) -- r4c1(8) == r4c9(8) -- r9c9(8) == r9c4(8)
-
-			// Verify alternative strong/weak tokens.
 			var tokenMatches = from match in StrongOrWeakLinkPattern.Matches(str) select match.Value;
-			var isStrongAndWeakTokenAlternative = true;
-			var isStrongFirst = true;
-			var lastLinkIsStrong = tokenMatches[^1][0] == '=';
+			lastLinkIsStrong = tokenMatches[^1][0] == '=';
 			for (var i = 0; i < tokenMatches.Length - 1; i++)
 			{
 				if (i == 0 && tokenMatches[i][0] != '=')
 				{
-					isStrongFirst = false;
-					break;
+					throw new FormatException();
 				}
 
 				if ((tokenMatches[i][0], tokenMatches[i + 1][0]) is not (('=', '-') or ('-', '=')))
 				{
-					isStrongAndWeakTokenAlternative = false;
-					break;
+					throw new FormatException();
 				}
 			}
-			if (!isStrongFirst || !isStrongAndWeakTokenAlternative)
-			{
-				throw new FormatException();
-			}
+		}
 
+		Chain parseAsStandardOrEureka(string str, bool lastLinkIsStrong)
+		{
 			var candidates = new List<CandidateMap>();
 			foreach (var candidateMatch in from match in CandidatePattern.Matches(str) select match.Value)
 			{
@@ -476,16 +475,36 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 					var cellsString = candidateMatch[letterRIndex..];
 					var cells = coordinateParser.CellParser(cellsString);
 
-					// Check for candidate values.
-					var targetCandidates = CandidateMap.Empty;
-					foreach (var ch in digitsString)
+					// Determine whether there's a token '=' or '-' split digits.
+					// If so, we should treat them as two different nodes.
+					if (digitsString.IndexOfAny('=', '-') is var splitIndex and not -1)
 					{
-						foreach (var cell in cells)
+						if (splitIndex + 1 >= digitsString.Length || digitsString[splitIndex + 1] is not (>= '1' and <= '9'))
 						{
-							targetCandidates.Add(cell * 9 + ch - '1');
+							throw new FormatException();
 						}
+
+						addElement(digitsString[..splitIndex], cells);
+						addElement(digitsString[(splitIndex + 1)..], cells);
 					}
-					candidates.AddRef(targetCandidates);
+					else
+					{
+						addElement(digitsString, cells);
+					}
+
+
+					void addElement(string digitsString, in CellMap cells)
+					{
+						var result = CandidateMap.Empty;
+						foreach (var ch in digitsString)
+						{
+							foreach (var cell in cells)
+							{
+								result.Add(cell * 9 + ch - '1');
+							}
+						}
+						candidates.AddRef(result);
+					}
 				}
 			}
 
@@ -511,14 +530,6 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 			return candidatesSpan[^1] == candidatesSpan[0] && !lastLinkIsStrong
 				? new ContinuousNiceLoop(nodesStored[^1])
 				: new AlternatingInferenceChain(nodesStored[^1]);
-		}
-
-		Chain parseAsEureka(string str)
-		{
-			// e.g.
-			//   (6)r4c4=(6-8)r4c1=(8)r4c9-(8)r9c9=(8)r9c4
-			//   6r4c4=(6-8)r4c1=8r4c9-8r9c9=8r9c4
-			throw new NotImplementedException();
 		}
 	}
 
