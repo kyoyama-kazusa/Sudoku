@@ -329,6 +329,8 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 					sb.Append(candidateConverter.DigitConverter(nextNodeDigits));
 					sb.Append(needAddingBrackets_Digits ? DigitGroupSameCellBracket.GetClosedBracket() : ")");
 				}
+
+				inference = Chain.Inferences[++linkIndex & 1];
 				goto AppendNextLinkToken;
 			}
 
@@ -391,36 +393,35 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 		coordinateParser ??= new RxCyParser();
 		if (StandardFormatPattern.IsMatch(str))
 		{
-			verifyStandardOrEureka(str, out var lastLinkIsStrong);
-			return parseAsStandardOrEureka(str, lastLinkIsStrong);
+			verifyStandardOrEureka(str, out var tokens);
+			return parseAsStandardOrEureka(str, tokens);
 		}
 		if (EurekaFormatPattern.IsMatch(str))
 		{
-			verifyStandardOrEureka(str, out var lastLinkIsStrong);
-			return parseAsStandardOrEureka(str, lastLinkIsStrong);
+			verifyStandardOrEureka(str, out var tokens);
+			return parseAsStandardOrEureka(str, tokens);
 		}
 		throw new FormatException();
 
 
-		static void verifyStandardOrEureka(string str, out bool lastLinkIsStrong)
+		static void verifyStandardOrEureka(string str, out ReadOnlySpan<char> tokens)
 		{
-			var tokenMatches = from match in StrongOrWeakLinkPattern.Matches(str) select match.Value;
-			lastLinkIsStrong = tokenMatches[^1][0] == '=';
-			for (var i = 0; i < tokenMatches.Length - 1; i++)
+			tokens = from match in StrongOrWeakLinkPattern.Matches(str) select match.Value[0];
+			for (var i = 0; i < tokens.Length - 1; i++)
 			{
-				if (i == 0 && tokenMatches[i][0] != '=')
+				if (i == 0 && tokens[i] != '=')
 				{
 					throw new FormatException();
 				}
 
-				if ((tokenMatches[i][0], tokenMatches[i + 1][0]) is not (('=', '-') or ('-', '=')))
+				if ((tokens[i], tokens[i + 1]) is not (('=', '-') or ('-', '=')))
 				{
 					throw new FormatException();
 				}
 			}
 		}
 
-		Chain parseAsStandardOrEureka(string str, bool lastLinkIsStrong)
+		Chain parseAsStandardOrEureka(string str, ReadOnlySpan<char> tokens)
 		{
 			var candidates = new List<CandidateMap>();
 			foreach (var candidateMatch in from match in CandidatePattern.Matches(str) select match.Value)
@@ -508,10 +509,9 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 				}
 			}
 
-			var isOn = false;
 			var candidatesSpan = candidates.AsSpan().Reverse();
-			var previousNode = default(Node);
-			var nodesStored = new List<Node>();
+			var isLoop = candidatesSpan[^1] == candidatesSpan[0] && tokens[0] == '=';
+			var (isOn, previousNode, nodesStored) = (false, default(Node), new List<Node>());
 			for (var index = 1; index < candidatesSpan.Length; index++, isOn = !isOn)
 			{
 				ref readonly var nextNodeMap = ref candidatesSpan[index];
@@ -526,10 +526,13 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 				nodesStored.Add(nextNode);
 				previousNode = currentNode;
 			}
+			if (isLoop)
+			{
+				nodesStored.Add(new(nodesStored[1].Map, nodesStored[1].IsOn, nodesStored[^1]));
+			}
 
-			return candidatesSpan[^1] == candidatesSpan[0] && !lastLinkIsStrong
-				? new ContinuousNiceLoop(nodesStored[^1])
-				: new AlternatingInferenceChain(nodesStored[^1]);
+			var lastNode = nodesStored[^1];
+			return isLoop ? new ContinuousNiceLoop(lastNode) : new AlternatingInferenceChain(lastNode);
 		}
 	}
 

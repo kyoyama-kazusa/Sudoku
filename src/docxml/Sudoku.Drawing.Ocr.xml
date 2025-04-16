@@ -110,8 +110,8 @@
         </member>
         <member name="F:Sudoku.Drawing.Ocr.GridRecognizer._isDisposed">
             <summary>
-            Indicates whether the object had already been disposed before <see cref="M:Sudoku.Drawing.Ocr.GridRecognizer.Dispose"/> method was called.
-            If this field holds <see langword="false"/> value, <see cref="M:Sudoku.Drawing.Ocr.GridRecognizer.Dispose"/> method will throw an
+            Indicates whether the object had already been disposed before <see cref="M:Sudoku.Drawing.Ocr.GridRecognizer.Dispose"/> was called.
+            If this field holds <see langword="false"/> value, <see cref="M:Sudoku.Drawing.Ocr.GridRecognizer.Dispose"/> will throw an
             <see cref="T:System.ObjectDisposedException"/> to report the error.
             </summary>
             <seealso cref="M:Sudoku.Drawing.Ocr.GridRecognizer.Dispose"/>
@@ -245,8 +245,8 @@
         </member>
         <member name="F:Sudoku.Drawing.Ocr.InternalServiceProvider._isDisposed">
             <summary>
-            Indicates whether the object had already been disposed before <see cref="M:Sudoku.Drawing.Ocr.InternalServiceProvider.Dispose"/> method was called.
-            If this field holds <see langword="false"/> value, <see cref="M:Sudoku.Drawing.Ocr.InternalServiceProvider.Dispose"/> method will throw an
+            Indicates whether the object had already been disposed before <see cref="M:Sudoku.Drawing.Ocr.InternalServiceProvider.Dispose"/> was called.
+            If this field holds <see langword="false"/> value, <see cref="M:Sudoku.Drawing.Ocr.InternalServiceProvider.Dispose"/> will throw an
             <see cref="T:System.ObjectDisposedException"/> to report the error.
             </summary>
             <seealso cref="M:Sudoku.Drawing.Ocr.InternalServiceProvider.Dispose"/>
@@ -286,8 +286,8 @@
         </member>
         <member name="F:Sudoku.Drawing.Ocr.RecognitionServiceProvider._isDisposed">
             <summary>
-            Indicates whether the object had already been disposed before <see cref="M:Sudoku.Drawing.Ocr.RecognitionServiceProvider.Dispose"/> method was called.
-            If this field holds <see langword="false"/> value, <see cref="M:Sudoku.Drawing.Ocr.RecognitionServiceProvider.Dispose"/> method will throw an
+            Indicates whether the object had already been disposed before <see cref="M:Sudoku.Drawing.Ocr.RecognitionServiceProvider.Dispose"/> was called.
+            If this field holds <see langword="false"/> value, <see cref="M:Sudoku.Drawing.Ocr.RecognitionServiceProvider.Dispose"/> will throw an
             <see cref="T:System.ObjectDisposedException"/> to report the error.
             </summary>
             <seealso cref="M:Sudoku.Drawing.Ocr.RecognitionServiceProvider.Dispose"/>
