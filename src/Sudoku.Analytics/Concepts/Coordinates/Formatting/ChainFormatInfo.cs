@@ -393,138 +393,9 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 		coordinateParser ??= new RxCyParser();
 		if (StandardFormatPattern.IsMatch(str) || EurekaFormatPattern.IsMatch(str))
 		{
-			return parseAsStandardOrEureka(str);
+			return ParseAsStandardOrEureka(str, coordinateParser);
 		}
 		throw new FormatException();
-
-
-		Chain parseAsStandardOrEureka(string str)
-		{
-			var tokens = from match in StrongOrWeakLinkPattern.Matches(str) select match.Value[0];
-			for (var i = 0; i < tokens.Length - 1; i++)
-			{
-				if (i == 0 && tokens[i] != '=')
-				{
-					throw new FormatException();
-				}
-
-				if ((tokens[i], tokens[i + 1]) is not (('=', '-') or ('-', '=')))
-				{
-					throw new FormatException();
-				}
-			}
-
-			var candidates = new List<CandidateMap>();
-			foreach (var candidateMatch in from match in CandidatePattern.Matches(str) select match.Value)
-			{
-				// Valid candidate pattern examples:
-				//   * r1c1(1)
-				//   * 1r1c1
-				//   * (1)r1c1
-				//   * (1-2)r1c1
-
-				var letterRIndex = candidateMatch.IndexOf('r', StringComparison.OrdinalIgnoreCase);
-				if (letterRIndex == 0)
-				{
-					// 'r' is at the first position.
-
-					// Find for brace indices (open and closed).
-					var openBraceIndex = candidateMatch.IndexOf('(');
-					var closedBraceIndex = candidateMatch.IndexOf(')');
-					if (openBraceIndex == -1 || closedBraceIndex == -1 || closedBraceIndex <= openBraceIndex)
-					{
-						throw new FormatException();
-					}
-
-					var cellsString = candidateMatch[..openBraceIndex];
-					var cells = coordinateParser.CellParser(cellsString);
-
-					// Check for candidate values.
-					var targetCandidates = CandidateMap.Empty;
-					var digitsString = candidateMatch[(openBraceIndex + 1)..closedBraceIndex];
-					foreach (var ch in digitsString)
-					{
-						foreach (var cell in cells)
-						{
-							targetCandidates.Add(cell * 9 + ch - '1');
-						}
-					}
-					candidates.AddRef(targetCandidates);
-				}
-				else
-				{
-					// Digits are at the first position.
-
-					var openBraceIndex = candidateMatch.IndexOf('(');
-					var closedBraceIndex = candidateMatch.IndexOf(')');
-					var digitsString = (openBraceIndex, closedBraceIndex) switch
-					{
-						(-1, -1) => candidateMatch[..letterRIndex],
-						(not -1, not -1) when closedBraceIndex > openBraceIndex => candidateMatch[(openBraceIndex + 1)..closedBraceIndex],
-						_ => throw new FormatException()
-					};
-
-					var cellsString = candidateMatch[letterRIndex..];
-					var cells = coordinateParser.CellParser(cellsString);
-
-					// Determine whether there's a token '=' or '-' split digits.
-					// If so, we should treat them as two different nodes.
-					if (digitsString.IndexOfAny('=', '-') is var splitIndex and not -1)
-					{
-						if (splitIndex + 1 >= digitsString.Length || digitsString[splitIndex + 1] is not (>= '1' and <= '9'))
-						{
-							throw new FormatException();
-						}
-
-						addElement(digitsString[..splitIndex], cells);
-						addElement(digitsString[(splitIndex + 1)..], cells);
-					}
-					else
-					{
-						addElement(digitsString, cells);
-					}
-
-
-					void addElement(string digitsString, in CellMap cells)
-					{
-						var result = CandidateMap.Empty;
-						foreach (var ch in digitsString)
-						{
-							foreach (var cell in cells)
-							{
-								result.Add(cell * 9 + ch - '1');
-							}
-						}
-						candidates.AddRef(result);
-					}
-				}
-			}
-
-			var candidatesSpan = candidates.AsSpan().Reverse();
-			var isLoop = candidatesSpan[^1] == candidatesSpan[0] && tokens[0] == '=';
-			var (isOn, previousNode, nodesStored) = (false, default(Node), new List<Node>());
-			for (var index = 1; index < candidatesSpan.Length; index++, isOn = !isOn)
-			{
-				ref readonly var nextNodeMap = ref candidatesSpan[index];
-				ref readonly var currentNodeMap = ref candidatesSpan[index - 1];
-				var currentNode = new Node(currentNodeMap, isOn, previousNode);
-				var nextNode = new Node(nextNodeMap, !isOn, currentNode);
-
-				if (index == 1)
-				{
-					nodesStored.Add(currentNode);
-				}
-				nodesStored.Add(nextNode);
-				previousNode = currentNode;
-			}
-			if (isLoop)
-			{
-				nodesStored.Add(new(nodesStored[1].Map, nodesStored[1].IsOn, nodesStored[^1]));
-			}
-
-			var lastNode = nodesStored[^1];
-			return isLoop ? new ContinuousNiceLoop(lastNode) : new AlternatingInferenceChain(lastNode);
-		}
 	}
 
 
@@ -535,4 +406,139 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 	/// <inheritdoc cref="ParseCore(string)"/>
 	[UnsafeAccessor(UnsafeAccessorKind.Method, Name = nameof(ParseCore))]
 	internal static extern Chain ParseCoreUnsafeAccessor(ChainFormatInfo @this, string str);
+
+	/// <summary>
+	/// Parse the string as standard or Eureka format.
+	/// </summary>
+	/// <param name="str">The string to parse.</param>
+	/// <param name="coordinateParser">The coordinate parser.</param>
+	/// <returns>A <see cref="Chain"/> instance.</returns>
+	/// <exception cref="FormatException">Throws when invalid data encountered.</exception>
+	private static Chain ParseAsStandardOrEureka(string str, CoordinateParser coordinateParser)
+	{
+		var tokens = from match in StrongOrWeakLinkPattern.Matches(str) select match.Value[0];
+		for (var i = 0; i < tokens.Length - 1; i++)
+		{
+			if (i == 0 && tokens[i] != '=')
+			{
+				throw new FormatException();
+			}
+
+			if ((tokens[i], tokens[i + 1]) is not (('=', '-') or ('-', '=')))
+			{
+				throw new FormatException();
+			}
+		}
+
+		var candidates = new List<CandidateMap>();
+		foreach (var candidateMatch in from match in CandidatePattern.Matches(str) select match.Value)
+		{
+			// Valid candidate pattern examples:
+			//   * r1c1(1)
+			//   * 1r1c1
+			//   * (1)r1c1
+			//   * (1-2)r1c1
+
+			var letterRIndex = candidateMatch.IndexOf('r', StringComparison.OrdinalIgnoreCase);
+			if (letterRIndex == 0)
+			{
+				// 'r' is at the first position.
+
+				// Find for brace indices (open and closed).
+				var openBraceIndex = candidateMatch.IndexOf('(');
+				var closedBraceIndex = candidateMatch.IndexOf(')');
+				if (openBraceIndex == -1 || closedBraceIndex == -1 || closedBraceIndex <= openBraceIndex)
+				{
+					throw new FormatException();
+				}
+
+				var cellsString = candidateMatch[..openBraceIndex];
+				var cells = coordinateParser.CellParser(cellsString);
+
+				// Check for candidate values.
+				var targetCandidates = CandidateMap.Empty;
+				var digitsString = candidateMatch[(openBraceIndex + 1)..closedBraceIndex];
+				foreach (var ch in digitsString)
+				{
+					foreach (var cell in cells)
+					{
+						targetCandidates.Add(cell * 9 + ch - '1');
+					}
+				}
+				candidates.AddRef(targetCandidates);
+			}
+			else
+			{
+				// Digits are at the first position.
+
+				var openBraceIndex = candidateMatch.IndexOf('(');
+				var closedBraceIndex = candidateMatch.IndexOf(')');
+				var digitsString = (openBraceIndex, closedBraceIndex) switch
+				{
+					(-1, -1) => candidateMatch[..letterRIndex],
+					(not -1, not -1) when closedBraceIndex > openBraceIndex => candidateMatch[(openBraceIndex + 1)..closedBraceIndex],
+					_ => throw new FormatException()
+				};
+
+				var cellsString = candidateMatch[letterRIndex..];
+				var cells = coordinateParser.CellParser(cellsString);
+
+				// Determine whether there's a token '=' or '-' split digits.
+				// If so, we should treat them as two different nodes.
+				if (digitsString.IndexOfAny('=', '-') is var splitIndex and not -1)
+				{
+					if (splitIndex + 1 >= digitsString.Length || digitsString[splitIndex + 1] is not (>= '1' and <= '9'))
+					{
+						throw new FormatException();
+					}
+
+					addElement(digitsString[..splitIndex], cells);
+					addElement(digitsString[(splitIndex + 1)..], cells);
+				}
+				else
+				{
+					addElement(digitsString, cells);
+				}
+
+
+				void addElement(string digitsString, in CellMap cells)
+				{
+					var result = CandidateMap.Empty;
+					foreach (var ch in digitsString)
+					{
+						foreach (var cell in cells)
+						{
+							result.Add(cell * 9 + ch - '1');
+						}
+					}
+					candidates.AddRef(result);
+				}
+			}
+		}
+
+		var candidatesSpan = candidates.AsSpan().Reverse();
+		var isLoop = candidatesSpan[^1] == candidatesSpan[0] && tokens[0] == '=';
+		var (isOn, previousNode, nodesStored) = (false, default(Node), new List<Node>());
+		for (var index = 1; index < candidatesSpan.Length; index++, isOn = !isOn)
+		{
+			ref readonly var nextNodeMap = ref candidatesSpan[index];
+			ref readonly var currentNodeMap = ref candidatesSpan[index - 1];
+			var currentNode = new Node(currentNodeMap, isOn, previousNode);
+			var nextNode = new Node(nextNodeMap, !isOn, currentNode);
+
+			if (index == 1)
+			{
+				nodesStored.Add(currentNode);
+			}
+			nodesStored.Add(nextNode);
+			previousNode = currentNode;
+		}
+		if (isLoop)
+		{
+			nodesStored.Add(new(nodesStored[1].Map, nodesStored[1].IsOn, nodesStored[^1]));
+		}
+
+		var lastNode = nodesStored[^1];
+		return isLoop ? new ContinuousNiceLoop(lastNode) : new AlternatingInferenceChain(lastNode);
+	}
 }

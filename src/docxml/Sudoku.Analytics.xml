@@ -26959,6 +26959,15 @@
         <member name="M:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.ParseCoreUnsafeAccessor(Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo,System.String)">
             <inheritdoc cref="M:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.ParseCore(System.String)"/>
         </member>
+        <member name="M:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.ParseAsStandardOrEureka(System.String,Sudoku.Concepts.Coordinates.CoordinateParser)">
+            <summary>
+            Parse the string as standard or Eureka format.
+            </summary>
+            <param name="str">The string to parse.</param>
+            <param name="coordinateParser">The coordinate parser.</param>
+            <returns>A <see cref="T:Sudoku.Analytics.Construction.Components.Chain"/> instance.</returns>
+            <exception cref="T:System.FormatException">Throws when invalid data encountered.</exception>
+        </member>
         <member name="T:Sudoku.Concepts.Inference">
             <summary>
             Defines an inference.
