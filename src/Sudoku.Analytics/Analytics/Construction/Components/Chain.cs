@@ -18,6 +18,7 @@ public abstract partial class Chain :
 	IEquatable<Chain>,
 	IEqualityOperators<Chain, Chain, bool>,
 	IFormattable,
+	IParsable<Chain>,
 	IReadOnlyList<Node>,
 	IReadOnlyCollection<Node>
 {
@@ -553,4 +554,40 @@ public abstract partial class Chain :
 
 	/// <inheritdoc/>
 	IEnumerator<Node> IEnumerable<Node>.GetEnumerator() => _nodes.AsEnumerable().GetEnumerator();
+
+
+	/// <inheritdoc cref="TryParse(string?, IFormatProvider?, out Chain)"/>
+	public static bool TryParse([NotNullWhen(true)] string? s, [NotNullWhen(true)] out Chain? result)
+		=> TryParse(s, null, out result);
+
+	/// <inheritdoc/>
+	public static bool TryParse([NotNullWhen(true)] string? s, IFormatProvider? provider, [MaybeNullWhen(false)] out Chain result)
+	{
+		try
+		{
+			if (s is null)
+			{
+				result = null;
+				return false;
+			}
+
+			result = Parse(s, provider);
+			return true;
+		}
+		catch (FormatException)
+		{
+			result = null;
+			return false;
+		}
+	}
+
+	/// <inheritdoc cref="Parse(string, IFormatProvider?)"/>
+	public static Chain Parse(string s) => Parse(s, null);
+
+	/// <inheritdoc/>
+	public static Chain Parse(string s, IFormatProvider? provider)
+	{
+		var parser = (ChainFormatInfo)((provider as ChainFormatInfo) ?? ChainFormatInfo.Standard);
+		return ChainFormatInfo.ParseCoreUnsafeAccessor(parser, s);
+	}
 }

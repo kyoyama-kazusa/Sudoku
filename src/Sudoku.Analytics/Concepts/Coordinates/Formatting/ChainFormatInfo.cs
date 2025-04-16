@@ -4,7 +4,7 @@ namespace Sudoku.Concepts.Coordinates.Formatting;
 /// Represents a type that can format a <see cref="Chain"/> instance.
 /// </summary>
 /// <seealso cref="Chain"/>
-public sealed class ChainFormatInfo : FormatInfo<Chain>
+public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 {
 	/// <summary>
 	/// Initializes a <see cref="ChainFormatInfo"/> instance.
@@ -216,6 +216,18 @@ public sealed class ChainFormatInfo : FormatInfo<Chain>
 			OnOffStateFixes = ("+", "-")
 		};
 
+	[GeneratedRegex("""r[1-9]+c[1-9]+\([1-9]+\)\s*==?\s*r[1-9]+c[1-9]+\([1-9]+\)(\s*--?\s*r[1-9]+c[1-9]+\([1-9]+\)\s*==?\s*r[1-9]+c[1-9]+\([1-9]+\))+""", RegexOptions.Compiled | RegexOptions.IgnoreCase)]
+	private static partial Regex StandardFormatPattern { get; }
+
+	[GeneratedRegex("""(\([1-9]+\)|\([1-9]+\s*[-=]\s*[1-9]+\)|[1-9])r[1-9]+c[1-9]+(\s*[-=]\s*(\([1-9]+\)|\([1-9]+\s*[-=]\s*[1-9]+\)|[1-9])r[1-9]+c[1-9]+)+""", RegexOptions.Compiled | RegexOptions.IgnoreCase)]
+	private static partial Regex EurekaFormatPattern { get; }
+
+	[GeneratedRegex("""==?|--?""", RegexOptions.Compiled)]
+	private static partial Regex StrongOrWeakLinkPattern { get; }
+
+	[GeneratedRegex("""(\([1-9]+([=-][1-9]+)?\)|[1-9]+)r[1-9]+c[1-9]+|r[1-9]+c[1-9]+\([1-9]+\)""", RegexOptions.Compiled | RegexOptions.IgnoreCase)]
+	private static partial Regex CandidatePattern { get; }
+
 
 	/// <inheritdoc/>
 	[return: NotNullIfNotNull(nameof(formatType))]
@@ -354,11 +366,160 @@ public sealed class ChainFormatInfo : FormatInfo<Chain>
 	}
 
 	/// <inheritdoc/>
-	[DoesNotReturn]
-	protected override Chain ParseCore(string str) => throw new NotSupportedException();
+	protected override Chain ParseCore(string str) => ParseCore(str, null);
+
+	/// <inheritdoc cref="FormatInfo{T}.ParseCore(string)"/>
+	/// <remarks>
+	/// Now only supports for standard format and Eureka format. Plot views are not supported.
+	/// </remarks>
+	private Chain ParseCore(string str, CoordinateParser? coordinateParser)
+	{
+		coordinateParser ??= new RxCyParser();
+		if (StandardFormatPattern.IsMatch(str))
+		{
+			return parseAsStandard(str);
+		}
+		if (EurekaFormatPattern.IsMatch(str))
+		{
+			return parseAsEureka(str);
+		}
+		throw new FormatException();
+
+
+		Chain parseAsStandard(string str)
+		{
+			// e.g.
+			//   r4c4(6) == r4c1(6) -- r4c1(8) == r4c9(8) -- r9c9(8) == r9c4(8)
+
+			// Verify alternative strong/weak tokens.
+			var tokenMatches = from match in StrongOrWeakLinkPattern.Matches(str) select match.Value;
+			var isStrongAndWeakTokenAlternative = true;
+			var isStrongFirst = true;
+			var lastLinkIsStrong = tokenMatches[^1][0] == '=';
+			for (var i = 0; i < tokenMatches.Length - 1; i++)
+			{
+				if (i == 0 && tokenMatches[i][0] != '=')
+				{
+					isStrongFirst = false;
+					break;
+				}
+
+				if ((tokenMatches[i][0], tokenMatches[i + 1][0]) is not (('=', '-') or ('-', '=')))
+				{
+					isStrongAndWeakTokenAlternative = false;
+					break;
+				}
+			}
+			if (!isStrongFirst || !isStrongAndWeakTokenAlternative)
+			{
+				throw new FormatException();
+			}
+
+			var candidates = new List<CandidateMap>();
+			foreach (var candidateMatch in from match in CandidatePattern.Matches(str) select match.Value)
+			{
+				// Valid candidate pattern examples:
+				//   * r1c1(1)
+				//   * 1r1c1
+				//   * (1)r1c1
+				//   * (1-2)r1c1
+
+				var letterRIndex = candidateMatch.IndexOf('r', StringComparison.OrdinalIgnoreCase);
+				if (letterRIndex == 0)
+				{
+					// 'r' is at the first position.
+
+					// Find for brace indices (open and closed).
+					var openBraceIndex = candidateMatch.IndexOf('(');
+					var closedBraceIndex = candidateMatch.IndexOf(')');
+					if (openBraceIndex == -1 || closedBraceIndex == -1 || closedBraceIndex <= openBraceIndex)
+					{
+						throw new FormatException();
+					}
+
+					var cellsString = candidateMatch[..openBraceIndex];
+					var cells = coordinateParser.CellParser(cellsString);
+
+					// Check for candidate values.
+					var targetCandidates = CandidateMap.Empty;
+					var digitsString = candidateMatch[(openBraceIndex + 1)..closedBraceIndex];
+					foreach (var ch in digitsString)
+					{
+						foreach (var cell in cells)
+						{
+							targetCandidates.Add(cell * 9 + ch - '1');
+						}
+					}
+					candidates.AddRef(targetCandidates);
+				}
+				else
+				{
+					// Digits are at the first position.
+
+					var openBraceIndex = candidateMatch.IndexOf('(');
+					var closedBraceIndex = candidateMatch.IndexOf(')');
+					var digitsString = (openBraceIndex, closedBraceIndex) switch
+					{
+						(-1, -1) => candidateMatch[..letterRIndex],
+						(not -1, not -1) when closedBraceIndex > openBraceIndex => candidateMatch[(openBraceIndex + 1)..closedBraceIndex],
+						_ => throw new FormatException()
+					};
+
+					var cellsString = candidateMatch[letterRIndex..];
+					var cells = coordinateParser.CellParser(cellsString);
+
+					// Check for candidate values.
+					var targetCandidates = CandidateMap.Empty;
+					foreach (var ch in digitsString)
+					{
+						foreach (var cell in cells)
+						{
+							targetCandidates.Add(cell * 9 + ch - '1');
+						}
+					}
+					candidates.AddRef(targetCandidates);
+				}
+			}
+
+			var isOn = false;
+			var candidatesSpan = candidates.AsSpan().Reverse();
+			var previousNode = default(Node);
+			var nodesStored = new List<Node>();
+			for (var index = 1; index < candidatesSpan.Length; index++, isOn = !isOn)
+			{
+				ref readonly var nextNodeMap = ref candidatesSpan[index];
+				ref readonly var currentNodeMap = ref candidatesSpan[index - 1];
+				var currentNode = new Node(currentNodeMap, isOn, previousNode);
+				var nextNode = new Node(nextNodeMap, !isOn, currentNode);
+
+				if (index == 1)
+				{
+					nodesStored.Add(currentNode);
+				}
+				nodesStored.Add(nextNode);
+				previousNode = currentNode;
+			}
+
+			return candidatesSpan[^1] == candidatesSpan[0] && !lastLinkIsStrong
+				? new ContinuousNiceLoop(nodesStored[^1])
+				: new AlternatingInferenceChain(nodesStored[^1]);
+		}
+
+		Chain parseAsEureka(string str)
+		{
+			// e.g.
+			//   (6)r4c4=(6-8)r4c1=(8)r4c9-(8)r9c9=(8)r9c4
+			//   6r4c4=(6-8)r4c1=8r4c9-8r9c9=8r9c4
+			throw new NotImplementedException();
+		}
+	}
 
 
 	/// <inheritdoc cref="FormatCore(in Chain)"/>
 	[UnsafeAccessor(UnsafeAccessorKind.Method, Name = nameof(FormatCore))]
 	internal static extern string FormatCoreUnsafeAccessor(ChainFormatInfo @this, in Chain obj);
+
+	/// <inheritdoc cref="ParseCore(string)"/>
+	[UnsafeAccessor(UnsafeAccessorKind.Method, Name = nameof(ParseCore))]
+	internal static extern Chain ParseCoreUnsafeAccessor(ChainFormatInfo @this, string str);
 }

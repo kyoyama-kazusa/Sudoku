@@ -3236,6 +3236,18 @@
         <member name="M:Sudoku.Analytics.Construction.Components.Chain.System#Collections#Generic#IEnumerable{Sudoku#Analytics#Construction#Components#Node}#GetEnumerator">
             <inheritdoc/>
         </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.Chain.TryParse(System.String,Sudoku.Analytics.Construction.Components.Chain@)">
+            <inheritdoc cref="M:Sudoku.Analytics.Construction.Components.Chain.TryParse(System.String,System.IFormatProvider,Sudoku.Analytics.Construction.Components.Chain@)"/>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.Chain.TryParse(System.String,System.IFormatProvider,Sudoku.Analytics.Construction.Components.Chain@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.Chain.Parse(System.String)">
+            <inheritdoc cref="M:Sudoku.Analytics.Construction.Components.Chain.Parse(System.String,System.IFormatProvider)"/>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.Chain.Parse(System.String,System.IFormatProvider)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Analytics.Construction.Components.Chain.Enumerator">
             <summary>
             Represents an enumerator type that can iterate on each <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> inside the collection.
@@ -26755,6 +26767,162 @@
             Example output:<br/><c><![CDATA[+6[D4]-6[D1]+8[D1]-8[D9]+8[I9]-8[I4]]]></c>
             </remarks>
         </member>
+        <member name="P:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.StandardFormatPattern">
+            <remarks>
+            Pattern:<br/>
+            <code>r[1-9]+c[1-9]+\\([1-9]+\\)\\s*==?\\s*r[1-9]+c[1-9]+\\([1-9]+\\)(\\s*--?\\s*r[1-9]+c[1-9]+\\([1-9]+\\)\\s*==?\\s*r[1-9]+c[1-9]+\\([1-9]+\\))+</code><br/>
+            Options:<br/>
+            <code>RegexOptions.IgnoreCase | RegexOptions.Compiled</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match a character in the set [Rr].<br/>
+            ○ Match a character in the set [1-9] atomically at least once.<br/>
+            ○ Match a character in the set [Cc].<br/>
+            ○ Match a character in the set [1-9] atomically at least once.<br/>
+            ○ Match '('.<br/>
+            ○ Match a character in the set [1-9] atomically at least once.<br/>
+            ○ Match ')'.<br/>
+            ○ Match a whitespace character atomically any number of times.<br/>
+            ○ Match '=' atomically at least 1 and at most 2 times.<br/>
+            ○ Match a whitespace character atomically any number of times.<br/>
+            ○ Match a character in the set [Rr].<br/>
+            ○ Match a character in the set [1-9] atomically at least once.<br/>
+            ○ Match a character in the set [Cc].<br/>
+            ○ Match a character in the set [1-9] atomically at least once.<br/>
+            ○ Match '('.<br/>
+            ○ Match a character in the set [1-9] atomically at least once.<br/>
+            ○ Match ')'.<br/>
+            ○ Loop greedily and atomically at least once.<br/>
+                ○ 1st capture group.<br/>
+                    ○ Match a whitespace character atomically any number of times.<br/>
+                    ○ Match '-' atomically at least 1 and at most 2 times.<br/>
+                    ○ Match a whitespace character atomically any number of times.<br/>
+                    ○ Match a character in the set [Rr].<br/>
+                    ○ Match a character in the set [1-9] atomically at least once.<br/>
+                    ○ Match a character in the set [Cc].<br/>
+                    ○ Match a character in the set [1-9] atomically at least once.<br/>
+                    ○ Match '('.<br/>
+                    ○ Match a character in the set [1-9] atomically at least once.<br/>
+                    ○ Match ')'.<br/>
+                    ○ Match a whitespace character atomically any number of times.<br/>
+                    ○ Match '=' atomically at least 1 and at most 2 times.<br/>
+                    ○ Match a whitespace character atomically any number of times.<br/>
+                    ○ Match a character in the set [Rr].<br/>
+                    ○ Match a character in the set [1-9] atomically at least once.<br/>
+                    ○ Match a character in the set [Cc].<br/>
+                    ○ Match a character in the set [1-9] atomically at least once.<br/>
+                    ○ Match '('.<br/>
+                    ○ Match a character in the set [1-9] atomically at least once.<br/>
+                    ○ Match ')'.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="P:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.EurekaFormatPattern">
+            <remarks>
+            Pattern:<br/>
+            <code>(\\([1-9]+\\)|\\([1-9]+\\s*[-=]\\s*[1-9]+\\)|[1-9])r[1-9]+c[1-9]+(\\s*[-=]\\s*(\\([1-9]+\\)|\\([1-9]+\\s*[-=]\\s*[1-9]+\\)|[1-9])r[1-9]+c[1-9]+)+</code><br/>
+            Options:<br/>
+            <code>RegexOptions.IgnoreCase | RegexOptions.Compiled</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ 1st capture group.<br/>
+                ○ Match with 2 alternative expressions.<br/>
+                    ○ Match a sequence of expressions.<br/>
+                        ○ Match '('.<br/>
+                        ○ Match with 2 alternative expressions.<br/>
+                            ○ Match a sequence of expressions.<br/>
+                                ○ Match a character in the set [1-9] atomically at least once.<br/>
+                                ○ Match ')'.<br/>
+                            ○ Match a sequence of expressions.<br/>
+                                ○ Match a character in the set [1-9] atomically at least once.<br/>
+                                ○ Match a whitespace character atomically any number of times.<br/>
+                                ○ Match a character in the set [-=].<br/>
+                                ○ Match a whitespace character atomically any number of times.<br/>
+                                ○ Match a character in the set [1-9] atomically at least once.<br/>
+                                ○ Match ')'.<br/>
+                    ○ Match a character in the set [1-9].<br/>
+            ○ Match a character in the set [Rr].<br/>
+            ○ Match a character in the set [1-9] atomically at least once.<br/>
+            ○ Match a character in the set [Cc].<br/>
+            ○ Match a character in the set [1-9] atomically at least once.<br/>
+            ○ Loop greedily and atomically at least once.<br/>
+                ○ 2nd capture group.<br/>
+                    ○ Match a whitespace character atomically any number of times.<br/>
+                    ○ Match a character in the set [-=].<br/>
+                    ○ Match a whitespace character atomically any number of times.<br/>
+                    ○ 3rd capture group.<br/>
+                        ○ Match with 2 alternative expressions.<br/>
+                            ○ Match a sequence of expressions.<br/>
+                                ○ Match '('.<br/>
+                                ○ Match with 2 alternative expressions.<br/>
+                                    ○ Match a sequence of expressions.<br/>
+                                        ○ Match a character in the set [1-9] atomically at least once.<br/>
+                                        ○ Match ')'.<br/>
+                                    ○ Match a sequence of expressions.<br/>
+                                        ○ Match a character in the set [1-9] atomically at least once.<br/>
+                                        ○ Match a whitespace character atomically any number of times.<br/>
+                                        ○ Match a character in the set [-=].<br/>
+                                        ○ Match a whitespace character atomically any number of times.<br/>
+                                        ○ Match a character in the set [1-9] atomically at least once.<br/>
+                                        ○ Match ')'.<br/>
+                            ○ Match a character in the set [1-9].<br/>
+                    ○ Match a character in the set [Rr].<br/>
+                    ○ Match a character in the set [1-9] atomically at least once.<br/>
+                    ○ Match a character in the set [Cc].<br/>
+                    ○ Match a character in the set [1-9] greedily at least once.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="P:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.StrongOrWeakLinkPattern">
+            <remarks>
+            Pattern:<br/>
+            <code>==?|--?</code><br/>
+            Options:<br/>
+            <code>RegexOptions.Compiled</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match with 2 alternative expressions, atomically.<br/>
+                ○ Match '=' atomically at least 1 and at most 2 times.<br/>
+                ○ Match '-' atomically at least 1 and at most 2 times.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="P:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.CandidatePattern">
+            <remarks>
+            Pattern:<br/>
+            <code>(\\([1-9]+([=-][1-9]+)?\\)|[1-9]+)r[1-9]+c[1-9]+|r[1-9]+c[1-9]+\\([1-9]+\\)</code><br/>
+            Options:<br/>
+            <code>RegexOptions.IgnoreCase | RegexOptions.Compiled</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match with 2 alternative expressions, atomically.<br/>
+                ○ Match a sequence of expressions.<br/>
+                    ○ 1st capture group.<br/>
+                        ○ Match with 2 alternative expressions.<br/>
+                            ○ Match a sequence of expressions.<br/>
+                                ○ Match '('.<br/>
+                                ○ Match a character in the set [1-9] greedily at least once.<br/>
+                                ○ Optional (greedy).<br/>
+                                    ○ 2nd capture group.<br/>
+                                        ○ Match a character in the set [-=].<br/>
+                                        ○ Match a character in the set [1-9] atomically at least once.<br/>
+                                ○ Match ')'.<br/>
+                            ○ Match a character in the set [1-9] atomically at least once.<br/>
+                    ○ Match a character in the set [Rr].<br/>
+                    ○ Match a character in the set [1-9] atomically at least once.<br/>
+                    ○ Match a character in the set [Cc].<br/>
+                    ○ Match a character in the set [1-9] atomically at least once.<br/>
+                ○ Match a sequence of expressions.<br/>
+                    ○ Match a character in the set [Rr].<br/>
+                    ○ Match a character in the set [1-9] atomically at least once.<br/>
+                    ○ Match a character in the set [Cc].<br/>
+                    ○ Match a character in the set [1-9] atomically at least once.<br/>
+                    ○ Match '('.<br/>
+                    ○ Match a character in the set [1-9] atomically at least once.<br/>
+                    ○ Match ')'.<br/>
+            </code>
+            </remarks>
+        </member>
         <member name="M:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.GetFormat(System.Type)">
             <inheritdoc/>
         </member>
@@ -26767,8 +26935,17 @@
         <member name="M:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.ParseCore(System.String)">
             <inheritdoc/>
         </member>
+        <member name="M:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.ParseCore(System.String,Sudoku.Concepts.Coordinates.CoordinateParser)">
+            <inheritdoc cref="M:Sudoku.Concepts.Coordinates.Formatting.FormatInfo`1.ParseCore(System.String)"/>
+            <remarks>
+            Now only supports for standard format and Eureka format. Plot views are not supported.
+            </remarks>
+        </member>
         <member name="M:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.FormatCoreUnsafeAccessor(Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo,Sudoku.Analytics.Construction.Components.Chain@)">
             <inheritdoc cref="M:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.FormatCore(Sudoku.Analytics.Construction.Components.Chain@)"/>
+        </member>
+        <member name="M:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.ParseCoreUnsafeAccessor(Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo,System.String)">
+            <inheritdoc cref="M:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.ParseCore(System.String)"/>
         </member>
         <member name="T:Sudoku.Concepts.Inference">
             <summary>
@@ -35319,6 +35496,134 @@
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
+        <member name="T:System.Text.RegularExpressions.Generated.StandardFormatPattern_2">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the StandardFormatPattern method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.StandardFormatPattern_2.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.StandardFormatPattern_2.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.StandardFormatPattern_2.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.StandardFormatPattern_2.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.StandardFormatPattern_2.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.StandardFormatPattern_2.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.StandardFormatPattern_2.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.StandardFormatPattern_2.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.EurekaFormatPattern_3">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the EurekaFormatPattern method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.EurekaFormatPattern_3.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.EurekaFormatPattern_3.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.EurekaFormatPattern_3.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.EurekaFormatPattern_3.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.EurekaFormatPattern_3.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.EurekaFormatPattern_3.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.EurekaFormatPattern_3.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.EurekaFormatPattern_3.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.StrongOrWeakLinkPattern_4">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the StrongOrWeakLinkPattern method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.StrongOrWeakLinkPattern_4.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.StrongOrWeakLinkPattern_4.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.StrongOrWeakLinkPattern_4.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.StrongOrWeakLinkPattern_4.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.StrongOrWeakLinkPattern_4.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.StrongOrWeakLinkPattern_4.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.StrongOrWeakLinkPattern_4.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.StrongOrWeakLinkPattern_4.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.CandidatePattern_5">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the CandidatePattern method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.CandidatePattern_5.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.CandidatePattern_5.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.CandidatePattern_5.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.CandidatePattern_5.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.CandidatePattern_5.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.CandidatePattern_5.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.CandidatePattern_5.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.CandidatePattern_5.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
         <member name="T:System.Text.RegularExpressions.Generated.Utilities">
             <summary>Helper methods used by generated <see cref="T:System.Text.RegularExpressions.Regex"/>-derived implementations.</summary>
         </member>
@@ -35327,6 +35632,24 @@
         </member>
         <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_hasTimeout">
             <summary>Whether <see cref="F:System.Text.RegularExpressions.Generated.Utilities.s_defaultTimeout"/> is non-infinite.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPop(System.Int32[],System.Int32@,System.Int32@,System.Int32@)">
+            <summary>Pops 2 values from the backtracking stack.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPush(System.Int32[]@,System.Int32@,System.Int32)">
+            <summary>Pushes 1 value onto the backtracking stack.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPush(System.Int32[]@,System.Int32@,System.Int32,System.Int32)">
+            <summary>Pushes 2 values onto the backtracking stack.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPush(System.Int32[]@,System.Int32@,System.Int32,System.Int32,System.Int32)">
+            <summary>Pushes 3 values onto the backtracking stack.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_ascii_1FE030000000000000000">
+            <summary>Supports searching for characters in or not in "(123456789".</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_ascii_1FE030000040000000400">
+            <summary>Supports searching for characters in or not in "(123456789Rr".</summary>
         </member>
         <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_nonAscii_7D48D515833A7A26E4966C3F7C4A48F565625142FCE47D2547DDE52125C43A42">
             <summary>Supports searching for characters in or not in "一七三九二五八六十四".</summary>
