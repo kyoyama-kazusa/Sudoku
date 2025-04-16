@@ -44,7 +44,7 @@ internal interface IForcingChains : IChainOrForcingChains, IFormattable
 		var result = new View[viewNodes.Length];
 		for (var i = 0; i < viewNodes.Length; i++)
 		{
-			CandidateMap elimMap = [.. from conclusion in newConclusions select conclusion.Candidate];
+			var elimMap = (from conclusion in newConclusions select conclusion.Candidate).AsCandidateMap();
 			result[i] = [
 				..
 				from node in viewNodes[i]
