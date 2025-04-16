@@ -391,22 +391,16 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 	private Chain ParseCore(string str, CoordinateParser? coordinateParser)
 	{
 		coordinateParser ??= new RxCyParser();
-		if (StandardFormatPattern.IsMatch(str))
+		if (StandardFormatPattern.IsMatch(str) || EurekaFormatPattern.IsMatch(str))
 		{
-			verifyStandardOrEureka(str, out var tokens);
-			return parseAsStandardOrEureka(str, tokens);
-		}
-		if (EurekaFormatPattern.IsMatch(str))
-		{
-			verifyStandardOrEureka(str, out var tokens);
-			return parseAsStandardOrEureka(str, tokens);
+			return parseAsStandardOrEureka(str);
 		}
 		throw new FormatException();
 
 
-		static void verifyStandardOrEureka(string str, out ReadOnlySpan<char> tokens)
+		Chain parseAsStandardOrEureka(string str)
 		{
-			tokens = from match in StrongOrWeakLinkPattern.Matches(str) select match.Value[0];
+			var tokens = from match in StrongOrWeakLinkPattern.Matches(str) select match.Value[0];
 			for (var i = 0; i < tokens.Length - 1; i++)
 			{
 				if (i == 0 && tokens[i] != '=')
@@ -419,10 +413,7 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 					throw new FormatException();
 				}
 			}
-		}
 
-		Chain parseAsStandardOrEureka(string str, ReadOnlySpan<char> tokens)
-		{
 			var candidates = new List<CandidateMap>();
 			foreach (var candidateMatch in from match in CandidatePattern.Matches(str) select match.Value)
 			{
