@@ -135,6 +135,12 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 	public NotationBracket DigitBracketInCandidateGroups { get; init; } = NotationBracket.None;
 
 	/// <summary>
+	/// Indicates the bracket of same-cell digit groups, e.g. the kind of bracket of <c>(2=3)r1c1</c>.
+	/// By default it's <see cref="NotationBracket.Round"/>.
+	/// </summary>
+	public NotationBracket DigitGroupSameCellBracket { get; init; } = NotationBracket.Round;
+
+	/// <summary>
 	/// Indicates the prefix or suffix style to describe on/off state of each chain node.
 	/// By default it's <see cref="OnOffNotationFix.None"/>.
 	/// </summary>
@@ -160,7 +166,7 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 	/// about Eureka Notation.
 	/// </summary>
 	/// <remarks>
-	/// Example output:<br/><c><![CDATA[(6)r4c4=(6-8)r4c1=(8)r4c9-(8)r9c9=(8)r9c4]]></c>
+	/// Example output:<br/><c><![CDATA[6r4c4=(6-8)r4c1=8r4c9-8r9c9=8r9c4]]></c>
 	/// </remarks>
 	public static IFormatProvider Eureka
 		=> new ChainFormatInfo
@@ -170,7 +176,8 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 			DefaultSeparator = "|",
 			StrongLinkConnector = "=",
 			WeakLinkConnector = "-",
-			DigitBracketInCandidateGroups = NotationBracket.Round
+			DigitBracketInCandidateGroups = NotationBracket.None,
+			DigitGroupSameCellBracket = NotationBracket.Round
 		};
 
 	/// <summary>
@@ -251,7 +258,8 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 			OnOffNotationFix = OnOffNotationFix,
 			NodeFormatType = NodeFormatType,
 			NotationBracket = NotationBracket,
-			DigitBracketInCandidateGroups = DigitBracketInCandidateGroups
+			DigitBracketInCandidateGroups = DigitBracketInCandidateGroups,
+			DigitGroupSameCellBracket = DigitGroupSameCellBracket
 		};
 
 
@@ -280,7 +288,7 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 			_ => throw new InvalidOperationException()
 		};
 		var candidateConverter = originalConverter with { DefaultSeparator = DefaultSeparator, NotationBracket = NotationBracket };
-		var needAddingBrackets_Digits = Enum.IsDefined(DigitBracketInCandidateGroups) && DigitBracketInCandidateGroups != NotationBracket.None;
+		var needAddingBrackets_Digits = Enum.IsDefined(DigitGroupSameCellBracket) && DigitGroupSameCellBracket != NotationBracket.None;
 		var needAddingBrackets_Cells = Enum.IsDefined(NotationBracket) && NotationBracket != NotationBracket.None;
 		var span = obj.ValidNodes;
 		var sb = new StringBuilder();
@@ -298,22 +306,22 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 				// (1)a=(2)a-(2)b=(3)b => (1=2)a-(2=3)b
 				if (MakeDigitBeforeCell)
 				{
-					_ = needAddingBrackets_Digits ? sb.Append(DigitBracketInCandidateGroups.GetOpenBracket()) : sb;
+					_ = needAddingBrackets_Digits ? sb.Append(DigitGroupSameCellBracket.GetOpenBracket()) : sb;
 					sb.Append(candidateConverter.DigitConverter(nodeDigits));
 					sb.Append(inference == Inference.Strong ? StrongLinkConnector : WeakLinkConnector);
 					sb.Append(candidateConverter.DigitConverter(nextNodeDigits));
-					_ = needAddingBrackets_Digits ? sb.Append(DigitBracketInCandidateGroups.GetClosedBracket()) : sb;
+					_ = needAddingBrackets_Digits ? sb.Append(DigitGroupSameCellBracket.GetClosedBracket()) : sb;
 					sb.Append(nodeCells.ToString(candidateConverter));
 					i++;
 				}
 				else
 				{
 					sb.Append(nodeCells.ToString(candidateConverter));
-					sb.Append(needAddingBrackets_Digits ? DigitBracketInCandidateGroups.GetOpenBracket() : "(");
+					sb.Append(needAddingBrackets_Digits ? DigitGroupSameCellBracket.GetOpenBracket() : "(");
 					sb.Append(candidateConverter.DigitConverter(nodeDigits));
 					sb.Append(inference == Inference.Strong ? StrongLinkConnector : WeakLinkConnector);
 					sb.Append(candidateConverter.DigitConverter(nextNodeDigits));
-					sb.Append(needAddingBrackets_Digits ? DigitBracketInCandidateGroups.GetClosedBracket() : ")");
+					sb.Append(needAddingBrackets_Digits ? DigitGroupSameCellBracket.GetClosedBracket() : ")");
 				}
 				goto AppendNextLinkToken;
 			}

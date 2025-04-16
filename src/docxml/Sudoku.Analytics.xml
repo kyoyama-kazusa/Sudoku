@@ -26718,6 +26718,12 @@
         <member name="P:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.DigitBracketInCandidateGroups">
             <inheritdoc cref="P:Sudoku.Concepts.Coordinates.RxCyConverter.DigitBracketInCandidateGroups"/>
         </member>
+        <member name="P:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.DigitGroupSameCellBracket">
+            <summary>
+            Indicates the bracket of same-cell digit groups, e.g. the kind of bracket of <c>(2=3)r1c1</c>.
+            By default it's <see cref="F:Sudoku.Concepts.Coordinates.Formatting.NotationBracket.Round"/>.
+            </summary>
+        </member>
         <member name="P:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.OnOffNotationFix">
             <summary>
             Indicates the prefix or suffix style to describe on/off state of each chain node.
@@ -26744,7 +26750,7 @@
             about Eureka Notation.
             </summary>
             <remarks>
-            Example output:<br/><c><![CDATA[(6)r4c4=(6-8)r4c1=(8)r4c9-(8)r9c9=(8)r9c4]]></c>
+            Example output:<br/><c><![CDATA[6r4c4=(6-8)r4c1=8r4c9-8r9c9=8r9c4]]></c>
             </remarks>
         </member>
         <member name="P:Sudoku.Concepts.Coordinates.Formatting.ChainFormatInfo.BivalueBilocationPlot">
