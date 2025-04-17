@@ -35,7 +35,7 @@ public sealed class YChainingRule : ChainingRule
 				strongLinks.AddEntry(node1, node2);
 			}
 
-			foreach (var combinationPair in mask.GetAllSets().GetSubsets(2))
+			foreach (var combinationPair in mask.AllSets.GetSubsets(2))
 			{
 				var node1 = new Node((cell * 9 + combinationPair[0]).AsCandidateMap(), true);
 				var node2 = new Node((cell * 9 + combinationPair[1]).AsCandidateMap(), false);

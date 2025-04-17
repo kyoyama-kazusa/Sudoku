@@ -172,7 +172,7 @@ public sealed partial class FireworkStepSearcher : StepSearcher
 			return null;
 		}
 
-		foreach (var digits in digitsMask.GetAllSets().GetSubsets(3))
+		foreach (var digits in digitsMask.AllSets.GetSubsets(3))
 		{
 			var currentDigitsMask = (Mask)(1 << digits[0] | 1 << digits[1] | 1 << digits[2]);
 			if ((satisfiedDigitsMask & currentDigitsMask) != currentDigitsMask)
@@ -282,7 +282,7 @@ public sealed partial class FireworkStepSearcher : StepSearcher
 			return null;
 		}
 
-		foreach (var digits in digitsMask.GetAllSets().GetSubsets(4))
+		foreach (var digits in digitsMask.AllSets.GetSubsets(4))
 		{
 			ReadOnlySpan<((Digit, Digit), (Digit, Digit))> cases = [
 				((digits[0], digits[1]), (digits[2], digits[3])),

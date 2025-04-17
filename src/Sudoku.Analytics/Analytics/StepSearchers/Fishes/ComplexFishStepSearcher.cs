@@ -152,7 +152,7 @@ public sealed partial class ComplexFishStepSearcher : StepSearcher
 					var possibleMap = (CandidatesMap[digit] & ~PeersMap[cell]) - cell;
 
 					// Get the table of all possible houses that contains that digit.
-					var baseTable = possibleMap.Houses.GetAllSets();
+					var baseTable = possibleMap.Houses.AllSets;
 
 					// If the 'table.Length' property is lower than '2 * size',
 					// we can't find any possible complex fish now. Just skip it.
@@ -244,7 +244,7 @@ public sealed partial class ComplexFishStepSearcher : StepSearcher
 						}
 
 						// Now collect the cover sets into the cover table.
-						var coverTable = z.GetAllSets();
+						var coverTable = z.AllSets;
 
 						// Iterate on each cover sets combination.
 						foreach (var coverSets in coverTable.GetSubsets(size - 1))

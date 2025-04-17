@@ -235,7 +235,7 @@ public partial class UniqueRectangleStepSearcher
 		// Here we don't know what digit will be selected as a pivot, so we should iterate all digits.
 		// The last case -1 is for complete wing.
 		var cells = urCells.AsCellMap();
-		var pivotDigits = (Digit[])[.. otherDigitsMask.GetAllSets(), -1];
+		var pivotDigits = (Digit[])[.. otherDigitsMask.AllSets, -1];
 		foreach (var pivotDigit in pivotDigits)
 		{
 			Cell[][] cellsGroups;

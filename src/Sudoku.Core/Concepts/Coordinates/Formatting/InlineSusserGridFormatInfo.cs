@@ -38,7 +38,7 @@ public sealed partial class InlineSusserGridFormatInfo : GridFormatInfo<Grid>
 				case CellState.Empty:
 				{
 					var digitsMask = NegateEliminationsTripletRule ? (Mask)0 : grid.GetCandidates(cell);
-					sb.Append(digitsMask == 0 ? "0" : $"[{new(from digit in digitsMask.GetAllSets() select (char)(digit + '1'))}]");
+					sb.Append(digitsMask == 0 ? "0" : $"[{new(from digit in digitsMask.AllSets select (char)(digit + '1'))}]");
 					break;
 				}
 				case CellState.Modifiable:

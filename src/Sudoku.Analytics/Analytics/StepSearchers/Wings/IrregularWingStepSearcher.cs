@@ -74,7 +74,7 @@ public sealed partial class IrregularWingStepSearcher : StepSearcher
 			}
 
 			// Iterate on each cells which are not peers in 'c1'.
-			var digits = grid.GetCandidates(c1).GetAllSets();
+			var digits = grid.GetCandidates(c1).AllSets;
 			foreach (var c2 in BivalueCells & ~(PeersMap[c1] + c1))
 			{
 				if (c2 < c1)

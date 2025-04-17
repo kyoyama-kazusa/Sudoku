@@ -78,7 +78,7 @@ public sealed partial class ReverseBivalueUniversalGraveStepSearcher : StepSearc
 		var globalMapUpperBound = AllowPartiallyUsedTypes ? GlobalMaps.Length : 1;
 
 		// Iterates on all combinations of digits, with length of each combination 2.
-		foreach (var digitPair in digits.GetAllSets().GetSubsets(2))
+		foreach (var digitPair in digits.AllSets.GetSubsets(2))
 		{
 			var d1 = digitPair[0];
 			var d2 = digitPair[1];

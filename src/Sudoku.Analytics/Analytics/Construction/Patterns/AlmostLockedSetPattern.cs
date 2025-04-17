@@ -68,7 +68,7 @@ public sealed partial class AlmostLockedSetPattern(
 	{
 		get
 		{
-			var digits = DigitsMask.GetAllSets();
+			var digits = DigitsMask.AllSets;
 			var result = new Mask[StrongRelationsCount[digits.Length - 1]];
 			for (var (i, x, l) = (0, 0, digits.Length); i < l - 1; i++)
 			{

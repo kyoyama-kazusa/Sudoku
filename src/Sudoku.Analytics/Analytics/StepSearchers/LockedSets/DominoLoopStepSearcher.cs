@@ -141,7 +141,7 @@ public sealed partial class DominoLoopStepSearcher : StepSearcher
 			}
 
 			// Check all combinations.
-			var masks = candidateMask.GetAllSets().GetSubsets();
+			var masks = candidateMask.AllSets.GetSubsets();
 			for (var j = masks.Length - 1; j >= 0; j--)
 			{
 				var mask = MaskOperations.Create(masks[j]);

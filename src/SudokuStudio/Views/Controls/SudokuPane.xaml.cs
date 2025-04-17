@@ -993,7 +993,7 @@ public sealed partial class SudokuPane : UserControl, INotifyPropertyChanged
 		// Triggers the event.
 		PropertyChanged?.Invoke(this, new(nameof(Puzzle)));
 
-		var houses = housesToBeCompleted.GetAllSets();
+		var houses = housesToBeCompleted.AllSets;
 		for (var i = 0; i < houses.Length; i++)
 		{
 			HouseCompleted?.Invoke(this, new(lastCells[i], houses[i], method));

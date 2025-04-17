@@ -90,7 +90,7 @@ public ref partial struct PatternBasedPuzzleGenerator(
 
 		var cell = patternCellsSorted[i];
 		var digitsMask = playground.GetCandidates(cell);
-		var digits = ((Mask)(MissingDigit != -1 ? digitsMask & ~(1 << MissingDigit) : digitsMask)).GetAllSets();
+		var digits = ((Mask)(MissingDigit != -1 ? digitsMask & ~(1 << MissingDigit) : digitsMask)).AllSets;
 		var indexArray = Digits[..digits.Length];
 		Random.Shared.Shuffle(indexArray);
 		foreach (var randomizedIndex in indexArray)

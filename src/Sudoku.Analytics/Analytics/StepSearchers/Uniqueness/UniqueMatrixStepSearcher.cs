@@ -110,7 +110,7 @@ public sealed partial class UniqueMatrixStepSearcher : StepSearcher
 			goto ReturnNull;
 		}
 
-		foreach (var digits in mask.GetAllSets().GetSubsets(4))
+		foreach (var digits in mask.AllSets.GetSubsets(4))
 		{
 			var digitsMask = MaskOperations.Create(digits);
 			var extraDigit = Mask.TrailingZeroCount((Mask)(mask & ~digitsMask));
@@ -165,7 +165,7 @@ public sealed partial class UniqueMatrixStepSearcher : StepSearcher
 			goto ReturnNull;
 		}
 
-		foreach (var digits in mask.GetAllSets().GetSubsets(4))
+		foreach (var digits in mask.AllSets.GetSubsets(4))
 		{
 			var digitsMask = MaskOperations.Create(digits);
 			var extraDigit = Mask.TrailingZeroCount((Mask)(mask & ~digitsMask));
@@ -211,7 +211,7 @@ public sealed partial class UniqueMatrixStepSearcher : StepSearcher
 	/// </summary>
 	private UniqueMatrixType3Step? CheckType3(in Grid grid, ref StepAnalysisContext context, in CellMap pattern, Mask mask)
 	{
-		foreach (var digits in mask.GetAllSets().GetSubsets(4))
+		foreach (var digits in mask.AllSets.GetSubsets(4))
 		{
 			var digitsMask = MaskOperations.Create(digits);
 			var extraDigitsMask = (Mask)(mask & ~digitsMask);
@@ -300,7 +300,7 @@ public sealed partial class UniqueMatrixStepSearcher : StepSearcher
 	/// </summary>
 	private UniqueMatrixType4Step? CheckType4(in Grid grid, ref StepAnalysisContext context, in CellMap pattern, Mask mask)
 	{
-		foreach (var digits in mask.GetAllSets().GetSubsets(4))
+		foreach (var digits in mask.AllSets.GetSubsets(4))
 		{
 			var digitsMask = MaskOperations.Create(digits);
 			var extraDigitsMask = (Mask)(mask & ~digitsMask);

@@ -100,7 +100,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 				const int size = 3;
 #endif
 				// Iterate on each combination of houses as basic cross-line cells used.
-				foreach (var houses in (isRow ? HouseMaskOperations.AllRowsMask : HouseMaskOperations.AllColumnsMask).GetAllSets().GetSubsets(size))
+				foreach (var houses in (isRow ? HouseMaskOperations.AllRowsMask : HouseMaskOperations.AllColumnsMask).AllSets.GetSubsets(size))
 				{
 					var (housesEmptyCells, housesCells, housesMask) = (CellMap.Empty, CellMap.Empty, HouseMaskOperations.Create(houses));
 					foreach (var house in houses)
@@ -626,7 +626,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		}
 
 		// Now iterate on each combination of extra houses.
-		foreach (var extraHouse in extraHousesMask.GetAllSets())
+		foreach (var extraHouse in extraHousesMask.AllSets)
 		{
 			// Create a map that contains both cross-line cells and extra houses cells.
 			var expandedCrosslineIncludingTarget = (housesCells | HousesMap[extraHouse]) & ~baseCells.PeerIntersection;
@@ -768,7 +768,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		}
 
 		// Now iterate on each combination of extra houses.
-		foreach (var extraHouse in extraHousesMask.GetAllSets())
+		foreach (var extraHouse in extraHousesMask.AllSets)
 		{
 			// Create a map that contains both cross-line cells and extra houses cells.
 			var expandedCrossline = (crossline | HousesMap[extraHouse]) & ~baseCells.PeerIntersection;
@@ -947,7 +947,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 										continue;
 									}
 
-									foreach (var digitCombination in disappearedDigitsMask.GetAllSets().GetSubsets(endoTargetCellsGroup.Count - 1))
+									foreach (var digitCombination in disappearedDigitsMask.AllSets.GetSubsets(endoTargetCellsGroup.Count - 1))
 									{
 										var appearingMap = CellMap.Empty;
 										foreach (var digit in digitCombination)
@@ -1254,7 +1254,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		}
 
 		// Check whether the value cell digit isn't covered in the same line as value cells in cross-line.
-		var coveredLinesForValueCells = (isRow ? columnsCovered << 18 : rowsCovered << 9).GetAllSets();
+		var coveredLinesForValueCells = (isRow ? columnsCovered << 18 : rowsCovered << 9).AllSets;
 		var intersectedLinesForSuchLastCells = (HousesMap[coveredLinesForValueCells[0]] | HousesMap[coveredLinesForValueCells[1]]) & ~crossline;
 		if (valueDigitCell != -1 && intersectedLinesForSuchLastCells.Contains(valueDigitCell))
 		{
@@ -1278,7 +1278,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 
 		// Then check for digits of values in houses that base cell chute does not cover.
 		// All four blocks should contain 4 kinds of digits of value representation, with diagonal-distributed rule.
-		var blocks = baseCellUncoveredBlocksMaskCoveringCrossline.GetAllSets();
+		var blocks = baseCellUncoveredBlocksMaskCoveringCrossline.AllSets;
 		var lastSixteenCells = (HousesMap[blocks[0]] | HousesMap[blocks[1]] | HousesMap[blocks[2]] | HousesMap[blocks[3]]) & ~crossline & ~intersectedLinesForSuchLastCells;
 		var isDiagonallyDistributed = true;
 		foreach (var ((a1, da1), (a2, da2)) in (((0, 3), (1, 2)), ((1, 2), (0, 3))))
@@ -2089,7 +2089,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		// Now we have the 16 cells to be checked. Such cells are called "X Region".
 		// We should check for value cells, determining which combinations of digits have spanned all 4 blocks the current 16 cells located in.
 		var valuesGroupedByBlock = (stackalloc Mask[2]);
-		var valueCellsBlocks = lastSixteenCells.BlockMask.GetAllSets();
+		var valueCellsBlocks = lastSixteenCells.BlockMask.AllSets;
 		foreach (var blockIndex in (0, 1))
 		{
 			var valueCellsFromBlock1 = lastSixteenCells & HousesMap[valueCellsBlocks[blockIndex]] & ~EmptyCells;
@@ -2485,7 +2485,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 					foreach (ref readonly var extraCells in otherCells & size - 1)
 					{
 						var ahsCells = extraCells | mirrorEmptyCells;
-						foreach (var digitsMaskGroup in ((Mask)(grid[ahsCells] & ~baseCellsDigitsMask)).GetAllSets().GetSubsets(size))
+						foreach (var digitsMaskGroup in ((Mask)(grid[ahsCells] & ~baseCellsDigitsMask)).AllSets.GetSubsets(size))
 						{
 							var extraDigitsMask = MaskOperations.Create(digitsMaskGroup);
 							var lastHoldingMap = CellMap.Empty;
@@ -3270,7 +3270,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 			}
 		}
 
-		var blocks = ((Mask)(lastSixteenCells.BlockMask & ~sharedChute.Cells.BlockMask)).GetAllSets();
+		var blocks = ((Mask)(lastSixteenCells.BlockMask & ~sharedChute.Cells.BlockMask)).AllSets;
 		cellsCanBeEliminated = lastSixteenCells & (HousesMap[blocks[0]] | HousesMap[blocks[1]]);
 
 		var conclusions = new List<Conclusion>();
@@ -3362,9 +3362,9 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 			return null;
 		}
 
-		var elimLines = (isRow ? baseCells.RowMask << 9 : baseCells.ColumnMask << 18).GetAllSets();
+		var elimLines = (isRow ? baseCells.RowMask << 9 : baseCells.ColumnMask << 18).AllSets;
 		var elimLinesMap = HousesMap[elimLines[0]] | HousesMap[elimLines[1]];
-		var intersectedLines = (isRow ? cellsCanBeEliminated.ColumnMask << 18 : cellsCanBeEliminated.RowMask << 9).GetAllSets();
+		var intersectedLines = (isRow ? cellsCanBeEliminated.ColumnMask << 18 : cellsCanBeEliminated.RowMask << 9).AllSets;
 		var intersectedLinesMap = HousesMap[intersectedLines[0]] | HousesMap[intersectedLines[1]];
 		var finalIntersectedFourCells = elimLinesMap & intersectedLinesMap;
 

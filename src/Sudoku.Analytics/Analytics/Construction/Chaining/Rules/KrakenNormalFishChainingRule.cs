@@ -50,8 +50,8 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 
 		void collect(bool isRow, Digit size, Digit digit, Span<HouseMask> sets, ReadOnlySpan<CellMap> candidatesMap)
 		{
-			var baseSetsToIterate = (sets[digit] & ~(isRow ? HouseMaskOperations.AllColumnsMask : HouseMaskOperations.AllRowsMask)).GetAllSets();
-			var coverSetsToIterate = (sets[digit] & ~(isRow ? HouseMaskOperations.AllRowsMask : HouseMaskOperations.AllColumnsMask)).GetAllSets();
+			var baseSetsToIterate = (sets[digit] & ~(isRow ? HouseMaskOperations.AllColumnsMask : HouseMaskOperations.AllRowsMask)).AllSets;
+			var coverSetsToIterate = (sets[digit] & ~(isRow ? HouseMaskOperations.AllRowsMask : HouseMaskOperations.AllColumnsMask)).AllSets;
 			if (baseSetsToIterate.Length < size || coverSetsToIterate.Length < size)
 			{
 				return;

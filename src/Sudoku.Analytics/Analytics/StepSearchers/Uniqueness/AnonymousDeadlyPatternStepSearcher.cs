@@ -207,7 +207,7 @@ public sealed partial class AnonymousDeadlyPatternStepSearcher : StepSearcher
 			}
 
 			// Iterate on each combination.
-			foreach (var combination in possiblePatternDigitsMask.GetAllSets().GetSubsets(3))
+			foreach (var combination in possiblePatternDigitsMask.AllSets.GetSubsets(3))
 			{
 				// Try to get all cells that holds extra digits.
 				var currentCombinationDigitsMask = MaskOperations.Create(combination);
@@ -351,7 +351,7 @@ public sealed partial class AnonymousDeadlyPatternStepSearcher : StepSearcher
 				}
 
 				// Iterate on each combination.
-				foreach (var combination in possiblePatternDigitsMask.GetAllSets().GetSubsets(4))
+				foreach (var combination in possiblePatternDigitsMask.AllSets.GetSubsets(4))
 				{
 					// Try to get all cells that holds extra digits.
 					var currentCombinationDigitsMask = MaskOperations.Create(combination);

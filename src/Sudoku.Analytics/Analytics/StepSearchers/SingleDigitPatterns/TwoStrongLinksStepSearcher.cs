@@ -112,7 +112,7 @@ public sealed partial class TwoStrongLinksStepSearcher : StepSearcher
 					if (DisableRemotePair
 						&& grid[cellsList1[c1Index].AsCellMap() + cellsList2[c2Index] + head + tail] is var mergedDigitsMask
 						&& Mask.PopCount(mergedDigitsMask) == 2
-						&& mergedDigitsMask.GetAllSets() is var pairDigits
+						&& mergedDigitsMask.AllSets is var pairDigits
 						&& (pairDigits[0] == digit ? pairDigits[1] : pairDigits[0]) is var theOtherDigit
 						&& !!(CandidatesMap[theOtherDigit] & elimMap))
 					{

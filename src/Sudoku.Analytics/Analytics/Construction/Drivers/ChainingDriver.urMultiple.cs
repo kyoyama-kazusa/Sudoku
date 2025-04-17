@@ -21,7 +21,7 @@ internal partial class ChainingDriver
 			}
 
 			// Collect all digits of the rectangle, to determine which digits can be used as a rectangle.
-			var allDigitsMask = grid[cells].GetAllSets();
+			var allDigitsMask = grid[cells].AllSets;
 			if (allDigitsMask.Length is 0 or 1)
 			{
 				// No enough digits available.

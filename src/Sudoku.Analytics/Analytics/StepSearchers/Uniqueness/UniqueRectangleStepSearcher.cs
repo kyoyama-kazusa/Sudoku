@@ -226,7 +226,7 @@ public sealed partial class UniqueRectangleStepSearcher : StepSearcher
 			var mask = grid[urCells.AsCellMap()];
 
 			// Iterate on each possible digit combination.
-			var allDigitsInThem = mask.GetAllSets();
+			var allDigitsInThem = mask.AllSets;
 			for (var (i, length) = (0, allDigitsInThem.Length); i < length - 1; i++)
 			{
 				var d1 = allDigitsInThem[i];

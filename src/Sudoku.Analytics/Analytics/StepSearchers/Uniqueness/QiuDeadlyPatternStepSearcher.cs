@@ -76,8 +76,8 @@ public sealed partial class QiuDeadlyPatternStepSearcher : StepSearcher
 
 		// Case 2: 2 rows + 2 columns.
 		var patternsForCase2 = new List<QiuDeadlyPattern2Pattern>();
-		var rows = HouseMaskOperations.AllRowsMask.GetAllSets();
-		var columns = HouseMaskOperations.AllColumnsMask.GetAllSets();
+		var rows = HouseMaskOperations.AllRowsMask.AllSets;
+		var columns = HouseMaskOperations.AllColumnsMask.AllSets;
 		foreach (var lineOffsetPairRow in LineOffsets)
 		{
 			var rowsMask = 1 << rows[lineOffsetPairRow[0]] | 1 << rows[lineOffsetPairRow[1]];

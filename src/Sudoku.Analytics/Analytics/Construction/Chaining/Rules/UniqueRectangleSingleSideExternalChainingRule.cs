@@ -33,7 +33,7 @@ public sealed class UniqueRectangleSingleSideExternalChainingRule : UniqueRectan
 			}
 
 			var allDigitsMask = grid[urCells];
-			foreach (var digitPair in grid[urCells].GetAllSets().GetSubsets(2))
+			foreach (var digitPair in grid[urCells].AllSets.GetSubsets(2))
 			{
 				var (d1, d2) = (digitPair[0], digitPair[1]);
 				if (!UniqueRectanglePattern.CanMakeDeadlyPattern(grid, d1, d2, pattern))

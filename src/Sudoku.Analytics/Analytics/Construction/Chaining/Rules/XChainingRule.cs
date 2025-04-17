@@ -53,7 +53,7 @@ public sealed class XChainingRule : ChainingRule
 				}
 
 				var mask = cellsInThisHouse / house;
-				foreach (var combinationPair in mask.GetAllSets().GetSubsets(2))
+				foreach (var combinationPair in mask.AllSets.GetSubsets(2))
 				{
 					var node1 = new Node((HousesCells[house][combinationPair[0]] * 9 + digit).AsCandidateMap(), true);
 					var node2 = new Node((HousesCells[house][combinationPair[1]] * 9 + digit).AsCandidateMap(), false);
