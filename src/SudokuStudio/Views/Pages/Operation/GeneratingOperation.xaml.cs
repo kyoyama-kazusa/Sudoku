@@ -241,7 +241,7 @@ public sealed partial class GeneratingOperation : Page, IOperationProviderPage
 			{
 				SymmetryConstraint.InvalidSymmetricType => [],
 				SymmetryConstraint.AllSymmetricTypes => Enum.GetValues<SymmetricType>(),
-				var symmetricTypes and not 0 => symmetricTypes.GetAllFlags(),
+				var symmetricTypes and not 0 => symmetricTypes.AllFlags,
 				_ => [SymmetricType.None]
 			};
 			var chosenGivensCountSeed = (
@@ -254,7 +254,7 @@ public sealed partial class GeneratingOperation : Page, IOperationProviderPage
 			var givensCount = chosenGivensCountSeed is (var s and not -1, var e and not -1) ? rng.Next(s, e + 1) : -1;
 			var difficultyLevel = (
 				from c in constraints.OfType<DifficultyLevelConstraint>()
-				select c.ValidDifficultyLevels.GetAllFlags().ToArray()
+				select c.ValidDifficultyLevels.AllFlags.ToArray()
 			) is [var d] ? d[rng.Next(0, d.Length)] : DifficultyLevels.AllValid;
 			var progress = new SelfReportingProgress<TProgressDataProvider>(reporter);
 			while (true)

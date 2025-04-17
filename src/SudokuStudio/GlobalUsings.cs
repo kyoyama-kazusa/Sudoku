@@ -142,6 +142,7 @@ global using static SudokuStudio.ProjectWideConstants;
 global using Application = Microsoft.UI.Xaml.Application;
 global using ColorIdentifierKind = Sudoku.Drawing.WellKnownColorIdentifierKind;
 global using @dispatching = Microsoft.UI.Dispatching;
+global using FileExtensions = SudokuStudio.Storage.FileExtensions;
 global using Geometry = Microsoft.UI.Xaml.Media.Geometry;
 global using Grid = Sudoku.Concepts.Grid;
 global using GridLayout = Microsoft.UI.Xaml.Controls.Grid;

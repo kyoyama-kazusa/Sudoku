@@ -88,7 +88,7 @@ public sealed partial class BasicOperation : Page, IOperationProviderPage
 			return;
 		}
 
-		if (await BasePage.SaveFileInternalAsync(from flag in flags.GetAllFlags().ToArray() select flag.GetConverter()))
+		if (await BasePage.SaveFileInternalAsync(from flag in flags.AllFlags.ToArray() select flag.GetConverter()))
 		{
 			Dialog_FormatChoosing.IsOpen = false;
 		}

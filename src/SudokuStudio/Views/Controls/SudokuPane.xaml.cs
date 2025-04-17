@@ -840,7 +840,7 @@ public sealed partial class SudokuPane : UserControl, INotifyPropertyChanged
 		foreach (var cells in e.LastCell.GetCellsOrdered(e.House).ToArray())
 		{
 			cells.ForEach(cell => _children[cell].LightUpAsync(250));
-			await .1.Seconds();
+			await TimeSpan.FromSeconds(.1);
 		}
 	}
 

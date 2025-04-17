@@ -101,7 +101,7 @@ public sealed partial class AddLibraryDialogContent : Page
 	{
 		if ((d, e) is (AddLibraryDialogContent instance, { NewValue: string fileId }))
 		{
-			if (!File2.IsValidFileName(fileId))
+			if (!File.IsValidFileName(fileId))
 			{
 				instance.IsNameValidAsFileId = false;
 			}

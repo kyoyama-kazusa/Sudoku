@@ -142,7 +142,7 @@ public sealed partial class SaveToLibraryDialogContent : Page
 	{
 		if ((d, e) is (SaveToLibraryDialogContent instance, { NewValue: string fileId }))
 		{
-			if (!File2.IsValidFileName(fileId))
+			if (!File.IsValidFileName(fileId))
 			{
 				instance.IsNameValidAsFileId = false;
 			}
