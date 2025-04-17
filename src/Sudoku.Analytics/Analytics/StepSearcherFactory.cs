@@ -22,7 +22,7 @@ public static class StepSearcherFactory
 			var result = new SortedSet<StepSearcher>();
 			foreach (var type in ThisAssembly.GetDerivedTypes<StepSearcher>())
 			{
-				if (type.IsDefined<StepSearcherAttribute>() && type.HasParameterlessConstructor())
+				if (type.IsDefined<StepSearcherAttribute>() && type.HasParameterlessConstructor)
 				{
 					result.Add(GetStepSearcher(type));
 				}
