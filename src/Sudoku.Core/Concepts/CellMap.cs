@@ -934,7 +934,7 @@ public partial struct CellMap : CellMapBase
 		{
 			// Optimization: Use table to get the total number of result elements.
 			var totalIndex = 0;
-			var result = new CellMap[Combinatorial.PascalTriangle[n - 1][subsetSize - 1]];
+			var result = new CellMap[Combinatorics.PascalTriangle[n - 1][subsetSize - 1]];
 			e(result, subsetSize, n, subsetSize, map.Offsets, (r, c) => r[totalIndex++] = c.AsCellMap());
 			return result;
 		}
@@ -985,7 +985,7 @@ public partial struct CellMap : CellMapBase
 		var length = Math.Min(n, subsetSize);
 		for (var i = 1; i <= length; i++)
 		{
-			desiredSize += Combinatorial.PascalTriangle[n - 1][i - 1];
+			desiredSize += Combinatorics.PascalTriangle[n - 1][i - 1];
 		}
 
 		var result = new List<CellMap>(desiredSize);

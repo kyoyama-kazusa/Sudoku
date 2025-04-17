@@ -759,7 +759,7 @@ public partial struct CandidateMap : CandidateMapBase, IDrawableItem
 		{
 			// Optimization: Use table to get the total number of result elements.
 			var totalIndex = 0;
-			var result = new CandidateMap[Combinatorial.PascalTriangle[n - 1][subsetSize - 1]];
+			var result = new CandidateMap[Combinatorics.PascalTriangle[n - 1][subsetSize - 1]];
 			e(result, subsetSize, n, subsetSize, map.Offsets, (r, c) => r[totalIndex++] = c.AsCandidateMap());
 			return result;
 		}
@@ -810,7 +810,7 @@ public partial struct CandidateMap : CandidateMapBase, IDrawableItem
 		var length = Math.Min(n, subsetSize);
 		for (var i = 1; i <= length; i++)
 		{
-			desiredSize += Combinatorial.PascalTriangle[n - 1][i - 1];
+			desiredSize += Combinatorics.PascalTriangle[n - 1][i - 1];
 		}
 
 		var result = new List<CandidateMap>(desiredSize);
