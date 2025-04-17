@@ -56,7 +56,7 @@ internal sealed class FindCommand : CommandBase
 
 		foreach (ref readonly var pair in StepMarshal.Combine(grids, steps))
 		{
-			ref readonly var currentGrid = ref pair.KeyRef();
+			ref readonly var currentGrid = ref pair.KeyRef;
 			var currentStep = pair.Value;
 			if (currentStep.Code != technique)
 			{

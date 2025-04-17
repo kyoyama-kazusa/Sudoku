@@ -741,7 +741,7 @@ public sealed partial record AnalysisResult([property: EquatableMember] in Grid 
 	{
 		foreach (ref readonly var pair in Span)
 		{
-			ref readonly var grid = ref pair.KeyRef();
+			ref readonly var grid = ref pair.KeyRef;
 			if (grid == key)
 			{
 				value = pair.Value;

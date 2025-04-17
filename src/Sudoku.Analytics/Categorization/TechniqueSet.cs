@@ -106,7 +106,7 @@ public sealed partial class TechniqueSet() :
 	/// <summary>
 	/// Indicates the length of the technique.
 	/// </summary>
-	public int Count => _bitArray.GetCardinality();
+	public int Count => _bitArray.Cardinality;
 
 	/// <summary>
 	/// Indicates the range of difficulty that the current collection contains.
@@ -114,9 +114,9 @@ public sealed partial class TechniqueSet() :
 	/// <remarks>
 	/// This property returns a list of <see cref="DifficultyLevel"/> flags, merged into one instance.
 	/// If you want to get the internal fields of flags the return value contains, use <see langword="foreach"/> loop to iterate them,
-	/// or use method <see cref="EnumExtensions.GetAllFlags{T}(T)"/>.
+	/// or use method <see cref="EnumExtensions.get_AllFlags{T}(T)"/>.
 	/// </remarks>
-	/// <seealso cref="EnumExtensions.GetAllFlags{T}(T)"/>
+	/// <seealso cref="EnumExtensions.get_AllFlags{T}(T)"/>
 	public DifficultyLevel DifficultyRange
 	{
 		get

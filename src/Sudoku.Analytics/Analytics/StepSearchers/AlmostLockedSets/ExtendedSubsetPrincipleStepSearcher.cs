@@ -25,8 +25,8 @@ public sealed partial class ExtendedSubsetPrincipleStepSearcher : StepSearcher
 		var results = new HashSet<CellMap>();
 		foreach (var kvp in Miniline.Map)
 		{
-			ref readonly var key = ref kvp.KeyRef();
-			ref readonly var value = ref kvp.ValueRef();
+			ref readonly var key = ref kvp.KeyRef;
+			ref readonly var value = ref kvp.ValueRef;
 			var ((baseSet, coverSet), (a, b, c, _)) = (key, value);
 
 			var emptyCellsInInterMap = c & EmptyCells;

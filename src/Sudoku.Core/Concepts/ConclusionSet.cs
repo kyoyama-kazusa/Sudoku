@@ -92,7 +92,7 @@ public sealed partial class ConclusionSet :
 	public int Count
 	{
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		get => _bitArray.GetCardinality();
+		get => _bitArray.Cardinality;
 	}
 
 	/// <inheritdoc/>

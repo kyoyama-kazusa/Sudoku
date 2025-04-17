@@ -117,8 +117,8 @@ public static class CellMapEnumerable
 		var i = 0;
 		foreach (var kvp in dictionary)
 		{
-			ref readonly var key = ref kvp.KeyRef();
-			ref readonly var value = ref kvp.ValueRef();
+			ref readonly var key = ref kvp.KeyRef;
+			ref readonly var value = ref kvp.ValueRef;
 			result[i++] = new(key, value);
 		}
 		return result;

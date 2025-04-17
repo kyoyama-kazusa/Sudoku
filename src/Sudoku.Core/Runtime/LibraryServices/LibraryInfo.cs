@@ -326,7 +326,7 @@ public readonly partial struct LibraryInfo(
 		var sb = new StringBuilder();
 		using (var sr = new StreamReader(LibraryFilePath))
 		{
-			if (!sr.EndsWithNewLine())
+			if (!sr.EndsWithNewLine)
 			{
 				sb.AppendLine();
 			}
@@ -371,7 +371,7 @@ public readonly partial struct LibraryInfo(
 		var sb = new StringBuilder();
 		using (var sr = new StreamReader(LibraryFilePath))
 		{
-			if (!sr.EndsWithNewLine())
+			if (!sr.EndsWithNewLine)
 			{
 				sb.AppendLine();
 			}
@@ -403,7 +403,7 @@ public readonly partial struct LibraryInfo(
 		var sb = new StringBuilder();
 		using (var sr = new StreamReader(LibraryFilePath))
 		{
-			if (!sr.EndsWithNewLine())
+			if (!sr.EndsWithNewLine)
 			{
 				sb.AppendLine();
 			}
@@ -435,7 +435,7 @@ public readonly partial struct LibraryInfo(
 		var sb = new StringBuilder();
 		using (var sr = new StreamReader(LibraryFilePath))
 		{
-			if (!sr.EndsWithNewLine())
+			if (!sr.EndsWithNewLine)
 			{
 				sb.AppendLine();
 			}

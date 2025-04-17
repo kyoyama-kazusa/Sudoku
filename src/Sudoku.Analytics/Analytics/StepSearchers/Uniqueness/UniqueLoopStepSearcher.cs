@@ -105,7 +105,7 @@ public sealed partial class UniqueLoopStepSearcher : StepSearcher
 				var currentBranch = queue.RemoveFirstNode();
 
 				// The node should be appended after the last node, and its start node is the first node of the linked list.
-				var previousCell = currentBranch.LastValue();
+				var previousCell = currentBranch.LastValue;
 				foreach (var currentCell in PeersMap[previousCell] & pairMap)
 				{
 					// Determine whether the current cell iterated is the first node.
