@@ -92,7 +92,7 @@ public sealed partial class MultisectorLockedSetsStepSearcher : StepSearcher
 			{
 				ref var tempMap = ref linkForEachDigit[digit];
 				tempMap = CandidatesMap[digit] & map;
-				n += MathExtensions.Min(Mask.PopCount(tempMap.RowMask), Mask.PopCount(tempMap.ColumnMask), Mask.PopCount(tempMap.BlockMask));
+				n += Math.Min(Mask.PopCount(tempMap.RowMask), Mask.PopCount(tempMap.ColumnMask), Mask.PopCount(tempMap.BlockMask));
 			}
 
 			if (n == count)
@@ -108,7 +108,7 @@ public sealed partial class MultisectorLockedSetsStepSearcher : StepSearcher
 					var rMask = currentMap.RowMask;
 					var cMask = currentMap.ColumnMask;
 					var bMask = currentMap.BlockMask;
-					var temp = MathExtensions.Min(Mask.PopCount(rMask), Mask.PopCount(cMask), Mask.PopCount(bMask));
+					var temp = Math.Min(Mask.PopCount(rMask), Mask.PopCount(cMask), Mask.PopCount(bMask));
 					var elimMap = CellMap.Empty;
 					var check = 0;
 					if (Mask.PopCount(rMask) == temp)

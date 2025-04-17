@@ -92,7 +92,7 @@ public ref partial struct Generator() : IGenerator<Grid>
 	{
 		_stack.Fill(new());
 
-		ArgumentOutOfRangeException.ThrowIfNotEqual(symmetricType.IsFlag(), true);
+		ArgumentOutOfRangeException.ThrowIfNotEqual(symmetricType.IsFlag, true);
 		ArgumentOutOfRangeException.ThrowIfNotEqual(cluesCount is >= 17 and <= 80 or -1, true);
 
 		try

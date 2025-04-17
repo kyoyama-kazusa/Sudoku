@@ -42,7 +42,7 @@ public sealed partial class SymmetryConstraint : Constraint
 				InvalidSymmetricType => SR.Get("SymmetryConstraint_NoSymmetrySelected"),
 				_ => string.Join(
 					SR.Get("_Token_Comma"),
-					from type in SymmetricTypes.GetAllFlags() select type.GetName(culture)
+					from type in SymmetricTypes.AllFlags select type.GetName(culture)
 				)
 			}
 		);

@@ -26338,9 +26338,9 @@
             <remarks>
             This property returns a list of <see cref="T:Sudoku.Analytics.DifficultyLevel"/> flags, merged into one instance.
             If you want to get the internal fields of flags the return value contains, use <see langword="foreach"/> loop to iterate them,
-            or use method <see cref="M:System.EnumExtensions.GetAllFlags``1(``0)"/>.
+            or use method <see cref="!:EnumExtensions.GetAllFlags&lt;T&gt;(T)"/>.
             </remarks>
-            <seealso cref="M:System.EnumExtensions.GetAllFlags``1(``0)"/>
+            <seealso cref="!:EnumExtensions.GetAllFlags&lt;T&gt;(T)"/>
         </member>
         <member name="P:Sudoku.Categorization.TechniqueSet.TechniqueGroups">
             <summary>

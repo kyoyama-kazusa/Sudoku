@@ -66,7 +66,7 @@ public partial class Hub
 						}
 					}
 				}
-				var maxValue = MathExtensions.Max(valuesCountInBlock, valuesCountInRow, valuesCountInColumn);
+				var maxValue = Math.Max(valuesCountInBlock, valuesCountInRow, valuesCountInColumn);
 				return Enum.Parse<SingleSubtype>(
 					maxValue == valuesCountInBlock
 						? $"NakedSingleBlock{maxValue}"

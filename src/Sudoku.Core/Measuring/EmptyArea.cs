@@ -123,7 +123,7 @@ public static class EmptyArea
 						var up = dp[(i - 1) * 9 + j];
 						var left = dp[i * 9 + (j - 1)];
 						var upLeft = dp[(i - 1) * 9 + (j - 1)];
-						dp[index] = MathExtensions.Min(up, left, upLeft) + 1;
+						dp[index] = Math.Min(up, left, upLeft) + 1;
 					}
 				}
 				else

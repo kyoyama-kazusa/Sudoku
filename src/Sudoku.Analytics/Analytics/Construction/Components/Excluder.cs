@@ -71,7 +71,7 @@ public static class Excluder
 		var (result, i) = (new IconViewNode[8], 0);
 		excluderHouses = new House[8];
 		var lastDigitsMask = (Mask)(Grid.MaxCandidatesMask & ~(1 << digit));
-		foreach (var tempCell in MathExtensions.Max(block.Count, row.Count, column.Count) switch
+		foreach (var tempCell in Math.Max(block.Count, row.Count, column.Count) switch
 		{
 			var z when z == block.Count => block,
 			var z when z == row.Count => row,

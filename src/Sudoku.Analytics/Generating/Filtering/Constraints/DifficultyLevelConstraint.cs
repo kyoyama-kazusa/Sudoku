@@ -69,7 +69,7 @@ public sealed partial class DifficultyLevelConstraint : Constraint, IComparisonO
 				DifficultyLevel.GetName(culture),
 				string.Join(
 					SR.Get("_Token_Comma", culture),
-					from value in ValidDifficultyLevels.GetAllFlags() select value.GetName(culture)
+					from value in ValidDifficultyLevels.AllFlags select value.GetName(culture)
 				)
 			]
 		);

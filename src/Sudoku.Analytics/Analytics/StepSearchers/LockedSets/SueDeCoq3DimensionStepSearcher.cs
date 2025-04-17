@@ -75,7 +75,7 @@ public sealed partial class SueDeCoq3DimensionStepSearcher : StepSearcher
 							}
 							elimMapBlock &= blockMap & ~selectedBlockCells;
 
-							for (var j = 1; j < MathExtensions.Min(9 - i - selectedBlockCells.Count, rowMap.Count, columnMap.Count); j++)
+							for (var j = 1; j < Math.Min(9 - i - selectedBlockCells.Count, rowMap.Count, columnMap.Count); j++)
 							{
 								foreach (ref readonly var selectedRowCells in rowMap & j)
 								{
@@ -88,7 +88,7 @@ public sealed partial class SueDeCoq3DimensionStepSearcher : StepSearcher
 									}
 									elimMapRow &= HousesMap[r] & ~rbCurrentMap & ~selectedRowCells;
 
-									for (var k = 1; k <= MathExtensions.Min(9 - i - j - selectedBlockCells.Count - selectedRowCells.Count, rowMap.Count, columnMap.Count); k++)
+									for (var k = 1; k <= Math.Min(9 - i - j - selectedBlockCells.Count - selectedRowCells.Count, rowMap.Count, columnMap.Count); k++)
 									{
 										foreach (ref readonly var selectedColumnCells in columnMap & k)
 										{
