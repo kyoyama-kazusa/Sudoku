@@ -192,7 +192,7 @@ internal static partial class ChainingDriver
 		{
 			var globalView = View.Empty;
 			var otherViews = new View[blossomLoop.Count];
-			otherViews.InitializeArray(static ([NotNull] ref view) => view = View.Empty);
+			Array.InitializeArray(otherViews, static ([NotNull] ref view) => view = View.Empty);
 
 			var i = 0;
 			foreach (var (startCandidate, branch) in blossomLoop)

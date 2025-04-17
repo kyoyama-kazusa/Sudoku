@@ -373,7 +373,7 @@ public sealed partial class DeathBlossomStepSearcher : StepSearcher
 
 		var candidateOffsets = new List<CandidateViewNode>();
 		var detailViews = new View[branches.Count];
-		detailViews.InitializeArray(([NotNull] ref view) => view = [new CellViewNode(ColorIdentifier.Normal, pivot)]);
+		Array.InitializeArray(detailViews, ([NotNull] ref view) => view = [new CellViewNode(ColorIdentifier.Normal, pivot)]);
 
 		var indexOfAls = 0;
 		foreach (var digit in grid.GetCandidates(pivot))
@@ -508,7 +508,7 @@ public sealed partial class DeathBlossomStepSearcher : StepSearcher
 			var houseOffset = new HouseViewNode(ColorIdentifier.Normal, house);
 			var detailViews = new View[branches.Count];
 			var i = 0;
-			detailViews.InitializeArray(([NotNull] ref view) => view = [houseOffset, new CandidateViewNode(ColorIdentifier.Auxiliary2, targetCells[i++] * 9 + disappearedDigit)]);
+			Array.InitializeArray(detailViews, ([NotNull] ref view) => view = [houseOffset, new CandidateViewNode(ColorIdentifier.Auxiliary2, targetCells[i++] * 9 + disappearedDigit)]);
 
 			var indexOfAls = 0;
 			foreach (var (_, (_, alsCells)) in branches)
