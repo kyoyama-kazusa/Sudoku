@@ -18,7 +18,7 @@ public sealed partial class EmptyRectangleIntersectionPairStepSearcher : StepSea
 		{
 			var c1 = BivalueCells[i];
 			var mask = grid.GetCandidates(c1);
-			var d1 = Mask.TrailingZeroCount(mask);
+			var d1 = BitOperations.TrailingZeroCount(mask);
 			var d2 = mask.GetNextSet(d1);
 			for (var j = i + 1; j < length; j++)
 			{

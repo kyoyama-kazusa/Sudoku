@@ -126,8 +126,8 @@ public partial class Hub
 								_,
 								({ Map.Cells: var cells21 }, { Map.Cells: var cells22 })
 							] => (
-								HouseMask.TrailingZeroCount((cells11 | cells12).SharedHouses).ToHouseType(),
-								HouseMask.TrailingZeroCount((cells21 | cells22).SharedHouses).ToHouseType()
+								BitOperations.TrailingZeroCount((cells11 | cells12).SharedHouses).ToHouseType(),
+								BitOperations.TrailingZeroCount((cells21 | cells22).SharedHouses).ToHouseType()
 							) switch
 							{
 								(HouseType.Block, _) or (_, HouseType.Block)

@@ -393,7 +393,7 @@ public partial class MultipleForcingChains([Property(Setter = PropertySetters.In
 		=> (ViewNode[])[
 			IsCellMultiple
 				? new CellViewNode(ColorIdentifier.Normal, this.First().Key / 9)
-				: new HouseViewNode(ColorIdentifier.Normal, HouseMask.TrailingZeroCount(Candidates.Cells.SharedHouses))
+				: new HouseViewNode(ColorIdentifier.Normal, BitOperations.TrailingZeroCount(Candidates.Cells.SharedHouses))
 		];
 
 	/// <inheritdoc/>

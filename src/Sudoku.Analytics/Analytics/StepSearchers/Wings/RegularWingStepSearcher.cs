@@ -109,7 +109,7 @@ public sealed partial class RegularWingStepSearcher : StepSearcher
 					}
 
 					// The pattern should be "az, bz, cz, dz, ... , abcd(z)".
-					var zDigit = Mask.TrailingZeroCount(maskToCheck);
+					var zDigit = BitOperations.TrailingZeroCount(maskToCheck);
 					var petals = cells;
 					if ((petals + pivot & CandidatesMap[zDigit]).Count != (isIncomplete ? size - 1 : size))
 					{

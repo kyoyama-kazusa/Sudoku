@@ -101,7 +101,7 @@ public sealed partial class XyzRingStepSearcher : StepSearcher
 			var digitsMask1 = grid.GetCandidates(leafCell1);
 			var digitsMask2 = grid.GetCandidates(leafCell2);
 			var theOtherTwoDigitsMask = (Mask)(unionDigitsMask & ~(1 << zDigit));
-			var theOtherDigit1 = Mask.TrailingZeroCount(theOtherTwoDigitsMask);
+			var theOtherDigit1 = BitOperations.TrailingZeroCount(theOtherTwoDigitsMask);
 			var theOtherDigit2 = theOtherTwoDigitsMask.GetNextSet(theOtherDigit1);
 			var coveringHouseForDigit1 = (digitsMask1 >> theOtherDigit1 & 1) != 0 ? house1 : house2;
 			var coveringHouseForDigit2 = house1 == coveringHouseForDigit1 ? house2 : house1;

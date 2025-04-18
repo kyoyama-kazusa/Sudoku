@@ -237,7 +237,7 @@ public sealed partial class ReverseBivalueUniversalGraveStepSearcher : StepSearc
 		}
 
 		var step = new ReverseBivalueUniversalGraveType1Step(
-			new SingletonArray<Conclusion>(new(Elimination, extraCell, Mask.TrailingZeroCount(elimDigitsMask))),
+			new SingletonArray<Conclusion>(new(Elimination, extraCell, BitOperations.TrailingZeroCount(elimDigitsMask))),
 			[[.. cellOffsets, .. GetLinkViewNodes(separatedLoops)]],
 			context.Options,
 			d1,
@@ -283,7 +283,7 @@ public sealed partial class ReverseBivalueUniversalGraveStepSearcher : StepSearc
 			return null;
 		}
 
-		var extraDigit = Mask.TrailingZeroCount(lastDigitsMask);
+		var extraDigit = BitOperations.TrailingZeroCount(lastDigitsMask);
 		var elimMap = cellsChosen.PeerIntersection & EmptyCells & CandidatesMap[extraDigit];
 		if (!elimMap)
 		{
@@ -504,7 +504,7 @@ public sealed partial class ReverseBivalueUniversalGraveStepSearcher : StepSearc
 			return null;
 		}
 
-		var selectedDigit = Mask.TrailingZeroCount(mergedDigitMask);
+		var selectedDigit = BitOperations.TrailingZeroCount(mergedDigitMask);
 		if (!((grid.Exists(cell1, selectedDigit) ?? false) && (grid.Exists(cell2, selectedDigit) ?? false)))
 		{
 			// We should ensure all chosen cells (empty cells) contain the selected digit.

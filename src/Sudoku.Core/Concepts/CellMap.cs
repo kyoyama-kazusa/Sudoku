@@ -248,7 +248,7 @@ public partial struct CellMap : CellMapBase
 	public readonly House SharedBlock
 	{
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		get => HouseMask.TrailingZeroCount(SharedHouses & Grid.MaxCandidatesMask);
+		get => BitOperations.TrailingZeroCount(SharedHouses & Grid.MaxCandidatesMask);
 	}
 
 	/// <summary>
@@ -261,7 +261,7 @@ public partial struct CellMap : CellMapBase
 	public readonly House SharedLine
 	{
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		get => HouseMask.TrailingZeroCount(SharedHouses & ~Grid.MaxCandidatesMask);
+		get => BitOperations.TrailingZeroCount(SharedHouses & ~Grid.MaxCandidatesMask);
 	}
 
 	/// <summary>
@@ -275,7 +275,7 @@ public partial struct CellMap : CellMapBase
 	public readonly House FirstSharedHouse
 	{
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		get => HouseMask.TrailingZeroCount(SharedHouses);
+		get => BitOperations.TrailingZeroCount(SharedHouses);
 	}
 
 	/// <summary>

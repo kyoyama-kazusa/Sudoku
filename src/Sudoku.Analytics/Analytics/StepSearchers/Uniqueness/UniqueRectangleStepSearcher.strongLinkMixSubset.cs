@@ -509,7 +509,7 @@ public partial class UniqueRectangleStepSearcher
 
 				// Determine whether there're two conjugate pairs, with both connected with cell 'targetCell', of same digit.
 				if (!IsConjugatePair(conjugatePairDigit, pairMap1, pairMap1.SharedLine)
-					|| !IsConjugatePair(conjugatePairDigit, pairMap2, HouseMask.TrailingZeroCount(pairMap2.SharedHouses)))
+					|| !IsConjugatePair(conjugatePairDigit, pairMap2, BitOperations.TrailingZeroCount(pairMap2.SharedHouses)))
 				{
 					continue;
 				}
@@ -527,7 +527,7 @@ public partial class UniqueRectangleStepSearcher
 				}
 
 				// Then iterate empty cells lying in the target house, to determine whether a subset can be formed.
-				var conjugatePairHouse = HouseMask.TrailingZeroCount(pairMap2.SharedHouses);
+				var conjugatePairHouse = BitOperations.TrailingZeroCount(pairMap2.SharedHouses);
 				var subsetHouse = HouseMask.Log2(sameBlockHouses);
 				var outsideCellsRange = HousesMap[subsetHouse] // Subset house that:
 					& ~HousesMap[sameBlockCell.ToHouse(HouseType.Block)] // won't overlap the block with same-block cell

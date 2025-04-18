@@ -114,8 +114,8 @@ public sealed partial class SueDeCoqStepSearcher : StepSearcher
 									}
 
 									var elimMapIsolated = CellMap.Empty;
-									var digitIsolated = Mask.TrailingZeroCount(maskIsolated);
-									if (digitIsolated != 16)
+									var digitIsolated = BitOperations.TrailingZeroCount(maskIsolated);
+									if (digitIsolated != 32)
 									{
 										elimMapIsolated = (cannibalMode ? (currentBlockMap | currentLineMap) : currentInterMap)
 											% CandidatesMap[digitIsolated]

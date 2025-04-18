@@ -191,7 +191,7 @@ public sealed partial class SingleStepSearcher : StepSearcher
 					continue;
 				}
 
-				if (Mask.TrailingZeroCount(grid.GetCandidates(resultCell)) != digit)
+				if (BitOperations.TrailingZeroCount(grid.GetCandidates(resultCell)) != digit)
 				{
 					continue;
 				}
@@ -257,7 +257,7 @@ public sealed partial class SingleStepSearcher : StepSearcher
 					continue;
 				}
 
-				if (Mask.TrailingZeroCount(mask) != digit)
+				if (BitOperations.TrailingZeroCount(mask) != digit)
 				{
 					continue;
 				}
@@ -344,7 +344,7 @@ public sealed partial class SingleStepSearcher : StepSearcher
 				continue;
 			}
 
-			var digit = Mask.TrailingZeroCount(grid.GetCandidates(resultCell));
+			var digit = BitOperations.TrailingZeroCount(grid.GetCandidates(resultCell));
 			var step = new FullHouseStep(
 				new SingletonArray<Conclusion>(new(Assignment, resultCell, digit)),
 				[[new HouseViewNode(ColorIdentifier.Normal, house)]],
@@ -455,7 +455,7 @@ public sealed partial class SingleStepSearcher : StepSearcher
 				continue;
 			}
 
-			var digit = Mask.TrailingZeroCount(mask);
+			var digit = BitOperations.TrailingZeroCount(mask);
 			var step = new NakedSingleStep(
 				new SingletonArray<Conclusion>(new(Assignment, cell, digit)),
 				[[.. Excluder.GetNakedSingleExcluders(grid, cell, digit, out _)]],

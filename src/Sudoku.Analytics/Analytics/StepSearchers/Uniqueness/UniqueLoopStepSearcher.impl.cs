@@ -84,7 +84,7 @@ public partial class UniqueLoopStepSearcher
 			return null;
 		}
 
-		var extraDigit = Mask.TrailingZeroCount(mask);
+		var extraDigit = BitOperations.TrailingZeroCount(mask);
 		var elimMap = extraCellsMap % CandidatesMap[extraDigit];
 		if (!elimMap)
 		{

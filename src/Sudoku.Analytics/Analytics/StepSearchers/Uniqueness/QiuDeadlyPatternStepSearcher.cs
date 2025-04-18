@@ -126,7 +126,7 @@ public sealed partial class QiuDeadlyPatternStepSearcher : StepSearcher
 
 		// We should check for the distinction for the lines.
 		var lines = pattern.Lines;
-		var l1 = HouseMask.TrailingZeroCount(lines);
+		var l1 = BitOperations.TrailingZeroCount(lines);
 		var l2 = lines.GetNextSet(l1);
 		var valueCellsInBothLines = CellMap.Empty;
 		foreach (var cell in HousesMap[l1] | HousesMap[l2])
@@ -175,7 +175,7 @@ public sealed partial class QiuDeadlyPatternStepSearcher : StepSearcher
 	)
 	{
 		var lines = pattern.Lines;
-		var l1 = HouseMask.TrailingZeroCount(lines);
+		var l1 = BitOperations.TrailingZeroCount(lines);
 		var l2 = lines.GetNextSet(l1);
 
 		// Check whether both two lines are finished.
@@ -274,7 +274,7 @@ public sealed partial class QiuDeadlyPatternStepSearcher : StepSearcher
 		var atLeastOneCrosslineIsFullyCoveredByValueDigits = false;
 		foreach (var baseCell in pattern.Corner)
 		{
-			var lineType = HouseMask.TrailingZeroCount(pattern.Lines) < 18 ? HouseType.Row : HouseType.Column;
+			var lineType = BitOperations.TrailingZeroCount(pattern.Lines) < 18 ? HouseType.Row : HouseType.Column;
 			var lineTypeTransposed = lineType == HouseType.Row ? HouseType.Column : HouseType.Row;
 			var coveredCrossline = PeersMap[baseCell] & HousesMap[baseCell.ToHouse(lineTypeTransposed)] & pattern.Crossline;
 			if (!(coveredCrossline & EmptyCells))
@@ -997,7 +997,7 @@ public sealed partial class QiuDeadlyPatternStepSearcher : StepSearcher
 		}
 
 		var elimDigit = Mask.Log2(elimDigits);
-		var range = HousesMap[Mask.TrailingZeroCount(mirror.BlockMask)] & EmptyCells & ~crossline;
+		var range = HousesMap[BitOperations.TrailingZeroCount(mirror.BlockMask)] & EmptyCells & ~crossline;
 		var truth = range & CandidatesMap[elimDigit];
 		var elimMap = range % CandidatesMap[elimDigit];
 		if (!elimMap)

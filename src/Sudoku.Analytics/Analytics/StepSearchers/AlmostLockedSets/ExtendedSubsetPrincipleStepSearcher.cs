@@ -70,7 +70,8 @@ public sealed partial class ExtendedSubsetPrincipleStepSearcher : StepSearcher
 
 								var isolatedDigitsMask = (Mask)(selectedInterMask & ~(blockMask | lineMask));
 								var p = BitOperations.PopCount(blockMask) + BitOperations.PopCount(lineMask) + BitOperations.PopCount(isolatedDigitsMask);
-								if (currentInterMap.Count + i + j != p - 1 || Mask.Log2(zDigitsMask) is not (var zDigit and not 16))
+								if (currentInterMap.Count + i + j != p - 1
+									|| BitOperations.Log2(zDigitsMask) is not (var zDigit and not 32))
 								{
 									// Invalid.
 									continue;

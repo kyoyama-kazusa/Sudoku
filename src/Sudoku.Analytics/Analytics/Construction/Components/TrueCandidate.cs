@@ -139,7 +139,7 @@ public static class TrueCandidate
 				}
 
 				chosen[currentIndex] = i;
-				var pos1 = Mask.TrailingZeroCount(mask);
+				var pos1 = BitOperations.TrailingZeroCount(mask);
 
 				stack[currentIndex, pos1].Add(currentCell);
 				stack[currentIndex, mask.GetNextSet(pos1)].Add(currentCell);

@@ -42,9 +42,9 @@ public sealed partial class QiuDeadlyPattern2Pattern([Property] HouseMask Lines1
 	{
 		get
 		{
-			var l11 = HouseMask.TrailingZeroCount(Lines1);
+			var l11 = BitOperations.TrailingZeroCount(Lines1);
 			var l21 = Lines1.GetNextSet(l11);
-			var l12 = HouseMask.TrailingZeroCount(Lines2);
+			var l12 = BitOperations.TrailingZeroCount(Lines2);
 			var l22 = Lines2.GetNextSet(l12);
 			var result = CellMap.Empty;
 			foreach (var (a, b) in ((l11, l12), (l11, l22), (l21, l12), (l21, l22)))

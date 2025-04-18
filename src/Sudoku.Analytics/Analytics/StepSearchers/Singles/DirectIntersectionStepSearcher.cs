@@ -300,7 +300,7 @@ public sealed partial class DirectIntersectionStepSearcher : StepSearcher
 				continue;
 			}
 
-			var lastDigit = Mask.TrailingZeroCount((Mask)(digitsMask & ~(1 << digit)));
+			var lastDigit = BitOperations.TrailingZeroCount((Mask)(digitsMask & ~(1 << digit)));
 			var step = new DirectIntersectionStep(
 				new SingletonArray<Conclusion>(new(Assignment, lastCell, lastDigit)),
 				[

@@ -50,7 +50,7 @@ public sealed partial class BivalueOddagonStepSearcher : StepSearcher
 
 		foreach (var (currentLoop, extraCells, comparer) in oddagonInfoList)
 		{
-			var d1 = Mask.TrailingZeroCount(comparer);
+			var d1 = BitOperations.TrailingZeroCount(comparer);
 			var d2 = comparer.GetNextSet(d1);
 			switch (extraCells.Count)
 			{
@@ -237,7 +237,7 @@ public sealed partial class BivalueOddagonStepSearcher : StepSearcher
 			goto ReturnNull;
 		}
 
-		var extraDigit = Mask.TrailingZeroCount(mask);
+		var extraDigit = BitOperations.TrailingZeroCount(mask);
 		if (extraCellsMap % CandidatesMap[extraDigit] is not (var elimMap and not []))
 		{
 			goto ReturnNull;

@@ -297,7 +297,7 @@ public partial class UniqueRectangleStepSearcher
 						continue;
 					}
 
-					finalPivotDigit = Mask.TrailingZeroCount(mergedMask);
+					finalPivotDigit = BitOperations.TrailingZeroCount(mergedMask);
 				}
 
 				var maskToCompare = pivotDigit == -1 ? grid[combination] & ~(1 << finalPivotDigit) : grid[combination];
@@ -457,8 +457,8 @@ public partial class UniqueRectangleStepSearcher
 			return;
 		}
 
-		var otherDigit1 = Mask.TrailingZeroCount(otherDigits1);
-		var otherDigit2 = Mask.TrailingZeroCount(otherDigits2);
+		var otherDigit1 = BitOperations.TrailingZeroCount(otherDigits1);
+		var otherDigit2 = BitOperations.TrailingZeroCount(otherDigits2);
 
 		// Now we check for other 2 cells, collecting digits not being UR/AR digits.
 		var cells = urCells.AsCellMap();
@@ -478,7 +478,7 @@ public partial class UniqueRectangleStepSearcher
 					continue;
 				}
 
-				var wDigit = Mask.TrailingZeroCount(mergedMask);
+				var wDigit = BitOperations.TrailingZeroCount(mergedMask);
 				if (otherDigit1 == wDigit || otherDigit2 == wDigit)
 				{
 					continue;
@@ -596,7 +596,7 @@ public partial class UniqueRectangleStepSearcher
 
 		var otherDigitsMask = (Mask)(mergedMaskInOtherCells & ~comparer);
 		var line = (byte)otherCellsMap.SharedLine;
-		var block = (byte)HouseMask.TrailingZeroCount(otherCellsMap.SharedHouses & ~(1 << line));
+		var block = (byte)BitOperations.TrailingZeroCount(otherCellsMap.SharedHouses & ~(1 << line));
 		var d = Miniline.Map[new(line, block)].OtherBlocks;
 		var list = new List<CellMap>(4);
 		foreach (var cannibalMode in (false, true))
@@ -734,8 +734,8 @@ public partial class UniqueRectangleStepSearcher
 			}
 
 			var elimMapIsolated = CellMap.Empty;
-			var digitIsolated = Mask.TrailingZeroCount(maskIsolated);
-			if (digitIsolated != 16)
+			var digitIsolated = BitOperations.TrailingZeroCount(maskIsolated);
+			if (digitIsolated != 32)
 			{
 				elimMapIsolated = (cannibalMode ? currentBlockMap | currentLineMap : currentInterMap)
 					% CandidatesMap[digitIsolated]
@@ -927,7 +927,7 @@ public partial class UniqueRectangleStepSearcher
 		}
 
 		// We know that cells holding two digits will form a strong link.
-		var extraDigit1 = (int)Mask.TrailingZeroCount(extraDigitsMask);
+		var extraDigit1 = (int)BitOperations.TrailingZeroCount(extraDigitsMask);
 		var extraDigit2 = extraDigitsMask.GetNextSet(extraDigit1);
 		var extraCells1 = CandidatesMap[extraDigit1] & cells;
 		var extraCells2 = CandidatesMap[extraDigit2] & cells;

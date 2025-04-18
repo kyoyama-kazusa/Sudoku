@@ -28,7 +28,7 @@ public sealed class YChainingRule : ChainingRule
 
 			if (__BivalueCells.Contains(cell))
 			{
-				var digit1 = Mask.TrailingZeroCount(mask);
+				var digit1 = BitOperations.TrailingZeroCount(mask);
 				var digit2 = mask.GetNextSet(digit1);
 				var node1 = new Node((cell * 9 + digit1).AsCandidateMap(), false);
 				var node2 = new Node((cell * 9 + digit2).AsCandidateMap(), true);

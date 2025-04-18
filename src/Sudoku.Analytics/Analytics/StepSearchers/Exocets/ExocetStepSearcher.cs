@@ -560,7 +560,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 
 				if (CheckSeniorTrueBase(
 					ref context, grid, baseCells, targetCell, crossline, crosslineIncludingTarget, baseCellsDigitsMask,
-					Mask.TrailingZeroCount(endoTargetValueDigitsMask)
+					BitOperations.TrailingZeroCount(endoTargetValueDigitsMask)
 				) is { } lockedMemberTypeStep)
 				{
 					return lockedMemberTypeStep;
@@ -2359,7 +2359,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 			return null;
 		}
 
-		var inferredTargetPairMaskDigit1 = Mask.TrailingZeroCount(inferredTargetPairMask);
+		var inferredTargetPairMaskDigit1 = BitOperations.TrailingZeroCount(inferredTargetPairMask);
 		var inferredTargetPairMaskDigit2 = inferredTargetPairMask.GetNextSet(inferredTargetPairMaskDigit1);
 
 		var conclusions = new List<Conclusion>();
@@ -3369,7 +3369,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		var finalIntersectedFourCells = elimLinesMap & intersectedLinesMap;
 
 		var conclusions = new List<Conclusion>();
-		foreach (var cell in HousesMap[Mask.TrailingZeroCount(finalIntersectedFourCells.BlockMask)] & ~crossline & ~finalIntersectedFourCells)
+		foreach (var cell in HousesMap[BitOperations.TrailingZeroCount(finalIntersectedFourCells.BlockMask)] & ~crossline & ~finalIntersectedFourCells)
 		{
 			foreach (var digit in (Mask)(grid.GetCandidates(cell) & ~baseCellsDigitsMask))
 			{

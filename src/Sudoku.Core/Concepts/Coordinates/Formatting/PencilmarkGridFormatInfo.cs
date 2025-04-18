@@ -154,7 +154,7 @@ public sealed partial class PencilmarkGridFormatInfo : GridFormatInfo<Grid>
 				var state = MaskOperations.MaskToCellState(value);
 
 				value &= Grid.MaxCandidatesMask;
-				var d = value == 0 ? -1 : (state != CellState.Empty ? Mask.TrailingZeroCount(value) : -1) + 1;
+				var d = value == 0 ? -1 : (state != CellState.Empty ? BitOperations.TrailingZeroCount(value) : -1) + 1;
 				var s = (state, TreatValueAsGiven, IsCompatibleMode) switch
 				{
 					(CellState.Given or CellState.Modifiable, _, true) => d.ToString(),
@@ -282,7 +282,7 @@ public sealed partial class PencilmarkGridFormatInfo : GridFormatInfo<Grid>
 					// Compatibility:
 					// If the cell has only one candidate left, we should treat this as given also.
 					// This may ignore Sukaku checking, which causes a bug in logic.
-					result.SetDigit(cell, Mask.TrailingZeroCount(mask));
+					result.SetDigit(cell, BitOperations.TrailingZeroCount(mask));
 					result.SetState(cell, CellState.Given);
 				}
 				else

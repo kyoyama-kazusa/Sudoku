@@ -124,7 +124,7 @@ public partial class UniqueRectangleStepSearcher
 		}
 
 		// Type 2 or 5 found. Now check elimination.
-		var extraDigit = Mask.TrailingZeroCount(extraMask);
+		var extraDigit = BitOperations.TrailingZeroCount(extraMask);
 		var elimMap = (corner1.AsCellMap() + corner2).PeerIntersection & CandidatesMap[extraDigit];
 		if (!elimMap)
 		{
@@ -363,7 +363,7 @@ public partial class UniqueRectangleStepSearcher
 
 			// Yes, Type 4 found.
 			// Now check elimination.
-			var elimDigit = Mask.TrailingZeroCount((Mask)(comparer ^ (1 << digit)));
+			var elimDigit = BitOperations.TrailingZeroCount((Mask)(comparer ^ (1 << digit)));
 			if ((otherCellsMap & CandidatesMap[elimDigit]) is not (var elimMap and not []))
 			{
 				continue;
@@ -466,7 +466,7 @@ public partial class UniqueRectangleStepSearcher
 		}
 
 		// Type 5 found. Now check elimination.
-		var extraDigit = Mask.TrailingZeroCount(extraMask);
+		var extraDigit = BitOperations.TrailingZeroCount(extraMask);
 		var cellsThatContainsExtraDigit = otherCellsMap & CandidatesMap[extraDigit];
 
 		// Degenerate to type 1.
@@ -698,7 +698,7 @@ public partial class UniqueRectangleStepSearcher
 			}
 
 			// Hidden UR/AR found. Now check eliminations.
-			var elimDigit = Mask.TrailingZeroCount((Mask)(comparer ^ (1 << digit)));
+			var elimDigit = BitOperations.TrailingZeroCount((Mask)(comparer ^ (1 << digit)));
 			if (!CandidatesMap[elimDigit].Contains(abzCell))
 			{
 				continue;

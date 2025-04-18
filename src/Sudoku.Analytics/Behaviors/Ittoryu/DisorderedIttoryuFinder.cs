@@ -145,7 +145,7 @@ public sealed partial class DisorderedIttoryuFinder([Property] params TechniqueS
 			for (var house = 0; house < 27; house++)
 			{
 				if ((emptyCells & HousesMap[house]) is [var fullHouseCell]
-					&& Mask.TrailingZeroCount(grid.GetCandidates(fullHouseCell)) == digit)
+					&& BitOperations.TrailingZeroCount(grid.GetCandidates(fullHouseCell)) == digit)
 				{
 					foundNodes.Add(new(grid, house, fullHouseCell * 9 + digit));
 				}

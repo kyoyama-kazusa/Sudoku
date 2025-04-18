@@ -82,7 +82,7 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 			if (BitOperations.PopCount(resultMask) == size + 1)
 			{
 				// Possible type 1 or 2 found. Now check extra cells.
-				var extraDigit = Mask.TrailingZeroCount(extraDigits);
+				var extraDigit = BitOperations.TrailingZeroCount(extraDigits);
 				var extraCellsMap = patternCells & CandidatesMap[extraDigit];
 				if (!extraCellsMap)
 				{

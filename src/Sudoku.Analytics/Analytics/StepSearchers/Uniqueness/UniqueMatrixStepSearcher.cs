@@ -113,7 +113,7 @@ public sealed partial class UniqueMatrixStepSearcher : StepSearcher
 		foreach (var digits in mask.AllSets.GetSubsets(4))
 		{
 			var digitsMask = MaskOperations.Create(digits);
-			var extraDigit = Mask.TrailingZeroCount((Mask)(mask & ~digitsMask));
+			var extraDigit = BitOperations.TrailingZeroCount((Mask)(mask & ~digitsMask));
 			var extraDigitMap = CandidatesMap[extraDigit] & pattern;
 			if (extraDigitMap is not [var elimCell])
 			{
@@ -168,7 +168,7 @@ public sealed partial class UniqueMatrixStepSearcher : StepSearcher
 		foreach (var digits in mask.AllSets.GetSubsets(4))
 		{
 			var digitsMask = MaskOperations.Create(digits);
-			var extraDigit = Mask.TrailingZeroCount((Mask)(mask & ~digitsMask));
+			var extraDigit = BitOperations.TrailingZeroCount((Mask)(mask & ~digitsMask));
 			if (pattern % CandidatesMap[extraDigit] is not (var elimMap and not []))
 			{
 				continue;

@@ -161,7 +161,7 @@ public sealed partial class AlignedExclusionStepSearcher : StepSearcher
 						for (var i = 0; i < size; i++)
 						{
 							var values = grid.GetCandidates(cells[i]);
-							var p = (int)Mask.TrailingZeroCount(values);
+							var p = BitOperations.TrailingZeroCount(values);
 							for (var j = 0; j < potentialIndices[i]; j++)
 							{
 								p = values.GetNextSet(p);

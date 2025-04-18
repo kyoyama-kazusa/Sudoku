@@ -285,7 +285,7 @@ public sealed partial class ChromaticPatternStepSearcher : StepSearcher
 		{
 			var patternDigitsMask = (Mask)(1 << digits[0] | 1 << digits[1] | 1 << digits[2]);
 			var otherDigitsMask = (Mask)(allDigitsMask & ~patternDigitsMask);
-			var d1 = Mask.TrailingZeroCount(otherDigitsMask);
+			var d1 = BitOperations.TrailingZeroCount(otherDigitsMask);
 			var d2 = otherDigitsMask.GetNextSet(d1);
 			var otherDigitsCells = pattern & (CandidatesMap[d1] | CandidatesMap[d2]);
 			if (otherDigitsCells is not [var c1, var c2])

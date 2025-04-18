@@ -54,7 +54,7 @@ public sealed class UniqueRectangleSameDigitChainingRule : UniqueRectangleChaini
 				var rowsSpanned = cellsContainingThisDigit.RowMask << 9;
 				if (BitOperations.PopCount(rowsSpanned) == 2)
 				{
-					var row1 = HouseMask.TrailingZeroCount(rowsSpanned);
+					var row1 = BitOperations.TrailingZeroCount(rowsSpanned);
 					var row2 = rowsSpanned.GetNextSet(row1);
 					var cells1 = cellsContainingThisDigit & HousesMap[row1];
 					var cells2 = cellsContainingThisDigit & HousesMap[row2];
@@ -70,7 +70,7 @@ public sealed class UniqueRectangleSameDigitChainingRule : UniqueRectangleChaini
 				var columnsSpanned = cellsContainingThisDigit.ColumnMask << 18;
 				if (BitOperations.PopCount(columnsSpanned) == 2)
 				{
-					var column1 = HouseMask.TrailingZeroCount(columnsSpanned);
+					var column1 = BitOperations.TrailingZeroCount(columnsSpanned);
 					var column2 = columnsSpanned.GetNextSet(column1);
 					var cells3 = cellsContainingThisDigit & HousesMap[column1];
 					var cells4 = cellsContainingThisDigit & HousesMap[column2];
