@@ -5,7 +5,7 @@ namespace System.Drawing;
 /// </summary>
 /// <seealso cref="Size"/>
 /// <seealso cref="SizeF"/>
-internal static class SizeExtensions
+internal static class SizeOrSizeFExtensions
 {
 	/// <summary>
 	/// Provides extension members on <see cref="Size"/>.

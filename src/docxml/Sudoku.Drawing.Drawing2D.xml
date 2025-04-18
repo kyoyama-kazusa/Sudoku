@@ -860,19 +860,19 @@
 				</summary>
 			</target>
         </member>
-        <member name="T:System.Drawing.SizeExtensions">
+        <member name="T:System.Drawing.SizeOrSizeFExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.Drawing.Size"/> or <see cref="T:System.Drawing.SizeF"/>.
             </summary>
             <seealso cref="T:System.Drawing.Size"/>
             <seealso cref="T:System.Drawing.SizeF"/>
         </member>
-        <member name="T:System.Drawing.SizeExtensions.">
+        <member name="T:System.Drawing.SizeOrSizeFExtensions.">
             <summary>
             Provides extension members on <see cref="T:System.Drawing.Size"/>.
             </summary>
         </member>
-        <member name="M:System.Drawing.SizeExtensions..Deconstruct(System.Int32@,System.Int32@)">
+        <member name="M:System.Drawing.SizeOrSizeFExtensions..Deconstruct(System.Int32@,System.Int32@)">
             <target name="method">
 				<summary>
 					Deconstruct the current instance into multiple values, which means you can use
@@ -880,18 +880,18 @@
 				</summary>
 			</target>
         </member>
-        <member name="T:System.Drawing.SizeExtensions.">
+        <member name="T:System.Drawing.SizeOrSizeFExtensions.">
             <summary>
             Provides extension members on <see cref="T:System.Drawing.SizeF"/>.
             </summary>
         </member>
-        <member name="M:System.Drawing.SizeExtensions..Truncate">
+        <member name="M:System.Drawing.SizeOrSizeFExtensions..Truncate">
             <summary>
             To truncate the size.
             </summary>
             <returns>The result.</returns>
         </member>
-        <member name="M:System.Drawing.SizeExtensions..Deconstruct(System.Single@,System.Single@)">
+        <member name="M:System.Drawing.SizeOrSizeFExtensions..Deconstruct(System.Single@,System.Single@)">
             <target name="method">
 				<summary>
 					Deconstruct the current instance into multiple values, which means you can use
