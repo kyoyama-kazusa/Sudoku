@@ -152,7 +152,7 @@ public ref partial struct PatternBasedPuzzleGenerator(
 					}
 
 					if (!isOrdered.Contains(j)
-						&& (i.ToBand() == j.ToBand() || i.ToTower() == j.ToTower())
+						&& (i.Band == j.Band || i.Tower == j.Tower)
 						&& i.ToHouse(HouseType.Block) == j.ToHouse(HouseType.Block))
 					{
 						rating++;
