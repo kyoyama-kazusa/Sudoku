@@ -43,7 +43,7 @@ public sealed class UniqueRectangleSameDigitChainingRule : UniqueRectangleChaini
 
 				var urDigitsMask = (Mask)(1 << d1 | 1 << d2);
 				var otherDigitsMask = (Mask)(allDigitsMask & ~urDigitsMask);
-				if (!Mask.IsPow2(otherDigitsMask))
+				if (!BitOperations.IsPow2(otherDigitsMask))
 				{
 					continue;
 				}

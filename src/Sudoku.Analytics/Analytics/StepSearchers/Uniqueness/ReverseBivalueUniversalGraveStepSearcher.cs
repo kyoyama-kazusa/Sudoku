@@ -68,7 +68,7 @@ public sealed partial class ReverseBivalueUniversalGraveStepSearcher : StepSearc
 		var emptyCells = EmptyCells;
 		foreach (var cell in EmptyCells)
 		{
-			if (Mask.IsPow2(context.Grid.GetCandidates(cell)))
+			if (BitOperations.IsPow2(context.Grid.GetCandidates(cell)))
 			{
 				emptyCells.Remove(cell);
 			}
@@ -278,7 +278,7 @@ public sealed partial class ReverseBivalueUniversalGraveStepSearcher : StepSearc
 	)
 	{
 		var lastDigitsMask = (Mask)(context.Grid[cellsChosen] & ~comparer);
-		if (!Mask.IsPow2(lastDigitsMask))
+		if (!BitOperations.IsPow2(lastDigitsMask))
 		{
 			return null;
 		}
@@ -364,7 +364,7 @@ public sealed partial class ReverseBivalueUniversalGraveStepSearcher : StepSearc
 		ref readonly var grid = ref context.Grid;
 		var (digitsMask1, digitsMask2) = (grid.GetCandidates(cell1), grid.GetCandidates(cell2));
 		var otherDigitsMask = (Mask)((digitsMask1 | digitsMask2) & ~comparer);
-		if (Mask.IsPow2(otherDigitsMask))
+		if (BitOperations.IsPow2(otherDigitsMask))
 		{
 			// Only one digit is categorized as "other digits". In this case we can only use an extra cell to form a type 3.
 			// However, the extra cell is a naked single. The naked single must be handled before this technique.
@@ -499,7 +499,7 @@ public sealed partial class ReverseBivalueUniversalGraveStepSearcher : StepSearc
 		var cell1Digit = (Mask)(grid.GetCandidates(cell1) & comparer);
 		var cell2Digit = (Mask)(grid.GetCandidates(cell2) & comparer);
 		var mergedDigitMask = (Mask)(cell1Digit | cell2Digit);
-		if (!Mask.IsPow2(mergedDigitMask))
+		if (!BitOperations.IsPow2(mergedDigitMask))
 		{
 			return null;
 		}

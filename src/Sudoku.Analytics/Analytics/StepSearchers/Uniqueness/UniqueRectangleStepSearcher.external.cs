@@ -909,7 +909,7 @@ public partial class UniqueRectangleStepSearcher
 
 					var (mask1, mask2) = (grid.GetCandidates(cell1), grid.GetCandidates(cell2));
 					var intersectionMask = (Mask)(mask1 & mask2);
-					if (!Mask.IsPow2(intersectionMask))
+					if (!BitOperations.IsPow2(intersectionMask))
 					{
 						// No eliminations can be found in this pattern.
 						continue;
@@ -1022,7 +1022,7 @@ public partial class UniqueRectangleStepSearcher
 				var (cell1, cell2) = (cellPair[0], cellPair[1]);
 				var (mask1, mask2) = (grid.GetCandidates(cell1), grid.GetCandidates(cell2));
 				var intersectionMask = (Mask)(mask1 & mask2);
-				if (!Mask.IsPow2(intersectionMask))
+				if (!BitOperations.IsPow2(intersectionMask))
 				{
 					// No eliminations can be found in this pattern.
 					continue;

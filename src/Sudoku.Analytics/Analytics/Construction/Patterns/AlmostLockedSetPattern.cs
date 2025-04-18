@@ -187,7 +187,7 @@ public sealed partial class AlmostLockedSetPattern(
 				foreach (ref readonly var map in tempMap & size)
 				{
 					var blockMask = map.BlockMask;
-					if (Mask.IsPow2(blockMask) && house >= 9)
+					if (BitOperations.IsPow2(blockMask) && house >= 9)
 					{
 						// All ALS cells lying on a box-row or a box-column
 						// will be processed as a block ALS.

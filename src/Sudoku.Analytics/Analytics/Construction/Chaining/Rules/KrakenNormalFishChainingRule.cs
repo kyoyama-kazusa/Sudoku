@@ -103,7 +103,7 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 
 					// Strong.
 					var cells1 = baseSetsMap & ~fins;
-					if (cells1.Count < size << 1 || Mask.IsPow2(cells1.BlockMask))
+					if (cells1.Count < size << 1 || BitOperations.IsPow2(cells1.BlockMask))
 					{
 						// A valid fish node cannot be degenerated, or all cells are inside a block.
 						continue;

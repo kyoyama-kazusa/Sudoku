@@ -55,7 +55,7 @@ public sealed record LiteralCoordinateConverter(
 				return string.Empty;
 			}
 
-			if (HouseMask.IsPow2(housesMask))
+			if (BitOperations.IsPow2(housesMask))
 			{
 				var house = HouseMask.Log2(housesMask);
 				var houseType = house.ToHouseType();

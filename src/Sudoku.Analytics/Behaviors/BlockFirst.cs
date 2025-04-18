@@ -179,7 +179,7 @@ public sealed class BlockFirst : IBehaviorMetric
 			}
 
 			if (lastCell != -1
-				&& Mask.IsPow2((lastCell.AsCellMap() + currentCell).BlockMask)
+				&& BitOperations.IsPow2((lastCell.AsCellMap() + currentCell).BlockMask)
 				&& solution.GetDigit(lastCell) is var lastDigit
 				&& solution.GetDigit(currentCell) is var currentDigit
 				&& currentDigit < lastDigit

@@ -79,7 +79,7 @@ public partial class UniqueLoopStepSearcher
 	)
 	{
 		var mask = (Mask)(grid[extraCellsMap] & ~comparer);
-		if (!Mask.IsPow2(mask))
+		if (!BitOperations.IsPow2(mask))
 		{
 			return null;
 		}

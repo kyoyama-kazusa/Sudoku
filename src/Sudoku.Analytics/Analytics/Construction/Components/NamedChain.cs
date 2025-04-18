@@ -36,7 +36,7 @@ public abstract class NamedChain(Node lastNode, bool isLoop) : Chain(lastNode, i
 					}
 					case (_, _, true, not AlmostLockedSetPattern) :
 					case (_, _, false, not null):
-					case ({ Map.Digits: var d1 }, { Map.Digits: var d2 }, false) when d1 != d2 || !Mask.IsPow2(d1):
+					case ({ Map.Digits: var d1 }, { Map.Digits: var d2 }, false) when d1 != d2 || !BitOperations.IsPow2(d1):
 					{
 						return false;
 					}

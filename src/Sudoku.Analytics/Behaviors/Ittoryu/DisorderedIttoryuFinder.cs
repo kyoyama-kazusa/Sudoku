@@ -168,7 +168,7 @@ public sealed partial class DisorderedIttoryuFinder([Property] params TechniqueS
 					continue;
 				}
 
-				if ((HousesMap[house] & candidatesMap[digit]) / house is var mask && Mask.IsPow2(mask))
+				if ((HousesMap[house] & candidatesMap[digit]) / house is var mask && BitOperations.IsPow2(mask))
 				{
 					foundNodes.Add(new(grid, house, HousesCells[house][Mask.Log2(mask)] * 9 + digit));
 				}

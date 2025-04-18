@@ -85,7 +85,7 @@ public partial class UniqueRectangleStepSearcher
 
 						// The burred subset must contain 1 digit that is UR digit.
 						var onlyDigitMask = (Mask)(subsetDigitsMask & comparer);
-						if (!Mask.IsPow2(onlyDigitMask))
+						if (!BitOperations.IsPow2(onlyDigitMask))
 						{
 							continue;
 						}
@@ -291,7 +291,7 @@ public partial class UniqueRectangleStepSearcher
 				if (pivotDigit == -1)
 				{
 					var mergedMask = grid[combination, false, MaskAggregator.And];
-					if (!Mask.IsPow2(mergedMask))
+					if (!BitOperations.IsPow2(mergedMask))
 					{
 						// No pivot digit can be found, meaning no eliminations can be found.
 						continue;
@@ -447,12 +447,12 @@ public partial class UniqueRectangleStepSearcher
 		}
 
 		var otherDigits1 = (Mask)(otherCell1Mask & ~comparer);
-		if (!Mask.IsPow2(otherDigits1))
+		if (!BitOperations.IsPow2(otherDigits1))
 		{
 			return;
 		}
 		var otherDigits2 = (Mask)(otherCell2Mask & ~comparer);
-		if (!Mask.IsPow2(otherDigits2))
+		if (!BitOperations.IsPow2(otherDigits2))
 		{
 			return;
 		}
@@ -473,7 +473,7 @@ public partial class UniqueRectangleStepSearcher
 				}
 
 				var mergedMask = (Mask)(grid.GetCandidates(endCell1) & grid.GetCandidates(endCell2));
-				if (!Mask.IsPow2(mergedMask))
+				if (!BitOperations.IsPow2(mergedMask))
 				{
 					continue;
 				}
@@ -589,7 +589,7 @@ public partial class UniqueRectangleStepSearcher
 
 		// Check whether the corners spanned two blocks. If so, UR + SdC can't be found.
 		var blockMaskInOtherCells = otherCellsMap.BlockMask;
-		if (!Mask.IsPow2(blockMaskInOtherCells))
+		if (!BitOperations.IsPow2(blockMaskInOtherCells))
 		{
 			return;
 		}
@@ -727,8 +727,8 @@ public partial class UniqueRectangleStepSearcher
 		{
 			var maskOnlyInInter = (Mask)(selectedInterMask & ~(blockMask | lineMask));
 			var maskIsolated = (Mask)(cannibalMode ? lineMask & blockMask & selectedInterMask : maskOnlyInInter);
-			if (!cannibalMode && ((blockMask & lineMask) != 0 || maskIsolated != 0 && !Mask.IsPow2(maskIsolated))
-				|| cannibalMode && !Mask.IsPow2(maskIsolated))
+			if (!cannibalMode && ((blockMask & lineMask) != 0 || maskIsolated != 0 && !BitOperations.IsPow2(maskIsolated))
+				|| cannibalMode && !BitOperations.IsPow2(maskIsolated))
 			{
 				return;
 			}

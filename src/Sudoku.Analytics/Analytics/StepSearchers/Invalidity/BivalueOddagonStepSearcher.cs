@@ -189,7 +189,7 @@ public sealed partial class BivalueOddagonStepSearcher : StepSearcher
 						var newExtraDigitsMask = (Mask)(extraDigitsMask | (Mask)(grid.GetCandidates(cell) & ~comparer));
 						var newExtraCells = BitOperations.PopCount(grid.GetCandidates(cell)) > 2 ? extraCells + cell : extraCells;
 						if (newExtraCells.FirstSharedHouse != 32
-							|| Mask.IsPow2(newExtraDigitsMask)
+							|| BitOperations.IsPow2(newExtraDigitsMask)
 							&& !!(newExtraCells.PeerIntersection & CandidatesMap[Mask.Log2(newExtraDigitsMask)])
 							|| newExtraCells.Count < 3)
 						{
@@ -232,7 +232,7 @@ public sealed partial class BivalueOddagonStepSearcher : StepSearcher
 		// .5.+1+2+6+39+81+6+9+3+5+8+2+74+3+824796+1+5..+8735..+6.3.6+41.8.+6..+9+8+2.+5+38...6...9..6.1.8...23+89.56+1:441 751 773 476 481 781
 
 		var mask = (Mask)(grid[extraCellsMap] & ~comparer);
-		if (!Mask.IsPow2(mask))
+		if (!BitOperations.IsPow2(mask))
 		{
 			goto ReturnNull;
 		}

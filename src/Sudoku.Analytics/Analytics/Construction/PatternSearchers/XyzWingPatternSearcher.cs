@@ -60,7 +60,7 @@ public sealed class XyzWingPatternSearcher : PatternSearcher<XyzWingPattern>
 						var unionedDigitsMask = (Mask)((Mask)(digitsMaskPivot | digitsMask1) | digitsMask2);
 						if (BitOperations.PopCount(unionedDigitsMask) != 3
 							|| unionedDigitsMask != digitsMaskPivot
-							|| !Mask.IsPow2((Mask)(digitsMaskPivot & digitsMask1 & digitsMask2)))
+							|| !BitOperations.IsPow2((Mask)(digitsMaskPivot & digitsMask1 & digitsMask2)))
 						{
 							continue;
 						}

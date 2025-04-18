@@ -42,7 +42,7 @@ public sealed partial class Link(
 	/// </summary>
 	public bool IsBivalueCellLink
 		=> this is ({ Map: { Cells: [var c1], Digits: var d1 } }, { Map: { Cells: [var c2], Digits: var d2 } })
-		&& c1 == c2 && d1 != d2 && Mask.IsPow2(d1) && Mask.IsPow2(d2);
+		&& c1 == c2 && d1 != d2 && BitOperations.IsPow2(d1) && BitOperations.IsPow2(d2);
 
 	/// <inheritdoc/>
 	ComponentType IComponent.Type => ComponentType.ChainLink;

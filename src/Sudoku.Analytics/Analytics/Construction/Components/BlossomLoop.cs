@@ -18,12 +18,12 @@ public sealed partial class BlossomLoop([Property] params ConclusionSet conclusi
 	/// <summary>
 	/// Indicates whether the loop entry is cell type.
 	/// </summary>
-	public bool EntryIsCellType => !Mask.IsPow2(Entries.Digits);
+	public bool EntryIsCellType => !BitOperations.IsPow2(Entries.Digits);
 
 	/// <summary>
 	/// Indicates whether the loop exit is cell type.
 	/// </summary>
-	public bool ExitIsCellType => !Mask.IsPow2(Exits.Digits);
+	public bool ExitIsCellType => !BitOperations.IsPow2(Exits.Digits);
 
 	/// <inheritdoc/>
 	public bool IsGrouped => Values.Any(static v => v.IsGrouped);

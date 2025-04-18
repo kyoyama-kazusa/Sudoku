@@ -350,7 +350,7 @@ public sealed partial class WhipStepSearcher : StepSearcher
 		foreach (var nakedSingleCell in emptyCells)
 		{
 			var digitsMask = playground.GetCandidates(nakedSingleCell);
-			if (Mask.IsPow2(digitsMask))
+			if (BitOperations.IsPow2(digitsMask))
 			{
 				var digit = Mask.Log2(digitsMask);
 				var targetCandidate = nakedSingleCell * 9 + digit;
@@ -548,7 +548,7 @@ public sealed partial class WhipStepSearcher : StepSearcher
 					({ Digits: var d1, Cells: [var c1] }, { Digits: var d2, Cells: [var c2] }) when d1 != d2 && c1 == c2
 						=> Space.RowColumn(c1 / 9, c1 % 9),
 					({ Digits: var d1, Cells: var c1 }, { Digits: var d2, Cells: var c2 })
-					when d1 == d2 && Mask.IsPow2(d1) && Mask.Log2(d1) is var digit && (c1 | c2).FirstSharedHouse is var house
+					when d1 == d2 && BitOperations.IsPow2(d1) && Mask.Log2(d1) is var digit && (c1 | c2).FirstSharedHouse is var house
 						=> house switch
 						{
 							< 9 => Space.BlockNumber(house, digit),

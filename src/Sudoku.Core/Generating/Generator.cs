@@ -333,7 +333,7 @@ public ref partial struct Generator() : IGenerator<Grid>
 						}
 					}
 
-					if (HouseMask.IsPow2(houseMask))
+					if (BitOperations.IsPow2(houseMask))
 					{
 						// Hidden single.
 						var cell = HousesCells[house][BitOperations.TrailingZeroCount(houseMask)];
@@ -351,7 +351,7 @@ public ref partial struct Generator() : IGenerator<Grid>
 			foreach (var cell in emptyCells)
 			{
 				var mask = grid.GetCandidates(cell);
-				if (Mask.IsPow2(mask))
+				if (BitOperations.IsPow2(mask))
 				{
 					grid.SetDigit(cell, BitOperations.TrailingZeroCount(mask));
 					if (!checkValidityOnDuplicate(grid, cell))

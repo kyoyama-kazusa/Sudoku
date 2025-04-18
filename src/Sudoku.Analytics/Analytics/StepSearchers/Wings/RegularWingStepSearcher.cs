@@ -94,7 +94,7 @@ public sealed partial class RegularWingStepSearcher : StepSearcher
 						inter &= m;
 					}
 
-					if (BitOperations.PopCount(union) != size || inter != 0 && !Mask.IsPow2(inter))
+					if (BitOperations.PopCount(union) != size || inter != 0 && !BitOperations.IsPow2(inter))
 					{
 						continue;
 					}
@@ -103,7 +103,7 @@ public sealed partial class RegularWingStepSearcher : StepSearcher
 					var isIncomplete = inter == 0;
 					var interWithoutPivot = (Mask)(union & ~grid.GetCandidates(pivot));
 					var maskToCheck = isIncomplete ? interWithoutPivot : inter;
-					if (!Mask.IsPow2(maskToCheck))
+					if (!BitOperations.IsPow2(maskToCheck))
 					{
 						continue;
 					}

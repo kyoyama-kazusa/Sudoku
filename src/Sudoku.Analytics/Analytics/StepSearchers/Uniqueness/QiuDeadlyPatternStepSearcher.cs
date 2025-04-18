@@ -481,7 +481,7 @@ public sealed partial class QiuDeadlyPatternStepSearcher : StepSearcher
 		in CellMap cornerContainingExtraDigit
 	)
 	{
-		if (!Mask.IsPow2(extraDigitsMask))
+		if (!BitOperations.IsPow2(extraDigitsMask))
 		{
 			return null;
 		}
@@ -569,12 +569,12 @@ public sealed partial class QiuDeadlyPatternStepSearcher : StepSearcher
 		// Test examples:
 		// 1.2..+6348.4....5+76.6....+9122.6..4....3.6......1..5.+6......+61..9.+2.93.76.6....2..5:324 824 825 925 348 368
 
-		if (Mask.IsPow2(digitsMaskAppearedInCorner))
+		if (BitOperations.IsPow2(digitsMaskAppearedInCorner))
 		{
 			return null;
 		}
 
-		if (Mask.IsPow2(extraDigitsMask))
+		if (BitOperations.IsPow2(extraDigitsMask))
 		{
 			return null;
 		}
@@ -802,7 +802,7 @@ public sealed partial class QiuDeadlyPatternStepSearcher : StepSearcher
 
 		var digitsShouldBeLocked = (Mask)(cornerLockedDigitsMask & currentDigitsMask);
 		var currentDigitsNotLocked = (Mask)(currentDigitsMask & ~digitsShouldBeLocked);
-		if (!Mask.IsPow2(currentDigitsNotLocked))
+		if (!BitOperations.IsPow2(currentDigitsNotLocked))
 		{
 			return null;
 		}
@@ -991,7 +991,7 @@ public sealed partial class QiuDeadlyPatternStepSearcher : StepSearcher
 		// ...45....+6+58...+43...+46+8..+5.....7+6+9+4+5....+4178+646+7+8+9+5.+1......+4.2....9+3.5.4.+43..8...:224 129 171 871 172 872 173 177 677 179 779 979 191 991 194 294 195
 
 		var elimDigits = (Mask)(grid[mirror] & externalDigitsMaskToBeChecked);
-		if (!Mask.IsPow2(elimDigits))
+		if (!BitOperations.IsPow2(elimDigits))
 		{
 			return null;
 		}

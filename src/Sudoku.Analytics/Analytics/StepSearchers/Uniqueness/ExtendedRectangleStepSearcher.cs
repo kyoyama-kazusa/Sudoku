@@ -37,7 +37,7 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 			foreach (var (l, r) in pairs)
 			{
 				var tempMask = (Mask)(grid.GetCandidates(l) & grid.GetCandidates(r));
-				if (tempMask == 0 || Mask.IsPow2(tempMask))
+				if (tempMask == 0 || BitOperations.IsPow2(tempMask))
 				{
 					checkKindsFlag = false;
 					break;
@@ -389,7 +389,7 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 							}
 
 							var intersectedDigitsMask = (Mask)(mask & normalDigits);
-							if (!Mask.IsPow2(intersectedDigitsMask))
+							if (!BitOperations.IsPow2(intersectedDigitsMask))
 							{
 								continue;
 							}

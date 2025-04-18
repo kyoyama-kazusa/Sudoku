@@ -168,7 +168,7 @@ public sealed partial class ChromaticPatternStepSearcher : StepSearcher
 				foreach (var cell in pattern)
 				{
 					var candidatesMask = grid.GetCandidates(cell);
-					if (Mask.IsPow2(candidatesMask))
+					if (BitOperations.IsPow2(candidatesMask))
 					{
 						containsNakedSingle = true;
 						break;

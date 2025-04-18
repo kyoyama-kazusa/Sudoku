@@ -31,7 +31,7 @@ public sealed partial class AlignedExclusionStepSearcher : StepSearcher
 		var tempAccumulator = new HashSet<AlignedExclusionStep>();
 		foreach (var cell in EmptyCells)
 		{
-			if (Mask.IsPow2(grid.GetCandidates(cell)))
+			if (BitOperations.IsPow2(grid.GetCandidates(cell)))
 			{
 				// This technique shouldn't be used for a grid containing naked singles.
 				return null;

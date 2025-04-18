@@ -134,7 +134,7 @@ public abstract partial class Chain :
 			{
 				digitsMask |= node.Map.Digits;
 			}
-			return Mask.IsPow2(digitsMask);
+			return BitOperations.IsPow2(digitsMask);
 		}
 	}
 
@@ -505,7 +505,7 @@ public abstract partial class Chain :
 				var endDigits = end.Digits;
 				var startCells = start.Cells;
 				var endCells = end.Cells;
-				if (startDigits == endDigits && Mask.IsPow2(startDigits))
+				if (startDigits == endDigits && BitOperations.IsPow2(startDigits))
 				{
 					// Check for cells.
 					var combined = startCells | endCells;

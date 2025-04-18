@@ -113,7 +113,7 @@ public sealed partial class AlternatingInferenceChain(Node lastNode) : NamedChai
 				{ Map.Digits: var m4 },
 				{ Map.Digits: var m5 },
 				{ Map.Digits: var m6 }
-			] => Mask.IsPow2(m1) && Mask.IsPow2(m2) && Mask.IsPow2(m3) && Mask.IsPow2(m4) && Mask.IsPow2(m5) && Mask.IsPow2(m6)
+			] => BitOperations.IsPow2(m1) && BitOperations.IsPow2(m2) && BitOperations.IsPow2(m3) && BitOperations.IsPow2(m4) && BitOperations.IsPow2(m5) && BitOperations.IsPow2(m6)
 				? (true, m1, m2, m3, m4, m5, m6)
 				: (false, m1, m2, m3, m4, m5, m6),
 			_ => null

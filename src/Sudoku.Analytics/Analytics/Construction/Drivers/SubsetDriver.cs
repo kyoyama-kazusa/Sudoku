@@ -27,7 +27,7 @@ internal static class SubsetDriver
 		var nakedSingleCells = CellMap.Empty;
 		foreach (var cell in emptyCellsForGrid)
 		{
-			if (Mask.IsPow2(grid.GetCandidates(cell)))
+			if (BitOperations.IsPow2(grid.GetCandidates(cell)))
 			{
 				nakedSingleCells.Add(cell);
 			}
@@ -178,7 +178,7 @@ internal static class SubsetDriver
 			// Remove cells that only contain 1 candidate (Naked Singles).
 			foreach (var cell in HousesMap[house] & emptyCellsForGrid)
 			{
-				if (Mask.IsPow2(grid.GetCandidates(cell)))
+				if (BitOperations.IsPow2(grid.GetCandidates(cell)))
 				{
 					currentEmptyMap.Remove(cell);
 				}

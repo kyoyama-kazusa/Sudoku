@@ -215,7 +215,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 									}
 
 									// Check whether target cells don't share a same block.
-									if (!(targetCells.Count == 1 || targetCells.Count == 2 && !Mask.IsPow2(targetCells.BlockMask)))
+									if (!(targetCells.Count == 1 || targetCells.Count == 2 && !BitOperations.IsPow2(targetCells.BlockMask)))
 									{
 										continue;
 									}
@@ -778,7 +778,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 			// Iterate on each empty cells in the above map, to get the other target cell.
 			foreach (var endoTargetCell in expandedCrossline & EmptyCells)
 			{
-				if (Mask.IsPow2((targetCell.AsCellMap() + endoTargetCell).BlockMask))
+				if (BitOperations.IsPow2((targetCell.AsCellMap() + endoTargetCell).BlockMask))
 				{
 					// The target selected endo-target cell cannot share a same block with target cell.
 					continue;

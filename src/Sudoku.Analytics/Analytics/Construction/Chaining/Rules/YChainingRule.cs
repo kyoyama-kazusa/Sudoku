@@ -63,7 +63,7 @@ public sealed class YChainingRule : ChainingRule
 		var startDigit = startCandidate % 9;
 		var digitsMask = (Mask)(grid.GetCandidates(cell) & ~(1 << startDigit));
 		var resultNodes = new HashSet<Node>();
-		if (Mask.IsPow2(digitsMask))
+		if (BitOperations.IsPow2(digitsMask))
 		{
 			var endDigit = Mask.Log2(digitsMask);
 			var digitsToCheck = (Mask)(originalGrid.GetCandidates(cell) & ~grid.GetCandidates(cell));

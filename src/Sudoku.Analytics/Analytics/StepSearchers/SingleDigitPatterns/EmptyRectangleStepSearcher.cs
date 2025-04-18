@@ -51,7 +51,7 @@ public sealed partial class EmptyRectangleStepSearcher : StepSearcher
 					}
 
 					var blockMask = linkMap.BlockMask;
-					if (Mask.IsPow2(blockMask) || i < 6 && !(linkMap & HousesMap[column]) || i >= 6 && !(linkMap & HousesMap[row]))
+					if (BitOperations.IsPow2(blockMask) || i < 6 && !(linkMap & HousesMap[column]) || i >= 6 && !(linkMap & HousesMap[row]))
 					{
 						continue;
 					}

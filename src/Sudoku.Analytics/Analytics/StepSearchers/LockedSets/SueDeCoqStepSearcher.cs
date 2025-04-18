@@ -107,8 +107,8 @@ public sealed partial class SueDeCoqStepSearcher : StepSearcher
 									);
 									var maskOnlyInInter = (Mask)(selectedInterMask & ~(blockMask | lineMask));
 									if (!cannibalMode
-										&& ((blockMask & lineMask) != 0 || maskIsolated != 0 && !Mask.IsPow2(maskIsolated))
-										|| cannibalMode && !Mask.IsPow2(maskIsolated))
+										&& ((blockMask & lineMask) != 0 || maskIsolated != 0 && !BitOperations.IsPow2(maskIsolated))
+										|| cannibalMode && !BitOperations.IsPow2(maskIsolated))
 									{
 										continue;
 									}

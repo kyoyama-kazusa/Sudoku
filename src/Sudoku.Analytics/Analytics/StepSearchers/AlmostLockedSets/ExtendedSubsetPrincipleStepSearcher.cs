@@ -63,7 +63,7 @@ public sealed partial class ExtendedSubsetPrincipleStepSearcher : StepSearcher
 							{
 								var lineMask = grid[currentLineMap];
 								var zDigitsMask = (Mask)(blockMask & lineMask);
-								if (!Mask.IsPow2(zDigitsMask))
+								if (!BitOperations.IsPow2(zDigitsMask))
 								{
 									continue;
 								}

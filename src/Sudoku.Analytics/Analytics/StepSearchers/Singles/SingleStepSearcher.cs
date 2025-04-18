@@ -252,7 +252,7 @@ public sealed partial class SingleStepSearcher : StepSearcher
 					continue;
 				}
 
-				if (grid.GetCandidates(cell) is var mask && !Mask.IsPow2(mask))
+				if (grid.GetCandidates(cell) is var mask && !BitOperations.IsPow2(mask))
 				{
 					continue;
 				}
@@ -450,7 +450,7 @@ public sealed partial class SingleStepSearcher : StepSearcher
 			}
 
 			var mask = grid.GetCandidates(cell);
-			if (!Mask.IsPow2(mask))
+			if (!BitOperations.IsPow2(mask))
 			{
 				continue;
 			}

@@ -109,7 +109,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 		var nakedSingleCells = CellMap.Empty;
 		foreach (var cell in emptyCells)
 		{
-			if (Mask.IsPow2(grid.GetCandidates(cell)))
+			if (BitOperations.IsPow2(grid.GetCandidates(cell)))
 			{
 				nakedSingleCells.Add(cell);
 			}
@@ -286,7 +286,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 			// Remove cells that only contain 1 candidate (Naked Singles).
 			foreach (var cell in HousesMap[house] & emptyCells)
 			{
-				if (Mask.IsPow2(grid.GetCandidates(cell)))
+				if (BitOperations.IsPow2(grid.GetCandidates(cell)))
 				{
 					currentEmptyMap.Remove(cell);
 				}
@@ -399,7 +399,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 				var eliminatedDigitsMask = MaskOperations.Create(from c in conclusions where c / 9 == cell select c % 9);
 				var valueDigitsMask = (Mask)(Grid.MaxCandidatesMask & ~grid[HousesMap[house] & ~emptyCellsInHouse, true]);
 				var lastDigitsMask = (Mask)(valueDigitsMask & ~eliminatedDigitsMask);
-				if (!Mask.IsPow2(lastDigitsMask))
+				if (!BitOperations.IsPow2(lastDigitsMask))
 				{
 					continue;
 				}
@@ -571,7 +571,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 		{
 			var eliminatedDigitsMask = MaskOperations.Create(from c in conclusions where c / 9 == cell select c % 9);
 			var availableDigitsMask = (Mask)(grid.GetCandidates(cell) & ~eliminatedDigitsMask);
-			if (!Mask.IsPow2(availableDigitsMask))
+			if (!BitOperations.IsPow2(availableDigitsMask))
 			{
 				continue;
 			}
@@ -667,7 +667,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 				var eliminatedDigitsMask = MaskOperations.Create(from c in conclusions where c / 9 == cell select c % 9);
 				var valueDigitsMask = (Mask)(Grid.MaxCandidatesMask & ~grid[HousesMap[house] & ~emptyCellsInHouse, true]);
 				var lastDigitsMask = (Mask)(valueDigitsMask & ~eliminatedDigitsMask);
-				if (!Mask.IsPow2(lastDigitsMask))
+				if (!BitOperations.IsPow2(lastDigitsMask))
 				{
 					continue;
 				}
@@ -844,7 +844,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 		{
 			var eliminatedDigitsMask = MaskOperations.Create(from c in conclusions where c / 9 == cell select c % 9);
 			var availableDigitsMask = (Mask)(grid.GetCandidates(cell) & ~eliminatedDigitsMask);
-			if (!Mask.IsPow2(availableDigitsMask))
+			if (!BitOperations.IsPow2(availableDigitsMask))
 			{
 				continue;
 			}

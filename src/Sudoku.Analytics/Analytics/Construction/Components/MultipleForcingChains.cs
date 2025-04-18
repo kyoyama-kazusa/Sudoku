@@ -31,7 +31,7 @@ public partial class MultipleForcingChains([Property(Setter = PropertySetters.In
 	public virtual bool IsCellMultiple => Candidates.Cells.Count == 1;
 
 	/// <inheritdoc/>
-	public virtual bool IsHouseMultiple => Mask.IsPow2(Candidates.Digits);
+	public virtual bool IsHouseMultiple => BitOperations.IsPow2(Candidates.Digits);
 
 	/// <inheritdoc/>
 	public virtual bool IsAdvancedMultiple => false;

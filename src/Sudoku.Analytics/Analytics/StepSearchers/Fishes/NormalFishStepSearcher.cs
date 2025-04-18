@@ -233,7 +233,7 @@ public sealed partial class NormalFishStepSearcher : StepSearcher
 					{
 						// All fins should be in the same block.
 						var blockMask = (fins = baseLine & ~coverLine).BlockMask;
-						if (!fins || !Mask.IsPow2(blockMask))
+						if (!fins || !BitOperations.IsPow2(blockMask))
 						{
 							continue;
 						}

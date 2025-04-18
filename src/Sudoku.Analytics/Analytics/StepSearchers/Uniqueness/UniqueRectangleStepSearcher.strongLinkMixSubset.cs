@@ -402,7 +402,7 @@ public partial class UniqueRectangleStepSearcher
 							]
 						],
 						context.Options,
-						outsideCells.Count == 2 && !HouseMask.IsPow2(outsideCells.BlockMask)
+						outsideCells.Count == 2 && !BitOperations.IsPow2(outsideCells.BlockMask)
 							? Technique.UniqueRectangle4X1L
 							: Technique.UniqueRectangle4X1U,
 						d1,
