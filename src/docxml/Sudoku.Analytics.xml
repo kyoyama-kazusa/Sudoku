@@ -785,30 +785,6 @@
             The generated property declaration for parameter <c>step</c>.
             </summary>
         </member>
-        <member name="T:Sudoku.Analytics.Async.AsyncAnalyzer">
-            <summary>
-            Represents an analyzer that can asynchronously analyze a puzzle.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Analytics.Async.AsyncAnalyzer.AnalyzeAsync(Sudoku.Analytics.Analyzer,Sudoku.Concepts.Grid@,System.IProgress{Sudoku.Analytics.StepGathererProgressPresenter},System.Threading.CancellationToken)">
-            <summary>
-            Asynchronously analyzes the specified puzzle.
-            </summary>
-            <param name="analyzer">The analyzer.</param>
-            <param name="grid">The grid to be analyzed.</param>
-            <param name="progress">The progress reporter.</param>
-            <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
-            <returns>An <see cref="T:Sudoku.Analytics.Async.AsyncAnalyzerAwaitable"/> object that can analyze the puzzle asynchronously.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.Async.AsyncAnalyzer.EnumerateStepsAsync(Sudoku.Analytics.Analyzer,Sudoku.Concepts.Grid,System.Threading.CancellationToken)">
-            <summary>
-            Analyzes the specified grid, to find for all possible steps and iterate them in asynchronous way.
-            </summary>
-            <param name="this">The analyzer instance.</param>
-            <param name="grid">Indicates the grid to be analyzed.</param>
-            <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
-            <returns>A sequence that allows user iterating on it in asynchronous way.</returns>
-        </member>
         <member name="T:Sudoku.Analytics.Async.AsyncAnalyzerAwaitable">
             <summary>
             Represents an awaitable rule on analysis for a puzzle.
@@ -1020,30 +996,6 @@
         <member name="M:Sudoku.Analytics.Async.AsyncAnalyzerAwaitable.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
-        <member name="T:Sudoku.Analytics.Async.AsyncCollector">
-            <summary>
-            Represents a collector that can find for all possible steps from a grid, in asynchronous way.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Analytics.Async.AsyncCollector.CollectAsync(Sudoku.Analytics.Collector,Sudoku.Concepts.Grid@,System.IProgress{Sudoku.Analytics.StepGathererProgressPresenter},System.Threading.CancellationToken)">
-            <summary>
-            Asynchronously collects steps from a puzzle.
-            </summary>
-            <param name="collector">The collector.</param>
-            <param name="grid">The grid to be analyzed.</param>
-            <param name="progress">The progress reporter.</param>
-            <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
-            <returns>An <see cref="T:Sudoku.Analytics.Async.ParallelAsyncCollectorAwaitable"/> object that can analyze the puzzle asynchronously.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.Async.AsyncCollector.ParallelCollectAsync(Sudoku.Analytics.Collector,Sudoku.Concepts.Grid@,System.Threading.CancellationToken)">
-            <summary>
-            Asynchronously collects steps from a puzzle, with parallel checking on all <see cref="T:Sudoku.Analytics.StepSearcher"/> instances.
-            </summary>
-            <param name="collector">The collector.</param>
-            <param name="grid">The grid to be analyzed.</param>
-            <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
-            <returns>An <see cref="T:Sudoku.Analytics.Async.ParallelAsyncCollectorAwaitable"/> object that can analyze the puzzle asynchronously.</returns>
-        </member>
         <member name="T:Sudoku.Analytics.Async.AsyncCollectorAwaitable">
             <summary>
             Represents an awaitable rule on collecting steps from a puzzle.
@@ -1254,6 +1206,55 @@
         </member>
         <member name="M:Sudoku.Analytics.Async.AsyncCollectorAwaitable.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="T:Sudoku.Analytics.Async.AsyncStepGatherer">
+            <summary>
+            Provides with extension methods on <see cref="T:Sudoku.Analytics.StepGatherer"/>.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Analytics.Async.AsyncStepGatherer.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Analytics.Analyzer"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.Async.AsyncStepGatherer..AnalyzeAsync(Sudoku.Concepts.Grid@,System.IProgress{Sudoku.Analytics.StepGathererProgressPresenter},System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously analyzes the specified puzzle.
+            </summary>
+            <param name="grid">The grid to be analyzed.</param>
+            <param name="progress">The progress reporter.</param>
+            <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
+            <returns>An <see cref="T:Sudoku.Analytics.Async.AsyncAnalyzerAwaitable"/> object that can analyze the puzzle asynchronously.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.Async.AsyncStepGatherer..EnumerateStepsAsync(Sudoku.Concepts.Grid,System.Threading.CancellationToken)">
+            <summary>
+            Analyzes the specified grid, to find for all possible steps and iterate them in asynchronous way.
+            </summary>
+            <param name="grid">Indicates the grid to be analyzed.</param>
+            <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
+            <returns>A sequence that allows user iterating on it in asynchronous way.</returns>
+        </member>
+        <member name="T:Sudoku.Analytics.Async.AsyncStepGatherer.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Analytics.Collector"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.Async.AsyncStepGatherer..CollectAsync(Sudoku.Concepts.Grid@,System.IProgress{Sudoku.Analytics.StepGathererProgressPresenter},System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously collects steps from a puzzle.
+            </summary>
+            <param name="grid">The grid to be analyzed.</param>
+            <param name="progress">The progress reporter.</param>
+            <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
+            <returns>An <see cref="T:Sudoku.Analytics.Async.ParallelAsyncCollectorAwaitable"/> object that can analyze the puzzle asynchronously.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.Async.AsyncStepGatherer..ParallelCollectAsync(Sudoku.Concepts.Grid@,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously collects steps from a puzzle, with parallel checking on all <see cref="T:Sudoku.Analytics.StepSearcher"/> instances.
+            </summary>
+            <param name="grid">The grid to be analyzed.</param>
+            <param name="cancellationToken">The cancellation token that can cancel the current operation.</param>
+            <returns>An <see cref="T:Sudoku.Analytics.Async.ParallelAsyncCollectorAwaitable"/> object that can analyze the puzzle asynchronously.</returns>
         </member>
         <member name="T:Sudoku.Analytics.Async.IStepGathererAwaitable`1">
             <summary>
