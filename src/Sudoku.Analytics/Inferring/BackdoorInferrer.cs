@@ -9,7 +9,7 @@ public sealed class BackdoorInferrer : IInferrable<BackdoorInferredResult>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool TryInfer(in Grid grid, out BackdoorInferredResult result)
 	{
-		if (grid.PuzzleType != SudokuType.Standard || grid.IsSolved || !grid.GetIsValid())
+		if (grid.PuzzleType != SudokuType.Standard || grid.IsSolved || !grid.IsValid)
 		{
 			result = default;
 			return false;
@@ -17,7 +17,7 @@ public sealed class BackdoorInferrer : IInferrable<BackdoorInferredResult>
 
 		var sstsChecker = Analyzer.SstsOnly;
 		result = new(
-			sstsChecker.Analyze(grid).IsSolved && grid.GetSolutionGrid() is var solution
+			sstsChecker.Analyze(grid).IsSolved && grid.SolutionGrid is var solution
 				?
 				from candidate in grid
 				let digit = solution.GetDigit(candidate / 9)
@@ -30,7 +30,7 @@ public sealed class BackdoorInferrer : IInferrable<BackdoorInferredResult>
 
 		ReadOnlySpan<Conclusion> g(in Grid grid)
 		{
-			var (assignment, elimination, solution) = (new List<Conclusion>(81), new List<Conclusion>(729), grid.GetSolutionGrid());
+			var (assignment, elimination, solution) = (new List<Conclusion>(81), new List<Conclusion>(729), grid.SolutionGrid);
 			foreach (var cell in grid.EmptyCells)
 			{
 				// Case 1: Assignments.

@@ -76,7 +76,7 @@ public sealed class Collector : StepGatherer, ICollector<Grid, Step>
 			var totalSearchersCount = possibleStepSearchers.Length;
 
 			var playground = puzzle;
-			Initialize(playground, playground.GetSolutionGrid());
+			Initialize(playground, playground.SolutionGrid);
 
 			var accumulator = new List<Step>();
 			var context = new StepAnalysisContext(playground, puzzle)

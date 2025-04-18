@@ -662,9 +662,9 @@ public sealed partial class AnalyzePage : Page
 	/// </summary>
 	private void UpdatePuzzleViaSolutionGrid()
 	{
-		if (SudokuPane.Puzzle.GetUniqueness() == Uniqueness.Unique)
+		if (SudokuPane.Puzzle.Uniqueness == Uniqueness.Unique)
 		{
-			SudokuPane.UpdateGrid(SudokuPane.Puzzle.GetSolutionGrid());
+			SudokuPane.UpdateGrid(SudokuPane.Puzzle.SolutionGrid);
 		}
 	}
 
@@ -801,7 +801,7 @@ public sealed partial class AnalyzePage : Page
 	private async void AnalyzeButton_ClickAsync(object sender, RoutedEventArgs e)
 	{
 		var puzzle = SudokuPane.Puzzle;
-		if (puzzle.GetUniqueness() == Uniqueness.Bad)
+		if (puzzle.Uniqueness == Uniqueness.Bad)
 		{
 			return;
 		}
@@ -1071,7 +1071,7 @@ public sealed partial class AnalyzePage : Page
 	private async void SaveToLibraryButton_ClickAsync(object sender, RoutedEventArgs e)
 	{
 		var puzzle = SudokuPane.Puzzle;
-		if (!puzzle.GetIsValid())
+		if (!puzzle.IsValid)
 		{
 			return;
 		}

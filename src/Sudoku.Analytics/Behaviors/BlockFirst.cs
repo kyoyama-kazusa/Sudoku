@@ -17,7 +17,7 @@ public sealed class BlockFirst : IBehaviorMetric
 		out ReadOnlySpan<KeyValuePair<Step, Grid>> stepsAll
 	)
 	{
-		var (playground, solution, result) = (grid, grid.GetSolutionGrid(), (List<int>)[]);
+		var (playground, solution, result) = (grid, grid.SolutionGrid, (List<int>)[]);
 		var (resultSteps, lastStep) = ((List<KeyValuePair<SingleStep, Grid>>)[], default(SingleStep)!);
 		var resultStepsAll = (List<KeyValuePair<Step, Grid>>)[];
 		while (!playground.IsSolved)
@@ -136,7 +136,7 @@ public sealed class BlockFirst : IBehaviorMetric
 
 		static int getScore(in Grid grid, in Grid playground, Cell lastCell, Cell currentCell)
 		{
-			var solution = grid.GetSolutionGrid();
+			var solution = grid.SolutionGrid;
 
 			// Create index table. e.g. If block 1 is missing digit 2, 5 and 7, we should make them in queue.
 			var indexedList = new List<Cell>();

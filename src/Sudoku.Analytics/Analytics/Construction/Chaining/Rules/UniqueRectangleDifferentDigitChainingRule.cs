@@ -14,7 +14,7 @@ public sealed class UniqueRectangleDifferentDigitChainingRule : UniqueRectangleC
 			return;
 		}
 
-		if (grid.GetUniqueness() != Uniqueness.Unique)
+		if (grid.Uniqueness != Uniqueness.Unique)
 		{
 			return;
 		}

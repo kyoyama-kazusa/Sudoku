@@ -14,7 +14,7 @@ public sealed class UniqueRectangleDoubleSideExternalChainingRule : UniqueRectan
 			return;
 		}
 
-		if (grid.GetUniqueness() != Uniqueness.Unique)
+		if (grid.Uniqueness != Uniqueness.Unique)
 		{
 			return;
 		}

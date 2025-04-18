@@ -31,7 +31,7 @@ public static class Minimal
 	/// <exception cref="InvalidOperationException">Throws when the puzzle is invalid (i.e. not unique).</exception>
 	public static bool CheckMinimal(this in Grid @this, out Candidate firstCandidateMakePuzzleNotMinimal)
 	{
-		if (!@this.GetIsValid())
+		if (!@this.IsValid)
 		{
 			throw new InvalidOperationException(SR.ExceptionMessage("GridMultipleSolutions"));
 		}
@@ -54,7 +54,7 @@ public static class Minimal
 					newGrid.SetDigit(cell, -1);
 					newGrid.Fix();
 
-					if (newGrid.GetIsValid())
+					if (newGrid.IsValid)
 					{
 						firstCandidateMakePuzzleNotMinimal = cell * 9 + @this.GetDigit(cell);
 						return false;

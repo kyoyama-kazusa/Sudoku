@@ -5,7 +5,7 @@ namespace SudokuStudio.Interaction.Conversions;
 /// </summary>
 internal static class AnalyzeConversion
 {
-	public static bool GetIsEnabled(Grid grid) => grid.GetUniqueness() != Uniqueness.Bad && !grid.IsSolved;
+	public static bool GetIsEnabled(Grid grid) => grid.Uniqueness != Uniqueness.Bad && !grid.IsSolved;
 
 	public static bool GetAnalyzerButtonIsEnabled(bool isGeneratorLaunched) => !isGeneratorLaunched;
 

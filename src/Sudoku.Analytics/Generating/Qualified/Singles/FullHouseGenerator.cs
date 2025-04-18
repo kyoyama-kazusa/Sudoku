@@ -26,7 +26,7 @@ public sealed class FullHouseGenerator : SingleGenerator
 			}
 
 			// Replace with solution grid.
-			grid = grid.GetSolutionGrid().UnfixedGrid;
+			grid = grid.SolutionGrid.UnfixedGrid;
 
 			// Then randomly removed some digits in some cells, and keeps the grid valid.
 			ShuffleSequence(CellSeed);
@@ -40,7 +40,7 @@ public sealed class FullHouseGenerator : SingleGenerator
 
 			// Fix the grid and check validity.
 			grid.Fix();
-			if (grid.GetIsValid()
+			if (grid.IsValid
 				&& Analyzer.Analyze(grid, cancellationToken: cancellationToken) is
 				{
 					IsSolved: true,

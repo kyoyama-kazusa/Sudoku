@@ -18,7 +18,7 @@ public sealed unsafe class SymmetryInferrer : IInferrable<SymmetryInferredResult
 	/// <inheritdoc/>
 	public static bool TryInfer(in Grid grid, out SymmetryInferredResult result)
 	{
-		if (grid.PuzzleType != SudokuType.Standard || grid.GetUniqueness() != Uniqueness.Unique)
+		if (grid.PuzzleType != SudokuType.Standard || grid.Uniqueness != Uniqueness.Unique)
 		{
 			goto FastFail;
 		}

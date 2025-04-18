@@ -55,72 +55,86 @@ public static class GridSolvingExtensions
 
 
 	/// <summary>
-	/// Indicates whether the puzzle is valid (solved or a normal puzzle with a unique solution).
+	/// Provides extension members on <see langword="in"/> <see cref="Grid"/>.
 	/// </summary>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static bool GetIsValid(this in Grid @this) => @this.IsSolved || @this.GetUniqueness() == Uniqueness.Unique;
-
-	/// <summary>
-	/// Checks the uniqueness of the current sudoku puzzle.
-	/// </summary>
-	/// <exception cref="InvalidOperationException">Throws when the puzzle has already been solved.</exception>
-#if SYNC_ROOT_VIA_METHODIMPL && !SYNC_ROOT_VIA_OBJECT
-	[MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.Synchronized)]
-#endif
-	public static Uniqueness GetUniqueness(this in Grid @this)
+	extension(in Grid @this)
 	{
-		if (@this.IsSolved)
+		/// <summary>
+		/// Indicates whether the puzzle is valid (solved or a normal puzzle with a unique solution).
+		/// </summary>
+		public bool IsValid
 		{
-			// Special case: If a puzzle has already been solved, return 'Uniqueness.Unique' directly
-			// because it had been checked by 'Grid.IsSolved' property.
-			return Uniqueness.Unique;
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			get => @this.IsSolved || @this.Uniqueness == Uniqueness.Unique;
 		}
 
-		if (@this.HasCellHavingNoCandidates)
+		/// <summary>
+		/// Checks the uniqueness of the current sudoku puzzle.
+		/// </summary>
+		public Uniqueness Uniqueness
 		{
-			// Special case: If a puzzle has at least one cell having no candidates, the grid will always invalid.
-			return Uniqueness.Bad;
-		}
-
-		var r = @this.ResetGrid;
-		long count;
-#if SYNC_ROOT_VIA_OBJECT && !SYNC_ROOT_VIA_METHODIMPL
-		lock (PuzzleSolvingSynchronizer)
-#endif
-		{
-			count = Solver
-#if SYNC_ROOT_VIA_THREAD_LOCAL
-				.Value!
-#endif
-				.SolveString(r.ToString(), out _, 2);
-		}
-
-		return count switch { 0 => Uniqueness.Bad, 1 => Uniqueness.Unique, _ => Uniqueness.Multiple };
-	}
-
-	/// <summary>
-	/// Indicates the solution of the current grid. If the puzzle has no solution or multiple solutions,
-	/// this property will return <see cref="Grid.Undefined"/>.
-	/// </summary>
-	/// <seealso cref="Grid.Undefined"/>
 #if SYNC_ROOT_VIA_METHODIMPL && !SYNC_ROOT_VIA_OBJECT
-	[MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.Synchronized)]
+			[MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.Synchronized)]
 #endif
-	public static Grid GetSolutionGrid(this in Grid @this)
-	{
+			get
+			{
+				if (@this.IsSolved)
+				{
+					// Special case: If a puzzle has already been solved, return 'Uniqueness.Unique' directly
+					// because it had been checked by 'Grid.IsSolved' property.
+					return Uniqueness.Unique;
+				}
+
+				if (@this.HasCellHavingNoCandidates)
+				{
+					// Special case: If a puzzle has at least one cell having no candidates, the grid will always invalid.
+					return Uniqueness.Bad;
+				}
+
+				var r = @this.ResetGrid;
+				long count;
 #if SYNC_ROOT_VIA_OBJECT && !SYNC_ROOT_VIA_METHODIMPL
-		lock (PuzzleSolvingSynchronizer)
+				lock (PuzzleSolvingSynchronizer)
 #endif
-		{
-			return Solver
+				{
+					count = Solver
 #if SYNC_ROOT_VIA_THREAD_LOCAL
-				.Value!
+						.Value!
 #endif
-				.Solve(in @this) is { IsUndefined: false } solution ? unfix(solution, @this.GivenCells) : Grid.Undefined;
+						.SolveString(r.ToString(), out _, 2);
+				}
+
+				return count switch { 0 => Uniqueness.Bad, 1 => Uniqueness.Unique, _ => Uniqueness.Multiple };
+			}
+		}
+
+		/// <summary>
+		/// Indicates the solution of the current grid. If the puzzle has no solution or multiple solutions,
+		/// this property will return <see cref="Grid.Undefined"/>.
+		/// </summary>
+		/// <seealso cref="Grid.Undefined"/>
+		public Grid SolutionGrid
+		{
+#if SYNC_ROOT_VIA_METHODIMPL && !SYNC_ROOT_VIA_OBJECT
+			[MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.Synchronized)]
+#endif
+			get
+			{
+#if SYNC_ROOT_VIA_OBJECT && !SYNC_ROOT_VIA_METHODIMPL
+				lock (PuzzleSolvingSynchronizer)
+#endif
+				{
+					return Solver
+#if SYNC_ROOT_VIA_THREAD_LOCAL
+						.Value!
+#endif
+						.Solve(in @this) is { IsUndefined: false } solution ? SolutionGrid_Unfix(solution, @this.GivenCells) : Grid.Undefined;
+				}
+			}
 		}
 
 
-		static Grid unfix(in Grid solution, in CellMap pattern)
+		private static Grid SolutionGrid_Unfix(in Grid solution, in CellMap pattern)
 		{
 			var result = solution;
 			foreach (var cell in ~pattern)

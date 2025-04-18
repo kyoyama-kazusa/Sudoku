@@ -14,7 +14,7 @@ public sealed class AvoidableRectangleChainingRule : ChainingRule
 			return;
 		}
 
-		if (grid.GetUniqueness() != Uniqueness.Unique)
+		if (grid.Uniqueness != Uniqueness.Unique)
 		{
 			return;
 		}

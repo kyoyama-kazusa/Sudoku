@@ -13716,18 +13716,22 @@
             Indicates the backing solver.
             </summary>
         </member>
-        <member name="M:Sudoku.Solving.GridSolvingExtensions.GetIsValid(Sudoku.Concepts.Grid@)">
+        <member name="T:Sudoku.Solving.GridSolvingExtensions.">
+            <summary>
+            Provides extension members on <see langword="in"/> <see cref="T:Sudoku.Concepts.Grid"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Solving.GridSolvingExtensions..IsValid">
             <summary>
             Indicates whether the puzzle is valid (solved or a normal puzzle with a unique solution).
             </summary>
         </member>
-        <member name="M:Sudoku.Solving.GridSolvingExtensions.GetUniqueness(Sudoku.Concepts.Grid@)">
+        <member name="P:Sudoku.Solving.GridSolvingExtensions..Uniqueness">
             <summary>
             Checks the uniqueness of the current sudoku puzzle.
             </summary>
-            <exception cref="T:System.InvalidOperationException">Throws when the puzzle has already been solved.</exception>
         </member>
-        <member name="M:Sudoku.Solving.GridSolvingExtensions.GetSolutionGrid(Sudoku.Concepts.Grid@)">
+        <member name="P:Sudoku.Solving.GridSolvingExtensions..SolutionGrid">
             <summary>
             Indicates the solution of the current grid. If the puzzle has no solution or multiple solutions,
             this property will return <see cref="F:Sudoku.Concepts.Grid.Undefined"/>.

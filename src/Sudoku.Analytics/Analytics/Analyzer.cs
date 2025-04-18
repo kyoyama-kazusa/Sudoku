@@ -234,13 +234,13 @@ public sealed class Analyzer : StepGatherer, IAnalyzer<Analyzer, AnalysisResult,
 		ApplySetters(this);
 
 		var result = new AnalysisResult(puzzle) { IsSolved = false };
-		var solution = puzzle.GetSolutionGrid();
+		var solution = puzzle.SolutionGrid;
 
 		// #1 Memory usage snapshot
 		var gcSnapshot1 = GC.GetTotalMemory(false);
 		try
 		{
-			if (puzzle.GetUniqueness() != Uniqueness.Bad)
+			if (puzzle.Uniqueness != Uniqueness.Bad)
 			{
 				// We should check whether the puzzle is a GSP firstly.
 				// This method doesn't check for Sukaku puzzles, or ones containing multiple solutions.

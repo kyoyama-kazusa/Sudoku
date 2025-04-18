@@ -17,7 +17,7 @@ public static class DiffTechniqueAnalysis
 	{
 		if (!DiffAnalysis.TryAnalyzeDiff(left, right, out var result)
 			|| result.Type is not (DiffType.AddModifiable or DiffType.RemoveCandidate)
-			|| left.GetUniqueness() == Uniqueness.Bad || right.GetUniqueness() == Uniqueness.Bad)
+			|| left.Uniqueness == Uniqueness.Bad || right.Uniqueness == Uniqueness.Bad)
 		{
 			step = null;
 			return false;

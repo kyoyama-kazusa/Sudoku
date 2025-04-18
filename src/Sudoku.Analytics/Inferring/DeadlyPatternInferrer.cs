@@ -21,7 +21,7 @@ public sealed class DeadlyPatternInferrer : IInferrable<DeadlyPatternInferredRes
 	public static bool TryInfer(in Grid grid, [AllowNull] in CellMap cells, out DeadlyPatternInferredResult result)
 	{
 		var patternCandidates = CandidateMap.Empty;
-		if (grid.GetIsValid() || grid.EmptyCellsCount != 81 || grid.PuzzleType != SudokuType.Standard)
+		if (grid.IsValid || grid.EmptyCellsCount != 81 || grid.PuzzleType != SudokuType.Standard)
 		{
 			// Invalid values to be checked.
 			goto FastFail;

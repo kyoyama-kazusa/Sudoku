@@ -51,7 +51,7 @@ public static class DiffAnalysis
 				}
 
 				// Check validity of the second puzzle.
-				result = new AddGivenDiffResult(givenCandidates, right.GetUniqueness() != Uniqueness.Bad);
+				result = new AddGivenDiffResult(givenCandidates, right.Uniqueness != Uniqueness.Bad);
 				return true;
 			}
 			else if ((leftResetGridGivens & rightResetGridGivens) == rightResetGridGivens && leftResetGridGivens != rightResetGridGivens)
@@ -97,7 +97,7 @@ public static class DiffAnalysis
 			}
 
 			// Check validity of the second puzzle.
-			result = new AddModifiableDiffResult(modifiableCandidates, right.GetUniqueness() != Uniqueness.Bad);
+			result = new AddModifiableDiffResult(modifiableCandidates, right.Uniqueness != Uniqueness.Bad);
 			return true;
 		}
 		else if ((leftModifiables & rightModifiables) == rightModifiables && leftModifiables != rightModifiables)
@@ -169,7 +169,7 @@ public static class DiffAnalysis
 
 			if (addedCandidates && ~removedCandidates && ~changedCandidates)
 			{
-				result = new AddCandidateDiffResult(addedCandidates, right.GetUniqueness() != Uniqueness.Bad);
+				result = new AddCandidateDiffResult(addedCandidates, right.Uniqueness != Uniqueness.Bad);
 				return true;
 			}
 			else if (~addedCandidates && removedCandidates && ~changedCandidates)

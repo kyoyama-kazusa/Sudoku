@@ -56,7 +56,7 @@ internal partial class ChainingDriver
 	{
 		var result = new SortedSet<NamedChain>(ChainingComparers.ChainComparer);
 		var traversedCandidates = CandidateMap.Empty;
-		if (makeConclusionAroundBackdoors && grid.GetIsValid())
+		if (makeConclusionAroundBackdoors && grid.IsValid)
 		{
 			// Find backdoors of the puzzle.
 			// If the puzzle is invalid (multiple solutions found), we won't call this inferring method to find backdoors,
