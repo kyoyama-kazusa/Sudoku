@@ -362,11 +362,11 @@ public sealed partial class IrregularWingStepSearcher : StepSearcher
 						{
 							// Check for validity of (grouped) strong links.
 							var (cells1, cells2) = (HousesMap[h1] & CandidatesMap[d1], HousesMap[h2] & CandidatesMap[d2]);
-							if (!Grouped.IsGroupedStrongLink(cells1, h1, out var spannedHousesList1))
+							if (!CellMap.FormsGroupedStrongLink(cells1, h1, out var spannedHousesList1))
 							{
 								continue;
 							}
-							if (!Grouped.IsGroupedStrongLink(cells2, h2, out var spannedHousesList2))
+							if (!CellMap.FormsGroupedStrongLink(cells2, h2, out var spannedHousesList2))
 							{
 								continue;
 							}

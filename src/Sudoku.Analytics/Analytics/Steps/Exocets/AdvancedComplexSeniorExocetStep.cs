@@ -32,7 +32,7 @@ public sealed partial class AdvancedComplexSeniorExocetStep(
 {
 	/// <inheritdoc/>
 	public override int BaseDifficulty
-		=> base.BaseDifficulty + this.GetShapeKind() switch
+		=> base.BaseDifficulty + this.ShapeKind switch
 		{
 			ExocetShapeKind.Franken => 4,
 			ExocetShapeKind.Mutant => 7,
@@ -41,7 +41,7 @@ public sealed partial class AdvancedComplexSeniorExocetStep(
 
 	/// <inheritdoc/>
 	public override Technique Code
-		=> this.GetShapeKind() switch
+		=> this.ShapeKind switch
 		{
 			ExocetShapeKind.Franken => Technique.AdvancedFrankenSeniorExocet,
 			ExocetShapeKind.Mutant => Technique.AdvancedMutantSeniorExocet

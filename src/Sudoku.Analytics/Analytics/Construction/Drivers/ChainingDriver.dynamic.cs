@@ -639,3 +639,51 @@ internal partial class ChainingDriver
 		return nodes.ToArray();
 	}
 }
+
+/// <summary>
+/// Provides with extension methods on <see cref="Grid"/>.
+/// </summary>
+/// <seealso cref="Grid"/>
+file static class GridNodeExtensions
+{
+	/// <summary>
+	/// Provides extension members on <see langword="ref"/> <see cref="Grid"/>.
+	/// </summary>
+	extension(ref Grid grid)
+	{
+		/// <summary>
+		/// Treat the specified node as a real conclusion, and apply to a grid.
+		/// </summary>
+		/// <param name="node">The node.</param>
+		public void Apply(Node node)
+		{
+			ref readonly var map = ref node.Map;
+			if (node.IsOn)
+			{
+				// Find intersections to be removed; or assign it directly if the node only uses 1 candidate.
+				if (map is [var onlyCandidate])
+				{
+					grid.SetDigit(onlyCandidate / 9, onlyCandidate % 9);
+				}
+				else
+				{
+					foreach (var candidate in map.PeerIntersection)
+					{
+						if (grid.GetState(candidate / 9) == CellState.Empty)
+						{
+							grid[candidate / 9] &= (Mask)~(1 << candidate % 9);
+						}
+					}
+				}
+			}
+			else
+			{
+				// If a node is considered as false, we should remove all possible candidates of the node.
+				foreach (var candidate in map)
+				{
+					grid[candidate / 9] &= (Mask)~(1 << candidate % 9);
+				}
+			}
+		}
+	}
+}

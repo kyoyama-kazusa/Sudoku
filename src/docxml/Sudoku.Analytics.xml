@@ -747,97 +747,6 @@
             The generated property declaration for parameter <c>exception</c>.
             </summary>
         </member>
-        <member name="T:Sudoku.Analytics.AnalyzerFactory">
-            <summary>
-            Provides a list of methods that can be used for construct chaining method invocations for configuration,
-            applying to an <see cref="T:Sudoku.Analytics.Analyzer"/> instance.
-            </summary>
-            <seealso cref="T:Sudoku.Analytics.Analyzer"/>
-        </member>
-        <member name="M:Sudoku.Analytics.AnalyzerFactory.WithRandomizedChoosing(Sudoku.Analytics.Analyzer,System.Boolean)">
-            <summary>
-            Sets the property <see cref="P:Sudoku.Analytics.Analyzer.RandomizedChoosing"/> with the target value.
-            </summary>
-            <param name="instance">The instance to be set or updated.</param>
-            <param name="randomizedChoosing">The value to be set or updated.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.AnalyzerFactory.WithApplyAll(Sudoku.Analytics.Analyzer,System.Boolean)">
-            <summary>
-            Sets the property <see cref="P:Sudoku.Analytics.Analyzer.IsFullApplying"/> with the target value.
-            </summary>
-            <param name="instance">The instance to be set or updated.</param>
-            <param name="applyAll">The value to be set or updated.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.AnalyzerFactory.WithIgnoreHighTimeComplexityStepSearchers(Sudoku.Analytics.Analyzer,System.Boolean)">
-            <summary>
-            Sets the property <see cref="P:Sudoku.Analytics.Analyzer.IgnoreSlowAlgorithms"/> with the target value.
-            </summary>
-            <param name="instance">The instance to be set or updated.</param>
-            <param name="ignore">The value to be set or updated.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.AnalyzerFactory.WithIgnoreHighSpaceComplexityStepSearchers(Sudoku.Analytics.Analyzer,System.Boolean)">
-            <summary>
-            Sets the property <see cref="P:Sudoku.Analytics.Analyzer.IgnoreHighAllocationAlgorithms"/> with the target value.
-            </summary>
-            <param name="instance">The instance to be set or updated.</param>
-            <param name="ignore">The value to be set or updated.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.AnalyzerFactory.WithStepSearchers(Sudoku.Analytics.Analyzer,Sudoku.Analytics.StepSearcher[])">
-            <summary>
-            Sets the property <see cref="P:Sudoku.Analytics.StepGatherer.StepSearchers"/> with the target value.
-            </summary>
-            <param name="instance">The instance to be set or updated.</param>
-            <param name="stepSearchers">The value to be set or updated.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.AnalyzerFactory.WithUserDefinedOptions(Sudoku.Analytics.Analyzer,Sudoku.Analytics.Configuration.StepGathererOptions)">
-            <summary>
-            Sets the property <see cref="P:Sudoku.Analytics.StepGatherer.Options"/> with the target value.
-            </summary>
-            <param name="instance">The instance to be set or updated.</param>
-            <param name="options">The value to be set or updated.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.AnalyzerFactory.WithStepSearchers(Sudoku.Analytics.Analyzer,Sudoku.Analytics.StepSearcher[],Sudoku.Analytics.DifficultyLevel)">
-            <summary>
-            Try to set property <see cref="P:Sudoku.Analytics.StepGatherer.StepSearchers"/> with the specified value.
-            </summary>
-            <param name="this">The current <see cref="T:Sudoku.Analytics.Analyzer"/> instance.</param>
-            <param name="stepSearchers">The custom collection of <see cref="T:Sudoku.Analytics.StepSearcher"/>s.</param>
-            <param name="level">Indicates the difficulty level preserved.</param>
-            <returns>The result.</returns>
-            <seealso cref="P:Sudoku.Analytics.StepGatherer.StepSearchers"/>
-            <seealso cref="T:Sudoku.Analytics.StepSearcher"/>
-        </member>
-        <member name="M:Sudoku.Analytics.AnalyzerFactory.ApplySetter``1(Sudoku.Analytics.Analyzer,System.Action{``0})">
-            <summary>
-            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
-            </summary>
-            <typeparam name="TStepSearcher">The type of step searcher.</typeparam>
-            <param name="instance">The instance to be updated.</param>
-            <param name="setter">The value to be added.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.AnalyzerFactory.ApplySetter(Sudoku.Analytics.Analyzer,System.Action{Sudoku.Analytics.StepSearcher})">
-            <summary>
-            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
-            </summary>
-            <param name="instance">The instance to be updated.</param>
-            <param name="setters">The value to be added.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.AnalyzerFactory.ApplySetters(Sudoku.Analytics.Analyzer,System.ReadOnlySpan{System.Action{Sudoku.Analytics.StepSearcher}})">
-            <summary>
-            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
-            </summary>
-            <param name="instance">The instance to be set or updated.</param>
-            <param name="setters">A list of values to be added.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
-        </member>
         <member name="T:Sudoku.Analytics.AnalyzerFinishedEventArgs">
             <summary>
             Provides extra data for event handler <see cref="E:Sudoku.Analytics.Analyzer.Finished"/>.
@@ -1783,70 +1692,6 @@
         <member name="M:Sudoku.Analytics.Collector.Puzzles#Meta#Analytics#ICollector{Sudoku#Concepts#Grid,Sudoku#Analytics#Step}#Collect(Sudoku.Concepts.Grid,System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Analytics.CollectorFactory">
-            <summary>
-            Provides a list of methods that can be used for construct chaining method invocations for configuration,
-            applying to a <see cref="T:Sudoku.Analytics.Collector"/> instance.
-            </summary>
-            <seealso cref="T:Sudoku.Analytics.Collector"/>
-        </member>
-        <member name="M:Sudoku.Analytics.CollectorFactory.WithMaxSteps(Sudoku.Analytics.Collector,System.Int32)">
-            <summary>
-            Sets the property <see cref="P:Sudoku.Analytics.Collector.MaxStepsCollected"/> with the target value.
-            </summary>
-            <param name="instance">The instance to be set or updated.</param>
-            <param name="count">The value to be set or updated.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.CollectorFactory.WithSameLevelConfiguration(Sudoku.Analytics.Collector,Sudoku.Analytics.Configuration.CollectorDifficultyLevelMode)">
-            <summary>
-            Sets the property <see cref="P:Sudoku.Analytics.Collector.DifficultyLevelMode"/> with the target value.
-            </summary>
-            <param name="instance">The instance to be set or updated.</param>
-            <param name="collectingMode">The value to be set or updated.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.CollectorFactory.WithStepSearchers(Sudoku.Analytics.Collector,Sudoku.Analytics.StepSearcher[])">
-            <summary>
-            Sets the property <see cref="P:Sudoku.Analytics.StepGatherer.StepSearchers"/> with the target value.
-            </summary>
-            <param name="instance">The instance to be set or updated.</param>
-            <param name="stepSearchers">The value to be set or updated.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.CollectorFactory.WithUserDefinedOptions(Sudoku.Analytics.Collector,Sudoku.Analytics.Configuration.StepGathererOptions)">
-            <summary>
-            Sets the property <see cref="P:Sudoku.Analytics.StepGatherer.Options"/> with the target value.
-            </summary>
-            <param name="instance">The instance to be set or updated.</param>
-            <param name="options">The value to be set or updated.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.CollectorFactory.ApplySetter``1(Sudoku.Analytics.Collector,System.Action{``0})">
-            <summary>
-            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
-            </summary>
-            <typeparam name="TStepSearcher">The type of step searcher.</typeparam>
-            <param name="instance">The instance to be updated.</param>
-            <param name="setter">The value to be added.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.CollectorFactory.ApplySetter(Sudoku.Analytics.Collector,System.Action{Sudoku.Analytics.StepSearcher})">
-            <summary>
-            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
-            </summary>
-            <param name="instance">The instance to be updated.</param>
-            <param name="setters">The value to be added.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.CollectorFactory.ApplySetters(Sudoku.Analytics.Collector,System.ReadOnlySpan{System.Action{Sudoku.Analytics.StepSearcher}})">
-            <summary>
-            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
-            </summary>
-            <param name="instance">The instance to be set or updated.</param>
-            <param name="setters">A list of values to be added.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
-        </member>
         <member name="T:Sudoku.Analytics.Configuration.BabaGroupInitialLetter">
             <summary>
             Provides a style that displays for a letter in a baba group.
@@ -1924,20 +1769,23 @@
             Indicates the sequences.
             </summary>
         </member>
-        <member name="M:Sudoku.Analytics.Configuration.BabaGroupInitialLetterExtensions.GetSequence(Sudoku.Analytics.Configuration.BabaGroupInitialLetter,Sudoku.Analytics.Configuration.BabaGroupLetterCasing)">
+        <member name="T:Sudoku.Analytics.Configuration.BabaGroupInitialLetterExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Analytics.Configuration.BabaGroupInitialLetter"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.Configuration.BabaGroupInitialLetterExtensions..GetSequence(Sudoku.Analytics.Configuration.BabaGroupLetterCasing)">
             <summary>
             Try to get character sequence from the specified initial letter.
             </summary>
-            <param name="this">The initial letter.</param>
             <param name="casing">The letter casing.</param>
             <returns>The character sequence.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the specified arguments are not defined.</exception>
         </member>
-        <member name="M:Sudoku.Analytics.Configuration.BabaGroupInitialLetterExtensions.EscapeDigit(Sudoku.Analytics.Configuration.BabaGroupInitialLetter,System.Int32)">
+        <member name="M:Sudoku.Analytics.Configuration.BabaGroupInitialLetterExtensions..EscapeDigit(System.Int32)">
             <summary>
             Try to escape the digit.
             </summary>
-            <param name="this">The initial letter.</param>
             <param name="digit">The digit to be escaped.</param>
             <returns>The escaped character. If a digit doesn't need to escape, return character representation of itself.</returns>
         </member>
@@ -3322,27 +3170,31 @@
             For example, <c>A == B -- C == D</c> is not equal to <c>D == C -- B == A</c>.
             </summary>
         </member>
+        <member name="T:Sudoku.Analytics.Construction.Components.ChainExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:Sudoku.Analytics.Construction.Components.Chain"/>.
+            </summary>
+            <seealso cref="T:Sudoku.Analytics.Construction.Components.Chain"/>
+        </member>
+        <member name="T:Sudoku.Analytics.Construction.Components.ChainExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Analytics.Construction.Components.Chain"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.ChainExtensions..GetViews_Monoparental(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Chaining.ChainingRuleCollection)">
+            <summary>
+            Collect views for the current chain, without nested paths checking.
+            </summary>
+            <param name="grid">The grid.</param>
+            <param name="supportedRules">The supported rules.</param>
+            <returns>The views.</returns>
+        </member>
         <member name="T:Sudoku.Analytics.Construction.Components.ChainingRuleAttribute`1">
             <summary>
             Represents an attribute type that is applied to a field in type <see cref="T:Sudoku.Analytics.Construction.Components.LinkType"/>,
             indicating the corresponding chaining rule.
             </summary>
             <typeparam name="TChainingRule">The type of the target chaining rule.</typeparam>
-        </member>
-        <member name="T:Sudoku.Analytics.Construction.Components.ChainViewNodeExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:Sudoku.Analytics.Construction.Components.Chain"/>.
-            </summary>
-            <seealso cref="T:Sudoku.Analytics.Construction.Components.Chain"/>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.ChainViewNodeExtensions.GetViews_Monoparental(Sudoku.Analytics.Construction.Components.Chain,Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Chaining.ChainingRuleCollection)">
-            <summary>
-            Collect views for the current chain, without nested paths checking.
-            </summary>
-            <param name="this">The chain to be checked.</param>
-            <param name="grid">The grid.</param>
-            <param name="supportedRules">The supported rules.</param>
-            <returns>The views.</returns>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Components.ContinuousNiceLoop">
             <summary>
@@ -3606,12 +3458,15 @@
             Provides with extension methods around enumeration type <see cref="T:Sudoku.Analytics.Construction.Components.ExocetShapeKind"/>.
             </summary>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.ExocetShapeKindExtensions.GetShapeKind(Sudoku.Analytics.Construction.Components.IComplexSeniorExocet)">
+        <member name="T:Sudoku.Analytics.Construction.Components.ExocetShapeKindExtensions.">
             <summary>
-            Try to get shape kind via the houses.
+            Provides extension members on <see cref="T:Sudoku.Analytics.Construction.Components.IComplexSeniorExocet"/>.
             </summary>
-            <param name="this">The houses provider.</param>
-            <returns>A <see cref="T:Sudoku.Analytics.Construction.Components.ExocetShapeKind"/> result.</returns>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Components.ExocetShapeKindExtensions..ShapeKind">
+            <summary>
+            Indicates the shape kind of the current exocet pattern.
+            </summary>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Components.FishFinKind">
             <summary>
@@ -3847,59 +3702,17 @@
         <member name="M:Sudoku.Analytics.Construction.Components.ForcingChainsInfo.Equals(Sudoku.Analytics.Construction.Components.ForcingChainsInfo)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Analytics.Construction.Components.GridExocetExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:Sudoku.Concepts.Grid"/>.
-            </summary>
-            <seealso cref="T:Sudoku.Concepts.Grid"/>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.GridExocetExtensions.CheckCrossLineIntersectionLeaveEmpty(Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMap@,System.Int16)">
-            <summary>
-            Check whether all intersected cells by original cross-line cells and extra house cells are non-empty,
-            and cannot be of value appeared in base cells.
-            </summary>
-            <param name="this">The grid to be checked.</param>
-            <param name="crossline">The cross-line cells.</param>
-            <param name="baseCellsDigitsMask">The mask that holds a list of digits appeared in base cells.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.GridExocetExtensions.CheckTargetCellsDigitsValidity(Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMap@,System.Int16)">
-            <summary>
-            Check whether all digits appeared in base cells can be filled in target empty cells.
-            </summary>
-            <param name="this">The grid to be checked.</param>
-            <param name="targetCellsToBeChecked">The target cells to be checked.</param>
-            <param name="baseCellsDigitsMask">A mask that holds a list of digits appeared in base cells.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.GridExocetExtensions.GetValueDigitsAppearedInCrossline(Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMap@,System.Int16)">
-            <summary>
-            Try to get all possible digits as value representation in cross-line cells.
-            </summary>
-            <param name="this">The grid to be checked.</param>
-            <param name="crossline">The cross-line cells to be checked.</param>
-            <param name="baseCellsDigitsMask">The digits appeared in base cells.</param>
-            <returns>A list of digits appeared in cross-line cells as value representation.</returns>
-        </member>
-        <member name="T:Sudoku.Analytics.Construction.Components.GridNodeExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:Sudoku.Concepts.Grid"/>.
-            </summary>
-            <seealso cref="T:Sudoku.Concepts.Grid"/>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.GridNodeExtensions.Apply(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.Node)">
-            <summary>
-            Treat the specified node as a real conclusion, and apply to a grid.
-            </summary>
-            <param name="grid">The grid.</param>
-            <param name="node">The node.</param>
-        </member>
         <member name="T:Sudoku.Analytics.Construction.Components.Grouped">
             <summary>
             Represents a list of methods that operates with concept "Grouped Node".
             </summary>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.Grouped.IsGroupedStrongLink(Sudoku.Concepts.CellMap@,System.Int32,System.ReadOnlySpan{System.Int32}@)">
+        <member name="T:Sudoku.Analytics.Construction.Components.Grouped.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Concepts.CellMap"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.Grouped..FormsGroupedStrongLink(Sudoku.Concepts.CellMap@,System.Int32,System.ReadOnlySpan{System.Int32}@)">
             <summary>
             Determine whether the specified cells can be split into two parts, and they form a grouped strong link with each other.
             </summary>
@@ -4534,11 +4347,15 @@
             </summary>
             <seealso cref="T:Sudoku.Analytics.Construction.Components.LinkType"/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.LinkTypeExtensions.GetRuleInstance(Sudoku.Analytics.Construction.Components.LinkType)">
+        <member name="T:Sudoku.Analytics.Construction.Components.LinkTypeExtensions.">
             <summary>
-            Creates a <see cref="T:Sudoku.Analytics.Construction.Chaining.ChainingRule"/> instance from the specified link type.
+            Provides extension members on <see cref="T:Sudoku.Analytics.Construction.Components.LinkType"/>.
             </summary>
-            <param name="this">The link type.</param>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Components.LinkTypeExtensions..RuleInstance">
+            <summary>
+            Indicates a <see cref="T:Sudoku.Analytics.Construction.Chaining.ChainingRule"/> instance from the specified link type.
+            </summary>
             <returns>The target <see cref="T:Sudoku.Analytics.Construction.Chaining.ChainingRule"/> instance.</returns>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Components.LockedMember">
@@ -5994,6 +5811,23 @@
             <typeparam name="T">The type of <paramref name="this"/>.</typeparam>
             <param name="this">The current instance.</param>
             <returns>Cast <see cref="T:Sudoku.Analytics.Construction.Components.IForcingChains"/> instance.</returns>
+        </member>
+        <member name="T:Sudoku.Analytics.Construction.Drivers.GridNodeExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:Sudoku.Concepts.Grid"/>.
+            </summary>
+            <seealso cref="T:Sudoku.Concepts.Grid"/>
+        </member>
+        <member name="T:Sudoku.Analytics.Construction.Drivers.GridNodeExtensions.">
+            <summary>
+            Provides extension members on <see langword="ref"/> <see cref="T:Sudoku.Concepts.Grid"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Drivers.GridNodeExtensions..Apply(Sudoku.Analytics.Construction.Components.Node)">
+            <summary>
+            Treat the specified node as a real conclusion, and apply to a grid.
+            </summary>
+            <param name="node">The node.</param>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Drivers.SubsetDriver">
             <summary>
@@ -8761,6 +8595,147 @@
             </summary>
             <param name="instance">The instance itself.</param>
         </member>
+        <member name="T:Sudoku.Analytics.StepGathererFactory">
+            <summary>
+            Provides a list of methods that can be used for construct chaining method invocations for configuration,
+            applying to a <see cref="T:Sudoku.Analytics.StepGatherer"/> instance.
+            </summary>
+            <seealso cref="T:Sudoku.Analytics.StepGatherer"/>
+        </member>
+        <member name="T:Sudoku.Analytics.StepGathererFactory.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Analytics.Analyzer"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..WithRandomizedChoosing(System.Boolean)">
+            <summary>
+            Sets the property <see cref="P:Sudoku.Analytics.Analyzer.RandomizedChoosing"/> with the target value.
+            </summary>
+            <param name="randomizedChoosing">The value to be set or updated.</param>
+            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..WithApplyAll(System.Boolean)">
+            <summary>
+            Sets the property <see cref="P:Sudoku.Analytics.Analyzer.IsFullApplying"/> with the target value.
+            </summary>
+            <param name="applyAll">The value to be set or updated.</param>
+            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..WithIgnoreHighTimeComplexityStepSearchers(System.Boolean)">
+            <summary>
+            Sets the property <see cref="P:Sudoku.Analytics.Analyzer.IgnoreSlowAlgorithms"/> with the target value.
+            </summary>
+            <param name="ignore">The value to be set or updated.</param>
+            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..WithIgnoreHighSpaceComplexityStepSearchers(System.Boolean)">
+            <summary>
+            Sets the property <see cref="P:Sudoku.Analytics.Analyzer.IgnoreHighAllocationAlgorithms"/> with the target value.
+            </summary>
+            <param name="ignore">The value to be set or updated.</param>
+            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..WithStepSearchers(Sudoku.Analytics.StepSearcher[])">
+            <summary>
+            Sets the property <see cref="P:Sudoku.Analytics.StepGatherer.StepSearchers"/> with the target value.
+            </summary>
+            <param name="stepSearchers">The value to be set or updated.</param>
+            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..WithUserDefinedOptions(Sudoku.Analytics.Configuration.StepGathererOptions)">
+            <summary>
+            Sets the property <see cref="P:Sudoku.Analytics.StepGatherer.Options"/> with the target value.
+            </summary>
+            <param name="options">The value to be set or updated.</param>
+            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..WithStepSearchers(Sudoku.Analytics.StepSearcher[],Sudoku.Analytics.DifficultyLevel)">
+            <summary>
+            Try to set property <see cref="P:Sudoku.Analytics.StepGatherer.StepSearchers"/> with the specified value.
+            </summary>
+            <param name="stepSearchers">The custom collection of <see cref="T:Sudoku.Analytics.StepSearcher"/>s.</param>
+            <param name="level">Indicates the difficulty level preserved.</param>
+            <returns>The result.</returns>
+            <seealso cref="P:Sudoku.Analytics.StepGatherer.StepSearchers"/>
+            <seealso cref="T:Sudoku.Analytics.StepSearcher"/>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..ApplySetter``1(System.Action{``0})">
+            <summary>
+            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
+            </summary>
+            <typeparam name="TStepSearcher">The type of step searcher.</typeparam>
+            <param name="setter">The value to be added.</param>
+            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..ApplySetter(System.Action{Sudoku.Analytics.StepSearcher})">
+            <summary>
+            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
+            </summary>
+            <param name="setters">The value to be added.</param>
+            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..ApplySetters(System.ReadOnlySpan{System.Action{Sudoku.Analytics.StepSearcher}})">
+            <summary>
+            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
+            </summary>
+            <param name="setters">A list of values to be added.</param>
+            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
+        </member>
+        <member name="T:Sudoku.Analytics.StepGathererFactory.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Analytics.Collector"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..WithMaxSteps(System.Int32)">
+            <summary>
+            Sets the property <see cref="P:Sudoku.Analytics.Collector.MaxStepsCollected"/> with the target value.
+            </summary>
+            <param name="count">The value to be set or updated.</param>
+            <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..WithSameLevelConfiguration(Sudoku.Analytics.Configuration.CollectorDifficultyLevelMode)">
+            <summary>
+            Sets the property <see cref="P:Sudoku.Analytics.Collector.DifficultyLevelMode"/> with the target value.
+            </summary>
+            <param name="collectingMode">The value to be set or updated.</param>
+            <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..WithStepSearchers(Sudoku.Analytics.StepSearcher[])">
+            <summary>
+            Sets the property <see cref="P:Sudoku.Analytics.StepGatherer.StepSearchers"/> with the target value.
+            </summary>
+            <param name="stepSearchers">The value to be set or updated.</param>
+            <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..WithUserDefinedOptions(Sudoku.Analytics.Configuration.StepGathererOptions)">
+            <summary>
+            Sets the property <see cref="P:Sudoku.Analytics.StepGatherer.Options"/> with the target value.
+            </summary>
+            <param name="options">The value to be set or updated.</param>
+            <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..ApplySetter``1(System.Action{``0})">
+            <summary>
+            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
+            </summary>
+            <typeparam name="TStepSearcher">The type of step searcher.</typeparam>
+            <param name="setter">The value to be added.</param>
+            <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..ApplySetter(System.Action{Sudoku.Analytics.StepSearcher})">
+            <summary>
+            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
+            </summary>
+            <param name="setters">The value to be added.</param>
+            <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepGathererFactory..ApplySetters(System.ReadOnlySpan{System.Action{Sudoku.Analytics.StepSearcher}})">
+            <summary>
+            Appends an element into the property <see cref="P:Sudoku.Analytics.StepGatherer.Setters"/>.
+            </summary>
+            <param name="setters">A list of values to be added.</param>
+            <returns>The value same as <see cref="T:Sudoku.Analytics.Collector"/>.</returns>
+        </member>
         <member name="T:Sudoku.Analytics.StepGathererProgressPresenter">
             <summary>
             Represents a progress used by <see cref="T:Sudoku.Analytics.StepGatherer"/> instances.
@@ -9579,6 +9554,42 @@
             A list of <see cref="T:Sudoku.Concepts.CellMap"/> grouped, representing as a <see cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3"/>.
             </returns>
             <seealso cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3"/>
+        </member>
+        <member name="T:Sudoku.Analytics.StepSearchers.Exocets.GridExocetExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:Sudoku.Concepts.Grid"/>.
+            </summary>
+            <seealso cref="T:Sudoku.Concepts.Grid"/>
+        </member>
+        <member name="T:Sudoku.Analytics.StepSearchers.Exocets.GridExocetExtensions.">
+            <summary>
+            Provides extension members on <see langword="in"/> <see cref="T:Sudoku.Concepts.Grid"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.GridExocetExtensions..CheckCrossLineIntersectionLeaveEmpty(Sudoku.Concepts.CellMap@,System.Int16)">
+            <summary>
+            Check whether all intersected cells by original cross-line cells and extra house cells are non-empty,
+            and cannot be of value appeared in base cells.
+            </summary>
+            <param name="crossline">The cross-line cells.</param>
+            <param name="baseCellsDigitsMask">The mask that holds a list of digits appeared in base cells.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.GridExocetExtensions..CheckTargetCellsDigitsValidity(Sudoku.Concepts.CellMap@,System.Int16)">
+            <summary>
+            Check whether all digits appeared in base cells can be filled in target empty cells.
+            </summary>
+            <param name="targetCellsToBeChecked">The target cells to be checked.</param>
+            <param name="baseCellsDigitsMask">A mask that holds a list of digits appeared in base cells.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.GridExocetExtensions..GetValueDigitsAppearedInCrossline(Sudoku.Concepts.CellMap@,System.Int16)">
+            <summary>
+            Try to get all possible digits as value representation in cross-line cells.
+            </summary>
+            <param name="crossline">The cross-line cells to be checked.</param>
+            <param name="baseCellsDigitsMask">The digits appeared in base cells.</param>
+            <returns>A list of digits appeared in cross-line cells as value representation.</returns>
         </member>
         <member name="T:Sudoku.Analytics.StepSearchers.Fishes.ComplexFishStepSearcher">
             <summary>

@@ -31,7 +31,7 @@ internal static class ChainingRulePool
 			return rule;
 		}
 
-		if (linkType.GetRuleInstance() is { } createdRule)
+		if (linkType.RuleInstance is { } createdRule)
 		{
 			CachedRules.Remove(linkType);
 			CachedRules.Add(linkType, createdRule);

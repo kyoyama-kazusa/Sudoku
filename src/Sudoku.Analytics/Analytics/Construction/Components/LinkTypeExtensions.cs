@@ -7,14 +7,21 @@ namespace Sudoku.Analytics.Construction.Components;
 public static class LinkTypeExtensions
 {
 	/// <summary>
-	/// Creates a <see cref="ChainingRule"/> instance from the specified link type.
+	/// Provides extension members on <see cref="LinkType"/>.
 	/// </summary>
-	/// <param name="this">The link type.</param>
-	/// <returns>The target <see cref="ChainingRule"/> instance.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ChainingRule? GetRuleInstance(this LinkType @this)
+	extension(LinkType @this)
 	{
-		var types = typeof(LinkType).GetField(@this.ToString())?.GetGenericAttributeTypeArguments(typeof(ChainingRuleAttribute<>));
-		return types is [var type] ? (ChainingRule?)Activator.CreateInstance(type) : null;
+		/// <summary>
+		/// Indicates a <see cref="ChainingRule"/> instance from the specified link type.
+		/// </summary>
+		/// <returns>The target <see cref="ChainingRule"/> instance.</returns>
+		public ChainingRule? RuleInstance
+		{
+			get
+			{
+				var types = typeof(LinkType).GetField(@this.ToString())?.GetGenericAttributeTypeArguments(typeof(ChainingRuleAttribute<>));
+				return types is [var type] ? (ChainingRule?)Activator.CreateInstance(type) : null;
+			}
+		}
 	}
 }

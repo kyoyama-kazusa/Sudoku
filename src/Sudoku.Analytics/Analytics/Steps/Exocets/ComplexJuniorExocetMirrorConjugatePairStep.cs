@@ -30,7 +30,7 @@ public sealed partial class ComplexJuniorExocetMirrorConjugatePairStep(
 {
 	/// <inheritdoc/>
 	public override int BaseDifficulty
-		=> base.BaseDifficulty + 1 + this.GetShapeKind() switch
+		=> base.BaseDifficulty + 1 + this.ShapeKind switch
 		{
 			ExocetShapeKind.Franken => 4,
 			ExocetShapeKind.Mutant => 6
@@ -38,7 +38,7 @@ public sealed partial class ComplexJuniorExocetMirrorConjugatePairStep(
 
 	/// <inheritdoc/>
 	public override Technique Code
-		=> this.GetShapeKind() switch
+		=> this.ShapeKind switch
 		{
 			ExocetShapeKind.Franken => Technique.FrankenJuniorExocetMirrorConjugatePair,
 			ExocetShapeKind.Mutant => Technique.MutantJuniorExocetMirrorConjugatePair

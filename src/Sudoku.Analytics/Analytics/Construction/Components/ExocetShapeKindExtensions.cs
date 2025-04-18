@@ -6,23 +6,29 @@ namespace Sudoku.Analytics.Construction.Components;
 internal static class ExocetShapeKindExtensions
 {
 	/// <summary>
-	/// Try to get shape kind via the houses.
+	/// Provides extension members on <see cref="IComplexSeniorExocet"/>.
 	/// </summary>
-	/// <param name="this">The houses provider.</param>
-	/// <returns>A <see cref="ExocetShapeKind"/> result.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ExocetShapeKind GetShapeKind(this IComplexSeniorExocet @this)
+	extension(IComplexSeniorExocet @this)
 	{
-		var finalMask = @this.CrosslineHousesMask | @this.ExtraHousesMask;
-		return (
-			finalMask & HouseMaskOperations.AllBlocksMask,
-			finalMask & HouseMaskOperations.AllRowsMask,
-			finalMask & HouseMaskOperations.AllColumnsMask
-		) switch
+		/// <summary>
+		/// Indicates the shape kind of the current exocet pattern.
+		/// </summary>
+		public ExocetShapeKind ShapeKind
 		{
-			(_, not 0, not 0) => ExocetShapeKind.Mutant,
-			(not 0, _, _) => ExocetShapeKind.Franken,
-			_ => ExocetShapeKind.Basic
-		};
+			get
+			{
+				var finalMask = @this.CrosslineHousesMask | @this.ExtraHousesMask;
+				return (
+					finalMask & HouseMaskOperations.AllBlocksMask,
+					finalMask & HouseMaskOperations.AllRowsMask,
+					finalMask & HouseMaskOperations.AllColumnsMask
+				) switch
+				{
+					(_, not 0, not 0) => ExocetShapeKind.Mutant,
+					(not 0, _, _) => ExocetShapeKind.Franken,
+					_ => ExocetShapeKind.Basic
+				};
+			}
+		}
 	}
 }

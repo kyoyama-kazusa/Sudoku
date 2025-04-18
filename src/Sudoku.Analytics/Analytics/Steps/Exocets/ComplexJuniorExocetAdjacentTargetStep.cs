@@ -30,15 +30,11 @@ public sealed partial class ComplexJuniorExocetAdjacentTargetStep(
 {
 	/// <inheritdoc/>
 	public override int BaseDifficulty
-		=> base.BaseDifficulty + 1 + this.GetShapeKind() switch
-		{
-			ExocetShapeKind.Franken => 4,
-			ExocetShapeKind.Mutant => 6
-		};
+		=> base.BaseDifficulty + 1 + this.ShapeKind switch { ExocetShapeKind.Franken => 4, ExocetShapeKind.Mutant => 6 };
 
 	/// <inheritdoc/>
 	public override Technique Code
-		=> this.GetShapeKind() switch
+		=> this.ShapeKind switch
 		{
 			ExocetShapeKind.Franken => Technique.FrankenJuniorExocetAdjacentTarget,
 			ExocetShapeKind.Mutant => Technique.MutantJuniorExocetAdjacentTarget

@@ -30,11 +30,11 @@ public sealed partial class NormalComplexExocetStep(
 {
 	/// <inheritdoc/>
 	public override int BaseDifficulty
-		=> base.BaseDifficulty + this.GetShapeKind() switch { ExocetShapeKind.Franken => 4, ExocetShapeKind.Mutant => 6 };
+		=> base.BaseDifficulty + this.ShapeKind switch { ExocetShapeKind.Franken => 4, ExocetShapeKind.Mutant => 6 };
 
 	/// <inheritdoc/>
 	public override Technique Code
-		=> (EndoTargetCells, this.GetShapeKind()) switch
+		=> (EndoTargetCells, this.ShapeKind) switch
 		{
 			([], ExocetShapeKind.Franken) => Technique.FrankenJuniorExocet,
 			(_, ExocetShapeKind.Franken) => Technique.FrankenSeniorExocet,

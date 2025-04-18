@@ -37,29 +37,33 @@ public static class BabaGroupInitialLetterExtensions
 
 
 	/// <summary>
-	/// Try to get character sequence from the specified initial letter.
+	/// Provides extension members on <see cref="BabaGroupInitialLetter"/>.
 	/// </summary>
-	/// <param name="this">The initial letter.</param>
-	/// <param name="casing">The letter casing.</param>
-	/// <returns>The character sequence.</returns>
-	/// <exception cref="ArgumentOutOfRangeException">Throws when the specified arguments are not defined.</exception>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static ReadOnlySpan<char> GetSequence(this BabaGroupInitialLetter @this, BabaGroupLetterCasing casing)
-		=> Enum.IsDefined(@this) && Enum.IsDefined(casing)
-			? CharSequences[(@this, casing)].AsSpan()
-			: throw new ArgumentOutOfRangeException(nameof(@this));
+	extension(BabaGroupInitialLetter @this)
+	{
+		/// <summary>
+		/// Try to get character sequence from the specified initial letter.
+		/// </summary>
+		/// <param name="casing">The letter casing.</param>
+		/// <returns>The character sequence.</returns>
+		/// <exception cref="ArgumentOutOfRangeException">Throws when the specified arguments are not defined.</exception>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public ReadOnlySpan<char> GetSequence(BabaGroupLetterCasing casing)
+			=> Enum.IsDefined(@this) && Enum.IsDefined(casing)
+				? CharSequences[(@this, casing)].AsSpan()
+				: throw new ArgumentOutOfRangeException(nameof(@this));
 
-	/// <summary>
-	/// Try to escape the digit.
-	/// </summary>
-	/// <param name="this">The initial letter.</param>
-	/// <param name="digit">The digit to be escaped.</param>
-	/// <returns>The escaped character. If a digit doesn't need to escape, return character representation of itself.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static char EscapeDigit(this BabaGroupInitialLetter @this, Digit digit)
-		=> @this switch
-		{
-			BabaGroupInitialLetter.Digit_One or BabaGroupInitialLetter.Digit_Zero => (char)(digit + '\u2474'),
-			_ => (char)(digit + '1')
-		};
+		/// <summary>
+		/// Try to escape the digit.
+		/// </summary>
+		/// <param name="digit">The digit to be escaped.</param>
+		/// <returns>The escaped character. If a digit doesn't need to escape, return character representation of itself.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public char EscapeDigit(Digit digit)
+			=> @this switch
+			{
+				BabaGroupInitialLetter.Digit_One or BabaGroupInitialLetter.Digit_Zero => (char)(digit + '\u2474'),
+				_ => (char)(digit + '1')
+			};
+	}
 }
