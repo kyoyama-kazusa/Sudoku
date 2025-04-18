@@ -34,7 +34,7 @@ internal sealed class MinlexCommand : CommandBase
 		CommonPreprocessors.PrintInvalidIfWorth(grid, new BitwiseSolver(), out var solution);
 		if (!solution.IsUndefined)
 		{
-			var minlexGrid = grid.GetMinLexGrid();
+			var minlexGrid = grid.MinLexGrid;
 			Console.WriteLine(minlexGrid.ToString("."));
 		}
 	}

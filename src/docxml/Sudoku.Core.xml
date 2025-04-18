@@ -12345,26 +12345,51 @@
             The generated property declaration for parameter <c>resultNumberOfBits</c>.
             </summary>
         </member>
-        <member name="T:Sudoku.Shuffling.Minlex.GridMinlexComparisonExtensions">
+        <member name="T:Sudoku.Shuffling.Minlex.GridMinlexExtensions">
             <summary>
             Provides with extension methods on <see cref="T:Sudoku.Concepts.Grid"/> for minlex.
             </summary>
             <seealso cref="T:Sudoku.Concepts.Grid"/>
         </member>
-        <member name="M:Sudoku.Shuffling.Minlex.GridMinlexComparisonExtensions.Equals(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,Puzzles.Meta.Transforming.BoardComparison)">
+        <member name="T:Sudoku.Shuffling.Minlex.GridMinlexExtensions.">
+            <summary>
+            Provides extension members on <see langword="ref"/> <see cref="T:Sudoku.Concepts.Grid"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Shuffling.Minlex.GridMinlexExtensions..MakeMinLex">
+            <summary>
+            Adjust the grid to minimal lexicographical form.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Shuffling.Minlex.GridMinlexExtensions.">
+            <summary>
+            Provides extension members on <see langword="in"/> <see cref="T:Sudoku.Concepts.Grid"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Shuffling.Minlex.GridMinlexExtensions..IsMinLex">
+            <summary>
+            Indicates whether the current grid is the minimal lexicographical form,
+            meaning the corresponding string text code is the minimum value in all equivalent transforming cases
+            in lexicographical order.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Shuffling.Minlex.GridMinlexExtensions..MinLexGrid">
+            <summary>
+            Indicates the new grid form of the current grid, which is at the minimal-lexicographical order.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Shuffling.Minlex.GridMinlexExtensions..Equals(Sudoku.Concepts.Grid@,Puzzles.Meta.Transforming.BoardComparison)">
             <summary>
             Determine whether the specified <see cref="T:Sudoku.Concepts.Grid"/> instance hold the same values as the current instance,
             by using the specified comparison type.
             </summary>
-            <param name="this">Indicates the current instance.</param>
             <param name="other">The instance to compare.</param>
             <param name="comparisonType">One of the enumeration values that specifies the rules for the comparison.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the argument <paramref name="comparisonType"/> is not defined.</exception>
         </member>
-        <member name="M:Sudoku.Shuffling.Minlex.GridMinlexComparisonExtensions.GetHashCode(Sudoku.Concepts.Grid@,Puzzles.Meta.Transforming.BoardComparison)">
+        <member name="M:Sudoku.Shuffling.Minlex.GridMinlexExtensions..GetHashCode(Puzzles.Meta.Transforming.BoardComparison)">
             <inheritdoc cref="M:Sudoku.Concepts.Grid.GetHashCode"/>
-            <param name="this">Indicates the current instance.</param>
             <param name="comparisonType">
             Indicates the comparison type that specifies the target grid to be calculated its hash code.
             </param>
@@ -12372,42 +12397,16 @@
             Throws when the argument <paramref name="comparisonType"/> isn't defined.
             </exception>
         </member>
-        <member name="M:Sudoku.Shuffling.Minlex.GridMinlexComparisonExtensions.CompareTo(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,Puzzles.Meta.Transforming.BoardComparison)">
+        <member name="M:Sudoku.Shuffling.Minlex.GridMinlexExtensions..CompareTo(Sudoku.Concepts.Grid@,Puzzles.Meta.Transforming.BoardComparison)">
             <summary>
             Compares the current instance with another object of the same type and returns an integer
             that indicates whether the current instance precedes, follows or occurs in the same position in the sort order as the other object.
             </summary>
-            <param name="this">Indicates the current instance.</param>
             <param name="other">The other object to be compared.</param>
             <param name="comparisonType">The comparison type to be used.</param>
             <returns>A value that indicates the relative order of the objects being compared.</returns>
             <exception cref="T:System.InvalidOperationException">Throws when one of the grids to be compared is a Sukaku puzzle.</exception>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the argument <paramref name="comparisonType"/> is not defined.</exception>
-        </member>
-        <member name="T:Sudoku.Shuffling.Minlex.GridMinlexExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:Sudoku.Concepts.Grid"/>, by checking min-lex-related properties.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Shuffling.Minlex.GridMinlexExtensions.IsMinLexGrid(Sudoku.Concepts.Grid@)">
-            <summary>
-            Checks whether the current grid is the minimal lexicographical form, which means the corresponding string text code
-            is the minimum value in all equivalent transforming cases in lexicographical order.
-            </summary>
-            <param name="this">The grid to be checked.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-        </member>
-        <member name="M:Sudoku.Shuffling.Minlex.GridMinlexExtensions.GetMinLexGrid(Sudoku.Concepts.Grid@)">
-            <summary>
-            Checks the minimal lexicographical grid form.
-            </summary>
-            <param name="this">The grid to be checked.</param>
-        </member>
-        <member name="M:Sudoku.Shuffling.Minlex.GridMinlexExtensions.MakeMinLex(Sudoku.Concepts.Grid@)">
-            <summary>
-            Adjust the grid to minimal lexicographical form.
-            </summary>
-            <param name="this">The grid to be changed.</param>
         </member>
         <member name="T:Sudoku.Shuffling.Minlex.GridPattern">
             <summary>
