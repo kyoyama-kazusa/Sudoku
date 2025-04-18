@@ -280,8 +280,8 @@ public sealed partial class NormalFishStepSearcher : StepSearcher
 							],
 							context.Options,
 							digit,
-							HouseMaskOperations.Create(bs),
-							HouseMaskOperations.Create(cs),
+							HouseMask.Create(bs),
+							HouseMask.Create(cs),
 							fins,
 							Sashimi.IsSashimi(grid, bs, fins, digit)
 						)

@@ -102,7 +102,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 				// Iterate on each combination of houses as basic cross-line cells used.
 				foreach (var houses in (isRow ? HouseMaskOperations.AllRowsMask : HouseMaskOperations.AllColumnsMask).AllSets.GetSubsets(size))
 				{
-					var (housesEmptyCells, housesCells, housesMask) = (CellMap.Empty, CellMap.Empty, HouseMaskOperations.Create(houses));
+					var (housesEmptyCells, housesCells, housesMask) = (CellMap.Empty, CellMap.Empty, HouseMask.Create(houses));
 					foreach (var house in houses)
 					{
 						housesEmptyCells |= HousesMap[house] & EmptyCells;
@@ -979,7 +979,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 											continue;
 										}
 
-										var currentDigitsMask = MaskOperations.Create(digitCombination);
+										var currentDigitsMask = Mask.Create(digitCombination);
 										if (CheckComplexSeniorLockedMemberGrouped(
 											ref context, grid, baseCells, targetCell, endoTargetCellsGroup, crossline, baseCellsDigitsMask,
 											currentDigitsMask, housesMask, 1 << extraHouse, size, in expandedCrosslineIncludingTarget,
@@ -2094,8 +2094,8 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		{
 			var valueCellsFromBlock1 = lastSixteenCells & HousesMap[valueCellsBlocks[blockIndex]] & ~EmptyCells;
 			var valueCellsFromBlock2 = lastSixteenCells & HousesMap[valueCellsBlocks[3 - blockIndex]] & ~EmptyCells;
-			var valuesFromBlock1 = MaskOperations.Create(from cell in valueCellsFromBlock1 select grid.GetDigit(cell));
-			var valuesFromBlock2 = MaskOperations.Create(from cell in valueCellsFromBlock2 select grid.GetDigit(cell));
+			var valuesFromBlock1 = Mask.Create(from cell in valueCellsFromBlock1 select grid.GetDigit(cell));
+			var valuesFromBlock2 = Mask.Create(from cell in valueCellsFromBlock2 select grid.GetDigit(cell));
 			var valuesFromBothBlocks = (Mask)(valuesFromBlock1 & valuesFromBlock2);
 			if (valuesFromBothBlocks == 0)
 			{
@@ -2487,7 +2487,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 						var ahsCells = extraCells | mirrorEmptyCells;
 						foreach (var digitsMaskGroup in ((Mask)(grid[ahsCells] & ~baseCellsDigitsMask)).AllSets.GetSubsets(size))
 						{
-							var extraDigitsMask = MaskOperations.Create(digitsMaskGroup);
+							var extraDigitsMask = Mask.Create(digitsMaskGroup);
 							var lastHoldingMap = CellMap.Empty;
 							foreach (var digit in digitsMaskGroup)
 							{

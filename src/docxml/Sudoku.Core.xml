@@ -5601,6 +5601,23 @@
             </list>
             </returns>
         </member>
+        <member name="T:Sudoku.Concepts.HouseMaskExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Concepts.HouseMaskExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Concepts.HouseMaskExtensions..Create(System.ReadOnlySpan{System.Int32})">
+            <summary>
+            Creates for a <see cref="T:System.Int32"/> instance via the specified houses.
+            </summary>
+            <param name="houses">The houses.</param>
+            <returns>A <see cref="T:System.Int32"/> instance.</returns>
+        </member>
         <member name="T:Sudoku.Concepts.HouseMaskOperations">
             <summary>
             Represents a list of methods handling with <see cref="T:System.Int32"/> instances.
@@ -5626,13 +5643,6 @@
             <summary>
             Indicates the mask that means all houses.
             </summary>
-        </member>
-        <member name="M:Sudoku.Concepts.HouseMaskOperations.Create(System.ReadOnlySpan{System.Int32})">
-            <summary>
-            Creates for a <see cref="T:System.Int32"/> instance via the specified houses.
-            </summary>
-            <param name="houses">The houses.</param>
-            <returns>A <see cref="T:System.Int32"/> instance.</returns>
         </member>
         <member name="M:Sudoku.Concepts.HouseMaskOperations.SplitMask(System.Int32)">
             <summary>
@@ -7291,45 +7301,70 @@
             Indicates the method is "and not".
             </summary>
         </member>
-        <member name="T:Sudoku.Concepts.MaskOperations">
+        <member name="T:Sudoku.Concepts.MaskExtensions">
             <summary>
-            Provides with a set of methods that operates with mask defined in basic sudoku concepts, as data structures.
+            Provides with extension methods on <see cref="T:System.Int16"/>.
+            </summary>
+            <seealso cref="T:System.Int16"/>
+        </member>
+        <member name="T:Sudoku.Concepts.MaskExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Int16"/>.
             </summary>
         </member>
-        <member name="M:Sudoku.Concepts.MaskOperations.ToBinaryString(System.Int16,System.Boolean)">
+        <member name="M:Sudoku.Concepts.MaskExtensions..ToBinaryString(System.Boolean)">
             <summary>
             Try to convert the current mask value into a valid <see cref="T:System.String"/> representation of binary format.
             </summary>
-            <param name="mask">The mask to be formatted.</param>
             <param name="upperCasedPrefix">
             Indicates whether the prefix <c>"0b"</c> will become upper-cased (i.e. <c>"0B"</c>).
             The default value is <see langword="false"/>.
             </param>
             <returns>A <see cref="T:System.String"/> result representing the current mask value.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.MaskOperations.ToOctalString(System.Int16,System.Boolean)">
+        <member name="M:Sudoku.Concepts.MaskExtensions..ToOctalString(System.Boolean)">
             <summary>
             Try to convert the current mask value into a valid <see cref="T:System.String"/> representation of octal format.
             </summary>
-            <param name="mask">The mask to be formatted.</param>
             <param name="upperCasedPrefix">
             Indicates whether the prefix <c>"0o"</c> will become upper-cased (i.e. <c>"0O"</c>).
             The default value is <see langword="false"/>.
             </param>
             <returns>A <see cref="T:System.String"/> result representing the current mask value.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.MaskOperations.ToHexadecimalString(System.Int16,System.Boolean)">
+        <member name="M:Sudoku.Concepts.MaskExtensions..ToHexadecimalString(System.Boolean)">
             <summary>
             Try to convert the current mask value into a valid <see cref="T:System.String"/> representation of hexadecimal format.
             </summary>
-            <param name="mask">The mask to be formatted.</param>
             <param name="upperCasedPrefix">
             Indicates whether the prefix <c>"0x"</c> will become upper-cased (i.e. <c>"0X"</c>).
             The default value is <see langword="false"/>.
             </param>
             <returns>A <see cref="T:System.String"/> result representing the current mask value.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.MaskOperations.Create(System.ReadOnlySpan{System.Int32})">
+        <member name="M:Sudoku.Concepts.MaskExtensions..ToStringBase(System.Int32)">
+            <summary>
+            Convert the current instance into a <see cref="T:System.String"/> representation in numeral literal,
+            with the specified base (2, 8, 10 or 16).
+            </summary>
+            <param name="base">The base value. The value must be 2, 8, 10 or 16.</param>
+            <returns>The string.</returns>
+        </member>
+        <member name="M:Sudoku.Concepts.MaskExtensions..ToStringBase(System.Int32,System.Int32)">
+            <summary>
+            Convert the current instance into a <see cref="T:System.String"/> representation in numeral literal,
+            with the specified base (2, 8, 10 or 16), padding some zeros.
+            </summary>
+            <param name="base">The base value. The value must be 2, 8, 10 or 16.</param>
+            <param name="totalWidth">The total width.</param>
+            <returns>The string.</returns>
+        </member>
+        <member name="T:Sudoku.Concepts.MaskExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Int16"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Concepts.MaskExtensions..Create(System.ReadOnlySpan{System.Int32})">
             <summary>
             Creates for a <see cref="T:System.Int16" /> instance via the specified digits.
             </summary>
@@ -7348,12 +7383,17 @@
             </param>
             <returns>A <see cref="T:System.Int16" /> instance.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.MaskOperations.Create(System.Int32[])">
-            <inheritdoc cref="M:Sudoku.Concepts.MaskOperations.Create(System.ReadOnlySpan{System.Int32})"/>
+        <member name="M:Sudoku.Concepts.MaskExtensions..Create(System.Int32[])">
+            <inheritdoc cref="M:Sudoku.Concepts.MaskExtensions.Create(System.ReadOnlySpan{System.Int32})"/>
         </member>
-        <member name="M:Sudoku.Concepts.MaskOperations.Create``1(``0)">
+        <member name="M:Sudoku.Concepts.MaskExtensions..Create``1(``0)">
             <typeparam name="TDigits">The type of the enumerable sequence.</typeparam>
-            <inheritdoc cref="M:Sudoku.Concepts.MaskOperations.Create(System.ReadOnlySpan{System.Int32})"/>
+            <inheritdoc cref="M:Sudoku.Concepts.MaskExtensions.Create(System.ReadOnlySpan{System.Int32})"/>
+        </member>
+        <member name="T:Sudoku.Concepts.MaskOperations">
+            <summary>
+            Provides with a set of methods that operates with mask defined in basic sudoku concepts, as data structures.
+            </summary>
         </member>
         <member name="M:Sudoku.Concepts.MaskOperations.MaskToDigits(System.Int16)">
             <summary>

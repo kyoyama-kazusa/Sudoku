@@ -93,7 +93,7 @@ public sealed partial class InlineSusserGridFormatInfo : GridFormatInfo<Grid>
 				}
 				case ['[', .. { Length: <= 9 } digitsStr, ']']:
 				{
-					var digits = MaskOperations.Create(from c in digitsStr select c - '1');
+					var digits = Mask.Create(from c in digitsStr select c - '1');
 					if (!NegateEliminationsTripletRule)
 					{
 						// This applies for normal rule - removing candidates marked.

@@ -116,7 +116,7 @@ public sealed partial class DisorderedIttoryuFinder([Property] params TechniqueS
 				}
 
 				// Iterate on found path nodes.
-				foreach (var anotherDigit in MaskOperations.Create(from node in tempNodes select node.Digit))
+				foreach (var anotherDigit in Mask.Create(from node in tempNodes select node.Digit))
 				{
 					dfs(
 						grid,

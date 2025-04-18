@@ -37,7 +37,7 @@ public sealed partial class UniqueLoopPattern([Property] in CellMap loop, [Prope
 				}
 			}
 			sb.Append("], ");
-			sb.Append($$"""{{nameof(DigitsMask)}} = {{DigitsMask}} ({{MaskOperations.ToBinaryString(DigitsMask)}}) }""");
+			sb.Append($$"""{{nameof(DigitsMask)}} = {{DigitsMask}} ({{DigitsMask.ToBinaryString()}}) }""");
 			return sb.ToString();
 		}
 	}

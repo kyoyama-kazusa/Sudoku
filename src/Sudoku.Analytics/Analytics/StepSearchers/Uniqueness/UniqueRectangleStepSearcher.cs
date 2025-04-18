@@ -158,7 +158,7 @@ public sealed partial class UniqueRectangleStepSearcher : StepSearcher
 			ref readonly var initialGrid = ref context.InitialGrid;
 			foreach (var element in list)
 			{
-				var comparer = MaskOperations.Create(element.Digit1, element.Digit2);
+				var comparer = Mask.Create(element.Digit1, element.Digit2);
 
 				var isValid = true;
 				foreach (var cell in element.Cells)

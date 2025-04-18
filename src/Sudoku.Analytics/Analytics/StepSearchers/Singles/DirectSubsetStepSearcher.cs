@@ -396,7 +396,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 				}
 
 				// Check for candidates for the cell.
-				var eliminatedDigitsMask = MaskOperations.Create(from c in conclusions where c / 9 == cell select c % 9);
+				var eliminatedDigitsMask = Mask.Create(from c in conclusions where c / 9 == cell select c % 9);
 				var valueDigitsMask = (Mask)(Grid.MaxCandidatesMask & ~grid[HousesMap[house] & ~emptyCellsInHouse, true]);
 				var lastDigitsMask = (Mask)(valueDigitsMask & ~eliminatedDigitsMask);
 				if (!BitOperations.IsPow2(lastDigitsMask))
@@ -569,7 +569,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 	{
 		foreach (var cell in conclusions.Cells)
 		{
-			var eliminatedDigitsMask = MaskOperations.Create(from c in conclusions where c / 9 == cell select c % 9);
+			var eliminatedDigitsMask = Mask.Create(from c in conclusions where c / 9 == cell select c % 9);
 			var availableDigitsMask = (Mask)(grid.GetCandidates(cell) & ~eliminatedDigitsMask);
 			if (!BitOperations.IsPow2(availableDigitsMask))
 			{
@@ -664,7 +664,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 				}
 
 				// Check for candidates for the cell.
-				var eliminatedDigitsMask = MaskOperations.Create(from c in conclusions where c / 9 == cell select c % 9);
+				var eliminatedDigitsMask = Mask.Create(from c in conclusions where c / 9 == cell select c % 9);
 				var valueDigitsMask = (Mask)(Grid.MaxCandidatesMask & ~grid[HousesMap[house] & ~emptyCellsInHouse, true]);
 				var lastDigitsMask = (Mask)(valueDigitsMask & ~eliminatedDigitsMask);
 				if (!BitOperations.IsPow2(lastDigitsMask))
@@ -842,7 +842,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 	{
 		foreach (var (_, cell, digit) in conclusions.EnumerateCellDigit())
 		{
-			var eliminatedDigitsMask = MaskOperations.Create(from c in conclusions where c / 9 == cell select c % 9);
+			var eliminatedDigitsMask = Mask.Create(from c in conclusions where c / 9 == cell select c % 9);
 			var availableDigitsMask = (Mask)(grid.GetCandidates(cell) & ~eliminatedDigitsMask);
 			if (!BitOperations.IsPow2(availableDigitsMask))
 			{

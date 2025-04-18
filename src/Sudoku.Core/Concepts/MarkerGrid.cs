@@ -522,7 +522,7 @@ public partial struct MarkerGrid : GridBase
 	/// <param name="cell">The cell.</param>
 	/// <param name="digits">The digits.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public void AddCandidates(Cell cell, params ReadOnlySpan<Digit> digits) => AddCandidates(cell, MaskOperations.Create(digits));
+	public void AddCandidates(Cell cell, params ReadOnlySpan<Digit> digits) => AddCandidates(cell, Mask.Create(digits));
 
 	/// <summary>
 	/// Adds a list of new candidates into the grid.
@@ -545,7 +545,7 @@ public partial struct MarkerGrid : GridBase
 	/// <param name="digits">The digits.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void RemoveCandidates(Cell cell, params ReadOnlySpan<Digit> digits)
-		=> RemoveCandidates(cell, MaskOperations.Create(digits));
+		=> RemoveCandidates(cell, Mask.Create(digits));
 
 	/// <summary>
 	/// Removes a list of candidates from the grid.

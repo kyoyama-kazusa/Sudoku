@@ -77,7 +77,7 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 					continue;
 				}
 
-				var baseSetsMask = HouseMaskOperations.Create(bs);
+				var baseSetsMask = HouseMask.Create(bs);
 				foreach (var cs in coverSetsToIterate.GetSubsets(size))
 				{
 					var coverSetsMap = CellMap.Empty;
@@ -93,7 +93,7 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 						continue;
 					}
 
-					var coverSetsMask = HouseMaskOperations.Create(cs);
+					var coverSetsMask = HouseMask.Create(cs);
 					var fish = new FishPattern(digit, baseSetsMask, coverSetsMask, fins, CellMap.Empty);
 					if (linkOption == LinkOption.Intersection && !fins.IsInIntersection
 						|| linkOption == LinkOption.House && fins.FirstSharedHouse == 32)

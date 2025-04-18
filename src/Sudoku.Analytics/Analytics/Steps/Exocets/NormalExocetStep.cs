@@ -39,7 +39,7 @@ public sealed partial class NormalExocetStep(
 		};
 
 	/// <inheritdoc/>
-	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | MaskOperations.Create(from c in ConjugatePairs select c.Digit));
+	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | Mask.Create(from c in ConjugatePairs select c.Digit));
 
 	/// <inheritdoc/>
 	public override FactorArray Factors

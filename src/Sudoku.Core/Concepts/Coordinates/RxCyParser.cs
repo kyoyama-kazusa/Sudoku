@@ -146,7 +146,7 @@ public sealed partial record RxCyParser : CoordinateParser
 				var s = match.Value;
 				var indexOfEqualityOperatorCharacters = s.Split(["==", "<>", "=", "!="], 2, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 				var cells = CellParser(indexOfEqualityOperatorCharacters[0]);
-				var digits = MaskOperations.Create(from character in indexOfEqualityOperatorCharacters[1] select character - '1');
+				var digits = Mask.Create(from character in indexOfEqualityOperatorCharacters[1] select character - '1');
 				var conclusionType = ConclusionOperatorsPattern.Match(s) is { Success: true, Value: "==" or "=" } ? Assignment : Elimination;
 				foreach (var cell in cells)
 				{
@@ -163,7 +163,7 @@ public sealed partial record RxCyParser : CoordinateParser
 	/// <inheritdoc/>
 	public override Func<string, Mask> DigitParser
 		=> static str => DigitPattern.Matches(str) is { Count: <= 9 } matches
-			? MaskOperations.Create(from match in matches select match.Value[0] - '1')
+			? Mask.Create(from match in matches select match.Value[0] - '1')
 			: throw new InvalidOperationException(SR.ExceptionMessage("ErrorInfo_DuplicatedValuesMayExistOrInvalid"));
 
 	/// <inheritdoc/>

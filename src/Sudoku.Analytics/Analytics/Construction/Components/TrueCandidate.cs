@@ -84,7 +84,7 @@ public static class TrueCandidate
 			pairs[i, 0] = (Mask)pairList.Length;
 			for (var z = 1; z <= pairList.Length; z++)
 			{
-				pairs[i, z] = MaskOperations.Create(pairList[z - 1]);
+				pairs[i, z] = Mask.Create(pairList[z - 1]);
 			}
 		}
 

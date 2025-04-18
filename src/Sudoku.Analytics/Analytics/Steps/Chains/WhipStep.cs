@@ -36,8 +36,8 @@ public sealed partial class WhipStep(
 	/// <inheritdoc/>
 	public override Mask DigitsUsed
 		=> (Mask)(
-			MaskOperations.Create((from t in Truths select t.Digit).Span)
-				| MaskOperations.Create((from l in Links select l.Digit).Span)
+			Mask.Create((from t in Truths select t.Digit).Span)
+				| Mask.Create((from l in Links select l.Digit).Span)
 		);
 
 	/// <inheritdoc/>

@@ -264,7 +264,7 @@ public sealed partial class BorescoperDeadlyPatternStepSearcher : StepSearcher
 		// Iterate on each combination.
 		foreach (var digits in orMask.AllSets.GetSubsets(pattern.IsHeptagon ? 3 : 4))
 		{
-			var tempMask = MaskOperations.Create(digits);
+			var tempMask = Mask.Create(digits);
 			var otherDigit = BitOperations.TrailingZeroCount((Mask)(orMask & ~tempMask));
 			var mapContainingThatDigit = map & CandidatesMap[otherDigit];
 			if (mapContainingThatDigit is not [var elimCell])
@@ -333,7 +333,7 @@ public sealed partial class BorescoperDeadlyPatternStepSearcher : StepSearcher
 		// Iterate on each combination.
 		foreach (var digits in orMask.AllSets.GetSubsets(pattern.IsHeptagon ? 3 : 4))
 		{
-			var tempMask = MaskOperations.Create(digits);
+			var tempMask = Mask.Create(digits);
 			var otherDigit = BitOperations.TrailingZeroCount((Mask)(orMask & ~tempMask));
 			var mapContainingThatDigit = map & CandidatesMap[otherDigit];
 			var elimMap = mapContainingThatDigit.PeerIntersection & ~map & CandidatesMap[otherDigit];
@@ -394,7 +394,7 @@ public sealed partial class BorescoperDeadlyPatternStepSearcher : StepSearcher
 			var otherMask = grid[otherCellsMap];
 			foreach (var digits in orMask.AllSets.GetSubsets(pattern.IsHeptagon ? 3 : 4))
 			{
-				var tempMask = MaskOperations.Create(digits);
+				var tempMask = Mask.Create(digits);
 				if (otherMask != tempMask)
 				{
 					continue;
@@ -512,7 +512,7 @@ public sealed partial class BorescoperDeadlyPatternStepSearcher : StepSearcher
 			// are { 1, 2 }, { 2, 3 } and { 1, 3 }.
 			foreach (var digits in orMask.AllSets.GetSubsets(pattern.IsHeptagon ? 3 : 4))
 			{
-				var tempMask = MaskOperations.Create(digits);
+				var tempMask = Mask.Create(digits);
 				if (otherMask != tempMask)
 				{
 					continue;

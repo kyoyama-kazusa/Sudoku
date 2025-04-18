@@ -136,7 +136,7 @@ public sealed partial class ChromaticPatternStepSearcher : StepSearcher
 		ref readonly var grid = ref context.Grid;
 		foreach (var blocks in satisfiedBlocksMask.AllSets.GetSubsets(4))
 		{
-			var blocksMask = MaskOperations.Create(blocks);
+			var blocksMask = Mask.Create(blocks);
 			var flag = false;
 			foreach (var tempBlocksMask in ChromaticPatternBlocksCombinations)
 			{
