@@ -15,7 +15,7 @@ public static class DiffTechniqueAnalysis
 	/// <returns>A <see cref="bool"/> result indicating whether such step can be inferred.</returns>
 	public static bool TryAnalyzeTechnique(in Grid left, in Grid right, Collector collector, [NotNullWhen(true)] out Step? step)
 	{
-		if (!DiffAnalysis.TryAnalyzeDiff(left, right, out var result)
+		if (!Grid.TryAnalyzeDiff(left, right, out var result)
 			|| result.Type is not (DiffType.AddModifiable or DiffType.RemoveCandidate)
 			|| left.Uniqueness == Uniqueness.Bad || right.Uniqueness == Uniqueness.Bad)
 		{

@@ -7,27 +7,26 @@ namespace Sudoku.Concepts;
 public static class HouseTypeExtensions
 {
 	/// <summary>
-	/// Try to get the label of the specified house type.
+	/// Provides extension members on <see cref="HouseType"/>.
 	/// </summary>
-	/// <param name="this">The house type.</param>
-	/// <returns>A character that represents a house type.</returns>
-	/// <exception cref="ArgumentOutOfRangeException">Throws when the argument is not defined.</exception>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static char GetLabel(this HouseType @this)
-		=> @this switch
-		{
-			HouseType.Row => 'r',
-			HouseType.Column => 'c',
-			HouseType.Block => 'b',
-			_ => throw new ArgumentOutOfRangeException(nameof(@this))
-		};
+	extension(HouseType @this)
+	{
+		/// <summary>
+		/// Try to get the label of the specified house type.
+		/// </summary>
+		/// <exception cref="ArgumentOutOfRangeException">Throws when the argument is not defined.</exception>
+		public char Label
+			=> @this switch
+			{
+				HouseType.Row => 'r',
+				HouseType.Column => 'c',
+				HouseType.Block => 'b',
+				_ => throw new ArgumentOutOfRangeException(nameof(@this))
+			};
 
-	/// <summary>
-	/// Gets the ordering of the house type. The result value will be 0, 1 and 2.
-	/// </summary>
-	/// <param name="this">The house type.</param>
-	/// <returns>The program order.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	internal static int GetProgramOrder(this HouseType @this)
-		=> @this switch { HouseType.Block => 2, HouseType.Row => 0, HouseType.Column => 1 };
+		/// <summary>
+		/// Gets the ordering of the house type. The result value will be 0, 1 and 2.
+		/// </summary>
+		internal int ProgramOrder => @this switch { HouseType.Block => 2, HouseType.Row => 0, HouseType.Column => 1 };
+	}
 }

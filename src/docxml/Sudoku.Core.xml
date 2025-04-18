@@ -9,7 +9,12 @@
             Provides a way to analyze difference between two grids.
             </summary>
         </member>
-        <member name="M:Sudoku.Behaviors.Diff.DiffAnalysis.TryAnalyzeDiff(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,Sudoku.Behaviors.Diff.DiffResult@)">
+        <member name="T:Sudoku.Behaviors.Diff.DiffAnalysis.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Concepts.Grid"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Behaviors.Diff.DiffAnalysis..TryAnalyzeDiff(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,Sudoku.Behaviors.Diff.DiffResult@)">
             <summary>
             Try to analyze difference between two grids if they have a same initial grid (with same digits from given cells).
             </summary>
@@ -5660,20 +5665,21 @@
             </summary>
             <seealso cref="T:Sudoku.Concepts.HouseType"/>
         </member>
-        <member name="M:Sudoku.Concepts.HouseTypeExtensions.GetLabel(Sudoku.Concepts.HouseType)">
+        <member name="T:Sudoku.Concepts.HouseTypeExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Concepts.HouseType"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Concepts.HouseTypeExtensions..Label">
             <summary>
             Try to get the label of the specified house type.
             </summary>
-            <param name="this">The house type.</param>
-            <returns>A character that represents a house type.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the argument is not defined.</exception>
         </member>
-        <member name="M:Sudoku.Concepts.HouseTypeExtensions.GetProgramOrder(Sudoku.Concepts.HouseType)">
+        <member name="P:Sudoku.Concepts.HouseTypeExtensions..ProgramOrder">
             <summary>
             Gets the ordering of the house type. The result value will be 0, 1 and 2.
             </summary>
-            <param name="this">The house type.</param>
-            <returns>The program order.</returns>
         </member>
         <member name="T:Sudoku.Concepts.ICellMapOrCandidateMap`2">
             <summary>
@@ -7989,11 +7995,15 @@
             </summary>
             <seealso cref="T:Sudoku.SymmetricType"/>
         </member>
-        <member name="M:Sudoku.Concepts.SymmetricTypeExtensions.GetSymmetryCellsCount(Sudoku.SymmetricType)">
+        <member name="T:Sudoku.Concepts.SymmetricTypeExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.SymmetricType"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Concepts.SymmetricTypeExtensions..SymmetryCellsCount">
             <summary>
             Try to get the number of cells that the current symmetry should be formed a complete symmetric pattern.
             </summary>
-            <param name="this">The symmetric type.</param>
             <returns>
             The number of cells should form a complete pattern:
             <list type="table">
@@ -8025,46 +8035,41 @@
             </returns>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the argument is not defined.</exception>
         </member>
-        <member name="M:Sudoku.Concepts.SymmetricTypeExtensions.GetAxisDimension(Sudoku.SymmetricType)">
+        <member name="P:Sudoku.Concepts.SymmetricTypeExtensions..AxisDimension">
             <summary>
             Try to get the number of axes of the specified symmetric type.
             </summary>
-            <param name="this">The symmetry.</param>
             <returns>
             The number of axes the current symmetric type contains.
-            If <paramref name="this"/> is <see cref="F:Sudoku.SymmetricType.None"/>, -1 will be returned.
+            If <see langword="this"/> is <see cref="F:Sudoku.SymmetricType.None"/>, -1 will be returned.
             </returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">Throws when the argument <paramref name="this"/> is not defined.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when undefined.</exception>
         </member>
-        <member name="M:Sudoku.Concepts.SymmetricTypeExtensions.GetName(Sudoku.SymmetricType,System.IFormatProvider)">
+        <member name="P:Sudoku.Concepts.SymmetricTypeExtensions..CellsInSymmetryAxis">
+            <summary>
+            Try to get all possible cells in symmetry axis (or point).
+            </summary>
+            <returns>Returns cells in the symmetry axis (or point).</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when undefined or <see cref="F:Sudoku.SymmetricType.None"/>.
+            </exception>
+        </member>
+        <member name="M:Sudoku.Concepts.SymmetricTypeExtensions..GetName(System.IFormatProvider)">
             <summary>
             Gets the name of thr symmetry.
             </summary>
-            <param name="this">The symmetry value.</param>
             <param name="formatProvider">The culture.</param>
             <returns>The string.</returns>
             <exception cref="T:System.InvalidOperationException">Throws when the argument holds multiple flag values.</exception>
         </member>
-        <member name="M:Sudoku.Concepts.SymmetricTypeExtensions.GetCellsInSymmetryAxis(Sudoku.SymmetricType)">
-            <summary>
-            Try to get all possible cells in symmetry axis (or point).
-            </summary>
-            <param name="this">The symmetry.</param>
-            <returns>Returns cells in the symmetry axis (or point).</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when the argument <paramref name="this"/> is not defined or <see cref="F:Sudoku.SymmetricType.None"/>.
-            </exception>
-        </member>
-        <member name="M:Sudoku.Concepts.SymmetricTypeExtensions.GetCells(Sudoku.SymmetricType,System.Int32)">
+        <member name="M:Sudoku.Concepts.SymmetricTypeExtensions..GetCells(System.Int32)">
             <inheritdoc cref="M:Sudoku.Concepts.SymmetricTypeExtensions.GetCells(Sudoku.SymmetricType,System.Int32,System.Int32)"/>
-            <param name="this"><inheritdoc cref="M:Sudoku.Concepts.SymmetricTypeExtensions.GetCells(Sudoku.SymmetricType,System.Int32,System.Int32)"/></param>
             <param name="cell">Indicates the target cell to be checked.</param>
         </member>
-        <member name="M:Sudoku.Concepts.SymmetricTypeExtensions.GetCells(Sudoku.SymmetricType,System.Int32,System.Int32)">
+        <member name="M:Sudoku.Concepts.SymmetricTypeExtensions..GetCells(System.Int32,System.Int32)">
             <summary>
             Get the cells that is used for swapping via the specified symmetric type, and the specified row and column value.
             </summary>
-            <param name="this">The symmetric type.</param>
             <param name="row">The row value.</param>
             <param name="column">The column value.</param>
             <returns>The cells.</returns>

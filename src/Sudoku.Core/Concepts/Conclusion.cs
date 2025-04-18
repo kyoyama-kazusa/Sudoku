@@ -128,9 +128,9 @@ public readonly partial struct Conclusion([Field, HashCodeMember] Mask mask) :
 	/// </exception>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public Conclusion GetSymmetricConclusion(SymmetricType symmetricType, Digit mappingDigit)
-		=> symmetricType.GetAxisDimension() switch
+		=> symmetricType.AxisDimension switch
 		{
-			0 or 1 => symmetricType.GetCellsInSymmetryAxis().Contains(Cell)
+			0 or 1 => symmetricType.CellsInSymmetryAxis.Contains(Cell)
 				? new(ConclusionType, Cell, mappingDigit == -1 ? Digit : mappingDigit)
 				: new(ConclusionType, (symmetricType.GetCells(Cell) - Cell)[0], mappingDigit == -1 ? Digit : mappingDigit),
 			_ => throw new ArgumentOutOfRangeException(nameof(symmetricType))

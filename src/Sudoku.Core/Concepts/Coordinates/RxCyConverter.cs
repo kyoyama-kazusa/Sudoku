@@ -174,9 +174,9 @@ public sealed record RxCyConverter(
 			}
 
 			var resultBuilder = new StringBuilder(30);
-			foreach (var (houseType, h) in from kvp in dic orderby kvp.Key.GetProgramOrder() select kvp)
+			foreach (var (houseType, h) in from kvp in dic orderby kvp.Key.ProgramOrder select kvp)
 			{
-				resultBuilder.Append(houseType.GetLabel());
+				resultBuilder.Append(houseType.Label);
 				resultBuilder.AppendRange(static integer => integer.ToString(), elements: from house in h select house % 9 + 1);
 			}
 			return resultBuilder.ToString();

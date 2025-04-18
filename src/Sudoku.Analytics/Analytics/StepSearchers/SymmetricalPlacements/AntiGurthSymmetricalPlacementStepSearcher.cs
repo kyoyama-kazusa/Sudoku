@@ -178,7 +178,7 @@ public sealed partial class AntiGurthSymmetricalPlacementStepSearcher : StepSear
 
 		// Now check for diagonal line cells, determining whether the solution grid may not be a symmetrical placement.
 		var isSolutionAsymmetry = singleDigitList.Count > 3;
-		foreach (var cell in SymmetricType.Diagonal.GetCellsInSymmetryAxis())
+		foreach (var cell in SymmetricType.Diagonal.CellsInSymmetryAxis)
 		{
 			if ((Mask)(grid.GetCandidates(cell) & singleDigitsMask) == 0)
 			{
@@ -315,7 +315,7 @@ public sealed partial class AntiGurthSymmetricalPlacementStepSearcher : StepSear
 
 		// Now check for diagonal line cells, determining whether the solution grid may not be a symmetrical placement.
 		var isSolutionAsymmetry = singleDigitList.Count > 3;
-		foreach (var cell in SymmetricType.AntiDiagonal.GetCellsInSymmetryAxis())
+		foreach (var cell in SymmetricType.AntiDiagonal.CellsInSymmetryAxis)
 		{
 			if ((Mask)(grid.GetCandidates(cell) & singleDigitsMask) == 0)
 			{

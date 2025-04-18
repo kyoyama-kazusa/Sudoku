@@ -75,7 +75,7 @@ public sealed unsafe class SymmetryInferrer : IInferrable<SymmetryInferredResult
 	/// <returns>A <see cref="bool"/> result indicating that.</returns>
 	internal static bool CheckAxesOrCenterPointForSymmetry(in Grid grid, SymmetricType symmetricType, Mask nonselfPairedDigitsMask)
 	{
-		foreach (var cell in symmetricType.GetCellsInSymmetryAxis())
+		foreach (var cell in symmetricType.CellsInSymmetryAxis)
 		{
 			switch (grid.GetState(cell))
 			{

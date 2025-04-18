@@ -1333,7 +1333,7 @@ public partial struct Grid : GridBase, ISubtractionOperators<Grid, Grid, DiffRes
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static DiffResult? operator -(in Grid left, in Grid right)
 	{
-		DiffAnalysis.TryAnalyzeDiff(left, right, out var result);
+		Grid.TryAnalyzeDiff(left, right, out var result);
 		return result;
 	}
 
