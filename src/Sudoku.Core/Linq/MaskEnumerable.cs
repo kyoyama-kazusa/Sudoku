@@ -16,7 +16,7 @@ public static class MaskEnumerable
 	/// <returns>A list of converted result, encapsulated by a <see cref="ReadOnlySpan{T}"/> type.</returns>
 	public static ReadOnlySpan<T> Select<T>(this Mask @this, Func<int, T> selector)
 	{
-		var (result, i) = (new T[Mask.PopCount(@this)], 0);
+		var (result, i) = (new T[BitOperations.PopCount(@this)], 0);
 		foreach (var bit in @this)
 		{
 			result[i++] = selector(bit);
@@ -43,7 +43,7 @@ public static class MaskEnumerable
 		Func<Digit, Cell, TResult> resultSelector
 	)
 	{
-		var result = new List<TResult>(Mask.PopCount(source) << 1);
+		var result = new List<TResult>(BitOperations.PopCount(source) << 1);
 		foreach (var digit in source)
 		{
 			foreach (var cell in collectionSelector(digit))

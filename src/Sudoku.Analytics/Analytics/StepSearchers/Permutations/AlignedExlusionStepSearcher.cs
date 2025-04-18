@@ -44,7 +44,7 @@ public sealed partial class AlignedExclusionStepSearcher : StepSearcher
 			var (candidateList, cellExcluders) = (CellMap.Empty, new Dictionary<Cell, CellMap>());
 			foreach (var cell in EmptyCells)
 			{
-				if (Mask.PopCount(grid.GetCandidates(cell)) < 2)
+				if (BitOperations.PopCount(grid.GetCandidates(cell)) < 2)
 				{
 					continue;
 				}
@@ -53,7 +53,7 @@ public sealed partial class AlignedExclusionStepSearcher : StepSearcher
 				var excludingCells = CellMap.Empty;
 				foreach (var excludingCell in PeersMap[cell])
 				{
-					var count = Mask.PopCount(grid.GetCandidates(excludingCell));
+					var count = BitOperations.PopCount(grid.GetCandidates(excludingCell));
 					if (count >= 2 && count <= size)
 					{
 						excludingCells.Add(excludingCell);
@@ -83,7 +83,7 @@ public sealed partial class AlignedExclusionStepSearcher : StepSearcher
 			{
 				// Setup the first two cells.
 				var (cell1, cell2) = (cellPair[0], cellPair[1]);
-				var (cell1Count, cell2Count) = (Mask.PopCount(grid.GetCandidates(cell1)), Mask.PopCount(grid.GetCandidates(cell2)));
+				var (cell1Count, cell2Count) = (BitOperations.PopCount(grid.GetCandidates(cell1)), BitOperations.PopCount(grid.GetCandidates(cell2)));
 
 				// Create the twin area: set of cells visible by one of the two first cells.
 				var twinArea = ((cellExcluders[cell1] | cellExcluders[cell2]) & candidateList) - cell1 - cell2;
@@ -107,7 +107,7 @@ public sealed partial class AlignedExclusionStepSearcher : StepSearcher
 					for (var i = 0; i < tIndices.Count; i++)
 					{
 						cells[i + 2] = tIndices[i];
-						cardinalities[i + 2] = Mask.PopCount(grid.GetCandidates(cells[i + 2]));
+						cardinalities[i + 2] = BitOperations.PopCount(grid.GetCandidates(cells[i + 2]));
 					}
 
 					// Build the list of common excluding cells for the base cells 'cells'.

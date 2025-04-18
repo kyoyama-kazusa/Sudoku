@@ -39,7 +39,7 @@ public sealed partial class ExtendedSubsetPrincipleStepSearcher : StepSearcher
 			foreach (ref readonly var currentInterMap in list.AsSpan())
 			{
 				var selectedInterMask = grid[currentInterMap];
-				if (Mask.PopCount(selectedInterMask) <= currentInterMap.Count + 1)
+				if (BitOperations.PopCount(selectedInterMask) <= currentInterMap.Count + 1)
 				{
 					// The intersection combination is an ALS or a normal subset, which is invalid in ESPs.
 					continue;
@@ -69,7 +69,7 @@ public sealed partial class ExtendedSubsetPrincipleStepSearcher : StepSearcher
 								}
 
 								var isolatedDigitsMask = (Mask)(selectedInterMask & ~(blockMask | lineMask));
-								var p = Mask.PopCount(blockMask) + Mask.PopCount(lineMask) + Mask.PopCount(isolatedDigitsMask);
+								var p = BitOperations.PopCount(blockMask) + BitOperations.PopCount(lineMask) + BitOperations.PopCount(isolatedDigitsMask);
 								if (currentInterMap.Count + i + j != p - 1 || Mask.Log2(zDigitsMask) is not (var zDigit and not 16))
 								{
 									// Invalid.

@@ -78,7 +78,7 @@ public partial class UniqueRectangleStepSearcher
 					{
 						// Determine whether the 'size' cells contain 'size + 1' digits.
 						var subsetDigitsMask = grid[subsetCells];
-						if (Mask.PopCount(subsetDigitsMask) != size + 1)
+						if (BitOperations.PopCount(subsetDigitsMask) != size + 1)
 						{
 							continue;
 						}
@@ -242,7 +242,7 @@ public partial class UniqueRectangleStepSearcher
 			if (pivotDigit == -1)
 			{
 				// No pivot digit should be checked. Due to no way to check intersection, we should delay the checking.
-				(cellsGroups, var tempIndex) = (new Cell[Mask.PopCount(otherDigitsMask)][], 0);
+				(cellsGroups, var tempIndex) = (new Cell[BitOperations.PopCount(otherDigitsMask)][], 0);
 				foreach (var lastDigit in otherDigitsMask)
 				{
 					cellsGroups[tempIndex++] = [.. cells % CandidatesMap[lastDigit] & BivalueCells];
@@ -252,12 +252,12 @@ public partial class UniqueRectangleStepSearcher
 			{
 				// Pivot digit is specified. We should check for cells that contain that digit.
 				var lastDigitsMask = (Mask)(otherDigitsMask & ~(1 << pivotDigit));
-				if (Mask.PopCount(lastDigitsMask) is 0 or 1)
+				if (BitOperations.PopCount(lastDigitsMask) is 0 or 1)
 				{
 					continue;
 				}
 
-				(cellsGroups, var (tempIndex, atLeastOneGroupIsEmpty)) = (new Cell[Mask.PopCount(lastDigitsMask)][], (0, false));
+				(cellsGroups, var (tempIndex, atLeastOneGroupIsEmpty)) = (new Cell[BitOperations.PopCount(lastDigitsMask)][], (0, false));
 				foreach (var lastDigit in lastDigitsMask)
 				{
 					ref var currentCellGroup = ref cellsGroups[tempIndex++];
@@ -636,7 +636,7 @@ public partial class UniqueRectangleStepSearcher
 				foreach (var currentInterMap in list)
 				{
 					var selectedInterMask = grid[currentInterMap];
-					if (Mask.PopCount(selectedInterMask) <= currentInterMap.Count + 1)
+					if (BitOperations.PopCount(selectedInterMask) <= currentInterMap.Count + 1)
 					{
 						// The intersection combination is an ALS or a normal subset,
 						// which is invalid in SdCs.
@@ -742,7 +742,7 @@ public partial class UniqueRectangleStepSearcher
 					& EmptyCells;
 			}
 
-			if (currentInterMap.Count + i + j + 1 == Mask.PopCount(blockMask) + Mask.PopCount(lineMask) + Mask.PopCount(maskOnlyInInter)
+			if (currentInterMap.Count + i + j + 1 == BitOperations.PopCount(blockMask) + BitOperations.PopCount(lineMask) + BitOperations.PopCount(maskOnlyInInter)
 				&& !!(elimMapBlock | elimMapLine | elimMapIsolated))
 			{
 				// Check eliminations.
@@ -921,7 +921,7 @@ public partial class UniqueRectangleStepSearcher
 
 		// Check whether there're only 2 extra digit.
 		var extraDigitsMask = (Mask)(grid[cells] & ~comparer);
-		if (Mask.PopCount(extraDigitsMask) != 2)
+		if (BitOperations.PopCount(extraDigitsMask) != 2)
 		{
 			return;
 		}

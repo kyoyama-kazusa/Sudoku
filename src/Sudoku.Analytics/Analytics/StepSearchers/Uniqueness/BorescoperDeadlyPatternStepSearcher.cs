@@ -256,7 +256,7 @@ public sealed partial class BorescoperDeadlyPatternStepSearcher : StepSearcher
 	)
 	{
 		var orMask = (Mask)((Mask)(cornerMask1 | cornerMask2) | centerMask);
-		if (Mask.PopCount(orMask) != (pattern.IsHeptagon ? 4 : 5))
+		if (BitOperations.PopCount(orMask) != (pattern.IsHeptagon ? 4 : 5))
 		{
 			goto ReturnNull;
 		}
@@ -325,7 +325,7 @@ public sealed partial class BorescoperDeadlyPatternStepSearcher : StepSearcher
 	)
 	{
 		var orMask = (Mask)((Mask)(cornerMask1 | cornerMask2) | centerMask);
-		if (Mask.PopCount(orMask) != (pattern.IsHeptagon ? 4 : 5))
+		if (BitOperations.PopCount(orMask) != (pattern.IsHeptagon ? 4 : 5))
 		{
 			goto ReturnNull;
 		}
@@ -403,12 +403,12 @@ public sealed partial class BorescoperDeadlyPatternStepSearcher : StepSearcher
 				// Iterate on the cells by the specified size.
 				var iterationCellsMap = HousesMap[houseIndex] & ~currentMap & EmptyCells;
 				var otherDigitsMask = (Mask)(orMask & ~tempMask);
-				for (var size = Mask.PopCount(otherDigitsMask) - 1; size < iterationCellsMap.Count; size++)
+				for (var size = BitOperations.PopCount(otherDigitsMask) - 1; size < iterationCellsMap.Count; size++)
 				{
 					foreach (ref readonly var combination in iterationCellsMap & size)
 					{
 						var comparer = grid[combination];
-						if ((tempMask & comparer) != 0 || Mask.PopCount(tempMask) - 1 != size
+						if ((tempMask & comparer) != 0 || BitOperations.PopCount(tempMask) - 1 != size
 							|| (tempMask & otherDigitsMask) != otherDigitsMask)
 						{
 							continue;

@@ -127,7 +127,7 @@ public sealed partial class ChromaticPatternStepSearcher : StepSearcher
 			}
 		}
 
-		if (Mask.PopCount(satisfiedBlocksMask) < 4)
+		if (BitOperations.PopCount(satisfiedBlocksMask) < 4)
 		{
 			// At least four blocks should contain at least 3 cells.
 			return null;
@@ -217,7 +217,7 @@ public sealed partial class ChromaticPatternStepSearcher : StepSearcher
 		{
 			var otherCells = pattern - extraCell;
 			var digitsMask = grid[otherCells];
-			if (Mask.PopCount(digitsMask) != 3)
+			if (BitOperations.PopCount(digitsMask) != 3)
 			{
 				continue;
 			}
@@ -273,7 +273,7 @@ public sealed partial class ChromaticPatternStepSearcher : StepSearcher
 	{
 		ref readonly var grid = ref context.Grid;
 		var allDigitsMask = grid[pattern];
-		if (Mask.PopCount(allDigitsMask) != 5)
+		if (BitOperations.PopCount(allDigitsMask) != 5)
 		{
 			// The pattern cannot find any possible eliminations because the number of extra digits
 			// are not 2 will cause the extra digits not forming a valid strong link

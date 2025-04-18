@@ -128,7 +128,7 @@ public sealed partial class AlmostLockedCandidatesStepSearcher : StepSearcher
 		{
 			// Collect the mask. The cell combination must contain the specified number of digits.
 			var mask = grid[alsCells, checkValueCells];
-			if (Mask.PopCount(mask) != size)
+			if (BitOperations.PopCount(mask) != size)
 			{
 				continue;
 			}
@@ -155,7 +155,7 @@ public sealed partial class AlmostLockedCandidatesStepSearcher : StepSearcher
 			{
 				ahsMask |= (HousesMap[coverSet] & CandidatesMap[digit] & b) / coverSet;
 			}
-			if (Mask.PopCount(ahsMask) != size - 1)
+			if (BitOperations.PopCount(ahsMask) != size - 1)
 			{
 				continue;
 			}

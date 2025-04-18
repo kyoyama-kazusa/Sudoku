@@ -128,7 +128,7 @@ public sealed class BlockFirst : IBehaviorMetric
 							mask |= (Mask)(1 << d);
 						}
 					}
-					return baseScore + Mask.PopCount(mask);
+					return baseScore + BitOperations.PopCount(mask);
 				}
 			}
 			return (minStep, minScore);
@@ -190,7 +190,7 @@ public sealed class BlockFirst : IBehaviorMetric
 			}
 
 			var index = indexedList.FindIndex(cell => cell == currentCell);
-			return lastCell == -1 ? index + 1 : index + 1 - Mask.PopCount(mask);
+			return lastCell == -1 ? index + 1 : index + 1 - BitOperations.PopCount(mask);
 		}
 	}
 }

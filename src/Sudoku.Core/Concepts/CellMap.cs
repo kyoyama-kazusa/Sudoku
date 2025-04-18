@@ -127,7 +127,7 @@ public partial struct CellMap : CellMapBase
 	public readonly bool IsInIntersection
 	{
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		get => Count == 1 || Count <= 3 && HouseMask.PopCount(SharedHouses) == 2;
+		get => Count == 1 || Count <= 3 && BitOperations.PopCount(SharedHouses) == 2;
 	}
 
 	/// <summary>

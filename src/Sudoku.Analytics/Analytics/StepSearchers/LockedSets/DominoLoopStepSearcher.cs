@@ -120,12 +120,12 @@ public sealed partial class DominoLoopStepSearcher : StepSearcher
 					pairs[i] |= grid.GetCandidates(cells[(i << 1) + 1]);
 				}
 
-				if (n > 4 || Mask.PopCount(pairs[i]) > 5 || pairs[i] == 0)
+				if (n > 4 || BitOperations.PopCount(pairs[i]) > 5 || pairs[i] == 0)
 				{
 					break;
 				}
 
-				candidateCount += Mask.PopCount(pairs[i]);
+				candidateCount += BitOperations.PopCount(pairs[i]);
 			}
 
 			// Check validity: If the number of candidate appearing is lower than 32 - (n * 2), the state will become invalid.
@@ -154,7 +154,7 @@ public sealed partial class DominoLoopStepSearcher : StepSearcher
 
 				// Check the associativity:
 				// Each pair should find the digits that can combine with the next pair.
-				var linkCount = Mask.PopCount(tempLink[0] = mask);
+				var linkCount = BitOperations.PopCount(tempLink[0] = mask);
 				var k = 1;
 				for (; k < 8; k++)
 				{
@@ -164,7 +164,7 @@ public sealed partial class DominoLoopStepSearcher : StepSearcher
 						break;
 					}
 
-					linkCount += Mask.PopCount(tempLink[k] = candidateMask);
+					linkCount += BitOperations.PopCount(tempLink[k] = candidateMask);
 				}
 
 				if (k < 8 || linkCount != 16 - n)

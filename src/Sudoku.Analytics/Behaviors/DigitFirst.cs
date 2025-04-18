@@ -141,7 +141,7 @@ public sealed class DigitFirst : IBehaviorMetric
 			}
 
 			var index = indexedList.FindIndex(cell => cell == currentCell);
-			return lastCell == -1 ? index + 1 : index + 1 - Mask.PopCount(mask);
+			return lastCell == -1 ? index + 1 : index + 1 - BitOperations.PopCount(mask);
 		}
 	}
 }

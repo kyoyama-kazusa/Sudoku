@@ -84,7 +84,7 @@ public sealed partial class UniqueRectangleType3Step(
 	bool IPatternType3StepTrait<UniqueRectangleType3Step>.IsHidden => !IsNaked;
 
 	/// <inheritdoc/>
-	int IPatternType3StepTrait<UniqueRectangleType3Step>.SubsetSize => Mask.PopCount(ExtraDigitsMask);
+	int IPatternType3StepTrait<UniqueRectangleType3Step>.SubsetSize => BitOperations.PopCount(ExtraDigitsMask);
 
 	/// <inheritdoc/>
 	Mask IPatternType3StepTrait<UniqueRectangleType3Step>.SubsetDigitsMask => ExtraDigitsMask;

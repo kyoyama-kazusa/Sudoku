@@ -127,7 +127,7 @@ public partial class UniqueRectangleStepSearcher
 					continue;
 				}
 
-				if (Mask.PopCount(extraDigitsMaskInOutsideCell) != outsideCells.Count)
+				if (BitOperations.PopCount(extraDigitsMaskInOutsideCell) != outsideCells.Count)
 				{
 					// :( The size of the extra cell must be equal to the number of extra digits.
 					continue;
@@ -330,7 +330,7 @@ public partial class UniqueRectangleStepSearcher
 				ref readonly var outsideCellsSameTargetCell = ref ocTarget.Length != 0 ? ref ocTarget[0] : ref CellMap.Empty;
 				var otherCells = outsideCells & ~outsideCellsSameCornerCell & ~outsideCellsSameTargetCell;
 				var extraDigitsMask = (Mask)(grid[outsideCells + lastCell + sameBlockCell] & ~comparer);
-				if (Mask.PopCount(extraDigitsMask) != outsideCells.Count)
+				if (BitOperations.PopCount(extraDigitsMask) != outsideCells.Count)
 				{
 					// :( The number of extra digits appeared in subset cells should be equal to the number of subset cells.
 					continue;
@@ -543,7 +543,7 @@ public partial class UniqueRectangleStepSearcher
 						continue;
 					}
 
-					if (Mask.PopCount(extraDigitsMaskInOutsideCell) != outsideCells.Count)
+					if (BitOperations.PopCount(extraDigitsMaskInOutsideCell) != outsideCells.Count)
 					{
 						// :( The size of the extra cell must be equal to the number of extra digits.
 						continue;

@@ -62,7 +62,7 @@ public sealed partial class RegularWingStep(
 	/// </item>
 	/// </list>
 	/// </remarks>
-	public int Size => Mask.PopCount(DigitsMask);
+	public int Size => BitOperations.PopCount(DigitsMask);
 
 	/// <inheritdoc/>
 	public override Technique Code

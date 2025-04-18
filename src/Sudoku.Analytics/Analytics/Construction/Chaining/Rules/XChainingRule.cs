@@ -29,7 +29,7 @@ public sealed class XChainingRule : ChainingRule
 				}
 
 				var mask = cellsInThisHouse / house;
-				if (Mask.PopCount(mask) != 2)
+				if (BitOperations.PopCount(mask) != 2)
 				{
 					continue;
 				}

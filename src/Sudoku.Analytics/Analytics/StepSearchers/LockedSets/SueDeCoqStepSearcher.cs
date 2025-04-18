@@ -59,7 +59,7 @@ public sealed partial class SueDeCoqStepSearcher : StepSearcher
 				foreach (ref readonly var currentInterMap in list.AsSpan())
 				{
 					var selectedInterMask = grid[currentInterMap];
-					if (Mask.PopCount(selectedInterMask) <= currentInterMap.Count + 1)
+					if (BitOperations.PopCount(selectedInterMask) <= currentInterMap.Count + 1)
 					{
 						// The intersection combination is an ALS or a normal subset, which is invalid in SdCs.
 						continue;
@@ -122,7 +122,7 @@ public sealed partial class SueDeCoqStepSearcher : StepSearcher
 											& EmptyCells;
 									}
 
-									var p = Mask.PopCount(blockMask) + Mask.PopCount(lineMask) + Mask.PopCount(maskOnlyInInter);
+									var p = BitOperations.PopCount(blockMask) + BitOperations.PopCount(lineMask) + BitOperations.PopCount(maskOnlyInInter);
 									if (currentInterMap.Count + i + j != p || !(elimMapBlock | elimMapLine | elimMapIsolated))
 									{
 										// Invalid or no elimination.

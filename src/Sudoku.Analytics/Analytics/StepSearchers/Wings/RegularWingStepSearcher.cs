@@ -47,7 +47,7 @@ public sealed partial class RegularWingStepSearcher : StepSearcher
 			foreach (var pivot in EmptyCells)
 			{
 				var mask = grid.GetCandidates(pivot);
-				var candsCount = Mask.PopCount(mask);
+				var candsCount = BitOperations.PopCount(mask);
 				if (candsCount != size && candsCount != size - 1)
 				{
 					// Candidates are not enough.
@@ -94,7 +94,7 @@ public sealed partial class RegularWingStepSearcher : StepSearcher
 						inter &= m;
 					}
 
-					if (Mask.PopCount(union) != size || inter != 0 && !Mask.IsPow2(inter))
+					if (BitOperations.PopCount(union) != size || inter != 0 && !Mask.IsPow2(inter))
 					{
 						continue;
 					}
@@ -147,7 +147,7 @@ public sealed partial class RegularWingStepSearcher : StepSearcher
 						[[.. candidateOffsets]],
 						context.Options,
 						pivot,
-						Mask.PopCount(mask),
+						BitOperations.PopCount(mask),
 						union,
 						in petals
 					);

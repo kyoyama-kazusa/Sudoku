@@ -43,7 +43,7 @@ public sealed class UniqueRectangleDoubleSideExternalChainingRule : UniqueRectan
 
 				var urDigitsMask = (Mask)(1 << digitPair[0] | 1 << digitPair[1]);
 				var otherDigitsMask = (Mask)(allDigitsMask & ~urDigitsMask);
-				if (Mask.PopCount(otherDigitsMask) < 2)
+				if (BitOperations.PopCount(otherDigitsMask) < 2)
 				{
 					continue;
 				}

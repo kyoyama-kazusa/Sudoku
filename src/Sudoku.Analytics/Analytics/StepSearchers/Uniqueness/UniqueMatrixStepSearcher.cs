@@ -105,7 +105,7 @@ public sealed partial class UniqueMatrixStepSearcher : StepSearcher
 	/// </summary>
 	private UniqueMatrixType1Step? CheckType1(in Grid grid, ref StepAnalysisContext context, in CellMap pattern, Mask mask)
 	{
-		if (Mask.PopCount(mask) != 5)
+		if (BitOperations.PopCount(mask) != 5)
 		{
 			goto ReturnNull;
 		}
@@ -160,7 +160,7 @@ public sealed partial class UniqueMatrixStepSearcher : StepSearcher
 	/// </summary>
 	private UniqueMatrixType2Step? CheckType2(ref StepAnalysisContext context, in CellMap pattern, Mask mask)
 	{
-		if (Mask.PopCount(mask) != 5)
+		if (BitOperations.PopCount(mask) != 5)
 		{
 			goto ReturnNull;
 		}
@@ -228,12 +228,12 @@ public sealed partial class UniqueMatrixStepSearcher : StepSearcher
 			foreach (var house in tempMap.SharedHouses)
 			{
 				var allCells = HousesMap[house] & EmptyCells & ~pattern;
-				for (var size = Mask.PopCount(extraDigitsMask) - 1; size < allCells.Count; size++)
+				for (var size = BitOperations.PopCount(extraDigitsMask) - 1; size < allCells.Count; size++)
 				{
 					foreach (ref readonly var cells in allCells & size)
 					{
 						var tempMask = grid[cells];
-						if (Mask.PopCount(tempMask) != size + 1 || (tempMask & extraDigitsMask) != extraDigitsMask)
+						if (BitOperations.PopCount(tempMask) != size + 1 || (tempMask & extraDigitsMask) != extraDigitsMask)
 						{
 							continue;
 						}

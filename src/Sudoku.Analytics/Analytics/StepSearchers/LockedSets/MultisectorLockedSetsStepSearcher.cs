@@ -92,7 +92,7 @@ public sealed partial class MultisectorLockedSetsStepSearcher : StepSearcher
 			{
 				ref var tempMap = ref linkForEachDigit[digit];
 				tempMap = CandidatesMap[digit] & map;
-				n += Math.Min(Mask.PopCount(tempMap.RowMask), Mask.PopCount(tempMap.ColumnMask), Mask.PopCount(tempMap.BlockMask));
+				n += Math.Min(BitOperations.PopCount(tempMap.RowMask), BitOperations.PopCount(tempMap.ColumnMask), BitOperations.PopCount(tempMap.BlockMask));
 			}
 
 			if (n == count)
@@ -108,10 +108,10 @@ public sealed partial class MultisectorLockedSetsStepSearcher : StepSearcher
 					var rMask = currentMap.RowMask;
 					var cMask = currentMap.ColumnMask;
 					var bMask = currentMap.BlockMask;
-					var temp = Math.Min(Mask.PopCount(rMask), Mask.PopCount(cMask), Mask.PopCount(bMask));
+					var temp = Math.Min(BitOperations.PopCount(rMask), BitOperations.PopCount(cMask), BitOperations.PopCount(bMask));
 					var elimMap = CellMap.Empty;
 					var check = 0;
-					if (Mask.PopCount(rMask) == temp)
+					if (BitOperations.PopCount(rMask) == temp)
 					{
 						check++;
 						foreach (var i in rMask)
@@ -121,7 +121,7 @@ public sealed partial class MultisectorLockedSetsStepSearcher : StepSearcher
 							elimMap |= (CandidatesMap[digit] & HousesMap[house] & map).PeerIntersection;
 						}
 					}
-					if (Mask.PopCount(cMask) == temp)
+					if (BitOperations.PopCount(cMask) == temp)
 					{
 						check++;
 						foreach (var i in cMask)
@@ -131,7 +131,7 @@ public sealed partial class MultisectorLockedSetsStepSearcher : StepSearcher
 							elimMap |= (CandidatesMap[digit] & HousesMap[house] & map).PeerIntersection;
 						}
 					}
-					if (Mask.PopCount(bMask) == temp)
+					if (BitOperations.PopCount(bMask) == temp)
 					{
 						check++;
 						foreach (var i in bMask)

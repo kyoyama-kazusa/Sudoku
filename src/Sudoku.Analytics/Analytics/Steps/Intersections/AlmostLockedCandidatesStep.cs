@@ -24,7 +24,7 @@ public sealed partial class AlmostLockedCandidatesStep(
 	public override int BaseDifficulty => 45;
 
 	/// <inheritdoc/>
-	public int Size => Mask.PopCount(DigitsMask);
+	public int Size => BitOperations.PopCount(DigitsMask);
 
 	/// <inheritdoc/>
 	public override Technique Code

@@ -88,7 +88,7 @@ public sealed partial class XyzRingStepSearcher : StepSearcher
 		var trivalueCells = CellMap.Empty;
 		foreach (var cell in EmptyCells & ~BivalueCells)
 		{
-			if (Mask.PopCount(grid.GetCandidates(cell)) == 3)
+			if (BitOperations.PopCount(grid.GetCandidates(cell)) == 3)
 			{
 				trivalueCells.Add(cell);
 			}

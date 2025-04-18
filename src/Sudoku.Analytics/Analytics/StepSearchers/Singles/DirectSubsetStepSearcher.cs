@@ -296,7 +296,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 			foreach (ref readonly var cells in currentEmptyMap & size)
 			{
 				var digitsMask = grid[cells];
-				if (Mask.PopCount(digitsMask) != size)
+				if (BitOperations.PopCount(digitsMask) != size)
 				{
 					continue;
 				}

@@ -246,12 +246,12 @@ public partial class UniqueRectangleStepSearcher
 			}
 
 			var iterationMap = HousesMap[houseIndex] & EmptyCells & ~otherCellsMap;
-			for (var size = Mask.PopCount(otherDigitsMask) - 1; size < iterationMap.Count; size++)
+			for (var size = BitOperations.PopCount(otherDigitsMask) - 1; size < iterationMap.Count; size++)
 			{
 				foreach (ref readonly var iteratedCells in iterationMap & size)
 				{
 					var tempMask = grid[iteratedCells];
-					if ((tempMask & comparer) != 0 || Mask.PopCount(tempMask) - 1 != size || (tempMask & otherDigitsMask) != otherDigitsMask)
+					if ((tempMask & comparer) != 0 || BitOperations.PopCount(tempMask) - 1 != size || (tempMask & otherDigitsMask) != otherDigitsMask)
 					{
 						continue;
 					}

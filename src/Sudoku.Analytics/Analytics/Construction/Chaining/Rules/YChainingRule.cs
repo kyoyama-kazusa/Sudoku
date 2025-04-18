@@ -21,7 +21,7 @@ public sealed class YChainingRule : ChainingRule
 		foreach (var cell in __EmptyCells)
 		{
 			var mask = grid.GetCandidates(cell);
-			if (Mask.PopCount(mask) < 2)
+			if (BitOperations.PopCount(mask) < 2)
 			{
 				continue;
 			}

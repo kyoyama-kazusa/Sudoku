@@ -199,9 +199,9 @@ public sealed partial class AnonymousDeadlyPatternStepSearcher : StepSearcher
 					greaterThan4Digits |= (Mask)(1 << digit);
 				}
 			}
-			if (Mask.PopCount(greaterThan6Digits) < 2
+			if (BitOperations.PopCount(greaterThan6Digits) < 2
 				|| (Mask)(greaterThan4Digits | greaterThan6Digits) is var possiblePatternDigitsMask
-				&& Mask.PopCount(possiblePatternDigitsMask) < 3)
+				&& BitOperations.PopCount(possiblePatternDigitsMask) < 3)
 			{
 				continue;
 			}
@@ -232,7 +232,7 @@ public sealed partial class AnonymousDeadlyPatternStepSearcher : StepSearcher
 					continue;
 				}
 
-				switch (Mask.PopCount(extraDigitsMask))
+				switch (BitOperations.PopCount(extraDigitsMask))
 				{
 					case 0:
 					{
@@ -345,7 +345,7 @@ public sealed partial class AnonymousDeadlyPatternStepSearcher : StepSearcher
 						possiblePatternDigitsMask |= (Mask)(1 << digit);
 					}
 				}
-				if (Mask.PopCount(possiblePatternDigitsMask) < 4)
+				if (BitOperations.PopCount(possiblePatternDigitsMask) < 4)
 				{
 					continue;
 				}
@@ -376,7 +376,7 @@ public sealed partial class AnonymousDeadlyPatternStepSearcher : StepSearcher
 						continue;
 					}
 
-					switch (Mask.PopCount(extraDigitsMask))
+					switch (BitOperations.PopCount(extraDigitsMask))
 					{
 						case 0:
 						{
@@ -588,7 +588,7 @@ public sealed partial class AnonymousDeadlyPatternStepSearcher : StepSearcher
 			foreach (ref readonly var subsetCells in availableCells | availableCells.Count - 1)
 			{
 				var subsetDigitsMask = (Mask)(grid[subsetCells] | extraDigitsMask);
-				if (Mask.PopCount(subsetDigitsMask) != subsetCells.Count + 1)
+				if (BitOperations.PopCount(subsetDigitsMask) != subsetCells.Count + 1)
 				{
 					// The (n) digits should be inside (n - 1) cells.
 					continue;
@@ -691,7 +691,7 @@ public sealed partial class AnonymousDeadlyPatternStepSearcher : StepSearcher
 				conjugatePairDigitsMask |= (Mask)(1 << digit);
 			}
 		}
-		if (Mask.PopCount(conjugatePairDigitsMask) != extraCells.Count - 1)
+		if (BitOperations.PopCount(conjugatePairDigitsMask) != extraCells.Count - 1)
 		{
 			// The number of conjugate pairs must be less than the number of extra cells of 1.
 			return null;

@@ -73,13 +73,13 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 				(count >= 2 ? ref normalDigits : ref extraDigits) |= (Mask)(1 << digit);
 			}
 
-			if (Mask.PopCount(normalDigits) != size)
+			if (BitOperations.PopCount(normalDigits) != size)
 			{
 				// The number of normal digits are not enough.
 				continue;
 			}
 
-			if (Mask.PopCount(resultMask) == size + 1)
+			if (BitOperations.PopCount(resultMask) == size + 1)
 			{
 				// Possible type 1 or 2 found. Now check extra cells.
 				var extraDigit = Mask.TrailingZeroCount(extraDigits);
@@ -317,7 +317,7 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 					foreach (ref readonly var cells in otherCells & size)
 					{
 						var mask = grid[cells];
-						if ((mask & extraDigits) != extraDigits || Mask.PopCount(mask) != size + 1)
+						if ((mask & extraDigits) != extraDigits || BitOperations.PopCount(mask) != size + 1)
 						{
 							// The extra cells must contain all possible digits appeared in extended rectangle pattern.
 							continue;

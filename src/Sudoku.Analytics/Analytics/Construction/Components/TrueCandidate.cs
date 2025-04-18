@@ -27,7 +27,7 @@ public static class TrueCandidate
 		var multivalueCellsCount = 0;
 		foreach (var cell in __EmptyCells)
 		{
-			switch (Mask.PopCount(grid.GetCandidates(cell)))
+			switch (BitOperations.PopCount(grid.GetCandidates(cell)))
 			{
 				case 1:
 				{

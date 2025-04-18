@@ -32,7 +32,7 @@ public sealed partial class JuniorExocetMirrorAlmostHiddenSetStep(
 	/// <summary>
 	/// Indicates the subset size.
 	/// </summary>
-	public int SubsetSize => Mask.PopCount(ExtraDigitsMask);
+	public int SubsetSize => BitOperations.PopCount(ExtraDigitsMask);
 
 	/// <inheritdoc/>
 	public override Technique Code => Technique.JuniorExocetMirrorAlmostHiddenSet;

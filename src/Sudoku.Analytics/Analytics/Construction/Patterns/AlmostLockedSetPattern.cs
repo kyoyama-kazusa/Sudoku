@@ -196,7 +196,7 @@ public sealed partial class AlmostLockedSetPattern(
 
 					// Get all candidates in these cells.
 					var digitsMask = grid[map];
-					if (Mask.PopCount(digitsMask) - 1 != size)
+					if (BitOperations.PopCount(digitsMask) - 1 != size)
 					{
 						continue;
 					}

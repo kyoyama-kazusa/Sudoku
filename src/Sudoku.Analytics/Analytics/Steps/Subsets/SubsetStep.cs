@@ -22,7 +22,7 @@ public abstract partial class SubsetStep(
 	public override int BaseDifficulty => 30;
 
 	/// <inheritdoc/>
-	public int Size => Mask.PopCount(DigitsMask);
+	public int Size => BitOperations.PopCount(DigitsMask);
 
 	/// <inheritdoc/>
 	public sealed override Mask DigitsUsed => DigitsMask;

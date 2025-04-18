@@ -118,14 +118,14 @@ public sealed partial class FireworkStepSearcher : StepSearcher
 
 			// Checks for the number of kinds of digits in three cells.
 			var digitsMask = grid[pattern.Map];
-			if (Mask.PopCount(digitsMask) < 3)
+			if (BitOperations.PopCount(digitsMask) < 3)
 			{
 				continue;
 			}
 
 			switch (pattern.Pivot)
 			{
-				case { } pivot when Mask.PopCount(digitsMask) >= 3:
+				case { } pivot when BitOperations.PopCount(digitsMask) >= 3:
 				{
 					if (CheckTriple(accumulator, grid, ref context, onlyFindOne, pattern, digitsMask, pivot) is { } stepTriple)
 					{
@@ -133,7 +133,7 @@ public sealed partial class FireworkStepSearcher : StepSearcher
 					}
 					break;
 				}
-				case null when Mask.PopCount(digitsMask) >= 4:
+				case null when BitOperations.PopCount(digitsMask) >= 4:
 				{
 					if (CheckQuadruple(accumulator, grid, ref context, onlyFindOne, pattern) is { } step)
 					{
@@ -277,7 +277,7 @@ public sealed partial class FireworkStepSearcher : StepSearcher
 		}
 
 		var digitsMask = grid[map];
-		if (Mask.PopCount(digitsMask) < 4)
+		if (BitOperations.PopCount(digitsMask) < 4)
 		{
 			return null;
 		}

@@ -62,7 +62,7 @@ public partial class Hub
 			{
 				var candidatesMap = grid.CandidatesMap;
 				var extraDigitsMask = (Mask)(grid[cells] & ~comparer);
-				if (Mask.PopCount(extraDigitsMask) != 2)
+				if (BitOperations.PopCount(extraDigitsMask) != 2)
 				{
 					return [];
 				}

@@ -37,7 +37,7 @@ public sealed partial class SueDeCoq3DimensionStepSearcher : StepSearcher
 			foreach (ref readonly var rbCurrentMap in rbList.AsSpan())
 			{
 				var rbSelectedInterMask = grid[rbCurrentMap];
-				if (Mask.PopCount(rbSelectedInterMask) <= rbCurrentMap.Count + 1)
+				if (BitOperations.PopCount(rbSelectedInterMask) <= rbCurrentMap.Count + 1)
 				{
 					continue;
 				}
@@ -45,7 +45,7 @@ public sealed partial class SueDeCoq3DimensionStepSearcher : StepSearcher
 				foreach (ref readonly var cbCurrentMap in cbList.AsSpan())
 				{
 					var cbSelectedInterMask = grid[cbCurrentMap];
-					if (Mask.PopCount(cbSelectedInterMask) <= cbCurrentMap.Count + 1)
+					if (BitOperations.PopCount(cbSelectedInterMask) <= cbCurrentMap.Count + 1)
 					{
 						continue;
 					}
@@ -126,11 +126,11 @@ public sealed partial class SueDeCoq3DimensionStepSearcher : StepSearcher
 											var rbMaskOnlyInInter = (Mask)(rbSelectedInterMask & ~mask);
 											var cbMaskOnlyInInter = (Mask)(cbSelectedInterMask & ~mask);
 
-											var bCount = Mask.PopCount(blockMask);
-											var rCount = Mask.PopCount(rowMask);
-											var cCount = Mask.PopCount(columnMask);
-											var rbCount = Mask.PopCount(rbMaskOnlyInInter);
-											var cbCount = Mask.PopCount(cbMaskOnlyInInter);
+											var bCount = BitOperations.PopCount(blockMask);
+											var rCount = BitOperations.PopCount(rowMask);
+											var cCount = BitOperations.PopCount(columnMask);
+											var rbCount = BitOperations.PopCount(rbMaskOnlyInInter);
+											var cbCount = BitOperations.PopCount(cbMaskOnlyInInter);
 											if (cbCurrentMap.Count + rbCurrentMap.Count + i + j + k - 1 == bCount + rCount + cCount + rbCount + cbCount
 												&& !!(elimMapRow | elimMapColumn | elimMapBlock))
 											{

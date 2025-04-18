@@ -52,7 +52,7 @@ public sealed class UniqueRectangleSameDigitChainingRule : UniqueRectangleChaini
 				var otherOnlyDigit = Mask.Log2(otherDigitsMask);
 				var cellsContainingThisDigit = __CandidatesMap[otherOnlyDigit] & urCells;
 				var rowsSpanned = cellsContainingThisDigit.RowMask << 9;
-				if (HouseMask.PopCount(rowsSpanned) == 2)
+				if (BitOperations.PopCount(rowsSpanned) == 2)
 				{
 					var row1 = HouseMask.TrailingZeroCount(rowsSpanned);
 					var row2 = rowsSpanned.GetNextSet(row1);
@@ -68,7 +68,7 @@ public sealed class UniqueRectangleSameDigitChainingRule : UniqueRectangleChaini
 				}
 
 				var columnsSpanned = cellsContainingThisDigit.ColumnMask << 18;
-				if (HouseMask.PopCount(columnsSpanned) == 2)
+				if (BitOperations.PopCount(columnsSpanned) == 2)
 				{
 					var column1 = HouseMask.TrailingZeroCount(columnsSpanned);
 					var column2 = columnsSpanned.GetNextSet(column1);

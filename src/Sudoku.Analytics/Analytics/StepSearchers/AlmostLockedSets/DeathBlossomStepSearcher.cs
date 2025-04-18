@@ -71,7 +71,7 @@ public sealed partial class DeathBlossomStepSearcher : StepSearcher
 		var playgroundCached = grid.ToCandidateMaskArray();
 		foreach (var entryElimCell in EmptyCells)
 		{
-			if (Mask.PopCount(playgroundCached[entryElimCell]) < 2)
+			if (BitOperations.PopCount(playgroundCached[entryElimCell]) < 2)
 			{
 				// If the cell only contain one candidate (i.e. a Naked Single), the cell won't produce any possible eliminations.
 				// Just skip it.
@@ -196,7 +196,7 @@ public sealed partial class DeathBlossomStepSearcher : StepSearcher
 					var tempCount = preeliminationsCount;
 					foreach (var cell in HousesMap[availablePivotHouse] & EmptyCells & ~pivotsLyingInHouse)
 					{
-						if (Mask.PopCount(playground[cell]) >= 2)
+						if (BitOperations.PopCount(playground[cell]) >= 2)
 						{
 							finalCells[++tempCount] = cell;
 						}
@@ -215,49 +215,49 @@ public sealed partial class DeathBlossomStepSearcher : StepSearcher
 							{
 								selectedCellDigitsMask[1] = (Mask)(selectedCellDigitsMask[0] | playground[finalCells[b]]);
 								selectedAlsEntryCell[1] = finalCells[b];
-								if (Mask.PopCount(selectedCellDigitsMask[1]) < 2) { goto AlmostAlmostLockedSetDeletion; }
+								if (BitOperations.PopCount(selectedCellDigitsMask[1]) < 2) { goto AlmostAlmostLockedSetDeletion; }
 								if (satisfiedSize < 3) { continue; }
 
 								for (var c = b + 1; c <= tempCount; c++)
 								{
 									selectedCellDigitsMask[2] = (Mask)(selectedCellDigitsMask[1] | playground[finalCells[c]]);
 									selectedAlsEntryCell[2] = finalCells[c];
-									if (Mask.PopCount(selectedCellDigitsMask[2]) < 3) { goto AlmostAlmostLockedSetDeletion; }
+									if (BitOperations.PopCount(selectedCellDigitsMask[2]) < 3) { goto AlmostAlmostLockedSetDeletion; }
 									if (satisfiedSize < 4) { continue; }
 
 									for (var d = c + 1; d <= tempCount; d++)
 									{
 										selectedCellDigitsMask[3] = (Mask)(selectedCellDigitsMask[2] | playground[finalCells[d]]);
 										selectedAlsEntryCell[3] = finalCells[d];
-										if (Mask.PopCount(selectedCellDigitsMask[3]) < 4) { goto AlmostAlmostLockedSetDeletion; }
+										if (BitOperations.PopCount(selectedCellDigitsMask[3]) < 4) { goto AlmostAlmostLockedSetDeletion; }
 										if (satisfiedSize < 5) { continue; }
 
 										for (var e = d + 1; e <= tempCount; e++)
 										{
 											selectedCellDigitsMask[4] = (Mask)(selectedCellDigitsMask[3] | playground[finalCells[e]]);
 											selectedAlsEntryCell[4] = finalCells[e];
-											if (Mask.PopCount(selectedCellDigitsMask[4]) < 5) { goto AlmostAlmostLockedSetDeletion; }
+											if (BitOperations.PopCount(selectedCellDigitsMask[4]) < 5) { goto AlmostAlmostLockedSetDeletion; }
 											if (satisfiedSize < 6) { continue; }
 
 											for (var f = e + 1; f <= tempCount; f++)
 											{
 												selectedCellDigitsMask[5] = (Mask)(selectedCellDigitsMask[4] | playground[finalCells[f]]);
 												selectedAlsEntryCell[5] = finalCells[f];
-												if (Mask.PopCount(selectedCellDigitsMask[5]) < 6) { goto AlmostAlmostLockedSetDeletion; }
+												if (BitOperations.PopCount(selectedCellDigitsMask[5]) < 6) { goto AlmostAlmostLockedSetDeletion; }
 												if (satisfiedSize < 7) { continue; }
 
 												for (var g = f + 1; g <= tempCount; g++)
 												{
 													selectedCellDigitsMask[6] = (Mask)(selectedCellDigitsMask[5] | playground[finalCells[g]]);
 													selectedAlsEntryCell[6] = finalCells[g];
-													if (Mask.PopCount(selectedCellDigitsMask[6]) < 7) { goto AlmostAlmostLockedSetDeletion; }
+													if (BitOperations.PopCount(selectedCellDigitsMask[6]) < 7) { goto AlmostAlmostLockedSetDeletion; }
 													if (satisfiedSize < 8) { continue; }
 
 													for (var h = g + 1; h <= tempCount; h++)
 													{
 														selectedCellDigitsMask[7] = (Mask)(selectedCellDigitsMask[6] | playground[finalCells[h]]);
 														selectedAlsEntryCell[7] = finalCells[h];
-														if (Mask.PopCount(selectedCellDigitsMask[7]) < 8) { goto AlmostAlmostLockedSetDeletion; }
+														if (BitOperations.PopCount(selectedCellDigitsMask[7]) < 8) { goto AlmostAlmostLockedSetDeletion; }
 													}
 												}
 											}
@@ -724,7 +724,7 @@ public sealed partial class DeathBlossomStepSearcher : StepSearcher
 			nTimesAlsDigitsMask,
 			nTimesAlsCells,
 			branches,
-			Mask.PopCount(grid[nTimesAlsCells]) - nTimesAlsCells.Count
+			BitOperations.PopCount(grid[nTimesAlsCells]) - nTimesAlsCells.Count
 		);
 		if (context.OnlyFindOne)
 		{

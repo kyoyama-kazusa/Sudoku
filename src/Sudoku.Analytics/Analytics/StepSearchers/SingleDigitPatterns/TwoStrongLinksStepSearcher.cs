@@ -35,7 +35,7 @@ public sealed partial class TwoStrongLinksStepSearcher : StepSearcher
 					// Get masks.
 					var mask1 = (HousesMap[h1] & CandidatesMap[digit]) / h1;
 					var mask2 = (HousesMap[h2] & CandidatesMap[digit]) / h2;
-					if (Mask.PopCount(mask1) != 2 || Mask.PopCount(mask2) != 2)
+					if (BitOperations.PopCount(mask1) != 2 || BitOperations.PopCount(mask2) != 2)
 					{
 						continue;
 					}
@@ -111,7 +111,7 @@ public sealed partial class TwoStrongLinksStepSearcher : StepSearcher
 					// we may break the balance on the difficulty on searching for such patterns.
 					if (DisableRemotePair
 						&& grid[cellsList1[c1Index].AsCellMap() + cellsList2[c2Index] + head + tail] is var mergedDigitsMask
-						&& Mask.PopCount(mergedDigitsMask) == 2
+						&& BitOperations.PopCount(mergedDigitsMask) == 2
 						&& mergedDigitsMask.AllSets is var pairDigits
 						&& (pairDigits[0] == digit ? pairDigits[1] : pairDigits[0]) is var theOtherDigit
 						&& !!(CandidatesMap[theOtherDigit] & elimMap))

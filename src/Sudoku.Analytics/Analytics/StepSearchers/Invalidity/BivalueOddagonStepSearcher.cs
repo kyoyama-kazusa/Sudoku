@@ -107,7 +107,7 @@ public sealed partial class BivalueOddagonStepSearcher : StepSearcher
 							-1,
 							cellsContainingBothTwoDigits,
 							cell.AsCellMap(),
-							Mask.PopCount(grid.GetCandidates(cell)) > 2 ? [cell] : [],
+							BitOperations.PopCount(grid.GetCandidates(cell)) > 2 ? [cell] : [],
 							result,
 							ref foundLoopsCount,
 							comparer,
@@ -187,7 +187,7 @@ public sealed partial class BivalueOddagonStepSearcher : StepSearcher
 					else
 					{
 						var newExtraDigitsMask = (Mask)(extraDigitsMask | (Mask)(grid.GetCandidates(cell) & ~comparer));
-						var newExtraCells = Mask.PopCount(grid.GetCandidates(cell)) > 2 ? extraCells + cell : extraCells;
+						var newExtraCells = BitOperations.PopCount(grid.GetCandidates(cell)) > 2 ? extraCells + cell : extraCells;
 						if (newExtraCells.FirstSharedHouse != 32
 							|| Mask.IsPow2(newExtraDigitsMask)
 							&& !!(newExtraCells.PeerIntersection & CandidatesMap[Mask.Log2(newExtraDigitsMask)])
@@ -329,12 +329,12 @@ public sealed partial class BivalueOddagonStepSearcher : StepSearcher
 			}
 
 			var otherCells = HousesMap[house] & EmptyCells & ~loop;
-			for (var size = Mask.PopCount(otherDigitsMask) - 1; size < otherCells.Count; size++)
+			for (var size = BitOperations.PopCount(otherDigitsMask) - 1; size < otherCells.Count; size++)
 			{
 				foreach (ref readonly var cells in otherCells & size)
 				{
 					var mask = grid[cells];
-					if (Mask.PopCount(mask) != size + 1 || (mask & otherDigitsMask) != otherDigitsMask)
+					if (BitOperations.PopCount(mask) != size + 1 || (mask & otherDigitsMask) != otherDigitsMask)
 					{
 						continue;
 					}
