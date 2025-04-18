@@ -1141,7 +1141,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		}
 
 		// Check whether the rows or columns are spanned 3 different chute in the same direction of the cross-line cells.
-		var (spanningLinesChute3, spanningLinesChute2, spanningLinesChute1) = (isRow ? rowsCovered : columnsCovered).SplitMask();
+		var (spanningLinesChute3, spanningLinesChute2, spanningLinesChute1) = (isRow ? rowsCovered : columnsCovered).SplitMask;
 		if ((BitOperations.PopCount(spanningLinesChute1), BitOperations.PopCount(spanningLinesChute2), BitOperations.PopCount(spanningLinesChute3)) is not (1, 1, 1))
 		{
 			return null;

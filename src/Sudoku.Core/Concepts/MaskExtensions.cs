@@ -12,6 +12,12 @@ public static class MaskExtensions
 	extension(Mask @this)
 	{
 		/// <summary>
+		/// Indicates a triplet of mask parts by splitting mask, with each element of length 3.
+		/// </summary>
+		public (int High, int Mid, int Low) SplitMask => (@this >> 6 & 7, @this >> 3 & 7, @this & 7);
+
+
+		/// <summary>
 		/// Try to convert the current mask value into a valid <see cref="string"/> representation of binary format.
 		/// </summary>
 		/// <param name="upperCasedPrefix">

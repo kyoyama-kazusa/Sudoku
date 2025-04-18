@@ -47,12 +47,4 @@ public static class MaskOperations
 	/// <seealso cref="Grid"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static CellState MaskToCellState(Mask mask) => (CellState)(mask >> 9 & 7);
-
-	/// <summary>
-	/// Try to split a mask into 3 parts, 3-bit as a unit.
-	/// </summary>
-	/// <param name="this">The mask instance to be split.</param>
-	/// <returns>A triplet of values.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static (int High, int Mid, int Low) SplitMask(this Mask @this) => (@this >> 6 & 7, @this >> 3 & 7, @this & 7);
 }

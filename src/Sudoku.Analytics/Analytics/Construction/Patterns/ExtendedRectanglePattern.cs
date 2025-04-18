@@ -123,7 +123,7 @@ public sealed partial class ExtendedRectanglePattern(
 				foreach (var mask in Bits.EnumerateOf<Mask>(9, size))
 				{
 					// Check whether all cells are in same house. If so, continue the loop immediately.
-					if (size == 3 && mask.SplitMask() is not (not 7, not 7, not 7))
+					if (size == 3 && mask.SplitMask is not (not 7, not 7, not 7))
 					{
 						continue;
 					}

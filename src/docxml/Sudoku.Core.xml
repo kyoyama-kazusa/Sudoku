@@ -5611,6 +5611,16 @@
             Provides extension members on <see cref="T:System.Int32"/>.
             </summary>
         </member>
+        <member name="P:Sudoku.Concepts.HouseMaskExtensions..SplitMask">
+            <summary>
+            Indicates the triplet of masks that describes the blocks, rows and columns.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Concepts.HouseMaskExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
         <member name="M:Sudoku.Concepts.HouseMaskExtensions..Create(System.ReadOnlySpan{System.Int32})">
             <summary>
             Creates for a <see cref="T:System.Int32"/> instance via the specified houses.
@@ -5643,13 +5653,6 @@
             <summary>
             Indicates the mask that means all houses.
             </summary>
-        </member>
-        <member name="M:Sudoku.Concepts.HouseMaskOperations.SplitMask(System.Int32)">
-            <summary>
-            Try to split mask into three parts.
-            </summary>
-            <param name="this">The mask to be split.</param>
-            <returns>The mask split.</returns>
         </member>
         <member name="T:Sudoku.Concepts.HouseType">
             <summary>
@@ -7312,6 +7315,11 @@
             Provides extension members on <see cref="T:System.Int16"/>.
             </summary>
         </member>
+        <member name="P:Sudoku.Concepts.MaskExtensions..SplitMask">
+            <summary>
+            Indicates a triplet of mask parts by splitting mask, with each element of length 3.
+            </summary>
+        </member>
         <member name="M:Sudoku.Concepts.MaskExtensions..ToBinaryString(System.Boolean)">
             <summary>
             Try to convert the current mask value into a valid <see cref="T:System.String"/> representation of binary format.
@@ -7417,13 +7425,6 @@
             <param name="mask">The mask.</param>
             <returns>The cell state.</returns>
             <seealso cref="T:Sudoku.Concepts.Grid"/>
-        </member>
-        <member name="M:Sudoku.Concepts.MaskOperations.SplitMask(System.Int16)">
-            <summary>
-            Try to split a mask into 3 parts, 3-bit as a unit.
-            </summary>
-            <param name="this">The mask instance to be split.</param>
-            <returns>A triplet of values.</returns>
         </member>
         <member name="T:Sudoku.Concepts.Miniline">
             <summary>
