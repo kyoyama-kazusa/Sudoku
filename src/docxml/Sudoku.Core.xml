@@ -1120,32 +1120,6 @@
         <member name="M:Sudoku.Concepts.CandidateMap.System#IEquatable{Sudoku#Concepts#CandidateMap}#Equals(Sudoku.Concepts.CandidateMap)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Concepts.CandidateMarshal">
-            <summary>
-            Represents methods that operates with <see cref="T:System.Int32"/> values.
-            </summary>
-            <seealso cref="T:System.Int32"/>
-        </member>
-        <member name="M:Sudoku.Concepts.CandidateMarshal.AsCandidateMap(System.Int32)">
-            <summary>
-            Converts the specified <see cref="T:System.Int32"/> into a singleton <see cref="T:Sudoku.Concepts.CandidateMap"/> instance.
-            </summary>
-            <param name="this">The cell to be converted.</param>
-            <returns>A <see cref="T:Sudoku.Concepts.CandidateMap"/> instance, containing only one element of <paramref name="this"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Concepts.CandidateMarshal.AsCandidateMap(System.Int32[])">
-            <inheritdoc cref="M:Sudoku.Concepts.CandidateMarshal.AsCandidateMap(System.Span{System.Int32})"/>
-        </member>
-        <member name="M:Sudoku.Concepts.CandidateMarshal.AsCandidateMap(System.Span{System.Int32})">
-            <summary>
-            Converts the specified list of <see cref="T:System.Int32"/> instances into a <see cref="T:Sudoku.Concepts.CandidateMap"/> instance.
-            </summary>
-            <param name="this">The cells to be converted.</param>
-            <returns>A <see cref="T:Sudoku.Concepts.CandidateMap"/> instance, containing all elements come from <paramref name="this"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Concepts.CandidateMarshal.AsCandidateMap(System.ReadOnlySpan{System.Int32})">
-            <inheritdoc cref="M:Sudoku.Concepts.CandidateMarshal.AsCandidateMap(System.Span{System.Int32})"/>
-        </member>
         <member name="T:Sudoku.Concepts.CellMap">
             <summary>
             Encapsulates a binary series of cell state table.
@@ -1757,25 +1731,70 @@
             <param name="this">The cell.</param>
             <returns>The chute index.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.CellMarshal.AsCellMap(System.Int32)">
+        <member name="T:Sudoku.Concepts.CellOrCandidateMapExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:Sudoku.Concepts.CellMap"/> or <see cref="T:Sudoku.Concepts.CandidateMap"/>.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Concepts.CellOrCandidateMapExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Concepts.CellOrCandidateMapExtensions..AsCellMap">
             <summary>
             Converts the specified <see cref="T:System.Int32"/> into a singleton <see cref="T:Sudoku.Concepts.CellMap"/> instance.
             </summary>
-            <param name="this">The cell to be converted.</param>
-            <returns>A <see cref="T:Sudoku.Concepts.CellMap"/> instance, containing only one element of <paramref name="this"/>.</returns>
+            <returns>A <see cref="T:Sudoku.Concepts.CellMap"/> instance, containing only one element of the current cell.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.CellMarshal.AsCellMap(System.Int32[])">
-            <inheritdoc cref="M:Sudoku.Concepts.CellMarshal.AsCellMap(System.Span{System.Int32})"/>
+        <member name="T:Sudoku.Concepts.CellOrCandidateMapExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Int32"/>[].
+            </summary>
         </member>
-        <member name="M:Sudoku.Concepts.CellMarshal.AsCellMap(System.Span{System.Int32})">
+        <member name="M:Sudoku.Concepts.CellOrCandidateMapExtensions..AsCellMap">
+            <inheritdoc cref="M:Sudoku.Concepts.CellOrCandidateMapExtensions.AsCellMap(System.ReadOnlySpan{System.Int32})"/>
+        </member>
+        <member name="T:Sudoku.Concepts.CellOrCandidateMapExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Int32"/>[].
+            </summary>
+        </member>
+        <member name="M:Sudoku.Concepts.CellOrCandidateMapExtensions..AsCandidateMap">
+            <inheritdoc cref="M:Sudoku.Concepts.CellOrCandidateMapExtensions.AsCandidateMap(System.ReadOnlySpan{System.Int32})"/>
+        </member>
+        <member name="T:Sudoku.Concepts.CellOrCandidateMapExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Concepts.CellOrCandidateMapExtensions..AsCandidateMap">
+            <summary>
+            Converts the specified <see cref="T:System.Int32"/> into a singleton <see cref="T:Sudoku.Concepts.CandidateMap"/> instance.
+            </summary>
+            <returns>A <see cref="T:Sudoku.Concepts.CandidateMap"/> instance, containing only one element of the current candidate.</returns>
+        </member>
+        <member name="T:Sudoku.Concepts.CellOrCandidateMapExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Concepts.CellOrCandidateMapExtensions..AsCellMap">
             <summary>
             Converts the specified list of <see cref="T:System.Int32"/> instances into a <see cref="T:Sudoku.Concepts.CellMap"/> instance.
             </summary>
-            <param name="this">The cells to be converted.</param>
-            <returns>A <see cref="T:Sudoku.Concepts.CellMap"/> instance, containing all elements come from <paramref name="this"/>.</returns>
+            <returns>A <see cref="T:Sudoku.Concepts.CellMap"/> instance, containing all elements come from the current sequence.</returns>
         </member>
-        <member name="M:Sudoku.Concepts.CellMarshal.AsCellMap(System.ReadOnlySpan{System.Int32})">
-            <inheritdoc cref="M:Sudoku.Concepts.CellMarshal.AsCellMap(System.Span{System.Int32})"/>
+        <member name="T:Sudoku.Concepts.CellOrCandidateMapExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Concepts.CellOrCandidateMapExtensions..AsCandidateMap">
+            <summary>
+            Converts the specified list of <see cref="T:System.Int32"/> instances into a <see cref="T:Sudoku.Concepts.CandidateMap"/> instance.
+            </summary>
+            <returns>A <see cref="T:Sudoku.Concepts.CandidateMap"/> instance, containing all elements come from the current sequence.</returns>
         </member>
         <member name="T:Sudoku.Concepts.CellState">
             <summary>
