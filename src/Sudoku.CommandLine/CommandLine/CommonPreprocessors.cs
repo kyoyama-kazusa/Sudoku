@@ -89,7 +89,7 @@ internal static class CommonPreprocessors
 						GridsSpan: var grids
 					} tempAnalysisResult)
 				{
-					foreach (var kvp in StepMarshal.Combine(grids, steps))
+					foreach (var kvp in Step.Combine(grids, steps))
 					{
 						if (kvp.Value.Code == filteredTechnique)
 						{

@@ -31,7 +31,7 @@ public sealed class SolvingPathStepCollection : List<SolvingPathStepBindableSour
 
 		var showHodoku = Application.Current.AsApp().Preference.AnalysisPreferences.DisplayDifficultyRatingForHodoku;
 		var showSudokuExplainer = Application.Current.AsApp().Preference.AnalysisPreferences.DisplayDifficultyRatingForSudokuExplainer;
-		var path = StepMarshal.Combine(grids, steps).ToArray();
+		var path = Step.Combine(grids, steps).ToArray();
 		for (var i = 0; i < path.Length; i++)
 		{
 			var (interimGrid, interimStep) = path[i];

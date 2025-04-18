@@ -94,7 +94,7 @@ public abstract class ComplexSingleGenerator : TechniqueGenerator, IJustOneCellG
 				}
 				case { IsSolved: true, StepsSpan: var steps, GridsSpan: var grids }:
 				{
-					foreach (var (g, s) in StepMarshal.Combine(grids, steps))
+					foreach (var (g, s) in Step.Combine(grids, steps))
 					{
 						if (StepFilter(s))
 						{

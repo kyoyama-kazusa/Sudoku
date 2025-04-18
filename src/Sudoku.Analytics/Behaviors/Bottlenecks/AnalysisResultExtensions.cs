@@ -63,7 +63,7 @@ public static class AnalysisResultExtensions
 		{
 			var collector = GridPartialMarkingExtensions.Collector;
 			var result = new List<Step>();
-			foreach (var (g, s) in StepMarshal.Combine(@this.GridsSpan, @this.StepsSpan))
+			foreach (var (g, s) in Step.Combine(@this.GridsSpan, @this.StepsSpan))
 			{
 				if ((
 					from step in collector.Collect(g)
@@ -81,7 +81,7 @@ public static class AnalysisResultExtensions
 		{
 			var collector = GridPartialMarkingExtensions.Collector;
 			var result = new List<Step>();
-			foreach (var (g, s) in StepMarshal.Combine(@this.GridsSpan, @this.StepsSpan))
+			foreach (var (g, s) in Step.Combine(@this.GridsSpan, @this.StepsSpan))
 			{
 				var currentStepPencilmarkVisibility = s.PencilmarkType;
 				if ((

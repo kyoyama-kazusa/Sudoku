@@ -5,7 +5,7 @@ public partial record AnalysisResult
 	/// <summary>
 	/// A span of values.
 	/// </summary>
-	private ReadOnlySpan<KeyValuePair<Grid, Step>> Span => StepMarshal.Combine(GridsSpan, StepsSpan);
+	private ReadOnlySpan<KeyValuePair<Grid, Step>> Span => Step.Combine(GridsSpan, StepsSpan);
 
 
 	/// <summary>

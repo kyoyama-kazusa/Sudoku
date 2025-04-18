@@ -50,9 +50,9 @@ public sealed partial class PrimarySingleConstraint : Constraint
 		ref readonly var grid = ref context.Grid;
 		return Primary switch
 		{
-			SingleTechniqueFlag.FullHouse => grid.CanPrimaryFullHouse(),
+			SingleTechniqueFlag.FullHouse => grid.CanPrimaryFullHouse,
 			SingleTechniqueFlag.HiddenSingle => grid.CanPrimaryHiddenSingle(AllowsHiddenSingleInLines),
-			SingleTechniqueFlag.NakedSingle => grid.CanPrimaryNakedSingle()
+			SingleTechniqueFlag.NakedSingle => grid.CanPrimaryNakedSingle
 		};
 	}
 }

@@ -393,7 +393,7 @@ public sealed partial class GeneratingOperation : Page, IOperationProviderPage
 					}
 				}
 
-				foreach (var (g, s) in StepMarshal.Combine(grids, steps))
+				foreach (var (g, s) in Step.Combine(grids, steps))
 				{
 					if (techniques.Contains(s.Code))
 					{
@@ -462,7 +462,7 @@ public sealed partial class GeneratingOperation : Page, IOperationProviderPage
 					}
 				}
 
-				foreach (var (g, s) in StepMarshal.Combine(grids, steps))
+				foreach (var (g, s) in Step.Combine(grids, steps))
 				{
 					if (techniques.Contains(s.Code))
 					{

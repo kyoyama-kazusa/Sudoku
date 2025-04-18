@@ -472,7 +472,7 @@ public sealed class HiddenSingleGenerator : SingleGenerator
 				}
 				case { IsSolved: true, GridsSpan: var grids, StepsSpan: var steps }:
 				{
-					foreach (var (currentGrid, s) in StepMarshal.Combine(grids, steps))
+					foreach (var (currentGrid, s) in Step.Combine(grids, steps))
 					{
 						if (s is not HiddenSingleStep { Cell: var cell, Digit: var digit, House: var house })
 						{

@@ -5805,12 +5805,16 @@
             </summary>
             <seealso cref="T:Sudoku.Analytics.Construction.Components.IForcingChains"/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Drivers.ForcingChainsCastingExtensions.Cast``1(``0)">
+        <member name="T:Sudoku.Analytics.Construction.Drivers.ForcingChainsCastingExtensions.`1">
+            <summary>
+            Provides extension members on <typeparamref name="T"/>,
+            where <typeparamref name="T"/> satisfies <see cref="T:Sudoku.Analytics.Construction.Components.IForcingChains"/> constraint.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Drivers.ForcingChainsCastingExtensions.`1.Cast">
             <summary>
             Cast the object into <see cref="T:Sudoku.Analytics.Construction.Components.IForcingChains"/> regardless of its base type <typeparamref name="T"/>.
             </summary>
-            <typeparam name="T">The type of <paramref name="this"/>.</typeparam>
-            <param name="this">The current instance.</param>
             <returns>Cast <see cref="T:Sudoku.Analytics.Construction.Components.IForcingChains"/> instance.</returns>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Drivers.GridNodeExtensions">
@@ -7598,11 +7602,15 @@
             </summary>
             <seealso cref="T:Sudoku.Analytics.DifficultyLevel"/>
         </member>
-        <member name="M:Sudoku.Analytics.DifficultyLevelExtensions.GetName(Sudoku.Analytics.DifficultyLevel,System.IFormatProvider)">
+        <member name="T:Sudoku.Analytics.DifficultyLevelExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Analytics.DifficultyLevel"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.DifficultyLevelExtensions..GetName(System.IFormatProvider)">
             <summary>
             Gets the name of the current value, with specified culture.
             </summary>
-            <param name="this">The value.</param>
             <param name="formatProvider">The culture.</param>
             <returns>The string value.</returns>
         </member>
@@ -7689,36 +7697,39 @@
             </summary>
             <seealso cref="T:Sudoku.Concepts.Grid"/>
         </member>
-        <member name="M:Sudoku.Analytics.GridAnalysisExtensions.Apply(Sudoku.Concepts.Grid@,Sudoku.Analytics.Step)">
+        <member name="T:Sudoku.Analytics.GridAnalysisExtensions.">
+            <summary>
+            Provides extension members on <see langword="ref"/> <see cref="T:Sudoku.Concepts.Grid"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.GridAnalysisExtensions..Apply(Sudoku.Analytics.Step)">
             <summary>
             Applies for all conclusions into the current <see cref="T:Sudoku.Concepts.Grid"/> instance.
             </summary>
-            <param name="this">A <see cref="T:Sudoku.Concepts.Grid"/> instance that receives the conclusions to be applied.</param>
             <param name="step">A conclusion-provider <see cref="T:Sudoku.Analytics.Step"/> instance.</param>
         </member>
-        <member name="M:Sudoku.Analytics.GridAnalysisExtensions.CanPrimaryFullHouse(Sudoku.Concepts.Grid@)">
+        <member name="T:Sudoku.Analytics.GridAnalysisExtensions.">
+            <summary>
+            Provides extension members on <see langword="in"/> <see cref="T:Sudoku.Concepts.Grid"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.GridAnalysisExtensions..CanPrimaryFullHouse">
             <summary>
             Checks whether the puzzle can be solved using only full house.
             </summary>
-            <param name="this">The grid to be checked.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.GridAnalysisExtensions.CanPrimaryHiddenSingle(Sudoku.Concepts.Grid@,System.Boolean)">
-            <summary>
-            Checks whether the puzzle can be solved using only full house and hidden single.
-            </summary>
-            <param name="this">The grid to be checked.</param>
-            <param name="allowHiddenSingleInLine">
-            A <see cref="T:System.Boolean"/> value indicating whether hidden single includes line types.
-            </param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.GridAnalysisExtensions.CanPrimaryNakedSingle(Sudoku.Concepts.Grid@)">
+        <member name="P:Sudoku.Analytics.GridAnalysisExtensions..CanPrimaryNakedSingle">
             <summary>
             Checks whether the puzzle can be solved using only naked single.
             </summary>
-            <param name="this">The grid to be checked.</param>
-            <returns>A <see cref="T:System.Boolean"/> value indicating that.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.GridAnalysisExtensions..CanPrimaryHiddenSingle(System.Boolean)">
+            <summary>
+            Checks whether the puzzle can be solved using only full house and hidden single.
+            </summary>
+            <param name="allowHiddenSingleInLine">
+            A <see cref="T:System.Boolean"/> value indicating whether hidden single includes line types.
+            </param>
         </member>
         <member name="T:Sudoku.Analytics.Hub">
             <summary>
@@ -8545,6 +8556,38 @@
         <member name="M:Sudoku.Analytics.StepAnalysisContext.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
+        <member name="T:Sudoku.Analytics.StepExtensions">
+            <summary>
+            Provides with extension methods on <see cref="T:Sudoku.Analytics.Step"/>.
+            </summary>
+            <seealso cref="T:Sudoku.Analytics.Step"/>
+        </member>
+        <member name="T:Sudoku.Analytics.StepExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Analytics.Step"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.StepExtensions..CompareName(Sudoku.Analytics.Step,Sudoku.Analytics.Step,System.IFormatProvider)">
+            <summary>
+            Compare names of two <see cref="T:Sudoku.Analytics.Step"/> instances.
+            </summary>
+            <param name="left">The left instance to be compared.</param>
+            <param name="right">The right instance to be compared.</param>
+            <param name="formatProvider">The culture information.</param>
+            <returns>An <see cref="T:System.Int32"/> value indicating which is bigger.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepExtensions..Combine(System.ReadOnlySpan{Sudoku.Concepts.Grid},System.ReadOnlySpan{Sudoku.Analytics.Step})">
+            <summary>
+            Zips the collection, pairing each step and corresponding grid into a <see cref="T:System.ValueTuple`2"/>,
+            and return the collection of pairs.
+            </summary>
+            <param name="interimGrids">The grids corresponded.</param>
+            <param name="interimSteps">The steps.</param>
+            <returns>The zipped collection.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Throws when the length of arguments <paramref name="interimGrids"/> and <paramref name="interimSteps"/> aren't same.
+            </exception>
+        </member>
         <member name="T:Sudoku.Analytics.StepGatherer">
             <summary>
             Represents a type that support collecting <see cref="T:Sudoku.Analytics.Step"/> instances on a certain checking logic for a grid.
@@ -8758,33 +8801,6 @@
         </member>
         <member name="P:Sudoku.Analytics.StepGathererProgressPresenter.Percent">
             <summary>The percent value.</summary>
-        </member>
-        <member name="T:Sudoku.Analytics.StepMarshal">
-            <summary>
-            Represents a list of methods operating with <see cref="T:Sudoku.Analytics.Step"/> instances.
-            </summary>
-            <seealso cref="T:Sudoku.Analytics.Step"/>
-        </member>
-        <member name="M:Sudoku.Analytics.StepMarshal.CompareName(Sudoku.Analytics.Step,Sudoku.Analytics.Step,System.IFormatProvider)">
-            <summary>
-            Compare names of two <see cref="T:Sudoku.Analytics.Step"/> instances.
-            </summary>
-            <param name="left">The left instance to be compared.</param>
-            <param name="right">The right instance to be compared.</param>
-            <param name="formatProvider">The culture information.</param>
-            <returns>An <see cref="T:System.Int32"/> value indicating which is bigger.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.StepMarshal.Combine(System.ReadOnlySpan{Sudoku.Concepts.Grid},System.ReadOnlySpan{Sudoku.Analytics.Step})">
-            <summary>
-            Zips the collection, pairing each step and corresponding grid into a <see cref="T:System.ValueTuple`2"/>,
-            and return the collection of pairs.
-            </summary>
-            <param name="interimGrids">The grids corresponded.</param>
-            <param name="interimSteps">The steps.</param>
-            <returns>The zipped collection.</returns>
-            <exception cref="T:System.InvalidOperationException">
-            Throws when the length of arguments <paramref name="interimGrids"/> and <paramref name="interimSteps"/> aren't same.
-            </exception>
         </member>
         <member name="T:Sudoku.Analytics.StepSearcher">
             <summary>
@@ -22194,7 +22210,12 @@
             Provides a way to analyze technique usages on difference between two grids.
             </summary>
         </member>
-        <member name="M:Sudoku.Behaviors.Diff.DiffTechniqueAnalysis.TryAnalyzeTechnique(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,Sudoku.Analytics.Collector,Sudoku.Analytics.Step@)">
+        <member name="T:Sudoku.Behaviors.Diff.DiffTechniqueAnalysis.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Concepts.Grid"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Behaviors.Diff.DiffTechniqueAnalysis..TryAnalyzeTechnique(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,Sudoku.Analytics.Collector,Sudoku.Analytics.Step@)">
             <summary>
             Try to analyze technique used that causes <paramref name="left"/> changing into <paramref name="right"/>.
             </summary>

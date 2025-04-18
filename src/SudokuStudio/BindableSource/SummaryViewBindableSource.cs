@@ -123,7 +123,7 @@ internal sealed class SummaryViewBindableSource : INotifyPropertyChanged
 					? difficultyLevelComparisonResult
 					: left.Code.CompareTo(right.Code) is var codeComparisonResult and not 0
 						? codeComparisonResult
-						: StepMarshal.CompareName(left, right, App.CurrentCulture)
+						: Step.CompareName(left, right, App.CurrentCulture)
 			);
 			return [
 				..

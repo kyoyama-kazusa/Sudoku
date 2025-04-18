@@ -7,64 +7,68 @@ namespace Sudoku.Analytics;
 public static class GridAnalysisExtensions
 {
 	/// <summary>
-	/// Applies for all conclusions into the current <see cref="Grid"/> instance.
+	/// Provides extension members on <see langword="ref"/> <see cref="Grid"/>.
 	/// </summary>
-	/// <param name="this">A <see cref="Grid"/> instance that receives the conclusions to be applied.</param>
-	/// <param name="step">A conclusion-provider <see cref="Step"/> instance.</param>
-	public static void Apply(this ref Grid @this, Step step)
+	extension(ref Grid @this)
 	{
-		foreach (var conclusion in step.Conclusions)
+		/// <summary>
+		/// Applies for all conclusions into the current <see cref="Grid"/> instance.
+		/// </summary>
+		/// <param name="step">A conclusion-provider <see cref="Step"/> instance.</param>
+		public void Apply(Step step)
 		{
-			@this.Apply(conclusion);
+			foreach (var conclusion in step.Conclusions)
+			{
+				@this.Apply(conclusion);
+			}
 		}
 	}
 
 	/// <summary>
-	/// Checks whether the puzzle can be solved using only full house.
+	/// Provides extension members on <see langword="in"/> <see cref="Grid"/>.
 	/// </summary>
-	/// <param name="this">The grid to be checked.</param>
-	/// <returns>A <see cref="bool"/> result indicating that.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static bool CanPrimaryFullHouse(this in Grid @this)
-		=> Analyzer.Default
-			.WithStepSearchers(new SingleStepSearcher { EnableFullHouse = true })
-			.WithUserDefinedOptions(new() { PrimarySingle = SingleTechniqueFlag.FullHouse })
-			.Analyze(in @this)
-			.IsSolved;
+	extension(in Grid @this)
+	{
+		/// <summary>
+		/// Checks whether the puzzle can be solved using only full house.
+		/// </summary>
+		public bool CanPrimaryFullHouse
+			=> Analyzer.Default
+				.WithStepSearchers(new SingleStepSearcher { EnableFullHouse = true })
+				.WithUserDefinedOptions(new() { PrimarySingle = SingleTechniqueFlag.FullHouse })
+				.Analyze(in @this)
+				.IsSolved;
 
-	/// <summary>
-	/// Checks whether the puzzle can be solved using only full house and hidden single.
-	/// </summary>
-	/// <param name="this">The grid to be checked.</param>
-	/// <param name="allowHiddenSingleInLine">
-	/// A <see cref="bool"/> value indicating whether hidden single includes line types.
-	/// </param>
-	/// <returns>A <see cref="bool"/> result indicating that.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static bool CanPrimaryHiddenSingle(this in Grid @this, bool allowHiddenSingleInLine)
-		=> Analyzer.Default
-			.WithStepSearchers(new SingleStepSearcher { EnableFullHouse = true, EnableLastDigit = true })
-			.WithUserDefinedOptions(
-				new()
-				{
-					IsDirectMode = true,
-					PrimarySingle = SingleTechniqueFlag.HiddenSingle,
-					PrimaryHiddenSingleAllowsLines = allowHiddenSingleInLine
-				}
-			)
-			.Analyze(in @this)
-			.IsSolved;
+		/// <summary>
+		/// Checks whether the puzzle can be solved using only naked single.
+		/// </summary>
+		public bool CanPrimaryNakedSingle
+			=> Analyzer.Default
+				.WithStepSearchers(new SingleStepSearcher { EnableFullHouse = true })
+				.WithUserDefinedOptions(new() { IsDirectMode = true, PrimarySingle = SingleTechniqueFlag.NakedSingle })
+				.Analyze(in @this)
+				.IsSolved;
 
-	/// <summary>
-	/// Checks whether the puzzle can be solved using only naked single.
-	/// </summary>
-	/// <param name="this">The grid to be checked.</param>
-	/// <returns>A <see cref="bool"/> value indicating that.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static bool CanPrimaryNakedSingle(this in Grid @this)
-		=> Analyzer.Default
-			.WithStepSearchers(new SingleStepSearcher { EnableFullHouse = true })
-			.WithUserDefinedOptions(new() { IsDirectMode = true, PrimarySingle = SingleTechniqueFlag.NakedSingle })
-			.Analyze(in @this)
-			.IsSolved;
+
+		/// <summary>
+		/// Checks whether the puzzle can be solved using only full house and hidden single.
+		/// </summary>
+		/// <param name="allowHiddenSingleInLine">
+		/// A <see cref="bool"/> value indicating whether hidden single includes line types.
+		/// </param>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public bool CanPrimaryHiddenSingle(bool allowHiddenSingleInLine)
+			=> Analyzer.Default
+				.WithStepSearchers(new SingleStepSearcher { EnableFullHouse = true, EnableLastDigit = true })
+				.WithUserDefinedOptions(
+					new()
+					{
+						IsDirectMode = true,
+						PrimarySingle = SingleTechniqueFlag.HiddenSingle,
+						PrimaryHiddenSingleAllowsLines = allowHiddenSingleInLine
+					}
+				)
+				.Analyze(in @this)
+				.IsSolved;
+	}
 }

@@ -615,7 +615,7 @@ public sealed partial record AnalysisResult([property: EquatableMember] in Grid 
 					? difficultyLevelComparisonResult
 					: left.Code.CompareTo(right.Code) is var codeComparisonResult and not 0
 						? codeComparisonResult
-						: StepMarshal.CompareName(left, right, formatProvider)
+						: Step.CompareName(left, right, formatProvider)
 			);
 
 			foreach (ref readonly var solvingStepsGroup in

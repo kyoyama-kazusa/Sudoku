@@ -376,10 +376,15 @@ internal static partial class ChainingDriver
 file static class ForcingChainsCastingExtensions
 {
 	/// <summary>
-	/// Cast the object into <see cref="IForcingChains"/> regardless of its base type <typeparamref name="T"/>.
+	/// Provides extension members on <typeparamref name="T"/>,
+	/// where <typeparamref name="T"/> satisfies <see cref="IForcingChains"/> constraint.
 	/// </summary>
-	/// <typeparam name="T">The type of <paramref name="this"/>.</typeparam>
-	/// <param name="this">The current instance.</param>
-	/// <returns>Cast <see cref="IForcingChains"/> instance.</returns>
-	public static IForcingChains Cast<T>(this T @this) where T : IForcingChains => @this;
+	extension<T>(T @this) where T : IForcingChains
+	{
+		/// <summary>
+		/// Cast the object into <see cref="IForcingChains"/> regardless of its base type <typeparamref name="T"/>.
+		/// </summary>
+		/// <returns>Cast <see cref="IForcingChains"/> instance.</returns>
+		public IForcingChains Cast() => @this;
+	}
 }

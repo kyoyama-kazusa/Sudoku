@@ -36,11 +36,11 @@ public sealed partial class TechniqueSetConstraint : Constraint
 		ref readonly var grid = ref context.Grid;
 		return Techniques switch
 		{
-			[Technique.FullHouse] => grid.CanPrimaryFullHouse(),
+			[Technique.FullHouse] => grid.CanPrimaryFullHouse,
 			[Technique.CrosshatchingBlock or Technique.HiddenSingleBlock] => grid.CanPrimaryHiddenSingle(false),
 			[Technique.CrosshatchingRow or Technique.CrosshatchingColumn or Technique.HiddenSingleRow or Technique.HiddenSingleColumn]
 				=> grid.CanPrimaryHiddenSingle(true),
-			[Technique.NakedSingle] => grid.CanPrimaryNakedSingle(),
+			[Technique.NakedSingle] => grid.CanPrimaryNakedSingle,
 			_ => b(context)
 		};
 
