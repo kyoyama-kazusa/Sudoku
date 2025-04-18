@@ -240,7 +240,7 @@ public sealed partial class AnonymousDeadlyPatternStepSearcher : StepSearcher
 					}
 					case 1:
 					{
-						var extraDigit = Mask.Log2(extraDigitsMask);
+						var extraDigit = BitOperations.Log2(extraDigitsMask);
 						if (CheckType1Or2(
 							ref context, grid, pattern, currentCombinationDigitsMask, extraDigit, p,
 							(pattern & CandidatesMap[extraDigit]).Count == 1
@@ -384,7 +384,7 @@ public sealed partial class AnonymousDeadlyPatternStepSearcher : StepSearcher
 						}
 						case 1:
 						{
-							var extraDigit = Mask.Log2(extraDigitsMask);
+							var extraDigit = BitOperations.Log2(extraDigitsMask);
 							if (CheckType1Or2(
 								ref context, grid, pattern, currentCombinationDigitsMask, extraDigit, p,
 								(pattern & CandidatesMap[extraDigit]).Count == 1

@@ -190,7 +190,7 @@ public sealed partial class BivalueOddagonStepSearcher : StepSearcher
 						var newExtraCells = BitOperations.PopCount(grid.GetCandidates(cell)) > 2 ? extraCells + cell : extraCells;
 						if (newExtraCells.FirstSharedHouse != 32
 							|| BitOperations.IsPow2(newExtraDigitsMask)
-							&& !!(newExtraCells.PeerIntersection & CandidatesMap[Mask.Log2(newExtraDigitsMask)])
+							&& !!(newExtraCells.PeerIntersection & CandidatesMap[BitOperations.Log2(newExtraDigitsMask)])
 							|| newExtraCells.Count < 3)
 						{
 							dfs(

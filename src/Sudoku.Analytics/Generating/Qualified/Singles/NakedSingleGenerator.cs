@@ -73,7 +73,7 @@ public sealed class NakedSingleGenerator : SingleGenerator
 			digitsMask &= (Mask)~(1 << digit);
 		}
 
-		var targetDigit = Mask.Log2(digitsMask);
+		var targetDigit = BitOperations.Log2(digitsMask);
 		step = new NakedSingleStep(
 			null!,
 			null,

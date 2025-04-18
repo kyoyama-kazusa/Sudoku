@@ -159,7 +159,7 @@ public sealed record RxCyConverter(
 
 			if (BitOperations.IsPow2(housesMask))
 			{
-				var house = HouseMask.Log2(housesMask);
+				var house = BitOperations.Log2(housesMask);
 				return $"{getChar(house)}{house % 9 + 1}";
 			}
 

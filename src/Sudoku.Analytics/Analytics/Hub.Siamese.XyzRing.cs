@@ -48,8 +48,8 @@ public partial class Hub
 						goto ReturnFalse;
 					}
 
-					var house1 = HouseMask.Log2(xyz1.ConjugateHousesMask);
-					var house2 = HouseMask.Log2(xyz2.ConjugateHousesMask);
+					var house1 = BitOperations.Log2(xyz1.ConjugateHousesMask);
+					var house2 = BitOperations.Log2(xyz2.ConjugateHousesMask);
 					if ((HousesMap[house1] & CandidatesMap[xyz1.IntersectDigit]) == (HousesMap[house2] & CandidatesMap[xyz1.IntersectDigit]))
 					{
 						// They cannot hold a same cells of the conjugate.

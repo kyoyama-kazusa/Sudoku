@@ -90,7 +90,7 @@ public partial class UniqueRectangleStepSearcher
 							continue;
 						}
 
-						var elimDigit = Mask.Log2(onlyDigitMask);
+						var elimDigit = BitOperations.Log2(onlyDigitMask);
 
 						// Check whether the extra cells holds all possible digits appeared in 'thisCorner',
 						// with UR digits having been removed.

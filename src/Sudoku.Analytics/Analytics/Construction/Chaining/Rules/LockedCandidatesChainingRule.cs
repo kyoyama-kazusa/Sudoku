@@ -86,7 +86,7 @@ public sealed class LockedCandidatesChainingRule : ChainingRule
 			if (element is ({ Map: { Digits: var digits1, Cells: var cells1 } }, { Map: { Digits: var digits2, Cells: var cells2 } }, _, null)
 				&& digits1 == digits2 && BitOperations.IsPow2(digits1)
 				&& digits1 == digits2 && BitOperations.IsPow2(digits1)
-				&& Mask.Log2(digits1) is var digit
+				&& BitOperations.Log2(digits1) is var digit
 				&& (cells1 & cells2 & __CandidatesMap[digit]) is { Count: not 0 } intersection)
 			{
 				result.AddRange(from cell in intersection select new Conclusion(Elimination, cell, digit));

@@ -112,7 +112,7 @@ public partial class UniqueRectangleStepSearcher
 			}
 
 			// Then iterate empty cells lying in the target house, to determine whether a subset can be formed.
-			var subsetHouse = HouseMask.Log2(sameBlockHouses);
+			var subsetHouse = BitOperations.Log2(sameBlockHouses);
 			var outsideCellsRange = HousesMap[subsetHouse] // Subset house that:
 				& ~HousesMap[sameBlockCell.ToHouse(HouseType.Block)] // won't overlap the block with same-block cell
 				& ~cells // and won't overlap with UR pattern
@@ -528,7 +528,7 @@ public partial class UniqueRectangleStepSearcher
 
 				// Then iterate empty cells lying in the target house, to determine whether a subset can be formed.
 				var conjugatePairHouse = BitOperations.TrailingZeroCount(pairMap2.SharedHouses);
-				var subsetHouse = HouseMask.Log2(sameBlockHouses);
+				var subsetHouse = BitOperations.Log2(sameBlockHouses);
 				var outsideCellsRange = HousesMap[subsetHouse] // Subset house that:
 					& ~HousesMap[sameBlockCell.ToHouse(HouseType.Block)] // won't overlap the block with same-block cell
 					& ~cells // and won't overlap with UR pattern

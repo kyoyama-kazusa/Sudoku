@@ -437,7 +437,7 @@ public partial struct MarkerGrid : GridBase
 		{
 			if (GetState(cell) != CellState.Empty)
 			{
-				result[cell] = Mask.Log2(GetCandidates(cell));
+				result[cell] = BitOperations.Log2(GetCandidates(cell));
 			}
 		}
 		return result;

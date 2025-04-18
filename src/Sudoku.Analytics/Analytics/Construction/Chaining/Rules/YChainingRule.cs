@@ -65,7 +65,7 @@ public sealed class YChainingRule : ChainingRule
 		var resultNodes = new HashSet<Node>();
 		if (BitOperations.IsPow2(digitsMask))
 		{
-			var endDigit = Mask.Log2(digitsMask);
+			var endDigit = BitOperations.Log2(digitsMask);
 			var digitsToCheck = (Mask)(originalGrid.GetCandidates(cell) & ~grid.GetCandidates(cell));
 			resultNodes.Add(
 				new(

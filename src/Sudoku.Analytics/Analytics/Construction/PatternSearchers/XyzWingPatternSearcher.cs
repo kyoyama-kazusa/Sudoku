@@ -65,7 +65,7 @@ public sealed class XyzWingPatternSearcher : PatternSearcher<XyzWingPattern>
 							continue;
 						}
 
-						var intersectedDigit = Mask.Log2((Mask)(digitsMaskPivot & digitsMask1 & digitsMask2));
+						var intersectedDigit = BitOperations.Log2((Mask)(digitsMaskPivot & digitsMask1 & digitsMask2));
 						result.Add(new(pivot, leafCell1, leafCell2, house1, house2, unionedDigitsMask, intersectedDigit));
 					}
 				}

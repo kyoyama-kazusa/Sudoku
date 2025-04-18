@@ -49,7 +49,7 @@ public sealed class UniqueRectangleSameDigitChainingRule : UniqueRectangleChaini
 				}
 
 				var ur = new UniqueRectanglePattern(urCells, urDigitsMask, otherDigitsMask);
-				var otherOnlyDigit = Mask.Log2(otherDigitsMask);
+				var otherOnlyDigit = BitOperations.Log2(otherDigitsMask);
 				var cellsContainingThisDigit = __CandidatesMap[otherOnlyDigit] & urCells;
 				var rowsSpanned = cellsContainingThisDigit.RowMask << 9;
 				if (BitOperations.PopCount(rowsSpanned) == 2)

@@ -404,7 +404,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 					continue;
 				}
 
-				var lastDigit = Mask.Log2(lastDigitsMask);
+				var lastDigit = BitOperations.Log2(lastDigitsMask);
 				if ((grid.GetCandidates(cell) >> lastDigit & 1) == 0)
 				{
 					// This cell doesn't contain such digit.
@@ -588,7 +588,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 				}
 			}
 
-			var lastDigit = Mask.Log2(availableDigitsMask);
+			var lastDigit = BitOperations.Log2(availableDigitsMask);
 			var step = new DirectSubsetStep(
 				new SingletonArray<Conclusion>(new(Assignment, cell, lastDigit)),
 				[
@@ -672,7 +672,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 					continue;
 				}
 
-				var lastDigit = Mask.Log2(lastDigitsMask);
+				var lastDigit = BitOperations.Log2(lastDigitsMask);
 				if ((grid.GetCandidates(cell) >> lastDigit & 1) == 0)
 				{
 					// This cell doesn't contain such digit.
@@ -863,7 +863,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 				}
 			}
 
-			var lastDigit = Mask.Log2(availableDigitsMask);
+			var lastDigit = BitOperations.Log2(availableDigitsMask);
 			var step = new DirectSubsetStep(
 				new SingletonArray<Conclusion>(new(Assignment, cell, lastDigit)),
 				[
