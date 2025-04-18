@@ -17,8 +17,8 @@ public partial class GridCanvas
 
 		using var elimBrush = new SolidBrush(eColor);
 		using var cannibalBrush = new SolidBrush(cColor);
-		using var elimBrushLighter = new SolidBrush(eColor.QuarterAlpha());
-		using var cannibalismBrushLighter = new SolidBrush(cColor.QuarterAlpha());
+		using var elimBrushLighter = new SolidBrush(eColor.QuarterAlpha);
+		using var cannibalismBrushLighter = new SolidBrush(cColor.QuarterAlpha);
 		foreach (var (t, c, d) in conclusions)
 		{
 			if (t != Elimination)

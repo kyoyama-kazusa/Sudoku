@@ -4707,91 +4707,87 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 file static class Extensions
 {
 	/// <summary>
-	/// Try to get the maximum times that the specified digit, describing it can be filled with the specified houses in maximal case.
+	/// Provides extension members on <see langword="in"/> <see cref="CellMap"/>.
 	/// </summary>
-	/// <param name="this">The grid to be checked.</param>
-	/// <param name="digit">The digit to be checked.</param>
-	/// <param name="cells">The cells to be checked.</param>
-	/// <returns>The maximum possible times of the appearing.</returns>
-	public static int AppearingTimesOf(this in Grid @this, Digit digit, in CellMap cells)
+	extension(in CellMap @this)
 	{
-		var (activeCells, inactiveCells) = (CandidatesMap[digit] & cells, ValuesMap[digit] & cells);
-		for (var i = Math.Min(9, activeCells.Count); i >= 1; i--)
+		/// <summary>
+		/// Try to group up with target cells, separating into multiple parts, grouped by its containing row or column.
+		/// </summary>
+		/// <param name="houses">The mask value holding a list of houses to be matched.</param>
+		/// <returns>
+		/// A list of <see cref="CellMap"/> grouped, representing as a <see cref="TargetCellsGroup"/>.
+		/// </returns>
+		/// <seealso cref="TargetCellsGroup"/>
+		public ReadOnlySpan<TargetCellsGroup> GroupTargets(HouseMask houses)
 		{
-			foreach (ref readonly var cellsCombination in activeCells & i)
+			var (result, i) = (new TargetCellsGroup[BitOperations.PopCount(houses)], 0);
+			foreach (var house in houses)
 			{
-				if (!cellsCombination.CanSeeEachOther && ((cellsCombination.ExpandedPeers | cellsCombination) & activeCells) == activeCells)
+				if ((@this & HousesMap[house]) is var map and not [])
 				{
-					return i + inactiveCells.Count;
+					result[i++] = new(house, map);
 				}
 			}
+			return result.AsReadOnlySpan()[..i];
 		}
-		return 0;
 	}
 
-	/// <summary>
-	/// Try to get the maximum times that the specified digit, describing it can be filled with the specified houses in maximal case.
-	/// </summary>
-	/// <param name="this">The grid to be checked.</param>
-	/// <param name="digit">The digit to be checked.</param>
-	/// <param name="cells">The cells to be checked.</param>
-	/// <param name="limitCount">The number of times that the digit can be filled with the specified cells.</param>
-	/// <returns>A <see cref="bool"/> result indicating whether the argument <paramref name="limitCount"/> is exactly correct.</returns>
-	public static bool IsExactAppearingTimesOf(this in Grid @this, Digit digit, in CellMap cells, int limitCount)
-	{
-		var (activeCells, inactiveCells) = (CandidatesMap[digit] & cells, ValuesMap[digit] & cells);
-		if (!activeCells && limitCount == inactiveCells.Count)
-		{
-			return true;
-		}
-
-		for (var i = Math.Min(9, activeCells.Count); i >= 1; i--)
-		{
-			foreach (ref readonly var cellsCombination in activeCells & i)
-			{
-				if (!cellsCombination.CanSeeEachOther && ((cellsCombination.ExpandedPeers | cellsCombination) & activeCells) == activeCells)
-				{
-					return i + inactiveCells.Count == limitCount;
-				}
-			}
-		}
-		return false;
-	}
-
-	/// <summary>
-	/// Try to group up with target cells, separating into multiple parts, grouped by its containing row or column.
-	/// </summary>
-	/// <param name="this">The target cells to be split.</param>
-	/// <param name="houses">The mask value holding a list of houses to be matched.</param>
-	/// <returns>
-	/// A list of <see cref="CellMap"/> grouped, representing as a <see cref="TargetCellsGroup"/>.
-	/// </returns>
-	/// <seealso cref="TargetCellsGroup"/>
-	public static ReadOnlySpan<TargetCellsGroup> GroupTargets(this in CellMap @this, HouseMask houses)
-	{
-		var (result, i) = (new TargetCellsGroup[BitOperations.PopCount(houses)], 0);
-		foreach (var house in houses)
-		{
-			if ((@this & HousesMap[house]) is var map and not [])
-			{
-				result[i++] = new(house, map);
-			}
-		}
-		return result.AsReadOnlySpan()[..i];
-	}
-}
-
-/// <summary>
-/// Provides with extension methods on <see cref="Grid"/>.
-/// </summary>
-/// <seealso cref="Grid"/>
-file static class GridExocetExtensions
-{
 	/// <summary>
 	/// Provides extension members on <see langword="in"/> <see cref="Grid"/>.
 	/// </summary>
 	extension(in Grid @this)
 	{
+		/// <summary>
+		/// Try to get the maximum times that the specified digit, describing it can be filled with the specified houses in maximal case.
+		/// </summary>
+		/// <param name="digit">The digit to be checked.</param>
+		/// <param name="cells">The cells to be checked.</param>
+		/// <returns>The maximum possible times of the appearing.</returns>
+		public int AppearingTimesOf(Digit digit, in CellMap cells)
+		{
+			var (activeCells, inactiveCells) = (CandidatesMap[digit] & cells, ValuesMap[digit] & cells);
+			for (var i = Math.Min(9, activeCells.Count); i >= 1; i--)
+			{
+				foreach (ref readonly var cellsCombination in activeCells & i)
+				{
+					if (!cellsCombination.CanSeeEachOther && ((cellsCombination.ExpandedPeers | cellsCombination) & activeCells) == activeCells)
+					{
+						return i + inactiveCells.Count;
+					}
+				}
+			}
+			return 0;
+		}
+
+		/// <summary>
+		/// Try to get the maximum times that the specified digit, describing it can be filled with the specified houses in maximal case.
+		/// </summary>
+		/// <param name="digit">The digit to be checked.</param>
+		/// <param name="cells">The cells to be checked.</param>
+		/// <param name="limitCount">The number of times that the digit can be filled with the specified cells.</param>
+		/// <returns>A <see cref="bool"/> result indicating whether the argument <paramref name="limitCount"/> is exactly correct.</returns>
+		public bool IsExactAppearingTimesOf(Digit digit, in CellMap cells, int limitCount)
+		{
+			var (activeCells, inactiveCells) = (CandidatesMap[digit] & cells, ValuesMap[digit] & cells);
+			if (!activeCells && limitCount == inactiveCells.Count)
+			{
+				return true;
+			}
+
+			for (var i = Math.Min(9, activeCells.Count); i >= 1; i--)
+			{
+				foreach (ref readonly var cellsCombination in activeCells & i)
+				{
+					if (!cellsCombination.CanSeeEachOther && ((cellsCombination.ExpandedPeers | cellsCombination) & activeCells) == activeCells)
+					{
+						return i + inactiveCells.Count == limitCount;
+					}
+				}
+			}
+			return false;
+		}
+
 		/// <summary>
 		/// Check whether all intersected cells by original cross-line cells and extra house cells are non-empty,
 		/// and cannot be of value appeared in base cells.

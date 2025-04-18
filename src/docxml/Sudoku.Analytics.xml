@@ -9542,48 +9542,44 @@
 				</summary>
 			</target>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.Extensions.AppearingTimesOf(Sudoku.Concepts.Grid@,System.Int32,Sudoku.Concepts.CellMap@)">
+        <member name="T:Sudoku.Analytics.StepSearchers.Exocets.Extensions.">
             <summary>
-            Try to get the maximum times that the specified digit, describing it can be filled with the specified houses in maximal case.
+            Provides extension members on <see langword="in"/> <see cref="T:Sudoku.Concepts.CellMap"/>.
             </summary>
-            <param name="this">The grid to be checked.</param>
-            <param name="digit">The digit to be checked.</param>
-            <param name="cells">The cells to be checked.</param>
-            <returns>The maximum possible times of the appearing.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.Extensions.IsExactAppearingTimesOf(Sudoku.Concepts.Grid@,System.Int32,Sudoku.Concepts.CellMap@,System.Int32)">
-            <summary>
-            Try to get the maximum times that the specified digit, describing it can be filled with the specified houses in maximal case.
-            </summary>
-            <param name="this">The grid to be checked.</param>
-            <param name="digit">The digit to be checked.</param>
-            <param name="cells">The cells to be checked.</param>
-            <param name="limitCount">The number of times that the digit can be filled with the specified cells.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating whether the argument <paramref name="limitCount"/> is exactly correct.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.Extensions.GroupTargets(Sudoku.Concepts.CellMap@,System.Int32)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.Extensions..GroupTargets(System.Int32)">
             <summary>
             Try to group up with target cells, separating into multiple parts, grouped by its containing row or column.
             </summary>
-            <param name="this">The target cells to be split.</param>
             <param name="houses">The mask value holding a list of houses to be matched.</param>
             <returns>
             A list of <see cref="T:Sudoku.Concepts.CellMap"/> grouped, representing as a <see cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3"/>.
             </returns>
             <seealso cref="T:Sudoku.Linq.CellMapOrCandidateMapGrouping`3"/>
         </member>
-        <member name="T:Sudoku.Analytics.StepSearchers.Exocets.GridExocetExtensions">
-            <summary>
-            Provides with extension methods on <see cref="T:Sudoku.Concepts.Grid"/>.
-            </summary>
-            <seealso cref="T:Sudoku.Concepts.Grid"/>
-        </member>
-        <member name="T:Sudoku.Analytics.StepSearchers.Exocets.GridExocetExtensions.">
+        <member name="T:Sudoku.Analytics.StepSearchers.Exocets.Extensions.">
             <summary>
             Provides extension members on <see langword="in"/> <see cref="T:Sudoku.Concepts.Grid"/>.
             </summary>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.GridExocetExtensions..CheckCrossLineIntersectionLeaveEmpty(Sudoku.Concepts.CellMap@,System.Int16)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.Extensions..AppearingTimesOf(System.Int32,Sudoku.Concepts.CellMap@)">
+            <summary>
+            Try to get the maximum times that the specified digit, describing it can be filled with the specified houses in maximal case.
+            </summary>
+            <param name="digit">The digit to be checked.</param>
+            <param name="cells">The cells to be checked.</param>
+            <returns>The maximum possible times of the appearing.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.Extensions..IsExactAppearingTimesOf(System.Int32,Sudoku.Concepts.CellMap@,System.Int32)">
+            <summary>
+            Try to get the maximum times that the specified digit, describing it can be filled with the specified houses in maximal case.
+            </summary>
+            <param name="digit">The digit to be checked.</param>
+            <param name="cells">The cells to be checked.</param>
+            <param name="limitCount">The number of times that the digit can be filled with the specified cells.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating whether the argument <paramref name="limitCount"/> is exactly correct.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.Extensions..CheckCrossLineIntersectionLeaveEmpty(Sudoku.Concepts.CellMap@,System.Int16)">
             <summary>
             Check whether all intersected cells by original cross-line cells and extra house cells are non-empty,
             and cannot be of value appeared in base cells.
@@ -9592,7 +9588,7 @@
             <param name="baseCellsDigitsMask">The mask that holds a list of digits appeared in base cells.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.GridExocetExtensions..CheckTargetCellsDigitsValidity(Sudoku.Concepts.CellMap@,System.Int16)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.Extensions..CheckTargetCellsDigitsValidity(Sudoku.Concepts.CellMap@,System.Int16)">
             <summary>
             Check whether all digits appeared in base cells can be filled in target empty cells.
             </summary>
@@ -9600,7 +9596,7 @@
             <param name="baseCellsDigitsMask">A mask that holds a list of digits appeared in base cells.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.GridExocetExtensions..GetValueDigitsAppearedInCrossline(Sudoku.Concepts.CellMap@,System.Int16)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Exocets.Extensions..GetValueDigitsAppearedInCrossline(Sudoku.Concepts.CellMap@,System.Int16)">
             <summary>
             Try to get all possible digits as value representation in cross-line cells.
             </summary>
@@ -9675,7 +9671,12 @@
 				</summary>
 			</target>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Fishes.Extensions.All(System.ReadOnlySpan{Sudoku.Concepts.CellMap},Sudoku.Analytics.StepSearchers.Fishes.CellMapPredicate)">
+        <member name="T:Sudoku.Analytics.StepSearchers.Fishes.Extensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:Sudoku.Concepts.CellMap"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.StepSearchers.Fishes.Extensions..All(Sudoku.Analytics.StepSearchers.Fishes.CellMapPredicate)">
             <inheritdoc cref="M:System.Linq.Providers.IAnyAllMethod`2.All(System.Func{`1,System.Boolean})"/>
         </member>
         <member name="T:Sudoku.Analytics.StepSearchers.Fishes.CellMapPredicate">

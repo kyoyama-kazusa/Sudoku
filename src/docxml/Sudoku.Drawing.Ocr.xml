@@ -133,26 +133,34 @@
             </remarks>
             <seealso cref="T:System.Drawing.Bitmap"/>
         </member>
-        <member name="M:Sudoku.Drawing.Ocr.ImageHandler.IsRectangle(System.Drawing.PointF[],System.Int32,System.Int32,System.Double)">
+        <member name="T:Sudoku.Drawing.Ocr.ImageHandler.">
+            <summary>
+            Provides extension members on <see cref="T:System.Drawing.PointF"/>[].
+            </summary>
+        </member>
+        <member name="M:Sudoku.Drawing.Ocr.ImageHandler..IsRectangle(System.Int32,System.Int32,System.Double)">
             <summary>
             Get true if contour is rectangle with angles within <c>[lowAngle, upAngle]</c> degree.
             The default case is <c>[75, 105]</c> given by <paramref name="lowerAngle"/> and
             <paramref name="upperAngle"/>.
             </summary>
-            <param name="contour">The contour.</param>
             <param name="lowerAngle">The lower angle. The default value is <c>75</c>.</param>
             <param name="upperAngle">The upper angle. The default value is <c>105</c>.</param>
             <param name="ratio">The ratio. The default value is <c>.35</c>.</param>
             <returns>A <see cref="T:System.Boolean"/> value.</returns>
         </member>
-        <member name="M:Sudoku.Drawing.Ocr.ImageHandler.CorrectOrientation(System.Drawing.Bitmap)">
+        <member name="T:Sudoku.Drawing.Ocr.ImageHandler.">
+            <summary>
+            Provides extension members on <see cref="T:System.Drawing.Bitmap"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Drawing.Ocr.ImageHandler..CorrectOrientation">
             <summary>
             To correct the orientation.
             </summary>
-            <param name="this">The bitmap.</param>
-            <returns>Returns argument <paramref name="this"/> itself.</returns>
+            <returns>The reference same as <see langword="this"/>.</returns>
         </member>
-        <member name="M:Sudoku.Drawing.Ocr.ImageHandler.ToImage``2(System.Drawing.Bitmap)">
+        <member name="M:Sudoku.Drawing.Ocr.ImageHandler..ToImage``2">
             <summary>
             Create an <see cref="T:Emgu.CV.Image`2"/> from <see cref="T:System.Drawing.Bitmap"/>.
             </summary>
@@ -167,6 +175,17 @@
             <seealso cref="T:Emgu.CV.Image`2"/>
             <seealso cref="T:System.Drawing.Bitmap"/>
         </member>
+        <member name="T:Sudoku.Drawing.Ocr.ImageHandler.`2">
+            <summary>
+            Provides extension members on <see cref="T:Emgu.CV.Image`2"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Drawing.Ocr.ImageHandler.`2.CopyFromBitmap(System.Drawing.Bitmap)">
+            <summary>
+            Utility function for converting <see cref="T:System.Drawing.Bitmap"/> to <see cref="T:System.Drawing.Image"/>.
+            </summary>
+            <param name="bmp">the bitmap to copy data from.</param>
+        </member>
         <member name="M:Sudoku.Drawing.Ocr.ImageHandler.ColorPaletteToLookupTable(System.Drawing.Imaging.ColorPalette,Emgu.CV.Matrix{System.Byte}@,Emgu.CV.Matrix{System.Byte}@,Emgu.CV.Matrix{System.Byte}@,Emgu.CV.Matrix{System.Byte}@)">
             <summary>
             Convert the color palette to four lookup tables.
@@ -176,13 +195,6 @@
             <param name="gTable">Lookup table for the G channel.</param>
             <param name="rTable">Lookup table for the R channel.</param>
             <param name="aTable">Lookup table for the A channel.</param>
-        </member>
-        <member name="M:Sudoku.Drawing.Ocr.ImageHandler.CopyFromBitmap``2(Emgu.CV.Image{``0,``1},System.Drawing.Bitmap)">
-            <summary>
-            Utility function for converting <see cref="T:System.Drawing.Bitmap"/> to <see cref="T:System.Drawing.Image"/>.
-            </summary>
-            <param name="image">The image to copy data to.</param>
-            <param name="bmp">the bitmap to copy data from.</param>
         </member>
         <member name="T:Sudoku.Drawing.Ocr.InternalServiceProvider">
             <summary>

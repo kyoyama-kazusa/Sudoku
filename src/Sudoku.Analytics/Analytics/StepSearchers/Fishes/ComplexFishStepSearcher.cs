@@ -509,17 +509,23 @@ public sealed partial class ComplexFishStepSearcher : StepSearcher
 /// <include file='../../global-doc-comments.xml' path='g/csharp11/feature[@name="file-local"]/target[@name="class" and @when="extension"]'/>
 file static class Extensions
 {
-	/// <inheritdoc cref="IAnyAllMethod{TSelf, TSource}.All(Func{TSource, bool})"/>
-	public static bool All(this ReadOnlySpan<CellMap> @this, CellMapPredicate match)
+	/// <summary>
+	/// Provides extension members on <see cref="ReadOnlySpan{T}"/> of <see cref="CellMap"/>.
+	/// </summary>
+	extension(ReadOnlySpan<CellMap> @this)
 	{
-		foreach (ref readonly var element in @this)
+		/// <inheritdoc cref="IAnyAllMethod{TSelf, TSource}.All(Func{TSource, bool})"/>
+		public bool All(CellMapPredicate match)
 		{
-			if (!match(element))
+			foreach (ref readonly var element in @this)
 			{
-				return false;
+				if (!match(element))
+				{
+					return false;
+				}
 			}
+			return true;
 		}
-		return true;
 	}
 }
 

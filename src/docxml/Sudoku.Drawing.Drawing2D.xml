@@ -617,11 +617,15 @@
             </summary>
             <seealso cref="T:System.Drawing.Bitmap"/>
         </member>
-        <member name="M:System.Drawing.BitmapExtensions.ZoomTo(System.Drawing.Bitmap,System.Int32,System.Int32)">
+        <member name="T:System.Drawing.BitmapExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Drawing.Bitmap"/>.
+            </summary>
+        </member>
+        <member name="M:System.Drawing.BitmapExtensions..ZoomTo(System.Int32,System.Int32)">
             <summary>
             Zoom a picture.
             </summary>
-            <param name="this">The bitmap instance.</param>
             <param name="newWidth">The new width.</param>
             <param name="newHeight">The new height.</param>
             <returns>The new bitmap instance that has been zoomed.</returns>
@@ -632,14 +636,17 @@
             </summary>
             <seealso cref="T:System.Drawing.Color"/>
         </member>
-        <member name="M:System.Drawing.ColorExtensions.QuarterAlpha(System.Drawing.Color)">
+        <member name="T:System.Drawing.ColorExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Drawing.Color"/>.
+            </summary>
+        </member>
+        <member name="P:System.Drawing.ColorExtensions..QuarterAlpha">
             <summary>
             Gets a target <see cref="T:System.Drawing.Color"/> whose <see cref="P:System.Drawing.Color.A"/> value is a quarter of the original one.
             </summary>
-            <param name="this">The original color value.</param>
-            <returns>The target result.</returns>
         </member>
-        <member name="M:System.Drawing.ColorExtensions.Deconstruct(System.Drawing.Color,System.Byte@,System.Byte@,System.Byte@,System.Byte@)">
+        <member name="M:System.Drawing.ColorExtensions..Deconstruct(System.Byte@,System.Byte@,System.Byte@,System.Byte@)">
             <target name="method">
 				<summary>
 					Deconstruct the current instance into multiple values, which means you can use
@@ -653,23 +660,26 @@
             </summary>
             <seealso cref="T:System.Drawing.Graphics"/>
         </member>
-        <member name="M:System.Drawing.GraphicsExtensions.DrawValue``1(System.Drawing.Graphics,``0,System.Drawing.Font,System.Drawing.Brush,System.Drawing.PointF,System.Drawing.StringFormat)">
+        <member name="T:System.Drawing.GraphicsExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Drawing.Graphics"/>.
+            </summary>
+        </member>
+        <member name="M:System.Drawing.GraphicsExtensions..DrawValue``1(``0,System.Drawing.Font,System.Drawing.Brush,System.Drawing.PointF,System.Drawing.StringFormat)">
             <summary>
             Draw the string representation of an instance onto the current <see cref="T:System.Drawing.Graphics"/> instance.
             </summary>
             <typeparam name="TFormattable">The type of the value to draw.</typeparam>
-            <param name="this">The graphics instance.</param>
             <param name="value">The value to drawing onto.</param>
             <param name="font">The font.</param>
             <param name="brush">The brush.</param>
             <param name="point">The point.</param>
             <param name="stringFormat">The string format instance.</param>
         </member>
-        <member name="M:System.Drawing.GraphicsExtensions.DrawHollowArrow(System.Drawing.Graphics,System.Drawing.Brush,System.Drawing.PointF,System.Single,System.Single,System.Single,System.Single)">
+        <member name="M:System.Drawing.GraphicsExtensions..DrawHollowArrow(System.Drawing.Brush,System.Drawing.PointF,System.Single,System.Single,System.Single,System.Single)">
             <summary>
             Fills a hollow arrow.
             </summary>
-            <param name="g">The graphics instance.</param>
             <param name="brush">The brush.</param>
             <param name="center">The center point.</param>
             <param name="length">The length.</param>
@@ -680,11 +690,10 @@
             Throws when the argument <paramref name="length"/> is below 0 or either <paramref name="width"/> or <paramref name="height"/> is below 0.
             </exception>
         </member>
-        <member name="M:System.Drawing.GraphicsExtensions.DrawCrossSign(System.Drawing.Graphics,System.Drawing.Pen,System.Drawing.RectangleF)">
+        <member name="M:System.Drawing.GraphicsExtensions..DrawCrossSign(System.Drawing.Pen,System.Drawing.RectangleF)">
             <summary>
             Draw a cross sign (<c>x</c>).
             </summary>
-            <param name="this">The graphics.</param>
             <param name="pen">The pen.</param>
             <param name="rectangle">The rectangle.</param>
             <remarks>
@@ -692,55 +701,55 @@
             to find any fill methods.
             </remarks>
         </member>
-        <member name="M:System.Drawing.GraphicsExtensions.DrawCapsule(System.Drawing.Graphics,System.Drawing.Pen,System.Drawing.RectangleF)">
+        <member name="M:System.Drawing.GraphicsExtensions..DrawCapsule(System.Drawing.Pen,System.Drawing.RectangleF)">
             <summary>
             Draw a capsule.
             </summary>
-            <param name="this">The graphics.</param>
             <param name="pen">The pen.</param>
             <param name="rectangle">The rectangle.</param>
         </member>
-        <member name="M:System.Drawing.GraphicsExtensions.FillCapsule(System.Drawing.Graphics,System.Drawing.Brush,System.Drawing.RectangleF)">
+        <member name="M:System.Drawing.GraphicsExtensions..FillCapsule(System.Drawing.Brush,System.Drawing.RectangleF)">
             <summary>
             Fill a capsule.
             </summary>
-            <param name="this">The graphics.</param>
             <param name="brush">The brush.</param>
             <param name="rectangle">The rectangle.</param>
         </member>
-        <member name="M:System.Drawing.GraphicsExtensions.DrawRoundedRectangle(System.Drawing.Graphics,System.Drawing.Pen,System.Drawing.RectangleF,System.Single)">
+        <member name="M:System.Drawing.GraphicsExtensions..DrawRoundedRectangle(System.Drawing.Pen,System.Drawing.RectangleF,System.Single)">
             <summary>
             Draw a rounded rectangle.
             </summary>
-            <param name="this">The graphics.</param>
             <param name="pen">The pen.</param>
             <param name="rectangle">The rectangle to draw.</param>
             <param name="circleRadius">The radius of each vertex.</param>
             <exception cref="T:System.ArgumentException">
-            Throws when <paramref name="circleRadius"/> is greater than the value in
-            <paramref name="rectangle"/>.
+            Throws when <paramref name="circleRadius"/> is greater than the value in <paramref name="rectangle"/>.
             </exception>
         </member>
-        <member name="M:System.Drawing.GraphicsExtensions.FillRoundedRectangle(System.Drawing.Graphics,System.Drawing.Brush,System.Drawing.RectangleF,System.Single)">
+        <member name="M:System.Drawing.GraphicsExtensions..FillRoundedRectangle(System.Drawing.Brush,System.Drawing.RectangleF,System.Single)">
             <summary>
             Fill a rounded rectangle.
             </summary>
-            <param name="this">The graphics.</param>
             <param name="brush">The brush.</param>
             <param name="rectangle">The rectangle to fill.</param>
             <param name="circleRadius">The radius of each vertex.</param>
             <exception cref="T:System.ArgumentException">
-            Throws when <paramref name="circleRadius"/> is greater than the value in
-            <paramref name="rectangle"/>.
+            Throws when <paramref name="circleRadius"/> is greater than the value in <paramref name="rectangle"/>.
             </exception>
         </member>
-        <member name="T:System.Drawing.PointExtensions">
+        <member name="T:System.Drawing.PointOrPointFExtensions">
             <summary>
-            Provides with extension methods on <see cref="T:System.Drawing.Point"/>.
+            Provides with extension methods on <see cref="T:System.Drawing.Point"/> or <see cref="T:System.Drawing.PointF"/>.
             </summary>
             <seealso cref="T:System.Drawing.Point"/>
+            <seealso cref="T:System.Drawing.PointF"/>
         </member>
-        <member name="M:System.Drawing.PointExtensions.Deconstruct(System.Drawing.Point,System.Int32@,System.Int32@)">
+        <member name="T:System.Drawing.PointOrPointFExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Drawing.Point"/>.
+            </summary>
+        </member>
+        <member name="M:System.Drawing.PointOrPointFExtensions..Deconstruct(System.Int32@,System.Int32@)">
             <target name="method">
 				<summary>
 					Deconstruct the current instance into multiple values, which means you can use
@@ -748,20 +757,18 @@
 				</summary>
 			</target>
         </member>
-        <member name="T:System.Drawing.PointFExtensions">
+        <member name="T:System.Drawing.PointOrPointFExtensions.">
             <summary>
-            Provides extension methods on <see cref="T:System.Drawing.PointF"/>.
+            Provides extension members on <see cref="T:System.Drawing.PointF"/>.
             </summary>
-            <seealso cref="T:System.Drawing.PointF"/>
         </member>
-        <member name="M:System.Drawing.PointFExtensions.Truncate(System.Drawing.PointF)">
+        <member name="M:System.Drawing.PointOrPointFExtensions..Truncate">
             <summary>
             To truncate the point.
             </summary>
-            <param name="this">The point to truncate.</param>
             <returns>The result.</returns>
         </member>
-        <member name="M:System.Drawing.PointFExtensions.Deconstruct(System.Drawing.PointF,System.Single@,System.Single@)">
+        <member name="M:System.Drawing.PointOrPointFExtensions..Deconstruct(System.Single@,System.Single@)">
             <target name="method">
 				<summary>
 					Deconstruct the current instance into multiple values, which means you can use
@@ -769,66 +776,75 @@
 				</summary>
 			</target>
         </member>
-        <member name="T:System.Drawing.RectangleCreator">
+        <member name="T:System.Drawing.RectangleOrRectangleFExtensions">
             <summary>
-            Provides extension methods on <see cref="T:System.Drawing.Rectangle"/>.
+            Provides extension methods on <see cref="T:System.Drawing.Rectangle"/> or <see cref="T:System.Drawing.RectangleF"/>.
             </summary>
             <seealso cref="T:System.Drawing.Rectangle"/>
-        </member>
-        <member name="M:System.Drawing.RectangleCreator.Create(System.Drawing.Point,System.Drawing.Point)">
-            <summary>
-            Create an instance with two points.
-            </summary>
-            <param name="topLeft">The top-left point.</param>
-            <param name="bottomRight">The bottom-right point.</param>
-            <returns>The rectangle.</returns>
-        </member>
-        <member name="M:System.Drawing.RectangleCreator.Create(System.Drawing.PointF,System.Drawing.PointF)">
-            <summary>
-            Create an instance with two points.
-            </summary>
-            <param name="topLeft">The top-left point.</param>
-            <param name="bottomRight">The bottom-right point.</param>
-            <returns>The rectangle.</returns>
-        </member>
-        <member name="T:System.Drawing.RectangleExtensions">
-            <summary>
-            Provides extension methods on <see cref="T:System.Drawing.Rectangle"/>.
-            </summary>
-            <seealso cref="T:System.Drawing.Rectangle"/>
-        </member>
-        <member name="M:System.Drawing.RectangleExtensions.Zoom(System.Drawing.Rectangle,System.Int32)">
-            <summary>
-            Zoom in or out the rectangle by the specified offset.
-            If the offset is positive, the rectangle will be larger; otherwise, smaller.
-            </summary>
-            <param name="this">The rectangle.</param>
-            <param name="offset">The offset to zoom in or out.</param>
-            <returns>The new rectangle.</returns>
-        </member>
-        <member name="T:System.Drawing.RectangleFExtensions">
-            <summary>
-            Provides extension methods on <see cref="T:System.Drawing.RectangleF"/>.
-            </summary>
             <seealso cref="T:System.Drawing.RectangleF"/>
         </member>
-        <member name="M:System.Drawing.RectangleFExtensions.Zoom(System.Drawing.RectangleF,System.Single)">
+        <member name="T:System.Drawing.RectangleOrRectangleFExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Drawing.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="M:System.Drawing.RectangleOrRectangleFExtensions..Zoom(System.Int32)">
             <summary>
             Zoom in or out the rectangle by the specified offset.
             If the offset is positive, the rectangle will be larger; otherwise, smaller.
             </summary>
-            <param name="this">The rectangle.</param>
             <param name="offset">The offset to zoom in or out.</param>
             <returns>The new rectangle.</returns>
         </member>
-        <member name="M:System.Drawing.RectangleFExtensions.Truncate(System.Drawing.RectangleF)">
+        <member name="M:System.Drawing.RectangleOrRectangleFExtensions..Deconstruct(System.Drawing.Point@,System.Drawing.Size@)">
+            <target name="method">
+				<summary>
+					Deconstruct the current instance into multiple values, which means you can use
+					the value-tuple syntax like <c>(a, b, c)</c> to define your own deconstruction logic.
+				</summary>
+			</target>
+        </member>
+        <member name="T:System.Drawing.RectangleOrRectangleFExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Drawing.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="M:System.Drawing.RectangleOrRectangleFExtensions..Create(System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            Create an instance with two points.
+            </summary>
+            <param name="topLeft">The top-left point.</param>
+            <param name="bottomRight">The bottom-right point.</param>
+            <returns>The rectangle.</returns>
+        </member>
+        <member name="T:System.Drawing.RectangleOrRectangleFExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Drawing.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="M:System.Drawing.RectangleOrRectangleFExtensions..Create(System.Drawing.PointF,System.Drawing.PointF)">
+            <summary>
+            Create an instance with two points.
+            </summary>
+            <param name="topLeft">The top-left point.</param>
+            <param name="bottomRight">The bottom-right point.</param>
+            <returns>The rectangle.</returns>
+        </member>
+        <member name="M:System.Drawing.RectangleOrRectangleFExtensions..Zoom(System.Single)">
+            <summary>
+            Zoom in or out the rectangle by the specified offset.
+            If the offset is positive, the rectangle will be larger; otherwise, smaller.
+            </summary>
+            <param name="offset">The offset to zoom in or out.</param>
+            <returns>The new rectangle.</returns>
+        </member>
+        <member name="M:System.Drawing.RectangleOrRectangleFExtensions..Truncate">
             <summary>
             Truncate the specified rectangle.
             </summary>
-            <param name="this">The rectangle.</param>
             <returns>The result.</returns>
         </member>
-        <member name="M:System.Drawing.RectangleFExtensions.Deconstruct(System.Drawing.RectangleF,System.Drawing.PointF@,System.Drawing.SizeF@)">
+        <member name="M:System.Drawing.RectangleOrRectangleFExtensions..Deconstruct(System.Drawing.PointF@,System.Drawing.SizeF@)">
             <target name="method">
 				<summary>
 					Deconstruct the current instance into multiple values, which means you can use
@@ -836,7 +852,7 @@
 				</summary>
 			</target>
         </member>
-        <member name="M:System.Drawing.RectangleFExtensions.Deconstruct(System.Drawing.RectangleF,System.Single@,System.Single@,System.Single@,System.Single@)">
+        <member name="M:System.Drawing.RectangleOrRectangleFExtensions..Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)">
             <target name="method">
 				<summary>
 					Deconstruct the current instance into multiple values, which means you can use
@@ -846,11 +862,17 @@
         </member>
         <member name="T:System.Drawing.SizeExtensions">
             <summary>
-            Provides with extension methods on <see cref="T:System.Drawing.Size"/>.
+            Provides with extension methods on <see cref="T:System.Drawing.Size"/> or <see cref="T:System.Drawing.SizeF"/>.
             </summary>
             <seealso cref="T:System.Drawing.Size"/>
+            <seealso cref="T:System.Drawing.SizeF"/>
         </member>
-        <member name="M:System.Drawing.SizeExtensions.Deconstruct(System.Drawing.Size,System.Int32@,System.Int32@)">
+        <member name="T:System.Drawing.SizeExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Drawing.Size"/>.
+            </summary>
+        </member>
+        <member name="M:System.Drawing.SizeExtensions..Deconstruct(System.Int32@,System.Int32@)">
             <target name="method">
 				<summary>
 					Deconstruct the current instance into multiple values, which means you can use
@@ -858,20 +880,18 @@
 				</summary>
 			</target>
         </member>
-        <member name="T:System.Drawing.SizeFExtensions">
+        <member name="T:System.Drawing.SizeExtensions.">
             <summary>
-            Provides extension methods on <see cref="T:System.Drawing.SizeF"/>.
+            Provides extension members on <see cref="T:System.Drawing.SizeF"/>.
             </summary>
-            <seealso cref="T:System.Drawing.SizeF"/>
         </member>
-        <member name="M:System.Drawing.SizeFExtensions.Truncate(System.Drawing.SizeF)">
+        <member name="M:System.Drawing.SizeExtensions..Truncate">
             <summary>
             To truncate the size.
             </summary>
-            <param name="this">The size.</param>
             <returns>The result.</returns>
         </member>
-        <member name="M:System.Drawing.SizeFExtensions.Deconstruct(System.Drawing.SizeF,System.Single@,System.Single@)">
+        <member name="M:System.Drawing.SizeExtensions..Deconstruct(System.Single@,System.Single@)">
             <target name="method">
 				<summary>
 					Deconstruct the current instance into multiple values, which means you can use

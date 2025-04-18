@@ -41,7 +41,7 @@ public partial class GridCanvas
 
 		var vOffsetCandidate = candidateWidth / 9; // The vertical offset of drawing each candidate.
 		using var bCandidate = new SolidBrush(cColor);
-		using var bCandidateLighter = new SolidBrush(cColor.QuarterAlpha());
+		using var bCandidateLighter = new SolidBrush(cColor.QuarterAlpha);
 		using var fCandidate = GetFont(cFontName, cellWidth / 2F, cScale, cFontStyle);
 		foreach (var node in nodes)
 		{
@@ -68,7 +68,7 @@ public partial class GridCanvas
 				var digit = candidate % 9;
 				var overlaps = conclusions.Any(conclusion => conclusion.Cell == cell);
 				var color = GetColor(node.Identifier);
-				using var brush = new SolidBrush(overlaps ? color.QuarterAlpha() : color);
+				using var brush = new SolidBrush(overlaps ? color.QuarterAlpha : color);
 				_g.FillEllipse(brush, _calculator.GetMouseRectangle(cell, digit));
 
 				// In direct view, candidates should be drawn also.
@@ -97,7 +97,7 @@ public partial class GridCanvas
 		{
 			var originalPoint = _calculator.GetMousePointInCenter(cell, digit);
 			var point = originalPoint with { Y = originalPoint.Y + vOffsetCandidate };
-			_g.DrawValue(digit + 1, fCandidate, brush, point, _stringAligner);
+			_g.DrawValue<Digit>(digit + 1, fCandidate, brush, point, _stringAligner);
 		}
 	}
 
@@ -341,19 +341,19 @@ public partial class GridCanvas
 		{
 			var chute = node.ChuteIndex;
 			var color = GetColor(node.Identifier);
-			using var brush = new SolidBrush(Settings.ShowLightHouse ? color.QuarterAlpha() : color);
+			using var brush = new SolidBrush(Settings.ShowLightHouse ? color.QuarterAlpha : color);
 			if (chute is >= 0 and < 3)
 			{
 				var (pt1, _) = _calculator.GetAnchorsViaHouse(9 + chute * 3);
 				var (_, pt2) = _calculator.GetAnchorsViaHouse(8 + (chute + 1) * 3);
-				var rect = RectangleCreator.Create(pt1, pt2);
+				var rect = RectangleF.Create(pt1, pt2);
 				_g.FillRectangle(brush, rect);
 			}
 			else
 			{
 				var (pt1, _) = _calculator.GetAnchorsViaHouse(18 + (chute - 3) * 3);
 				var (_, pt2) = _calculator.GetAnchorsViaHouse(17 + (chute - 2) * 3);
-				var rect = RectangleCreator.Create(pt1, pt2);
+				var rect = RectangleF.Create(pt1, pt2);
 				_g.FillRectangle(brush, rect);
 			}
 		}
@@ -389,7 +389,7 @@ public partial class GridCanvas
 			// Draw values.
 			var originalPoint = _calculator.GetMousePointInCenter(cell);
 			var point = originalPoint with { Y = originalPoint.Y + vOffsetValue };
-			_g.DrawValue(character, font, brush, point, _stringAligner);
+			_g.DrawValue<char>(character, font, brush, point, _stringAligner);
 		}
 	}
 }
