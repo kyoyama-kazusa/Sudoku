@@ -15,8 +15,8 @@ public static class TrueCandidate
 	[Cached]
 	public static CandidateMap GetAllTrueCandidates(in Grid grid, CancellationToken cancellationToken = default)
 	{
-		ArgumentOutOfRangeException.ThrowIfNotEqual(grid.GetIsValid(), true);
-		ArgumentOutOfRangeException.ThrowIfNotEqual(grid.PuzzleType == SudokuType.Standard, true);
+		ArgumentException.ThrowIfAssertionFailed(grid.GetIsValid());
+		ArgumentException.ThrowIfAssertionFailed(grid.PuzzleType == SudokuType.Standard);
 
 		// INTERCEPTOR_VARIABLE_DECLARATION_BEGIN
 		_ = grid is { EmptyCells: var __EmptyCells, BivalueCells: var __BivalueCells, CandidatesMap: var __CandidatesMap };

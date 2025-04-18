@@ -275,10 +275,10 @@ public static class Transformation
 	public static ref TGrid SwapHouse<TGrid>(this ref TGrid @this, House houseIndex1, House houseIndex2)
 		where TGrid : unmanaged, IGrid<TGrid>
 	{
-		ArgumentOutOfRangeException.ThrowIfNotEqual(houseIndex1 is >= 9 and < 27, true);
-		ArgumentOutOfRangeException.ThrowIfNotEqual(houseIndex2 is >= 9 and < 27, true);
-		ArgumentOutOfRangeException.ThrowIfNotEqual((byte)houseIndex1.ToHouseType(), (byte)houseIndex2.ToHouseType());
-		ArgumentOutOfRangeException.ThrowIfNotEqual(Array.Exists(SwappableHouses, houseIndexChecker), true);
+		ArgumentOutOfRangeException.ThrowIfOutOfRange(houseIndex1, 9, 27);
+		ArgumentOutOfRangeException.ThrowIfOutOfRange(houseIndex2, 9, 27);
+		ArgumentException.ThrowIfAssertionFailed(houseIndex1.ToHouseType() == houseIndex2.ToHouseType());
+		ArgumentException.ThrowIfAssertionFailed(Array.Exists(SwappableHouses, houseIndexChecker));
 
 		for (var i = 0; i < 9; i++)
 		{
@@ -302,9 +302,9 @@ public static class Transformation
 	public static ref TGrid SwapChute<TGrid>(this ref TGrid @this, int chuteIndex1, int chuteIndex2)
 		where TGrid : unmanaged, IGrid<TGrid>
 	{
-		ArgumentOutOfRangeException.ThrowIfNotEqual(chuteIndex1 is >= 0 and < 6, true);
-		ArgumentOutOfRangeException.ThrowIfNotEqual(chuteIndex2 is >= 0 and < 6, true);
-		ArgumentOutOfRangeException.ThrowIfNotEqual(chuteIndex1 is >= 0 and < 3, chuteIndex2 is >= 0 and < 3);
+		ArgumentOutOfRangeException.ThrowIfOutOfRange(chuteIndex1, 0, 6);
+		ArgumentOutOfRangeException.ThrowIfOutOfRange(chuteIndex2, 0, 6);
+		ArgumentException.ThrowIfAssertionFailed(chuteIndex1 is >= 0 and < 3 == chuteIndex2 is >= 0 and < 3);
 
 		if (chuteIndex1 == chuteIndex2)
 		{

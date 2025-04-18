@@ -839,7 +839,7 @@ public partial struct Grid : GridBase, ISubtractionOperators<Grid, Grid, DiffRes
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void ReplaceDigit(Cell cell, Digit digit)
 	{
-		ArgumentOutOfRangeException.ThrowIfNotEqual(digit is >= 0 and < 9, true);
+		ArgumentOutOfRangeException.ThrowIfOutOfRange(digit, 0, 9);
 
 		SetDigit(cell, -1);
 		SetDigit(cell, digit);

@@ -51,7 +51,7 @@ public partial struct SpaceSet :
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public readonly void CopyTo(Space[] array, int arrayIndex)
 	{
-		ArgumentOutOfRangeException.ThrowIfLessThan(array.Length, Count);
+		ArgumentException.ThrowIfAssertionFailed(array.Length >= Count);
 
 		ToArray().AsReadOnlySpan().CopyTo(array.AsSpan()[arrayIndex..]);
 	}

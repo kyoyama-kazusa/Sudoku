@@ -62,7 +62,7 @@ public ref partial struct Generator() : IGenerator<Grid>
 		// 2024/10/25: Add this constructor as template initialization.
 		// 2024/10/28: Add '_useCustomizedSolution = true;'.
 
-		ArgumentOutOfRangeException.ThrowIfNotEqual(template.IsSolved, true);
+		ArgumentException.ThrowIfAssertionFailed(template.IsSolved);
 
 		_newFullSudoku = template.UnfixedGrid;
 		_useCustomizedSolution = true;
@@ -92,8 +92,8 @@ public ref partial struct Generator() : IGenerator<Grid>
 	{
 		_stack.Fill(new());
 
-		ArgumentOutOfRangeException.ThrowIfNotEqual(symmetricType.IsFlag, true);
-		ArgumentOutOfRangeException.ThrowIfNotEqual(cluesCount is >= 17 and <= 80 or -1, true);
+		ArgumentException.ThrowIfAssertionFailed(symmetricType.IsFlag);
+		ArgumentException.ThrowIfAssertionFailed(cluesCount is >= 17 and <= 80 or -1);
 
 		try
 		{

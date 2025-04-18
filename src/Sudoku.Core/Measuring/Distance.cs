@@ -199,7 +199,7 @@ public readonly ref partial struct Distance(int p, int q)
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Distance GetDistance(in CellMap cells)
 	{
-		ArgumentOutOfRangeException.ThrowIfNotEqual(cells.Count, 2);
+		ArgumentException.ThrowIfAssertionFailed(cells.Count == 2);
 		return GetDistance(cells[0], cells[1]);
 	}
 
