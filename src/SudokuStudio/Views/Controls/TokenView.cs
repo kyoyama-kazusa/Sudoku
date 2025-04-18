@@ -98,17 +98,11 @@ public partial class TokenView : ListViewBase
 		SelectedIndex = _selectedIndex;
 		PreviewKeyDown -= TokenView_PreviewKeyDown;
 		SizeChanged += TokenView_SizeChanged;
-		if (_tokenViewScroller is not null)
-		{
-			_tokenViewScroller.Loaded -= ScrollViewer_Loaded;
-		}
+		_tokenViewScroller?.Loaded -= ScrollViewer_Loaded;
 
 		_tokenViewScroller = GetTemplateChild(TokenViewScrollViewerName) as ScrollViewer;
 
-		if (_tokenViewScroller is not null)
-		{
-			_tokenViewScroller.Loaded += ScrollViewer_Loaded;
-		}
+		_tokenViewScroller?.Loaded += ScrollViewer_Loaded;
 
 		PreviewKeyDown += TokenView_PreviewKeyDown;
 		OnIsWrappedChanged();
@@ -172,12 +166,7 @@ public partial class TokenView : ListViewBase
 	/// Call this method when the property <see cref="IsWrapped"/> is changed.
 	/// </summary>
 	private void OnIsWrappedChanged()
-	{
-		if (_tokenViewScroller is not null)
-		{
-			_tokenViewScroller.HorizontalScrollBarVisibility = IsWrapped ? ScrollBarVisibility.Disabled : ScrollBarVisibility.Hidden;
-		}
-	}
+		=> _tokenViewScroller?.HorizontalScrollBarVisibility = IsWrapped ? ScrollBarVisibility.Disabled : ScrollBarVisibility.Hidden;
 
 	/// <summary>
 	/// Call this method when the property <see cref="CanRemoveTokens"/> is changed.

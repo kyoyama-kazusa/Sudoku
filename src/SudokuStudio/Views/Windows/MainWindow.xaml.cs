@@ -432,17 +432,12 @@ public sealed partial class MainWindow :
 	/// Try to update configuration source theme.
 	/// </summary>
 	private void SetConfigurationSourceTheme()
-	{
-		if (_configurationSource is not null)
+		=> _configurationSource?.Theme = ((FrameworkElement)Content).ActualTheme switch
 		{
-			_configurationSource.Theme = ((FrameworkElement)Content).ActualTheme switch
-			{
-				ElementTheme.Light => SystemBackdropTheme.Light,
-				ElementTheme.Dark => SystemBackdropTheme.Dark,
-				_ => App.ShouldSystemUseDarkMode() ? SystemBackdropTheme.Dark : SystemBackdropTheme.Light
-			};
-		}
-	}
+			ElementTheme.Light => SystemBackdropTheme.Light,
+			ElementTheme.Dark => SystemBackdropTheme.Dark,
+			_ => App.ShouldSystemUseDarkMode() ? SystemBackdropTheme.Dark : SystemBackdropTheme.Light
+		};
 
 	/// <summary>
 	/// Make <see cref="_wsdqHelper"/> not null.
@@ -508,10 +503,7 @@ public sealed partial class MainWindow :
 	private void Window_Activated(object sender, WindowActivatedEventArgs args)
 	{
 #if CUSTOMIZED_BACKDROP
-		if (_configurationSource is not null)
-		{
-			_configurationSource.IsInputActive = args.WindowActivationState != WindowActivationState.Deactivated;
-		}
+		_configurationSource?.IsInputActive = args.WindowActivationState != WindowActivationState.Deactivated;
 #endif
 	}
 

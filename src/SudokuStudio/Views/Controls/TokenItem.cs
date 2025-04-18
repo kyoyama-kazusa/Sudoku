@@ -78,17 +78,11 @@ public partial class TokenItem : ListViewItem
 	{
 		base.OnApplyTemplate();
 
-		if (_tokenItemRemoveButton is not null)
-		{
-			_tokenItemRemoveButton.Click -= TokenItemRemoveButton_Click;
-		}
+		_tokenItemRemoveButton?.Click -= TokenItemRemoveButton_Click;
 
 		_tokenItemRemoveButton = GetTemplateChild(TokenItemRemoveButtonName) as ButtonBase;
 
-		if (_tokenItemRemoveButton is not null)
-		{
-			_tokenItemRemoveButton.Click += TokenItemRemoveButton_Click;
-		}
+		_tokenItemRemoveButton?.Click += TokenItemRemoveButton_Click;
 
 		IconChanged();
 		ContentChanged();
