@@ -3634,8 +3634,8 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 			// Check whether the target cell is lying in two cross-line cells houses, and lying in the block for the locked member.
 			// If so, we should treat this as an invalid case.
 			// This is because the intersection cell (this target cell) will be counted twice instead of once.
-			// This will fix issue #603 https://github.com/KyouyamaKazusa0805/Sudoku/issues/603
-			// and #605 https://github.com/KyouyamaKazusa0805/Sudoku/issues/605
+			// This will fix issue #603 https://github.com/kyoyama-kazusa/Sudoku/issues/603
+			// and #605 https://github.com/kyoyama-kazusa/Sudoku/issues/605
 			// This rule is just like an endo-fin. 
 			//
 			// Example:
@@ -3782,10 +3782,10 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 		// which is the intersection of the houses chosen in cross-line.
 		// If not, the number of the locked member digit cannot determine the maximal times is less than the target times,
 		// therefore, the conclusion cannot be raised.
-		// This will fix issue #660: https://github.com/KyouyamaKazusa0805/Sudoku/issues/660
+		// This will fix issue #660: https://github.com/kyoyama-kazusa/Sudoku/issues/660
 		// Counter-example:
 		//   6..2...9...5.6.3...9.1.5..7.5...46.......2.7....91...5..1.2.9...6......13..4..2..
-		// Technique reference link https://github.com/KyouyamaKazusa0805/Sudoku/discussions/497#discussioncomment-7369213
+		// Technique reference link https://github.com/kyoyama-kazusa/Sudoku/discussions/497#discussioncomment-7369213
 		var cellsInExtraHouse = CellMap.Empty;
 		var cellsInCrossline = CellMap.Empty;
 		foreach (var house in extraHousesMask)
@@ -3825,8 +3825,8 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 			// Check whether the target cell is lying in two cross-line cells houses, and lying in the block for the locked member.
 			// If so, we should treat this as an invalid case.
 			// This is because the intersection cell (this target cell) will be counted twice instead of once.
-			// This will fix issue #603 https://github.com/KyouyamaKazusa0805/Sudoku/issues/603
-			// and #605 https://github.com/KyouyamaKazusa0805/Sudoku/issues/605
+			// This will fix issue #603 https://github.com/kyoyama-kazusa/Sudoku/issues/603
+			// and #605 https://github.com/kyoyama-kazusa/Sudoku/issues/605
 			// This rule is just like an endo-fin.
 			// Counter-example:
 			//   +71..+8...4..27..83.+3+85..6+19+7+1.8.+625+7+35+2.13+7.+8..37+85..1..+7.5.836.2+5.6..+7+48+86..7....:214 425 426 175 975

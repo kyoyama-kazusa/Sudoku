@@ -1,17 +1,17 @@
 <center>Language switch to: <a href="README.md">English</a><br/><img src="miscellaneous/pic/icon.png" /></center>
 
-[![stars](https://img.shields.io/github/stars/KyouyamaKazusa0805/Sudoku?color=097abb)](https://github.com/KyouyamaKazusa0805/Sudoku/stargazers)
-[![issues](https://img.shields.io/github/issues/KyouyamaKazusa0805/Sudoku?color=097abb)](https://github.com/KyouyamaKazusa0805/Sudoku/issues)
-[![license](https://img.shields.io/github/license/KyouyamaKazusa0805/Sudoku?color=097abb)](https://github.com/KyouyamaKazusa0805/Sudoku/blob/main/LICENSE)
+[![stars](https://img.shields.io/github/stars/kyoyama-kazusa/Sudoku?color=097abb)](https://github.com/kyoyama-kazusa/Sudoku/stargazers)
+[![issues](https://img.shields.io/github/issues/kyoyama-kazusa/Sudoku?color=097abb)](https://github.com/kyoyama-kazusa/Sudoku/issues)
+[![license](https://img.shields.io/github/license/kyoyama-kazusa/Sudoku?color=097abb)](https://github.com/kyoyama-kazusa/Sudoku/blob/main/LICENSE)
 
 ![](https://img.shields.io/badge/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C%23%2014-%23178600)
 ![](https://img.shields.io/badge/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6-.NET%209-blueviolet)
 ![](https://img.shields.io/badge/%E7%BC%A9%E8%BF%9B-Tab-lightgrey)
 ![](https://img.shields.io/badge/IDE-Visual%20Studio%202022%20v17.14%20%E9%A2%84%E8%A7%88%E7%89%88%203-%23cf98fb)
 ![](https://img.shields.io/badge/%E8%AF%AD%E8%A8%80-%E8%8B%B1%E8%AF%AD%E3%80%81%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-success)
-[![](https://img.shields.io/badge/UI%20%E9%A1%B9%E7%9B%AE-SudokuStudio-%230d1117)](https://github.com/KyouyamaKazusa0805/Sudoku/tree/main/src/SudokuStudio/SudokuStudio)
+[![](https://img.shields.io/badge/UI%20%E9%A1%B9%E7%9B%AE-SudokuStudio-%230d1117)](https://github.com/kyoyama-kazusa/Sudoku/tree/main/src/SudokuStudio/SudokuStudio)
 
-[![](https://img.shields.io/badge/GitHub-%E7%82%B9%E6%88%91%EF%BC%81-%230d1117?logo=github)](https://github.com/KyouyamaKazusa0805/Sudoku)
+[![](https://img.shields.io/badge/GitHub-%E7%82%B9%E6%88%91%EF%BC%81-%230d1117?logo=github)](https://github.com/kyoyama-kazusa/Sudoku)
 [![](https://img.shields.io/badge/Gitee-%E7%82%B9%E6%88%91%EF%BC%81-%230d1117?logo=gitee)](https://gitee.com/KyouyamaKazusa/Sudoku)
 
 [![哔哩哔哩](https://img.shields.io/badge/dynamic/json?color=%23fb7299&label=%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9&logo=bilibili&query=%24.data.follower&suffix=%20%E5%85%B3%E6%B3%A8&url=https%3A%2F%2Fapi.bilibili.com%2Fx%2Frelation%2Fstat%3Fvmid%3D23736703)](https://space.bilibili.com/23736703)
@@ -198,7 +198,7 @@
 
 ## 关于该仓库的复刻（Fork）及代码拉取请求（Pull Requests）
 
-当然，你可以复制这个仓库到你的账号下，然后做你想做的任何事情。你可以在基于 [MIT](https://github.com/KyouyamaKazusa0805/Sudoku/blob/main/LICENSE) 开源协议的情况下做你任何想做的事情。不过，由于 Gitee 是从 GitHub 拷贝过来的，所以 Gitee 项目暂时不支持任何的代码拉取请求，敬请谅解；不过这两个仓库都可以创建 issue。
+当然，你可以复制这个仓库到你的账号下，然后做你想做的任何事情。你可以在基于 [MIT](https://github.com/kyoyama-kazusa/Sudoku/blob/main/LICENSE) 开源协议的情况下做你任何想做的事情。不过，由于 Gitee 是从 GitHub 拷贝过来的，所以 Gitee 项目暂时不支持任何的代码拉取请求，敬请谅解；不过这两个仓库都可以创建 issue。
 
 ## 开源协议
 
@@ -213,7 +213,7 @@
 * 完整的数独教程（docs/tutorial）
 * Sudoku Studio 软件使用手册（docs/manual）
 
-那两个项目因为是文档项目，所以采用不同的协议 - [CC-BY-4.0 International](https://github.com/KyouyamaKazusa0805/Sudoku/blob/main/LICENSE-WIKI) 协议。
+那两个项目因为是文档项目，所以采用不同的协议 - [CC-BY-4.0 International](https://github.com/kyoyama-kazusa/Sudoku/blob/main/LICENSE-WIKI) 协议。
 
 ### 其他项目
 

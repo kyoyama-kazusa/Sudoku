@@ -109,7 +109,7 @@ public sealed class UniqueRectangleSingleSideExternalChainingRule : UniqueRectan
 		// to make a contradiction.
 		// This will be implemented in the future.
 		//
-		// Binds with issue #680: https://github.com/KyouyamaKazusa0805/Sudoku/issues/680
+		// Binds with issue #680: https://github.com/kyoyama-kazusa/Sudoku/issues/680
 		base.GetLoopConclusions(grid, links, ref conclusions);
 	}
 }

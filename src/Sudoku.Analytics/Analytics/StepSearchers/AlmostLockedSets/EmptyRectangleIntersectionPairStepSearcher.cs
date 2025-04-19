@@ -105,7 +105,7 @@ public sealed partial class EmptyRectangleIntersectionPairStepSearcher : StepSea
 					}
 
 					// Special: we should treat the intersection cell at the block same as 'block' as one of the ER pattern.
-					// This fixes for issue #758: https://github.com/KyouyamaKazusa0805/Sudoku/issues/758
+					// This fixes for issue #758: https://github.com/kyoyama-kazusa/Sudoku/issues/758
 					foreach (var cannibalCell in HousesMap[block] & interMap)
 					{
 						foreach (var digit in (Mask)(grid.GetCandidates(cannibalCell) & (Mask)(1 << d1 | 1 << d2)))

@@ -118,7 +118,7 @@ internal partial class ChainingDriver
 					&& possibleMinimalLength <= (allowsAdvancedLinks ? 4 : 6))
 				{
 					// Optimization: Directly returns the searching if we can assert the chain is already shortest,
-					// This binds with issue #730: https://github.com/KyouyamaKazusa0805/Sudoku/issues/730
+					// This binds with issue #730: https://github.com/kyoyama-kazusa/Sudoku/issues/730
 					return new SingletonArray<NamedChain>(lengthOptimizedChain1);
 				}
 #endif
@@ -229,7 +229,7 @@ internal partial class ChainingDriver
 						// This step will filter duplicate nodes in order not to make an internal loop on chains.
 						// The second argument must be 'NodeComparison.IgnoreIsOn' because we should explicitly ignore them
 						// no matter what state the node is.
-						// This will fix issue #673: https://github.com/KyouyamaKazusa0805/Sudoku/issues/673
+						// This will fix issue #673: https://github.com/kyoyama-kazusa/Sudoku/issues/673
 						// Counter-example:
 						//   4.+3.6+85...+57.....8+89.5...3..7..+8+6.2.23..94.+8..+84.....15..6..8+7+3+3..+871.5.+7+68.....2:114 124 324 425 427 627 943 366 667 967 272 273 495 497
 						if (!nodeSupposedOff.IsAncestorOf(currentNode, NodeComparison.IgnoreIsOn)

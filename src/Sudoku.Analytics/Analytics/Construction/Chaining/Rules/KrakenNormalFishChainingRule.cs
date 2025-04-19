@@ -110,7 +110,7 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 					}
 
 					// Verification: avoid X-Wing nodes that can also be used as UR nodes.
-					// This will fix issue #672: https://github.com/KyouyamaKazusa0805/Sudoku/issues/672
+					// This will fix issue #672: https://github.com/kyoyama-kazusa/Sudoku/issues/672
 					// Counter-example:
 					//   .+1..6...5..9....1.3....12..2..4+98...+9.1.5..8..68..39...9..3......4..5..91..2+4+97..:714 814 724 824 327 734 834 657 659 169 571 674 184 885
 					if (BitOperations.PopCount(cells1.BlockMask) == 2)

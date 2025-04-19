@@ -28,7 +28,7 @@
 				</w:SettingsCard.HeaderIcon>
 
 				<StackPanel Orientation="Horizontal">
-					<HyperlinkButton NavigateUri="https://github.com/KyouyamaKazusa0805" Content="GitHub" />
+					<HyperlinkButton NavigateUri="https://github.com/kyoyama-kazusa" Content="GitHub" />
 					<TextBlock Text=" | " VerticalAlignment="Center" />
 					<HyperlinkButton NavigateUri="https://space.bilibili.com/23736703" Content="{m:R Key=AboutPage_Bilibili}" />
 					<TextBlock Text=" | " VerticalAlignment="Center" />

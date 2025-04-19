@@ -43,7 +43,7 @@ public partial class GeneratedPuzzleConstraintPage
 		techniqueControl.SelectedTechniquesChanged += (_, e) => displayerControl.Text = (constraint.Techniques = e.TechniqueSet).GetTechniqueString();
 
 		// Fixes #558: 'SettingsExpander' always requires 'SettingsCard' as the children control
-		// for 'SettingsExpander.Items' property. See https://github.com/KyouyamaKazusa0805/Sudoku/issues/558
+		// for 'SettingsExpander.Items' property. See https://github.com/kyoyama-kazusa/Sudoku/issues/558
 		// Reference link: https://github.com/CommunityToolkit/Windows/issues/302#issuecomment-1857686711
 		return new()
 		{
