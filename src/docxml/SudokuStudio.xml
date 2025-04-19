@@ -14764,6 +14764,12 @@
             To update puzzle via solution grid.
             </summary>
         </member>
+        <member name="M:SudokuStudio.Views.Pages.AnalyzePage.ManuallyUpdateCandidateTextBlocksOpacityToZero">
+            <summary>
+            Manually calls <see cref="M:SudokuStudio.Interaction.Conversions.VisibilityConversion.CellStateToCandidateTextBlockOpacity(Sudoku.Concepts.Grid,System.Int32,System.Int32,SudokuStudio.BindableSource.ViewUnitBindableSource,System.Boolean)"/>
+            and update the cooresponding control, making opacity to 0.
+            </summary>
+        </member>
         <member name="M:SudokuStudio.Views.Pages.AnalyzePage.OnSavingOrCopyingSudokuPanePictureAsync``1(``0)">
             <summary>
             Produces a copying/saving operation for pictures from sudoku pane <see cref="F:SudokuStudio.Views.Pages.AnalyzePage.SudokuPane"/>.

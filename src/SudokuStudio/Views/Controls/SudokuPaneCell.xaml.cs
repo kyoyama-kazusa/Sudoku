@@ -9,7 +9,7 @@ internal sealed partial class SudokuPaneCell : UserControl
 	/// <summary>
 	/// Indicates the internal digit displayers.
 	/// </summary>
-	private List<UIElement> _internalDigitDisplayers;
+	internal List<UIElement> _internalDigitDisplayers;
 
 
 	/// <summary>

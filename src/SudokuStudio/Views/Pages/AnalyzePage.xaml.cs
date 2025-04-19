@@ -434,12 +434,12 @@ public sealed partial class AnalyzePage : Page
 						switch (SudokuFileHandler.Read(filePath))
 						{
 							case [
-								{
-									BaseGrid: var g,
-									GridString: var gridStr,
-									ShowCandidates: var showCandidates,
-									RenderableData: var possibleDrawable
-								}
+							{
+								BaseGrid: var g,
+								GridString: var gridStr,
+								ShowCandidates: var showCandidates,
+								RenderableData: var possibleDrawable
+							}
 							]:
 							{
 								SudokuPane.Puzzle = gridStr is not null && Grid.TryParse(gridStr, out var g2) ? g2 : g;
@@ -648,6 +648,14 @@ public sealed partial class AnalyzePage : Page
 		{
 			VisualUnit = null;
 			SudokuPane.ViewUnit = null;
+
+			// Temporary solution: manually update candidate opacity.
+			// This fixes issue #756:
+			//   https://github.com/kyoyama-kazusa/Sudoku/issues/756
+			if (!SudokuPane.DisplayCandidates)
+			{
+				ManuallyUpdateCandidateTextBlocksOpacityToZero();
+			}
 		}
 	}
 
@@ -665,6 +673,33 @@ public sealed partial class AnalyzePage : Page
 		if (SudokuPane.Puzzle.Uniqueness == Uniqueness.Unique)
 		{
 			SudokuPane.UpdateGrid(SudokuPane.Puzzle.SolutionGrid);
+		}
+	}
+
+	/// <summary>
+	/// Manually calls <see cref="VisibilityConversion.CellStateToCandidateTextBlockOpacity(Grid, Cell, Digit, ViewUnitBindableSource?, bool)"/>
+	/// and update the cooresponding control, making opacity to 0.
+	/// </summary>
+	private void ManuallyUpdateCandidateTextBlocksOpacityToZero()
+	{
+		for (var cell = 0; cell < 81; cell++)
+		{
+			if (SudokuPane.Puzzle.GetState(cell) != CellState.Empty)
+			{
+				continue;
+			}
+
+			for (var digit = 0; digit < 9; digit++)
+			{
+				var opacity = VisibilityConversion.CellStateToCandidateTextBlockOpacity(
+					SudokuPane.Puzzle,
+					cell,
+					digit,
+					null,
+					false
+				);
+				SudokuPane._children[cell]._internalDigitDisplayers[digit + 1].Opacity = opacity;
+			}
 		}
 	}
 
