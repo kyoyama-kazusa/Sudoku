@@ -7,7 +7,7 @@
 		<!--Project configuration-->
 		<Authors>Kyouyama Kazusa</Authors>
 		<Copyright>Copyright (c) KyouyamaKazusa 2019-2025</Copyright>
-		<Version>3.4.1</Version>
+		<Version>3.4.2</Version>
 
 		<!--Syntax configuration-->
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -22,14 +22,6 @@
 		<NoWarn>NU1900;NU1902;NU1903</NoWarn>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 	</PropertyGroup>
-
-	<!--Enables the preview features if the project is not the source generators.-->
-	<!--
-	<PropertyGroup Condition="'$(MSBuildProjectFile.EndsWith(`SourceGeneration.csproj`))'=='false' And '$(LangVersion)'=='preview'">
-		<Feature>InterceptorsPreview</Feature>
-		<EnablePreviewFeatures>true</EnablePreviewFeatures>
-	</PropertyGroup>
-	-->
 
 	<!--Select the default configuration as 'DEBUG', and set the compilation symbols.-->
 	<Choose>

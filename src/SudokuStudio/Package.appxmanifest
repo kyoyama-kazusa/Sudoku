@@ -12,7 +12,7 @@
 	xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
 	IgnorableNamespaces="uap rescap">
 
-	<Identity Name="6808d209-134c-4ad9-a031-bf311afac91d" Publisher="CN=张齐天" Version="3.4.1.0" />
+	<Identity Name="6808d209-134c-4ad9-a031-bf311afac91d" Publisher="CN=张齐天" Version="3.4.2.0" />
 
 	<mp:PhoneIdentity PhoneProductId="6808d209-134c-4ad9-a031-bf311afac91d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
