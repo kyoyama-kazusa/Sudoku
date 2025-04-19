@@ -32,7 +32,7 @@ description: Other Use Cases of Almost Locked Set
 
 ## 例子 3 <a href="#example-3" id="example-3"></a>
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="375"><figcaption><p>第三个待定数组区块链的例子</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/images_0311.png" alt="" width="375"><figcaption><p>第三个待定数组区块链的例子</p></figcaption></figure>
 
 如图所示。这个是节点重叠技巧的例子。写法如下：
 
