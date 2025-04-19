@@ -71,6 +71,8 @@
 * [区块链](chain-theory/03-grouped-chain.md)
 * [待定数组链](chain-theory/04-almost-locked-set-chain/README.md)
   * [链关系的第二定义](chain-theory/04-almost-locked-set-chain/01-the-second-definition-of-inferences.md)
+  * [有技巧名的待定数组结构](chain-theory/04-almost-locked-set-chain/02-named-almost-locked-set.md)
+  * [在链里的待定数组](chain-theory/04-almost-locked-set-chain/03-other-use-cases-of-almost-locked-set.md)
 
 ## 附录 <a href="#appendix" id="appendix"></a>
 
