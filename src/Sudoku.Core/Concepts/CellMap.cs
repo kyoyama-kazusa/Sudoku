@@ -323,7 +323,7 @@ public partial struct CellMap : CellMapBase
 	{
 		get
 		{
-			foreach (var symmetry in Enum.GetValues<SymmetricType>().AsReadOnlySpan()[1..].EnumerateReversely())
+			foreach (var symmetry in SymmetricType.Values[1..].EnumerateReversely())
 			{
 				var isThisSymmetry = true;
 				foreach (var cell in this)
@@ -831,7 +831,7 @@ public partial struct CellMap : CellMapBase
 	public static CellMap Parse(string str)
 	{
 		foreach (var parser in
-			from element in Enum.GetValues<CoordinateType>()
+			from element in CoordinateType.Values
 			let parser = element.GetParser()
 			where parser is not null
 			select parser)

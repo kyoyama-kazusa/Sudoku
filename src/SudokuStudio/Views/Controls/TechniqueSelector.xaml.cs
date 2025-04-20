@@ -22,7 +22,7 @@ public sealed partial class TechniqueSelector : UserControl
 	/// </summary>
 	internal TechniqueBindableSource[] ItemsSource
 		=>
-		from @field in Enum.GetValues<Technique>()
+		from @field in Technique.Values.ToArray()
 		let feature = @field.GetFeature()
 		where feature is 0 or TechniqueFeatures.HardToBeGenerated or TechniqueFeatures.DirectTechniques
 		let displayName = @field == 0 ? SR.Get("TechniqueSelector_NoTechniqueSelected", App.CurrentCulture) : @field.GetName(App.CurrentCulture)

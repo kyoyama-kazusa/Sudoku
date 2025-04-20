@@ -55,7 +55,7 @@ public sealed partial class TechniqueSet() :
 	/// <summary>
 	/// Indicates the number of techniques included in this solution.
 	/// </summary>
-	private static readonly int TechniquesCount = Enum.GetValues<Technique>().Length - 1;
+	private static readonly int TechniquesCount = Technique.Length - 1;
 
 
 	/// <summary>
@@ -81,7 +81,7 @@ public sealed partial class TechniqueSet() :
 	static TechniqueSet()
 	{
 		var dic = new Dictionary<TechniqueGroup, TechniqueSet>();
-		foreach (var technique in Enum.GetValues<Technique>())
+		foreach (var technique in Technique.Values)
 		{
 			if (technique != Technique.None && technique.TryGetGroup() is { } group && !dic.TryAdd(group, [technique]))
 			{
@@ -91,7 +91,7 @@ public sealed partial class TechniqueSet() :
 		TechniqueRelationGroups = dic.ToFrozenDictionary();
 
 		var configurableDic = new Dictionary<TechniqueGroup, TechniqueSet>();
-		foreach (var technique in Enum.GetValues<Technique>())
+		foreach (var technique in Technique.Values)
 		{
 			if (technique.SupportsCustomizingDifficulty()
 				&& technique.TryGetGroup() is { } group && !configurableDic.TryAdd(group, [technique]))

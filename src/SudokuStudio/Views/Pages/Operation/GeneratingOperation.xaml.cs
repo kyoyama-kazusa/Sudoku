@@ -240,7 +240,7 @@ public sealed partial class GeneratingOperation : Page, IOperationProviderPage
 			) switch
 			{
 				SymmetryConstraint.InvalidSymmetricType => [],
-				SymmetryConstraint.AllSymmetricTypes => Enum.GetValues<SymmetricType>(),
+				SymmetryConstraint.AllSymmetricTypes => SymmetricType.Values,
 				var symmetricTypes and not 0 => symmetricTypes.AllFlags,
 				_ => [SymmetricType.None]
 			};

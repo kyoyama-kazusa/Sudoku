@@ -632,7 +632,7 @@ public partial struct CandidateMap : CandidateMapBase, IDrawableItem
 	public static CandidateMap Parse(string str)
 	{
 		foreach (var parser in
-			from element in Enum.GetValues<CoordinateType>()
+			from element in CoordinateType.Values
 			let parser = element.GetParser()
 			where parser is not null
 			select parser)
