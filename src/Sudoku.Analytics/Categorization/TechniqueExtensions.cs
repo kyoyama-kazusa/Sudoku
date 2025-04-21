@@ -152,6 +152,16 @@ public static class TechniqueExtensions
 			=> TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.PencilmarkVisibility
 			?? PencilmarkVisibilities.All;
 
+		/// <summary>
+		/// Indicates suitable <see cref="Type"/> which refers to a <see cref="Step"/> type,
+		/// whose contained property <see cref="Step.Code"/> may create this technique;
+		/// or <see langword="null"/> if it may not be referred by all <see cref="Step"/> derived types.
+		/// </summary>
+		/// <seealso cref="Step"/>
+		/// <seealso cref="Step.Code"/>
+		public Type? SuitableStepType
+			=> TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.StepType;
+
 
 		/// <summary>
 		/// Try to get the base difficulty value for the specified technique, configured in metadata.
@@ -245,20 +255,4 @@ public static class TechniqueExtensions
 		public TechniqueGroup? TryGetGroup()
 			=> TypeOfTechnique.GetField(@this.ToString())?.GetCustomAttribute<TechniqueMetadataAttribute>()?.ContainingGroup;
 	}
-
-
-	/// <summary>
-	/// Try to get suitable <see cref="Type"/> which refers to a <see cref="Step"/> type,
-	/// whose contained property <see cref="Step.Code"/> may create this technique.
-	/// </summary>
-	/// <param name="this">The current technique.</param>
-	/// <returns>
-	/// A valid <see cref="Type"/> instance, or <see langword="null"/> if it may not be referred by all <see cref="Step"/>
-	/// derived types.
-	/// </returns>
-	/// <seealso cref="Step"/>
-	/// <seealso cref="Step.Code"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Type? GetSuitableStepType(this Technique @this)
-		=> TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.StepType;
 }

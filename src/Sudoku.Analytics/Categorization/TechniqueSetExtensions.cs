@@ -27,11 +27,11 @@ public static class TechniqueSetExtensions
 			{
 				return null;
 			}
-			case [var technique] when technique.GetSuitableStepType() is { } stepType:
+			case [{ SuitableStepType: { } stepType } technique]:
 			{
 				return stepType;
 			}
-			case var _ when @this.Exists(static technique => technique.GetSuitableStepType() is null):
+			case var _ when @this.Exists(static technique => technique.SuitableStepType is null):
 			{
 				// Return null if at least one technique doesn't refer to a valid step type.
 				return null;
@@ -50,7 +50,7 @@ public static class TechniqueSetExtensions
 				var typesSet = new List<Type>();
 				foreach (var technique in @this)
 				{
-					var type = technique.GetSuitableStepType()!;
+					var type = technique.SuitableStepType!;
 					for (var i = 0; i < depthDictionary[technique] - min; i++)
 					{
 						type = type.BaseType!;
@@ -91,7 +91,7 @@ public static class TechniqueSetExtensions
 		static int getDepth(Technique technique)
 		{
 			var result = 0;
-			for (var temp = technique.GetSuitableStepType()!; temp != typeof(Step); temp = temp!.BaseType)
+			for (var temp = technique.SuitableStepType!; temp != typeof(Step); temp = temp!.BaseType)
 			{
 				result++;
 			}

@@ -25694,6 +25694,15 @@
             Indicates supported pencilmark-visibility modes that the current <see cref="T:Sudoku.Categorization.Technique"/> can be used in application.
             </summary>
         </member>
+        <member name="P:Sudoku.Categorization.TechniqueExtensions..SuitableStepType">
+            <summary>
+            Indicates suitable <see cref="T:System.Type"/> which refers to a <see cref="T:Sudoku.Analytics.Step"/> type,
+            whose contained property <see cref="P:Sudoku.Analytics.Step.Code"/> may create this technique;
+            or <see langword="null"/> if it may not be referred by all <see cref="T:Sudoku.Analytics.Step"/> derived types.
+            </summary>
+            <seealso cref="T:Sudoku.Analytics.Step"/>
+            <seealso cref="P:Sudoku.Analytics.Step.Code"/>
+        </member>
         <member name="M:Sudoku.Categorization.TechniqueExtensions..GetDefaultRating(System.Int32@)">
             <summary>
             Try to get the base difficulty value for the specified technique, configured in metadata.
@@ -25757,19 +25766,6 @@
             No exception will be thrown.
             </summary>
             <returns>The <see cref="T:Sudoku.Categorization.TechniqueGroup"/> value that the current <see cref="T:Sudoku.Categorization.Technique"/> belongs to.</returns>
-        </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.GetSuitableStepType(Sudoku.Categorization.Technique)">
-            <summary>
-            Try to get suitable <see cref="T:System.Type"/> which refers to a <see cref="T:Sudoku.Analytics.Step"/> type,
-            whose contained property <see cref="P:Sudoku.Analytics.Step.Code"/> may create this technique.
-            </summary>
-            <param name="this">The current technique.</param>
-            <returns>
-            A valid <see cref="T:System.Type"/> instance, or <see langword="null"/> if it may not be referred by all <see cref="T:Sudoku.Analytics.Step"/>
-            derived types.
-            </returns>
-            <seealso cref="T:Sudoku.Analytics.Step"/>
-            <seealso cref="P:Sudoku.Analytics.Step.Code"/>
         </member>
         <member name="T:Sudoku.Categorization.TechniqueFeatures">
             <summary>
