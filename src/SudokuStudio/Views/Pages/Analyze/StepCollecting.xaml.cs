@@ -53,7 +53,7 @@ public sealed partial class StepCollecting : Page, IAnalyzerTab
 			..
 			from step in collection
 			let technique = step.Code
-			orderby step.DifficultyLevel, technique.GetGroup(), technique
+			orderby step.DifficultyLevel, technique.Group, technique
 			group step by step.GetName(App.CurrentCulture) into stepsGroupedByName
 			let name = stepsGroupedByName.Key
 			select rootOrIntermediateItems(name, g(stepsGroupedByName, displayItems))

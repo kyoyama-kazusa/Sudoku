@@ -15,5 +15,5 @@ public sealed partial class TechniqueViewBindableSource([Property(Setter = Prope
 	/// <summary>
 	/// Indicates the containing group for the current technique.
 	/// </summary>
-	public TechniqueGroup ContainingGroup => TechniqueField.GetGroup();
+	public TechniqueGroup ContainingGroup => TechniqueField.Group;
 }

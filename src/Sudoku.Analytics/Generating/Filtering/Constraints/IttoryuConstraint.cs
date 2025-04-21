@@ -84,7 +84,7 @@ public sealed partial class IttoryuConstraint : Constraint, IComparisonOperatorC
 			return false;
 		}
 
-		SortedSet<SingleTechniqueFlag> techniqueList = [.. from step in steps select step.Code.GetSingleTechnique()];
+		SortedSet<SingleTechniqueFlag> techniqueList = [.. from step in steps select step.Code.SingleTechnique];
 		if (techniqueList.Max > LimitedSingle)
 		{
 			// The puzzle will use advanced techniques.

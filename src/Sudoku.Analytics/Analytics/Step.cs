@@ -111,7 +111,7 @@ public abstract partial class Step(
 	/// </exception>
 	/// <seealso cref="FlagsAttribute"/>
 	public DifficultyLevel DifficultyLevel
-		=> Code.GetDifficultyLevel() is var level and not 0
+		=> Code.DifficultyLevel is var level and not 0
 			? level
 			: throw new InvalidOperationException(SR.ExceptionMessage("TechniqueLevelCannotBeDetermined"));
 

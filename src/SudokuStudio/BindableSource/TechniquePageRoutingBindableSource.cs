@@ -19,7 +19,7 @@ public sealed class TechniquePageRoutingBindableSource
 	/// <summary>
 	/// Indicates the resource default name (English name) of this technique.
 	/// </summary>
-	public string OriginalName => Technique.GetEnglishName();
+	public string OriginalName => Technique.EnglishName;
 
 	/// <summary>
 	/// Indicates the routing page type name.

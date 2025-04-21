@@ -109,7 +109,7 @@ public sealed class NormalComplexSingleStep(
 		{
 			foreach (var technique in techniqueGroup)
 			{
-				switch (technique.GetGroup())
+				switch (technique.Group)
 				{
 					case TechniqueGroup.LockedCandidates: { hasLockedCandidates = true; break; }
 					case TechniqueGroup.Subset: { hasSubset = true; break; }

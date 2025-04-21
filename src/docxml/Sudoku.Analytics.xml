@@ -25659,6 +25659,41 @@
             Indicates the abbreviation of the current instance.
             </summary>
         </member>
+        <member name="P:Sudoku.Categorization.TechniqueExtensions..ReferenceLinks">
+            <summary>
+            Indicates all configured links to EnjoySudoku forum describing the current technique.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Categorization.TechniqueExtensions..Group">
+            <summary>
+            Indicates the group that the current <see cref="T:Sudoku.Categorization.Technique"/> belongs to.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when the specified <see cref="T:Sudoku.Categorization.Technique"/> does not belong to any <see cref="T:Sudoku.Categorization.TechniqueGroup"/>.
+            </exception>
+        </member>
+        <member name="P:Sudoku.Categorization.TechniqueExtensions..DifficultyLevel">
+            <summary>
+            Indicates its static difficulty level for the specified technique.
+            If it doesn't contain a static difficulty level value, <see cref="F:Sudoku.Analytics.DifficultyLevel.Unknown"/> will be returned.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Categorization.TechniqueExtensions..SingleTechnique">
+            <summary>
+            Indicates the corresponding <see cref="T:Sudoku.Categorization.SingleTechniqueFlag"/> for the specified single <see cref="T:Sudoku.Categorization.Technique"/>.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Throws when the technique is not single.</exception>
+        </member>
+        <member name="P:Sudoku.Categorization.TechniqueExtensions..Features">
+            <summary>
+            Indicates all features configured for the current <see cref="T:Sudoku.Categorization.Technique"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Categorization.TechniqueExtensions..SupportedPencilmarkVisibilityModes">
+            <summary>
+            Indicates supported pencilmark-visibility modes that the current <see cref="T:Sudoku.Categorization.Technique"/> can be used in application.
+            </summary>
+        </member>
         <member name="M:Sudoku.Categorization.TechniqueExtensions..GetDefaultRating(System.Int32@)">
             <summary>
             Try to get the base difficulty value for the specified technique, configured in metadata.
@@ -25676,32 +25711,26 @@
             <returns>The name of the current technique.</returns>
             <exception cref="T:System.Resources.ResourceNotFoundException">Throws when the target name is not found in resource dictionary.</exception>
         </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.GetReferenceLinks(Sudoku.Categorization.Technique)">
-            <summary>
-            Try to get all configured links to EnjoySudoku forum describing the current technique.
-            </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
-            <returns>All configured links.</returns>
-        </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.GetAliasedNames(Sudoku.Categorization.Technique,System.IFormatProvider)">
+        <member name="M:Sudoku.Categorization.TechniqueExtensions..GetAliasedNames(System.IFormatProvider)">
             <summary>
             Try to get all aliases of the current <see cref="T:Sudoku.Categorization.Technique"/>.
             </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
             <param name="formatProvider">The culture information.</param>
             <returns>
             All possible aliases of the current technique.
             If the technique does not contain any aliases, the return value will be <see langword="null"/>.
             </returns>
         </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.ComplexSingleUsing(Sudoku.Categorization.Technique,Sudoku.Categorization.Technique)">
+        <member name="M:Sudoku.Categorization.TechniqueExtensions..ComplexSingleUsing(Sudoku.Categorization.Technique)">
             <summary>
-            Combine the technique with indirect technique, to produce a new <see cref="T:Sudoku.Categorization.Technique"/> field, describing the complex single usage.
+            <para>
+            Combine the technique with indirect technique, to produce a new <see cref="T:Sudoku.Categorization.Technique"/> field,
+            describing the complex single usage.
             For example, <see cref="F:Sudoku.Categorization.Technique.CrosshatchingBlock"/> combining with <see cref="F:Sudoku.Categorization.Technique.HiddenPair"/>
             will produce <see cref="F:Sudoku.Categorization.Technique.HiddenPairCrosshatchingBlock"/>.
-            </summary>
-            <param name="this">
-            The direct technique used. The value can be:
+            </para>
+            <para>
+            The current instance must be a direct technique specified. The value can be:
             <list type="bullet">
             <item><see cref="F:Sudoku.Categorization.Technique.FullHouse"/></item>
             <item><see cref="F:Sudoku.Categorization.Technique.CrosshatchingBlock"/></item>
@@ -25709,72 +25738,25 @@
             <item><see cref="F:Sudoku.Categorization.Technique.CrosshatchingColumn"/></item>
             <item><see cref="F:Sudoku.Categorization.Technique.NakedSingle"/></item>
             </list>
-            </param>
+            </para>
+            </summary>
             <param name="indirect">
             The indirect technique used. The value can be ones of group <see cref="F:Sudoku.Categorization.TechniqueGroup.LockedCandidates"/>
             and <see cref="F:Sudoku.Categorization.TechniqueGroup.Subset"/>.
             </param>
             <returns>The combined result.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">Throws when the argument <paramref name="this"/> is not a direct technique.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when the current instance is not a direct technique.</exception>
             <exception cref="T:System.NotSupportedException">
             Throws when the argument <paramref name="indirect"/> is neither locked candidates nor subset.
             </exception>
         </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.TryGetGroup(Sudoku.Categorization.Technique)">
-            <summary>
-            Try to get the group that the current <see cref="T:Sudoku.Categorization.Technique"/> belongs to. If a technique doesn't contain a corresponding group,
-            this method will return <see langword="null"/>. No exception will be thrown.
-            </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
-            <returns>The <see cref="T:Sudoku.Categorization.TechniqueGroup"/> value that the current <see cref="T:Sudoku.Categorization.Technique"/> belongs to.</returns>
-        </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.GetGroup(Sudoku.Categorization.Technique)">
+        <member name="M:Sudoku.Categorization.TechniqueExtensions..TryGetGroup">
             <summary>
             Try to get the group that the current <see cref="T:Sudoku.Categorization.Technique"/> belongs to.
+            If a technique doesn't contain a corresponding group, this method will return <see langword="null"/>.
+            No exception will be thrown.
             </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
             <returns>The <see cref="T:Sudoku.Categorization.TechniqueGroup"/> value that the current <see cref="T:Sudoku.Categorization.Technique"/> belongs to.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when the specified <see cref="T:Sudoku.Categorization.Technique"/> does not belong to any <see cref="T:Sudoku.Categorization.TechniqueGroup"/>.
-            </exception>
-        </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.GetDifficultyLevel(Sudoku.Categorization.Technique)">
-            <summary>
-            Try to get its static difficulty level for the specified technique.
-            </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
-            <returns>
-            The difficulty level that the current technique belongs to.
-            If it doesn't contain a static difficulty level value, <see cref="F:Sudoku.Analytics.DifficultyLevel.Unknown"/> will be returned.
-            </returns>
-        </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.GetSingleTechnique(Sudoku.Categorization.Technique)">
-            <summary>
-            Try to get the corresponding <see cref="T:Sudoku.Categorization.SingleTechniqueFlag"/> for the specified single <see cref="T:Sudoku.Categorization.Technique"/>.
-            </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
-            <returns>The corresponding <see cref="T:Sudoku.Categorization.SingleTechniqueFlag"/> instance.</returns>
-            <exception cref="T:System.InvalidOperationException">Throws when the technique is not single.</exception>
-        </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.GetFeature(Sudoku.Categorization.Technique)">
-            <summary>
-            Try to get features for the current <see cref="T:Sudoku.Categorization.Technique"/>.
-            </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
-            <returns>All found features for the current <see cref="T:Sudoku.Categorization.Technique"/> instance.</returns>
-        </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.GetSupportedPencilmarkVisibilityModes(Sudoku.Categorization.Technique)">
-            <summary>
-            Try to get supported pencilmark-visibility modes that the current <see cref="T:Sudoku.Categorization.Technique"/> can be used in application.
-            </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
-            <returns>
-            <para>A <see cref="T:Sudoku.Analytics.PencilmarkVisibility"/> value indicating the supported modes.</para>
-            <para>
-            The result will be merged via flag values. Use <see cref="M:System.Enum.HasFlag(System.Enum)"/> to determine what flag you want to check.
-            </para>
-            </returns>
-            <seealso cref="M:System.Enum.HasFlag(System.Enum)"/>
         </member>
         <member name="M:Sudoku.Categorization.TechniqueExtensions.GetSuitableStepType(Sudoku.Categorization.Technique)">
             <summary>

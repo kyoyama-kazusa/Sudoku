@@ -10,7 +10,7 @@ internal static class StepSearcherListViewConversion
 		=> info is null ? null : GetMatchedStepSearcher(info).Metadata.DifficultyLevelRange.ToArray();
 
 	public static object? GetStepSearcherSupportedTechniqueCollection(StepSearcherInfo? info)
-		=> info is null ? null : from t in GetMatchedStepSearcher(info).Metadata.SupportedTechniques orderby t.GetDifficultyLevel() select t;
+		=> info is null ? null : from t in GetMatchedStepSearcher(info).Metadata.SupportedTechniques orderby t.DifficultyLevel select t;
 
 	public static string GetStepSearcherName(StepSearcherInfo? info)
 		=> info is null ? string.Empty : GetMatchedStepSearcher(info).Metadata.GetName(App.CurrentCulture);
@@ -20,10 +20,10 @@ internal static class StepSearcherListViewConversion
 	public static Visibility GetDisplayerVisibility(StepSearcherInfo? info) => info is null ? Visibility.Collapsed : Visibility.Visible;
 
 	public static Brush GetTechniqueForeground(Technique technique)
-		=> DifficultyLevelConversion.GetForegroundColor(technique.GetDifficultyLevel());
+		=> DifficultyLevelConversion.GetForegroundColor(technique.DifficultyLevel);
 
 	public static Brush GetTechniqueBackground(Technique technique)
-		=> DifficultyLevelConversion.GetBackgroundColor(technique.GetDifficultyLevel());
+		=> DifficultyLevelConversion.GetBackgroundColor(technique.DifficultyLevel);
 
 	private static StepSearcher GetMatchedStepSearcher(StepSearcherInfo info) => StepSearcherFactory.GetStepSearcher(info.TypeName);
 }

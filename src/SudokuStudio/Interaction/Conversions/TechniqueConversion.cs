@@ -19,12 +19,12 @@ internal static class TechniqueConversion
 
 	public static string GetName(Technique technique) => technique == Technique.None ? string.Empty : technique.GetName(App.CurrentCulture);
 
-	public static string GetEnglishName(Technique technique) => technique == Technique.None ? string.Empty : technique.GetEnglishName();
+	public static string GetEnglishName(Technique technique) => technique == Technique.None ? string.Empty : technique.EnglishName;
 
 	public static string GetDifficultyLevel(Technique technique)
 		=> technique == Technique.None
 			? string.Empty
-			: DifficultyLevelConversion.GetNameWithDefault(technique.GetDifficultyLevel(), SR.Get("TechniqueSelectionPage_NoDifficultyLevel", App.CurrentCulture));
+			: DifficultyLevelConversion.GetNameWithDefault(technique.DifficultyLevel, SR.Get("TechniqueSelectionPage_NoDifficultyLevel", App.CurrentCulture));
 
 	public static string GetAliasNames(Technique technique)
 		=> technique == Technique.None
@@ -39,20 +39,20 @@ internal static class TechniqueConversion
 	public static string GetProgramRawName(Technique technique) => technique.ToString();
 
 	public static string GetGroup(Technique technique)
-		=> technique == Technique.None ? string.Empty : technique.GetGroup().GetName(App.CurrentCulture);
+		=> technique == Technique.None ? string.Empty : technique.Group.GetName(App.CurrentCulture);
 
 	public static string GetGroupShortenedName(Technique technique)
-		=> technique == Technique.None ? string.Empty : technique.GetGroup().GetShortenedName(App.CurrentCulture);
+		=> technique == Technique.None ? string.Empty : technique.Group.GetShortenedName(App.CurrentCulture);
 
 	public static string GetFeature(Technique technique)
 		=> technique == Technique.None
 			? string.Empty
-			: GetStringResourceViaFeature(technique.GetFeature()) is var p and not "" ? p : SR.Get("TechniqueSelectionPage_NoExtraFeatures", App.CurrentCulture);
+			: GetStringResourceViaFeature(technique.Features) is var p and not "" ? p : SR.Get("TechniqueSelectionPage_NoExtraFeatures", App.CurrentCulture);
 
 	public static string GetFeatureDescription(Technique technique)
 		=> technique == Technique.None
 			? string.Empty
-			: GetStringTooltipViaFeature(technique.GetFeature()) is { Length: not 0 } p ? p : SR.Get("TechniqueSelectionPage_NoExtraFeaturesDescription", App.CurrentCulture);
+			: GetStringTooltipViaFeature(technique.Features) is { Length: not 0 } p ? p : SR.Get("TechniqueSelectionPage_NoExtraFeaturesDescription", App.CurrentCulture);
 
 	public static string GetSudokuExplainerDifficultyRange(Technique technique)
 	{
@@ -127,12 +127,12 @@ internal static class TechniqueConversion
 	public static Visibility GetExtraDescriptionVisibility(TechniqueFeatures feature)
 		=> feature == TechniqueFeatures.None ? Visibility.Collapsed : Visibility.Visible;
 
-	public static Visibility GetFeatureVisibility(Technique technique) => GetExtraDescriptionVisibility(technique.GetFeature());
+	public static Visibility GetFeatureVisibility(Technique technique) => GetExtraDescriptionVisibility(technique.Features);
 
 	public static Visibility GetSelectAllButtonVisibility(bool value) => value ? Visibility.Visible : Visibility.Collapsed;
 
 	public static Brush GetBrush(TechniqueFeatures feature)
 		=> new SolidColorBrush(feature == TechniqueFeatures.None ? Colors.Black : Colors.LightGray);
 
-	public static string[] GetIntroductionLinks(Technique technique) => technique.GetReferenceLinks();
+	public static string[] GetIntroductionLinks(Technique technique) => technique.ReferenceLinks.ToArray();
 }

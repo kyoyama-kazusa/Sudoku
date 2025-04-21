@@ -101,7 +101,7 @@ public sealed partial class TechniqueInfoModifierPage : Page
 
 			var technique = values[i];
 			var name = technique.GetName(App.CurrentCulture);
-			var englishName = technique.GetEnglishName();
+			var englishName = technique.EnglishName;
 
 			//
 			// Name
@@ -194,7 +194,7 @@ public sealed partial class TechniqueInfoModifierPage : Page
 			//
 			// Rating
 			//
-			var supportedModes = technique.GetSupportedPencilmarkVisibilityModes();
+			var supportedModes = technique.SupportedPencilmarkVisibilityModes;
 			var ratingControl = default(IntegerBox);
 			var hasIndirectRating = supportedModes.HasFlag(PencilmarkVisibility.FullMarking);
 			if (hasIndirectRating)

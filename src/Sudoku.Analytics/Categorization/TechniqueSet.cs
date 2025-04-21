@@ -129,7 +129,7 @@ public sealed partial class TechniqueSet() :
 
 			foreach (var technique in this)
 			{
-				result |= technique.GetDifficultyLevel();
+				result |= technique.DifficultyLevel;
 			}
 			return result;
 		}
@@ -138,7 +138,7 @@ public sealed partial class TechniqueSet() :
 	/// <summary>
 	/// Indicates the groups the current collection covered.
 	/// </summary>
-	public ReadOnlyMemory<TechniqueGroup> TechniqueGroups => (from technique in this select technique.GetGroup()).ToArray();
+	public ReadOnlyMemory<TechniqueGroup> TechniqueGroups => (from technique in this select technique.Group).ToArray();
 
 	/// <inheritdoc/>
 	bool ICollection<Technique>.IsReadOnly => false;
@@ -279,7 +279,7 @@ public sealed partial class TechniqueSet() :
 		var flag = false;
 		foreach (var technique in this)
 		{
-			var target = (int)technique.GetGroup() * 1000000 + (int)technique;
+			var target = (int)technique.Group * 1000000 + (int)technique;
 			result |= flag ? target >> 10 : target;
 			result += flag ? 7 : 31;
 			flag = !flag;

@@ -23,7 +23,7 @@ public sealed partial class TechniqueSelector : UserControl
 	internal TechniqueBindableSource[] ItemsSource
 		=>
 		from @field in Technique.Values.ToArray()
-		let feature = @field.GetFeature()
+		let feature = @field.Features
 		where feature is 0 or TechniqueFeatures.HardToBeGenerated or TechniqueFeatures.DirectTechniques
 		let displayName = @field == 0 ? SR.Get("TechniqueSelector_NoTechniqueSelected", App.CurrentCulture) : @field.GetName(App.CurrentCulture)
 		select new TechniqueBindableSource { DisplayName = displayName, Technique = @field, Feature = feature };

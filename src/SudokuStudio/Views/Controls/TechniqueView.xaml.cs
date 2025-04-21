@@ -229,7 +229,7 @@ public sealed partial class TechniqueView : UserControl
 		await TimeSpan.FromSeconds(.5);
 		foreach (var source in
 			from technique in Technique.Values.ToArray()[1..]
-			where !technique.GetFeature().HasFlag(TechniqueFeatures.NotImplemented)
+			where !technique.Features.HasFlag(TechniqueFeatures.NotImplemented)
 			select new TechniqueViewBindableSource(technique) into item
 			group item by item.ContainingGroup into itemGroup
 			orderby itemGroup.Key

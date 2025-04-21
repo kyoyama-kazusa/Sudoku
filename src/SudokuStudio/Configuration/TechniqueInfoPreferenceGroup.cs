@@ -39,7 +39,7 @@ public sealed partial class TechniqueInfoPreferenceGroup : PreferenceGroup
 		static TechniqueData dataCreator(Technique technique, int value)
 		{
 			technique.GetDefaultRating(out var directRating);
-			return new(value, directRating, technique.GetDifficultyLevel());
+			return new(value, directRating, technique.DifficultyLevel);
 		}
 
 		static TechniqueData dataModifier(in TechniqueData data, int value) => data with { Rating = value };
@@ -56,7 +56,7 @@ public sealed partial class TechniqueInfoPreferenceGroup : PreferenceGroup
 
 
 		static TechniqueData dataCreator(Technique technique, int value)
-			=> new(technique.GetDefaultRating(out _), value, technique.GetDifficultyLevel());
+			=> new(technique.GetDefaultRating(out _), value, technique.DifficultyLevel);
 
 		static TechniqueData dataModifier(in TechniqueData data, int value) => data with { DirectRating = value };
 	}
@@ -129,5 +129,5 @@ public sealed partial class TechniqueInfoPreferenceGroup : PreferenceGroup
 	/// <param name="technique">The technique.</param>
 	/// <returns>The difficulty level.</returns>
 	public DifficultyLevel GetDifficultyLevelOrDefault(Technique technique)
-		=> CustomizedTechniqueData.TryGetValue(technique, out var pair) ? pair.Level : technique.GetDifficultyLevel();
+		=> CustomizedTechniqueData.TryGetValue(technique, out var pair) ? pair.Level : technique.DifficultyLevel;
 }

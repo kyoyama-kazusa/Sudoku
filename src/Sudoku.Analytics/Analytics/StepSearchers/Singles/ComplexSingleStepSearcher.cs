@@ -300,7 +300,7 @@ public sealed partial class ComplexSingleStepSearcher : StepSearcher
 					from technique in techniquesGroup
 					select technique)
 				{
-					if (technique.GetGroup() == TechniqueGroup.Subset)
+					if (technique.Group == TechniqueGroup.Subset)
 					{
 						var (size, isHidden) = technique switch
 						{
