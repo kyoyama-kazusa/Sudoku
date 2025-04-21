@@ -23314,11 +23314,15 @@
             </summary>
             <seealso cref="T:Sudoku.Categorization.SingleTechniqueFlag"/>
         </member>
-        <member name="M:Sudoku.Categorization.SingleTechniqueFlagExtensions.GetName(Sudoku.Categorization.SingleTechniqueFlag,System.IFormatProvider)">
+        <member name="T:Sudoku.Categorization.SingleTechniqueFlagExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Categorization.SingleTechniqueFlag"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Categorization.SingleTechniqueFlagExtensions..GetName(System.IFormatProvider)">
             <summary>
             Try to get the name of the current <see cref="T:Sudoku.Categorization.SingleTechniqueFlag"/>.
             </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.SingleTechniqueFlag"/> instance.</param>
             <param name="formatProvider">The culture information.</param>
             <returns>The name of the current technique.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the target technique is out of range.</exception>
