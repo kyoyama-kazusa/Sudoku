@@ -25648,40 +25648,33 @@
             Indicates whether the technique supports for Siamese rule.
             </summary>
         </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.GetDefaultRating(Sudoku.Categorization.Technique,System.Int32@)">
+        <member name="P:Sudoku.Categorization.TechniqueExtensions..EnglishName">
             <summary>
-            Try to get the base difficulty value for the specified technique.
+            Indicates the English name of the current instance.
             </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
+            <exception cref="T:System.Resources.ResourceNotFoundException">Throws when the target name is not found in resource dictionary.</exception>
+        </member>
+        <member name="P:Sudoku.Categorization.TechniqueExtensions..Abbreviation">
+            <summary>
+            Indicates the abbreviation of the current instance.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Categorization.TechniqueExtensions..GetDefaultRating(System.Int32@)">
+            <summary>
+            Try to get the base difficulty value for the specified technique, configured in metadata.
+            </summary>
             <param name="directRatingValue">
             An extra value that is defined in direct mode. If undefined, the argument will keep a same value as the return value.
             </param>
             <returns>The difficulty value.</returns>
         </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.GetName(Sudoku.Categorization.Technique,System.IFormatProvider)">
+        <member name="M:Sudoku.Categorization.TechniqueExtensions..GetName(System.IFormatProvider)">
             <summary>
             Try to get the name of the current <see cref="T:Sudoku.Categorization.Technique"/>.
             </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
             <param name="formatProvider">The culture information.</param>
             <returns>The name of the current technique.</returns>
             <exception cref="T:System.Resources.ResourceNotFoundException">Throws when the target name is not found in resource dictionary.</exception>
-        </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.GetEnglishName(Sudoku.Categorization.Technique)">
-            <summary>
-            Try to get the English name of the current <see cref="T:Sudoku.Categorization.Technique"/>.
-            </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
-            <returns>The name of the current technique.</returns>
-            <exception cref="T:System.Resources.ResourceNotFoundException">Throws when the target name is not found in resource dictionary.</exception>
-        </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.GetAbbreviation(Sudoku.Categorization.Technique)">
-            <summary>
-            Try to get the abbreviation of the current <see cref="T:Sudoku.Categorization.Technique"/>.
-            </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
-            <returns>The abbreviation of the current technique.</returns>
-            <seealso cref="T:Sudoku.Categorization.TechniqueGroup"/>
         </member>
         <member name="M:Sudoku.Categorization.TechniqueExtensions.GetReferenceLinks(Sudoku.Categorization.Technique)">
             <summary>

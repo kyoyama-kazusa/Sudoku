@@ -129,7 +129,7 @@ internal static class AnalyzeConversion
 
 			result.Add(new Run { Text = SR.Get("AnalyzePage_Abbreviation", App.CurrentCulture) }.SingletonSpan<Bold>());
 			result.Add(new LineBreak());
-			result.Add(new Run { Text = technique.GetAbbreviation() ?? SR.Get("AnalyzePage_None", App.CurrentCulture) });
+			result.Add(new Run { Text = technique.Abbreviation ?? SR.Get("AnalyzePage_None", App.CurrentCulture) });
 		}
 
 		if (displayKind.HasFlag(StepTooltipDisplayItems.Aliases))

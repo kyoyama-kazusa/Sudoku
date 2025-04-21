@@ -34,7 +34,7 @@ internal static class TechniqueConversion
 	public static string GetAbbreviation(Technique technique)
 		=> technique == Technique.None
 			? string.Empty
-			: technique.GetAbbreviation() ?? SR.Get("TechniqueSelectionPage_NoAbbreviation", App.CurrentCulture);
+			: technique.Abbreviation ?? SR.Get("TechniqueSelectionPage_NoAbbreviation", App.CurrentCulture);
 
 	public static string GetProgramRawName(Technique technique) => technique.ToString();
 

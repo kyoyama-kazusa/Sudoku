@@ -76,57 +76,49 @@ public static class TechniqueExtensions
 		public bool SupportsSiamese
 			=> TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.SupportsSiamese is true
 			|| @this.GetGroup().SupportsSiamese;
+
+		/// <summary>
+		/// Indicates the English name of the current instance.
+		/// </summary>
+		/// <exception cref="ResourceNotFoundException">Throws when the target name is not found in resource dictionary.</exception>
+		public string EnglishName => SR.Get(@this.ToString(), SR.DefaultCulture);
+
+		/// <summary>
+		/// Indicates the abbreviation of the current instance.
+		/// </summary>
+		public string? Abbreviation
+			=> TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.Abbreviation
+			?? (SR.TryGet($"TechniqueAbbr_{@this}", out var resource, SR.DefaultCulture) ? resource : @this.GetGroup().Abbreviation);
+
+
+		/// <summary>
+		/// Try to get the base difficulty value for the specified technique, configured in metadata.
+		/// </summary>
+		/// <param name="directRatingValue">
+		/// An extra value that is defined in direct mode. If undefined, the argument will keep a same value as the return value.
+		/// </param>
+		/// <returns>The difficulty value.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public int GetDefaultRating(out int directRatingValue)
+		{
+			var attribute = TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()!;
+			directRatingValue = attribute.DirectRating == 0 ? attribute.Rating : attribute.DirectRating;
+			return attribute.Rating;
+		}
+
+		/// <summary>
+		/// Try to get the name of the current <see cref="Technique"/>.
+		/// </summary>
+		/// <param name="formatProvider">The culture information.</param>
+		/// <returns>The name of the current technique.</returns>
+		/// <exception cref="ResourceNotFoundException">Throws when the target name is not found in resource dictionary.</exception>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public string GetName(IFormatProvider? formatProvider)
+			=> SR.TryGet(@this.ToString(), out var resource, formatProvider as CultureInfo ?? CultureInfo.CurrentUICulture)
+				? resource
+				: SR.Get(@this.ToString(), SR.DefaultCulture);
 	}
 
-
-	/// <summary>
-	/// Try to get the base difficulty value for the specified technique.
-	/// </summary>
-	/// <param name="this">The <see cref="Technique"/> instance.</param>
-	/// <param name="directRatingValue">
-	/// An extra value that is defined in direct mode. If undefined, the argument will keep a same value as the return value.
-	/// </param>
-	/// <returns>The difficulty value.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static int GetDefaultRating(this Technique @this, out int directRatingValue)
-	{
-		var attribute = TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()!;
-		directRatingValue = attribute.DirectRating == 0 ? attribute.Rating : attribute.DirectRating;
-		return attribute.Rating;
-	}
-
-	/// <summary>
-	/// Try to get the name of the current <see cref="Technique"/>.
-	/// </summary>
-	/// <param name="this">The <see cref="Technique"/> instance.</param>
-	/// <param name="formatProvider">The culture information.</param>
-	/// <returns>The name of the current technique.</returns>
-	/// <exception cref="ResourceNotFoundException">Throws when the target name is not found in resource dictionary.</exception>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static string GetName(this Technique @this, IFormatProvider? formatProvider)
-		=> SR.TryGet(@this.ToString(), out var resource, formatProvider as CultureInfo ?? CultureInfo.CurrentUICulture)
-			? resource
-			: SR.Get(@this.ToString(), SR.DefaultCulture);
-
-	/// <summary>
-	/// Try to get the English name of the current <see cref="Technique"/>.
-	/// </summary>
-	/// <param name="this">The <see cref="Technique"/> instance.</param>
-	/// <returns>The name of the current technique.</returns>
-	/// <exception cref="ResourceNotFoundException">Throws when the target name is not found in resource dictionary.</exception>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static string GetEnglishName(this Technique @this) => SR.Get(@this.ToString(), SR.DefaultCulture);
-
-	/// <summary>
-	/// Try to get the abbreviation of the current <see cref="Technique"/>.
-	/// </summary>
-	/// <param name="this">The <see cref="Technique"/> instance.</param>
-	/// <returns>The abbreviation of the current technique.</returns>
-	/// <seealso cref="TechniqueGroup"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static string? GetAbbreviation(this Technique @this)
-		=> TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.Abbreviation
-		?? (SR.TryGet($"TechniqueAbbr_{@this}", out var resource, SR.DefaultCulture) ? resource : @this.GetGroup().Abbreviation);
 
 	/// <summary>
 	/// Try to get all configured links to EnjoySudoku forum describing the current technique.

@@ -69,7 +69,7 @@ public partial record AnalysisResult
 					return pair;
 				}
 
-				var abbr = step.Code.GetAbbreviation();
+				var abbr = step.Code.Abbreviation;
 				if (abbr is not null && oic(abbr))
 				{
 					return pair;

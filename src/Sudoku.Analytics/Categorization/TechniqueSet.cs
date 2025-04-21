@@ -300,7 +300,7 @@ public sealed partial class TechniqueSet() :
 			SR.Get("Comma", culture),
 			from technique in this
 			let name = technique.GetName(culture)
-			select isCurrentCountryOrRegionUseEnglish ? $"{name}" : $"{name} ({technique.GetEnglishName()})"
+			select isCurrentCountryOrRegionUseEnglish ? $"{name}" : $"{name} ({technique.EnglishName})"
 		);
 	}
 

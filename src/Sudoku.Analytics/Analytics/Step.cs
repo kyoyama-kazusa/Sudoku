@@ -62,7 +62,7 @@ public abstract partial class Step(
 	/// <summary>
 	/// Indicates the English name of the technique.
 	/// </summary>
-	public virtual string EnglishName => Code.GetEnglishName();
+	public virtual string EnglishName => Code.EnglishName;
 
 	/// <summary>
 	/// Indicates the difficulty of this technique step.
