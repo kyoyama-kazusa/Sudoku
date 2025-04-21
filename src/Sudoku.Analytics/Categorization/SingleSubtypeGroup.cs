@@ -47,7 +47,7 @@ public readonly partial struct SingleSubtypeGroup([Field] ReadOnlyMemory<SingleS
 			TechniqueSet result = [];
 			foreach (var element in _values)
 			{
-				result.Add(element.GetRelatedTechnique());
+				result.Add(element.RelatedTechnique);
 			}
 			return result;
 		}

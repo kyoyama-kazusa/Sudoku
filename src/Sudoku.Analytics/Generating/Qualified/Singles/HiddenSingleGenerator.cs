@@ -237,7 +237,7 @@ public sealed class HiddenSingleGenerator : SingleGenerator
 		Grid forLine(House house, out Step? step)
 		{
 			// Adjust if values are invalid.
-			house = (subtype.GetRelatedTechnique(), house) switch
+			house = (subtype.RelatedTechnique, house) switch
 			{
 				(Technique.CrosshatchingRow, >= 18) => house - 9,
 				(Technique.CrosshatchingColumn, < 18) => house + 9,

@@ -65,7 +65,7 @@ public abstract class PrimaryGenerator : TechniqueGenerator, IJustOneCellGenerat
 		do
 		{
 			subtype = range[Rng.Next(0, range.Length)];
-		} while (!match(subtype) || subtype is SingleSubtype.None or SingleSubtype.Unknown || !subtype.ToString().StartsWith(prefixMustBe) || subtype.IsUnnecessary());
+		} while (!match(subtype) || subtype is SingleSubtype.None or SingleSubtype.Unknown || !subtype.ToString().StartsWith(prefixMustBe) || subtype.IsUnnecessary);
 		return subtype;
 	}
 

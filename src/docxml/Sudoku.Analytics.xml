@@ -23107,60 +23107,57 @@
             </summary>
             <seealso cref="T:Sudoku.Categorization.SingleSubtype"/>
         </member>
-        <member name="M:Sudoku.Categorization.SingleSubtypeExtensions.IsUnnecessary(Sudoku.Categorization.SingleSubtype)">
+        <member name="T:Sudoku.Categorization.SingleSubtypeExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Categorization.SingleSubtype"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Categorization.SingleSubtypeExtensions..IsUnnecessary">
             <summary>
             Indicates whether the specified subtype is unnecessary in practice.
             For example, a naked single with 8 digits in a block will form a full house, which is unnecessary.
             </summary>
-            <param name="this">The subtype.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating whether the subtype is unnecessary.</returns>
         </member>
-        <member name="M:Sudoku.Categorization.SingleSubtypeExtensions.IsAlgorithmUnnecessary(Sudoku.Categorization.SingleSubtype)">
+        <member name="P:Sudoku.Categorization.SingleSubtypeExtensions..IsAlgorithmUnnecessary">
             <summary>
             Indicates whether the specified subtype is unnecessary in solving algorithm,
             but it can be appeared in a solving step produced by a user.
             </summary>
-            <param name="this">The subtype.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating whether the subtype is unnecessary.</returns>
         </member>
-        <member name="M:Sudoku.Categorization.SingleSubtypeExtensions.GetExcludersCount(Sudoku.Categorization.SingleSubtype)">
+        <member name="P:Sudoku.Categorization.SingleSubtypeExtensions..ExcludersCount">
             <summary>
-            Try to get the number of excluders that the current single subtype will use.
+            Indicates the number of excluders that the current single subtype will use.
             This method will return a non-zero value if and only if it is a hidden single.
             </summary>
-            <param name="this">Indicates the subtype.</param>
-            <returns>The number of excluders.</returns>
         </member>
-        <member name="M:Sudoku.Categorization.SingleSubtypeExtensions.GetExcludersCount(Sudoku.Categorization.SingleSubtype,Sudoku.Concepts.HouseType)">
+        <member name="P:Sudoku.Categorization.SingleSubtypeExtensions..DirectDifficultyLevel">
             <summary>
-            Try to get the number of excluders that the current single subtype will use in the specified house type.
+            Indicates the direct difficulty level of the curreent subtype.
             </summary>
-            <param name="this">Indicates the subtype.</param>
-            <param name="houseType">The house type.</param>
-            <returns>The number of excluders.</returns>
         </member>
-        <member name="M:Sudoku.Categorization.SingleSubtypeExtensions.GetDirectDifficultyLevel(Sudoku.Categorization.SingleSubtype)">
+        <member name="P:Sudoku.Categorization.SingleSubtypeExtensions..Abbreviation">
             <summary>
-            Try to get the direct difficulty level of the curreent subtype.
+            Indicates the abbreviation of the subtype.
             </summary>
-            <param name="this">The subtype.</param>
-            <returns>The direct difficulty level.</returns>
         </member>
-        <member name="M:Sudoku.Categorization.SingleSubtypeExtensions.GetAbbreviation(Sudoku.Categorization.SingleSubtype)">
-            <summary>
-            Gets the abbreviation of the subtype.
-            </summary>
-            <param name="this">Indicates the subtype.</param>
-            <returns>The abbreviation.</returns>
-        </member>
-        <member name="M:Sudoku.Categorization.SingleSubtypeExtensions.GetRelatedTechnique(Sudoku.Categorization.SingleSubtype)">
+        <member name="P:Sudoku.Categorization.SingleSubtypeExtensions..RelatedTechnique">
             <summary>
             Try to get the related technique of the current subtype.
             </summary>
-            <param name="this">The subtype.</param>
-            <returns>The related technique instance.</returns>
         </member>
-        <member name="M:Sudoku.Categorization.SingleSubtypeExtensions.GetSingleTechnique(Sudoku.Categorization.SingleSubtype,System.Boolean)">
+        <member name="P:Sudoku.Categorization.SingleSubtypeExtensions..Attribute">
+            <summary>
+            Gets the attribute.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Categorization.SingleSubtypeExtensions..GetExcludersCount(Sudoku.Concepts.HouseType)">
+            <summary>
+            Try to get the number of excluders that the current single subtype will use in the specified house type.
+            </summary>
+            <param name="houseType">The house type.</param>
+            <returns>The number of excluders.</returns>
+        </member>
+        <member name="M:Sudoku.Categorization.SingleSubtypeExtensions..GetSingleTechnique(System.Boolean)">
             <summary>
             Try to get related <see cref="T:Sudoku.Categorization.SingleTechniqueFlag"/> field that corresponds the current subtype.
             All values are:
@@ -23174,7 +23171,6 @@
             <item><see cref="F:Sudoku.Categorization.SingleTechniqueFlag.NakedSingle"/></item>
             </list>
             </summary>
-            <param name="this">The subtype.</param>
             <param name="subtleValue">
             <para>
             A <see cref="T:System.Boolean"/> indicating whether the return value should subtle the handling on return field.
@@ -23186,11 +23182,6 @@
             <returns>The single technique returned.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the argument is out of range.</exception>
             <seealso cref="T:Sudoku.Categorization.SingleTechniqueFlag"/>
-        </member>
-        <member name="M:Sudoku.Categorization.SingleSubtypeExtensions.GetAttribute(Sudoku.Categorization.SingleSubtype)">
-            <summary>
-            Gets the attribute.
-            </summary>
         </member>
         <member name="T:Sudoku.Categorization.SingleSubtypeGroup">
             <summary>
