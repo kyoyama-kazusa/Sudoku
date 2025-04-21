@@ -7813,6 +7813,25 @@
             </para>
             </remarks>
         </member>
+        <member name="T:Sudoku.Analytics.Hub.EmptyRectangle">
+            <summary>
+            Represents empty rectangle rule.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.Hub.EmptyRectangle.IsEmptyRectangle(Sudoku.Concepts.CellMap@,System.Int32,System.Int32@,System.Int32@)">
+            <summary>
+            Determine whether the specified cells in the specified block form an empty rectangle.
+            </summary>
+            <param name="cells">The cells to be checked.</param>
+            <param name="block">The block where the cells may form an empty rectangle pattern.</param>
+            <param name="row">The row that the empty rectangle used.</param>
+            <param name="column">The column that the empty rectangle used.</param>
+            <returns>
+            A <see cref="T:System.Boolean"/> value indicating that. If <see langword="true"/>,
+            both arguments <paramref name="row"/> and <paramref name="column"/> can be used;
+            otherwise, both arguments should be discards.
+            </returns>
+        </member>
         <member name="T:Sudoku.Analytics.Hub.Lasting">
             <summary>
             Represents lasting rule of a single technique.
@@ -10441,20 +10460,6 @@
         </member>
         <member name="M:Sudoku.Analytics.StepSearchers.SingleDigitPatterns.EmptyRectangleStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)">
             <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.SingleDigitPatterns.EmptyRectangleStepSearcher.IsEmptyRectangle(Sudoku.Concepts.CellMap@,System.Int32,System.Int32@,System.Int32@)">
-            <summary>
-            Determine whether the specified cells in the specified block form an empty rectangle.
-            </summary>
-            <param name="cells">The cells to be checked.</param>
-            <param name="block">The block where the cells may form an empty rectangle pattern.</param>
-            <param name="row">The row that the empty rectangle used.</param>
-            <param name="column">The column that the empty rectangle used.</param>
-            <returns>
-            A <see cref="T:System.Boolean"/> value indicating that. If <see langword="true"/>,
-            both arguments <paramref name="row"/> and <paramref name="column"/> can be used;
-            otherwise, both arguments should be discards.
-            </returns>
         </member>
         <member name="T:Sudoku.Analytics.StepSearchers.SingleDigitPatterns.GroupedTwoStrongLinksStepSearcher">
             <summary>
