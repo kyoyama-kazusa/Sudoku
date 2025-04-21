@@ -27,38 +27,43 @@ public static class GridPartialMarkingExtensions
 
 
 	/// <summary>
-	/// Determine whether the grid lacks some candidates that are included in a grid,
-	/// through basic elimination rule (Naked Single checking) and specified partial-marking techniques.
+	/// Provides extension members on <see langword="in"/> <see cref="Grid"/>.
 	/// </summary>
-	/// <param name="this">The grid to be checked.</param>
-	/// <param name="techniques">A list of techniques to be checked.</param>
-	/// <returns>A <see cref="bool"/> value indicating that.</returns>
-	/// <exception cref="ArgumentOutOfRangeException">
-	/// Throws when the argument <paramref name="techniques"/> is greater than the maximum value of enumeration field defined.
-	/// </exception>
-	public static bool IsMissingCandidates(this in Grid @this, PartialMarkingTechniques techniques)
+	extension(in Grid @this)
 	{
-		switch (techniques)
+		/// <summary>
+		/// Determine whether the grid lacks some candidates that are included in a grid,
+		/// through basic elimination rule (Naked Single checking) and specified partial-marking techniques.
+		/// </summary>
+		/// <param name="techniques">A list of techniques to be checked.</param>
+		/// <returns>A <see cref="bool"/> value indicating that.</returns>
+		/// <exception cref="ArgumentOutOfRangeException">
+		/// Throws when the argument <paramref name="techniques"/> is greater than the maximum value of enumeration field defined.
+		/// </exception>
+		public bool IsMissingCandidates(PartialMarkingTechniques techniques)
 		{
-			case PartialMarkingTechniques.None:
+			switch (techniques)
 			{
-				return @this.IsMissingCandidates;
-			}
-			case < PartialMarkingTechniques.None or > PartialMarkingTechniques.LockedHiddenTriple:
-			{
-				throw new ArgumentOutOfRangeException(nameof(techniques));
-			}
-			default:
-			{
-				var gridResetCandidates = @this.ResetCandidatesGrid;
-				foreach (var step in Collector.Collect(gridResetCandidates))
+				case PartialMarkingTechniques.None:
 				{
-					if (techniques.HasFlag(Enum.Parse<PartialMarkingTechniques>(step.Code.ToString())))
-					{
-						gridResetCandidates.Apply(step);
-					}
+					return @this.IsMissingCandidates;
 				}
-				return @this != gridResetCandidates;
+				case < PartialMarkingTechniques.None or > PartialMarkingTechniques.LockedHiddenTriple:
+				{
+					throw new ArgumentOutOfRangeException(nameof(techniques));
+				}
+				default:
+				{
+					var gridResetCandidates = @this.ResetCandidatesGrid;
+					foreach (var step in Collector.Collect(gridResetCandidates))
+					{
+						if (techniques.HasFlag(Enum.Parse<PartialMarkingTechniques>(step.Code.ToString())))
+						{
+							gridResetCandidates.Apply(step);
+						}
+					}
+					return @this != gridResetCandidates;
+				}
 			}
 		}
 	}

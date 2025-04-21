@@ -22565,12 +22565,16 @@
             Indicates the backing collector.
             </summary>
         </member>
-        <member name="M:Sudoku.Categorization.GridPartialMarkingExtensions.IsMissingCandidates(Sudoku.Concepts.Grid@,Sudoku.Categorization.PartialMarkingTechniques)">
+        <member name="T:Sudoku.Categorization.GridPartialMarkingExtensions.">
+            <summary>
+            Provides extension members on <see langword="in"/> <see cref="T:Sudoku.Concepts.Grid"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Categorization.GridPartialMarkingExtensions..IsMissingCandidates(Sudoku.Categorization.PartialMarkingTechniques)">
             <summary>
             Determine whether the grid lacks some candidates that are included in a grid,
             through basic elimination rule (Naked Single checking) and specified partial-marking techniques.
             </summary>
-            <param name="this">The grid to be checked.</param>
             <param name="techniques">A list of techniques to be checked.</param>
             <returns>A <see cref="T:System.Boolean"/> value indicating that.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">
