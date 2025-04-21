@@ -87,7 +87,7 @@ public static class TechniqueExtensions
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool SupportsSiamese(this Technique @this)
 		=> TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.SupportsSiamese is true
-		|| @this.GetGroup().SupportsSiamese();
+		|| @this.GetGroup().SupportsSiamese;
 
 	/// <summary>
 	/// Try to get the base difficulty value for the specified technique.
@@ -136,7 +136,7 @@ public static class TechniqueExtensions
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static string? GetAbbreviation(this Technique @this)
 		=> TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.Abbreviation
-		?? (SR.TryGet($"TechniqueAbbr_{@this}", out var resource, SR.DefaultCulture) ? resource : @this.GetGroup().GetAbbreviation());
+		?? (SR.TryGet($"TechniqueAbbr_{@this}", out var resource, SR.DefaultCulture) ? resource : @this.GetGroup().Abbreviation);
 
 	/// <summary>
 	/// Try to get all configured links to EnjoySudoku forum describing the current technique.

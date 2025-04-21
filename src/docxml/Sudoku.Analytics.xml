@@ -26112,53 +26112,56 @@
             Represents <see langword="typeof"/>(<see cref="T:Sudoku.Categorization.TechniqueGroup"/>).
             </summary>
         </member>
-        <member name="M:Sudoku.Categorization.TechniqueGroupExtensions.SupportsSiamese(Sudoku.Categorization.TechniqueGroup)">
+        <member name="T:Sudoku.Categorization.TechniqueGroupExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Categorization.TechniqueGroup"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Categorization.TechniqueGroupExtensions..SupportsSiamese">
             <summary>
             Indicates whether the technique group supports for Siamese rule.
             </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.TechniqueGroup"/> instance.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
-        <member name="M:Sudoku.Categorization.TechniqueGroupExtensions.GetShortenedName(Sudoku.Categorization.TechniqueGroup)">
+        <member name="P:Sudoku.Categorization.TechniqueGroupExtensions..Name">
+            <summary>
+            Indicates the name of the technique group.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Categorization.TechniqueGroupExtensions..ShortenedName">
+            <summary>
+            Indicates shortened name of the current <see cref="T:Sudoku.Categorization.TechniqueGroup"/> instance.
+            If the group has an abbreviation, return its abbreviation; otherwise, its full name.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Categorization.TechniqueGroupExtensions..Abbreviation">
+            <summary>
+            Try to get abbreviation of the current <see cref="T:Sudoku.Categorization.TechniqueGroup"/> instance.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Categorization.TechniqueGroupExtensions..GetShortenedName(System.Globalization.CultureInfo)">
             <summary>
             Try to get shortened name of the current <see cref="T:Sudoku.Categorization.TechniqueGroup"/> instance. If the group has an abbreviation,
             return its abbreviation; otherwise, its full name.
             </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.TechniqueGroup"/> instance.</param>
-            <returns>The shortened name.</returns>
-        </member>
-        <member name="M:Sudoku.Categorization.TechniqueGroupExtensions.GetShortenedName(Sudoku.Categorization.TechniqueGroup,System.Globalization.CultureInfo)">
-            <summary>
-            Try to get shortened name of the current <see cref="T:Sudoku.Categorization.TechniqueGroup"/> instance. If the group has an abbreviation,
-            return its abbreviation; otherwise, its full name.
-            </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.TechniqueGroup"/> instance.</param>
             <param name="cultureInfo">The culture information instance.</param>
             <returns>The shortened name.</returns>
         </member>
-        <member name="M:Sudoku.Categorization.TechniqueGroupExtensions.GetName(Sudoku.Categorization.TechniqueGroup,System.IFormatProvider)">
+        <member name="M:Sudoku.Categorization.TechniqueGroupExtensions..GetName(System.IFormatProvider)">
             <summary>
             Try to get name of the current <see cref="T:Sudoku.Categorization.TechniqueGroup"/> instance, with the specified culture information.
             </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.TechniqueGroup"/> instance.</param>
             <param name="formatProvider">The culture information instance.</param>
             <returns>The name.</returns>
             <exception cref="T:System.Resources.ResourceNotFoundException">Throws when the specified group does not contain a name.</exception>
         </member>
-        <member name="M:Sudoku.Categorization.TechniqueGroupExtensions.GetAbbreviation(Sudoku.Categorization.TechniqueGroup)">
-            <summary>
-            Try to get abbreviation of the current <see cref="T:Sudoku.Categorization.TechniqueGroup"/> instance.
-            </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.TechniqueGroup"/> instance.</param>
-            <returns>The abbreviation.</returns>
-        </member>
-        <member name="M:Sudoku.Categorization.TechniqueGroupExtensions.GetTechniques(Sudoku.Categorization.TechniqueGroup,System.Func{Sudoku.Categorization.Technique,System.Boolean})">
+        <member name="M:Sudoku.Categorization.TechniqueGroupExtensions..GetTechniques(System.Func{Sudoku.Categorization.Technique,System.Boolean})">
             <summary>
             Try to get all possible <see cref="T:Sudoku.Categorization.Technique"/> fields belonging to the current group.
             </summary>
-            <param name="this">The group to be checked.</param>
             <param name="filter">Indicates the filter.</param>
-            <returns>A <see cref="T:Sudoku.Categorization.TechniqueSet"/> instance that contains all <see cref="T:Sudoku.Categorization.Technique"/> fields belonging to the current group.</returns>
+            <returns>
+            A <see cref="T:Sudoku.Categorization.TechniqueSet"/> instance that contains all <see cref="T:Sudoku.Categorization.Technique"/> fields belonging to the current group.
+            </returns>
         </member>
         <member name="T:Sudoku.Categorization.TechniqueMetadataAttribute">
             <summary>
