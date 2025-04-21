@@ -8,7 +8,7 @@ internal sealed class TransformTypeToBooleanConverter : IValueConverter
 	/// <inheritdoc/>
 	public object Convert(object value, Type targetType, object parameter, string language)
 		=> (value, parameter) is (TransformType items, string rawFlag)
-		&& Enum.TryParse(rawFlag, out TransformType flag) && items.HasFlag(flag);
+		&& TransformType.TryParse(rawFlag, out var flag) && items.HasFlag(flag);
 
 	/// <inheritdoc/>
 	/// <exception cref="InvalidOperationException">Throws when <paramref name="parameter"/> or <paramref name="value"/> is invalid.</exception>
@@ -19,7 +19,7 @@ internal sealed class TransformTypeToBooleanConverter : IValueConverter
 
 		return (Application.Current.AsApp().Preference.LibraryPreferences.LibraryPuzzleTransformations, parameter) switch
 		{
-			(var items, string rawFlag) when Enum.TryParse(rawFlag, out TransformType flag) => value switch
+			(var items, string rawFlag) when TransformType.TryParse(rawFlag, out var flag) => value switch
 			{
 				true => items | flag,
 				false => items & ~flag,

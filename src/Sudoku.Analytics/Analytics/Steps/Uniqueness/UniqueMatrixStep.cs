@@ -26,7 +26,7 @@ public abstract partial class UniqueMatrixStep(
 	public abstract int Type { get; }
 
 	/// <inheritdoc/>
-	public sealed override Technique Code => Enum.Parse<Technique>($"UniqueMatrixType{Type}");
+	public sealed override Technique Code => Technique.Parse($"UniqueMatrixType{Type}");
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;

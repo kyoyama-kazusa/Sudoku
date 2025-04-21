@@ -48,7 +48,7 @@ public partial class Hub
 					}
 				}
 
-				return Enum.Parse<Technique>(buffer[..bufferLength]);
+				return Technique.Parse(buffer[..bufferLength]);
 
 
 				[MethodImpl(MethodImplOptions.AggressiveInlining)]

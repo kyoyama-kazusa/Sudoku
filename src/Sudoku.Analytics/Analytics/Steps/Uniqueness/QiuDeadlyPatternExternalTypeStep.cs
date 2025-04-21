@@ -27,7 +27,7 @@ public abstract class QiuDeadlyPatternExternalTypeStep(
 	public sealed override Technique Code
 		=> Type switch
 		{
-			>= 1 and <= 4 => Enum.Parse<Technique>($"QiuDeadlyPatternExternalType{Type}"),
+			>= 1 and <= 4 => Technique.Parse($"QiuDeadlyPatternExternalType{Type}"),
 			5 => Technique.LockedQiuDeadlyPattern,
 			6 => Technique.QiuDeadlyPatternExternalType1,
 			7 => Technique.QiuDeadlyPatternExternalType2

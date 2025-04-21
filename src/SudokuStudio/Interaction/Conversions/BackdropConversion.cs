@@ -11,7 +11,7 @@ internal static class BackdropConversion
 		var i = 0;
 		foreach (var element in comboBox.Items.Cast<ComboBoxItem>())
 		{
-			if (element.Tag is string s && Enum.TryParse<BackdropKind>(s, out var target) && target == backdropKind)
+			if (element.Tag is string s && BackdropKind.TryParse(s, out var target) && target == backdropKind)
 			{
 				return i;
 			}

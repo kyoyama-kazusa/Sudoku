@@ -26,7 +26,7 @@ internal sealed class TransformatingMethodOption : Option<TransformType>, IOptio
 		var typesResult = TransformType.None;
 		foreach (var token in from token in result.Tokens select token.Value)
 		{
-			if (Enum.TryParse<TransformType>(token, true, out var typeResult))
+			if (TransformType.TryParse(token, true, out var typeResult))
 			{
 				typesResult |= typeResult;
 			}

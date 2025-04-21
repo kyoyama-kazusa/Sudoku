@@ -45,7 +45,7 @@ public sealed partial class ThemeSettingPage : Page
 
 	private void BackdropSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
-		if (sender is ComboBox { SelectedItem: ComboBoxItem { Tag: string s } } && Enum.TryParse<BackdropKind>(s, out var value))
+		if (sender is ComboBox { SelectedItem: ComboBoxItem { Tag: string s } } && BackdropKind.TryParse(s, out var value))
 		{
 			Application.Current.AsApp().Preference.UIPreferences.Backdrop = value;
 		}

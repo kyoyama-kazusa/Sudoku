@@ -41,8 +41,7 @@ public sealed class NormalFishStep(
 					buffer[i++] = ch;
 				}
 			}
-
-			return Enum.Parse<Technique>(buffer[..i]);
+			return Technique.Parse(buffer[..i]);
 		}
 	}
 

@@ -11,7 +11,7 @@ internal sealed class IttoryuSupportedTechniquesValueConverter : IValueConverter
 	/// <inheritdoc/>
 	public object Convert(object value, Type targetType, object parameter, string language)
 		=> (value, parameter) is (List<Technique> item, string rawTechniqueName)
-		&& Enum.TryParse(rawTechniqueName, out Technique techniqueName) && item.Contains(techniqueName);
+		&& Technique.TryParse(rawTechniqueName, out var techniqueName) && item.Contains(techniqueName);
 
 	/// <inheritdoc/>
 	/// <exception cref="InvalidOperationException">Throws when <paramref name="parameter"/> or <paramref name="value"/> is invalid.</exception>
@@ -26,7 +26,7 @@ internal sealed class IttoryuSupportedTechniquesValueConverter : IValueConverter
 		}
 
 		var result = Application.Current.AsApp().Preference.AnalysisPreferences.IttoryuSupportedTechniques;
-		if (parameter is not string rawTechniqueName || !Enum.TryParse(rawTechniqueName, out Technique technique))
+		if (parameter is not string rawTechniqueName || !Technique.TryParse(rawTechniqueName, out var technique))
 		{
 			throw new InvalidOperationException(error_Parameter);
 		}

@@ -36,7 +36,7 @@ public abstract partial class QiuDeadlyPatternStep(
 	public abstract int Type { get; }
 
 	/// <inheritdoc/>
-	public override Technique Code => Enum.Parse<Technique>($"QiuDeadlyPatternType{Type}");
+	public override Technique Code => Technique.Parse($"QiuDeadlyPatternType{Type}");
 
 	private protected string PatternStr => Options.Converter.CellConverter(Pattern);
 

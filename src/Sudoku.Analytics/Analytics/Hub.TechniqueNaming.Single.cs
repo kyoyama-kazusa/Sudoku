@@ -33,7 +33,7 @@ public partial class Hub
 					}
 				}
 
-				return Enum.Parse<SingleSubtype>(
+				return SingleSubtype.Parse(
 					house switch
 					{
 						>= 0 and < 9 => $"{HouseType.Block}HiddenSingle0{r}{c}",
@@ -67,7 +67,7 @@ public partial class Hub
 					}
 				}
 				var maxValue = Math.Max(valuesCountInBlock, valuesCountInRow, valuesCountInColumn);
-				return Enum.Parse<SingleSubtype>(
+				return SingleSubtype.Parse(
 					maxValue == valuesCountInBlock
 						? $"NakedSingleBlock{maxValue}"
 						: maxValue == valuesCountInRow ? $"NakedSingleRow{maxValue}" : $"NakedSingleColumn{maxValue}"

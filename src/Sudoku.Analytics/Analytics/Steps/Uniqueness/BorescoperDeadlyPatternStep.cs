@@ -26,7 +26,7 @@ public abstract partial class BorescoperDeadlyPatternStep(
 	public abstract int Type { get; }
 
 	/// <inheritdoc/>
-	public sealed override Technique Code => Enum.Parse<Technique>($"BorescoperDeadlyPatternType{Type}");
+	public sealed override Technique Code => Technique.Parse($"BorescoperDeadlyPatternType{Type}");
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;

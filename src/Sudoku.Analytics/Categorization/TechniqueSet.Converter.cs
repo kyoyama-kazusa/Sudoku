@@ -20,7 +20,7 @@ public partial class TechniqueSet
 						isInitialized = true;
 						break;
 					}
-					case JsonTokenType.String when Enum.TryParse<Technique>(reader.GetString(), out var technique):
+					case JsonTokenType.String when Technique.TryParse(reader.GetString(), out var technique):
 					{
 						result.Add(technique);
 						break;
