@@ -25600,12 +25600,15 @@
             Represents <see langword="typeof"/>(<see cref="T:Sudoku.Categorization.Technique"/>).
             </summary>
         </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.IsAssignment(Sudoku.Categorization.Technique)">
+        <member name="T:Sudoku.Categorization.TechniqueExtensions.">
             <summary>
-            Determine whether the specified technique produces assignments.
+            Provides extension members on <see cref="T:Sudoku.Categorization.Technique"/>.
             </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
-            <returns>A <see cref="T:System.Boolean"/> result.</returns>
+        </member>
+        <member name="P:Sudoku.Categorization.TechniqueExtensions..IsAssignment">
+            <summary>
+            Indicates whether the specified technique produces assignments.
+            </summary>
             <remarks>
             <para>
             In mechanism, an assignment technique must produce assignment conclusions.
@@ -25613,47 +25616,37 @@
             This method today won't return <see langword="true"/> for such techniques now, but this rule might be changed in the future.
             </para>
             <para>
-            If you want to check whether the technique is a single, please call method <see cref="M:Sudoku.Categorization.TechniqueExtensions.IsDirect(Sudoku.Categorization.Technique)"/>
-            or <see cref="M:Sudoku.Categorization.TechniqueExtensions.IsSingle(Sudoku.Categorization.Technique)"/> instead.
+            If you want to check whether the technique is a single, please call method <see cref="M:Sudoku.Categorization.TechniqueExtensions.get_IsDirect(Sudoku.Categorization.Technique)"/>
+            or <see cref="M:Sudoku.Categorization.TechniqueExtensions.get_IsSingle(Sudoku.Categorization.Technique)"/> instead.
             </para>
             </remarks>
-            <seealso cref="M:Sudoku.Categorization.TechniqueExtensions.IsDirect(Sudoku.Categorization.Technique)"/>
-            <seealso cref="M:Sudoku.Categorization.TechniqueExtensions.IsSingle(Sudoku.Categorization.Technique)"/>
+            <seealso cref="M:Sudoku.Categorization.TechniqueExtensions.get_IsDirect(Sudoku.Categorization.Technique)"/>
+            <seealso cref="M:Sudoku.Categorization.TechniqueExtensions.get_IsSingle(Sudoku.Categorization.Technique)"/>
         </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.IsSingle(Sudoku.Categorization.Technique)">
+        <member name="P:Sudoku.Categorization.TechniqueExtensions..IsSingle">
             <summary>
-            Determine whether the specified technique is a single technique.
+            Indicates whether the specified technique is a single technique.
             </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
-            <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.IsDirect(Sudoku.Categorization.Technique)">
+        <member name="P:Sudoku.Categorization.TechniqueExtensions..IsDirect">
             <summary>
-            Determine whether the specified technique is a technique that can only be produced in direct views.
+            Indicates whether the specified technique is a technique that can only be produced in direct views.
             </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
-            <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.IsLastResort(Sudoku.Categorization.Technique)">
+        <member name="P:Sudoku.Categorization.TechniqueExtensions..IsLastResort">
             <summary>
-            Determine whether the technique is last resort.
+            Indicates whether the technique is last resort.
             </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
-            <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.SupportsCustomizingDifficulty(Sudoku.Categorization.Technique)">
+        <member name="P:Sudoku.Categorization.TechniqueExtensions..SupportsCustomizingDifficulty">
             <summary>
-            Determines whether the specified technique supports for customization on difficulty values.
+            Indicates whether the specified technique supports for customization on difficulty values.
             </summary>
-            <param name="this">The value.</param>
-            <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions.SupportsSiamese(Sudoku.Categorization.Technique)">
+        <member name="P:Sudoku.Categorization.TechniqueExtensions..SupportsSiamese">
             <summary>
             Indicates whether the technique supports for Siamese rule.
             </summary>
-            <param name="this">The <see cref="T:Sudoku.Categorization.Technique"/> instance.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
         <member name="M:Sudoku.Categorization.TechniqueExtensions.GetDefaultRating(Sudoku.Categorization.Technique,System.Int32@)">
             <summary>
@@ -26328,10 +26321,10 @@
         <member name="F:Sudoku.Categorization.TechniqueSet.ConfigurableTechniqueRelationGroups">
             <summary>
             Indicates the technique groups and its containing techniques that supports customization on difficulty rating and level.
-            Call <see cref="M:Sudoku.Categorization.TechniqueExtensions.SupportsCustomizingDifficulty(Sudoku.Categorization.Technique)"/>
+            Call <see cref="M:Sudoku.Categorization.TechniqueExtensions.get_SupportsCustomizingDifficulty(Sudoku.Categorization.Technique)"/>
             to check whether a technique supports configuration.
             </summary>
-            <seealso cref="M:Sudoku.Categorization.TechniqueExtensions.SupportsCustomizingDifficulty(Sudoku.Categorization.Technique)"/>
+            <seealso cref="M:Sudoku.Categorization.TechniqueExtensions.get_SupportsCustomizingDifficulty(Sudoku.Categorization.Technique)"/>
         </member>
         <member name="F:Sudoku.Categorization.TechniqueSet.TechniquesCount">
             <summary>

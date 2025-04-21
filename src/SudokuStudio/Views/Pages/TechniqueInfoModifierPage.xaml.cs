@@ -65,7 +65,7 @@ public sealed partial class TechniqueInfoModifierPage : Page
 		p.TechniqueGroupDisplayer.Text = techniqueGroup.GetName(App.CurrentCulture);
 
 		// Change values.
-		var values = techniqueGroup.GetTechniques(static technique => technique.SupportsCustomizingDifficulty());
+		var values = techniqueGroup.GetTechniques(static technique => technique.SupportsCustomizingDifficulty);
 		var g = p.MainGrid;
 
 		clearChildren(g);

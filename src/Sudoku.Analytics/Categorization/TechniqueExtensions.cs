@@ -13,81 +13,71 @@ public static class TechniqueExtensions
 
 
 	/// <summary>
-	/// Determine whether the specified technique produces assignments.
+	/// Provides extension members on <see cref="Technique"/>.
 	/// </summary>
-	/// <param name="this">The <see cref="Technique"/> instance.</param>
-	/// <returns>A <see cref="bool"/> result.</returns>
-	/// <remarks>
-	/// <para>
-	/// In mechanism, an assignment technique must produce assignment conclusions.
-	/// However, some techniques can also produce them like BUG + 1, Discontinuous Nice Loop, etc..
-	/// This method today won't return <see langword="true"/> for such techniques now, but this rule might be changed in the future.
-	/// </para>
-	/// <para>
-	/// If you want to check whether the technique is a single, please call method <see cref="IsDirect(Technique)"/>
-	/// or <see cref="IsSingle(Technique)"/> instead.
-	/// </para>
-	/// </remarks>
-	/// <seealso cref="IsDirect(Technique)"/>
-	/// <seealso cref="IsSingle(Technique)"/>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static bool IsAssignment(this Technique @this) => @this.GetGroup() is TechniqueGroup.Single or TechniqueGroup.ComplexSingle;
+	extension(Technique @this)
+	{
+		/// <summary>
+		/// Indicates whether the specified technique produces assignments.
+		/// </summary>
+		/// <remarks>
+		/// <para>
+		/// In mechanism, an assignment technique must produce assignment conclusions.
+		/// However, some techniques can also produce them like BUG + 1, Discontinuous Nice Loop, etc..
+		/// This method today won't return <see langword="true"/> for such techniques now, but this rule might be changed in the future.
+		/// </para>
+		/// <para>
+		/// If you want to check whether the technique is a single, please call method <see cref="get_IsDirect(Technique)"/>
+		/// or <see cref="get_IsSingle(Technique)"/> instead.
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="get_IsDirect(Technique)"/>
+		/// <seealso cref="get_IsSingle(Technique)"/>
+		public bool IsAssignment => @this.GetGroup() is TechniqueGroup.Single or TechniqueGroup.ComplexSingle;
 
-	/// <summary>
-	/// Determine whether the specified technique is a single technique.
-	/// </summary>
-	/// <param name="this">The <see cref="Technique"/> instance.</param>
-	/// <returns>A <see cref="bool"/> result.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static bool IsSingle(this Technique @this) => @this.GetGroup() is TechniqueGroup.Single or TechniqueGroup.ComplexSingle;
+		/// <summary>
+		/// Indicates whether the specified technique is a single technique.
+		/// </summary>
+		public bool IsSingle => @this.GetGroup() is TechniqueGroup.Single or TechniqueGroup.ComplexSingle;
 
-	/// <summary>
-	/// Determine whether the specified technique is a technique that can only be produced in direct views.
-	/// </summary>
-	/// <param name="this">The <see cref="Technique"/> instance.</param>
-	/// <returns>A <see cref="bool"/> result.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static bool IsDirect(this Technique @this)
-		=> TypeOfTechnique
-			.GetField(@this.ToString())!
-			.GetCustomAttribute<TechniqueMetadataAttribute>()?
-			.Features
-			.HasFlag(TechniqueFeatures.DirectTechniques)
-		?? false;
+		/// <summary>
+		/// Indicates whether the specified technique is a technique that can only be produced in direct views.
+		/// </summary>
+		public bool IsDirect
+			=> TypeOfTechnique
+				.GetField(@this.ToString())!
+				.GetCustomAttribute<TechniqueMetadataAttribute>()?
+				.Features
+				.HasFlag(TechniqueFeatures.DirectTechniques)
+			?? false;
 
-	/// <summary>
-	/// Determine whether the technique is last resort.
-	/// </summary>
-	/// <param name="this">The <see cref="Technique"/> instance.</param>
-	/// <returns>A <see cref="bool"/> result.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static bool IsLastResort(this Technique @this)
-		=> @this.GetGroup() is TechniqueGroup.BowmanBingo or TechniqueGroup.PatternOverlay or TechniqueGroup.Templating or TechniqueGroup.BruteForce;
+		/// <summary>
+		/// Indicates whether the technique is last resort.
+		/// </summary>
+		public bool IsLastResort
+			=> @this.GetGroup() is TechniqueGroup.BowmanBingo or TechniqueGroup.PatternOverlay
+			or TechniqueGroup.Templating or TechniqueGroup.BruteForce;
 
-	/// <summary>
-	/// Determines whether the specified technique supports for customization on difficulty values.
-	/// </summary>
-	/// <param name="this">The value.</param>
-	/// <returns>A <see cref="bool"/> result.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static bool SupportsCustomizingDifficulty(this Technique @this)
-		=> Enum.IsDefined(@this) && @this != Technique.None
-		&& !@this.IsLastResort()
-		&& TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>() is
-		{
-			Rating: not int.MinValue,
-			DifficultyLevel: not (DifficultyLevel)int.MinValue
-		};
+		/// <summary>
+		/// Indicates whether the specified technique supports for customization on difficulty values.
+		/// </summary>
+		public bool SupportsCustomizingDifficulty
+			=> Enum.IsDefined(@this) && @this != Technique.None
+			&& !@this.IsLastResort
+			&& TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>() is
+			{
+				Rating: not int.MinValue,
+				DifficultyLevel: not (DifficultyLevel)int.MinValue
+			};
 
-	/// <summary>
-	/// Indicates whether the technique supports for Siamese rule.
-	/// </summary>
-	/// <param name="this">The <see cref="Technique"/> instance.</param>
-	/// <returns>A <see cref="bool"/> result indicating that.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static bool SupportsSiamese(this Technique @this)
-		=> TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.SupportsSiamese is true
-		|| @this.GetGroup().SupportsSiamese;
+		/// <summary>
+		/// Indicates whether the technique supports for Siamese rule.
+		/// </summary>
+		public bool SupportsSiamese
+			=> TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.SupportsSiamese is true
+			|| @this.GetGroup().SupportsSiamese;
+	}
+
 
 	/// <summary>
 	/// Try to get the base difficulty value for the specified technique.

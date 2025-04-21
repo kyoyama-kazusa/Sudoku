@@ -46,10 +46,10 @@ public sealed partial class TechniqueSet() :
 
 	/// <summary>
 	/// Indicates the technique groups and its containing techniques that supports customization on difficulty rating and level.
-	/// Call <see cref="TechniqueExtensions.SupportsCustomizingDifficulty(Technique)"/>
+	/// Call <see cref="TechniqueExtensions.get_SupportsCustomizingDifficulty(Technique)"/>
 	/// to check whether a technique supports configuration.
 	/// </summary>
-	/// <seealso cref="TechniqueExtensions.SupportsCustomizingDifficulty(Technique)"/>
+	/// <seealso cref="TechniqueExtensions.get_SupportsCustomizingDifficulty(Technique)"/>
 	public static readonly FrozenDictionary<TechniqueGroup, TechniqueSet> ConfigurableTechniqueRelationGroups;
 
 	/// <summary>
@@ -93,7 +93,7 @@ public sealed partial class TechniqueSet() :
 		var configurableDic = new Dictionary<TechniqueGroup, TechniqueSet>();
 		foreach (var technique in Technique.Values)
 		{
-			if (technique.SupportsCustomizingDifficulty()
+			if (technique.SupportsCustomizingDifficulty
 				&& technique.TryGetGroup() is { } group && !configurableDic.TryAdd(group, [technique]))
 			{
 				configurableDic[group].Add(technique);

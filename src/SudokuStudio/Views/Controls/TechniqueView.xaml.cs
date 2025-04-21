@@ -119,8 +119,8 @@ public sealed partial class TechniqueView : UserControl
 		=> ShowMode switch
 		{
 			TechniqueViewShowMode.None => Visibility.Collapsed,
-			TechniqueViewShowMode.OnlyAssignments => technique.IsAssignment() ? Visibility.Visible : Visibility.Collapsed,
-			TechniqueViewShowMode.OnlyEliminations => technique.IsAssignment() ? Visibility.Collapsed : Visibility.Visible,
+			TechniqueViewShowMode.OnlyAssignments => technique.IsAssignment ? Visibility.Visible : Visibility.Collapsed,
+			TechniqueViewShowMode.OnlyEliminations => technique.IsAssignment ? Visibility.Collapsed : Visibility.Visible,
 			_ => Visibility.Visible
 		};
 
