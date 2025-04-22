@@ -50,7 +50,7 @@ public static class BabaGroupInitialLetterExtensions
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ReadOnlySpan<char> GetSequence(BabaGroupLetterCasing casing)
 			=> Enum.IsDefined(@this) && Enum.IsDefined(casing)
-				? CharSequences[(@this, casing)].AsSpan()
+				? CharSequences[(@this, casing)].Span
 				: throw new ArgumentOutOfRangeException(nameof(@this));
 
 		/// <summary>

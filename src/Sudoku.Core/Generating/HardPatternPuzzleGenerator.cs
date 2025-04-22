@@ -38,7 +38,7 @@ public sealed class HardPatternPuzzleGenerator : IGenerator<Grid>
 		var holeCells = (stackalloc Cell[82]);
 		(puzzleString[^1], solutionString[^1], holeCells[^1], var progressTimes) = ('\0', '\0', '\0', 0);
 
-		ref readonly var charRef = ref Grid.EmptyString.AsSpan()[0];
+		ref readonly var charRef = ref Grid.EmptyString.Span[0];
 		while (true)
 		{
 			Unsafe.CopyBlock(ref @ref.ByteRef(ref puzzleString[0]), in @ref.ReadOnlyByteRef(in charRef), sizeof(char) * 81);

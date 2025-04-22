@@ -203,7 +203,7 @@ public sealed partial class SusserGridFormatInfo<TGrid> : GridFormatInfo<TGrid> 
 						// Can't find any simplifications.
 						Unsafe.CopyBlock(
 							ref @ref.ByteRef(ref resultSpan[characterIndexStart]),
-							in @ref.ReadOnlyByteRef(in sliced.AsSpan()[0]),
+							in @ref.ReadOnlyByteRef(in sliced.Span[0]),
 							sizeof(char) * 9
 						);
 						spanIndex += 9;
@@ -414,7 +414,7 @@ public sealed partial class SusserGridFormatInfo<TGrid> : GridFormatInfo<TGrid> 
 		static bool expandCode(string? original, [NotNullWhen(true)] out string? result)
 		{
 			// We must the string code holds 8 ','s and is with no ':' or '+'.
-			if (original is null || original.Contains(':') || original.Contains('+') || original.AsSpan().Count(',') != 8)
+			if (original is null || original.Contains(':') || original.Contains('+') || original.Span.Count(',') != 8)
 			{
 				result = null;
 				return false;
@@ -433,7 +433,7 @@ public sealed partial class SusserGridFormatInfo<TGrid> : GridFormatInfo<TGrid> 
 			for (var i = 0; i < 9; i++)
 			{
 				var line = lines[i];
-				switch (line.AsSpan().Count('*'))
+				switch (line.Span.Count('*'))
 				{
 					case 1 when (9 + 1 - line.Length, 0, 0) is var (empties, j, k):
 					{

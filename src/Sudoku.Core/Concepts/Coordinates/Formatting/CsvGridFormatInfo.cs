@@ -15,7 +15,7 @@ public sealed class CsvGridFormatInfo : GridFormatInfo<Grid>
 	/// <inheritdoc/>
 	protected internal override string FormatCore(in Grid grid)
 	{
-		var span = grid.ToString("0").AsSpan();
+		var span = grid.ToString("0").Span;
 		var sb = new StringBuilder(81 + 72 + 9);
 		for (var i = 0; i < 9; i++)
 		{

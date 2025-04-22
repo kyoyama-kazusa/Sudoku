@@ -43,6 +43,6 @@ public partial class Hub
 		/// <param name="digitCharacter">The digit character.</param>
 		/// <returns>The corresponding digit.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Digit GetChineseDigit(char digitCharacter) => ChineseDigitCharacters.AsSpan().IndexOf(digitCharacter);
+		public static Digit GetChineseDigit(char digitCharacter) => ChineseDigitCharacters.Span.IndexOf(digitCharacter);
 	}
 }

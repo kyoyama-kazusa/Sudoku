@@ -26,7 +26,7 @@ public sealed partial class OpenSudokuGridFormatInfo : GridFormatInfo<Grid>
 		var result = new string('\0', length);
 
 		// Modify the string value via pointers.
-		ref var pResult = ref Unsafe.AsRef(in result.AsSpan()[0]);
+		ref var pResult = ref Unsafe.AsRef(in result.Span[0]);
 
 		// Replace the base character with the separator.
 		for (var pos = 1; pos < length; pos += 2)

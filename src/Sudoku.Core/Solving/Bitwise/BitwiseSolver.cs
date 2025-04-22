@@ -161,7 +161,7 @@ public sealed unsafe partial class BitwiseSolver : ISolver, ISolutionEnumerableS
 
 	/// <inheritdoc cref="CheckValidity(char*)"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public bool CheckValidity(string grid) => CheckValidity(in grid.AsSpan()[0]);
+	public bool CheckValidity(string grid) => CheckValidity(in grid.Span[0]);
 
 	/// <summary>
 	/// Check the validity of the puzzle.
