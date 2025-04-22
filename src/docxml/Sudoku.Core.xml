@@ -5572,17 +5572,21 @@
             </summary>
             <inheritdoc cref="M:Sudoku.Concepts.GridPredicates.CandidatesMap``1(``0@,System.Int32,System.Int32)"/>
         </member>
-        <member name="T:Sudoku.Concepts.HouseMarshal">
+        <member name="T:Sudoku.Concepts.HouseExtensions">
             <summary>
             Represents a list of extension methods that operates with house instances, as <see cref="T:System.Int32"/> representation.
             </summary>
             <seealso cref="T:System.Int32"/>
         </member>
-        <member name="M:Sudoku.Concepts.HouseMarshal.ToHouseType(System.Int32)">
+        <member name="T:Sudoku.Concepts.HouseExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Concepts.HouseExtensions..HouseType">
             <summary>
             Get the house type for the specified house index.
             </summary>
-            <param name="houseIndex">The house index.</param>
             <returns>
             The house type. The possible return values are:
             <list type="table">
@@ -5591,15 +5595,15 @@
             <description>Return value</description>
             </listheader>
             <item>
-            <term><paramref name="houseIndex"/> is <![CDATA[>= 0 and < 9]]></term>
+            <term><![CDATA[>= 0 and < 9]]></term>
             <description><see cref="F:Sudoku.Concepts.HouseType.Block"/></description>
             </item>
             <item>
-            <term><paramref name="houseIndex"/> is <![CDATA[>= 9 and < 18]]></term>
+            <term><![CDATA[>= 9 and < 18]]></term>
             <description><see cref="F:Sudoku.Concepts.HouseType.Row"/></description>
             </item>
             <item>
-            <term><paramref name="houseIndex"/> is <![CDATA[>= 18 and < 27]]></term>
+            <term><![CDATA[>= 18 and < 27]]></term>
             <description><see cref="F:Sudoku.Concepts.HouseType.Column"/></description>
             </item>
             </list>

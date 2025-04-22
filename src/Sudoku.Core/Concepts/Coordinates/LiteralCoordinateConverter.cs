@@ -58,7 +58,7 @@ public sealed record LiteralCoordinateConverter(
 			if (BitOperations.IsPow2(housesMask))
 			{
 				var house = BitOperations.Log2(housesMask);
-				var houseType = house.ToHouseType();
+				var houseType = house.HouseType;
 				return string.Format(
 					SR.Get(
 						houseType switch
@@ -77,7 +77,7 @@ public sealed record LiteralCoordinateConverter(
 			var snippets = new List<string>(BitOperations.PopCount(housesMask));
 			foreach (var house in housesMask)
 			{
-				var houseType = house.ToHouseType();
+				var houseType = house.HouseType;
 				snippets.Add(
 					string.Format(
 						SR.Get(
@@ -175,7 +175,7 @@ public sealed record LiteralCoordinateConverter(
 
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			string labelKey(byte house)
-				=> ((House)house).ToHouseType() switch
+				=> ((House)house).HouseType switch
 				{
 					HouseType.Block => string.Format(SR.Get("BlockLabel", TargetCurrentCulture), house % 9 + 1),
 					HouseType.Row => string.Format(SR.Get("RowLabel", TargetCurrentCulture), house % 9 + 1),

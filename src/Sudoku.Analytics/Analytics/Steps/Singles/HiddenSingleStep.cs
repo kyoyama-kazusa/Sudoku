@@ -40,8 +40,8 @@ public partial class HiddenSingleStep(
 		=> (Options.IsDirectMode, EnableAndIsLastDigit) switch
 		{
 			(_, true) => Technique.LastDigit,
-			(true, false) => (Technique)((int)Technique.CrosshatchingBlock + (int)House.ToHouseType()),
-			_ => (Technique)((int)Technique.HiddenSingleBlock + (int)House.ToHouseType())
+			(true, false) => (Technique)((int)Technique.CrosshatchingBlock + (int)House.HouseType),
+			_ => (Technique)((int)Technique.HiddenSingleBlock + (int)House.HouseType)
 		};
 
 	/// <inheritdoc/>

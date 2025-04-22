@@ -276,7 +276,7 @@ public sealed partial class SingleStepSearcher : StepSearcher
 					digit,
 					subtype,
 					Lasting.GetLastingAllHouses(grid, cell, out var lastingHouse),
-					lastingHouse.ToHouseType()
+					lastingHouse.HouseType
 				);
 				if (context.OnlyFindOne)
 				{
@@ -464,7 +464,7 @@ public sealed partial class SingleStepSearcher : StepSearcher
 				digit,
 				TechniqueNaming.Single.GetNakedSingleSubtype(grid, cell),
 				Lasting.GetLastingAllHouses(grid, cell, out var lastingHouse),
-				lastingHouse.ToHouseType()
+				lastingHouse.HouseType
 			);
 			if (context.OnlyFindOne)
 			{

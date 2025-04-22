@@ -157,7 +157,7 @@ public sealed partial class DisorderedIttoryuFinder([Property] params TechniqueS
 			var candidatesMap = grid.CandidatesMap;
 			for (var house = 0; house < 27; house++)
 			{
-				var houseCode = house.ToHouseType() switch
+				var houseCode = house.HouseType switch
 				{
 					HouseType.Block => Technique.HiddenSingleBlock,
 					HouseType.Row => Technique.HiddenSingleRow,

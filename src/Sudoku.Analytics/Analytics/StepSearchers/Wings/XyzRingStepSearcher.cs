@@ -149,7 +149,7 @@ public sealed partial class XyzRingStepSearcher : StepSearcher
 					{
 						foreach (var leafCellHouse in (pivot.AsCellMap() + leaf).SharedHouses)
 						{
-							if (linkCellHouse.ToHouseType() == HouseType.Block ^ leafCellHouse.ToHouseType() == HouseType.Block
+							if (linkCellHouse.HouseType == HouseType.Block ^ leafCellHouse.HouseType == HouseType.Block
 								&& (HousesMap[linkCellHouse] & HousesMap[leafCellHouse]) is var i)
 							{
 								// Elimination zone 3: Intersected cell for the leaf and one grouped node of cells

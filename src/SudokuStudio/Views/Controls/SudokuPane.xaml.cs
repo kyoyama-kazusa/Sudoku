@@ -1333,7 +1333,7 @@ file static class Extensions
 	public static ReadOnlySpan<CellMap> GetCellsOrdered(this Cell @this, House house)
 	{
 		var cells = HousesCells[house];
-		switch (house.ToHouseType())
+		switch (house.HouseType)
 		{
 			case HouseType.Row:
 			{

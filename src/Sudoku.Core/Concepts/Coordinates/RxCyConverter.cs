@@ -166,7 +166,7 @@ public sealed record RxCyConverter(
 			var dic = new Dictionary<HouseType, List<House>>(3);
 			foreach (var house in housesMask)
 			{
-				var houseType = house.ToHouseType();
+				var houseType = house.HouseType;
 				if (!dic.TryAdd(houseType, [house]))
 				{
 					dic[houseType].Add(house);

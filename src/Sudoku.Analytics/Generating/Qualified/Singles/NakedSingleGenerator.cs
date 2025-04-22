@@ -82,7 +82,7 @@ public sealed class NakedSingleGenerator : SingleGenerator
 			targetDigit,
 			TechniqueNaming.Single.GetNakedSingleSubtype(puzzle, targetCell),
 			Lasting.GetLastingAllHouses(puzzle, targetCell, out var lastingHouse),
-			lastingHouse.ToHouseType()
+			lastingHouse.HouseType
 		);
 		result = puzzle.FixedGrid;
 		return true;

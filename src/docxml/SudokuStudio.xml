@@ -5089,12 +5089,15 @@
             </summary>
             <seealso cref="T:SudokuStudio.Interaction.SudokuFormatFlags"/>
         </member>
-        <member name="M:SudokuStudio.Interaction.SudokuFormatFlagsExtensions.GetConverter(SudokuStudio.Interaction.SudokuFormatFlags)">
+        <member name="T:SudokuStudio.Interaction.SudokuFormatFlagsExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:SudokuStudio.Interaction.SudokuFormatFlags"/>.
+            </summary>
+        </member>
+        <member name="P:SudokuStudio.Interaction.SudokuFormatFlagsExtensions..Converter">
             <summary>
             Try to get target <see cref="T:Sudoku.Concepts.Coordinates.Formatting.GridFormatInfo`1"/> instance of type <see cref="T:Sudoku.Concepts.Grid"/>.
             </summary>
-            <param name="this">The flag instance.</param>
-            <returns>The final <see cref="T:Sudoku.Concepts.Coordinates.Formatting.GridFormatInfo`1"/> instance.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the argument is not defined.</exception>
         </member>
         <member name="T:SudokuStudio.Interaction.SudokuPaneMouseWheelChangedEventArgs">

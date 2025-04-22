@@ -28,7 +28,7 @@ public sealed partial class AvoidableRectangleHiddenSingleStep(
 	conclusions,
 	views,
 	options,
-	(Technique)((int)Technique.AvoidableRectangleHiddenSingleBlock + (int)house.ToHouseType()),
+	(Technique)((int)Technique.AvoidableRectangleHiddenSingleBlock + (int)house.HouseType),
 	digit1,
 	digit2,
 	cells,

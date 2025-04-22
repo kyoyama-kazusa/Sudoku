@@ -120,14 +120,13 @@ public partial class Hub
 							=> isGrouped ? Technique.GroupedPurpleCow : Technique.PurpleCow,
 						{ Links.Length: 3 } when isX => links switch
 						{
-#pragma warning disable format
 							[
 								({ Map.Cells: var cells11 }, { Map.Cells: var cells12 }),
 								_,
 								({ Map.Cells: var cells21 }, { Map.Cells: var cells22 })
 							] => (
-								BitOperations.TrailingZeroCount((cells11 | cells12).SharedHouses).ToHouseType(),
-								BitOperations.TrailingZeroCount((cells21 | cells22).SharedHouses).ToHouseType()
+								BitOperations.TrailingZeroCount((cells11 | cells12).SharedHouses).HouseType,
+								BitOperations.TrailingZeroCount((cells21 | cells22).SharedHouses).HouseType
 							) switch
 							{
 								(HouseType.Block, _) or (_, HouseType.Block)
@@ -136,7 +135,6 @@ public partial class Hub
 									=> isGrouped ? Technique.GroupedTwoStringKite : Technique.TwoStringKite,
 								_ => isGrouped ? Technique.GroupedSkyscraper : Technique.Skyscraper
 							}
-#pragma warning restore format
 						},
 						[{ Map.Digits: var digits1 }, .., { Map.Digits: var digits2 }]
 							=> digits1 == digits2

@@ -277,7 +277,7 @@ public static class Transformation
 	{
 		ArgumentOutOfRangeException.ThrowIfOutOfRange(houseIndex1, 9, 27);
 		ArgumentOutOfRangeException.ThrowIfOutOfRange(houseIndex2, 9, 27);
-		ArgumentException.ThrowIfAssertionFailed(houseIndex1.ToHouseType() == houseIndex2.ToHouseType());
+		ArgumentException.ThrowIfAssertionFailed(houseIndex1.HouseType == houseIndex2.HouseType);
 		ArgumentException.ThrowIfAssertionFailed(Array.Exists(SwappableHouses, houseIndexChecker));
 
 		for (var i = 0; i < 9; i++)

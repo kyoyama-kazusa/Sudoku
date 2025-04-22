@@ -26,7 +26,7 @@ public static class Grouped
 			//     a. The house type is block - the number of spanned rows or columns must be 2.
 			//     b. The house type is row or column - the number of spanned blocks must be 2.
 			// Otherwise, invalid.
-			switch (house.ToHouseType())
+			switch (house.HouseType)
 			{
 				case HouseType.Block:
 				{

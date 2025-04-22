@@ -162,7 +162,7 @@ public sealed record K9Converter(
 			if (BitOperations.IsPow2(housesMask))
 			{
 				var house = BitOperations.Log2(housesMask);
-				var houseType = house.ToHouseType();
+				var houseType = house.HouseType;
 				return string.Format(
 					SR.Get(
 						houseType switch
@@ -181,7 +181,7 @@ public sealed record K9Converter(
 			var dic = new Dictionary<HouseType, List<House>>(3);
 			foreach (var house in housesMask)
 			{
-				var houseType = house.ToHouseType();
+				var houseType = house.HouseType;
 				if (!dic.TryAdd(houseType, [house]))
 				{
 					dic[houseType].Add(house);
@@ -279,13 +279,13 @@ public sealed record K9Converter(
 				select string.Format(
 					SR.Get("LockedCandidatesLabel", TargetCurrentCulture),
 					[
-						((House)baseSet).ToHouseType() switch
+						((House)baseSet).HouseType switch
 						{
 							HouseType.Block => string.Format(SR.Get("BlockLabel", TargetCurrentCulture), (baseSet % 9 + 1).ToString()),
 							HouseType.Row => string.Format(SR.Get("RowLabel", TargetCurrentCulture), (baseSet % 9 + 1).ToString()),
 							HouseType.Column => string.Format(SR.Get("ColumnLabel", TargetCurrentCulture), (baseSet % 9 + 1).ToString())
 						},
-						((House)coverSet).ToHouseType() switch
+						((House)coverSet).HouseType switch
 						{
 							HouseType.Block => string.Format(SR.Get("BlockLabel", TargetCurrentCulture), (coverSet % 9 + 1).ToString()),
 							HouseType.Row => string.Format(SR.Get("RowLabel", TargetCurrentCulture), (coverSet % 9 + 1).ToString()),
@@ -302,13 +302,13 @@ public sealed record K9Converter(
 				select string.Format(
 					SR.Get("LockedCandidatesLabel", TargetCurrentCulture),
 					[
-						((House)baseSet).ToHouseType() switch
+						((House)baseSet).HouseType switch
 						{
 							HouseType.Block => string.Format(SR.Get("BlockLabel", TargetCurrentCulture), (baseSet % 9 + 1).ToString()),
 							HouseType.Row => string.Format(SR.Get("RowLabel", TargetCurrentCulture), (baseSet % 9 + 1).ToString()),
 							HouseType.Column => string.Format(SR.Get("ColumnLabel", TargetCurrentCulture), (baseSet % 9 + 1).ToString())
 						},
-						((House)coverSet).ToHouseType() switch
+						((House)coverSet).HouseType switch
 						{
 							HouseType.Block => string.Format(SR.Get("BlockLabel", TargetCurrentCulture), (coverSet % 9 + 1).ToString()),
 							HouseType.Row => string.Format(SR.Get("RowLabel", TargetCurrentCulture), (coverSet % 9 + 1).ToString()),
