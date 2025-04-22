@@ -549,21 +549,7 @@ internal partial class DrawableFactory
 		animatedResults.Add((() => paneCellControl.MainGrid.Children.Add(control), () => control.Opacity = 1));
 
 
-		static Brush getFillBrush(Color color)
-#if !true
-			=> new RadialGradientBrush
-			{
-				Center = new(.5, .5),
-				GradientOrigin = new(.5, .5),
-				RadiusX = .64,
-				RadiusY = .64,
-				SpreadMethod = GradientSpreadMethod.Pad,
-				MappingMode = BrushMappingMode.RelativeToBoundingBox,
-				GradientStops = { new() { Color = color }, new() { Color = Colors.Transparent, Offset = 1.5 } }
-			};
-#else
-			=> new SolidColorBrush(color);
-#endif
+		static Brush getFillBrush(Color color) => new SolidColorBrush(color);
 
 		IDrawableItem c()
 			=> candidateNode is not null

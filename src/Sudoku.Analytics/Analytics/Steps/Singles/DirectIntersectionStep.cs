@@ -46,10 +46,6 @@ public sealed partial class DirectIntersectionStep(
 			Technique.FullHouse => 10,
 			Technique.CrosshatchingBlock => 12,
 			Technique.CrosshatchingRow or Technique.CrosshatchingColumn => 15,
-#if false
-			Technique.HiddenSingleBlock => 19,
-			Technique.HiddenSingleRow or Technique.HiddenSingleColumn => 23,
-#endif
 			Technique.NakedSingle => 23,
 			_ => throw new NotSupportedException(SR.ExceptionMessage("TechiqueIsNotSupported"))
 		} + 2;
