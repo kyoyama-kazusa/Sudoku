@@ -48,7 +48,7 @@ public sealed record ExcelCoordinateConverter(
 				var needAddingBrackets = output.Length != 1 && Enum.IsDefined(NotationBracket) && NotationBracket != NotationBracket.None;
 				if (needAddingBrackets)
 				{
-					sb.Append(NotationBracket.GetOpenBracket());
+					sb.Append(NotationBracket.OpenBracket);
 				}
 				foreach (var (rows, columns) in output)
 				{
@@ -59,7 +59,7 @@ public sealed record ExcelCoordinateConverter(
 				sb.RemoveFrom(^DefaultSeparator.Length);
 				if (needAddingBrackets)
 				{
-					sb.Append(NotationBracket.GetClosedBracket());
+					sb.Append(NotationBracket.ClosedBracket);
 				}
 				return sb.ToString();
 			}

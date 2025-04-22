@@ -2774,20 +2774,23 @@
             </summary>
             <seealso cref="T:Sudoku.Concepts.Coordinates.CoordinateType"/>
         </member>
-        <member name="M:Sudoku.Concepts.Coordinates.CoordinateTypeExtensions.GetConverter(Sudoku.Concepts.Coordinates.CoordinateType)">
+        <member name="T:Sudoku.Concepts.Coordinates.CoordinateTypeExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Concepts.Coordinates.CoordinateType"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Concepts.Coordinates.CoordinateTypeExtensions..Converter">
             <summary>
             Gets the <see cref="T:Sudoku.Concepts.Coordinates.CoordinateConverter"/> instance via the specified <see cref="T:Sudoku.Concepts.Coordinates.CoordinateType"/> instance.
             </summary>
-            <param name="this">The current instance.</param>
             <returns>
             A valid <see cref="T:Sudoku.Concepts.Coordinates.CoordinateConverter"/> instance. You can use cast operators to get the instance of desired type.
             </returns>
         </member>
-        <member name="M:Sudoku.Concepts.Coordinates.CoordinateTypeExtensions.GetParser(Sudoku.Concepts.Coordinates.CoordinateType)">
+        <member name="P:Sudoku.Concepts.Coordinates.CoordinateTypeExtensions..Parser">
             <summary>
             Gets the <see cref="T:Sudoku.Concepts.Coordinates.CoordinateParser"/> instance via the specified <see cref="T:Sudoku.Concepts.Coordinates.CoordinateType"/> instance.
             </summary>
-            <param name="this">The current instance.</param>
             <returns>
             A valid <see cref="T:Sudoku.Concepts.Coordinates.CoordinateParser"/> instance. You can use cast operators to get the instance of desired type.
             </returns>
@@ -3304,20 +3307,21 @@
             </summary>
             <seealso cref="T:Sudoku.Concepts.Coordinates.Formatting.NotationBracket"/>
         </member>
-        <member name="M:Sudoku.Concepts.Coordinates.Formatting.NotationBracketExtensions.GetOpenBracket(Sudoku.Concepts.Coordinates.Formatting.NotationBracket)">
+        <member name="T:Sudoku.Concepts.Coordinates.Formatting.NotationBracketExtensions.">
             <summary>
-            Try to get open bracket token.
+            Provides extension members on <see cref="T:Sudoku.Concepts.Coordinates.Formatting.NotationBracket"/>.
             </summary>
-            <param name="this">The bracket.</param>
-            <returns>The open bracket token.</returns>
+        </member>
+        <member name="P:Sudoku.Concepts.Coordinates.Formatting.NotationBracketExtensions..OpenBracket">
+            <summary>
+            Indicates to get open bracket token.
+            </summary>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the argument is not defined.</exception>
         </member>
-        <member name="M:Sudoku.Concepts.Coordinates.Formatting.NotationBracketExtensions.GetClosedBracket(Sudoku.Concepts.Coordinates.Formatting.NotationBracket)">
+        <member name="P:Sudoku.Concepts.Coordinates.Formatting.NotationBracketExtensions..ClosedBracket">
             <summary>
-            Try to get closed bracket token.
+            Indicates closed bracket token.
             </summary>
-            <param name="this">The bracket.</param>
-            <returns>The closed bracket token.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the argument is not defined.</exception>
         </member>
         <member name="T:Sudoku.Concepts.Coordinates.Formatting.OnOffNotationFix">
@@ -11573,13 +11577,17 @@
             Represents a type that compares culture language names.
             </summary>
         </member>
-        <member name="M:Sudoku.Resources.LanguageNameComparisonExtensions.IsCultureNameEqual(System.String,System.String)">
+        <member name="T:Sudoku.Resources.LanguageNameComparisonExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Resources.LanguageNameComparisonExtensions..CultureNameEqual(System.String)">
             <summary>
             Compares two <see cref="T:System.String"/> values, treated as culture name,
             to get a <see cref="T:System.Boolean"/> result indicating whether they are same culture name,
-            or <paramref name="this"/> includes <paramref name="otherName"/>.
+            or <see langword="this"/> includes <paramref name="otherName"/>.
             </summary>
-            <param name="this">The culture.</param>
             <param name="otherName">The other name to be compared.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
@@ -12614,64 +12622,62 @@
             </summary>
             <seealso cref="T:System.Random"/>
         </member>
-        <member name="M:Sudoku.Shuffling.Transforming.RandomizationExtensions.NextDigit(System.Random)">
+        <member name="T:Sudoku.Shuffling.Transforming.RandomizationExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.Random"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Shuffling.Transforming.RandomizationExtensions..NextDigit">
             <summary>
             Returns a random integer that is within valid digit range (0..9).
             </summary>
-            <param name="random">The random instance.</param>
             <returns>
             An integer that represents a valid <see cref="T:System.Int32"/>.
             </returns>
         </member>
-        <member name="M:Sudoku.Shuffling.Transforming.RandomizationExtensions.NextCell(System.Random)">
+        <member name="M:Sudoku.Shuffling.Transforming.RandomizationExtensions..NextCell">
             <summary>
             Returns a random integer that is within valid cell range (0..81).
             </summary>
-            <param name="random">The random instance.</param>
             <returns>
             An integer that represents a valid <see cref="T:System.Int32"/>.
             </returns>
         </member>
-        <member name="M:Sudoku.Shuffling.Transforming.RandomizationExtensions.NextHouse(System.Random)">
+        <member name="M:Sudoku.Shuffling.Transforming.RandomizationExtensions..NextHouse">
             <summary>
             Returns a random integer that is within valid house range (0..27).
             </summary>
-            <param name="random">The random instance.</param>
             <returns>
             An integer that represents a valid <see cref="T:System.Int32"/>.
             </returns>
         </member>
-        <member name="M:Sudoku.Shuffling.Transforming.RandomizationExtensions.RandomlySelect(System.Random,Sudoku.Concepts.CellMap@,System.Int32)">
+        <member name="M:Sudoku.Shuffling.Transforming.RandomizationExtensions..RandomlySelect(Sudoku.Concepts.CellMap@,System.Int32)">
             <summary>
             Randomly select the specified number of elements from the current collection.
             </summary>
-            <param name="random">The random instance.</param>
             <param name="cells">The cells to be chosen.</param>
             <param name="count">The desired number of elements.</param>
             <returns>The specified number of elements returned, represented as a <see cref="T:Sudoku.Concepts.CellMap"/> instance.</returns>
         </member>
-        <member name="M:Sudoku.Shuffling.Transforming.RandomizationExtensions.RandomlySelect(System.Random,Sudoku.Concepts.CandidateMap@,System.Int32)">
+        <member name="M:Sudoku.Shuffling.Transforming.RandomizationExtensions..RandomlySelect(Sudoku.Concepts.CandidateMap@,System.Int32)">
             <summary>
             Randomly select the specified number of elements from the current collection.
             </summary>
-            <param name="random">The random instance.</param>
             <param name="cells">The cells to be chosen.</param>
             <param name="count">The desired number of elements.</param>
             <returns>The specified number of elements returned, represented as a <see cref="T:Sudoku.Concepts.CandidateMap"/> instance.</returns>
         </member>
-        <member name="M:Sudoku.Shuffling.Transforming.RandomizationExtensions.CreateCellMap(System.Random,System.Int32)">
+        <member name="M:Sudoku.Shuffling.Transforming.RandomizationExtensions..CreateCellMap(System.Int32)">
             <summary>
             Creates a <see cref="T:Sudoku.Concepts.CellMap"/> instance, with the specified number of <see cref="T:System.Int32"/>s stored in the collection.
             </summary>
-            <param name="random">The random instance.</param>
             <param name="count">The desired number of elements.</param>
             <returns>A <see cref="T:Sudoku.Concepts.CellMap"/> instance.</returns>
         </member>
-        <member name="M:Sudoku.Shuffling.Transforming.RandomizationExtensions.CreateCandidateMap(System.Random,System.Int32)">
+        <member name="M:Sudoku.Shuffling.Transforming.RandomizationExtensions..CreateCandidateMap(System.Int32)">
             <summary>
             Creates a <see cref="T:Sudoku.Concepts.CandidateMap"/> instance, with the specified number of <see cref="T:System.Int32"/>s stored in the collection.
             </summary>
-            <param name="random">The random instance.</param>
             <param name="count">The desired number of elements.</param>
             <returns>A <see cref="T:Sudoku.Concepts.CandidateMap"/> instance.</returns>
         </member>
@@ -13924,11 +13930,16 @@
             </summary>
             <seealso cref="T:Sudoku.Solving.SolverType"/>
         </member>
-        <member name="M:Sudoku.Solving.SolverTypeExtensions.Create(Sudoku.Solving.SolverType)">
+        <member name="T:Sudoku.Solving.SolverTypeExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Solving.SolverType"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Solving.SolverTypeExtensions..CreateSolver(Sudoku.Solving.SolverType)">
             <summary>
             Creates a <see cref="T:Sudoku.Solving.ISolver"/> instance via the specified type.
             </summary>
-            <param name="this">The type.</param>
+            <param name="solverType">The type.</param>
             <returns>The instance.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the argument is not defined.</exception>
         </member>

@@ -65,7 +65,7 @@ public sealed partial class DifficultyLevelConstraint : Constraint, IComparisonO
 		return string.Format(
 			SR.Get("DifficultyLevelConstraint", culture),
 			[
-				Operator.GetOperatorString(),
+				Operator.GetOperatorString,
 				DifficultyLevel.GetName(culture),
 				string.Join(
 					SR.Get("_Token_Comma", culture),

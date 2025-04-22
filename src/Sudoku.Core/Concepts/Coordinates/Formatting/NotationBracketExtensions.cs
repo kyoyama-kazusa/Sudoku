@@ -7,38 +7,38 @@ namespace Sudoku.Concepts.Coordinates.Formatting;
 public static class NotationBracketExtensions
 {
 	/// <summary>
-	/// Try to get open bracket token.
+	/// Provides extension members on <see cref="NotationBracket"/>.
 	/// </summary>
-	/// <param name="this">The bracket.</param>
-	/// <returns>The open bracket token.</returns>
-	/// <exception cref="ArgumentOutOfRangeException">Throws when the argument is not defined.</exception>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static string? GetOpenBracket(this NotationBracket @this)
-		=> @this switch
-		{
-			NotationBracket.None => null,
-			NotationBracket.Round => "(",
-			NotationBracket.Square => "[",
-			NotationBracket.Curly => "{",
-			NotationBracket.Angle => "<",
-			_ => throw new ArgumentOutOfRangeException(nameof(@this))
-		};
+	extension(NotationBracket @this)
+	{
+		/// <summary>
+		/// Indicates to get open bracket token.
+		/// </summary>
+		/// <exception cref="ArgumentOutOfRangeException">Throws when the argument is not defined.</exception>
+		public string? OpenBracket
+			=> @this switch
+			{
+				NotationBracket.None => null,
+				NotationBracket.Round => "(",
+				NotationBracket.Square => "[",
+				NotationBracket.Curly => "{",
+				NotationBracket.Angle => "<",
+				_ => throw new ArgumentOutOfRangeException(nameof(@this))
+			};
 
-	/// <summary>
-	/// Try to get closed bracket token.
-	/// </summary>
-	/// <param name="this">The bracket.</param>
-	/// <returns>The closed bracket token.</returns>
-	/// <exception cref="ArgumentOutOfRangeException">Throws when the argument is not defined.</exception>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static string? GetClosedBracket(this NotationBracket @this)
-		=> @this switch
-		{
-			NotationBracket.None => null,
-			NotationBracket.Round => ")",
-			NotationBracket.Square => "]",
-			NotationBracket.Curly => "}",
-			NotationBracket.Angle => ">",
-			_ => throw new ArgumentOutOfRangeException(nameof(@this))
-		};
+		/// <summary>
+		/// Indicates closed bracket token.
+		/// </summary>
+		/// <exception cref="ArgumentOutOfRangeException">Throws when the argument is not defined.</exception>
+		public string? ClosedBracket
+			=> @this switch
+			{
+				NotationBracket.None => null,
+				NotationBracket.Round => ")",
+				NotationBracket.Square => "]",
+				NotationBracket.Curly => "}",
+				NotationBracket.Angle => ">",
+				_ => throw new ArgumentOutOfRangeException(nameof(@this))
+			};
+	}
 }

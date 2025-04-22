@@ -45,7 +45,7 @@ public sealed partial class IttoryuConstraint : Constraint, IComparisonOperatorC
 	public override string ToString(IFormatProvider? formatProvider)
 	{
 		var culture = formatProvider as CultureInfo;
-		return string.Format(SR.Get("IttoryuConstraint", culture), [Operator.GetOperatorString(), Rounds]);
+		return string.Format(SR.Get("IttoryuConstraint", culture), [Operator.GetOperatorString, Rounds]);
 	}
 
 	/// <inheritdoc/>

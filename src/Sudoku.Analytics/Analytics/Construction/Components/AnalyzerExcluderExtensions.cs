@@ -11,30 +11,38 @@ public static partial class AnalysisResultExcluderExtensions
 
 
 	/// <summary>
-	/// Determine whether the solving steps contains at least one <see cref="Step"/> using hidden singles in line, with block excluders.
+	/// Provides extension members on <see cref="AnalysisResult"/>.
 	/// </summary>
-	/// <param name="this">The instance to be checked.</param>
-	/// <returns>A <see cref="bool"/> result indicating that.</returns>
-	public static bool HasBlockExcluders(this AnalysisResult @this)
+	extension(AnalysisResult @this)
 	{
-		foreach (var step in @this.StepsSpan)
+		/// <summary>
+		/// Indicates whether the solving steps contains at least one <see cref="Step"/>
+		/// using hidden singles in line, with block excluders.
+		/// </summary>
+		public bool HasBlockExcluders
 		{
-			if (step is not HiddenSingleStep { Subtype: var subtype })
+			get
 			{
-				continue;
-			}
+				foreach (var step in @this.StepsSpan)
+				{
+					if (step is not HiddenSingleStep { Subtype: var subtype })
+					{
+						continue;
+					}
 
-			var text = subtype.ToString();
-			if (!SubtypeTextPattern.IsMatch(text))
-			{
-				continue;
-			}
+					var text = subtype.ToString();
+					if (!SubtypeTextPattern.IsMatch(text))
+					{
+						continue;
+					}
 
-			if (text[^3] != '0')
-			{
-				return true;
+					if (text[^3] != '0')
+					{
+						return true;
+					}
+				}
+				return false;
 			}
 		}
-		return false;
 	}
 }

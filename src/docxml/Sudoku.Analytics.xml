@@ -2571,12 +2571,16 @@
             </code>
             </remarks>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.AnalysisResultExcluderExtensions.HasBlockExcluders(Sudoku.Analytics.AnalysisResult)">
+        <member name="T:Sudoku.Analytics.Construction.Components.AnalysisResultExcluderExtensions.">
             <summary>
-            Determine whether the solving steps contains at least one <see cref="T:Sudoku.Analytics.Step"/> using hidden singles in line, with block excluders.
+            Provides extension members on <see cref="T:Sudoku.Analytics.AnalysisResult"/>.
             </summary>
-            <param name="this">The instance to be checked.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Components.AnalysisResultExcluderExtensions..HasBlockExcluders">
+            <summary>
+            Indicates whether the solving steps contains at least one <see cref="T:Sudoku.Analytics.Step"/>
+            using hidden singles in line, with block excluders.
+            </summary>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Components.BinaryForcingChains">
             <summary>
@@ -22401,31 +22405,38 @@
             </summary>
             <seealso cref="T:Sudoku.Concepts.Grid"/>
         </member>
-        <member name="M:Sudoku.Behaviors.Ittoryu.GridIttoryuExtensions.MakeIttoryu(Sudoku.Concepts.Grid@,Sudoku.Behaviors.Ittoryu.DisorderedIttoryuDigitPath)">
+        <member name="T:Sudoku.Behaviors.Ittoryu.GridIttoryuExtensions.">
+            <summary>
+            Provides extension members on <see langword="ref"/> <see cref="T:Sudoku.Concepts.Grid"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Behaviors.Ittoryu.GridIttoryuExtensions..MakeIttoryu(Sudoku.Behaviors.Ittoryu.DisorderedIttoryuDigitPath)">
             <summary>
             Try to reproduce ittoryu ordering for the specified grid whose path can be found by <see cref="T:Sudoku.Behaviors.Ittoryu.DisorderedIttoryuFinder"/>.
             </summary>
-            <param name="this">The grid to be adjusted.</param>
             <param name="ittoryuPath">
             The path to be used. The argument isn't required to be a complete path. It's considered to be OK if a path contains at least 2 digits.
             </param>
             <exception cref="T:System.ArgumentException">Throws when the ittoryu path contains a digit series of length 0 or 1.</exception>
             <seealso cref="T:Sudoku.Behaviors.Ittoryu.DisorderedIttoryuFinder"/>
         </member>
-        <member name="M:Sudoku.Behaviors.Ittoryu.GridIttoryuExtensions.IsIttoryu(Sudoku.Concepts.Grid@,System.Nullable{Sudoku.Behaviors.Ittoryu.DisorderedIttoryuDigitPath}@)">
+        <member name="T:Sudoku.Behaviors.Ittoryu.GridIttoryuExtensions.">
+            <summary>
+            Provides extension members on <see langword="in"/> <see cref="T:Sudoku.Concepts.Grid"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Behaviors.Ittoryu.GridIttoryuExtensions..IsIttoryu(System.Nullable{Sudoku.Behaviors.Ittoryu.DisorderedIttoryuDigitPath}@)">
             <summary>
             Determine whether the specified grid is an ittoryu puzzle, meaning the puzzle can be finished via digits one by one.
             </summary>
-            <param name="this">The grid to be checked.</param>
             <param name="path">The first found ittoryu path.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
-        <member name="M:Sudoku.Behaviors.Ittoryu.GridIttoryuExtensions.IsIttoryu(Sudoku.Concepts.Grid@,Sudoku.Categorization.TechniqueSet,System.Nullable{Sudoku.Behaviors.Ittoryu.DisorderedIttoryuDigitPath}@)">
+        <member name="M:Sudoku.Behaviors.Ittoryu.GridIttoryuExtensions..IsIttoryu(Sudoku.Categorization.TechniqueSet,System.Nullable{Sudoku.Behaviors.Ittoryu.DisorderedIttoryuDigitPath}@)">
             <summary>
             Determine whether the specified grid is an ittoryu puzzle, meaning the puzzle can be finished via digits one by one,
             with checking using the specified techniques.
             </summary>
-            <param name="this">The grid to be checked.</param>
             <param name="techniques">
             <para>The techniques supported.</para>
             <para>
@@ -27054,19 +27065,21 @@
             </summary>
             <seealso cref="T:Sudoku.Generating.Filtering.ComparisonOperator"/>
         </member>
-        <member name="M:Sudoku.Generating.Filtering.ComparisonOperatorExtensions.GetOperatorString(Sudoku.Generating.Filtering.ComparisonOperator)">
+        <member name="T:Sudoku.Generating.Filtering.ComparisonOperatorExtensions.">
             <summary>
-            Gets the string representation of the operator.
+            Provides extension members on <see cref="T:Sudoku.Generating.Filtering.ComparisonOperator"/>.
             </summary>
-            <param name="this">The value.</param>
-            <returns>The string representation.</returns>
         </member>
-        <member name="M:Sudoku.Generating.Filtering.ComparisonOperatorExtensions.GetOperator``1(Sudoku.Generating.Filtering.ComparisonOperator)">
+        <member name="P:Sudoku.Generating.Filtering.ComparisonOperatorExtensions..GetOperatorString">
+            <summary>
+            Indicates the string representation of the operator.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Generating.Filtering.ComparisonOperatorExtensions..GetOperator``1">
             <summary>
             Creates a delegate method that executes the specified rule of comparison.
             </summary>
             <typeparam name="T">The type of the target.</typeparam>
-            <param name="this">The comparison.</param>
             <returns>A delegate function.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the argument is out of range (not defined).</exception>
         </member>

@@ -832,7 +832,7 @@ public partial struct CellMap : CellMapBase
 	{
 		foreach (var parser in
 			from element in CoordinateType.Values
-			let parser = element.GetParser()
+			let parser = element.Parser
 			where parser is not null
 			select parser)
 		{

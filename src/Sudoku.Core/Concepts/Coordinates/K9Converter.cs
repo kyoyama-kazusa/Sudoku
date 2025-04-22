@@ -56,7 +56,7 @@ public sealed record K9Converter(
 				case []:
 				{
 					return AlwaysOutputBracket
-						? $"{NotationBracket.GetOpenBracket()}{NotationBracket.GetClosedBracket()}"
+						? $"{NotationBracket.OpenBracket}{NotationBracket.ClosedBracket}"
 						: string.Empty;
 				}
 				case [var p]:
@@ -68,7 +68,7 @@ public sealed record K9Converter(
 						: (char)((MakeLettersUpperCase ? 'A' : 'a') + row);
 					var result = $"{rowCharacter}{DigitConverter((Mask)(1 << column))}";
 					return AlwaysOutputBracket
-						? $"{NotationBracket.GetOpenBracket()}{result}{NotationBracket.GetClosedBracket()}"
+						? $"{NotationBracket.OpenBracket}{result}{NotationBracket.ClosedBracket}"
 						: result;
 				}
 				default:
@@ -86,7 +86,7 @@ public sealed record K9Converter(
 					|| output.Length != 1 && Enum.IsDefined(NotationBracket) && NotationBracket != NotationBracket.None;
 				if (needAddingBrackets)
 				{
-					sb.Append(NotationBracket.GetOpenBracket());
+					sb.Append(NotationBracket.OpenBracket);
 				}
 				foreach (var (rows, columns) in output)
 				{
@@ -104,7 +104,7 @@ public sealed record K9Converter(
 				sb.RemoveFrom(^DefaultSeparator.Length);
 				if (needAddingBrackets)
 				{
-					sb.Append(NotationBracket.GetClosedBracket());
+					sb.Append(NotationBracket.ClosedBracket);
 				}
 				return sb.ToString();
 			}
@@ -127,12 +127,12 @@ public sealed record K9Converter(
 				{
 					if (needAddingBrackets)
 					{
-						sb.Append(DigitBracketInCandidateGroups.GetOpenBracket());
+						sb.Append(DigitBracketInCandidateGroups.OpenBracket);
 					}
 					sb.Append(digitGroup.Key + 1);
 					if (needAddingBrackets)
 					{
-						sb.Append(DigitBracketInCandidateGroups.GetClosedBracket());
+						sb.Append(DigitBracketInCandidateGroups.ClosedBracket);
 					}
 
 					sb.Append(CellConverter(cells));
@@ -140,9 +140,9 @@ public sealed record K9Converter(
 				else
 				{
 					sb.Append(CellConverter(cells));
-					sb.Append(needAddingBrackets ? DigitBracketInCandidateGroups.GetOpenBracket() : "(");
+					sb.Append(needAddingBrackets ? DigitBracketInCandidateGroups.OpenBracket : "(");
 					sb.Append(digitGroup.Key + 1);
-					sb.Append(needAddingBrackets ? DigitBracketInCandidateGroups.GetClosedBracket() : ")");
+					sb.Append(needAddingBrackets ? DigitBracketInCandidateGroups.ClosedBracket : ")");
 				}
 
 				sb.Append(DefaultSeparator);

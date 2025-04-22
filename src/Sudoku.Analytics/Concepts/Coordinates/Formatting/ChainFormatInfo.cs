@@ -272,7 +272,7 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 	/// <inheritdoc/>
 	protected override string FormatCore(in Chain obj)
 	{
-		var originalConverter = NodeFormatType.GetConverter() switch
+		var originalConverter = NodeFormatType.Converter switch
 		{
 			RxCyConverter c => c with
 			{
@@ -312,22 +312,22 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 				// (1)a=(2)a-(2)b=(3)b => (1=2)a-(2=3)b
 				if (MakeDigitBeforeCell)
 				{
-					_ = needAddingBrackets_Digits ? sb.Append(DigitGroupSameCellBracket.GetOpenBracket()) : sb;
+					_ = needAddingBrackets_Digits ? sb.Append(DigitGroupSameCellBracket.OpenBracket) : sb;
 					sb.Append(candidateConverter.DigitConverter(nodeDigits));
 					sb.Append(inference == Inference.Strong ? StrongLinkConnector : WeakLinkConnector);
 					sb.Append(candidateConverter.DigitConverter(nextNodeDigits));
-					_ = needAddingBrackets_Digits ? sb.Append(DigitGroupSameCellBracket.GetClosedBracket()) : sb;
+					_ = needAddingBrackets_Digits ? sb.Append(DigitGroupSameCellBracket.ClosedBracket) : sb;
 					sb.Append(nodeCells.ToString(candidateConverter));
 					i++;
 				}
 				else
 				{
 					sb.Append(nodeCells.ToString(candidateConverter));
-					sb.Append(needAddingBrackets_Digits ? DigitGroupSameCellBracket.GetOpenBracket() : "(");
+					sb.Append(needAddingBrackets_Digits ? DigitGroupSameCellBracket.OpenBracket : "(");
 					sb.Append(candidateConverter.DigitConverter(nodeDigits));
 					sb.Append(inference == Inference.Strong ? StrongLinkConnector : WeakLinkConnector);
 					sb.Append(candidateConverter.DigitConverter(nextNodeDigits));
-					sb.Append(needAddingBrackets_Digits ? DigitGroupSameCellBracket.GetClosedBracket() : ")");
+					sb.Append(needAddingBrackets_Digits ? DigitGroupSameCellBracket.ClosedBracket : ")");
 				}
 
 				inference = Chain.Inferences[++linkIndex & 1];
@@ -343,9 +343,9 @@ public sealed partial class ChainFormatInfo : FormatInfo<Chain>
 			if (InlineDigitsInLink)
 			{
 				// (1)a=(2)b => [a]=1|2=[b]
-				_ = needAddingBrackets_Cells ? sb.Append(NotationBracket.GetOpenBracket()) : sb;
+				_ = needAddingBrackets_Cells ? sb.Append(NotationBracket.OpenBracket) : sb;
 				sb.Append(nodeCells.ToString(candidateConverter));
-				_ = needAddingBrackets_Cells ? sb.Append(NotationBracket.GetClosedBracket()) : sb;
+				_ = needAddingBrackets_Cells ? sb.Append(NotationBracket.ClosedBracket) : sb;
 			}
 			else
 			{

@@ -42,7 +42,7 @@ public sealed partial class LastingConstraint : Constraint, ILimitCountConstrain
 		var culture = formatProvider as CultureInfo;
 		return string.Format(
 			SR.Get("LastingConstraint", culture),
-			[TechniqueFlag.GetName(culture), Operator.GetOperatorString(), LimitCount.ToString()]
+			[TechniqueFlag.GetName(culture), Operator.GetOperatorString, LimitCount.ToString()]
 		);
 	}
 

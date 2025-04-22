@@ -38,7 +38,7 @@ internal sealed class SolveCommand : CommandBase
 		var result = context.ParseResult;
 		var type = result.GetValueForOption(o1);
 		var grid = result.GetValueForArgument(a1);
-		CommonPreprocessors.PrintInvalidIfWorth(grid, type.Create(), out var solution);
+		CommonPreprocessors.PrintInvalidIfWorth(grid, SolverType.CreateSolver(type), out var solution);
 		if (!solution.IsUndefined)
 		{
 			Console.WriteLine(solution);

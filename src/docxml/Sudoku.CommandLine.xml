@@ -105,7 +105,13 @@
             </summary>
             <seealso cref="T:Sudoku.CommandLine.CommandBase"/>
         </member>
-        <member name="M:Sudoku.CommandLine.CommandBaseExtensions.Deconstruct``1(``0,Sudoku.CommandLine.SymbolList{System.CommandLine.Option}@,Sudoku.CommandLine.SymbolList{System.CommandLine.Argument}@)">
+        <member name="T:Sudoku.CommandLine.CommandBaseExtensions.`1">
+            <summary>
+            Provides extension members on <typeparamref name="TCommand"/>,
+            where <typeparamref name="TCommand"/> satisfies <see cref="T:Sudoku.CommandLine.CommandBase"/> constraint.
+            </summary>
+        </member>
+        <member name="M:Sudoku.CommandLine.CommandBaseExtensions.`1.Deconstruct(Sudoku.CommandLine.SymbolList{System.CommandLine.Option}@,Sudoku.CommandLine.SymbolList{System.CommandLine.Argument}@)">
             <target name="method">
 				<summary>
 					Deconstruct the current instance into multiple values, which means you can use
@@ -113,7 +119,7 @@
 				</summary>
 			</target>
         </member>
-        <member name="M:Sudoku.CommandLine.CommandBaseExtensions.Deconstruct``1(``0,Sudoku.CommandLine.SymbolList{System.CommandLine.Option}@,Sudoku.CommandLine.SymbolList{System.CommandLine.Argument}@,Sudoku.CommandLine.SymbolList{System.CommandLine.Option}@)">
+        <member name="M:Sudoku.CommandLine.CommandBaseExtensions.`1.Deconstruct(Sudoku.CommandLine.SymbolList{System.CommandLine.Option}@,Sudoku.CommandLine.SymbolList{System.CommandLine.Argument}@,Sudoku.CommandLine.SymbolList{System.CommandLine.Option}@)">
             <target name="method">
 				<summary>
 					Deconstruct the current instance into multiple values, which means you can use
@@ -863,33 +869,34 @@
             </summary>
             <seealso cref="T:System.CommandLine.Command"/>
         </member>
-        <member name="M:System.CommandLine.CommandExtensions.AddRange(System.CommandLine.Command,Sudoku.CommandLine.SymbolList{System.CommandLine.Option})">
+        <member name="T:System.CommandLine.CommandExtensions.">
+            <summary>
+            Provides extension members on <see cref="T:System.CommandLine.Command"/>.
+            </summary>
+        </member>
+        <member name="M:System.CommandLine.CommandExtensions..AddRange(Sudoku.CommandLine.SymbolList{System.CommandLine.Option})">
             <summary>
             Adds a list of <see cref="T:System.CommandLine.Option"/> instances into the command.
             </summary>
-            <param name="this">The command.</param>
             <param name="options">The options.</param>
         </member>
-        <member name="M:System.CommandLine.CommandExtensions.AddRange(System.CommandLine.Command,Sudoku.CommandLine.SymbolList{System.CommandLine.Argument})">
+        <member name="M:System.CommandLine.CommandExtensions..AddRange(Sudoku.CommandLine.SymbolList{System.CommandLine.Argument})">
             <summary>
             Adds a list of <see cref="T:System.CommandLine.Argument"/> instances into the command.
             </summary>
-            <param name="this">The command.</param>
             <param name="arguments">The arguments.</param>
         </member>
-        <member name="M:System.CommandLine.CommandExtensions.AddRange(System.CommandLine.Command,Sudoku.CommandLine.SymbolList{System.CommandLine.Command})">
+        <member name="M:System.CommandLine.CommandExtensions..AddRange(Sudoku.CommandLine.SymbolList{System.CommandLine.Command})">
             <summary>
             Adds a list of <see cref="T:System.CommandLine.Command"/> instances into the command.
             </summary>
-            <param name="this">The command.</param>
             <param name="subcommands">The subcommands.</param>
         </member>
-        <member name="M:System.CommandLine.CommandExtensions.AddRangeGlobal(System.CommandLine.Command,Sudoku.CommandLine.SymbolList{System.CommandLine.Option})">
+        <member name="M:System.CommandLine.CommandExtensions..AddRangeGlobal(Sudoku.CommandLine.SymbolList{System.CommandLine.Option})">
             <summary>
             Adds a list of <see cref="T:System.CommandLine.Option"/> instances into the command,
             as global ones applying to the current command and its sub-commands.
             </summary>
-            <param name="this">The command.</param>
             <param name="options">The options.</param>
         </member>
     </members>

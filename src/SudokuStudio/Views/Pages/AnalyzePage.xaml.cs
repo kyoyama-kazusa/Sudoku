@@ -1067,7 +1067,7 @@ public sealed partial class AnalyzePage : Page
 		var dataPackage = new DataPackage { RequestedOperation = DataPackageOperation.Copy };
 		dataPackage.SetText(
 			flag != SudokuFormatFlags.HodokuCompatibleFormat
-				? puzzle.ToString(flag.GetConverter())
+				? puzzle.ToString(flag.Converter)
 				: HodokuCompatibility.GetHodokuLibraryFormat(puzzle, VisualUnit as Step)
 		);
 		Clipboard.SetContent(dataPackage);
