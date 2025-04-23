@@ -1,15 +1,11 @@
-namespace Sudoku.Analytics.Construction;
+namespace Sudoku.Analytics;
 
 /// <summary>
 /// Represents a pattern searcher type.
 /// </summary>
 /// <typeparam name="TPattern">The type of pattern.</typeparam>
-public abstract class PatternSearcher<TPattern> : IConstructible<PatternSearcherType> where TPattern : Pattern
+public abstract class PatternSearcher<TPattern> where TPattern : Pattern
 {
-	/// <inheritdoc/>
-	public abstract PatternSearcherType Type { get; }
-
-
 	/// <summary>
 	/// Try to search patterns and return them.
 	/// </summary>

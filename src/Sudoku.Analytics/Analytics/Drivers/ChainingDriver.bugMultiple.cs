@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Construction.Drivers;
+namespace Sudoku.Analytics.Drivers;
 
 internal partial class ChainingDriver
 {

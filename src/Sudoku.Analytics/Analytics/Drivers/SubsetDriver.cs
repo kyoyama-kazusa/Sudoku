@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Construction.Drivers;
+namespace Sudoku.Analytics.Drivers;
 
 /// <summary>
 /// Represents a subset searching driver.

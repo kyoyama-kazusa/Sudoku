@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Construction.Drivers;
+namespace Sudoku.Analytics.Drivers;
 
 using CellsDistribution = Dictionary<Cell, SortedSet<Node>>;
 using HousesDistribution = Dictionary<(House, Digit), SortedSet<Node>>;

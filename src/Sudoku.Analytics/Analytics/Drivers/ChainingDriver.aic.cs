@@ -6,7 +6,7 @@
 #warning 'STRICT_LENGTH_CHECKING_OPTIMIZATION' won't work if 'STRICT_LENGTH_CHECKING' is not configured.
 #endif
 
-namespace Sudoku.Analytics.Construction.Drivers;
+namespace Sudoku.Analytics.Drivers;
 
 internal partial class ChainingDriver
 {

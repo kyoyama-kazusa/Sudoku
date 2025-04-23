@@ -1,14 +1,10 @@
-namespace Sudoku.Analytics.Construction.PatternSearchers;
+namespace Sudoku.Analytics.PatternSearchers;
 
 /// <summary>
 /// Represents a pattern searcher on XYZ-Wings.
 /// </summary>
 public sealed class XyzWingPatternSearcher : PatternSearcher<XyzWingPattern>
 {
-	/// <inheritdoc/>
-	public override PatternSearcherType Type => PatternSearcherType.XyzWing;
-
-
 	/// <inheritdoc/>
 	/// <remarks><i>This method cannot be used as caching because most of callers have already been cached.</i></remarks>
 	public override ReadOnlySpan<XyzWingPattern> Search(in Grid grid)
