@@ -92,4 +92,5 @@
 
 ## 其他 <a href="#miscellaneous" id="miscellaneous"></a>
 
+* [作者介绍](miscellaneous/zuo-zhe-jie-shao.md)
 * [版权声明](miscellaneous/copyright-statement.md)
