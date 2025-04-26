@@ -51,7 +51,7 @@
 		<PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
 		<PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.0.9" />
 		<PackageReference Include="QuestPDF" Version="2023.9.0" />
-		<PackageReference Include="TextControlBox.WinUI.JuliusKirsch" Version="1.1.4" />
+		<PackageReference Include="TextControlBox.WinUI.JuliusKirsch" Version="1.1.5" />
 		<PackageReference Include="WinUI.TableView" Version="1.2.2" />
 		<PackageReference Include="WinUICommunity.Core" Version="6.9.0" />
 		<PackageReference Include="WinUICommunity.Win2D" Version="6.5.0" />
