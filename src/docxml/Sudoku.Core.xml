@@ -1134,7 +1134,13 @@
 			</i>
 		</b>
 	</large-structure>
+            <para>
+            This type uses <see cref="T:System.Runtime.Intrinsics.Vector128`1" /> to store bits, which may be unsupported in some platforms or machines.
+            I might reconsider the design of this type, in order to make this type compatible with that in the future;
+            but at present I don't do anything for it.
+            </para>
             </remarks>
+            <seealso cref="T:System.Runtime.Intrinsics.Vector128`1" />
         </member>
         <member name="T:Sudoku.Concepts.CellMap.Converter">
             <summary>
