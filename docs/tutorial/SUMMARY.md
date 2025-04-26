@@ -75,6 +75,7 @@
   * [在链里的待定数组](chain-theory/04-almost-locked-set-chain/03-other-use-cases-of-almost-locked-set.md)
 * [隐性待定数组链（AHS 链）](chain-theory/05-almost-hidden-set-chain.md)
 * [毛刺数组链](chain-theory/06-burred-subset-chain.md)
+* [待定唯一矩形链（AUR 链）](chain-theory/07-almost-unique-rectangle-chain.md)
 
 ## 附录 <a href="#appendix" id="appendix"></a>
 
