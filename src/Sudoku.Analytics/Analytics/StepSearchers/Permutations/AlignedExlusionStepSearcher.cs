@@ -173,7 +173,7 @@ public sealed partial class AlignedExclusionStepSearcher : StepSearcher
 						var lockingCell = -1;
 
 						// Check if this candidate combination is allowed, using hidden single rule.
-						foreach (var mask in Bits.EnumerateOf<Mask>(size, 2))
+						foreach (var mask in Mask.EnumerateOf(size, 2))
 						{
 							var cellIndices = mask.AllSets;
 							if ((potentials[cellIndices[0]], potentials[cellIndices[1]]) is var (p1, p2)

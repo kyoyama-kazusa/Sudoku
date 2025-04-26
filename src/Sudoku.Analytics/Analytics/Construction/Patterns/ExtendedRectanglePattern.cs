@@ -120,7 +120,7 @@ public sealed partial class ExtendedRectanglePattern(
 			for (var i = 0; i < HouseCombinations.Length; i++)
 			{
 				var (house1, house2) = (HouseCombinations[i][0], HouseCombinations[i][1]);
-				foreach (var mask in Bits.EnumerateOf<Mask>(9, size))
+				foreach (var mask in Mask.EnumerateOf(9, size))
 				{
 					// Check whether all cells are in same house. If so, continue the loop immediately.
 					if (size == 3 && mask.SplitMask is not (not 7, not 7, not 7))
