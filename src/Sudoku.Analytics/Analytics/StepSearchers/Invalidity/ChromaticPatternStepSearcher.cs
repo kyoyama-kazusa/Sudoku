@@ -33,82 +33,6 @@ namespace Sudoku.Analytics.StepSearchers.Invalidity;
 	Technique.ChromaticPatternXzRule)]
 public sealed partial class ChromaticPatternStepSearcher : StepSearcher
 {
-	/// <summary>
-	/// The possible pattern offsets.
-	/// </summary>
-	private static readonly ChromaticPatternPattern[] Patterns;
-
-	/// <summary>
-	/// All possible blocks combinations being reserved for chromatic pattern searcher's usages.
-	/// </summary>
-	private static readonly Mask[] ChromaticPatternBlocksCombinations = [
-		0b000_011_011, 0b000_101_101, 0b000_110_110,
-		0b011_000_011, 0b101_000_101, 0b110_000_110,
-		0b011_011_000, 0b101_101_000, 0b110_110_000
-	];
-
-	/// <summary>
-	/// Indicates the possible offset values for diagonal cases.
-	/// </summary>
-	/// <remarks>
-	/// <include file="../../global-doc-comments.xml" path="g/requires-static-constructor-invocation" />
-	/// </remarks>
-	private static readonly Cell[][] DiagonalCases = [[0, 10, 20], [1, 11, 18], [2, 9, 19]];
-
-	/// <summary>
-	/// Indicates the possible offset values for anti-diagonal cases.
-	/// </summary>
-	/// <remarks>
-	/// <include file="../../global-doc-comments.xml" path="g/requires-static-constructor-invocation" />
-	/// </remarks>
-	private static readonly Cell[][] AntidiagonalCases = [[0, 11, 19], [1, 9, 20], [2, 10, 18]];
-
-
-	/// <include file='../../global-doc-comments.xml' path='g/static-constructor' />
-	static ChromaticPatternStepSearcher()
-	{
-		var patternOffsetsList = new List<ChromaticPatternPattern>();
-		foreach (var (aCase, bCase, cCase, dCase) in (
-			(true, false, false, false),
-			(false, true, false, false),
-			(false, false, true, false),
-			(false, false, false, true)
-		))
-		{
-			// Phase 1.
-			foreach (var a in aCase ? DiagonalCases : AntidiagonalCases)
-			{
-				foreach (var b in bCase ? DiagonalCases : AntidiagonalCases)
-				{
-					foreach (var c in cCase ? DiagonalCases : AntidiagonalCases)
-					{
-						foreach (var d in dCase ? DiagonalCases : AntidiagonalCases)
-						{
-							patternOffsetsList.Add(new(a, b, c, d));
-						}
-					}
-				}
-			}
-
-			// Phase 2.
-			foreach (var a in aCase ? AntidiagonalCases : DiagonalCases)
-			{
-				foreach (var b in bCase ? AntidiagonalCases : DiagonalCases)
-				{
-					foreach (var c in cCase ? AntidiagonalCases : DiagonalCases)
-					{
-						foreach (var d in dCase ? AntidiagonalCases : DiagonalCases)
-						{
-							patternOffsetsList.Add(new(a, b, c, d));
-						}
-					}
-				}
-			}
-		}
-		Patterns = [.. patternOffsetsList];
-	}
-
-
 	/// <inheritdoc/>
 	protected internal override Step? Collect(ref StepAnalysisContext context)
 	{
@@ -138,7 +62,7 @@ public sealed partial class ChromaticPatternStepSearcher : StepSearcher
 		{
 			var blocksMask = Mask.Create(blocks);
 			var flag = false;
-			foreach (var tempBlocksMask in ChromaticPatternBlocksCombinations)
+			foreach (var tempBlocksMask in ChromaticPatternPattern.ChromaticPatternBlocksCombinations)
 			{
 				if ((tempBlocksMask & blocksMask) == blocksMask)
 				{
@@ -155,7 +79,7 @@ public sealed partial class ChromaticPatternStepSearcher : StepSearcher
 			var c2 = HousesCells[blocks[1]][0];
 			var c3 = HousesCells[blocks[2]][0];
 			var c4 = HousesCells[blocks[3]][0];
-			foreach (var (a, b, c, d) in Patterns)
+			foreach (var (a, b, c, d) in ChromaticPatternPattern.Patterns)
 			{
 				var pattern = f(a, c1) | f(b, c2) | f(c, c3) | f(d, c4);
 				if ((EmptyCells & pattern) != pattern)

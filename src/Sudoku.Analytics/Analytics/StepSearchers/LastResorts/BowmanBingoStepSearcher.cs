@@ -35,8 +35,6 @@ public sealed partial class BowmanBingoStepSearcher : StepSearcher
 	{
 		var tempAccumulator = new List<BowmanBingoStep>();
 		ref readonly var grid = ref context.Grid;
-		var accumulator = context.Accumulator!;
-		var onlyFindOne = context.OnlyFindOne;
 		var tempGrid = grid;
 		for (var digit = 0; digit < 9; digit++)
 		{
@@ -53,7 +51,7 @@ public sealed partial class BowmanBingoStepSearcher : StepSearcher
 
 				if (IsValidGrid(grid, cell))
 				{
-					Collect(tempAccumulator, ref tempGrid, ref context, onlyFindOne, startCandidate, MaxLength - 1);
+					Collect(tempAccumulator, ref tempGrid, ref context, startCandidate, MaxLength - 1);
 				}
 				else
 				{
@@ -78,11 +76,14 @@ public sealed partial class BowmanBingoStepSearcher : StepSearcher
 			}
 		}
 
-		accumulator.AddRange(
-			from info in tempAccumulator.AsSpan()
-			orderby info.ContradictionLinks.Length, info.ContradictionLinks[0]
-			select (Step)info
-		);
+		if (!context.OnlyFindOne)
+		{
+			context.Accumulator.AddRange(
+				from info in tempAccumulator.AsSpan()
+				orderby info.ContradictionLinks.Length, info.ContradictionLinks[0]
+				select (Step)info
+			);
+		}
 		return null;
 	}
 
@@ -92,7 +93,6 @@ public sealed partial class BowmanBingoStepSearcher : StepSearcher
 	/// <param name="result">The accumulator.</param>
 	/// <param name="grid">The sudoku grid to be checked.</param>
 	/// <param name="context">The context.</param>
-	/// <param name="onlyFindOne"><inheritdoc cref="StepAnalysisContext.OnlyFindOne"/></param>
 	/// <param name="startCand">The start candidate to be assumed.</param>
 	/// <param name="length">The whole length to be searched.</param>
 	/// <returns><inheritdoc cref="Collect(ref StepAnalysisContext)" path="/returns"/></returns>
@@ -100,7 +100,6 @@ public sealed partial class BowmanBingoStepSearcher : StepSearcher
 		List<BowmanBingoStep> result,
 		ref Grid grid,
 		ref StepAnalysisContext context,
-		bool onlyFindOne,
 		Candidate startCand,
 		int length
 	)
@@ -125,7 +124,7 @@ public sealed partial class BowmanBingoStepSearcher : StepSearcher
 		if (IsValidGrid(grid, c))
 		{
 			// Sounds good.
-			if (Collect(result, ref grid, ref context2, onlyFindOne, startCand, length - 1) is { } nestedStep)
+			if (Collect(result, ref grid, ref context2, startCand, length - 1) is { } nestedStep)
 			{
 				return nestedStep;
 			}
@@ -145,7 +144,7 @@ public sealed partial class BowmanBingoStepSearcher : StepSearcher
 				context.Options,
 				[.. _tempConclusions]
 			);
-			if (onlyFindOne)
+			if (context.OnlyFindOne)
 			{
 				return step;
 			}

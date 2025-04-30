@@ -6121,6 +6121,53 @@
             <param name="block3Cells">Indicates the cells used in third block.</param>
             <param name="block4Cells">Indicates the cells used in fourth block.</param>
         </member>
+        <member name="F:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.ChromaticPatternBlocksCombinations">
+            <summary>
+            All possible blocks combinations being reserved for chromatic pattern searcher's usages.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Patterns">
+            <summary>
+            The possible pattern offsets.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.DiagonalCases">
+            <summary>
+            Indicates the possible offset values for diagonal cases.
+            </summary>
+            <remarks>
+            <requires-static-constructor-invocation>
+		<i>
+			This field will only be used in the static constructor of this type. Please don't use this field in the user code.
+		</i>
+	</requires-static-constructor-invocation>
+            </remarks>
+        </member>
+        <member name="F:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.AntidiagonalCases">
+            <summary>
+            Indicates the possible offset values for anti-diagonal cases.
+            </summary>
+            <remarks>
+            <requires-static-constructor-invocation>
+		<i>
+			This field will only be used in the static constructor of this type. Please don't use this field in the user code.
+		</i>
+	</requires-static-constructor-invocation>
+            </remarks>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.#cctor">
+            <static-constructor>
+		<summary>
+			<para>
+				Indicates the <see langword="static" /> constructor of the current type.
+			</para>
+			<para>
+				This constructor will initialize some <see langword="static readonly" /> data members
+				of this type that can't use a simple expression to describe the initial value.
+			</para>
+		</summary>
+	</static-constructor>
+        </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.IsChainingCompatible">
             <inheritdoc/>
         </member>
@@ -6385,6 +6432,36 @@
             </summary>
             <param name="map">Indicates the full map of all cells used.</param>
             <param name="pivot">The pivot cell. This property can be <see langword="null"/> if four cells are used.</param>
+        </member>
+        <member name="F:Sudoku.Analytics.Construction.Patterns.FireworkPattern.Patterns">
+            <summary>
+            Indicates the patterns used.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Analytics.Construction.Patterns.FireworkPattern.HouseCombinations">
+            <summary>
+            Indicates the house combinations.
+            </summary>
+            <remarks>
+            <requires-static-constructor-invocation>
+		<i>
+			This field will only be used in the static constructor of this type. Please don't use this field in the user code.
+		</i>
+	</requires-static-constructor-invocation>
+            </remarks>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Patterns.FireworkPattern.#cctor">
+            <static-constructor>
+		<summary>
+			<para>
+				Indicates the <see langword="static" /> constructor of the current type.
+			</para>
+			<para>
+				This constructor will initialize some <see langword="static readonly" /> data members
+				of this type that can't use a simple expression to describe the initial value.
+			</para>
+		</summary>
+	</static-constructor>
         </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.FireworkPattern.IsChainingCompatible">
             <inheritdoc/>
@@ -9864,45 +9941,15 @@
             </list>
             </summary>
         </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.Intersections.FireworkStepSearcher.Patterns">
-            <summary>
-            Indicates the patterns used.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.Intersections.FireworkStepSearcher.HouseCombinations">
-            <summary>
-            Indicates the house combinations.
-            </summary>
-            <remarks>
-            <requires-static-constructor-invocation>
-		<i>
-			This field will only be used in the static constructor of this type. Please don't use this field in the user code.
-		</i>
-	</requires-static-constructor-invocation>
-            </remarks>
-        </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Intersections.FireworkStepSearcher.#cctor">
-            <static-constructor>
-		<summary>
-			<para>
-				Indicates the <see langword="static" /> constructor of the current type.
-			</para>
-			<para>
-				This constructor will initialize some <see langword="static readonly" /> data members
-				of this type that can't use a simple expression to describe the initial value.
-			</para>
-		</summary>
-	</static-constructor>
-        </member>
         <member name="M:Sudoku.Analytics.StepSearchers.Intersections.FireworkStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Intersections.FireworkStepSearcher.CheckTriple(System.Collections.Generic.List{Sudoku.Analytics.Step},Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,System.Boolean,Sudoku.Analytics.Construction.Patterns.FireworkPattern,System.Int16,System.Int32)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Intersections.FireworkStepSearcher.CheckTriple(Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,System.Boolean,Sudoku.Analytics.Construction.Patterns.FireworkPattern,System.Int16,System.Int32)">
             <summary>
             Checks for firework triple steps.
             </summary>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Intersections.FireworkStepSearcher.CheckQuadruple(System.Collections.Generic.List{Sudoku.Analytics.Step},Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,System.Boolean,Sudoku.Analytics.Construction.Patterns.FireworkPattern)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Intersections.FireworkStepSearcher.CheckQuadruple(Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,System.Boolean,Sudoku.Analytics.Construction.Patterns.FireworkPattern)">
             <summary>
             Checks for firework quadruple steps.
             </summary>
@@ -10055,53 +10102,6 @@
             please visit <see href="http://forum.enjoysudoku.com/chromatic-patterns-t39885.html">this link</see>.
             </remarks>
         </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.Invalidity.ChromaticPatternStepSearcher.Patterns">
-            <summary>
-            The possible pattern offsets.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.Invalidity.ChromaticPatternStepSearcher.ChromaticPatternBlocksCombinations">
-            <summary>
-            All possible blocks combinations being reserved for chromatic pattern searcher's usages.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.Invalidity.ChromaticPatternStepSearcher.DiagonalCases">
-            <summary>
-            Indicates the possible offset values for diagonal cases.
-            </summary>
-            <remarks>
-            <requires-static-constructor-invocation>
-		<i>
-			This field will only be used in the static constructor of this type. Please don't use this field in the user code.
-		</i>
-	</requires-static-constructor-invocation>
-            </remarks>
-        </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.Invalidity.ChromaticPatternStepSearcher.AntidiagonalCases">
-            <summary>
-            Indicates the possible offset values for anti-diagonal cases.
-            </summary>
-            <remarks>
-            <requires-static-constructor-invocation>
-		<i>
-			This field will only be used in the static constructor of this type. Please don't use this field in the user code.
-		</i>
-	</requires-static-constructor-invocation>
-            </remarks>
-        </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Invalidity.ChromaticPatternStepSearcher.#cctor">
-            <static-constructor>
-		<summary>
-			<para>
-				Indicates the <see langword="static" /> constructor of the current type.
-			</para>
-			<para>
-				This constructor will initialize some <see langword="static readonly" /> data members
-				of this type that can't use a simple expression to describe the initial value.
-			</para>
-		</summary>
-	</static-constructor>
-        </member>
         <member name="M:Sudoku.Analytics.StepSearchers.Invalidity.ChromaticPatternStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)">
             <inheritdoc/>
         </member>
@@ -10186,14 +10186,13 @@
         <member name="M:Sudoku.Analytics.StepSearchers.LastResorts.BowmanBingoStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.LastResorts.BowmanBingoStepSearcher.Collect(System.Collections.Generic.List{Sudoku.Analytics.Steps.LastResorts.BowmanBingoStep},Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,System.Boolean,System.Int32,System.Int32)">
+        <member name="M:Sudoku.Analytics.StepSearchers.LastResorts.BowmanBingoStepSearcher.Collect(System.Collections.Generic.List{Sudoku.Analytics.Steps.LastResorts.BowmanBingoStep},Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,System.Int32,System.Int32)">
             <summary>
             <inheritdoc cref="M:Sudoku.Analytics.StepSearchers.LastResorts.BowmanBingoStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)" path="/summary"/>
             </summary>
             <param name="result">The accumulator.</param>
             <param name="grid">The sudoku grid to be checked.</param>
             <param name="context">The context.</param>
-            <param name="onlyFindOne"><inheritdoc cref="P:Sudoku.Analytics.StepAnalysisContext.OnlyFindOne"/></param>
             <param name="startCand">The start candidate to be assumed.</param>
             <param name="length">The whole length to be searched.</param>
             <returns><inheritdoc cref="M:Sudoku.Analytics.StepSearchers.LastResorts.BowmanBingoStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)" path="/returns"/></returns>

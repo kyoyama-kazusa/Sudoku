@@ -23,92 +23,12 @@ namespace Sudoku.Analytics.StepSearchers.Intersections;
 	RuntimeFlags = StepSearcherRuntimeFlags.TimeComplexity)]
 public sealed partial class FireworkStepSearcher : StepSearcher
 {
-	/// <summary>
-	/// Indicates the patterns used.
-	/// </summary>
-	private static readonly FireworkPattern[] Patterns;
-
-	/// <summary>
-	/// Indicates the house combinations.
-	/// </summary>
-	/// <remarks>
-	/// <include file="../../global-doc-comments.xml" path="g/requires-static-constructor-invocation" />
-	/// </remarks>
-	private static readonly BlockIndex[][] HouseCombinations = [
-		[0, 1, 3, 4], [0, 2, 3, 5], [1, 2, 4, 5],
-		[0, 1, 6, 7], [0, 2, 6, 8], [1, 2, 7, 8],
-		[3, 4, 6, 7], [3, 5, 6, 8], [4, 5, 7, 8]
-	];
-
-
-	/// <include file='../../global-doc-comments.xml' path='g/static-constructor' />
-	static FireworkStepSearcher()
-	{
-		Patterns = new FireworkPattern[3645];
-
-		var i = 0;
-		foreach (var houseQuad in HouseCombinations)
-		{
-			// Collection for pattern triples.
-			foreach (var triple in houseQuad.AsReadOnlySpan().GetSubsets(3))
-			{
-				foreach (var a in HousesMap[triple[0]])
-				{
-					foreach (var b in HousesMap[triple[1]])
-					{
-						foreach (var c in HousesMap[triple[2]])
-						{
-							if ((a.AsCellMap() + b).FirstSharedHouse != 32 && (a.AsCellMap() + c).FirstSharedHouse != 32)
-							{
-								Patterns[i++] = new([a, b, c], a);
-								continue;
-							}
-
-							if ((a.AsCellMap() + b).FirstSharedHouse != 32 && (b.AsCellMap() + c).FirstSharedHouse != 32)
-							{
-								Patterns[i++] = new([a, b, c], b);
-								continue;
-							}
-
-							if ((a.AsCellMap() + c).FirstSharedHouse != 32 && (b.AsCellMap() + c).FirstSharedHouse != 32)
-							{
-								Patterns[i++] = new([a, b, c], c);
-							}
-						}
-					}
-				}
-			}
-
-			// Collection for pattern quadruples.
-			foreach (var a in HousesMap[houseQuad[0]])
-			{
-				foreach (var b in HousesMap[houseQuad[1]])
-				{
-					foreach (var c in HousesMap[houseQuad[2]])
-					{
-						foreach (var d in HousesMap[houseQuad[3]])
-						{
-							if ((a.AsCellMap() + b).FirstSharedHouse == 32 || (a.AsCellMap() + c).FirstSharedHouse == 32
-								|| (b.AsCellMap() + d).FirstSharedHouse == 32 || (c.AsCellMap() + d).FirstSharedHouse == 32)
-							{
-								continue;
-							}
-
-							Patterns[i++] = new([a, b, c, d], null);
-						}
-					}
-				}
-			}
-		}
-	}
-
 	/// <inheritdoc/>
 	protected internal override Step? Collect(ref StepAnalysisContext context)
 	{
 		ref readonly var grid = ref context.Grid;
-		var accumulator = context.Accumulator!;
 		var onlyFindOne = context.OnlyFindOne;
-		foreach (var pattern in Patterns)
+		foreach (var pattern in FireworkPattern.Patterns)
 		{
 			if ((EmptyCells & pattern.Map) != pattern.Map)
 			{
@@ -127,7 +47,7 @@ public sealed partial class FireworkStepSearcher : StepSearcher
 			{
 				case { } pivot when BitOperations.PopCount(digitsMask) >= 3:
 				{
-					if (CheckTriple(accumulator, grid, ref context, onlyFindOne, pattern, digitsMask, pivot) is { } stepTriple)
+					if (CheckTriple(grid, ref context, onlyFindOne, pattern, digitsMask, pivot) is { } stepTriple)
 					{
 						return stepTriple;
 					}
@@ -135,7 +55,7 @@ public sealed partial class FireworkStepSearcher : StepSearcher
 				}
 				case null when BitOperations.PopCount(digitsMask) >= 4:
 				{
-					if (CheckQuadruple(accumulator, grid, ref context, onlyFindOne, pattern) is { } step)
+					if (CheckQuadruple(grid, ref context, onlyFindOne, pattern) is { } step)
 					{
 						return step;
 					}
@@ -151,7 +71,6 @@ public sealed partial class FireworkStepSearcher : StepSearcher
 	/// Checks for firework triple steps.
 	/// </summary>
 	private FireworkTripleStep? CheckTriple(
-		List<Step> accumulator,
 		in Grid grid,
 		ref StepAnalysisContext context,
 		bool onlyFindOne,
@@ -249,12 +168,12 @@ public sealed partial class FireworkStepSearcher : StepSearcher
 				pattern.Map,
 				currentDigitsMask
 			);
-			if (onlyFindOne)
+			if (context.OnlyFindOne)
 			{
 				return step;
 			}
 
-			accumulator.Add(step);
+			context.Accumulator.Add(step);
 		}
 
 		return null;
@@ -264,7 +183,6 @@ public sealed partial class FireworkStepSearcher : StepSearcher
 	/// Checks for firework quadruple steps.
 	/// </summary>
 	private FireworkQuadrupleStep? CheckQuadruple(
-		List<Step> accumulator,
 		in Grid grid,
 		ref StepAnalysisContext context,
 		bool onlyFindOne,
@@ -421,12 +339,12 @@ public sealed partial class FireworkStepSearcher : StepSearcher
 						map,
 						fourDigitsMask
 					);
-					if (onlyFindOne)
+					if (context.OnlyFindOne)
 					{
 						return step;
 					}
 
-					accumulator.Add(step);
+					context.Accumulator.Add(step);
 				}
 			}
 		}
