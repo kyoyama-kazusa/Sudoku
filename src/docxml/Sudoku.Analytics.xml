@@ -10248,6 +10248,19 @@
             is the 40th cell in the grid (i.e. the cell <c>r5c5</c>).
             </remarks>
         </member>
+        <member name="M:Sudoku.Analytics.StepSearchers.LastResorts.BruteForceStepSearcher.#cctor">
+            <static-constructor>
+		<summary>
+			<para>
+				Indicates the <see langword="static" /> constructor of the current type.
+			</para>
+			<para>
+				This constructor will initialize some <see langword="static readonly" /> data members
+				of this type that can't use a simple expression to describe the initial value.
+			</para>
+		</summary>
+	</static-constructor>
+        </member>
         <member name="M:Sudoku.Analytics.StepSearchers.LastResorts.BruteForceStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)">
             <inheritdoc/>
         </member>

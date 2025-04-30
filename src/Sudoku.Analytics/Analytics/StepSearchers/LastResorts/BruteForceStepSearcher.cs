@@ -22,17 +22,48 @@ public sealed partial class BruteForceStepSearcher : StepSearcher
 	/// For example, the first value is 40, which means the first cell to be tried to be filled
 	/// is the 40th cell in the grid (i.e. the cell <c>r5c5</c>).
 	/// </remarks>
-	private static readonly Cell[] BruteForceTryAndErrorOrder = [
-		40, 41, 32, 31, 30, 39, 48, 49, 50,
-		51, 42, 33, 24, 23, 22, 21, 20, 29,
-		38, 47, 56, 57, 58, 59, 60, 61, 52,
-		43, 34, 25, 16, 15, 14, 13, 12, 11,
-		10, 19, 28, 37, 46, 55, 64, 65, 66,
-		67, 68, 69, 70, 71, 62, 53, 44, 35,
-		26, 17, 8, 7, 6, 5, 4, 3, 2,
-		1, 0, 9, 18, 27, 36, 45, 54, 63,
-		72, 73, 74, 75, 76, 77, 78, 79, 80
-	];
+	private static readonly Cell[] BruteForceTryAndErrorOrder;
+
+
+	/// <include file='../../global-doc-comments.xml' path='g/static-constructor' />
+	static BruteForceStepSearcher()
+	{
+		var (table, currentRow, currentColumn, k) = ((List<int>)[40], 4, 4, 1);
+		var directions = ((int, int)[])[(0, 1), (-1, 0), (0, -1), (1, 0)];
+		while (table.Count < 81)
+		{
+			for (var i = 0; i < 4; i++)
+			{
+				var steps = i < 2 ? k : k + 1;
+				var (dx, dy) = directions[i];
+				for (var s = 0; s < steps; s++)
+				{
+					var newRow = currentRow + dx;
+					var newColumn = currentColumn + dy;
+					if (newRow < 0 || newRow >= 9 || newColumn < 0 || newColumn >= 9)
+					{
+						break;
+					}
+
+					currentRow = newRow;
+					currentColumn = newColumn;
+					table.Add(currentRow * 9 + currentColumn);
+
+					if (table.Count == 81)
+					{
+						break;
+					}
+				}
+				if (table.Count == 81)
+				{
+					break;
+				}
+			}
+			k += 2;
+		}
+
+		BruteForceTryAndErrorOrder = [.. table];
+	}
 
 
 	/// <inheritdoc/>
