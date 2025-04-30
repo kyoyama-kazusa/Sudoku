@@ -90,7 +90,6 @@ public sealed partial class NormalFishStepSearcher : StepSearcher
 			{
 				if (HousesMap[house] & CandidatesMap[digit])
 				{
-#pragma warning disable CA2014
 					if (house < 18)
 					{
 						if (r[digit] == null)
@@ -115,7 +114,6 @@ public sealed partial class NormalFishStepSearcher : StepSearcher
 
 						c[digit][++c[digit][0]] = house;
 					}
-#pragma warning restore CA2014
 				}
 			}
 		}

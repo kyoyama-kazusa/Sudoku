@@ -466,6 +466,9 @@ dotnet_diagnostic.CA1822.severity = none
 # CA2011: Avoid infinite recursion
 dotnet_diagnostic.CA2011.severity = error
 
+# CA2014: Do not use stackalloc in loops
+dotnet_diagnostic.CA2014.severity = silent
+
 # CA2244: Do not duplicate indexed element initializations
 dotnet_diagnostic.CA2244.severity = error
 
