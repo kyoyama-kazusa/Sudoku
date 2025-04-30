@@ -38,6 +38,16 @@ public sealed partial class Link(
 
 
 	/// <summary>
+	/// Indicates whether the link is grouped (has a node using at least 2 candidates).
+	/// </summary>
+	public bool IsGrouped => FirstNode.Map.Count != 1 || SecondNode.Map.Count != 1;
+
+	/// <summary>
+	/// Indicates whether the link is strictly grouped (uses grouped node, or contains a grouped pattern).
+	/// </summary>
+	public bool IsStrictlyGrouped => IsGrouped || GroupedLinkPattern is not null;
+
+	/// <summary>
 	/// Indicates whether the link is inside a cell.
 	/// </summary>
 	public bool IsBivalueCellLink

@@ -2470,6 +2470,11 @@
             Indicates whether the chain is ALS-W-Wing or grouped ALS-W-Wing.
             </summary>
         </member>
+        <member name="P:Sudoku.Analytics.Construction.Components.AlternatingInferenceChain.IsGroupedAlmostLockedSetWWing">
+            <summary>
+            Indicates whether the chain is grouped ALS-W-Wing.
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.Construction.Components.AlternatingInferenceChain.IsImplicitLoop">
             <summary>
             Indicates whether the chain is an implicit loop,
@@ -4109,6 +4114,16 @@
         <member name="F:Sudoku.Analytics.Construction.Components.Link.WeakLinkConnector">
             <summary>
             Indicates the weak link connector.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Components.Link.IsGrouped">
+            <summary>
+            Indicates whether the link is grouped (has a node using at least 2 candidates).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Components.Link.IsStrictlyGrouped">
+            <summary>
+            Indicates whether the link is strictly grouped (uses grouped node, or contains a grouped pattern).
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Construction.Components.Link.IsBivalueCellLink">

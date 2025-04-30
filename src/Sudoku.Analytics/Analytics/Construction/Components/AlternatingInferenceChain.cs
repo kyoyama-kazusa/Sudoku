@@ -65,11 +65,27 @@ public sealed partial class AlternatingInferenceChain(Node lastNode) : NamedChai
 	/// Indicates whether the chain is ALS-W-Wing or grouped ALS-W-Wing.
 	/// </summary>
 	public bool IsAlmostLockedSetWWing
-		=> IsWoodsWing && Links is [
-			{ GroupedLinkPattern: AlmostLockedSetPattern } or { IsBivalueCellLink: true },
+		=> IsWoodsWing
+		&& Links is [
+			var a and ({ GroupedLinkPattern: AlmostLockedSetPattern } or { IsBivalueCellLink: true }),
 			..,
-			{ GroupedLinkPattern: AlmostLockedSetPattern } or { IsBivalueCellLink: true }
-		];
+			var b and ({ GroupedLinkPattern: AlmostLockedSetPattern } or { IsBivalueCellLink: true })
+		]
+		&& !(a.IsBivalueCellLink && b.IsBivalueCellLink);
+
+	/// <summary>
+	/// Indicates whether the chain is grouped ALS-W-Wing.
+	/// </summary>
+	public bool IsGroupedAlmostLockedSetWWing
+		=> IsWoodsWing
+		&& Links is [
+			var a and ({ GroupedLinkPattern: AlmostLockedSetPattern } or { IsBivalueCellLink: true }),
+			_,
+			{ IsStrictlyGrouped: true },
+			_,
+			var b and ({ GroupedLinkPattern: AlmostLockedSetPattern } or { IsBivalueCellLink: true })
+		]
+		&& !(a.IsBivalueCellLink && b.IsBivalueCellLink);
 
 	/// <summary>
 	/// Indicates whether the chain is an implicit loop,
@@ -104,12 +120,12 @@ public sealed partial class AlternatingInferenceChain(Node lastNode) : NamedChai
 		=> this switch
 		{
 			[
-				{ Map.Digits: var m1 },
-				{ Map.Digits: var m2 },
-				{ Map.Digits: var m3 },
-				{ Map.Digits: var m4 },
-				{ Map.Digits: var m5 },
-				{ Map.Digits: var m6 }
+			{ Map.Digits: var m1 },
+			{ Map.Digits: var m2 },
+			{ Map.Digits: var m3 },
+			{ Map.Digits: var m4 },
+			{ Map.Digits: var m5 },
+			{ Map.Digits: var m6 }
 			] => BitOperations.IsPow2(m1) && BitOperations.IsPow2(m2) && BitOperations.IsPow2(m3) && BitOperations.IsPow2(m4) && BitOperations.IsPow2(m5) && BitOperations.IsPow2(m6)
 				? (true, m1, m2, m3, m4, m5, m6)
 				: (false, m1, m2, m3, m4, m5, m6),

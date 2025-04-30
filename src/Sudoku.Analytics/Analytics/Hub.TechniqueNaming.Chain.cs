@@ -98,8 +98,8 @@ public partial class Hub
 					{
 						{ IsOverlapped: true } and [{ Map: var map1 }, .., { Map: var map2 }] when map1 == map2
 							=> isGrouped ? Technique.GroupedSelfConstraint : Technique.SelfConstraint,
-						{ IsAlmostLockedSetWWing: true, IsStrongLinksStrictlyGrouped: var isStrictlyGrouped }
-							=> isStrictlyGrouped ? Technique.GroupedAlmostLockedSetsWWing : Technique.AlmostLockedSetsWWing,
+						{ IsGroupedAlmostLockedSetWWing: true } => Technique.GroupedAlmostLockedSetsWWing,
+						{ IsAlmostLockedSetWWing: true } => Technique.AlmostLockedSetsWWing,
 						{ IsAlmostLockedSetSequence: true, AlmostLockedSetsCount: var count and >= 2 } => count switch
 						{
 							2 => Technique.SinglyLinkedAlmostLockedSetsXzRule,
