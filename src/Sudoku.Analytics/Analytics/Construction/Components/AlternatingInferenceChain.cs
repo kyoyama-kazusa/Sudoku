@@ -61,7 +61,6 @@ public sealed partial class AlternatingInferenceChain(Node lastNode) : NamedChai
 			|| m1 == m2 && m1 == m3 && m4 == m5 && m1 != m4 && m1 != m6 && m4 != m6
 		);
 
-#pragma warning disable format
 	/// <summary>
 	/// Indicates whether the chain is ALS-W-Wing or grouped ALS-W-Wing.
 	/// </summary>
@@ -71,7 +70,6 @@ public sealed partial class AlternatingInferenceChain(Node lastNode) : NamedChai
 			..,
 			{ GroupedLinkPattern: AlmostLockedSetPattern } or { IsBivalueCellLink: true }
 		];
-#pragma warning restore format
 
 	/// <summary>
 	/// Indicates whether the chain is an implicit loop,
@@ -103,7 +101,6 @@ public sealed partial class AlternatingInferenceChain(Node lastNode) : NamedChai
 	/// </summary>
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 	private (bool, Mask, Mask, Mask, Mask, Mask, Mask)? SplitMask
-#pragma warning disable format
 		=> this switch
 		{
 			[
@@ -118,7 +115,6 @@ public sealed partial class AlternatingInferenceChain(Node lastNode) : NamedChai
 				: (false, m1, m2, m3, m4, m5, m6),
 			_ => null
 		};
-#pragma warning restore format
 
 
 	/// <inheritdoc/>
