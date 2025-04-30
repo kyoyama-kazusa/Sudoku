@@ -26,8 +26,10 @@ public partial class Hub
 					var digit = node1.Map[0] % 9;
 					var map = node1.Map / digit;
 					return node1.IsGroupedNode
+						// Grouped node, treating it as generalized locked candidates, and eliminate from peers.
 						? from cell in map.PeerIntersection & candidatesMap[digit] select new Conclusion(Elimination, cell, digit)
-						: [];
+						// Single candidate, meaning the candidate must be true.
+						: (Conclusion[])[new(Assignment, node1.Map[0])];
 				}
 
 				// Two nodes aren't same. Check for values.

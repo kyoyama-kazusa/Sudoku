@@ -260,10 +260,12 @@ internal partial class ChainingDriver
 								goto Next;
 							}
 
+#if !STRICT_LENGTH_CHECKING
 							if (onlyFindOne)
 							{
 								return chain;
 							}
+#endif
 
 							result.Add(chain);
 #if ONLY_FIND_ONE_CHAIN_FOR_ONE_START
