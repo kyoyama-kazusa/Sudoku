@@ -29,6 +29,32 @@ namespace Sudoku.Analytics.Construction.Patterns;
 public sealed partial class QiuDeadlyPattern2Pattern([Property] HouseMask Lines1, [Property] HouseMask Lines2) :
 	Pattern
 {
+	/// <summary>
+	/// Indicates the patterns for case 2.
+	/// </summary>
+	internal static readonly QiuDeadlyPattern2Pattern[] Patterns;
+
+
+	/// <include file='../../global-doc-comments.xml' path='g/static-constructor' />
+	static QiuDeadlyPattern2Pattern()
+	{
+		// Case 2: 2 rows + 2 columns.
+		var patterns = new List<QiuDeadlyPattern2Pattern>();
+		var rows = HouseMaskOperations.AllRowsMask.AllSets;
+		var columns = HouseMaskOperations.AllColumnsMask.AllSets;
+		foreach (var lineOffsetPairRow in QiuDeadlyPattern1Pattern.LineOffsets)
+		{
+			var rowsMask = 1 << rows[lineOffsetPairRow[0]] | 1 << rows[lineOffsetPairRow[1]];
+			foreach (var lineOffsetPairColumn in QiuDeadlyPattern1Pattern.LineOffsets)
+			{
+				var columnsMask = 1 << columns[lineOffsetPairColumn[0]] | 1 << columns[lineOffsetPairColumn[1]];
+				patterns.Add(new(rowsMask, columnsMask));
+			}
+		}
+		Patterns = [.. patterns];
+	}
+
+
 	/// <inheritdoc/>
 	public override bool IsChainingCompatible => false;
 

@@ -22,8 +22,6 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 	protected internal override Step? Collect(ref StepAnalysisContext context)
 	{
 		ref readonly var grid = ref context.Grid;
-		var accumulator = context.Accumulator!;
-		var onlyFindOne = context.OnlyFindOne;
 		foreach (var (isFatType, patternCells, pairs, size) in ExtendedRectanglePattern.AllPatterns)
 		{
 			if ((EmptyCells & patternCells) != patternCells)
@@ -91,13 +89,13 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 
 				if (extraCellsMap.Count == 1)
 				{
-					if (CheckType1(accumulator, grid, ref context, patternCells, extraCellsMap, normalDigits, extraDigit, onlyFindOne) is { } step1)
+					if (CheckType1(grid, ref context, patternCells, extraCellsMap, normalDigits, extraDigit) is { } step1)
 					{
 						return step1;
 					}
 				}
 
-				if (CheckType2(accumulator, grid, ref context, patternCells, extraCellsMap, normalDigits, extraDigit, onlyFindOne) is { } step2)
+				if (CheckType2(grid, ref context, patternCells, extraCellsMap, normalDigits, extraDigit) is { } step2)
 				{
 					return step2;
 				}
@@ -122,15 +120,12 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 					continue;
 				}
 
-				if (CheckType3Naked(
-					accumulator, grid, ref context, patternCells, normalDigits,
-					extraDigits, extraCellsMap, isFatType, onlyFindOne
-				) is { } step3)
+				if (CheckType3Naked(grid, ref context, patternCells, normalDigits, extraDigits, extraCellsMap, isFatType) is { } step3)
 				{
 					return step3;
 				}
 
-				if (CheckType14(accumulator, grid, ref context, patternCells, normalDigits, extraCellsMap, onlyFindOne) is { } step14)
+				if (CheckType14(grid, ref context, patternCells, normalDigits, extraCellsMap) is { } step14)
 				{
 					return step14;
 				}
@@ -143,24 +138,20 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 	/// <summary>
 	/// Check type 1.
 	/// </summary>
-	/// <param name="accumulator">The technique accumulator.</param>
 	/// <param name="grid">The grid.</param>
 	/// <param name="context">The context.</param>
 	/// <param name="patternCells">The map of all cells used.</param>
 	/// <param name="extraCells">The extra cells map.</param>
 	/// <param name="normalDigits">The normal digits mask.</param>
 	/// <param name="extraDigit">The extra digit.</param>
-	/// <param name="onlyFindOne">Indicates whether the searcher only searches for one step.</param>
 	/// <returns>The first found step if worth.</returns>
 	private ExtendedRectangleType1Step? CheckType1(
-		List<Step> accumulator,
 		in Grid grid,
 		ref StepAnalysisContext context,
 		in CellMap patternCells,
 		in CellMap extraCells,
 		Mask normalDigits,
-		Digit extraDigit,
-		bool onlyFindOne
+		Digit extraDigit
 	)
 	{
 		var (conclusions, candidateOffsets) = (new List<Conclusion>(), new List<CandidateViewNode>());
@@ -197,12 +188,12 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 			patternCells,
 			normalDigits
 		);
-		if (onlyFindOne)
+		if (context.OnlyFindOne)
 		{
 			return step;
 		}
 
-		accumulator.Add(step);
+		context.Accumulator.Add(step);
 
 	ReturnNull:
 		return null;
@@ -211,24 +202,20 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 	/// <summary>
 	/// Check type 2.
 	/// </summary>
-	/// <param name="accumulator">The technique accumulator.</param>
 	/// <param name="grid">The grid.</param>
 	/// <param name="context">The context.</param>
 	/// <param name="patternCells">The map of all cells used.</param>
 	/// <param name="extraCells">The extra cells map.</param>
 	/// <param name="normalDigits">The normal digits mask.</param>
 	/// <param name="extraDigit">The extra digit.</param>
-	/// <param name="onlyFindOne">Indicates whether the searcher only searches for one step.</param>
 	/// <returns>The first found step if worth.</returns>
 	private ExtendedRectangleType2Step? CheckType2(
-		List<Step> accumulator,
 		in Grid grid,
 		ref StepAnalysisContext context,
 		in CellMap patternCells,
 		in CellMap extraCells,
 		Mask normalDigits,
-		Digit extraDigit,
-		bool onlyFindOne
+		Digit extraDigit
 	)
 	{
 		if ((extraCells.PeerIntersection & CandidatesMap[extraDigit]) is not (var elimMap and not []))
@@ -253,12 +240,12 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 			normalDigits,
 			extraDigit
 		);
-		if (onlyFindOne)
+		if (context.OnlyFindOne)
 		{
 			return step;
 		}
 
-		accumulator.Add(step);
+		context.Accumulator.Add(step);
 
 	ReturnNull:
 		return null;
@@ -267,26 +254,22 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 	/// <summary>
 	/// Check type 3.
 	/// </summary>
-	/// <param name="accumulator">The technique accumulator.</param>
 	/// <param name="grid">The grid.</param>
 	/// <param name="context">The context.</param>
 	/// <param name="patternCells">The map of all cells used.</param>
 	/// <param name="normalDigits">The normal digits mask.</param>
 	/// <param name="extraDigits">The extra digits mask.</param>
 	/// <param name="extraCells">The map of extra cells.</param>
-	/// <param name="onlyFindOne">Indicates whether the searcher only searches for one step.</param>
 	/// <param name="isFatType">Indicates whether the type is fat type.</param>
 	/// <returns>The first found step if worth.</returns>
 	private ExtendedRectangleType3Step? CheckType3Naked(
-		List<Step> accumulator,
 		in Grid grid,
 		ref StepAnalysisContext context,
 		in CellMap patternCells,
 		Mask normalDigits,
 		Mask extraDigits,
 		in CellMap extraCells,
-		bool isFatType,
-		bool onlyFindOne
+		bool isFatType
 	)
 	{
 		// Test examples:
@@ -358,12 +341,12 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 								house,
 								isCannibalism
 							);
-							if (onlyFindOne)
+							if (context.OnlyFindOne)
 							{
 								return step;
 							}
 
-							accumulator.Add(step);
+							context.Accumulator.Add(step);
 						}
 						else if (isFatType) // Cannibalism check.
 						{
@@ -415,12 +398,12 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 								house,
 								isCannibalism
 							);
-							if (onlyFindOne)
+							if (context.OnlyFindOne)
 							{
 								return step;
 							}
 
-							accumulator.Add(step);
+							context.Accumulator.Add(step);
 						}
 					}
 				}
@@ -472,22 +455,18 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 	/// <summary>
 	/// Check type 4 and some type 1 patterns cannot be found.
 	/// </summary>
-	/// <param name="accumulator">The technique accumulator.</param>
 	/// <param name="grid">The grid.</param>
 	/// <param name="context">The context.</param>
 	/// <param name="patternCells">The map of all cells used.</param>
 	/// <param name="normalDigits">The normal digits mask.</param>
 	/// <param name="extraCells">The map of extra cells.</param>
-	/// <param name="onlyFindOne">Indicates whether the searcher only searches for one step.</param>
 	/// <returns>The first found step if worth.</returns>
 	private Step? CheckType14(
-		List<Step> accumulator,
 		in Grid grid,
 		ref StepAnalysisContext context,
 		in CellMap patternCells,
 		Mask normalDigits,
-		in CellMap extraCells,
-		bool onlyFindOne
+		in CellMap extraCells
 	)
 	{
 		switch (extraCells)
@@ -532,13 +511,12 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 					patternCells,
 					normalDigits
 				);
-				if (onlyFindOne)
+				if (context.OnlyFindOne)
 				{
 					return step;
 				}
 
-				accumulator.Add(step);
-
+				context.Accumulator.Add(step);
 				break;
 			}
 			case [var extraCell1, var extraCell2]:
@@ -601,12 +579,12 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 						normalDigits,
 						new(extraCells, conjugateDigit)
 					);
-					if (onlyFindOne)
+					if (context.OnlyFindOne)
 					{
 						return step;
 					}
 
-					accumulator.Add(step);
+					context.Accumulator.Add(step);
 				}
 				break;
 			}

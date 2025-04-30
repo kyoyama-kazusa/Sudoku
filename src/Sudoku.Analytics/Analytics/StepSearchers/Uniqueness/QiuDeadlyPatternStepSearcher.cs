@@ -32,70 +32,11 @@ namespace Sudoku.Analytics.StepSearchers.Uniqueness;
 	SupportAnalyzingMultipleSolutionsPuzzle = false)]
 public sealed partial class QiuDeadlyPatternStepSearcher : StepSearcher
 {
-	/// <summary>
-	/// Indicates the patterns for case 1.
-	/// </summary>
-	private static readonly QiuDeadlyPattern1Pattern[] PatternsForCase1;
-
-	/// <summary>
-	/// Indicates the patterns for case 2.
-	/// </summary>
-	private static readonly QiuDeadlyPattern2Pattern[] PatternsForCase2;
-
-	/// <summary>
-	/// Indicates the line offsets of the patterns.
-	/// </summary>
-	/// <remarks>
-	/// <include file="../../global-doc-comments.xml" path="g/requires-static-constructor-invocation" />
-	/// </remarks>
-	private static readonly RowIndex[][] LineOffsets = [[0, 1, 2], [0, 2, 1], [1, 2, 0], [3, 4, 5], [3, 5, 4], [4, 5, 3], [6, 7, 8], [6, 8, 7], [7, 8, 6]];
-
-
-	/// <include file='../../global-doc-comments.xml' path='g/static-constructor' />
-	static QiuDeadlyPatternStepSearcher()
-	{
-		// Case 1: 2 lines + 2 cells.
-		var patternsForCase1 = new List<QiuDeadlyPattern1Pattern>();
-		foreach (var isRow in (true, false))
-		{
-			var (@base, fullHousesMask) = isRow ? (9, HouseMaskOperations.AllRowsMask) : (18, HouseMaskOperations.AllColumnsMask);
-			foreach (var lineOffsetPair in LineOffsets)
-			{
-				var (l1, l2, l3) = (lineOffsetPair[0] + @base, lineOffsetPair[1] + @base, lineOffsetPair[2] + @base);
-				var linesMask = 1 << l1 | 1 << l2;
-				foreach (var cornerHouse in fullHousesMask & ~linesMask & ~(1 << l3))
-				{
-					foreach (var posPair in LineOffsets)
-					{
-						patternsForCase1.Add(new([HousesCells[cornerHouse][posPair[0]], HousesCells[cornerHouse][posPair[1]]], linesMask));
-					}
-				}
-			}
-		}
-		PatternsForCase1 = [.. patternsForCase1];
-
-		// Case 2: 2 rows + 2 columns.
-		var patternsForCase2 = new List<QiuDeadlyPattern2Pattern>();
-		var rows = HouseMaskOperations.AllRowsMask.AllSets;
-		var columns = HouseMaskOperations.AllColumnsMask.AllSets;
-		foreach (var lineOffsetPairRow in LineOffsets)
-		{
-			var rowsMask = 1 << rows[lineOffsetPairRow[0]] | 1 << rows[lineOffsetPairRow[1]];
-			foreach (var lineOffsetPairColumn in LineOffsets)
-			{
-				var columnsMask = 1 << columns[lineOffsetPairColumn[0]] | 1 << columns[lineOffsetPairColumn[1]];
-				patternsForCase2.Add(new(rowsMask, columnsMask));
-			}
-		}
-		PatternsForCase2 = [.. patternsForCase2];
-	}
-
-
 	/// <inheritdoc/>
 	protected internal override Step? Collect(ref StepAnalysisContext context)
 	{
 		// Handle for case 1.
-		foreach (var pattern in PatternsForCase1)
+		foreach (var pattern in QiuDeadlyPattern1Pattern.Patterns)
 		{
 			if (Collect(ref context, pattern) is { } step)
 			{
@@ -104,7 +45,7 @@ public sealed partial class QiuDeadlyPatternStepSearcher : StepSearcher
 		}
 
 		// Handle for case 2.
-		foreach (var pattern in PatternsForCase2)
+		foreach (var pattern in QiuDeadlyPattern2Pattern.Patterns)
 		{
 			if (Collect(ref context, pattern) is { } step)
 			{

@@ -6032,6 +6032,39 @@
             </para>
             </param>
         </member>
+        <member name="F:Sudoku.Analytics.Construction.Patterns.BorescoperDeadlyPatternPattern.Patterns">
+            <summary>
+            Indicates all possible patterns to iterate.
+            </summary>
+            <remarks>
+            Please note that all possible heptagons and octagons are in here.
+            </remarks>
+        </member>
+        <member name="F:Sudoku.Analytics.Construction.Patterns.BorescoperDeadlyPatternPattern.OffsetQuadruples">
+            <summary>
+            Indicates the quadruple list that describes the chosen cells in the target block.
+            </summary>
+            <remarks>
+            <requires-static-constructor-invocation>
+		<i>
+			This field will only be used in the static constructor of this type. Please don't use this field in the user code.
+		</i>
+	</requires-static-constructor-invocation>
+            </remarks>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Patterns.BorescoperDeadlyPatternPattern.#cctor">
+            <static-constructor>
+		<summary>
+			<para>
+				Indicates the <see langword="static" /> constructor of the current type.
+			</para>
+			<para>
+				This constructor will initialize some <see langword="static readonly" /> data members
+				of this type that can't use a simple expression to describe the initial value.
+			</para>
+		</summary>
+	</static-constructor>
+        </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.BorescoperDeadlyPatternPattern.IsHeptagon">
             <summary>
             Indicates whether the specified pattern is a heptagon.
@@ -6791,6 +6824,36 @@
             <param name="Corner">The corner cells that is <c>P</c> in that sketch.</param>
             <param name="Lines">The base-line cells that is <c>B</c> in that sketch.</param>
         </member>
+        <member name="F:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.LineOffsets">
+            <summary>
+            Indicates the line offsets of the patterns.
+            </summary>
+            <remarks>
+            <requires-static-constructor-invocation>
+		<i>
+			This field will only be used in the static constructor of this type. Please don't use this field in the user code.
+		</i>
+	</requires-static-constructor-invocation>
+            </remarks>
+        </member>
+        <member name="F:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.Patterns">
+            <summary>
+            Indicates the patterns for case 1.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.#cctor">
+            <static-constructor>
+		<summary>
+			<para>
+				Indicates the <see langword="static" /> constructor of the current type.
+			</para>
+			<para>
+				This constructor will initialize some <see langword="static readonly" /> data members
+				of this type that can't use a simple expression to describe the initial value.
+			</para>
+		</summary>
+	</static-constructor>
+        </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.IsChainingCompatible">
             <inheritdoc/>
         </member>
@@ -6879,6 +6942,24 @@
             </summary>
             <param name="Lines1">The first pair of lines.</param>
             <param name="Lines2">The second pair of lines.</param>
+        </member>
+        <member name="F:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern2Pattern.Patterns">
+            <summary>
+            Indicates the patterns for case 2.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern2Pattern.#cctor">
+            <static-constructor>
+		<summary>
+			<para>
+				Indicates the <see langword="static" /> constructor of the current type.
+			</para>
+			<para>
+				This constructor will initialize some <see langword="static readonly" /> data members
+				of this type that can't use a simple expression to describe the initial value.
+			</para>
+		</summary>
+	</static-constructor>
         </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern2Pattern.IsChainingCompatible">
             <inheritdoc/>
@@ -11523,58 +11604,25 @@
             </list>
             </summary>
         </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.Uniqueness.BorescoperDeadlyPatternStepSearcher.Patterns">
-            <summary>
-            Indicates all possible patterns to iterate.
-            </summary>
-            <remarks>
-            Please note that all possible heptagons and octagons are in here.
-            </remarks>
-        </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.Uniqueness.BorescoperDeadlyPatternStepSearcher.OffsetQuadruples">
-            <summary>
-            Indicates the quadruple list that describes the chosen cells in the target block.
-            </summary>
-            <remarks>
-            <requires-static-constructor-invocation>
-		<i>
-			This field will only be used in the static constructor of this type. Please don't use this field in the user code.
-		</i>
-	</requires-static-constructor-invocation>
-            </remarks>
-        </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.BorescoperDeadlyPatternStepSearcher.#cctor">
-            <static-constructor>
-		<summary>
-			<para>
-				Indicates the <see langword="static" /> constructor of the current type.
-			</para>
-			<para>
-				This constructor will initialize some <see langword="static readonly" /> data members
-				of this type that can't use a simple expression to describe the initial value.
-			</para>
-		</summary>
-	</static-constructor>
-        </member>
         <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.BorescoperDeadlyPatternStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.BorescoperDeadlyPatternStepSearcher.CheckType1(System.Collections.Generic.List{Sudoku.Analytics.Step},Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,Sudoku.Analytics.Construction.Patterns.BorescoperDeadlyPatternPattern,System.Boolean,System.Int16,System.Int16,System.Int16,Sudoku.Concepts.CellMap@)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.BorescoperDeadlyPatternStepSearcher.CheckType1(Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,Sudoku.Analytics.Construction.Patterns.BorescoperDeadlyPatternPattern,System.Int16,System.Int16,System.Int16,Sudoku.Concepts.CellMap@)">
             <summary>
             Check for type 1.
             </summary>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.BorescoperDeadlyPatternStepSearcher.CheckType2(System.Collections.Generic.List{Sudoku.Analytics.Step},Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,Sudoku.Analytics.Construction.Patterns.BorescoperDeadlyPatternPattern,System.Boolean,System.Int16,System.Int16,System.Int16,Sudoku.Concepts.CellMap@)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.BorescoperDeadlyPatternStepSearcher.CheckType2(Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,Sudoku.Analytics.Construction.Patterns.BorescoperDeadlyPatternPattern,System.Int16,System.Int16,System.Int16,Sudoku.Concepts.CellMap@)">
             <summary>
             Check type 2.
             </summary>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.BorescoperDeadlyPatternStepSearcher.CheckType3(System.Collections.Generic.List{Sudoku.Analytics.Step},Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,Sudoku.Analytics.Construction.Patterns.BorescoperDeadlyPatternPattern,System.Boolean,System.Int16,System.Int16,System.Int16,Sudoku.Concepts.CellMap@)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.BorescoperDeadlyPatternStepSearcher.CheckType3(Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,Sudoku.Analytics.Construction.Patterns.BorescoperDeadlyPatternPattern,System.Int16,System.Int16,System.Int16,Sudoku.Concepts.CellMap@)">
             <summary>
             Check for type 3.
             </summary>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.BorescoperDeadlyPatternStepSearcher.CheckType4(System.Collections.Generic.List{Sudoku.Analytics.Step},Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,Sudoku.Analytics.Construction.Patterns.BorescoperDeadlyPatternPattern,System.Boolean,System.Int16,System.Int16,System.Int16,Sudoku.Concepts.CellMap@)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.BorescoperDeadlyPatternStepSearcher.CheckType4(Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,Sudoku.Analytics.Construction.Patterns.BorescoperDeadlyPatternPattern,System.Int16,System.Int16,System.Int16,Sudoku.Concepts.CellMap@)">
             <summary>
             Check for type 4.
             </summary>
@@ -11594,60 +11642,52 @@
         <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.ExtendedRectangleStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.ExtendedRectangleStepSearcher.CheckType1(System.Collections.Generic.List{Sudoku.Analytics.Step},Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int16,System.Int32,System.Boolean)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.ExtendedRectangleStepSearcher.CheckType1(Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int16,System.Int32)">
             <summary>
             Check type 1.
             </summary>
-            <param name="accumulator">The technique accumulator.</param>
             <param name="grid">The grid.</param>
             <param name="context">The context.</param>
             <param name="patternCells">The map of all cells used.</param>
             <param name="extraCells">The extra cells map.</param>
             <param name="normalDigits">The normal digits mask.</param>
             <param name="extraDigit">The extra digit.</param>
-            <param name="onlyFindOne">Indicates whether the searcher only searches for one step.</param>
             <returns>The first found step if worth.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.ExtendedRectangleStepSearcher.CheckType2(System.Collections.Generic.List{Sudoku.Analytics.Step},Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int16,System.Int32,System.Boolean)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.ExtendedRectangleStepSearcher.CheckType2(Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int16,System.Int32)">
             <summary>
             Check type 2.
             </summary>
-            <param name="accumulator">The technique accumulator.</param>
             <param name="grid">The grid.</param>
             <param name="context">The context.</param>
             <param name="patternCells">The map of all cells used.</param>
             <param name="extraCells">The extra cells map.</param>
             <param name="normalDigits">The normal digits mask.</param>
             <param name="extraDigit">The extra digit.</param>
-            <param name="onlyFindOne">Indicates whether the searcher only searches for one step.</param>
             <returns>The first found step if worth.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.ExtendedRectangleStepSearcher.CheckType3Naked(System.Collections.Generic.List{Sudoku.Analytics.Step},Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.CellMap@,System.Int16,System.Int16,Sudoku.Concepts.CellMap@,System.Boolean,System.Boolean)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.ExtendedRectangleStepSearcher.CheckType3Naked(Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.CellMap@,System.Int16,System.Int16,Sudoku.Concepts.CellMap@,System.Boolean)">
             <summary>
             Check type 3.
             </summary>
-            <param name="accumulator">The technique accumulator.</param>
             <param name="grid">The grid.</param>
             <param name="context">The context.</param>
             <param name="patternCells">The map of all cells used.</param>
             <param name="normalDigits">The normal digits mask.</param>
             <param name="extraDigits">The extra digits mask.</param>
             <param name="extraCells">The map of extra cells.</param>
-            <param name="onlyFindOne">Indicates whether the searcher only searches for one step.</param>
             <param name="isFatType">Indicates whether the type is fat type.</param>
             <returns>The first found step if worth.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.ExtendedRectangleStepSearcher.CheckType14(System.Collections.Generic.List{Sudoku.Analytics.Step},Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.CellMap@,System.Int16,Sudoku.Concepts.CellMap@,System.Boolean)">
+        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.ExtendedRectangleStepSearcher.CheckType14(Sudoku.Concepts.Grid@,Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.CellMap@,System.Int16,Sudoku.Concepts.CellMap@)">
             <summary>
             Check type 4 and some type 1 patterns cannot be found.
             </summary>
-            <param name="accumulator">The technique accumulator.</param>
             <param name="grid">The grid.</param>
             <param name="context">The context.</param>
             <param name="patternCells">The map of all cells used.</param>
             <param name="normalDigits">The normal digits mask.</param>
             <param name="extraCells">The map of extra cells.</param>
-            <param name="onlyFindOne">Indicates whether the searcher only searches for one step.</param>
             <returns>The first found step if worth.</returns>
         </member>
         <member name="T:Sudoku.Analytics.StepSearchers.Uniqueness.QiuDeadlyPatternStepSearcher">
@@ -11674,41 +11714,6 @@
             </item>
             </list>
             </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.Uniqueness.QiuDeadlyPatternStepSearcher.PatternsForCase1">
-            <summary>
-            Indicates the patterns for case 1.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.Uniqueness.QiuDeadlyPatternStepSearcher.PatternsForCase2">
-            <summary>
-            Indicates the patterns for case 2.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.Uniqueness.QiuDeadlyPatternStepSearcher.LineOffsets">
-            <summary>
-            Indicates the line offsets of the patterns.
-            </summary>
-            <remarks>
-            <requires-static-constructor-invocation>
-		<i>
-			This field will only be used in the static constructor of this type. Please don't use this field in the user code.
-		</i>
-	</requires-static-constructor-invocation>
-            </remarks>
-        </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.QiuDeadlyPatternStepSearcher.#cctor">
-            <static-constructor>
-		<summary>
-			<para>
-				Indicates the <see langword="static" /> constructor of the current type.
-			</para>
-			<para>
-				This constructor will initialize some <see langword="static readonly" /> data members
-				of this type that can't use a simple expression to describe the initial value.
-			</para>
-		</summary>
-	</static-constructor>
         </member>
         <member name="M:Sudoku.Analytics.StepSearchers.Uniqueness.QiuDeadlyPatternStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)">
             <inheritdoc/>
