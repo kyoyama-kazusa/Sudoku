@@ -23,18 +23,25 @@ public abstract class NamedChain(Node lastNode, bool isLoop) : Chain(lastNode, i
 	{
 		get
 		{
-			// A valid ALS chain-like pattern must satisfy two conditions:
+			// A valid ALS chain-like pattern must satisfy 3 conditions:
 			//   1) All strong links use ALS
 			//   2) All weak links use RCC (a weak link to connect two same digit)
+			//   3) All strong links are not bi-value cells (otherwise, XY-Chain)
+			var isAllBivalueCells = true;
 			foreach (var link in Links)
 			{
 				switch (link)
 				{
+					case (_, _, true) { IsBivalueCellLink: false }:
+					{
+						isAllBivalueCells = false;
+						continue;
+					}
 					case (_, _, true) { IsBivalueCellLink: true }:
 					{
 						continue;
 					}
-					case (_, _, true, not AlmostLockedSetPattern) :
+					case (_, _, true, not AlmostLockedSetPattern):
 					case (_, _, false, not null):
 					case ({ Map.Digits: var d1 }, { Map.Digits: var d2 }, false) when d1 != d2 || !BitOperations.IsPow2(d1):
 					{
@@ -42,7 +49,7 @@ public abstract class NamedChain(Node lastNode, bool isLoop) : Chain(lastNode, i
 					}
 				}
 			}
-			return true;
+			return !isAllBivalueCells;
 		}
 	}
 
