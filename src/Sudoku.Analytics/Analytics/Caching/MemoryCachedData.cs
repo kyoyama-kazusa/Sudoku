@@ -178,6 +178,7 @@ internal static class MemoryCachedData
 		typeof(UniqueRectangleDifferentDigitChainingRule),
 		typeof(UniqueRectangleSingleSideExternalChainingRule),
 		typeof(UniqueRectangleDoubleSideExternalChainingRule),
+		typeof(UniqueRectangleDifferentDigitWeakChainingRule),
 		typeof(AvoidableRectangleChainingRule),
 		typeof(KrakenNormalFishChainingRule),
 		typeof(XyzWingChainingRule))]

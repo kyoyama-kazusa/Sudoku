@@ -30,6 +30,7 @@ public abstract partial class ChainingRule
 		LinkType.UniqueRectangle_DifferentDigit,
 		LinkType.UniqueRectangle_SingleSideExternal,
 		LinkType.UniqueRectangle_DoubleSideExternal,
+		LinkType.UniqueRectangle_DifferentDigitWeak,
 		LinkType.AvoidableRectangle,
 		//LinkType.XyzWing,
 	];

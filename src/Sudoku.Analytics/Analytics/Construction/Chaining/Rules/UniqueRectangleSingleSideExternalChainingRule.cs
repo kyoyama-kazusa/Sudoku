@@ -60,7 +60,7 @@ public sealed class UniqueRectangleSingleSideExternalChainingRule : UniqueRectan
 				}
 				if (linkOption == LinkOption.Intersection && !urCellsContainingOtherDigits.IsInIntersection)
 				{
-					return;
+					continue;
 				}
 
 				foreach (var lockedHouse in urCellsContainingOtherDigits.SharedHouses)

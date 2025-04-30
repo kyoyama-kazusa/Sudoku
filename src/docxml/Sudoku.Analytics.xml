@@ -2329,6 +2329,15 @@
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDifferentDigitChainingRule.GetLoopConclusions(Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDifferentDigitWeakChainingRule">
+            <summary>
+            Represents a chaining rule on AUR rule (i.e. <see cref="F:Sudoku.Analytics.Construction.Components.LinkType.UniqueRectangle_DifferentDigitWeak"/>).
+            </summary>
+            <seealso cref="F:Sudoku.Analytics.Construction.Components.LinkType.UniqueRectangle_DifferentDigitWeak"/>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDifferentDigitWeakChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDoubleSideExternalChainingRule">
             <summary>
             Represents a chaining rule on AUR rule (i.e. <see cref="F:Sudoku.Analytics.Construction.Components.LinkType.UniqueRectangle_DoubleSideExternal"/>).
@@ -4328,7 +4337,7 @@
         </member>
         <member name="F:Sudoku.Analytics.Construction.Components.LinkType.UniqueRectangle_DifferentDigit">
             <summary>
-            Indicates the link type is an almost unique rectangle, with different digits strong link.
+            Indicates the link type is an almost unique rectangle, with a strong link among different digits.
             </summary>
         </member>
         <member name="F:Sudoku.Analytics.Construction.Components.LinkType.UniqueRectangle_SingleSideExternal">
@@ -4339,6 +4348,11 @@
         <member name="F:Sudoku.Analytics.Construction.Components.LinkType.UniqueRectangle_DoubleSideExternal">
             <summary>
             Indicates the link type is an almost unique rectangle, with a strong link using double-side to be external.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Analytics.Construction.Components.LinkType.UniqueRectangle_DifferentDigitWeak">
+            <summary>
+            Indicates the link type is an almost unique rectangle, with a weak link among different digits.
             </summary>
         </member>
         <member name="F:Sudoku.Analytics.Construction.Components.LinkType.AvoidableRectangle">
@@ -34764,6 +34778,15 @@
             </summary>
         </member>
         <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__UniqueRectangleDoubleSideExternalChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDoubleSideExternalChainingRule,Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
+            <inheritdoc/>
+            <!-- Nothing inserts here -->
+        </member>
+        <member name="T:Sudoku.Runtime.InterceptorServices.Generated.__UniqueRectangleDifferentDigitWeakChainingRule_GetLinks_Intercepted">
+            <summary>
+            Interceptor method that will replace implementation on such referenced method invocation.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Runtime.InterceptorServices.Generated.__UniqueRectangleDifferentDigitWeakChainingRule_GetLinks_Intercepted.GetLinks(Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDifferentDigitWeakChainingRule,Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
             <!-- Nothing inserts here -->
         </member>

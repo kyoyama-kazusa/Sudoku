@@ -55,7 +55,7 @@ public enum LinkType
 	UniqueRectangle_SameDigit = 1 << 7,
 
 	/// <summary>
-	/// Indicates the link type is an almost unique rectangle, with different digits strong link.
+	/// Indicates the link type is an almost unique rectangle, with a strong link among different digits.
 	/// </summary>
 	[ChainingRule<UniqueRectangleDifferentDigitChainingRule>]
 	UniqueRectangle_DifferentDigit = 1 << 8,
@@ -73,8 +73,14 @@ public enum LinkType
 	UniqueRectangle_DoubleSideExternal = 1 << 10,
 
 	/// <summary>
+	/// Indicates the link type is an almost unique rectangle, with a weak link among different digits.
+	/// </summary>
+	[ChainingRule<UniqueRectangleDifferentDigitWeakChainingRule>]
+	UniqueRectangle_DifferentDigitWeak = 1 << 11,
+
+	/// <summary>
 	/// Indicates the link type is an almost avoidable rectangle.
 	/// </summary>
 	[ChainingRule<AvoidableRectangleChainingRule>]
-	AvoidableRectangle = 1 << 11
+	AvoidableRectangle = 1 << 12
 }
