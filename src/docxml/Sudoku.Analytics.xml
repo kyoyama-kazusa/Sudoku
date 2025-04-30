@@ -6228,6 +6228,24 @@
             </summary>
             <param name="cells">Indicates the cells used.</param>
         </member>
+        <member name="F:Sudoku.Analytics.Construction.Patterns.DominoLoopPattern.Patterns">
+            <summary>
+            Indicateds all possible patterns.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Patterns.DominoLoopPattern.#cctor">
+            <static-constructor>
+		<summary>
+			<para>
+				Indicates the <see langword="static" /> constructor of the current type.
+			</para>
+			<para>
+				This constructor will initialize some <see langword="static readonly" /> data members
+				of this type that can't use a simple expression to describe the initial value.
+			</para>
+		</summary>
+	</static-constructor>
+        </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.DominoLoopPattern.IsChainingCompatible">
             <inheritdoc/>
         </member>
@@ -6648,6 +6666,36 @@
             <param name="map">The map of cells used.</param>
             <param name="rowCount">The number of rows used.</param>
             <param name="columnCount">The number of columns used.</param>
+        </member>
+        <member name="F:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.Patterns">
+            <summary>
+            Indicates the list initialized with the static constructor.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.PossibleSizes">
+            <summary>
+            Indicates the possible size (the number of rows and columns) in an MSLS.
+            </summary>
+            <remarks>
+            <requires-static-constructor-invocation>
+		<i>
+			This field will only be used in the static constructor of this type. Please don't use this field in the user code.
+		</i>
+	</requires-static-constructor-invocation>
+            </remarks>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.#cctor">
+            <static-constructor>
+		<summary>
+			<para>
+				Indicates the <see langword="static" /> constructor of the current type.
+			</para>
+			<para>
+				This constructor will initialize some <see langword="static readonly" /> data members
+				of this type that can't use a simple expression to describe the initial value.
+			</para>
+		</summary>
+	</static-constructor>
         </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.IsChainingCompatible">
             <inheritdoc/>
@@ -10321,24 +10369,6 @@
             </list>
             </summary>
         </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.LockedSets.DominoLoopStepSearcher.Patterns">
-            <summary>
-            Indicateds all possible patterns.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.LockedSets.DominoLoopStepSearcher.#cctor">
-            <static-constructor>
-		<summary>
-			<para>
-				Indicates the <see langword="static" /> constructor of the current type.
-			</para>
-			<para>
-				This constructor will initialize some <see langword="static readonly" /> data members
-				of this type that can't use a simple expression to describe the initial value.
-			</para>
-		</summary>
-	</static-constructor>
-        </member>
         <member name="M:Sudoku.Analytics.StepSearchers.LockedSets.DominoLoopStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)">
             <inheritdoc/>
         </member>
@@ -10350,36 +10380,6 @@
             <item>Multi-sector Locked Sets</item>
             </list>
             </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.LockedSets.MultisectorLockedSetsStepSearcher.Patterns">
-            <summary>
-            Indicates the list initialized with the static constructor.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.LockedSets.MultisectorLockedSetsStepSearcher.PossibleSizes">
-            <summary>
-            Indicates the possible size (the number of rows and columns) in an MSLS.
-            </summary>
-            <remarks>
-            <requires-static-constructor-invocation>
-		<i>
-			This field will only be used in the static constructor of this type. Please don't use this field in the user code.
-		</i>
-	</requires-static-constructor-invocation>
-            </remarks>
-        </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.LockedSets.MultisectorLockedSetsStepSearcher.#cctor">
-            <static-constructor>
-		<summary>
-			<para>
-				Indicates the <see langword="static" /> constructor of the current type.
-			</para>
-			<para>
-				This constructor will initialize some <see langword="static readonly" /> data members
-				of this type that can't use a simple expression to describe the initial value.
-			</para>
-		</summary>
-	</static-constructor>
         </member>
         <member name="M:Sudoku.Analytics.StepSearchers.LockedSets.MultisectorLockedSetsStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)">
             <inheritdoc/>

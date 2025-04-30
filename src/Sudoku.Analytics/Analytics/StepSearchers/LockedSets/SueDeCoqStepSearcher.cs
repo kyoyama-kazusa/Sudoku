@@ -16,9 +16,10 @@ public sealed partial class SueDeCoqStepSearcher : StepSearcher
 	protected internal override Step? Collect(ref StepAnalysisContext context)
 	{
 		// A valid SdC needs at least 4 cells like:
-		//
-		//     abcd abcd | ab
-		//     cd        |
+		// .-----------.----.
+		// | abcd abcd | ab |
+		// | cd        |    |
+		// '-----------'----'
 		if (EmptyCells.Count < 4)
 		{
 			return null;
