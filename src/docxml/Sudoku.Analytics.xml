@@ -2157,7 +2157,7 @@
             <param name="options">Indicates the options.</param>
             <param name="nodes">The nodes collected.</param>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRule.GetViewNodes(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.Chain,Sudoku.Drawing.View,System.Int32@,System.Int32@,System.ReadOnlySpan{Sudoku.Drawing.ViewNode}@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRule.GetViewNodes(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.Chain,Sudoku.Drawing.View,Sudoku.Analytics.Construction.Chaining.ProcessedViewNodeMap,System.ReadOnlySpan{Sudoku.Drawing.ViewNode}@)">
             <summary>
             Collects for extra view nodes for the pattern.
             This method will be useful in advanced chaining rules such as ALS and AUR extra maps checking.
@@ -2165,8 +2165,9 @@
             <param name="grid">Indicates the grid used.</param>
             <param name="pattern">Indicates the chain pattern.</param>
             <param name="view">Indicates the view.</param>
-            <param name="currentAlsIndex">The temporary index that records the current ALS index applied.</param>
-            <param name="currentUrIndex">The temporary index that records the current UR index applied.</param>
+            <param name="processedViewNodesMap">
+            Provides an interaction map that stores processed view nodes and its bound color identifier.
+            </param>
             <param name="producedViewNodes">Indicates the produced view nodes.</param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRule.GetLoopConclusions(Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
@@ -2255,6 +2256,37 @@
         <member name="M:Sudoku.Analytics.Construction.Chaining.ChainingRuleCollection.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
+        <member name="T:Sudoku.Analytics.Construction.Chaining.ProcessedViewNodeMap">
+            <summary>
+            Represents a processed view nodes map.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Chaining.ProcessedViewNodeMap.MaxKeyInAlmostLockedSet">
+            <summary>
+            Indicates the maximal key in ALS set.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Chaining.ProcessedViewNodeMap.MaxKeyInRectangle">
+            <summary>
+            Indicates the maximal key in rectangle set.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Chaining.ProcessedViewNodeMap.ContainsCell(System.Int32,Sudoku.Drawing.WellKnownColorIdentifierKind@)">
+            <summary>
+            Determines whether the specified cell is stored in the table; if so, return the corresponding key.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="identifierKind">The cooresponding identifier kind.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Chaining.ProcessedViewNodeMap.ContainsCandidate(System.Int32,Sudoku.Drawing.WellKnownColorIdentifierKind@)">
+            <summary>
+            Determines whether the specified candidate is stored in the table; if so, return the corresponding key.
+            </summary>
+            <param name="candidate">The candidate.</param>
+            <param name="identifierKind">The cooresponding identifier kind.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.Rules.AlmostLockedSetsChainingRule">
             <summary>
             Represents a chaining rule on ALS rule (i.e. <see cref="F:Sudoku.Analytics.Construction.Components.LinkType.AlmostLockedSets"/>).
@@ -2264,7 +2296,7 @@
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.AlmostLockedSetsChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.AlmostLockedSetsChainingRule.GetViewNodes(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.Chain,Sudoku.Drawing.View,System.Int32@,System.Int32@,System.ReadOnlySpan{Sudoku.Drawing.ViewNode}@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.AlmostLockedSetsChainingRule.GetViewNodes(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.Chain,Sudoku.Drawing.View,Sudoku.Analytics.Construction.Chaining.ProcessedViewNodeMap,System.ReadOnlySpan{Sudoku.Drawing.ViewNode}@)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.AlmostLockedSetsChainingRule.GetLoopConclusions(Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
@@ -2279,7 +2311,7 @@
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.AvoidableRectangleChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.AvoidableRectangleChainingRule.GetViewNodes(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.Chain,Sudoku.Drawing.View,System.Int32@,System.Int32@,System.ReadOnlySpan{Sudoku.Drawing.ViewNode}@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.AvoidableRectangleChainingRule.GetViewNodes(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.Chain,Sudoku.Drawing.View,Sudoku.Analytics.Construction.Chaining.ProcessedViewNodeMap,System.ReadOnlySpan{Sudoku.Drawing.ViewNode}@)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.Rules.KrakenNormalFishChainingRule">
@@ -2291,7 +2323,7 @@
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.KrakenNormalFishChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.KrakenNormalFishChainingRule.GetViewNodes(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.Chain,Sudoku.Drawing.View,System.Int32@,System.Int32@,System.ReadOnlySpan{Sudoku.Drawing.ViewNode}@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.KrakenNormalFishChainingRule.GetViewNodes(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.Chain,Sudoku.Drawing.View,Sudoku.Analytics.Construction.Chaining.ProcessedViewNodeMap,System.ReadOnlySpan{Sudoku.Drawing.ViewNode}@)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.KrakenNormalFishChainingRule.GetLoopConclusions(Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Link},Sudoku.Concepts.ConclusionSet@)">
@@ -2314,7 +2346,7 @@
             Represents a chaining rule on AUR rule.
             </summary>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleChainingRule.GetViewNodes(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.Chain,Sudoku.Drawing.View,System.Int32@,System.Int32@,System.ReadOnlySpan{Sudoku.Drawing.ViewNode}@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleChainingRule.GetViewNodes(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.Chain,Sudoku.Drawing.View,Sudoku.Analytics.Construction.Chaining.ProcessedViewNodeMap,System.ReadOnlySpan{Sudoku.Drawing.ViewNode}@)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.Rules.UniqueRectangleDifferentDigitChainingRule">
@@ -2395,7 +2427,7 @@
         <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.XyzWingChainingRule.GetLinks(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Construction.Components.LinkDictionary,Sudoku.Analytics.Configuration.StepGathererOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.XyzWingChainingRule.GetViewNodes(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.Chain,Sudoku.Drawing.View,System.Int32@,System.Int32@,System.ReadOnlySpan{Sudoku.Drawing.ViewNode}@)">
+        <member name="M:Sudoku.Analytics.Construction.Chaining.Rules.XyzWingChainingRule.GetViewNodes(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Components.Chain,Sudoku.Drawing.View,Sudoku.Analytics.Construction.Chaining.ProcessedViewNodeMap,System.ReadOnlySpan{Sudoku.Drawing.ViewNode}@)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Chaining.Rules.YChainingRule">

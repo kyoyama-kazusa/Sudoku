@@ -125,10 +125,10 @@ internal static class ChainExtensions
 				]
 			];
 
-			var (alsIndex, urIndex) = (0, 0);
+			var processedViewNodesMap = new ProcessedViewNodeMap();
 			foreach (var supportedRule in supportedRules)
 			{
-				supportedRule.GetViewNodes(grid, @this, result[0], ref alsIndex, ref urIndex, out var producedViewNodes);
+				supportedRule.GetViewNodes(grid, @this, result[0], processedViewNodesMap, out var producedViewNodes);
 				result[0].AddRange(producedViewNodes);
 			}
 			return result;

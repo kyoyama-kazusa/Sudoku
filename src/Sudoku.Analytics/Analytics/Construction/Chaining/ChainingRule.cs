@@ -85,15 +85,15 @@ public abstract partial class ChainingRule
 	/// <param name="grid">Indicates the grid used.</param>
 	/// <param name="pattern">Indicates the chain pattern.</param>
 	/// <param name="view">Indicates the view.</param>
-	/// <param name="currentAlsIndex">The temporary index that records the current ALS index applied.</param>
-	/// <param name="currentUrIndex">The temporary index that records the current UR index applied.</param>
+	/// <param name="processedViewNodesMap">
+	/// Provides an interaction map that stores processed view nodes and its bound color identifier.
+	/// </param>
 	/// <param name="producedViewNodes">Indicates the produced view nodes.</param>
 	public virtual void GetViewNodes(
 		in Grid grid,
 		Chain pattern,
 		View view,
-		ref int currentAlsIndex,
-		ref int currentUrIndex,
+		ProcessedViewNodeMap processedViewNodesMap,
 		out ReadOnlySpan<ViewNode> producedViewNodes
 	) => producedViewNodes = [];
 

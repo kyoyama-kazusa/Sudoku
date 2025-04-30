@@ -53,12 +53,13 @@ public interface IForcingChains : IChainOrForcingChains, IFormattable
 			];
 		}
 
-		var (viewIndex, cachedAlsIndex, cachedUrIndex) = (1, 0, 0);
+		var viewIndex = 1;
+		var processedViewNodesMap = new ProcessedViewNodeMap();
 		foreach (var branch in Branches)
 		{
 			foreach (var supportedRule in supportedRules)
 			{
-				supportedRule.GetViewNodes(grid, branch, result[viewIndex], ref cachedAlsIndex, ref cachedUrIndex, out var producedViewNodes);
+				supportedRule.GetViewNodes(grid, branch, result[viewIndex], processedViewNodesMap, out var producedViewNodes);
 				result[0].AddRange(producedViewNodes);
 			}
 			viewIndex++;

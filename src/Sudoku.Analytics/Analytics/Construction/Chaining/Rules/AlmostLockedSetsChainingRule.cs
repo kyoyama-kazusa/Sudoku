@@ -115,12 +115,13 @@ public sealed class AlmostLockedSetsChainingRule : ChainingRule
 		in Grid grid,
 		Chain pattern,
 		View view,
-		ref int currentAlsIndex,
-		ref int currentUrIndex,
+		ProcessedViewNodeMap processedViewNodesMap,
 		out ReadOnlySpan<ViewNode> producedViewNodes
 	)
 	{
-		var alsIndex = currentAlsIndex;
+		var alsIndex = processedViewNodesMap.MaxKeyInAlmostLockedSet is var key and not WellKnownColorIdentifierKind.Normal
+			? (key - WellKnownColorIdentifierKind.AlmostLockedSet1 + 1) % 5
+			: 0;
 		var result = new List<ViewNode>();
 		foreach (var link in pattern.Links)
 		{
@@ -130,10 +131,18 @@ public sealed class AlmostLockedSetsChainingRule : ChainingRule
 			}
 
 			var linkMap = map1 | map2;
-			var id = (ColorIdentifier)(alsIndex + WellKnownColorIdentifierKind.AlmostLockedSet1);
+			var id = alsIndex + WellKnownColorIdentifierKind.AlmostLockedSet1;
 			foreach (var cell in cells)
 			{
-				var node1 = new CellViewNode(id, cell);
+				var existsCell = processedViewNodesMap.ContainsCell(cell, out var identifierKind);
+				if (!existsCell && !processedViewNodesMap.TryAdd(id, (cell.AsCellMap(), CandidateMap.Empty)))
+				{
+					var pair = processedViewNodesMap[id];
+					pair.Cells.Add(cell);
+					processedViewNodesMap[id] = pair;
+				}
+
+				var node1 = new CellViewNode(existsCell ? identifierKind : id, cell);
 				view.Add(node1);
 				result.Add(node1);
 				foreach (var digit in grid.GetCandidates(cell))
@@ -141,7 +150,15 @@ public sealed class AlmostLockedSetsChainingRule : ChainingRule
 					var candidate = cell * 9 + digit;
 					if (!linkMap.Contains(candidate))
 					{
-						var node2 = new CandidateViewNode(id, cell * 9 + digit);
+						var existsCandidate = processedViewNodesMap.ContainsCandidate(candidate, out identifierKind);
+						if (!existsCandidate && !processedViewNodesMap.TryAdd(id, (CellMap.Empty, candidate.AsCandidateMap())))
+						{
+							var pair = processedViewNodesMap[id];
+							pair.Candidates.Add(candidate);
+							processedViewNodesMap[id] = pair;
+						}
+
+						var node2 = new CandidateViewNode(existsCandidate ? identifierKind : id, candidate);
 						view.Add(node2);
 						result.Add(node2);
 					}
@@ -150,7 +167,6 @@ public sealed class AlmostLockedSetsChainingRule : ChainingRule
 			alsIndex = (alsIndex + 1) % 5;
 		}
 
-		currentAlsIndex = alsIndex;
 		producedViewNodes = result.AsSpan();
 	}
 

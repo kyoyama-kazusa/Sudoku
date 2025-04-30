@@ -89,8 +89,7 @@ public sealed class XyzWingChainingRule : ChainingRule
 		in Grid grid,
 		Chain pattern,
 		View view,
-		ref int currentAlsIndex,
-		ref int currentUrIndex,
+		ProcessedViewNodeMap processedViewNodesMap,
 		out ReadOnlySpan<ViewNode> producedViewNodes
 	)
 	{

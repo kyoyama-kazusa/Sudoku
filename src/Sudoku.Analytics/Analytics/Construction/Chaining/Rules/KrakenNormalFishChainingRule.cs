@@ -156,8 +156,7 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 		in Grid grid,
 		Chain pattern,
 		View view,
-		ref int currentAlsIndex,
-		ref int currentUrIndex,
+		ProcessedViewNodeMap processedViewNodesMap,
 		out ReadOnlySpan<ViewNode> producedViewNodes
 	)
 	{
@@ -200,8 +199,8 @@ public sealed class KrakenNormalFishChainingRule : ChainingRule
 		foreach (var link in links)
 		{
 			if (link is not (
-				{ Map.Cells: var firstCells },
-				{ Map.Cells: var secondCells },
+			{ Map.Cells: var firstCells },
+			{ Map.Cells: var secondCells },
 				_,
 				FishPattern { Digit: var digit, BaseSets: var baseSets, CoverSets: var coverSets }
 			))
