@@ -120,61 +120,7 @@ public abstract partial class Chain :
 	public bool IsGrouped => ValidNodes.Any(static node => node.IsGroupedNode);
 
 	/// <inheritdoc/>
-	public bool IsStrictlyGrouped => IsStrongLinksStrictlyGrouped || IsWeakLinksStrictlyGrouped;
-
-	/// <summary>
-	/// Indicates whether the pattern only uses same digits.
-	/// </summary>
-	public bool IsX
-	{
-		get
-		{
-			var digitsMask = (Mask)0;
-			foreach (var node in ValidNodes)
-			{
-				digitsMask |= node.Map.Digits;
-			}
-			return BitOperations.IsPow2(digitsMask);
-		}
-	}
-
-	/// <summary>
-	/// Indicates whether the pattern only uses cell strong links.
-	/// </summary>
-	public bool IsY
-	{
-		get
-		{
-			foreach (var link in StrongLinks)
-			{
-				if (link is ({ Map.Digits: var digits1 }, { Map.Digits: var digits2 }) && digits1 == digits2)
-				{
-					return false;
-				}
-			}
-			return First.Map.Digits == Last.Map.Digits;
-		}
-	}
-
-	/// <summary>
-	/// Indicates whether at least one node in the whole pattern overlaps with a node.
-	/// </summary>
-	public bool IsOverlapped
-	{
-		get
-		{
-			foreach (var nodePair in (from node in ValidNodes select node.Map).GetSubsets(2))
-			{
-				ref readonly var map1 = ref nodePair[0];
-				ref readonly var map2 = ref nodePair[1];
-				if (map1 & map2)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-	}
+	public bool IsStrictlyGrouped => this.IsStrongLinksStrictlyGrouped || this.IsWeakLinksStrictlyGrouped;
 
 	/// <summary>
 	/// Indicates the length of the pattern - the number of nodes used inside a chain.
@@ -272,46 +218,6 @@ public abstract partial class Chain :
 	/// Indicates the valid nodes to be used.
 	/// </summary>
 	protected internal abstract ReadOnlySpan<Node> ValidNodes { get; }
-
-	/// <summary>
-	/// Indicates whether at least one link in strong links contains grouped nodes,
-	/// and is not advanced node (i.e. contains grouped pattern).
-	/// </summary>
-	internal bool IsStrongLinksStrictlyGrouped
-	{
-		get
-		{
-			foreach (var link in StrongLinks)
-			{
-				if (link is ({ Map.Count: var d1 }, { Map.Count: var d2 }, _, var groupedPattern)
-					&& (d1 != 1 || d2 != 1 || groupedPattern is not null))
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-	}
-
-	/// <summary>
-	/// Indicates whether at least one link in weak links contains grouped nodes,
-	/// and is not advanced node (i.e. contains grouped pattern).
-	/// </summary>
-	internal bool IsWeakLinksStrictlyGrouped
-	{
-		get
-		{
-			foreach (var link in WeakLinks)
-			{
-				if (link is ({ Map.Count: var d1 }, { Map.Count: var d2 }, _, var groupedPattern)
-					&& (d1 != 1 || d2 != 1 || groupedPattern is not null))
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-	}
 
 	/// <summary>
 	/// Indicates the value on loop checking for link construction usages.

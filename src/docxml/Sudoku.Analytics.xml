@@ -2885,21 +2885,6 @@
         <member name="P:Sudoku.Analytics.Construction.Components.Chain.IsStrictlyGrouped">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Construction.Components.Chain.IsX">
-            <summary>
-            Indicates whether the pattern only uses same digits.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Components.Chain.IsY">
-            <summary>
-            Indicates whether the pattern only uses cell strong links.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Components.Chain.IsOverlapped">
-            <summary>
-            Indicates whether at least one node in the whole pattern overlaps with a node.
-            </summary>
-        </member>
         <member name="P:Sudoku.Analytics.Construction.Components.Chain.Length">
             <summary>
             Indicates the length of the pattern - the number of nodes used inside a chain.
@@ -2956,18 +2941,6 @@
         <member name="P:Sudoku.Analytics.Construction.Components.Chain.ValidNodes">
             <summary>
             Indicates the valid nodes to be used.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Components.Chain.IsStrongLinksStrictlyGrouped">
-            <summary>
-            Indicates whether at least one link in strong links contains grouped nodes,
-            and is not advanced node (i.e. contains grouped pattern).
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Components.Chain.IsWeakLinksStrictlyGrouped">
-            <summary>
-            Indicates whether at least one link in weak links contains grouped nodes,
-            and is not advanced node (i.e. contains grouped pattern).
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Construction.Components.Chain.LoopIdentity">
@@ -3184,6 +3157,33 @@
         <member name="T:Sudoku.Analytics.Construction.Components.ChainExtensions.">
             <summary>
             Provides extension members on <see cref="T:Sudoku.Analytics.Construction.Components.Chain"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Components.ChainExtensions..IsX">
+            <summary>
+            Indicates whether the pattern only uses same digits.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Components.ChainExtensions..IsY">
+            <summary>
+            Indicates whether the pattern only uses cell strong links.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Components.ChainExtensions..IsOverlapped">
+            <summary>
+            Indicates whether at least one node in the whole pattern overlaps with a node.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Components.ChainExtensions..IsStrongLinksStrictlyGrouped">
+            <summary>
+            Indicates whether at least one link in strong links contains grouped nodes,
+            and is not advanced node (i.e. contains grouped pattern).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Components.ChainExtensions..IsWeakLinksStrictlyGrouped">
+            <summary>
+            Indicates whether at least one link in weak links contains grouped nodes,
+            and is not advanced node (i.e. contains grouped pattern).
             </summary>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Components.ChainExtensions..GetViews_Monoparental(Sudoku.Concepts.Grid@,Sudoku.Analytics.Construction.Chaining.ChainingRuleCollection)">

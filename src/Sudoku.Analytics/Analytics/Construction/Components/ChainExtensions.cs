@@ -12,6 +12,101 @@ internal static class ChainExtensions
 	extension(Chain @this)
 	{
 		/// <summary>
+		/// Indicates whether the pattern only uses same digits.
+		/// </summary>
+		public bool IsX
+		{
+			get
+			{
+				var digitsMask = (Mask)0;
+				foreach (var node in @this.ValidNodes)
+				{
+					digitsMask |= node.Map.Digits;
+				}
+				return BitOperations.IsPow2(digitsMask);
+			}
+		}
+
+		/// <summary>
+		/// Indicates whether the pattern only uses cell strong links.
+		/// </summary>
+		public bool IsY
+		{
+			get
+			{
+				foreach (var link in @this.StrongLinks)
+				{
+					if (link is ({ Map.Digits: var digits1 }, { Map.Digits: var digits2 }) && digits1 == digits2)
+					{
+						return false;
+					}
+				}
+				return @this.First.Map.Digits == @this.Last.Map.Digits;
+			}
+		}
+
+		/// <summary>
+		/// Indicates whether at least one node in the whole pattern overlaps with a node.
+		/// </summary>
+		public bool IsOverlapped
+		{
+			get
+			{
+				foreach (var nodePair in (from node in @this.ValidNodes select node.Map).GetSubsets(2))
+				{
+					ref readonly var map1 = ref nodePair[0];
+					ref readonly var map2 = ref nodePair[1];
+					if (map1 & map2)
+					{
+						return true;
+					}
+				}
+				return false;
+			}
+		}
+
+		/// <summary>
+		/// Indicates whether at least one link in strong links contains grouped nodes,
+		/// and is not advanced node (i.e. contains grouped pattern).
+		/// </summary>
+		internal bool IsStrongLinksStrictlyGrouped
+		{
+			get
+			{
+				foreach (var link in @this.StrongLinks)
+				{
+					if (link is ({ Map.Count: var d1 }, { Map.Count: var d2 }, _, var groupedPattern)
+						&& (d1 != 1 || d2 != 1 || groupedPattern is not null))
+					{
+						return true;
+					}
+				}
+				return false;
+			}
+		}
+
+		/// <summary>
+		/// Indicates whether at least one link in weak links contains grouped nodes,
+		/// and is not advanced node (i.e. contains grouped pattern).
+		/// </summary>
+		internal bool IsWeakLinksStrictlyGrouped
+		{
+			get
+			{
+				foreach (var link in @this.WeakLinks)
+				{
+					if (link is ({ Map.Count: var d1 }, { Map.Count: var d2 }, _, var groupedPattern)
+						&& (d1 != 1 || d2 != 1 || groupedPattern is not null))
+					{
+						return true;
+					}
+				}
+				return false;
+			}
+		}
+
+
+		/// <summary>
 		/// Collect views for the current chain, without nested paths checking.
 		/// </summary>
 		/// <param name="grid">The grid.</param>
