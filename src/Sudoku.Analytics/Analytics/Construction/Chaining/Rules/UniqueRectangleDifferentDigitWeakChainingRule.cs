@@ -61,6 +61,12 @@ public sealed class UniqueRectangleDifferentDigitWeakChainingRule : UniqueRectan
 				{
 					var cells1 = HousesMap[lockedHouse] & __CandidatesMap[d1] & urCells;
 					var cells2 = HousesMap[lockedHouse] & __CandidatesMap[d2] & urCells;
+					if (cells1.Count == 1 && cells1 == cells2)
+					{
+						// Skip for plain weak links.
+						continue;
+					}
+
 					if (linkOption == LinkOption.Intersection && (cells1.IsInIntersection || cells2.IsInIntersection)
 						|| linkOption != LinkOption.Intersection)
 					{
