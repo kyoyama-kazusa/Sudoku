@@ -76,6 +76,7 @@
 * [隐性待定数组链（AHS 链）](chain-theory/05-almost-hidden-set-chain.md)
 * [毛刺数组链](chain-theory/06-burred-subset-chain.md)
 * [待定唯一矩形链（AUR 链）](chain-theory/07-almost-unique-rectangle-chain.md)
+* [待定可规避矩形链（AAR 链）](chain-theory/08-almost-avoidable-rectangle-chain.md)
 
 ## 附录 <a href="#appendix" id="appendix"></a>
 
