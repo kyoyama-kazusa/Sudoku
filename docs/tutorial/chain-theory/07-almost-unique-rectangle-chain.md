@@ -98,7 +98,7 @@ description: Almost Unique Rectangle Chain
 
 看着就挺抽象的。
 
-## 有弱链关系吗？ <a href="#is-there-any-weak-inferences-produced" id="is-there-any-weak-inferences-produced"></a>
+## 待定唯一矩形里的弱链关系 <a href="#weak-inference-in-almost-unique-rectangle" id="weak-inference-in-almost-unique-rectangle"></a>
 
 待定唯一矩形是否可以构造弱链关系呢？实际上也是可以的，只是不太常见。下面我们就来看一个例子。
 
