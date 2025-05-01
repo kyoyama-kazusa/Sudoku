@@ -2918,4 +2918,13 @@ Correct rate: {3:P} ({4}/{5})</value>
   <data name="CommandBasedDrawingPage_Documentation" xml:space="preserve">
     <value>Documentation</value>
   </data>
+  <data name="AboutPage_TutorialPage" xml:space="preserve">
+    <value>Full tutorial</value>
+  </data>
+  <data name="AboutPage_TutorialPage_Link" xml:space="preserve">
+    <value>Tutorial link</value>
+  </data>
+  <data name="AboutPage_TutorialPage_OnlyChinese" xml:space="preserve">
+    <value>(Chinese only)</value>
+  </data>
 </root>

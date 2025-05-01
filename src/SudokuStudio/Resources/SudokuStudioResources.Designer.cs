@@ -502,6 +502,33 @@ namespace SudokuStudio.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Full tutorial.
+        /// </summary>
+        internal static string AboutPage_TutorialPage {
+            get {
+                return ResourceManager.GetString("AboutPage_TutorialPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tutorial link.
+        /// </summary>
+        internal static string AboutPage_TutorialPage_Link {
+            get {
+                return ResourceManager.GetString("AboutPage_TutorialPage_Link", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (Chinese only).
+        /// </summary>
+        internal static string AboutPage_TutorialPage_OnlyChinese {
+            get {
+                return ResourceManager.GetString("AboutPage_TutorialPage_OnlyChinese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Version.
         /// </summary>
         internal static string AboutPage_Version {

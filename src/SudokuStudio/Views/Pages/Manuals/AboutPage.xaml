@@ -8,6 +8,7 @@
 	xmlns:bs="using:SudokuStudio.BindableSource"
 	xmlns:cvt="using:SudokuStudio.Interaction.Conversions"
 	xmlns:m="using:SudokuStudio.Markup"
+	xmlns:ui="using:CommunityToolkit.WinUI"
 	xmlns:w="using:CommunityToolkit.WinUI.Controls"
 	mc:Ignorable="d" d:DataContext="{d:DesignInstance Type=p:AboutPage}">
 	<ScrollViewer>
@@ -33,6 +34,12 @@
 					<HyperlinkButton NavigateUri="https://space.bilibili.com/23736703" Content="{m:R Key=AboutPage_Bilibili}" />
 					<TextBlock Text=" | " VerticalAlignment="Center" />
 					<HyperlinkButton NavigateUri="https://gitee.com/KyouyamaKazusa" Content="Gitee" />
+				</StackPanel>
+			</w:SettingsCard>
+			<w:SettingsCard HeaderIcon="{ui:FontIcon Glyph=&#xE82D;}" Header="{m:R Key=AboutPage_TutorialPage}">
+				<StackPanel Orientation="Horizontal">
+					<HyperlinkButton NavigateUri="https://sudoku.kazusa.tech/" Content="{m:R Key=AboutPage_TutorialPage_Link}" />
+					<TextBlock Text="{m:R Key=AboutPage_TutorialPage_OnlyChinese}" VerticalAlignment="Center" />
 				</StackPanel>
 			</w:SettingsCard>
 

@@ -2909,4 +2909,13 @@
   <data name="CommandBasedDrawingPage_Documentation" xml:space="preserve">
     <value>文档</value>
   </data>
+  <data name="AboutPage_TutorialPage" xml:space="preserve">
+    <value>完整教程</value>
+  </data>
+  <data name="AboutPage_TutorialPage_Link" xml:space="preserve">
+    <value>教程链接</value>
+  </data>
+  <data name="AboutPage_TutorialPage_OnlyChinese" xml:space="preserve">
+    <value>（暂只支持中文）</value>
+  </data>
 </root>
