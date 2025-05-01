@@ -1,8 +1,8 @@
 ---
-description: Loop Views of Some Easy Techniques
+description: Loop Views of Subset, Fish & Almost Locked Candidates
 ---
 
-# 各种技巧的环的视角
+# 数组、鱼和欠一数对的环视角
 
 之前我们学习了环的推理过程，那么接下来我们来看看一些之前学过的数独技巧，它们都有什么样子的环的视角。
 
@@ -46,7 +46,7 @@ description: Loop Views of Some Easy Techniques
 
 还能转为环视角的技巧还有一个，欠一数对。这似乎很意外，但我们来看一个例子就知道了。
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="375"><figcaption><p>欠一数对的环视角</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/images_0343.png" alt="" width="375"><figcaption><p>欠一数对的环视角</p></figcaption></figure>
 
 如图所示。这是一个欠一数对（的环的画法）。我们刚才大概看出了环视角下强链弱链关系在数组和鱼里的体现，所以对于欠一数对而言，它的体现理应也可以等价改为环里的强弱链关系。比如这个题里，假设我们选取 `r6c7` 是隐性的一边，而 `r9c9` 是显性的一边，那么我们需要依赖 `c7` 上 2 和 8 的位置关系（此时两个数都是共轭对），便会得到这样一个由 6 个节点构成的环。删数是所有弱链的位置可以删的地方，不过不巧的是这个题就只有 `r9c8 <> 8` 这一个删数。
 

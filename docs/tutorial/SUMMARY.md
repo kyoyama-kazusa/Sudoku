@@ -79,7 +79,7 @@
 * [待定可规避矩形链（AAR 链）](chain-theory/08-almost-avoidable-rectangle-chain.md)
 * [环](chain-theory/09-loop/README.md)
   * [环的基本推理](chain-theory/09-loop/01-reasoning-of-loop.md)
-  * [各种技巧的环的视角](chain-theory/09-loop/02-loop-view-of-some-easy-techniques.md)
+  * [数组、鱼和欠一数对的环视角](chain-theory/09-loop/02-loop-view-of-subset-fish-and-almost-locked-candidates.md)
 
 ## 附录 <a href="#appendix" id="appendix"></a>
 
