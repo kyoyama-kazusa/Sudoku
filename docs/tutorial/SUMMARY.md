@@ -77,6 +77,8 @@
 * [毛刺数组链](chain-theory/06-burred-subset-chain.md)
 * [待定唯一矩形链（AUR 链）](chain-theory/07-almost-unique-rectangle-chain.md)
 * [待定可规避矩形链（AAR 链）](chain-theory/08-almost-avoidable-rectangle-chain.md)
+* [环](chain-theory/09-loop/README.md)
+  * [环的基本推理](chain-theory/09-loop/01-reasoning-of-loop.md)
 
 ## 附录 <a href="#appendix" id="appendix"></a>
 
