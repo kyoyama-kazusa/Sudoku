@@ -93,9 +93,9 @@ description: Reasoning of Loop
 
 如图所示。这是一个环，不过环内只用了一种数字。我们把这个称为**鱼环**（Fishy Cycle）或者**同数环**（X-Cycle）。还记得鱼吗？鱼这个技巧就只用同一种数字，所以这个环是想说明它跟鱼一样只用一种数字。
 
-我们再来看一个**区块鱼环**（Grouped Fishy Cycle，或者叫**同数区块环**，Grouped X-Cycle）。
+我们再来看一个**区块鱼环**（Grouped Fishy Cycle）。
 
-> 这个命名稍显别扭。区块鱼环一般把鱼环当成整体，所以区块不会放在两个字中间；但同数区块环更强调区块环一些，它俩结合起来，把同数放在最左边。
+> 区块鱼环也叫**同数区块环**（Grouped X-Cycle），不过这个命名稍显别扭。区块鱼环一般把鱼环当成整体，所以区块不会放在两个字中间；但同数区块环更强调区块环一些，它俩结合起来，把同数放在最左边。
 
 <figure><img src="../../.gitbook/assets/images_0336.png" alt="" width="375"><figcaption><p>区块鱼环</p></figcaption></figure>
 
