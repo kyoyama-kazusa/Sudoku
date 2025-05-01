@@ -95,6 +95,8 @@ description: Reasoning of Loop
 
 我们再来看一个**区块鱼环**（Grouped Fishy Cycle，或者叫**同数区块环**，Grouped X-Cycle）。
 
+> 这个命名稍显别扭。区块鱼环一般把鱼环当成整体，所以区块不会放在两个字中间；但同数区块环更强调区块环一些，它俩结合起来，把同数放在最左边。
+
 <figure><img src="../../.gitbook/assets/images_0336.png" alt="" width="375"><figcaption><p>区块鱼环</p></figcaption></figure>
 
 如图所示。这个就稍微带了个区块罢了。
@@ -103,7 +105,7 @@ description: Reasoning of Loop
 
 下面我们再来看一个例子。
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="375"><figcaption><p>双值格环</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/images_0337.png" alt="" width="375"><figcaption><p>双值格环</p></figcaption></figure>
 
 如图所示。这是一个**双值格环**（XY-Cycle），即双值格链的基础上成环，所有强链均发生在同一个单元格内。
 
