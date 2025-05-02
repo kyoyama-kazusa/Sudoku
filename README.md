@@ -44,10 +44,10 @@ This repository is created for the following users:
   * Bitwise
   * Dancing Links (*DLX*)
   * Backtracking
-    * DFS-based
-    * BFS-based
-  * LINQ-based solver
-  * Dictionary-based solver
+    * Also provides BFS equivalent implementation
+  * LINQ-based
+  * Dictionary-based
+  * Boolean Satisfiability Reduction (*SAT*)
 * Puzzle analysis
   * Difficulty rating
   * Step-by-step analysis
