@@ -93,9 +93,7 @@ description: Reasoning of Loop
 
 如图所示。这是一个环，不过环内只用了一种数字。我们把这个称为**鱼环**（Fishy Cycle）或者**同数环**（X-Cycle）。还记得鱼吗？鱼这个技巧就只用同一种数字，所以这个环是想说明它跟鱼一样只用一种数字。
 
-我们再来看一个**区块鱼环**（Grouped Fishy Cycle）。
-
-> 区块鱼环也叫**同数区块环**（Grouped X-Cycle），不过这个命名稍显别扭。区块鱼环一般把鱼环当成整体，所以区块不会放在两个字中间；但同数区块环更强调区块环一些，它俩结合起来，把同数放在最左边。
+我们再来看一个**区块鱼环**（Grouped Fishy Cycle），或者叫**同数区块环**或**区块同数环**（Grouped X-Cycle）。
 
 <figure><img src="../../.gitbook/assets/images_0336.png" alt="" width="375"><figcaption><p>区块鱼环</p></figcaption></figure>
 
@@ -109,10 +107,18 @@ description: Reasoning of Loop
 
 如图所示。这是一个**双值格环**（XY-Cycle），即双值格链的基础上成环，所有强链均发生在同一个单元格内。
 
-## 英文名里我们应该用 Loop 还是 Cycle？ <a href="#loop-or-cycle" id="loop-or-cycle"></a>
+## 其他问题 <a href="#other-questions" id="other-questions"></a>
+
+### 英文名里我们应该用 Loop 还是 Cycle？ <a href="#loop-or-cycle" id="loop-or-cycle"></a>
 
 可能你看完了整篇内容会发现一个问题。文章开始那里还在用 loop 来表示环，怎么到这里新补充的两个技巧的技巧名怎么用的是 cycle？这到底应该用哪一个单词？
 
 这个其实说来话长。非要强行概括的话，你可以认为是历史因素。实际上，loop 和 cycle 均可表示环，也都没有问题，甚至还可以用 ring 来表示环。这三个单词在技巧名称上使用均不会造成问题，比如你说 X-Loop 而不是 X-Cycle，也并不会有问题。但是，一般是因为叫某个说法的人多了，所以就约定俗成使用了这个说法。
 
 本来名称这个东西就没有什么对错，你喜欢你叫什么都行。但是，按照学习的角度去看的话，因为更多人叫它 X-Cycle（用 cycle）、XY-Cycle（用 cycle）、Continuous Nice Loop（用 loop），所以我们就采用更多人的叫法。非要说区别的话，你可以认为是不同的人群导致的倾向性。比如三款不同的数独分析软件 HoDoKu、Sudoku Explainer 和 XSudo 里，HoDoKu 用 loop 更多，Sudoku Explainer 用 cycle 更多，而 XSudo 用 ring 更多。
+
+### 环的尤里卡记法
+
+对于环而言，尤里卡记号并未拥有一个严格的限制，因为强弱链交替的缘故，链尾是可以用弱链连回链头的。
+
+本教程从约定俗成的角度出发，仍然按照链头强链关系起步的逻辑进行描述，直到到最后一个节点时，比正常的链多一个弱链关系表示它连回链头的过程，这样的方式用来区分链和环。例如最开始的例子里，开头是 `(8=7)r1c2`，最后是 `8r1c6-8r1c2`，描述了连回链头 `r1c2(8)` 这个节点。
