@@ -116,7 +116,9 @@ description: Forcing Chains
 
 因为最初我们假设的是 `r8c6(8)` 为假才能得到矛盾，所以 `r8c6(8)` 应该为真，因此这个题的结论是 `r8c6 = 8`。
 
-## 归并强制链（Merged Forcing Chains） <a href="#merged-forcing-chains" id="merged-forcing-chains"></a>
+## 其他有名字的强制链类型 <a href="#named-forcing-chains-techniques" id="named-forcing-chains-techniques"></a>
+
+### 归并强制链（Merged Forcing Chains） <a href="#merged-forcing-chains" id="merged-forcing-chains"></a>
 
 可以看到，前面在假设过程之中，我们用到的思路都是在假设某一个节点为真或假时候引发矛盾。下面我们来看强制链在合并后产生的删数效果。
 
@@ -159,9 +161,9 @@ description: Forcing Chains
 
 这个题有四个分支，并归并为两个部分。
 
-## 其他有名字的强制链类型 <a href="#named-forcing-chains-techniques" id="named-forcing-chains-techniques"></a>
-
 ### 鳍链（Finned Chain） <a href="#finned-chain" id="finned-chain"></a>
+
+#### 基本推理 <a href="#reasoning-of-finned-chain" id="reasoning-of-finned-chain"></a>
 
 试想一下，如果强制链的分支里有一个分支起步就是夭折的，这种链会有删数吗？
 
@@ -187,6 +189,8 @@ description: Forcing Chains
 <figure><img src="../.gitbook/assets/images_0365.png" alt="" width="375"><figcaption><p>鳍链。另一个例子</p></figcaption></figure>
 
 如图所示。这个例子也自己看吧。这个例子用了两个鱼鳍，假设方式是一样的，先假设鱼鳍都不存在，然后引出链；然后假设鱼鳍存在，于是按鱼鳍存在的位置删，最终交集删数。
+
+#### 这也叫强制链？ <a href="#is-it-a-forcing-chains" id="is-it-a-forcing-chains"></a>
 
 你可能会问，这是强制链吗？是的，虽然看起来像是鱼鳍和普通链的结合，但如果你把鱼鳍视为一个独立的分支，并把其中任意一个强链关系拆解为一组可以用于删数的分支的话，那它就会变为强制链的视角。比如这个题，对于 `b9` 而言，一共有 4 处可以填 5 的位置。那么按照强制链的视角，讨论 5 的全部填数位置，其中两个分支（鱼鳍）将因为假设为真导致直接构成删数；剩下两个分支，就是图中连接为强链关系的 `r7c8(5)` 和 `r8c7(5)` 了。把它俩拆开，然后形成两个分支最终仍然可以到达 `r1c9(5)` 的地方。因此，它其实是可以转为强制链的视角的（尽管这非常没有必要）。
 
@@ -233,6 +237,6 @@ $$
 
 <figure><img src="../.gitbook/assets/images_0367.png" alt="" width="375"><figcaption><p>绽放环，另一个例子</p></figcaption></figure>
 
-如图所示。这个题也希望你自己推理。
+如图所示。这个题也希望你自己推理。不过这个题的分支有三个，最终汇入到 `r2c5` 时候只有两个分支。
 
 那么至此我们就把强制链的内容介绍完了。
