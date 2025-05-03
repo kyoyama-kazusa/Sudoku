@@ -81,6 +81,9 @@
   * [环的基本推理](chain-theory/09-loop/01-reasoning-of-loop.md)
   * [数组、鱼和欠一数对的环视角](chain-theory/09-loop/02-loop-view-of-subset-fish-and-almost-locked-candidates.md)
   * [区块环](chain-theory/09-loop/03-grouped-loop.md)
+* [强制链](chain-theory/10-forcing-chains/README.md)
+  * [强制链的基本推理](chain-theory/10-forcing-chains/01-reasoning-of-forcing-chains.md)
+  * [有技巧名的强制链](chain-theory/10-forcing-chains/02-named-forcing-chains.md)
 
 ## 附录 <a href="#appendix" id="appendix"></a>
 
