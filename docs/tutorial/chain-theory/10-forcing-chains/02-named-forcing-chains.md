@@ -123,6 +123,6 @@ $$
 
 <figure><img src="../../.gitbook/assets/images_0367.png" alt="" width="375"><figcaption><p>绽放环，另一个例子</p></figcaption></figure>
 
-如图所示。这个题也希望你自己推理。不过这个题的分支有三个，最终汇入到 `r2c5` 时候只有两个分支。
+如图所示。这个题也希望你自己推理。
 
 那么至此我们就把强制链的内容介绍完了。
