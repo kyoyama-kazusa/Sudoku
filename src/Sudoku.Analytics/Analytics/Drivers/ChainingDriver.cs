@@ -200,7 +200,6 @@ internal static partial class ChainingDriver
 				var viewNodes = branch.GetViews_Monoparental(grid, supportedRules)[0];
 				globalView |= viewNodes;
 				otherViews[i] |= viewNodes;
-				globalView.Add(new CandidateViewNode(ColorIdentifier.Normal, startCandidate));
 				i++;
 			}
 
