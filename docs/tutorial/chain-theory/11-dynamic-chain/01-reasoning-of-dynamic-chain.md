@@ -42,6 +42,8 @@ description: Reasoning of Dynamic Chain
 
 总之我们可以得到矛盾点是 `c9` 的 4 直接矛盾。要注意 `c9` 虽然有 4 个可以填 4 的位置，但是其中两个会在推导的中间因为填入别的数（8 和 5）占位给去掉，所以实际上仍旧是两处位置重复填写的矛盾。
 
+我们把中途额外利用区块了的线性动态链就称为**区块线性动态链**（Grouped Whip，简称 g-Whip）。
+
 我们再来看一个例子。
 
 <figure><img src="../../.gitbook/assets/images_0372.png" alt=""><figcaption><p>区块线性动态链，另一个例子</p></figcaption></figure>
