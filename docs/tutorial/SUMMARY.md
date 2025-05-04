@@ -86,6 +86,7 @@
   * [有技巧名的强制链](chain-theory/10-forcing-chains/02-named-forcing-chains.md)
 * [动态链](chain-theory/11-dynamic-chain/README.md)
   * [动态链的基本推理](chain-theory/11-dynamic-chain/01-reasoning-of-dynamic-chain.md)
+  * [动态强制链](chain-theory/11-dynamic-chain/02-dynamic-forcing-chains.md)
 
 ## 附录 <a href="#appendix" id="appendix"></a>
 
