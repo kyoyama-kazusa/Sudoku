@@ -226,7 +226,7 @@ public sealed partial class TechniqueView : UserControl
 
 	private async void UserControl_LoadedAsync(object sender, RoutedEventArgs e)
 	{
-		await TimeSpan.FromSeconds(.5);
+		await 500.ms;
 		foreach (var source in
 			from technique in Technique.Values.ToArray()[1..]
 			where !technique.Features.HasFlag(TechniqueFeatures.NotImplemented)
@@ -241,7 +241,7 @@ public sealed partial class TechniqueView : UserControl
 			})
 		{
 			_itemsSource.Add(source);
-			await TimeSpan.FromSeconds(.1);
+			await 100.ms;
 		}
 	}
 
