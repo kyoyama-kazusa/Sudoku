@@ -87,7 +87,7 @@
 * [动态链](chain-theory/11-dynamic-chain/README.md)
   * [动态链的基本推理](chain-theory/11-dynamic-chain/01-reasoning-of-dynamic-chain.md)
   * [动态强制链](chain-theory/11-dynamic-chain/02-dynamic-forcing-chains.md)
-  * [动态环的删数](chain-theory/11-dynamic-chain/03-elimination-analysis-on-dynamic-loop.md)
+  * [动态环的删数分析](chain-theory/11-dynamic-chain/03-elimination-analysis-on-dynamic-loop.md)
 
 ## 附录 <a href="#appendix" id="appendix"></a>
 

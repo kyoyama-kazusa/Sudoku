@@ -2,7 +2,7 @@
 description: Elimination Analysis on Dynamic Loop
 ---
 
-# 动态环的删数
+# 动态环的删数分析
 
 本文将探讨动态分支逻辑下最难的一点：动态环的删数。
 
@@ -68,4 +68,4 @@ description: Elimination Analysis on Dynamic Loop
 
 总之，要想让弱链关系用于删数层面，需要使得这个弱链关系能在所有可能的填数排列形态下（不违背数独规则的、能填写到节点上的所有填数可能），验证弱链两端是否在所有情况下均存在至少一端为真。我们把这种分析删数的行为称为**弱链删数分析**（Weak Inference Elimination Analysis），简称**删数分析**（Elimination Analysis）。
 
-至此，我们就把动态环的基本删数原理介绍完了。下一节我们就来看看一些动态环的实例。
+至此，我们就把动态环的基本删数原理介绍完了。
