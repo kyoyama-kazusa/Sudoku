@@ -2,11 +2,11 @@
 description: 3D Medusa
 ---
 
-# 异数涂色
+# 异数染色
 
 之前我们学到了染色法的基本推理过程。下面我们来看，将共轭对继续推广到异数之间的强链关系（双值格），看看是否可以得到一些新东西呢？
 
-## 异数涂色 Trap 模式 <a href="#id-3d-medusa-coloring-trap" id="id-3d-medusa-coloring-trap"></a>
+## 异数染色 Trap 模式 <a href="#id-3d-medusa-coloring-trap" id="id-3d-medusa-coloring-trap"></a>
 
 <figure><img src="../../.gitbook/assets/images_0394.png" alt="" width="375"><figcaption><p>同数，不同颜色</p></figcaption></figure>
 
@@ -14,11 +14,11 @@ description: 3D Medusa
 
 可以看到，这么延伸可以拓展出来这样的结构。我们不难发现，`r3c5` 和 `r5c5` 都涂了 3，但是颜色不同，一个是绿色的一个是蓝色的。因为延伸方向代表了真假性的交替，所以不同颜色仍然表示的是不同的真假性。因此，`r9c5` 是不能填 3 的，参考 Color Trap 的逻辑可以知道，填了会造成不同染色的数字具有相同的真假性，就矛盾了。同理，`r3c5` 和 `r6c7` 的数字 3 也具有不同的染色，所以 `r3c7 <> 3`。
 
-这次我们延伸了双值格的方向，产生了不同颜色的涂色，我们把这种涂色统称为**异数涂色**（3D Medusa）。这是第一种用法，即利用同数字的不同染色的删数模式，跟 Color Trap 的思路一样。
+这次我们延伸了双值格的方向，产生了不同颜色的染色，我们把这种染色统称为**异数染色**（3D Medusa Coloring）。这是第一种用法，即利用同数字的不同染色的删数模式，跟 Color Trap 的思路一样。
 
-异数涂色的英文名 3D Medusa 直译过来是三维的美杜莎的意思。想象一下，美杜莎的头发上的蛇就是一个一个的这样的分支。这技巧也长这样，是不是怪可怕的？
+异数染色的英文名 3D Medusa 直译过来是三维的美杜莎的意思。想象一下，美杜莎的头发上的蛇就是一个一个的这样的分支。这技巧也长这样，是不是怪可怕的？
 
-## 异数涂色 Wrap 模式 <a href="#id-3d-medusa-coloring-wrap" id="id-3d-medusa-coloring-wrap"></a>
+## 异数染色 Wrap 模式 <a href="#id-3d-medusa-coloring-wrap" id="id-3d-medusa-coloring-wrap"></a>
 
 下面我们来看异数的情况。
 

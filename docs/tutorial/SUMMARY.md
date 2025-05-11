@@ -94,7 +94,7 @@
 
 * [染色法](wrapping-and-construction/01-coloring/README.md)
   * [同数染色](wrapping-and-construction/01-coloring/01-x-coloring.md)
-  * [异数涂色](wrapping-and-construction/01-coloring/02-3d-medusa.md)
+  * [异数染色](wrapping-and-construction/01-coloring/02-3d-medusa.md)
 
 ## 附录 <a href="#appendix" id="appendix"></a>
 
