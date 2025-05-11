@@ -77,5 +77,5 @@ description: Elimination Analysis on Dynamic Grouped Loop
 
 至此，我们就完成了链理论的内容的学习。下一篇我们将进入到包装和构造类技巧的学习中来。下面为各位展示一下目前我们学到的链的全部分类。
 
-<figure><img src="../../.gitbook/assets/链理论.png" alt=""><figcaption><p>链理论（截至动态链部分）</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/images_0389.png" alt=""><figcaption><p>链理论（截至动态链部分）</p></figcaption></figure>
 
