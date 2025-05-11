@@ -6,7 +6,7 @@ description: Elimination Analysis on Dynamic Loop
 
 本文将探讨动态分支逻辑下最难的一点：动态环的删数。
 
-## 动态连续环（Dynamic Continuous Loop） <a href="#dynamic-continuous-loop" id="dynamic-continuous-loop"></a>
+## 动态环（Dynamic Continuous Loop） <a href="#dynamic-continuous-loop" id="dynamic-continuous-loop"></a>
 
 <figure><img src="../../.gitbook/assets/images_0383.png" alt="" width="375"><figcaption><p>动态连续环</p></figcaption></figure>
 
@@ -22,7 +22,7 @@ description: Elimination Analysis on Dynamic Loop
 
 于是，我们整理了思路，我们发现，整个环里分叉出去的部分肯定是不能删数的，而只有汇入了之后，到分叉之前的这个部分里，所有弱链关系才能用于删数。对于这个题来说，只有 `1r5c8=1r5c2-(1=8)r7c2-8r7c6` 这一截的弱链关系可以用来删数。梳理出来，这个题的删数就只有 `r7c5 <> 8` 这一个结论。
 
-我们把这个环称为**动态连续环**（Dynamic Continuous Loop）。
+我们把这个环称为**动态连续环**（Dynamic Continuous Loop），简称为**动态环**。
 
 等会儿！你可能会问我，连续环的英文不是 continuous nice loop 么，这 nice 这个单词呢？别急。下面我们就来说说这个动态环的分类。
 
@@ -70,11 +70,13 @@ description: Elimination Analysis on Dynamic Loop
 
 ## 绽放环（Blossom Loop） <a href="#blossom-loop" id="blossom-loop"></a>
 
+下面我们来看一个稍微复杂一些的技巧。
+
 有没有想过，当强制链形成回环后，会有什么样的效果呢？
 
 <figure><img src="../../.gitbook/assets/images_0366.png" alt="" width="375"><figcaption></figcaption></figure>
 
-如图所示。本题是强制链，并带有三个分支，从 `r1c7` 单元格出发，并回到 `r4` 的所有 6 的位置上。非常巧妙的是，这个题的分支有 3 个，他们完全不同；最终走到 `r4` 上时，每一个分支都会唯一对应到一个 6 的位置上去。所有强链关系引出，并用弱链关系引入。写法如下：
+如图所示。本题其实是强制链，并带有三个分支，从 `r1c7` 单元格出发，并回到 `r4` 的所有 6 的位置上。非常巧妙的是，这个题的分支有 3 个，他们完全不同；最终走到 `r4` 上时，每一个分支都会唯一对应到一个 6 的位置上去。所有强链关系引出，并用弱链关系引入。写法如下：
 
 ```
 6r1c7=6r1c2-6r7c2=6r7c1-6r4c1
