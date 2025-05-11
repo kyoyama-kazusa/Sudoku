@@ -90,6 +90,12 @@
   * [动态环的删数分析](chain-theory/11-dynamic-chain/03-elimination-analysis-on-dynamic-loop.md)
   * [动态区块环的删数分析](chain-theory/11-dynamic-chain/04-elimination-analysis-on-dynamic-grouped-loop.md)
 
+## 包装与构造 <a href="#wrapping-and-construction" id="wrapping-and-construction"></a>
+
+* [染色法](wrapping-and-construction/01-coloring/README.md)
+  * [同数染色](wrapping-and-construction/01-coloring/01-x-coloring.md)
+  * [异数涂色](wrapping-and-construction/01-coloring/02-3d-medusa.md)
+
 ## 附录 <a href="#appendix" id="appendix"></a>
 
 * [术语索引](appendix/01-terms.md)
