@@ -278,7 +278,7 @@ public partial class UniqueRectangleStepSearcher
 		Unsafe.SkipInit(out int targetCell);
 		foreach (var cell in cells - cornerCell - sameBlockCell)
 		{
-			if ((cornerCell.AsCellMap() + cell).SharedLine != 32)
+			if ((cornerCell.AsCellMap() + cell).SharedLine != FallbackConstants.@int)
 			{
 				targetCell = cell;
 				break;

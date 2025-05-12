@@ -125,7 +125,7 @@ public sealed partial class FatRingStepSearcher : StepSearcher
 								var cells = CandidatesMap[digit] & allCells;
 								digitsDistributionMap.Add(digit, cells);
 
-								if (cells.SharedLine == 32)
+								if (cells.SharedLine == FallbackConstants.@int)
 								{
 									// There's no shared house - the digit can be appeared twice or more.
 									continue;

@@ -134,7 +134,7 @@ public sealed partial class ConclusionSet :
 					: bits.SetAt(index - popCountSum);
 				switch (bmi2IsSupported)
 				{
-					case true when z != 32:
+					case true when z != FallbackConstants.@int:
 					case false when z != -1:
 					{
 						return new((short)(z + (i << 5))); // * 32

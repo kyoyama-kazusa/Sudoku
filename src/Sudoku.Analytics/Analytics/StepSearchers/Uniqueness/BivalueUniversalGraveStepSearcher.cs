@@ -274,7 +274,7 @@ public sealed partial class BivalueUniversalGraveStepSearcher : StepSearcher
 
 		// Check whether all true candidates lie in a same house.
 		var map = TargetCandidatesGroup.CreateMapByKeys(from c in trueCandidates group c by c / 9);
-		if (map.FirstSharedHouse == 32)
+		if (map.FirstSharedHouse == FallbackConstants.@int)
 		{
 			return null;
 		}
@@ -569,7 +569,7 @@ public sealed partial class BivalueUniversalGraveStepSearcher : StepSearcher
 
 			// BUG-XZ found.
 			var conclusions = new List<Conclusion>();
-			var condition = (c1.AsCellMap() + cell).FirstSharedHouse != 32;
+			var condition = (c1.AsCellMap() + cell).FirstSharedHouse != FallbackConstants.@int;
 			var anotherCell = condition ? c2 : c1;
 			var anotherDigit = condition ? d2 : d1;
 			foreach (var peer in (cell.AsCellMap() + anotherCell).PeerIntersection)

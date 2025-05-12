@@ -33,7 +33,8 @@ public sealed class XyzWingChainingRule : ChainingRule
 				var cells1 = pair;
 				var cells2 = patternCells & ~pair;
 				if (linkOption == LinkOption.Intersection && !(cells1.IsInIntersection && cells2.IsInIntersection)
-					|| linkOption == LinkOption.House && !(cells1.FirstSharedHouse != 32 && cells2.FirstSharedHouse != 32))
+					|| linkOption == LinkOption.House
+					&& !(cells1.FirstSharedHouse != FallbackConstants.@int && cells2.FirstSharedHouse != FallbackConstants.@int))
 				{
 					goto CollectWeak;
 				}
@@ -59,7 +60,7 @@ public sealed class XyzWingChainingRule : ChainingRule
 				foreach (ref readonly var cells in possibleCells1 | limit1)
 				{
 					if (linkOption == LinkOption.Intersection && !cells.IsInIntersection
-						|| linkOption == LinkOption.House && cells.FirstSharedHouse == 32)
+						|| linkOption == LinkOption.House && cells.FirstSharedHouse == FallbackConstants.@int)
 					{
 						continue;
 					}
@@ -71,7 +72,7 @@ public sealed class XyzWingChainingRule : ChainingRule
 				foreach (ref readonly var cells in possibleCells2 | limit2)
 				{
 					if (linkOption == LinkOption.Intersection && !cells.IsInIntersection
-						|| linkOption == LinkOption.House && cells.FirstSharedHouse == 32)
+						|| linkOption == LinkOption.House && cells.FirstSharedHouse == FallbackConstants.@int)
 					{
 						continue;
 					}

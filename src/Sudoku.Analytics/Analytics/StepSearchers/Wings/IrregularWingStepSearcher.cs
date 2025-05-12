@@ -117,8 +117,10 @@ public sealed partial class IrregularWingStepSearcher : StepSearcher
 						var isPassed = bridge switch
 						{
 							[var a, var b]
-								when (c1.AsCellMap() + a).FirstSharedHouse != 32 && (c2.AsCellMap() + b).FirstSharedHouse != 32
-								|| (c1.AsCellMap() + b).FirstSharedHouse != 32 && (c2.AsCellMap() + a).FirstSharedHouse != 32
+								when (c1.AsCellMap() + a).FirstSharedHouse != FallbackConstants.@int
+								&& (c2.AsCellMap() + b).FirstSharedHouse != FallbackConstants.@int
+								|| (c1.AsCellMap() + b).FirstSharedHouse != FallbackConstants.@int
+								&& (c2.AsCellMap() + a).FirstSharedHouse != FallbackConstants.@int
 								=> true,
 							{ Count: > 2 and <= 6, BlockMask: var blocks } => BitOperations.PopCount(blocks) switch
 							{

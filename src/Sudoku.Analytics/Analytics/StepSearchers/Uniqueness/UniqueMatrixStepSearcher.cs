@@ -220,7 +220,7 @@ public sealed partial class UniqueMatrixStepSearcher : StepSearcher
 			{
 				tempMap |= CandidatesMap[digit];
 			}
-			if (tempMap.FirstSharedHouse != 32)
+			if (tempMap.FirstSharedHouse != FallbackConstants.@int)
 			{
 				continue;
 			}

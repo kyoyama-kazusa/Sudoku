@@ -70,7 +70,7 @@ public sealed partial class TwoStrongLinksStepSearcher : StepSearcher
 						for (var j = 0; j < 2; j++)
 						{
 							var cell2 = cellsList2[j];
-							if ((sameHouse = (cell1.AsCellMap() + cell2).FirstSharedHouse) != 32)
+							if ((sameHouse = (cell1.AsCellMap() + cell2).FirstSharedHouse) != FallbackConstants.@int)
 							{
 								(c1Index, c2Index) = (i, j);
 								(headIndex, tailIndex) = (i == 0 ? 1 : 0, j == 0 ? 1 : 0);
@@ -86,7 +86,7 @@ public sealed partial class TwoStrongLinksStepSearcher : StepSearcher
 					// Two strong link found.
 					// Now we should collect for eliminations.
 					var (head, tail) = (cellsList1[headIndex], cellsList2[tailIndex]);
-					if ((head.AsCellMap() + tail).FirstSharedHouse != 32)
+					if ((head.AsCellMap() + tail).FirstSharedHouse != FallbackConstants.@int)
 					{
 						// A standard X-Wing pattern.
 						continue;

@@ -306,7 +306,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 				foreach (var digit in digitsMask)
 				{
 					var map = cells % candidatesMap[digit];
-					lockedDigitsMask |= (Mask)(map.FirstSharedHouse != 32 ? 0 : 1 << digit);
+					lockedDigitsMask |= (Mask)(map.FirstSharedHouse != FallbackConstants.@int ? 0 : 1 << digit);
 					conclusions |= map * digit;
 				}
 				if (conclusions.Count == 0)

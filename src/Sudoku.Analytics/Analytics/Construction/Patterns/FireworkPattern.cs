@@ -59,19 +59,22 @@ public sealed partial class FireworkPattern([Property, HashCodeMember] in CellMa
 					{
 						foreach (var c in HousesMap[triple[2]])
 						{
-							if ((a.AsCellMap() + b).FirstSharedHouse != 32 && (a.AsCellMap() + c).FirstSharedHouse != 32)
+							if ((a.AsCellMap() + b).FirstSharedHouse != FallbackConstants.@int
+								&& (a.AsCellMap() + c).FirstSharedHouse != FallbackConstants.@int)
 							{
 								Patterns[i++] = new([a, b, c], a);
 								continue;
 							}
 
-							if ((a.AsCellMap() + b).FirstSharedHouse != 32 && (b.AsCellMap() + c).FirstSharedHouse != 32)
+							if ((a.AsCellMap() + b).FirstSharedHouse != FallbackConstants.@int
+								&& (b.AsCellMap() + c).FirstSharedHouse != FallbackConstants.@int)
 							{
 								Patterns[i++] = new([a, b, c], b);
 								continue;
 							}
 
-							if ((a.AsCellMap() + c).FirstSharedHouse != 32 && (b.AsCellMap() + c).FirstSharedHouse != 32)
+							if ((a.AsCellMap() + c).FirstSharedHouse != FallbackConstants.@int
+								&& (b.AsCellMap() + c).FirstSharedHouse != FallbackConstants.@int)
 							{
 								Patterns[i++] = new([a, b, c], c);
 							}
@@ -89,8 +92,10 @@ public sealed partial class FireworkPattern([Property, HashCodeMember] in CellMa
 					{
 						foreach (var d in HousesMap[houseQuad[3]])
 						{
-							if ((a.AsCellMap() + b).FirstSharedHouse == 32 || (a.AsCellMap() + c).FirstSharedHouse == 32
-								|| (b.AsCellMap() + d).FirstSharedHouse == 32 || (c.AsCellMap() + d).FirstSharedHouse == 32)
+							if ((a.AsCellMap() + b).FirstSharedHouse == FallbackConstants.@int
+								|| (a.AsCellMap() + c).FirstSharedHouse == FallbackConstants.@int
+								|| (b.AsCellMap() + d).FirstSharedHouse == FallbackConstants.@int
+								|| (c.AsCellMap() + d).FirstSharedHouse == FallbackConstants.@int)
 							{
 								continue;
 							}

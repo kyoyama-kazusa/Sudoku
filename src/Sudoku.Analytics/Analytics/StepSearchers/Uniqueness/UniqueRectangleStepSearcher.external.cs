@@ -1214,7 +1214,7 @@ public partial class UniqueRectangleStepSearcher
 					}
 
 					var xDigitMap = (alsMap | xDigitGuardianCells) & CandidatesMap[xDigit];
-					if (xDigitMap.FirstSharedHouse == 32)
+					if (xDigitMap.FirstSharedHouse == FallbackConstants.@int)
 					{
 						// The X digit must be connected.
 						continue;

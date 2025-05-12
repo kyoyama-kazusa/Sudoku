@@ -198,7 +198,7 @@ internal static class SubsetDriver
 				foreach (var digit in digitsMask)
 				{
 					var map = cells % candidatesMapForGrid[digit];
-					lockedDigitsMask |= (Mask)(map.FirstSharedHouse != 32 ? 0 : 1 << digit);
+					lockedDigitsMask |= (Mask)(map.FirstSharedHouse != FallbackConstants.@int ? 0 : 1 << digit);
 
 					conclusions.AddRange(from cell in map select new Conclusion(Elimination, cell, digit));
 				}

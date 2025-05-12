@@ -31,7 +31,7 @@ public sealed partial class EmptyRectangleIntersectionPairStepSearcher : StepSea
 				}
 
 				// Check the two cells are not in same house index.
-				if ((c1.AsCellMap() + c2).FirstSharedHouse != 32)
+				if ((c1.AsCellMap() + c2).FirstSharedHouse != FallbackConstants.@int)
 				{
 					continue;
 				}

@@ -45,7 +45,7 @@ public sealed class XyzWingPatternSearcher : PatternSearcher<XyzWingPattern>
 					foreach (var leafCell2 in bivalueCellsFromHouse2)
 					{
 						var pattern = pivot.AsCellMap() + leafCell1 + leafCell2;
-						if (pattern.FirstSharedHouse != 32)
+						if (pattern.FirstSharedHouse != FallbackConstants.@int)
 						{
 							continue;
 						}

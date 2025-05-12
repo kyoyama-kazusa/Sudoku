@@ -163,7 +163,7 @@ public partial class UniqueLoopStepSearcher
 
 		CellMap otherCells;
 		var otherDigitsMask = (Mask)(m & ~comparer);
-		if (extraCellsMap.FirstSharedHouse != 32)
+		if (extraCellsMap.FirstSharedHouse != FallbackConstants.@int)
 		{
 			if (extraCellsMap.Count != 2)
 			{
@@ -346,7 +346,8 @@ public partial class UniqueLoopStepSearcher
 		Cell[] path
 	)
 	{
-		if (extraCellsMap is not ([var first, var second] and { SharedHouses: var houses }) || extraCellsMap.FirstSharedHouse == 32)
+		if (extraCellsMap is not ([var first, var second] and { SharedHouses: var houses })
+			|| extraCellsMap.FirstSharedHouse == FallbackConstants.@int)
 		{
 			return null;
 		}

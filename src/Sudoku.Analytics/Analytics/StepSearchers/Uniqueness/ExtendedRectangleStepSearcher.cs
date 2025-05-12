@@ -115,7 +115,7 @@ public sealed partial class ExtendedRectangleStepSearcher : StepSearcher
 					}
 				}
 
-				if (extraCellsMap.FirstSharedHouse == 32)
+				if (extraCellsMap.FirstSharedHouse == FallbackConstants.@int)
 				{
 					continue;
 				}

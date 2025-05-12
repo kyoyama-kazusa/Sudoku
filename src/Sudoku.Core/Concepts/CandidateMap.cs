@@ -260,7 +260,7 @@ public partial struct CandidateMap : CandidateMapBase, IDrawableItem
 					: bits.SetAt(index - popCountSum);
 				switch (bmi2IsSupported)
 				{
-					case true when z != 64:
+					case true when z != FallbackConstants.@long:
 					case false when z != -1:
 					{
 						return z + (i << 6); // * 64

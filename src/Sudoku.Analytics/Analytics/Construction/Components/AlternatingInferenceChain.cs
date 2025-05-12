@@ -93,7 +93,10 @@ public sealed partial class AlternatingInferenceChain(Node lastNode) : NamedChai
 	/// </summary>
 	public bool IsImplicitLoop
 		=> WeakStart && ValidNodes is [{ Map: [var first] }, .., { Map: [var last] }]
-		&& (first / 9 == last / 9 || first % 9 == last % 9 && ((first / 9).AsCellMap() + last / 9).FirstSharedHouse != 32);
+		&& (
+			first / 9 == last / 9 || first % 9 == last % 9
+			&& ((first / 9).AsCellMap() + last / 9).FirstSharedHouse != FallbackConstants.@int
+		);
 
 	/// <inheritdoc/>
 	public override int Complexity => _nodes.Length;

@@ -85,14 +85,14 @@ public partial class Hub
 				var template = candidatesMap[urDigit1] | candidatesMap[urDigit2];
 				foreach (ref readonly var pair in cells & ~cells1 & 2)
 				{
-					if (pair.FirstSharedHouse != 32)
+					if (pair.FirstSharedHouse != FallbackConstants.@int)
 					{
 						nakedPairElims1 |= pair.PeerIntersection & template;
 					}
 				}
 				foreach (ref readonly var pair in cells & ~cells2 & 2)
 				{
-					if (pair.FirstSharedHouse != 32)
+					if (pair.FirstSharedHouse != FallbackConstants.@int)
 					{
 						nakedPairElims2 |= pair.PeerIntersection & template;
 					}

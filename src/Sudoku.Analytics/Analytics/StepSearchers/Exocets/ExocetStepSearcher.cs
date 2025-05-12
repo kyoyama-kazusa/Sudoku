@@ -1791,7 +1791,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 	)
 	{
 		// Mirror conjugate pair cannot be used for same-side target cells.
-		if (targetCells.Count != 2 || targetCells.FirstSharedHouse != 32)
+		if (targetCells.Count != 2 || targetCells.FirstSharedHouse != FallbackConstants.@int)
 		{
 			return null;
 		}
@@ -1911,7 +1911,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 	)
 	{
 		// Adjacent target cannot be used for same-side target cells.
-		if (targetCells.FirstSharedHouse != 32)
+		if (targetCells.FirstSharedHouse != FallbackConstants.@int)
 		{
 			return null;
 		}
@@ -2443,7 +2443,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 	)
 	{
 		// AHS cannot be used on same-side target cells.
-		if (targetCells.FirstSharedHouse != 32)
+		if (targetCells.FirstSharedHouse != FallbackConstants.@int)
 		{
 			return null;
 		}
@@ -2585,7 +2585,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 	{
 		// Same-side target cells cannot be used in this case, because locked member will check for mirror cells,
 		// invalid for mirror checking on same-side cells.
-		if (targetCells.FirstSharedHouse != 32)
+		if (targetCells.FirstSharedHouse != FallbackConstants.@int)
 		{
 			(inferredLastTargetDigitsMask, lockedDigitsMask) = (0, 0);
 			return null;
@@ -2756,7 +2756,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 			return null;
 		}
 
-		if (targetCells.Count != 2 || targetCells.FirstSharedHouse != 32)
+		if (targetCells.Count != 2 || targetCells.FirstSharedHouse != FallbackConstants.@int)
 		{
 			return null;
 		}
@@ -4333,7 +4333,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 	)
 	{
 		// Adjacent target cannot be used for same-side target cells.
-		if (targetCells.FirstSharedHouse != 32)
+		if (targetCells.FirstSharedHouse != FallbackConstants.@int)
 		{
 			return null;
 		}
@@ -4456,7 +4456,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 	)
 	{
 		// Mirror conjugate pair cannot be used for same-side target cells.
-		if (targetCells.Count != 2 || targetCells.FirstSharedHouse != 32)
+		if (targetCells.Count != 2 || targetCells.FirstSharedHouse != FallbackConstants.@int)
 		{
 			return null;
 		}

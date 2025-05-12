@@ -149,12 +149,12 @@ public partial struct CellMap : CellMapBase
 			switch (Count)
 			{
 				case 0 or 1: { return false; }
-				case 2: { return FirstSharedHouse != 32; }
+				case 2: { return FirstSharedHouse != FallbackConstants.@int; }
 				default:
 				{
 					foreach (ref readonly var pair in this & 2)
 					{
-						if (pair.FirstSharedHouse != 32)
+						if (pair.FirstSharedHouse != FallbackConstants.@int)
 						{
 							return true;
 						}
