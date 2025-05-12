@@ -57,7 +57,7 @@ public sealed partial class EliminationCountConstraint : Constraint, IComparison
 		var @operator = Operator.GetOperator<int>();
 		foreach (var step in context.AnalysisResult)
 		{
-			if (step.Code == Technique && @operator(LimitCount, step.Conclusions.Length))
+			if (step.Code == Technique && @operator(step.Conclusions.Length, LimitCount))
 			{
 				return true;
 			}
