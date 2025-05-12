@@ -3459,4 +3459,16 @@ Error grid: '{0:#}'</value>
   <data name="ErrorInfo_PuzzleCannotBeSolved" xml:space="preserve">
     <value>The puzzle cannot be solved.</value>
   </data>
+  <data name="TechniqueGroup_FatRing" xml:space="preserve">
+    <value>Fat Ring</value>
+  </data>
+  <data name="FatRing" xml:space="preserve">
+    <value>Fat Ring</value>
+  </data>
+  <data name="StepSearcherName_FatRingStepSearcher" xml:space="preserve">
+    <value>Fat Ring</value>
+  </data>
+  <data name="TechniqueFormat_FatRingStep" xml:space="preserve">
+    <value>Digits {0} in {1} and {2}</value>
+  </data>
 </root>

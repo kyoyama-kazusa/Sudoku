@@ -9343,6 +9343,55 @@
         <member name="M:Sudoku.Analytics.StepSearchers.AlmostLockedSets.ExtendedSubsetPrincipleStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Analytics.StepSearchers.AlmostLockedSets.FatRingStepSearcher">
+            <summary>
+            Provides with a <b>Fat Ring</b> step searcher.
+            The step searcher will include the following techniques:
+            <list type="bullet">
+            <item>Fat Ring</item>
+            </list>
+            </summary>
+        </member>
+        <member name="F:Sudoku.Analytics.StepSearchers.AlmostLockedSets.FatRingStepSearcher.PatternPositions">
+            <summary>
+            Indicates the detailed pattern positions.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.StepSearchers.AlmostLockedSets.FatRingStepSearcher.#cctor">
+            <static-constructor>
+		<summary>
+			<para>
+				Indicates the <see langword="static" /> constructor of the current type.
+			</para>
+			<para>
+				This constructor will initialize some <see langword="static readonly" /> data members
+				of this type that can't use a simple expression to describe the initial value.
+			</para>
+		</summary>
+	</static-constructor>
+        </member>
+        <member name="M:Sudoku.Analytics.StepSearchers.AlmostLockedSets.FatRingStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)">
+            <inheritdoc />
+            <remarks>
+            <developer-notes>
+		<para>
+			<b>Developer Notes</b>
+		</para>
+	</developer-notes>
+            <para>
+            The pattern will use a row and a column, with multiple blocks. For example, row 1, column 1 and blocks in [5, 6, 8, 9].
+            Some empty cells in row 1 and column 1 will be chosen, with each digit satisfying either the specified conditions:
+            <list type="bullet">
+            <item>the digit can be appeared at most once</item>
+            <item>
+            the digit can be appeared at most twice, but two different positions must be connected
+            with a strong link (or a grouped strong link, i.e. empty rectangle) in extra blocks
+            </item>
+            </list>
+            This is a dynamic loop, extended from technique "XYZ-Ring" (XYZ Loop) technique.
+            </para>
+            </remarks>
+        </member>
         <member name="T:Sudoku.Analytics.StepSearchers.AssemblyStepSearcherAttribute`1">
             <summary>
             Defines an attribute that can be applied to the solving assembly,
@@ -13522,6 +13571,69 @@
         <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.ExtendedSubsetPrincipleStep.ExtraDigit">
             <summary>
             The generated property declaration for parameter <c>extraDigit</c>.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Analytics.Steps.AlmostLockedSets.FatRingStep">
+            <summary>
+            Provides with a step that is a <b>Fat Ring</b> technique.
+            </summary>
+            <param name="conclusions"><inheritdoc/></param>
+            <param name="views"><inheritdoc/></param>
+            <param name="options"><inheritdoc/></param>
+            <param name="row">Indicates the row.</param>
+            <param name="column">Indicates the column.</param>
+            <param name="blocks">Indicates the blocks used.</param>
+            <param name="digitsMask">Indicates the digits mask.</param>
+            <param name="digitsCanAppearTwiceOrMore">Indicates the digits that can appear in the target row and column twice or more.</param>
+        </member>
+        <member name="M:Sudoku.Analytics.Steps.AlmostLockedSets.FatRingStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,System.Int32,System.Int16,System.Int16)">
+            <summary>
+            Provides with a step that is a <b>Fat Ring</b> technique.
+            </summary>
+            <param name="conclusions"><inheritdoc/></param>
+            <param name="views"><inheritdoc/></param>
+            <param name="options"><inheritdoc/></param>
+            <param name="row">Indicates the row.</param>
+            <param name="column">Indicates the column.</param>
+            <param name="blocks">Indicates the blocks used.</param>
+            <param name="digitsMask">Indicates the digits mask.</param>
+            <param name="digitsCanAppearTwiceOrMore">Indicates the digits that can appear in the target row and column twice or more.</param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.FatRingStep.BaseDifficulty">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.FatRingStep.Code">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.FatRingStep.DigitsUsed">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.FatRingStep.Interpolations">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.FatRingStep.Row">
+            <summary>
+            The generated property declaration for parameter <c>row</c>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.FatRingStep.Column">
+            <summary>
+            The generated property declaration for parameter <c>column</c>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.FatRingStep.Blocks">
+            <summary>
+            The generated property declaration for parameter <c>blocks</c>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.FatRingStep.DigitsMask">
+            <summary>
+            The generated property declaration for parameter <c>digitsMask</c>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.AlmostLockedSets.FatRingStep.DigitsCanAppearTwiceOrMore">
+            <summary>
+            The generated property declaration for parameter <c>digitsCanAppearTwiceOrMore</c>.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.AlmostLockedSets.HouseDeathBlossomStep">
@@ -24472,6 +24584,11 @@
             Indicates extended subset principle.
             </summary>
         </member>
+        <member name="F:Sudoku.Categorization.Technique.FatRing">
+            <summary>
+            Indicates fat ring.
+            </summary>
+        </member>
         <member name="F:Sudoku.Categorization.Technique.UniqueRectangleType1">
             <summary>
             Indicates unique rectangle type 1.
@@ -25941,6 +26058,11 @@
         <member name="F:Sudoku.Categorization.TechniqueGroup.ExtendedSubsetPrinciple">
             <summary>
             Indicates the wing extension (extended subset principle) technique.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Categorization.TechniqueGroup.FatRing">
+            <summary>
+            Indicates the fat ring technique.
             </summary>
         </member>
         <member name="F:Sudoku.Categorization.TechniqueGroup.EmptyRectangle">
@@ -30439,6 +30561,11 @@
               Looks up a localized string similar to false.
             </summary>
         </member>
+        <member name="P:Sudoku.Resources.AnalyticsResources.FatRing">
+            <summary>
+              Looks up a localized string similar to Fat Ring.
+            </summary>
+        </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.Fiendish">
             <summary>
               Looks up a localized string similar to Fiendish.
@@ -32262,6 +32389,11 @@
               Looks up a localized string similar to Extended Subset Principle.
             </summary>
         </member>
+        <member name="P:Sudoku.Resources.AnalyticsResources.StepSearcherName_FatRingStepSearcher">
+            <summary>
+              Looks up a localized string similar to Fat Ring.
+            </summary>
+        </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.StepSearcherName_FinnedChainStepSearcher">
             <summary>
               Looks up a localized string similar to Finned Chain.
@@ -33467,6 +33599,11 @@
               Looks up a localized string similar to Only the digit {0} can be duplicate in cells {1}.
             </summary>
         </member>
+        <member name="P:Sudoku.Resources.AnalyticsResources.TechniqueFormat_FatRingStep">
+            <summary>
+              Looks up a localized string similar to Digits {0} in {1} and {2}.
+            </summary>
+        </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.TechniqueFormat_FinnedChainStep">
             <summary>
               Looks up a localized string similar to {0}, with fins {1}.
@@ -34000,6 +34137,11 @@
         <member name="P:Sudoku.Resources.AnalyticsResources.TechniqueGroup_ExtendedSubsetPrinciple">
             <summary>
               Looks up a localized string similar to Extended Subset Principle.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.AnalyticsResources.TechniqueGroup_FatRing">
+            <summary>
+              Looks up a localized string similar to Fat Ring.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.TechniqueGroup_Firework">

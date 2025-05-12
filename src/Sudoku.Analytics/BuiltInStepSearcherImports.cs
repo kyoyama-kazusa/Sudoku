@@ -17,6 +17,7 @@
 [assembly: AssemblyStepSearcher<SueDeCoq3DimensionStepSearcher>(1)]
 [assembly: AssemblyStepSearcher<IrregularWingStepSearcher>(1)]
 [assembly: AssemblyStepSearcher<ExtendedSubsetPrincipleStepSearcher>(1)]
+[assembly: AssemblyStepSearcher<FatRingStepSearcher>(1)]
 [assembly: AssemblyStepSearcher<UniqueLoopStepSearcher>(1)]
 [assembly: AssemblyStepSearcher<ExtendedRectangleStepSearcher>(1)]
 [assembly: AssemblyStepSearcher<EmptyRectangleStepSearcher>(1)]

@@ -2734,6 +2734,15 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fat Ring.
+        /// </summary>
+        public static string FatRing {
+            get {
+                return ResourceManager.GetString("FatRing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fiendish.
         /// </summary>
         public static string Fiendish {
@@ -6013,6 +6022,15 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fat Ring.
+        /// </summary>
+        public static string StepSearcherName_FatRingStepSearcher {
+            get {
+                return ResourceManager.GetString("StepSearcherName_FatRingStepSearcher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Finned Chain.
         /// </summary>
         public static string StepSearcherName_FinnedChainStepSearcher {
@@ -8182,6 +8200,15 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Digits {0} in {1} and {2}.
+        /// </summary>
+        public static string TechniqueFormat_FatRingStep {
+            get {
+                return ResourceManager.GetString("TechniqueFormat_FatRingStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0}, with fins {1}.
         /// </summary>
         public static string TechniqueFormat_FinnedChainStep {
@@ -9141,6 +9168,15 @@ namespace Sudoku.Resources {
         public static string TechniqueGroup_ExtendedSubsetPrinciple {
             get {
                 return ResourceManager.GetString("TechniqueGroup_ExtendedSubsetPrinciple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fat Ring.
+        /// </summary>
+        public static string TechniqueGroup_FatRing {
+            get {
+                return ResourceManager.GetString("TechniqueGroup_FatRing", resourceCulture);
             }
         }
         

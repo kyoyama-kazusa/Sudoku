@@ -3017,6 +3017,22 @@ public enum Technique
 	#endregion
 
 	//
+	// Fat Ring
+	//
+	#region Fat Ring
+	/// <summary>
+	/// Indicates fat ring.
+	/// </summary>
+	[TechniqueMetadata(
+		Rating = 65,
+		DifficultyLevel = DifficultyLevel.Fiendish,
+		ContainingGroup = TechniqueGroup.FatRing,
+		StepSearcherType = typeof(FatRingStepSearcher),
+		StepType = typeof(FatRingStep))]
+	FatRing,
+	#endregion
+
+	//
 	// Unique Rectangle
 	//
 	#region Unique Rectangle

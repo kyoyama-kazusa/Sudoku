@@ -65,6 +65,11 @@ public enum TechniqueGroup
 	ExtendedSubsetPrinciple,
 
 	/// <summary>
+	/// Indicates the fat ring technique.
+	/// </summary>
+	FatRing,
+
+	/// <summary>
 	/// Indicates the empty rectangle technique.
 	/// </summary>
 	[TechniqueMetadata(Abbreviation = "ER")]

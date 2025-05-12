@@ -3583,4 +3583,18 @@
   <data name="ErrorInfo_PuzzleCannotBeSolved" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
+  <data name="TechniqueGroup_FatRing" xml:space="preserve">
+    <value>胖姨环</value>
+  </data>
+  <data name="FatRing" xml:space="preserve">
+    <value>胖姨环</value>
+    <comment>Technique Name</comment>
+  </data>
+  <data name="StepSearcherName_FatRingStepSearcher" xml:space="preserve">
+    <value>胖姨环</value>
+    <comment>Step Searcher Name</comment>
+  </data>
+  <data name="TechniqueFormat_FatRingStep" xml:space="preserve">
+    <value>数字 {0} 位于 {1} 和 {2}</value>
+  </data>
 </root>
