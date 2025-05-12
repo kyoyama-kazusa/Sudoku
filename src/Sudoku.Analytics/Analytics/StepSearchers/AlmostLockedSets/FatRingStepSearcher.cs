@@ -59,6 +59,7 @@ public sealed partial class FatRingStepSearcher : StepSearcher
 	protected internal override Step? Collect(ref StepAnalysisContext context)
 	{
 		// Test examples:
+		// .4..+12785+5+1+2.+7..49...9+5+42.1.+51+23...47.6549...2.+4+18.5....5.21.......+6...31..79.+4..:626 331 332 632 647 948 358 668 768 671 871 971 372 772 874 678 882 883 788 988 392 698
 		// 5....3..66.+3...2.8...16.37......6....97.4.68...+68......38.72.+6.4+65...+7.27..6..+8.3:112 212 412 213 414 914 915 524 526 428 545 147 148 448 548 948 549 151 554 565 566 167 168 468 568 968 569 179 579 185 985 596
 		// ..42+6+5387+2+7.+3...9+1..817942...9.26+1+484.+289.75....4..+2.+95....+2....2.........7...9.2:352 361 362 363 372 381 584 585 391 691 392
 		// 1..+8.5.4.........9+4..3.28....4+53+17.66+1.7+49....+75+28+61.+42+4+16+58+9..59...+3....36+92...1:715 723 725 528 728 538 638 788 789 798
@@ -95,19 +96,13 @@ public sealed partial class FatRingStepSearcher : StepSearcher
 								continue;
 							}
 
-							var allCells = rowCellsChosen | columnCellsChosen;
-							if (allCells.Count < 5)
-							{
-								// The number of desired cells is not enough.
-								continue;
-							}
-
 							if (!!(EmptyCells & (rowCellsChosen & columnCellsChosen)) && rowCellsCount + columnCellsCount == 10)
 							{
 								// The number of cells chosen is exceeded.
 								continue;
 							}
 
+							var allCells = rowCellsChosen | columnCellsChosen;
 							var allDigitsMask = grid[allCells];
 							if (BitOperations.PopCount(allDigitsMask) != allCells.Count)
 							{
