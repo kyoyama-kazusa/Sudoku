@@ -312,7 +312,7 @@ public sealed class Analyzer : StepGatherer, IAnalyzer<Analyzer, AnalysisResult,
 			var accumulator = IsFullApplying || RandomizedChoosing || Options.PrimarySingle != SingleTechniqueFlag.None
 				? []
 				: default(List<Step>);
-			var context = new StepAnalysisContext(playground, puzzle)
+			var context = new StepAnalysisContext(playground, in puzzle)
 			{
 				Accumulator = accumulator,
 				Options = Options,

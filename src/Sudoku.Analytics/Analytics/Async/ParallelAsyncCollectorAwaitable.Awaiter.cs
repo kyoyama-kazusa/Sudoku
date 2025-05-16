@@ -246,7 +246,7 @@ public partial struct ParallelAsyncCollectorAwaitable
 				void stepsCreator()
 				{
 					var accumulator = new List<Step>();
-					var context = new StepAnalysisContext(_grid, _grid)
+					var context = new StepAnalysisContext(_grid, in _grid)
 					{
 						Accumulator = accumulator,
 						OnlyFindOne = false,

@@ -22287,10 +22287,10 @@
 				</summary>
 			</target>
         </member>
-        <member name="M:Sudoku.Behaviors.Bottlenecks.Extensions.FirstRefOrNullRef``1(System.ReadOnlySpan{``0},Sudoku.Behaviors.Bottlenecks.LargePreicate{``0})">
+        <member name="M:Sudoku.Behaviors.Bottlenecks.Extensions.FirstRefOrNullRef``1(System.ReadOnlySpan{``0},Sudoku.Behaviors.Bottlenecks.LargePredicate{``0})">
             <inheritdoc cref="M:System.Linq.Providers.IFirstLastMethod`2.FirstOrDefault(System.Func{`1,System.Boolean})"/>
         </member>
-        <member name="T:Sudoku.Behaviors.Bottlenecks.LargePreicate`1">
+        <member name="T:Sudoku.Behaviors.Bottlenecks.LargePredicate`1">
             <summary>
             Represents a type that determine the instance satisfies the specified condition.
             </summary>

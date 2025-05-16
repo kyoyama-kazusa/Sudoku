@@ -12,13 +12,13 @@ public sealed class DeadlyPatternInferrer : IInferrable<DeadlyPatternInferredRes
 	/// Throws when the pattern contains more than 10000 solutions.
 	/// </exception>
 	public static bool TryInfer(in Grid grid, out DeadlyPatternInferredResult result)
-		=> TryInfer(grid, Unsafe.NullRef<CellMap>(), out result);
+		=> TryInfer(grid, in CellMap.nullref, out result);
 
 	/// <inheritdoc cref="TryInfer(in Grid, out DeadlyPatternInferredResult)"/>
 	/// <exception cref="DeadlyPatternInferrerLimitReachedException">
 	/// Throws when the pattern contains more than 10000 solutions.
 	/// </exception>
-	public static bool TryInfer(in Grid grid, [AllowNull] in CellMap cells, out DeadlyPatternInferredResult result)
+	public static bool TryInfer(in Grid grid, [AllowNull] ref readonly CellMap cells, out DeadlyPatternInferredResult result)
 	{
 		var patternCandidates = CandidateMap.Empty;
 		if (grid.IsValid || grid.EmptyCellsCount != 81 || grid.PuzzleType != SudokuType.Standard)

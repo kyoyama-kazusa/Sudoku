@@ -165,7 +165,7 @@ public static class AnalysisResultExtensions
 file static class Extensions
 {
 	/// <inheritdoc cref="IFirstLastMethod{TSelf, TSource}.FirstOrDefault(Func{TSource, bool})"/>
-	public static ref readonly T FirstRefOrNullRef<T>(this ReadOnlySpan<T> @this, LargePreicate<T> predicate)
+	public static ref readonly T FirstRefOrNullRef<T>(this ReadOnlySpan<T> @this, LargePredicate<T> predicate) where T : struct
 	{
 		foreach (ref readonly var element in @this)
 		{
@@ -184,4 +184,4 @@ file static class Extensions
 /// <typeparam name="T">The type of instance.</typeparam>
 /// <param name="instance">The instance.</param>
 /// <returns>A <see cref="bool"/> result.</returns>
-file delegate bool LargePreicate<T>(in T instance);
+file delegate bool LargePredicate<T>(in T instance);

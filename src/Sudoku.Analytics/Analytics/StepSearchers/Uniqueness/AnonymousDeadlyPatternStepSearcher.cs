@@ -764,7 +764,7 @@ public sealed partial class AnonymousDeadlyPatternStepSearcher : StepSearcher
 			emptyGrid.SetCandidates(cell, (Mask)(grid.GetCandidates(cell) & ~digits));
 		}
 
-		var flag = DeadlyPatternInferrer.TryInfer(emptyGrid, pattern, out var result);
+		var flag = DeadlyPatternInferrer.TryInfer(emptyGrid, in pattern, out var result);
 		c = result.PatternCandidates;
 		return flag && result.IsDeadlyPattern;
 	}

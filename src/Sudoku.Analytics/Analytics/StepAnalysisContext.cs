@@ -11,14 +11,14 @@ namespace Sudoku.Analytics;
 [TypeImpl(TypeImplFlags.AllObjectMethods, IsLargeStructure = true)]
 public ref partial struct StepAnalysisContext(
 	[Field(Accessibility = "public", NamingRule = NamingRules.Property)] in Grid grid,
-	[Field(Accessibility = "public", NamingRule = NamingRules.Property)] in Grid initialGrid
+	[Field(Accessibility = "public", NamingRule = NamingRules.Property)] ref readonly Grid initialGrid
 )
 {
 	/// <summary>
 	/// Initializes an <see cref="StepAnalysisContext"/> instance via the specified grid.
 	/// </summary>
 	/// <param name="grid">The grid.</param>
-	public StepAnalysisContext(in Grid grid) : this(grid, Unsafe.NullRef<Grid>())
+	public StepAnalysisContext(in Grid grid) : this(grid, in Grid.nullref)
 	{
 	}
 
