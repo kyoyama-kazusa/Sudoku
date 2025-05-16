@@ -25424,11 +25424,6 @@
             Indicates dynamic double forcing chains.
             </summary>
         </member>
-        <member name="F:Sudoku.Categorization.Technique.DynamicForcingChains">
-            <summary>
-            Indicates dynamic forcing chains.
-            </summary>
-        </member>
         <member name="F:Sudoku.Categorization.Technique.Whip">
             <summary>
             Indicates whip.
@@ -25552,11 +25547,6 @@
         <member name="F:Sudoku.Categorization.Technique.GurthSymmetricalPlacement">
             <summary>
             Indicates Gurth's symmetrical placement.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.ExtendedGurthSymmetricalPlacement">
-            <summary>
-            Indicates extended Gurth's symmetrical placement.
             </summary>
         </member>
         <member name="F:Sudoku.Categorization.Technique.AntiGurthSymmetricalPlacement">
@@ -29864,11 +29854,6 @@
               Looks up a localized string similar to Dynamic Double Forcing Chains.
             </summary>
         </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.DynamicForcingChains">
-            <summary>
-              Looks up a localized string similar to Dynamic Forcing Chains.
-            </summary>
-        </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.DynamicKeyword">
             <summary>
               Looks up a localized string similar to Dynamic.
@@ -30112,11 +30097,6 @@
         <member name="P:Sudoku.Resources.AnalyticsResources.ExofinsAre">
             <summary>
               Looks up a localized string similar to exofins are: {0}.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.ExtendedGurthSymmetricalPlacement">
-            <summary>
-              Looks up a localized string similar to Extended Gurth&apos;s Symmetrical Placement.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.ExtendedRectangleType1">

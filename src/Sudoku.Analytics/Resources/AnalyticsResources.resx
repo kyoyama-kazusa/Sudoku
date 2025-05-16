@@ -1221,9 +1221,6 @@
   <data name="DynamicDoubleForcingChains" xml:space="preserve">
     <value>Dynamic Double Forcing Chains</value>
   </data>
-  <data name="DynamicForcingChains" xml:space="preserve">
-    <value>Dynamic Forcing Chains</value>
-  </data>
   <data name="EmptyRectangleIntersectionPair" xml:space="preserve">
     <value>Empty Rectangle Intersection Pair</value>
   </data>
@@ -1244,9 +1241,6 @@
   </data>
   <data name="GurthSymmetricalPlacement" xml:space="preserve">
     <value>Gurth's Symmetrical Placement</value>
-  </data>
-  <data name="ExtendedGurthSymmetricalPlacement" xml:space="preserve">
-    <value>Extended Gurth's Symmetrical Placement</value>
   </data>
   <data name="JuniorExocet" xml:space="preserve">
     <value>Junior Exocet</value>

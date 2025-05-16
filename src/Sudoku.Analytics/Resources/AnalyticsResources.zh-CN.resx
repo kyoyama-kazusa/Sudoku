@@ -1466,10 +1466,6 @@
     <value>动态二值矛盾强制链</value>
     <comment>Technique Name</comment>
   </data>
-  <data name="DynamicForcingChains" xml:space="preserve">
-    <value>动态强制链</value>
-    <comment>Technique Name</comment>
-  </data>
   <data name="EmptyRectangleIntersectionPair" xml:space="preserve">
     <value>对交空矩形</value>
     <comment>Technique Name</comment>
@@ -1496,10 +1492,6 @@
   </data>
   <data name="GurthSymmetricalPlacement" xml:space="preserve">
     <value>宇宙法</value>
-    <comment>Technique Name</comment>
-  </data>
-  <data name="ExtendedGurthSymmetricalPlacement" xml:space="preserve">
-    <value>宇宙法拓展用法</value>
     <comment>Technique Name</comment>
   </data>
   <data name="JuniorExocet" xml:space="preserve">

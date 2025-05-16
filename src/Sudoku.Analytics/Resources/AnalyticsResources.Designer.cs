@@ -1456,15 +1456,6 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dynamic Forcing Chains.
-        /// </summary>
-        public static string DynamicForcingChains {
-            get {
-                return ResourceManager.GetString("DynamicForcingChains", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Dynamic.
         /// </summary>
         public static string DynamicKeyword {
@@ -1902,15 +1893,6 @@ namespace Sudoku.Resources {
         public static string ExofinsAre {
             get {
                 return ResourceManager.GetString("ExofinsAre", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Extended Gurth&apos;s Symmetrical Placement.
-        /// </summary>
-        public static string ExtendedGurthSymmetricalPlacement {
-            get {
-                return ResourceManager.GetString("ExtendedGurthSymmetricalPlacement", resourceCulture);
             }
         }
         

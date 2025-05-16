@@ -2796,7 +2796,7 @@ public enum Technique
 	/// <summary>
 	/// Indicates unique rectangle + 3x / 1SL.
 	/// </summary>
-	[TechniqueMetadata(
+	[TechniqueMetadata<UniqueRectangleStepSearcher, UniqueRectangleConjugatePairExtraStep>(
 		Rating = 49,
 		DifficultyLevel = DifficultyLevel.Hard,
 		ContainingGroup = TechniqueGroup.UniqueRectangle,
@@ -2810,7 +2810,7 @@ public enum Technique
 	/// <summary>
 	/// Indicates unique rectangle + 3X / 1SL.
 	/// </summary>
-	[TechniqueMetadata(
+	[TechniqueMetadata<UniqueRectangleStepSearcher, UniqueRectangleConjugatePairExtraStep>(
 		Rating = 49,
 		DifficultyLevel = DifficultyLevel.Hard,
 		ContainingGroup = TechniqueGroup.UniqueRectangle,
@@ -2880,7 +2880,7 @@ public enum Technique
 	/// <summary>
 	/// Indicates unique rectangle + 4x / 1SL.
 	/// </summary>
-	[TechniqueMetadata(
+	[TechniqueMetadata<UniqueRectangleStepSearcher, UniqueRectangleConjugatePairExtraStep>(
 		Rating = 49,
 		DifficultyLevel = DifficultyLevel.Hard,
 		ContainingGroup = TechniqueGroup.UniqueRectangle,
@@ -2894,7 +2894,7 @@ public enum Technique
 	/// <summary>
 	/// Indicates unique rectangle + 4X / 1SL.
 	/// </summary>
-	[TechniqueMetadata(
+	[TechniqueMetadata<UniqueRectangleStepSearcher, UniqueRectangleConjugatePairExtraStep>(
 		Rating = 49,
 		DifficultyLevel = DifficultyLevel.Hard,
 		ContainingGroup = TechniqueGroup.UniqueRectangle,
@@ -2908,7 +2908,7 @@ public enum Technique
 	/// <summary>
 	/// Indicates unique rectangle + 4x / 2SL.
 	/// </summary>
-	[TechniqueMetadata(
+	[TechniqueMetadata<UniqueRectangleStepSearcher, UniqueRectangleConjugatePairExtraStep>(
 		Rating = 51,
 		DifficultyLevel = DifficultyLevel.Hard,
 		ContainingGroup = TechniqueGroup.UniqueRectangle,
@@ -2922,7 +2922,7 @@ public enum Technique
 	/// <summary>
 	/// Indicates unique rectangle + 4X / 2SL.
 	/// </summary>
-	[TechniqueMetadata(
+	[TechniqueMetadata<UniqueRectangleStepSearcher, UniqueRectangleConjugatePairExtraStep>(
 		Rating = 51,
 		DifficultyLevel = DifficultyLevel.Hard,
 		ContainingGroup = TechniqueGroup.UniqueRectangle,
@@ -4519,7 +4519,7 @@ public enum Technique
 	/// <summary>
 	/// Indicates blossom loop.
 	/// </summary>
-	[TechniqueMetadata(
+	[TechniqueMetadata<BlossomLoopStepSearcher, BlossomLoopStep>(
 		Rating = 65,
 		DifficultyLevel = DifficultyLevel.Nightmare,
 		ContainingGroup = TechniqueGroup.BlossomLoop,
@@ -4547,7 +4547,7 @@ public enum Technique
 	/// </summary>
 	[Hodoku(Rating = 500, DifficultyLevel = HodokuDifficultyLevel.Extreme, Prefix = "1301")]
 	[SudokuExplainer(Technique = SudokuExplainerTechnique.MultipleForcingChain, RatingOriginal = [8.2, 8.6])]
-	[TechniqueMetadata(
+	[TechniqueMetadata<MultipleForcingChainsStepSearcher, MultipleForcingChainsStep>(
 		Rating = 70,
 		DifficultyLevel = DifficultyLevel.Nightmare,
 		ContainingGroup = TechniqueGroup.ForcingChains)]
@@ -4558,7 +4558,7 @@ public enum Technique
 	/// </summary>
 	[Hodoku(Rating = 500, DifficultyLevel = HodokuDifficultyLevel.Extreme, Prefix = "1301")]
 	[SudokuExplainer(Technique = SudokuExplainerTechnique.MultipleForcingChain, RatingOriginal = [8.2, 8.6])]
-	[TechniqueMetadata(
+	[TechniqueMetadata<MultipleForcingChainsStepSearcher, MultipleForcingChainsStep>(
 		Rating = 70,
 		DifficultyLevel = DifficultyLevel.Nightmare,
 		ContainingGroup = TechniqueGroup.ForcingChains)]
@@ -4569,7 +4569,7 @@ public enum Technique
 	/// </summary>
 	[Hodoku(Rating = 500, DifficultyLevel = HodokuDifficultyLevel.Extreme, Prefix = "1301")]
 	[SudokuExplainer(Technique = SudokuExplainerTechnique.MultipleForcingChain, RatingOriginal = [8.2, 8.6])]
-	[TechniqueMetadata(
+	[TechniqueMetadata<MultipleForcingChainsStepSearcher, MultipleForcingChainsStep>(
 		Rating = 70,
 		DifficultyLevel = DifficultyLevel.Nightmare,
 		ContainingGroup = TechniqueGroup.ForcingChains)]
@@ -4580,7 +4580,7 @@ public enum Technique
 	/// </summary>
 	[Hodoku(Rating = 500, DifficultyLevel = HodokuDifficultyLevel.Extreme, Prefix = "1301")]
 	[SudokuExplainer(Technique = SudokuExplainerTechnique.MultipleForcingChain, RatingOriginal = [8.2, 8.6])]
-	[TechniqueMetadata(
+	[TechniqueMetadata<MultipleForcingChainsStepSearcher, MultipleForcingChainsStep>(
 		Rating = 70,
 		DifficultyLevel = DifficultyLevel.Nightmare,
 		ContainingGroup = TechniqueGroup.ForcingChains)]
@@ -4589,7 +4589,7 @@ public enum Technique
 	/// <summary>
 	/// Indicates rectangle forcing chains.
 	/// </summary>
-	[TechniqueMetadata(
+	[TechniqueMetadata<RectangleForcingChainsStepSearcher, RectangleForcingChainsStep>(
 		Rating = 70,
 		DifficultyLevel = DifficultyLevel.Nightmare,
 		ContainingGroup = TechniqueGroup.ForcingChains)]
@@ -4598,7 +4598,7 @@ public enum Technique
 	/// <summary>
 	/// Indicates bi-value universal grave + n with forcing chains.
 	/// </summary>
-	[TechniqueMetadata(
+	[TechniqueMetadata<BivalueUniversalGraveForcingChainsStepSearcher, BivalueUniversalGraveForcingChainsStep>(
 		Rating = 70,
 		DifficultyLevel = DifficultyLevel.Nightmare,
 		ContainingGroup = TechniqueGroup.BivalueUniversalGrave,
@@ -4610,7 +4610,7 @@ public enum Technique
 	/// </summary>
 	[Hodoku(Rating = 500, DifficultyLevel = HodokuDifficultyLevel.Extreme, Prefix = "1303")]
 	[SudokuExplainer(Technique = SudokuExplainerTechnique.DynamicForcingChain, RatingOriginal = [8.6, 9.4])]
-	[TechniqueMetadata(
+	[TechniqueMetadata<DynamicForcingChainsStepSearcher, MultipleForcingChainsStep>(
 		Rating = 88,
 		DifficultyLevel = DifficultyLevel.Nightmare,
 		ContainingGroup = TechniqueGroup.ForcingChains)]
@@ -4621,7 +4621,7 @@ public enum Technique
 	/// </summary>
 	[Hodoku(Rating = 500, DifficultyLevel = HodokuDifficultyLevel.Extreme, Prefix = "1303")]
 	[SudokuExplainer(Technique = SudokuExplainerTechnique.DynamicForcingChain, RatingOriginal = [8.6, 9.4])]
-	[TechniqueMetadata(
+	[TechniqueMetadata<DynamicForcingChainsStepSearcher, MultipleForcingChainsStep>(
 		Rating = 88,
 		DifficultyLevel = DifficultyLevel.Nightmare,
 		ContainingGroup = TechniqueGroup.ForcingChains)]
@@ -4632,7 +4632,7 @@ public enum Technique
 	/// </summary>
 	[Hodoku(Rating = 500, DifficultyLevel = HodokuDifficultyLevel.Extreme, Prefix = "1304")]
 	[SudokuExplainer(Technique = SudokuExplainerTechnique.DynamicForcingChain, RatingOriginal = [8.8, 9.4])]
-	[TechniqueMetadata(
+	[TechniqueMetadata<DynamicForcingChainsStepSearcher, BinaryForcingChainsStep>(
 		Rating = 88,
 		DifficultyLevel = DifficultyLevel.Nightmare,
 		ContainingGroup = TechniqueGroup.ForcingChains)]
@@ -4643,20 +4643,11 @@ public enum Technique
 	/// </summary>
 	[Hodoku(Rating = 500, DifficultyLevel = HodokuDifficultyLevel.Extreme, Prefix = "1304")]
 	[SudokuExplainer(Technique = SudokuExplainerTechnique.DynamicForcingChain, RatingOriginal = [8.8, 9.4])]
-	[TechniqueMetadata(
+	[TechniqueMetadata<DynamicForcingChainsStepSearcher, BinaryForcingChainsStep>(
 		Rating = 88,
 		DifficultyLevel = DifficultyLevel.Nightmare,
 		ContainingGroup = TechniqueGroup.ForcingChains)]
 	DynamicDoubleForcingChains,
-
-	/// <summary>
-	/// Indicates dynamic forcing chains.
-	/// </summary>
-	[TechniqueMetadata(
-		DifficultyLevel = DifficultyLevel.Nightmare,
-		ContainingGroup = TechniqueGroup.ForcingChains,
-		Features = TechniqueFeatures.NotImplemented)]
-	DynamicForcingChains,
 	#endregion
 
 	//
@@ -4666,7 +4657,7 @@ public enum Technique
 	/// <summary>
 	/// Indicates whip.
 	/// </summary>
-	[TechniqueMetadata(
+	[TechniqueMetadata<WhipStepSearcher, WhipStep>(
 		Rating = 80,
 		DifficultyLevel = DifficultyLevel.Nightmare,
 		ContainingGroup = TechniqueGroup.WhipAndBraid,
@@ -4676,7 +4667,7 @@ public enum Technique
 	/// <summary>
 	/// Indicates grouped whip.
 	/// </summary>
-	[TechniqueMetadata(
+	[TechniqueMetadata<WhipStepSearcher, WhipStep>(
 		Rating = 82,
 		DifficultyLevel = DifficultyLevel.Nightmare,
 		ContainingGroup = TechniqueGroup.WhipAndBraid,
@@ -4961,25 +4952,15 @@ public enum Technique
 	/// <summary>
 	/// Indicates Gurth's symmetrical placement.
 	/// </summary>
-	[TechniqueMetadata(
+	[TechniqueMetadata<StepSearcher, GurthSymmetricalPlacementStep>(
 		Rating = 70,
 		DifficultyLevel = DifficultyLevel.Fiendish,
 		ContainingGroup = TechniqueGroup.Symmetry,
-		StepType = typeof(GurthSymmetricalPlacementStep),
 		Abbreviation = "GSP",
 		Features = TechniqueFeatures.HardToBeGenerated,
 		SpecialFlags = TechniqueMetadataSpecialFlags.SymmetricalPlacement,
 		Links = ["http://forum.enjoysudoku.com/viewtopic.php?p=32842#p32842"])]
 	GurthSymmetricalPlacement,
-
-	/// <summary>
-	/// Indicates extended Gurth's symmetrical placement.
-	/// </summary>
-	[TechniqueMetadata(
-		DifficultyLevel = DifficultyLevel.Nightmare,
-		ContainingGroup = TechniqueGroup.Symmetry,
-		Features = TechniqueFeatures.NotImplemented | TechniqueFeatures.HardToBeGenerated)]
-	ExtendedGurthSymmetricalPlacement,
 
 	/// <summary>
 	/// Indicates Anti-GSP (Anti- Gurth's Symmetrical Placement).
@@ -5432,11 +5413,10 @@ public enum Technique
 	/// Indicates template delete.
 	/// </summary>
 	[Hodoku(Rating = 10000, DifficultyLevel = HodokuDifficultyLevel.Extreme, Prefix = "1202")]
-	[TechniqueMetadata(
+	[TechniqueMetadata<TemplateStepSearcher, TemplateStep>(
 		Rating = 90,
 		DifficultyLevel = DifficultyLevel.LastResort,
 		ContainingGroup = TechniqueGroup.Templating,
-		StepType = typeof(TemplateStep),
 		Features = TechniqueFeatures.WillBeReplacedByOtherTechnique,
 		Links = ["http://sudopedia.enjoysudoku.com/Templating.html"])]
 	TemplateDelete,

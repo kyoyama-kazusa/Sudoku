@@ -6,7 +6,7 @@ namespace Sudoku.Categorization;
 /// <typeparam name="TStepSearcher">The type of step searcher.</typeparam>
 /// <typeparam name="TStep">The type of step.</typeparam>
 [AttributeUsage(AttributeTargets.Field, Inherited = false)]
-public sealed partial class TechniqueMetadataAttribute<TStepSearcher, TStep> : TechniqueMetadataAttribute
+public sealed class TechniqueMetadataAttribute<TStepSearcher, TStep> : TechniqueMetadataAttribute
 	where TStepSearcher : StepSearcher
 	where TStep : Step
 {

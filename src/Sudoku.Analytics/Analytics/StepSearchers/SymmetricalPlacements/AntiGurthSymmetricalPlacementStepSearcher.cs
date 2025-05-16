@@ -9,7 +9,7 @@ namespace Sudoku.Analytics.StepSearchers.SymmetricalPlacements;
 /// </summary>
 [StepSearcher(
 	"StepSearcherName_AntiGurthSymmetricalPlacementStepSearcher",
-	Technique.ExtendedGurthSymmetricalPlacement, Technique.AntiGurthSymmetricalPlacement,
+	Technique.AntiGurthSymmetricalPlacement,
 	IsCachingSafe = true)]
 public sealed partial class AntiGurthSymmetricalPlacementStepSearcher : StepSearcher
 {
