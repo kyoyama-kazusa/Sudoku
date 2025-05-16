@@ -1,5 +1,7 @@
 namespace Sudoku.Analytics;
 
+using meta_analysis = Puzzles.Meta.Analytics;
+
 /// <summary>
 /// Provides the result after <see cref="Analyzer"/> solving a puzzle.
 /// </summary>
