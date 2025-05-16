@@ -10,7 +10,7 @@ namespace Sudoku.Categorization;
 /// </para>
 /// </shared-comments>
 [AttributeUsage(AttributeTargets.Field, Inherited = false)]
-public sealed class TechniqueMetadataAttribute : ProgramMetadataAttribute<int, DifficultyLevel>
+public class TechniqueMetadataAttribute : ProgramMetadataAttribute<int, DifficultyLevel>
 {
 	/// <summary>
 	/// Indicates whether the current technique supports for Siamese logic.
@@ -82,11 +82,11 @@ public sealed class TechniqueMetadataAttribute : ProgramMetadataAttribute<int, D
 	/// Indicates a that that can create a <see cref="Step"/> instance that includes the current technique usage.
 	/// </summary>
 	[DisallowNull]
-	public Type? StepType { get; init; }
+	public virtual Type? StepType { get; init; }
 
 	/// <summary>
 	/// Indicates a step searcher type that can produce steps that describes the current technique.
 	/// </summary>
 	[DisallowNull]
-	public Type? StepSearcherType { get; init; }
+	public virtual Type? StepSearcherType { get; init; }
 }

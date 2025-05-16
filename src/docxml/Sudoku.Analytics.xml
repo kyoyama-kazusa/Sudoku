@@ -26405,6 +26405,19 @@
             Indicates a step searcher type that can produce steps that describes the current technique.
             </summary>
         </member>
+        <member name="T:Sudoku.Categorization.TechniqueMetadataAttribute`2">
+            <summary>
+            <inheritdoc cref="T:Sudoku.Categorization.TechniqueMetadataAttribute" path="/summary"/>
+            </summary>
+            <typeparam name="TStepSearcher">The type of step searcher.</typeparam>
+            <typeparam name="TStep">The type of step.</typeparam>
+        </member>
+        <member name="P:Sudoku.Categorization.TechniqueMetadataAttribute`2.StepSearcherType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Categorization.TechniqueMetadataAttribute`2.StepType">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Categorization.TechniqueMetadataSpecialFlags">
             <summary>
             Represents a special flag describing how special the current technique is.
