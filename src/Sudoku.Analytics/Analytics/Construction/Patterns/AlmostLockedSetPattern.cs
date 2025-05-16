@@ -157,9 +157,9 @@ public sealed partial class AlmostLockedSetPattern(
 	[Cached]
 	public static ReadOnlySpan<AlmostLockedSetPattern> Collect(in Grid grid)
 	{
-		// INTERCEPTOR_VARIABLE_DECLARATION_BEGIN
+		// VARIABLE_DECLARATION_BEGIN
 		_ = grid is { EmptyCells: var __EmptyCells, BivalueCells: var __BivalueCells, CandidatesMap: var __CandidatesMap };
-		// INTERCEPTOR_VARIABLE_DECLARATION_END
+		// VARIABLE_DECLARATION_END
 
 		// Get all bi-value-cell ALSes.
 		var result = new List<AlmostLockedSetPattern>();

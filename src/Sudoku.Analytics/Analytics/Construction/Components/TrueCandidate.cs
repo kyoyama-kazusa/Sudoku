@@ -18,9 +18,9 @@ public static class TrueCandidate
 		ArgumentException.ThrowIfAssertionFailed(grid.IsValid);
 		ArgumentException.ThrowIfAssertionFailed(grid.PuzzleType == SudokuType.Standard);
 
-		// INTERCEPTOR_VARIABLE_DECLARATION_BEGIN
+		// VARIABLE_DECLARATION_BEGIN
 		_ = grid is { EmptyCells: var __EmptyCells, BivalueCells: var __BivalueCells, CandidatesMap: var __CandidatesMap };
-		// INTERCEPTOR_VARIABLE_DECLARATION_END
+		// VARIABLE_DECLARATION_END
 
 		// Get the number of multi-value cells.
 		// If the number of that is greater than the specified number, here will return the default list directly.
