@@ -26342,11 +26342,6 @@
             Indicates the rating value defined in direct mode.
             </summary>
         </member>
-        <member name="P:Sudoku.Categorization.TechniqueMetadataAttribute.ResourceKey">
-            <summary>
-            Indicates the resource key that can fetch the corresponding resource string.
-            </summary>
-        </member>
         <member name="P:Sudoku.Categorization.TechniqueMetadataAttribute.Abbreviation">
             <summary>
             Indicates the abbreviation of the technique.

@@ -32,12 +32,6 @@ public class TechniqueMetadataAttribute : ProgramMetadataAttribute<int, Difficul
 	public int DirectRating { get; init; }
 
 	/// <summary>
-	/// Indicates the resource key that can fetch the corresponding resource string.
-	/// </summary>
-	[DisallowNull]
-	public string? ResourceKey { get; init; }
-
-	/// <summary>
 	/// Indicates the abbreviation of the technique.
 	/// </summary>
 	[DisallowNull]
