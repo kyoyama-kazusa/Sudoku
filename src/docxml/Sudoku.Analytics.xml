@@ -35230,24 +35230,6 @@
             Indicates the level is extreme.
             </summary>
         </member>
-        <member name="T:Sudoku.Runtime.InteropServices.Npg.NpgAttribute">
-            <summary>
-            Represents compatibility rules for Number-Place Generator.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Runtime.InteropServices.Npg.NpgCompatibility">
-            <summary>
-            Represents some methods that are used for get the details supported and defined
-            by another program called Number-Place Generator.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Runtime.InteropServices.Npg.NpgCompatibility.GetDifficultyPoint(Sudoku.Categorization.Technique)">
-            <summary>
-            Gets difficulty point of technique.
-            </summary>
-            <param name="this">The technique.</param>
-            <returns>The difficulty rating.</returns>
-        </member>
         <member name="T:Sudoku.Runtime.InteropServices.ProgramMetadataAttribute">
             <summary>
             Represents program compatibility attribute type.
