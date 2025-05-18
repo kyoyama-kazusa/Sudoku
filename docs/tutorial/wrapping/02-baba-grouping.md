@@ -10,7 +10,7 @@ description: Baba Grouping
 
 <figure><img src="../.gitbook/assets/images_0396.png" alt="" width="375"><figcaption><p>代数法，第一轮假设</p></figcaption></figure>
 
-如图所示。当我们无从下手时，我们不妨先假设一个填数。但是这次，我们带入变量求解。
+如图所示。当我们无从下手时，我们不妨先假设一个填数。但是这次，我们代入变量求解。
 
 假设 `r5c5` 填 $$a$$，并假设 `r1c5` 和 `r3c5` 分别填 $$b$$ 和 $$c$$，我们就可以根据 `b3` 的宫排除得到 `r3c8` 填 $$b$$（用 `r1c5` 排除就行）。此时 $$abc$$ 三个字母均不相同，但一定都是 2、8、9 里的数字。
 
