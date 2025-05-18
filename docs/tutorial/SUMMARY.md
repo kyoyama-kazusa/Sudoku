@@ -101,7 +101,7 @@
 
 * [结构构造](construction/01-pattern-construction/README.md)
   * [唯一矩形的结构构造](construction/01-pattern-construction/01-unique-rectangle-pattern-based-construction.md)
-  * [代入唯一矩形](construction/01-pattern-construction/dai-ru-wei-yi-ju-xing.md)
+  * [代入唯一矩形](construction/01-pattern-construction/02-forcing-unique-rectangle.md)
 
 ## 附录 <a href="#appendix" id="appendix"></a>
 
