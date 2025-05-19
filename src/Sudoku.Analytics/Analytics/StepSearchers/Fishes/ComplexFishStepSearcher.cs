@@ -97,7 +97,7 @@ public sealed partial class ComplexFishStepSearcher : StepSearcher
 		var siameses = AllowSiamese ? Siamese.Fish.GetSiamese(accumulator.ConvertAll(static p => (FishStep)p), grid) : [];
 		if (context.OnlyFindOne)
 		{
-			return siameses is [var siamese, ..] ? siamese : accumulator.FirstOrDefault() is { } normal ? normal : null;
+			return siameses is [var siamese, ..] ? siamese : accumulator is [var normal, ..] ? normal : null;
 		}
 
 		if (siameses.Length != 0)
