@@ -10309,28 +10309,11 @@
         <member name="M:Sudoku.Analytics.StepSearchers.Invalidity.ChromaticPatternStepSearcher.CheckType1(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.CellMap@,System.Int32[])">
             <summary>
             Checks for the type 1.
-            Here I give you 2 examples to test this method:
-            <list type="number">
-            <item>
-            <see href="http://forum.enjoysudoku.com/the-tridagon-rule-t39859.html#p318380">the first one</see>
-            </item>
-            <item>
-            <see href="http://forum.enjoysudoku.com/the-tridagon-rule-t39859.html#p318378">the second one</see>
-            </item>
-            </list>
             </summary>
         </member>
         <member name="M:Sudoku.Analytics.StepSearchers.Invalidity.ChromaticPatternStepSearcher.CheckXz(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.CellMap@,System.Int32[])">
             <summary>
             Checks for XZ rule.
-            Here I give you 1 example to test this method:
-            <list type="number">
-            <item>
-            <code>
-            0000000010000023400+45013602000+470036000089400004600000012500060403100520560000100:611 711 811 911 712 812 912 915 516 716 816 721 821 921 925 565 568 779 879 979 794 894 994 799 899 999
-            </code>
-            </item>
-            </list>
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.StepSearchers.Invalidity.GuardianStepSearcher">

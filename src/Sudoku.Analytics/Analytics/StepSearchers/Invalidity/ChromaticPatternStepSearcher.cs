@@ -124,18 +124,13 @@ public sealed partial class ChromaticPatternStepSearcher : StepSearcher
 
 	/// <summary>
 	/// Checks for the type 1.
-	/// Here I give you 2 examples to test this method:
-	/// <list type="number">
-	/// <item>
-	/// <see href="http://forum.enjoysudoku.com/the-tridagon-rule-t39859.html#p318380">the first one</see>
-	/// </item>
-	/// <item>
-	/// <see href="http://forum.enjoysudoku.com/the-tridagon-rule-t39859.html#p318378">the second one</see>
-	/// </item>
-	/// </list>
 	/// </summary>
 	private ChromaticPatternType1Step? CheckType1(ref StepAnalysisContext context, in CellMap pattern, House[] blocks)
 	{
+		// Test examples:
+		// ........1.....2.......3..45+8.6.......71.8....32..67..8+16..23....837.+61..7.281.6..:144 444 544 944 454 554 954
+		// 57....9..........8.1.........168..42...1.28.9..2.9416.....26....6.9.82.4...41.6..:178 378 578 778 398 598 798
+
 		ref readonly var grid = ref context.Grid;
 		foreach (var extraCell in pattern)
 		{
@@ -184,17 +179,12 @@ public sealed partial class ChromaticPatternStepSearcher : StepSearcher
 
 	/// <summary>
 	/// Checks for XZ rule.
-	/// Here I give you 1 example to test this method:
-	/// <list type="number">
-	/// <item>
-	/// <code>
-	/// 0000000010000023400+45013602000+470036000089400004600000012500060403100520560000100:611 711 811 911 712 812 912 915 516 716 816 721 821 921 925 565 568 779 879 979 794 894 994 799 899 999
-	/// </code>
-	/// </item>
-	/// </list>
 	/// </summary>
 	private ChromaticPatternXzStep? CheckXz(ref StepAnalysisContext context, in CellMap pattern, House[] blocks)
 	{
+		// Test examples:
+		// 0000000010000023400+45013602000+470036000089400004600000012500060403100520560000100:611 711 811 911 712 812 912 915 516 716 816 721 821 921 925 565 568 779 879 979 794 894 994 799 899 999
+
 		ref readonly var grid = ref context.Grid;
 		var allDigitsMask = grid[pattern];
 		if (BitOperations.PopCount(allDigitsMask) != 5)
