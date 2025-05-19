@@ -432,12 +432,6 @@
   <data name="AnalyzePage_LiveCharts" xml:space="preserve">
     <value>数据图表</value>
   </data>
-  <data name="AnalyzePage_LogicalSolverIgnoresHighAllocationAlgorithms" xml:space="preserve">
-    <value>忽略空间复杂度大的技巧</value>
-  </data>
-  <data name="AnalyzePage_LogicalSolverIgnoresSlowAlgorithms" xml:space="preserve">
-    <value>忽略时间复杂度大的技巧</value>
-  </data>
   <data name="AnalyzePage_LogicalSolverIsFullyApplied" xml:space="preserve">
     <value>单步全部应用</value>
   </data>

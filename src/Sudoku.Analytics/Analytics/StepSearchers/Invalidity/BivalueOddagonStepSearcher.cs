@@ -19,8 +19,7 @@ namespace Sudoku.Analytics.StepSearchers.Invalidity;
 /// </summary>
 [StepSearcher(
 	"StepSearcherName_BivalueOddagonStepSearcher",
-	Technique.BivalueOddagonType2, Technique.BivalueOddagonType3,
-	RuntimeFlags = StepSearcherRuntimeFlags.TimeComplexity)]
+	Technique.BivalueOddagonType2, Technique.BivalueOddagonType3)]
 public sealed partial class BivalueOddagonStepSearcher : StepSearcher
 {
 	/// <summary>

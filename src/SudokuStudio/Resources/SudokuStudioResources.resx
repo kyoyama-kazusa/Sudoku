@@ -432,12 +432,6 @@
   <data name="AnalyzePage_LiveCharts" xml:space="preserve">
     <value>Data Charts</value>
   </data>
-  <data name="AnalyzePage_LogicalSolverIgnoresHighAllocationAlgorithms" xml:space="preserve">
-    <value>Ignore high-allocation techniques</value>
-  </data>
-  <data name="AnalyzePage_LogicalSolverIgnoresSlowAlgorithms" xml:space="preserve">
-    <value>Ignore slow techniques</value>
-  </data>
   <data name="AnalyzePage_LogicalSolverIsFullyApplied" xml:space="preserve">
     <value>Solver full applying</value>
   </data>

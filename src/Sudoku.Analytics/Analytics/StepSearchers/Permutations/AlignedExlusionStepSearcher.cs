@@ -13,8 +13,7 @@ namespace Sudoku.Analytics.StepSearchers.Permutations;
 [StepSearcher(
 	"StepSearcherName_AlignedExclusionStepSearcher",
 	Technique.AlignedPairExclusion, Technique.AlignedTripleExclusion,
-	Technique.AlignedQuadrupleExclusion, Technique.AlignedQuintupleExclusion,
-	RuntimeFlags = StepSearcherRuntimeFlags.TimeComplexity)]
+	Technique.AlignedQuadrupleExclusion, Technique.AlignedQuintupleExclusion)]
 public sealed partial class AlignedExclusionStepSearcher : StepSearcher
 {
 	/// <summary>

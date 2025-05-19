@@ -17,7 +17,7 @@ namespace Sudoku.Analytics.StepSearchers.Chains;
 [StepSearcher(
 	"StepSearcherName_WhipStepSearcher",
 	Technique.Whip, Technique.GroupedWhip,
-	RuntimeFlags = StepSearcherRuntimeFlags.SpaceComplexity | StepSearcherRuntimeFlags.SkipVerification)]
+	RuntimeFlags = StepSearcherRuntimeFlags.SkipVerification)]
 public sealed partial class WhipStepSearcher : StepSearcher
 {
 	/// <inheritdoc/>

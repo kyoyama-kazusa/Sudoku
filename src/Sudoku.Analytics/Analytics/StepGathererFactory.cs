@@ -35,28 +35,6 @@ public static class StepGathererFactory
 		}
 
 		/// <summary>
-		/// Sets the property <see cref="Analyzer.IgnoreSlowAlgorithms"/> with the target value.
-		/// </summary>
-		/// <param name="ignore">The value to be set or updated.</param>
-		/// <returns>The value same as <see cref="Analyzer"/>.</returns>
-		public Analyzer WithIgnoreHighTimeComplexityStepSearchers(bool ignore)
-		{
-			instance.IgnoreSlowAlgorithms = ignore;
-			return instance;
-		}
-
-		/// <summary>
-		/// Sets the property <see cref="Analyzer.IgnoreHighAllocationAlgorithms"/> with the target value.
-		/// </summary>
-		/// <param name="ignore">The value to be set or updated.</param>
-		/// <returns>The value same as <see cref="Analyzer"/>.</returns>
-		public Analyzer WithIgnoreHighSpaceComplexityStepSearchers(bool ignore)
-		{
-			instance.IgnoreHighAllocationAlgorithms = ignore;
-			return instance;
-		}
-
-		/// <summary>
 		/// Sets the property <see cref="StepGatherer.StepSearchers"/> with the target value.
 		/// </summary>
 		/// <param name="stepSearchers">The value to be set or updated.</param>

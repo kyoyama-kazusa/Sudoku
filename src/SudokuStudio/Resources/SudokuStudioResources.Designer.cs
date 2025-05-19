@@ -1360,24 +1360,6 @@ namespace SudokuStudio.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ignore high-allocation techniques.
-        /// </summary>
-        internal static string AnalyzePage_LogicalSolverIgnoresHighAllocationAlgorithms {
-            get {
-                return ResourceManager.GetString("AnalyzePage_LogicalSolverIgnoresHighAllocationAlgorithms", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ignore slow techniques.
-        /// </summary>
-        internal static string AnalyzePage_LogicalSolverIgnoresSlowAlgorithms {
-            get {
-                return ResourceManager.GetString("AnalyzePage_LogicalSolverIgnoresSlowAlgorithms", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Solver full applying.
         /// </summary>
         internal static string AnalyzePage_LogicalSolverIsFullyApplied {

@@ -78,9 +78,7 @@ using TargetCellsGroup = CellMapOrCandidateMapGrouping<CellMap, Cell, House>;
 	Technique.AdvancedFrankenSeniorExocet, Technique.AdvancedMutantSeniorExocet,
 
 	// Miscellaneous
-	Technique.PatternLockedQuadruple,
-
-	RuntimeFlags = StepSearcherRuntimeFlags.TimeComplexity)]
+	Technique.PatternLockedQuadruple)]
 public sealed partial class ExocetStepSearcher : StepSearcher
 {
 	/// <inheritdoc/>

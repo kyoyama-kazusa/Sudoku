@@ -125,12 +125,6 @@
 							<AppBarToggleButton
 								Icon="RepeatOne" Label="{m:R Key=AnalyzePage_AnalyzerUseIttoryuMode}"
 								IsChecked="{x:Bind ((z:App)y:Application.Current).Preference.AnalysisPreferences.AnalyzerUseIttoryuMode,Mode=TwoWay}" />
-							<AppBarToggleButton
-								Icon="Accept" Label="{m:R Key=AnalyzePage_LogicalSolverIgnoresSlowAlgorithms}"
-								IsChecked="{x:Bind ((z:App)y:Application.Current).Preference.AnalysisPreferences.AnalyzerIgnoresSlowAlgorithms,Mode=TwoWay}" />
-							<AppBarToggleButton
-								Icon="Accept" Label="{m:R Key=AnalyzePage_LogicalSolverIgnoresHighAllocationAlgorithms}"
-								IsChecked="{x:Bind ((z:App)y:Application.Current).Preference.AnalysisPreferences.AnalyzerIgnoresHighAllocationAlgorithms,Mode=TwoWay}" />
 						</CommandBar>
 					</Border>
 				</Grid>
@@ -235,8 +229,6 @@
 							a:AnalyzerProperties.ReverseBugMaxSearchingEmptyCellsCount="{x:Bind ((z:App)y:Application.Current).Preference.AnalysisPreferences.ReverseBugMaxSearchingEmptyCellsCount,Mode=OneWay}"
 							a:AnalyzerProperties.AnalyzerIsFullApplying="{x:Bind ((z:App)y:Application.Current).Preference.AnalysisPreferences.AnalyzerIsFullApplying,Mode=OneWay}"
 							a:AnalyzerProperties.AnalyzerUseIttoryuMode="{x:Bind ((z:App)y:Application.Current).Preference.AnalysisPreferences.AnalyzerUseIttoryuMode,Mode=OneWay}"
-							a:AnalyzerProperties.AnalyzerIgnoresSlowAlgorithms="{x:Bind ((z:App)y:Application.Current).Preference.AnalysisPreferences.AnalyzerIgnoresSlowAlgorithms,Mode=OneWay}"
-							a:AnalyzerProperties.AnalyzerIgnoresHighAllocationAlgorithms="{x:Bind ((z:App)y:Application.Current).Preference.AnalysisPreferences.AnalyzerIgnoresHighAllocationAlgorithms,Mode=OneWay}"
 							a:AnalyzerProperties.TemplateDeleteOnly="False"
 							a:AnalyzerProperties.BowmanBingoMaxLength="64"
 							a:AnalyzerProperties.SearchExtendedDeathBlossomTypes="{x:Bind ((z:App)y:Application.Current).Preference.AnalysisPreferences.SearchExtendedDeathBlossomTypes,Mode=OneWay}"

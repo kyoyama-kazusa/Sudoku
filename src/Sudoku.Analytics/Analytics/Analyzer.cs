@@ -30,24 +30,6 @@ public sealed class Analyzer : StepGatherer, IAnalyzer<Analyzer, AnalysisResult,
 	/// </summary>
 	public bool RandomizedChoosing { get; set; }
 
-	/// <summary>
-	/// Indicates whether the solver will ignore slow step searchers being configured <see cref="StepSearcherRuntimeFlags.TimeComplexity"/>.
-	/// </summary>
-	/// <remarks>
-	/// The default value is <see langword="false"/>.
-	/// </remarks>
-	/// <seealso cref="StepSearcherRuntimeFlags.TimeComplexity"/>
-	public bool IgnoreSlowAlgorithms { get; set; }
-
-	/// <summary>
-	/// Indicates whether the solver will ignore slow step searchers being configured <see cref="StepSearcherRuntimeFlags.SpaceComplexity"/>.
-	/// </summary>
-	/// <remarks>
-	/// The default value is <see langword="false"/>.
-	/// </remarks>
-	/// <seealso cref="StepSearcherRuntimeFlags.SpaceComplexity"/>
-	public bool IgnoreHighAllocationAlgorithms { get; set; }
-
 	/// <inheritdoc/>
 	public override ReadOnlyMemory<StepSearcher> ResultStepSearchers { get; internal set; } =
 		from searcher in StepSearcherFactory.StepSearchers
@@ -68,8 +50,6 @@ public sealed class Analyzer : StepGatherer, IAnalyzer<Analyzer, AnalysisResult,
 	/// </summary>
 	public static Analyzer AllIn
 		=> Balanced
-			.WithIgnoreHighTimeComplexityStepSearchers(false)
-			.WithIgnoreHighSpaceComplexityStepSearchers(false)
 			.ApplySetter<NormalFishStepSearcher>(static s => { s.DisableFinnedOrSashimiXWing = false; s.AllowSiamese = true; })
 			.ApplySetter<RegularWingStepSearcher>(static s => s.MaxSearchingPivotsCount = 9)
 			.ApplySetter<ReverseBivalueUniversalGraveStepSearcher>(static s => { s.MaxSearchingEmptyCellsCount = 4; s.AllowPartiallyUsedTypes = true; })
@@ -83,8 +63,6 @@ public sealed class Analyzer : StepGatherer, IAnalyzer<Analyzer, AnalysisResult,
 	/// </summary>
 	public static Analyzer Balanced
 		=> Default
-			.WithIgnoreHighTimeComplexityStepSearchers(false)
-			.WithIgnoreHighSpaceComplexityStepSearchers(true)
 			.ApplySetter<SingleStepSearcher>(static s => { s.EnableFullHouse = true; s.EnableLastDigit = true; s.HiddenSinglesInBlockFirst = true; s.EnableOrderingStepsByLastingValue = false; })
 			.ApplySetter<NormalFishStepSearcher>(static s => { s.DisableFinnedOrSashimiXWing = false; s.AllowSiamese = false; })
 			.ApplySetter<UniqueRectangleStepSearcher>(static s => { s.AllowIncompleteUniqueRectangles = true; s.SearchForExtendedUniqueRectangles = true; })
@@ -103,8 +81,6 @@ public sealed class Analyzer : StepGatherer, IAnalyzer<Analyzer, AnalysisResult,
 	/// </summary>
 	public static Analyzer Standard
 		=> Default
-			.WithIgnoreHighTimeComplexityStepSearchers(false)
-			.WithIgnoreHighSpaceComplexityStepSearchers(true)
 			.ApplySetter<SingleStepSearcher>(static s => { s.EnableFullHouse = true; s.EnableLastDigit = true; s.HiddenSinglesInBlockFirst = true; s.EnableOrderingStepsByLastingValue = false; })
 			.ApplySetter<NormalFishStepSearcher>(static s => { s.DisableFinnedOrSashimiXWing = false; s.AllowSiamese = false; })
 			.ApplySetter<UniqueRectangleStepSearcher>(static s => { s.AllowIncompleteUniqueRectangles = true; s.SearchForExtendedUniqueRectangles = true; })
@@ -155,8 +131,6 @@ public sealed class Analyzer : StepGatherer, IAnalyzer<Analyzer, AnalysisResult,
 	/// </summary>
 	public static Analyzer SudokuExplainer
 		=> Default
-			.WithIgnoreHighTimeComplexityStepSearchers(false)
-			.WithIgnoreHighSpaceComplexityStepSearchers(false)
 			.WithStepSearchers(
 				new SingleStepSearcher(),
 				new LockedSubsetStepSearcher(),
@@ -354,8 +328,6 @@ public sealed class Analyzer : StepGatherer, IAnalyzer<Analyzer, AnalysisResult,
 				{
 					case ({ PuzzleType: SudokuType.Sukaku }, _, { Metadata.SupportsSukaku: false }, _):
 					case (_, _, { RunningArea: StepSearcherRunningArea.None }, _):
-					case (_, _, { Metadata.IsConfiguredSlow: true }, { IgnoreSlowAlgorithms: true }):
-					case (_, _, { Metadata.IsConfiguredHighAllocation: true }, { IgnoreHighAllocationAlgorithms: true }):
 					case (_, _, { Metadata.IsOnlyRunForDirectViews: true }, { Options.IsDirectMode: false }):
 					case (_, _, { Metadata.IsOnlyRunForIndirectViews: true }, { Options.IsDirectMode: true }):
 					case (_, { IsUndefined: true }, { Metadata.SupportAnalyzingMultipleSolutionsPuzzle: false }, _):

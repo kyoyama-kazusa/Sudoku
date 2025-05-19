@@ -632,24 +632,6 @@
             Indicates whether the solver will choose a step to be applied after having searched all possible steps, in random.
             </summary>
         </member>
-        <member name="P:Sudoku.Analytics.Analyzer.IgnoreSlowAlgorithms">
-            <summary>
-            Indicates whether the solver will ignore slow step searchers being configured <see cref="F:Sudoku.Analytics.StepSearchers.StepSearcherRuntimeFlags.TimeComplexity"/>.
-            </summary>
-            <remarks>
-            The default value is <see langword="false"/>.
-            </remarks>
-            <seealso cref="F:Sudoku.Analytics.StepSearchers.StepSearcherRuntimeFlags.TimeComplexity"/>
-        </member>
-        <member name="P:Sudoku.Analytics.Analyzer.IgnoreHighAllocationAlgorithms">
-            <summary>
-            Indicates whether the solver will ignore slow step searchers being configured <see cref="F:Sudoku.Analytics.StepSearchers.StepSearcherRuntimeFlags.SpaceComplexity"/>.
-            </summary>
-            <remarks>
-            The default value is <see langword="false"/>.
-            </remarks>
-            <seealso cref="F:Sudoku.Analytics.StepSearchers.StepSearcherRuntimeFlags.SpaceComplexity"/>
-        </member>
         <member name="P:Sudoku.Analytics.Analyzer.ResultStepSearchers">
             <inheritdoc/>
         </member>
@@ -1970,12 +1952,6 @@
         </member>
         <member name="F:Sudoku.Analytics.Configuration.SettingItemNames.AnalyzerIsFullApplying">
             <inheritdoc cref="P:Sudoku.Analytics.Analyzer.IsFullApplying"/>
-        </member>
-        <member name="F:Sudoku.Analytics.Configuration.SettingItemNames.AnalyzerIgnoresSlowAlgorithms">
-            <inheritdoc cref="P:Sudoku.Analytics.Analyzer.IgnoreSlowAlgorithms"/>
-        </member>
-        <member name="F:Sudoku.Analytics.Configuration.SettingItemNames.AnalyzerIgnoresHighAllocationAlgorithms">
-            <inheritdoc cref="P:Sudoku.Analytics.Analyzer.IgnoreHighAllocationAlgorithms"/>
         </member>
         <member name="F:Sudoku.Analytics.Configuration.SettingItemNames.DifficultyLevelMode">
             <inheritdoc cref="P:Sudoku.Analytics.Collector.DifficultyLevelMode"/>
@@ -8934,20 +8910,6 @@
             <param name="applyAll">The value to be set or updated.</param>
             <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.StepGathererFactory..WithIgnoreHighTimeComplexityStepSearchers(System.Boolean)">
-            <summary>
-            Sets the property <see cref="P:Sudoku.Analytics.Analyzer.IgnoreSlowAlgorithms"/> with the target value.
-            </summary>
-            <param name="ignore">The value to be set or updated.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.StepGathererFactory..WithIgnoreHighSpaceComplexityStepSearchers(System.Boolean)">
-            <summary>
-            Sets the property <see cref="P:Sudoku.Analytics.Analyzer.IgnoreHighAllocationAlgorithms"/> with the target value.
-            </summary>
-            <param name="ignore">The value to be set or updated.</param>
-            <returns>The value same as <see cref="T:Sudoku.Analytics.Analyzer"/>.</returns>
-        </member>
         <member name="M:Sudoku.Analytics.StepGathererFactory..WithStepSearchers(Sudoku.Analytics.StepSearcher[])">
             <summary>
             Sets the property <see cref="P:Sudoku.Analytics.StepGatherer.StepSearchers"/> with the target value.
@@ -11222,20 +11184,6 @@
         <member name="P:Sudoku.Analytics.StepSearchers.StepSearcherMetadataInfo.SupportAnalyzingMultipleSolutionsPuzzle">
             <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.StepSearcherAttribute.SupportAnalyzingMultipleSolutionsPuzzle"/>
         </member>
-        <member name="P:Sudoku.Analytics.StepSearchers.StepSearcherMetadataInfo.IsConfiguredSlow">
-            <summary>
-            Determines whether the current step searcher is disabled
-            by option <see cref="F:Sudoku.Analytics.StepSearchers.StepSearcherRuntimeFlags.TimeComplexity"/> being configured.
-            </summary>
-            <seealso cref="F:Sudoku.Analytics.StepSearchers.StepSearcherRuntimeFlags.TimeComplexity"/>
-        </member>
-        <member name="P:Sudoku.Analytics.StepSearchers.StepSearcherMetadataInfo.IsConfiguredHighAllocation">
-            <summary>
-            Determines whether the current step searcher is disabled
-            by option <see cref="F:Sudoku.Analytics.StepSearchers.StepSearcherRuntimeFlags.SpaceComplexity"/> being configured.
-            </summary>
-            <seealso cref="F:Sudoku.Analytics.StepSearchers.StepSearcherRuntimeFlags.SpaceComplexity"/>
-        </member>
         <member name="P:Sudoku.Analytics.StepSearchers.StepSearcherMetadataInfo.IsOnlyRunForDirectViews">
             <summary>
             Determines whether the current step searcher is only run for direct view.
@@ -11324,18 +11272,6 @@
         <member name="F:Sudoku.Analytics.StepSearchers.StepSearcherRuntimeFlags.Default">
             <summary>
             Indicates the step searcher can be called anywhere as long it is enabled. This is also the default value of this enumeration type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.StepSearcherRuntimeFlags.TimeComplexity">
-            <summary>
-            Indicates a <see cref="T:Sudoku.Analytics.StepSearcher"/> will produce high time complexity,
-            meaning it will be disabled if a user want to disable high time-complexity algorithms.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.StepSearcherRuntimeFlags.SpaceComplexity">
-            <summary>
-            Indicates the <see cref="T:Sudoku.Analytics.StepSearcher"/> will produce high space complexity,
-            meaning it will be disabled if a user want to disable high space-complexity algorithms.
             </summary>
         </member>
         <member name="F:Sudoku.Analytics.StepSearchers.StepSearcherRuntimeFlags.DirectTechniquesOnly">

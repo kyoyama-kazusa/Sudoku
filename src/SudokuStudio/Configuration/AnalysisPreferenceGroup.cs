@@ -177,14 +177,6 @@ public sealed partial class AnalysisPreferenceGroup : PreferenceGroup
 	[DependencyProperty]
 	public partial bool AnalyzerIsFullApplying { get; set; }
 
-	/// <inheritdoc cref="Analyzer.IgnoreSlowAlgorithms"/>
-	[DependencyProperty]
-	public partial bool AnalyzerIgnoresSlowAlgorithms { get; set; }
-
-	/// <inheritdoc cref="Analyzer.IgnoreHighAllocationAlgorithms"/>
-	[DependencyProperty]
-	public partial bool AnalyzerIgnoresHighAllocationAlgorithms { get; set; }
-
 
 	/// <inheritdoc cref="Collector.MaxStepsCollected"/>
 	[DependencyProperty(DefaultValue = 1000)]

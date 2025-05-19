@@ -190,8 +190,6 @@ public partial class App : Application
 		=> Analyzer
 			.WithStepSearchers(Current.AsApp().GetStepSearchers(), difficultyLevel)
 			.WithRuntimeIdentifierSetters(sudokuPane)
-			.WithIgnoreHighTimeComplexityStepSearchers(Preference.AnalysisPreferences.AnalyzerIgnoresSlowAlgorithms)
-			.WithIgnoreHighSpaceComplexityStepSearchers(Preference.AnalysisPreferences.AnalyzerIgnoresHighAllocationAlgorithms)
 			.WithUserDefinedOptions(CreateStepSearcherOptions());
 
 	/// <inheritdoc/>

@@ -1211,12 +1211,6 @@
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AnalyzerIsFullApplying">
             <inheritdoc cref="P:Sudoku.Analytics.Analyzer.IsFullApplying"/>
         </member>
-        <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AnalyzerIgnoresSlowAlgorithms">
-            <inheritdoc cref="P:Sudoku.Analytics.Analyzer.IgnoreSlowAlgorithms"/>
-        </member>
-        <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AnalyzerIgnoresHighAllocationAlgorithms">
-            <inheritdoc cref="P:Sudoku.Analytics.Analyzer.IgnoreHighAllocationAlgorithms"/>
-        </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.CollectorMaxStepsCollected">
             <inheritdoc cref="P:Sudoku.Analytics.Collector.MaxStepsCollected"/>
         </member>
@@ -1468,18 +1462,6 @@
             Defines a dependency property that binds with property <see cref="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AnalyzerIsFullApplying"/>.
             </summary>
             <seealso cref="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AnalyzerIsFullApplying"/>
-        </member>
-        <member name="F:SudokuStudio.Configuration.AnalysisPreferenceGroup.AnalyzerIgnoresSlowAlgorithmsProperty">
-            <summary>
-            Defines a dependency property that binds with property <see cref="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AnalyzerIgnoresSlowAlgorithms"/>.
-            </summary>
-            <seealso cref="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AnalyzerIgnoresSlowAlgorithms"/>
-        </member>
-        <member name="F:SudokuStudio.Configuration.AnalysisPreferenceGroup.AnalyzerIgnoresHighAllocationAlgorithmsProperty">
-            <summary>
-            Defines a dependency property that binds with property <see cref="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AnalyzerIgnoresHighAllocationAlgorithms"/>.
-            </summary>
-            <seealso cref="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AnalyzerIgnoresHighAllocationAlgorithms"/>
         </member>
         <member name="F:SudokuStudio.Configuration.AnalysisPreferenceGroup.CollectorMaxStepsCollectedProperty">
             <summary>
@@ -6649,16 +6631,6 @@
               Looks up a localized string similar to Data Charts.
             </summary>
         </member>
-        <member name="P:SudokuStudio.Resources.SudokuStudioResources.AnalyzePage_LogicalSolverIgnoresHighAllocationAlgorithms">
-            <summary>
-              Looks up a localized string similar to Ignore high-allocation techniques.
-            </summary>
-        </member>
-        <member name="P:SudokuStudio.Resources.SudokuStudioResources.AnalyzePage_LogicalSolverIgnoresSlowAlgorithms">
-            <summary>
-              Looks up a localized string similar to Ignore slow techniques.
-            </summary>
-        </member>
         <member name="P:SudokuStudio.Resources.SudokuStudioResources.AnalyzePage_LogicalSolverIsFullyApplied">
             <summary>
               Looks up a localized string similar to Solver full applying.
@@ -11371,12 +11343,6 @@
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIsFullApplying">
             <inheritdoc cref="P:Sudoku.Analytics.Analyzer.IsFullApplying"/>
         </member>
-        <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIgnoresSlowAlgorithms">
-            <inheritdoc cref="P:Sudoku.Analytics.Analyzer.IgnoreSlowAlgorithms"/>
-        </member>
-        <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIgnoresHighAllocationAlgorithms">
-            <inheritdoc cref="P:Sudoku.Analytics.Analyzer.IgnoreHighAllocationAlgorithms"/>
-        </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.IttoryuSupportedTechniques">
             <inheritdoc cref="P:Sudoku.Behaviors.Ittoryu.DisorderedIttoryuFinder.SupportedTechniques"/>
         </member>
@@ -11515,18 +11481,6 @@
             Defines a attached property that binds with setter and getter methods <see cref="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIsFullApplying"/>.
             </summary>
             <seealso cref="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIsFullApplying"/>
-        </member>
-        <member name="F:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIgnoresSlowAlgorithmsProperty">
-            <summary>
-            Defines a attached property that binds with setter and getter methods <see cref="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIgnoresSlowAlgorithms"/>.
-            </summary>
-            <seealso cref="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIgnoresSlowAlgorithms"/>
-        </member>
-        <member name="F:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIgnoresHighAllocationAlgorithmsProperty">
-            <summary>
-            Defines a attached property that binds with setter and getter methods <see cref="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIgnoresHighAllocationAlgorithms"/>.
-            </summary>
-            <seealso cref="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIgnoresHighAllocationAlgorithms"/>
         </member>
         <member name="F:SudokuStudio.Views.Attached.AnalyzerProperties.IttoryuSupportedTechniquesProperty">
             <summary>
@@ -11759,38 +11713,6 @@
             <param name="obj">The containing object of the property.</param>
             <returns>The value returned.</returns>
             <seealso cref="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIsFullApplying"/>
-        </member>
-        <member name="M:SudokuStudio.Views.Attached.AnalyzerProperties.SetAnalyzerIgnoresSlowAlgorithms(Microsoft.UI.Xaml.DependencyObject,System.Boolean)">
-            <summary>
-            Sets the attached property <see cref="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIgnoresSlowAlgorithms"/> with the specified value.
-            </summary>
-            <param name="obj">The containing object of the property.</param>
-            <param name="value">The value to be set.</param>
-            <seealso cref="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIgnoresSlowAlgorithms"/>
-        </member>
-        <member name="M:SudokuStudio.Views.Attached.AnalyzerProperties.GetAnalyzerIgnoresSlowAlgorithms(Microsoft.UI.Xaml.DependencyObject)">
-            <summary>
-            Gets the attached property <see cref="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIgnoresSlowAlgorithms"/> of its containing value.
-            </summary>
-            <param name="obj">The containing object of the property.</param>
-            <returns>The value returned.</returns>
-            <seealso cref="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIgnoresSlowAlgorithms"/>
-        </member>
-        <member name="M:SudokuStudio.Views.Attached.AnalyzerProperties.SetAnalyzerIgnoresHighAllocationAlgorithms(Microsoft.UI.Xaml.DependencyObject,System.Boolean)">
-            <summary>
-            Sets the attached property <see cref="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIgnoresHighAllocationAlgorithms"/> with the specified value.
-            </summary>
-            <param name="obj">The containing object of the property.</param>
-            <param name="value">The value to be set.</param>
-            <seealso cref="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIgnoresHighAllocationAlgorithms"/>
-        </member>
-        <member name="M:SudokuStudio.Views.Attached.AnalyzerProperties.GetAnalyzerIgnoresHighAllocationAlgorithms(Microsoft.UI.Xaml.DependencyObject)">
-            <summary>
-            Gets the attached property <see cref="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIgnoresHighAllocationAlgorithms"/> of its containing value.
-            </summary>
-            <param name="obj">The containing object of the property.</param>
-            <returns>The value returned.</returns>
-            <seealso cref="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerIgnoresHighAllocationAlgorithms"/>
         </member>
         <member name="M:SudokuStudio.Views.Attached.AnalyzerProperties.SetIttoryuSupportedTechniques(Microsoft.UI.Xaml.DependencyObject,System.Collections.Generic.List{Sudoku.Categorization.Technique})">
             <summary>

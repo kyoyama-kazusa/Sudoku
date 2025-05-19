@@ -31,14 +31,6 @@ public static partial class AnalyzerProperties
 	[DependencyProperty]
 	public static partial bool AnalyzerIsFullApplying { get; set; }
 
-	/// <inheritdoc cref="Analyzer.IgnoreSlowAlgorithms"/>
-	[DependencyProperty]
-	public static partial bool AnalyzerIgnoresSlowAlgorithms { get; set; }
-
-	/// <inheritdoc cref="Analyzer.IgnoreHighAllocationAlgorithms"/>
-	[DependencyProperty]
-	public static partial bool AnalyzerIgnoresHighAllocationAlgorithms { get; set; }
-
 
 	/// <inheritdoc cref="DisorderedIttoryuFinder.SupportedTechniques"/>
 	[DependencyProperty]

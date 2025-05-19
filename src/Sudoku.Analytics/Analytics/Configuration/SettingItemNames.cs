@@ -124,12 +124,6 @@ public static class SettingItemNames
 	/// <inheritdoc cref="Analyzer.IsFullApplying"/>
 	public const string AnalyzerIsFullApplying = nameof(AnalyzerIsFullApplying);
 
-	/// <inheritdoc cref="Analyzer.IgnoreSlowAlgorithms"/>
-	public const string AnalyzerIgnoresSlowAlgorithms = nameof(AnalyzerIgnoresSlowAlgorithms);
-
-	/// <inheritdoc cref="Analyzer.IgnoreHighAllocationAlgorithms"/>
-	public const string AnalyzerIgnoresHighAllocationAlgorithms = nameof(AnalyzerIgnoresHighAllocationAlgorithms);
-
 	/// <inheritdoc cref="Collector.DifficultyLevelMode"/>
 	public const string DifficultyLevelMode = nameof(DifficultyLevelMode);
 

@@ -14,7 +14,6 @@ namespace Sudoku.Analytics.StepSearchers.Uniqueness;
 	"StepSearcherName_AnonymousDeadlyPatternStepSearcher",
 	Technique.AnonymousDeadlyPatternType1, Technique.AnonymousDeadlyPatternType2,
 	Technique.AnonymousDeadlyPatternType3, Technique.AnonymousDeadlyPatternType4,
-	RuntimeFlags = StepSearcherRuntimeFlags.TimeComplexity,
 	SupportedSudokuTypes = SudokuType.Standard,
 	SupportAnalyzingMultipleSolutionsPuzzle = false)]
 public sealed partial class AnonymousDeadlyPatternStepSearcher : StepSearcher

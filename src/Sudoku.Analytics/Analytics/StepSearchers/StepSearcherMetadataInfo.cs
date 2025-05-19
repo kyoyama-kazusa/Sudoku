@@ -26,21 +26,6 @@ public sealed partial class StepSearcherMetadataInfo([Field] StepSearcher stepSe
 	public bool SupportAnalyzingMultipleSolutionsPuzzle => _backAttribute.SupportAnalyzingMultipleSolutionsPuzzle;
 
 	/// <summary>
-	/// Determines whether the current step searcher is disabled
-	/// by option <see cref="StepSearcherRuntimeFlags.TimeComplexity"/> being configured.
-	/// </summary>
-	/// <seealso cref="StepSearcherRuntimeFlags.TimeComplexity"/>
-	public bool IsConfiguredSlow => _backAttribute.RuntimeFlags is { } cases && cases.HasFlag(StepSearcherRuntimeFlags.TimeComplexity);
-
-	/// <summary>
-	/// Determines whether the current step searcher is disabled
-	/// by option <see cref="StepSearcherRuntimeFlags.SpaceComplexity"/> being configured.
-	/// </summary>
-	/// <seealso cref="StepSearcherRuntimeFlags.SpaceComplexity"/>
-	public bool IsConfiguredHighAllocation
-		=> _backAttribute.RuntimeFlags is { } cases && cases.HasFlag(StepSearcherRuntimeFlags.SpaceComplexity);
-
-	/// <summary>
 	/// Determines whether the current step searcher is only run for direct view.
 	/// </summary>
 	public bool IsOnlyRunForDirectViews
