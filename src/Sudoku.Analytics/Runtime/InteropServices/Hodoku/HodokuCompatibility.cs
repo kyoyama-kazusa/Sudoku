@@ -101,7 +101,7 @@ public static class HodokuCompatibility
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static string? GetHodokuLibraryPrefix(Technique @this)
 		=> (@this != Technique.None && Enum.IsDefined(@this))
-			? typeof(Technique).GetField(@this.ToString()) is { } fieldInfo
+			? Technique.FieldInfoOf(@this) is { } fieldInfo
 				? fieldInfo.GetCustomAttribute<HodokuAttribute>() is { Prefix: var prefix } ? prefix : null
 				: null
 			: throw new ArgumentOutOfRangeException(nameof(@this));
@@ -121,7 +121,7 @@ public static class HodokuCompatibility
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static string[]? GetAliases(Technique @this)
 		=> (@this != Technique.None && Enum.IsDefined(@this))
-			? typeof(Technique).GetField(@this.ToString()) is { } fieldInfo
+			? Technique.FieldInfoOf(@this) is { } fieldInfo
 				? fieldInfo.GetCustomAttribute<HodokuAttribute>() is { Aliases: var aliases } ? aliases : null
 				: null
 			: throw new ArgumentOutOfRangeException(nameof(@this));
@@ -149,7 +149,7 @@ public static class HodokuCompatibility
 			throw new ArgumentOutOfRangeException(nameof(@this));
 		}
 
-		(var @return, difficultyLevel) = typeof(Technique).GetField(@this.ToString()) switch
+		(var @return, difficultyLevel) = Technique.FieldInfoOf(@this) switch
 		{
 			{ } fieldInfo => fieldInfo.GetCustomAttribute<HodokuAttribute>() switch
 			{

@@ -25711,11 +25711,6 @@
             </summary>
             <seealso cref="T:Sudoku.Categorization.Technique"/>
         </member>
-        <member name="F:Sudoku.Categorization.TechniqueExtensions.TypeOfTechnique">
-            <summary>
-            Represents <see langword="typeof"/>(<see cref="T:Sudoku.Categorization.Technique"/>).
-            </summary>
-        </member>
         <member name="T:Sudoku.Categorization.TechniqueExtensions.">
             <summary>
             Provides extension members on <see cref="T:Sudoku.Categorization.Technique"/>.
@@ -26191,11 +26186,6 @@
             Provides with extension methods on <see cref="T:Sudoku.Categorization.TechniqueGroup"/>.
             </summary>
             <seealso cref="T:Sudoku.Categorization.TechniqueGroup"/>
-        </member>
-        <member name="F:Sudoku.Categorization.TechniqueGroupExtensions.TypeOfTechniqueGroup">
-            <summary>
-            Represents <see langword="typeof"/>(<see cref="T:Sudoku.Categorization.TechniqueGroup"/>).
-            </summary>
         </member>
         <member name="T:Sudoku.Categorization.TechniqueGroupExtensions.">
             <summary>

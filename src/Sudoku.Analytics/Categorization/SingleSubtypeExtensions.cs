@@ -62,7 +62,7 @@ public static class SingleSubtypeExtensions
 		/// Gets the attribute.
 		/// </summary>
 		private TechniqueMetadataAttribute Attribute
-			=> typeof(SingleSubtype).GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()!;
+			=> SingleSubtype.FieldInfoOf(@this)!.GetCustomAttribute<TechniqueMetadataAttribute>()!;
 
 
 		/// <summary>

@@ -19,7 +19,7 @@ public static class LinkTypeExtensions
 		{
 			get
 			{
-				var types = typeof(LinkType).GetField(@this.ToString())?.GetGenericAttributeTypeArguments(typeof(ChainingRuleAttribute<>));
+				var types = LinkType.FieldInfoOf(@this)?.GetGenericAttributeTypeArguments(typeof(ChainingRuleAttribute<>));
 				return types is [var type] ? (ChainingRule?)Activator.CreateInstance(type) : null;
 			}
 		}

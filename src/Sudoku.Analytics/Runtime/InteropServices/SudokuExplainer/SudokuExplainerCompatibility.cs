@@ -21,7 +21,7 @@ public static class SudokuExplainerCompatibility
 	/// <seealso cref="Technique"/>
 	public static string[]? GetAliases(Technique @this)
 		=> (@this != Technique.None && Enum.IsDefined(@this))
-			? typeof(Technique).GetField(@this.ToString()) is { } fieldInfo
+			? Technique.FieldInfoOf(@this) is { } fieldInfo
 				? fieldInfo.GetCustomAttribute<SudokuExplainerAttribute>() is { Aliases: var names } ? names : null
 				: null
 			: throw new ArgumentOutOfRangeException(nameof(@this));
@@ -36,7 +36,7 @@ public static class SudokuExplainerCompatibility
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static SudokuExplainerTechnique? GetCorrespondingTechnique(Technique @this)
 	{
-		var found = typeof(Technique).GetField(@this.ToString())?.GetCustomAttribute<SudokuExplainerAttribute>();
+		var found = Technique.FieldInfoOf(@this)?.GetCustomAttribute<SudokuExplainerAttribute>();
 		return found is { Technique: var flag } ? flag : null;
 	}
 
@@ -57,7 +57,7 @@ public static class SudokuExplainerCompatibility
 	public static SudokuExplainerRating? GetDifficultyRatingRange(Technique @this)
 		=> @this == Technique.None || !Enum.IsDefined(@this)
 			? throw new ArgumentOutOfRangeException(nameof(@this))
-			: (SudokuExplainerAttribute[])typeof(Technique).GetField(@this.ToString())!.GetCustomAttributes<SudokuExplainerAttribute>() switch
+			: (SudokuExplainerAttribute[])Technique.FieldInfoOf(@this)!.GetCustomAttributes<SudokuExplainerAttribute>() switch
 			{
 				[] => null,
 				[{ RatingOriginal: [var min], RatingAdvanced: null }] => new(new((Half)min, (Half)min), null),

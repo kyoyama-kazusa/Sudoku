@@ -7,12 +7,6 @@ namespace Sudoku.Categorization;
 public static class TechniqueGroupExtensions
 {
 	/// <summary>
-	/// Represents <see langword="typeof"/>(<see cref="TechniqueGroup"/>).
-	/// </summary>
-	private static readonly Type TypeOfTechniqueGroup = typeof(TechniqueGroup);
-
-
-	/// <summary>
 	/// Provides extension members on <see cref="TechniqueGroup"/>.
 	/// </summary>
 	extension(TechniqueGroup @this)
@@ -21,8 +15,7 @@ public static class TechniqueGroupExtensions
 		/// Indicates whether the technique group supports for Siamese rule.
 		/// </summary>
 		public bool SupportsSiamese
-			=> TypeOfTechniqueGroup.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.SupportsSiamese
-			?? false;
+			=> TechniqueGroup.FieldInfoOf(@this)!.GetCustomAttribute<TechniqueMetadataAttribute>()?.SupportsSiamese ?? false;
 
 		/// <summary>
 		/// Indicates the name of the technique group.
@@ -39,7 +32,7 @@ public static class TechniqueGroupExtensions
 		/// Try to get abbreviation of the current <see cref="TechniqueGroup"/> instance.
 		/// </summary>
 		public string? Abbreviation
-			=> TypeOfTechniqueGroup.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.Abbreviation;
+			=> TechniqueGroup.FieldInfoOf(@this)!.GetCustomAttribute<TechniqueMetadataAttribute>()?.Abbreviation;
 
 
 		/// <summary>

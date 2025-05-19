@@ -7,12 +7,6 @@ namespace Sudoku.Categorization;
 public static class TechniqueExtensions
 {
 	/// <summary>
-	/// Represents <see langword="typeof"/>(<see cref="Technique"/>).
-	/// </summary>
-	private static readonly Type TypeOfTechnique = typeof(Technique);
-
-
-	/// <summary>
 	/// Provides extension members on <see cref="Technique"/>.
 	/// </summary>
 	extension(Technique @this)
@@ -44,8 +38,7 @@ public static class TechniqueExtensions
 		/// Indicates whether the specified technique is a technique that can only be produced in direct views.
 		/// </summary>
 		public bool IsDirect
-			=> TypeOfTechnique
-				.GetField(@this.ToString())!
+			=> Technique.FieldInfoOf(@this)!
 				.GetCustomAttribute<TechniqueMetadataAttribute>()?
 				.Features
 				.HasFlag(TechniqueFeatures.DirectTechniques)
@@ -64,7 +57,7 @@ public static class TechniqueExtensions
 		public bool SupportsCustomizingDifficulty
 			=> Enum.IsDefined(@this) && @this != Technique.None
 			&& !@this.IsLastResort
-			&& TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>() is
+			&& Technique.FieldInfoOf(@this)!.GetCustomAttribute<TechniqueMetadataAttribute>() is
 			{
 				Rating: not int.MinValue,
 				DifficultyLevel: not (DifficultyLevel)int.MinValue
@@ -74,7 +67,7 @@ public static class TechniqueExtensions
 		/// Indicates whether the technique supports for Siamese rule.
 		/// </summary>
 		public bool SupportsSiamese
-			=> TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.SupportsSiamese is true
+			=> Technique.FieldInfoOf(@this)!.GetCustomAttribute<TechniqueMetadataAttribute>()?.SupportsSiamese is true
 			|| @this.Group.SupportsSiamese;
 
 		/// <summary>
@@ -87,14 +80,14 @@ public static class TechniqueExtensions
 		/// Indicates the abbreviation of the current instance.
 		/// </summary>
 		public string? Abbreviation
-			=> TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.Abbreviation
+			=> Technique.FieldInfoOf(@this)!.GetCustomAttribute<TechniqueMetadataAttribute>()?.Abbreviation
 			?? (SR.TryGet($"TechniqueAbbr_{@this}", out var resource, SR.DefaultCulture) ? resource : @this.Group.Abbreviation);
 
 		/// <summary>
 		/// Indicates all configured links to EnjoySudoku forum describing the current technique.
 		/// </summary>
 		public ReadOnlySpan<string> ReferenceLinks
-			=> TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.Links ?? [];
+			=> Technique.FieldInfoOf(@this)!.GetCustomAttribute<TechniqueMetadataAttribute>()?.Links ?? [];
 
 		/// <summary>
 		/// Indicates the group that the current <see cref="Technique"/> belongs to.
@@ -112,7 +105,7 @@ public static class TechniqueExtensions
 		{
 			get
 			{
-				var fi = TypeOfTechnique.GetField(@this.ToString())!;
+				var fi = Technique.FieldInfoOf(@this)!;
 				var metadata = fi.GetCustomAttribute<TechniqueMetadataAttribute>();
 				return metadata switch
 				{
@@ -143,13 +136,13 @@ public static class TechniqueExtensions
 		/// Indicates all features configured for the current <see cref="Technique"/>.
 		/// </summary>
 		public TechniqueFeatures Features
-			=> TypeOfTechnique.GetField(@this.ToString())?.GetCustomAttribute<TechniqueMetadataAttribute>()?.Features ?? 0;
+			=> Technique.FieldInfoOf(@this)?.GetCustomAttribute<TechniqueMetadataAttribute>()?.Features ?? 0;
 
 		/// <summary>
 		/// Indicates supported pencilmark-visibility modes that the current <see cref="Technique"/> can be used in application.
 		/// </summary>
 		public PencilmarkVisibility SupportedPencilmarkVisibilityModes
-			=> TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.PencilmarkVisibility
+			=> Technique.FieldInfoOf(@this)!.GetCustomAttribute<TechniqueMetadataAttribute>()?.PencilmarkVisibility
 			?? PencilmarkVisibilities.All;
 
 		/// <summary>
@@ -160,7 +153,7 @@ public static class TechniqueExtensions
 		/// <seealso cref="Step"/>
 		/// <seealso cref="Step.Code"/>
 		public Type? SuitableStepType
-			=> TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()?.StepType;
+			=> Technique.FieldInfoOf(@this)!.GetCustomAttribute<TechniqueMetadataAttribute>()?.StepType;
 
 
 		/// <summary>
@@ -173,7 +166,7 @@ public static class TechniqueExtensions
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public int GetDefaultRating(out int directRatingValue)
 		{
-			var attribute = TypeOfTechnique.GetField(@this.ToString())!.GetCustomAttribute<TechniqueMetadataAttribute>()!;
+			var attribute = Technique.FieldInfoOf(@this)!.GetCustomAttribute<TechniqueMetadataAttribute>()!;
 			directRatingValue = attribute.DirectRating == 0 ? attribute.Rating : attribute.DirectRating;
 			return attribute.Rating;
 		}
@@ -253,6 +246,6 @@ public static class TechniqueExtensions
 		/// <returns>The <see cref="TechniqueGroup"/> value that the current <see cref="Technique"/> belongs to.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public TechniqueGroup? TryGetGroup()
-			=> TypeOfTechnique.GetField(@this.ToString())?.GetCustomAttribute<TechniqueMetadataAttribute>()?.ContainingGroup;
+			=> Technique.FieldInfoOf(@this)?.GetCustomAttribute<TechniqueMetadataAttribute>()?.ContainingGroup;
 	}
 }
