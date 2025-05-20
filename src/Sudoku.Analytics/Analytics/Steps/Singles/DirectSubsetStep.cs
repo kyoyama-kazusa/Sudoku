@@ -76,7 +76,8 @@ public sealed partial class DirectSubsetStep(
 					HouseStr,
 					InterimCellStr,
 					InterimDigitStr,
-					TechniqueNameStr(SR.EnglishLanguage), DigitsStr,
+					TechniqueNameStr(SR.EnglishLanguage),
+					DigitsStr,
 					SubsetNameStr(SR.EnglishLanguage)
 				]
 			),
