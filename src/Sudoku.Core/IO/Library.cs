@@ -3,10 +3,10 @@ namespace Sudoku.IO;
 /// <summary>
 /// Represents a puzzle library.
 /// </summary>
-/// <param name="directoryPath">Indicates the directory path.</param>
-/// <param name="identifier">Indicates the library identifier.</param>
+/// <param name="directoryPath"><inheritdoc cref="_directoryPath" path="/summary"/></param>
+/// <param name="identifier"><inheritdoc cref="_identifier" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.AllObjectMethods | TypeImplFlags.Equatable | TypeImplFlags.EqualityOperators)]
-public sealed partial class Library([Field] string directoryPath, [Field] string identifier) :
+public sealed partial class Library(string directoryPath, string identifier) :
 	IAsyncEnumerable<Grid>,
 	IEquatable<Library>,
 	IEqualityOperators<Library, Library, bool>
@@ -23,6 +23,16 @@ public sealed partial class Library([Field] string directoryPath, [Field] string
 		PropertyNamingPolicy = JsonNamingPolicy.CamelCase
 	};
 
+
+	/// <summary>
+	/// Indicates the directory path.
+	/// </summary>
+	private readonly string _directoryPath = directoryPath;
+
+	/// <summary>
+	/// Indicates the library identifier.
+	/// </summary>
+	private readonly string _identifier = identifier;
 
 	/// <summary>
 	/// Indicates the lock object to keep operation thread-safe.

@@ -3,14 +3,13 @@ namespace Sudoku.Drawing.Parsing;
 /// <summary>
 /// Represents a parser that generates a list of drawing items.
 /// </summary>
-/// <param name="grid">Indicates the reference to the grid. The reference can be <see langword="null"/>.</param>
+/// <param name="grid"><inheritdoc cref="_grid" path="/summary"/></param>
 /// <remarks>
 /// Please visit <see href="https://sudokustudio.kazusa.tech/user-manual/drawing-command-line">this link</see>
 /// to learn more information about drawing command syntax.
 /// </remarks>
-[StructLayout(LayoutKind.Auto)]
 [TypeImpl(TypeImplFlags.AllObjectMethods)]
-public readonly ref partial struct DrawingCommandParser([Field, AllowNull] ref readonly Grid grid)
+public readonly ref partial struct DrawingCommandParser([AllowNull] ref readonly Grid grid)
 {
 	/// <summary>
 	/// Indicates the valid names.
@@ -55,6 +54,12 @@ public readonly ref partial struct DrawingCommandParser([Field, AllowNull] ref r
 		{ "baba", static () => new BabaGroupArgumentParser() },
 		{ "link", static () => new LinkArgumentParser() }
 	};
+
+
+	/// <summary>
+	/// Indicates the reference to the grid. The reference can be <see langword="null"/>.
+	/// </summary>
+	private readonly ref readonly Grid _grid = ref grid;
 
 
 	/// <summary>

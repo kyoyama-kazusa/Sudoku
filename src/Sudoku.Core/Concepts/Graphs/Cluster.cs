@@ -12,26 +12,43 @@ using ConflictedInfo = ((Cell Left, Cell Right), CellMap InfluencedRange);
 /// Please visit <see href="http://sudopedia.enjoysudoku.com/Cluster.html">this link</see> to learn more information.
 /// </para>
 /// </summary>
-/// <param name="grid">Indicates the grid used.</param>
-/// <param name="digit">Indicates the digit used.</param>
-/// <param name="map">Indicates the cells used.</param>
+/// <param name="grid"><inheritdoc cref="_grid" path="/summary"/></param>
+/// <param name="digit"><inheritdoc cref="Digit" path="/summary"/></param>
+/// <param name="map"><inheritdoc cref="Map" path="/summary"/></param>
 /// <seealso href="http://sudopedia.enjoysudoku.com/Cluster.html">Sudopedia Mirror - Cluster</seealso>
-[StructLayout(LayoutKind.Auto)]
 [TypeImpl(
 	TypeImplFlags.AllObjectMethods | TypeImplFlags.EqualityOperators | TypeImplFlags.Equatable,
 	ToStringBehavior = ToStringBehavior.RecordLike)]
-public readonly ref partial struct Cluster(
-	[Field, HashCodeMember, StringMember] in Grid grid,
-	[Property, HashCodeMember, StringMember] Digit digit,
-	[Field(RefKind = null), HashCodeMember, StringMember] scoped in CellMap map
-) :
-	IEquatable<Cluster>
+public readonly ref partial struct Cluster(in Grid grid, Digit digit, scoped in CellMap map) : IEquatable<Cluster>
 {
+	/// <summary>
+	/// Indicates the grid used.
+	/// </summary>
+	[HashCodeMember]
+	[StringMember]
+	private readonly ref readonly Grid _grid = ref grid;
+
+	/// <summary>
+	/// Indicates the backing cells map used.
+	/// </summary>
+	[HashCodeMember]
+	[StringMember]
+	[EquatableMember]
+	[SuppressMessage("Style", "IDE0032:Use auto property", Justification = "<Pending>")]
+	private readonly CellMap _map = map;
+
+
+	/// <summary>
+	/// Indicates the digit used.
+	/// </summary>
+	[HashCodeMember]
+	[StringMember]
+	public Digit Digit { get; } = digit;
+
 	/// <summary>
 	/// Indicates the internal map.
 	/// </summary>
 	[UnscopedRef]
-	[EquatableMember]
 	public ref readonly CellMap Map => ref _map;
 
 	/// <summary>

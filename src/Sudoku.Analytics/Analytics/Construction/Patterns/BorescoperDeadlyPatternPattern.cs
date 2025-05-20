@@ -30,26 +30,9 @@ namespace Sudoku.Analytics.Construction.Patterns;
 /// </item>
 /// </list>
 /// </summary>
-/// <param name="mask">
-/// <para>Indicates the internal mask.</para>
-/// <para>
-/// This mask is of type <see cref="long"/>, where the distribution of each bit is as follows:
-/// <code><![CDATA[
-/// 0      7     14     21     28     35     42     49     56
-/// ↓      ↓      ↓      ↓      ↓      ↓      ↓      ↓      ↓
-/// |-------|-------|-------|-------|-------|-------|-------|-------|
-/// ↑       ↑       ↑       ↑       ↑       ↑       ↑       ↑       ↑
-/// 0       8      16      24      32      40      48      56      64
-/// ]]></code>
-/// where the bit <c>[0..56]</c> is for 8 cells, the last 7 bits determine the pattern is a
-/// heptagon or a octagon. If the value is 127 (not available), the pattern will be a heptagon.
-/// </para>
-/// <para>
-/// Due to the drawing API, you have to check this file rather than the tip window.
-/// </para>
-/// </param>
+/// <param name="mask"><inheritdoc cref="_mask" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode)]
-public sealed partial class BorescoperDeadlyPatternPattern([Field, HashCodeMember] long mask) : Pattern
+public sealed partial class BorescoperDeadlyPatternPattern(long mask) : Pattern
 {
 	/// <summary>
 	/// Indicates all possible patterns to iterate.
@@ -70,6 +53,28 @@ public sealed partial class BorescoperDeadlyPatternPattern([Field, HashCodeMembe
 		[4, 5, 7, 8], [0, 2, 3, 5], [3, 5, 6, 8],
 		[0, 1, 6, 7], [1, 2, 7, 8], [0, 2, 6, 8]
 	];
+
+
+	/// <summary>
+	/// <para>Indicates the internal mask.</para>
+	/// <para>
+	/// This mask is of type <see cref="long"/>, where the distribution of each bit is as follows:
+	/// <code><![CDATA[
+	/// 0      7     14     21     28     35     42     49     56
+	/// ↓      ↓      ↓      ↓      ↓      ↓      ↓      ↓      ↓
+	/// |-------|-------|-------|-------|-------|-------|-------|-------|
+	/// ↑       ↑       ↑       ↑       ↑       ↑       ↑       ↑       ↑
+	/// 0       8      16      24      32      40      48      56      64
+	/// ]]></code>
+	/// where the bit <c>[0..56]</c> is for 8 cells, the last 7 bits determine the pattern is a
+	/// heptagon or a octagon. If the value is 127 (not available), the pattern will be a heptagon.
+	/// </para>
+	/// <para>
+	/// Due to the drawing API, you have to check this file rather than the tip window.
+	/// </para>
+	/// </summary>
+	[HashCodeMember]
+	private readonly long _mask = mask;
 
 
 	/// <include file='../../global-doc-comments.xml' path='g/static-constructor' />

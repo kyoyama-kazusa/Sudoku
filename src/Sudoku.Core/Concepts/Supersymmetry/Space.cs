@@ -4,10 +4,18 @@ namespace Sudoku.Concepts.Supersymmetry;
 /// Represents a supersymmetric space. This type can also be used as representation for truth or link concept
 /// defined in another project called <see href="https://sudoku.allanbarker.com/index.html">XSudo</see>.
 /// </summary>
-/// <param name="mask">Indicates the backing mask.</param>
+/// <param name="mask"><inheritdoc cref="_mask" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.AllObjectMethods | TypeImplFlags.Equatable | TypeImplFlags.EqualityOperators)]
-public readonly partial struct Space([Field, HashCodeMember] Mask mask) : IEquatable<Space>, IEqualityOperators<Space, Space, bool>
+public readonly partial struct Space(Mask mask) : IEquatable<Space>, IEqualityOperators<Space, Space, bool>
 {
+	/// <summary>
+	/// Indicates the backing mask.
+	/// </summary>
+	[HashCodeMember]
+	[EquatableMember]
+	private readonly Mask _mask = mask;
+
+
 	/// <summary>
 	/// Indicates whether the space is house-related.
 	/// </summary>
@@ -86,9 +94,6 @@ public readonly partial struct Space([Field, HashCodeMember] Mask mask) : IEquat
 
 	[StringMember]
 	private string FinalText => $"{Secondary + 1}{Letter}{Primary + 1}";
-
-	[EquatableMember]
-	private Mask MaskEntry => _mask;
 
 
 	/// <include file="../../global-doc-comments.xml" path="g/csharp7/feature[@name='deconstruction-method']/target[@name='method']"/>

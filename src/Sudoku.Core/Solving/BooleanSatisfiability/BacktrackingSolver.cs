@@ -5,9 +5,14 @@ namespace Sudoku.Solving.BooleanSatisfiability;
 /// For more information about DPLL algorithm, please visit
 /// <see href="https://en.wikipedia.org/wiki/DPLL_algorithm">this link</see>.
 /// </summary>
-/// <param name="formula">Indicates the formula.</param>
-public sealed partial class BacktrackingSolver([Field] ConjunctiveNormalFormFormula formula)
+/// <param name="formula"><inheritdoc cref="_formula" path="/summary"/></param>
+public sealed class BacktrackingSolver(ConjunctiveNormalFormFormula formula)
 {
+	/// <summary>
+	/// Indicates the formula.
+	/// </summary>
+	private readonly ConjunctiveNormalFormFormula _formula = formula;
+
 	/// <summary>
 	/// Represents the assignment values. The result value only represents for 3 values:
 	/// <list type="table">

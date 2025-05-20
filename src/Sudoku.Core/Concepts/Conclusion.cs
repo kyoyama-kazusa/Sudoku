@@ -3,22 +3,7 @@ namespace Sudoku.Concepts;
 /// <summary>
 /// Defines a type that can describe a candidate is the correct or wrong digit.
 /// </summary>
-/// <param name="mask">
-/// The field uses the mask table of length 81 to indicate the state and all possible candidates
-/// holding for each cell. Each mask uses a <see cref="Mask"/> value, but only uses 11 of 16 bits.
-/// <code>
-/// | 15  14  13  12  11  10| 9   8   7   6   5   4   3   2   1   0 |
-/// |-------------------|---|---------------------------------------|
-/// |   |   |   |   |   | 1 | 0 | 1 | 0 | 1 | 0 | 1 | 0 | 1 | 0 | 1 |
-/// '-------------------|---|---------------------------------------'
-///                      \_/ \_____________________________________/
-///                      (2)                   (1)
-/// </code>
-/// Where (1) is for candidate offset value (from 0 to 728), and (2) is for the conclusion type (assignment or elimination).
-/// Please note that the part (2) only use one bit because the target value can only be assignment (0) or elimination (1),
-/// but the real type <see cref="ConclusionType"/> uses <see cref="byte"/> as its underlying numeric type
-/// because C# cannot set "A bit" to be the underlying type. The narrowest type is <see cref="byte"/>.
-/// </param>
+/// <param name="mask"><inheritdoc cref="_mask" path="/summary"/></param>
 /// <remarks>
 /// Two <see cref="Mask"/> values can be compared with each other. If one of those two is an elimination
 /// (i.e. holds the value <see cref="Elimination"/> as the type), the instance will be greater;
@@ -27,7 +12,7 @@ namespace Sudoku.Concepts;
 /// </remarks>
 [JsonConverter(typeof(Converter))]
 [TypeImpl(TypeImplFlags.AllObjectMethods | TypeImplFlags.EqualityOperators | TypeImplFlags.Equatable)]
-public readonly partial struct Conclusion([Field, HashCodeMember] Mask mask) :
+public readonly partial struct Conclusion(Mask mask) :
 	IComparable<Conclusion>,
 	IDrawableItem,
 	IEqualityOperators<Conclusion, Conclusion, bool>,
@@ -35,6 +20,27 @@ public readonly partial struct Conclusion([Field, HashCodeMember] Mask mask) :
 	IFormattable,
 	IParsable<Conclusion>
 {
+	/// <summary>
+	/// The field uses the mask table of length 81 to indicate the state and all possible candidates
+	/// holding for each cell. Each mask uses a <see cref="Mask"/> value, but only uses 11 of 16 bits.
+	/// <code>
+	/// | 15  14  13  12  11  10| 9   8   7   6   5   4   3   2   1   0 |
+	/// |-------------------|---|---------------------------------------|
+	/// |   |   |   |   |   | 1 | 0 | 1 | 0 | 1 | 0 | 1 | 0 | 1 | 0 | 1 |
+	/// '-------------------|---|---------------------------------------'
+	///                      \_/ \_____________________________________/
+	///                      (2)                   (1)
+	/// </code>
+	/// Where (1) is for candidate offset value (from 0 to 728), and (2) is for the conclusion type (assignment or elimination).
+	/// Please note that the part (2) only use one bit because the target value can only be assignment (0) or elimination (1),
+	/// but the real type <see cref="ConclusionType"/> uses <see cref="byte"/> as its underlying numeric type
+	/// because C# cannot set "A bit" to be the underlying type. The narrowest type is <see cref="byte"/>.
+	/// </summary>
+	[HashCodeMember]
+	[EquatableMember]
+	private readonly short _mask = mask;
+
+
 	/// <summary>
 	/// Initializes an instance with a conclusion type and a candidate offset.
 	/// </summary>
@@ -92,9 +98,6 @@ public readonly partial struct Conclusion([Field, HashCodeMember] Mask mask) :
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		get => (ConclusionType)(_mask / 729);
 	}
-
-	[EquatableMember]
-	private Mask MaskEntry => _mask;
 
 
 	/// <include file="../../global-doc-comments.xml" path="g/csharp7/feature[@name='deconstruction-method']/target[@name='method']"/>

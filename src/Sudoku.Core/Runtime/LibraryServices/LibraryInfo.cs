@@ -3,8 +3,8 @@ namespace Sudoku.Runtime.LibraryServices;
 /// <summary>
 /// Represents an entry that plays with a puzzle library file.
 /// </summary>
-/// <param name="directory">Indicates the parent directory that stores the library.</param>
-/// <param name="fileId">Indicates the file name used. The value should be valid as a file name, without file extension.</param>
+/// <param name="directory"><inheritdoc cref="_directory" path="/summary"/></param>
+/// <param name="fileId"><inheritdoc cref="FileId" path="/summary"/></param>
 /// <remarks><i>
 /// This type only supports for Windows now. For other OS platforms,
 /// I will allow them in the future because I'm not familiar with file systems on other OS platforms.
@@ -13,10 +13,7 @@ namespace Sudoku.Runtime.LibraryServices;
 [StructLayout(LayoutKind.Auto)]
 [SupportedOSPlatform("windows")]
 [TypeImpl(TypeImplFlags.AllObjectMethods | TypeImplFlags.EqualityOperators | TypeImplFlags.Equatable)]
-public readonly partial struct LibraryInfo(
-	[Field(Accessibility = "internal"), HashCodeMember, StringMember] string directory,
-	[Property, HashCodeMember, StringMember] string fileId
-) :
+public readonly partial struct LibraryInfo(string directory, string fileId) :
 	IAsyncEnumerable<Grid>,
 	IEqualityOperators<LibraryInfo, LibraryInfo, bool>,
 	IEquatable<LibraryInfo>
@@ -31,6 +28,14 @@ public readonly partial struct LibraryInfo(
 	/// Indicates the file header of config files after created or initialized.
 	/// </summary>
 	public static readonly string ConfigFileHeader = "$ Header of the File $";
+
+
+	/// <summary>
+	/// Indicates the parent directory that stores the library.
+	/// </summary>
+	[HashCodeMember]
+	[StringMember]
+	internal readonly string _directory = directory;
 
 
 	/// <summary>
@@ -53,6 +58,13 @@ public readonly partial struct LibraryInfo(
 	/// </remarks>
 	/// <seealso cref="GetCountAsync"/>
 	public int Count => GetCountAsync().Result;
+
+	/// <summary>
+	/// Indicates the file name used. The value should be valid as a file name, without file extension.
+	/// </summary>
+	[HashCodeMember]
+	[StringMember]
+	public string FileId { get; } = fileId;
 
 	/// <summary>
 	/// Indicates the path of the library file. The file only contains the puzzles.

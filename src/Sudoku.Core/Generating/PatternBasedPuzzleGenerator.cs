@@ -3,19 +3,26 @@ namespace Sudoku.Generating;
 /// <summary>
 /// Represents a generator that is based on pattern.
 /// </summary>
-/// <param name="missingDigit">Indicates the missing digit that can be used.</param>
-/// <param name="seedPattern">Indicates the predefind pattern used.</param>
-[StructLayout(LayoutKind.Auto)]
-public ref partial struct PatternBasedPuzzleGenerator(
-	[Field] ref readonly CellMap seedPattern,
-	[Property] Digit missingDigit = -1
-) : IGenerator<Grid>
+/// <param name="missingDigit"><inheritdoc cref="MissingDigit" path="/summary"/></param>
+/// <param name="seedPattern"><inheritdoc cref="_seedPattern" path="/summary"/></param>
+[TypeImpl(TypeImplFlags.AllObjectMethods)]
+public ref partial struct PatternBasedPuzzleGenerator(ref readonly CellMap seedPattern, Digit missingDigit = -1) : IGenerator<Grid>
 {
 	/// <summary>
 	/// Indicates whether the generator is cancelled.
 	/// </summary>
 	private bool? _isCancelled;
 
+	/// <summary>
+	/// Indicates the predefind pattern used.
+	/// </summary>
+	private readonly ref readonly CellMap _seedPattern = ref seedPattern;
+
+
+	/// <summary>
+	/// Indicates the missing digit that can be used.
+	/// </summary>
+	public readonly Digit MissingDigit { get; } = missingDigit;
 
 	/// <summary>
 	/// Indicates the pattern of cells.

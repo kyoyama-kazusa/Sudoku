@@ -4,16 +4,21 @@ namespace Sudoku.Concepts.Graphs;
 /// Represents the concept "<see href="https://en.wikipedia.org/wiki/Hamiltonian_path">Hamiltonian Path</see>"
 /// that will be applied to a <see cref="CellGraph"/> instance.
 /// </summary>
-/// <param name="cells">Indicates the cells.</param>
+/// <param name="cells"><inheritdoc cref="_cells" path="/summary"/></param>
 /// <seealso cref="CellGraph"/>
-[StructLayout(LayoutKind.Auto)]
 [TypeImpl(TypeImplFlags.Object_Equals | TypeImplFlags.EqualityOperators)]
-public readonly partial struct HamiltonianCycle([Field] Cell[] cells) :
+public readonly partial struct HamiltonianCycle(Cell[] cells) :
 	IEnumerable<Cell>,
 	IEquatable<HamiltonianCycle>,
 	IEqualityOperators<HamiltonianCycle, HamiltonianCycle, bool>,
 	IReadOnlyList<Cell>
 {
+	/// <summary>
+	/// Indicates the cells.
+	/// </summary>
+	private readonly int[] _cells = cells;
+
+
 	/// <summary>
 	/// Indicates the number of cells used.
 	/// </summary>

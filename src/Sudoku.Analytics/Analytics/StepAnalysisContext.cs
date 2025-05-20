@@ -3,17 +3,24 @@ namespace Sudoku.Analytics;
 /// <summary>
 /// Defines a context that will be used for finding a single <see cref="Step"/> from a <see cref="Concepts.Grid"/> state.
 /// </summary>
-/// <param name="grid">Indicates the puzzle to be solved and analyzed.</param>
-/// <param name="initialGrid">Indicates the initial grid.</param>
+/// <param name="grid"><inheritdoc cref="Grid" path="/summary"/></param>
+/// <param name="initialGrid"><inheritdoc cref="InitialGrid" path="/summary"/></param>
 /// <seealso cref="Step"/>
 /// <seealso cref="Concepts.Grid"/>
-[StructLayout(LayoutKind.Auto)]
 [TypeImpl(TypeImplFlags.AllObjectMethods, IsLargeStructure = true)]
-public ref partial struct StepAnalysisContext(
-	[Field(Accessibility = "public", NamingRule = NamingRules.Property)] in Grid grid,
-	[Field(Accessibility = "public", NamingRule = NamingRules.Property)] ref readonly Grid initialGrid
-)
+public ref partial struct StepAnalysisContext(in Grid grid, ref readonly Grid initialGrid)
 {
+	/// <summary>
+	/// Indicates the puzzle to be solved and analyzed.
+	/// </summary>
+	public readonly ref readonly Grid Grid = ref grid;
+
+	/// <summary>
+	/// Indicates the initial grid.
+	/// </summary>
+	public readonly ref readonly Grid InitialGrid = ref initialGrid;
+
+
 	/// <summary>
 	/// Initializes an <see cref="StepAnalysisContext"/> instance via the specified grid.
 	/// </summary>

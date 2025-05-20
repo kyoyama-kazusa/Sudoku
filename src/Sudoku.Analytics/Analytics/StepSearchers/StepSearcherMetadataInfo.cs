@@ -3,11 +3,22 @@ namespace Sudoku.Analytics.StepSearchers;
 /// <summary>
 /// Represents the metadata implementation details for a <see cref="StepSearcher"/>.
 /// </summary>
-/// <param name="stepSearcher">The step searcher instance.</param>
-/// <param name="backAttribute">The bound step searcher attribute.</param>
+/// <param name="stepSearcher"><inheritdoc cref="_stepSearcher" path="/summary"/></param>
+/// <param name="backAttribute"><inheritdoc cref="_backAttribute" path="/summary"/></param>
 /// <seealso cref="StepSearcher"/>
-public sealed partial class StepSearcherMetadataInfo([Field] StepSearcher stepSearcher, [Field] StepSearcherAttribute backAttribute)
+public sealed class StepSearcherMetadataInfo(StepSearcher stepSearcher, StepSearcherAttribute backAttribute)
 {
+	/// <summary>
+	/// The step searcher instance.
+	/// </summary>
+	private readonly StepSearcher _stepSearcher = stepSearcher;
+
+	/// <summary>
+	/// The bound step searcher attribute.
+	/// </summary>
+	private readonly StepSearcherAttribute _backAttribute = backAttribute;
+
+
 	/// <inheritdoc cref="StepSearcherAttribute.IsCachingSafe"/>
 	public bool IsCachingSafe => _backAttribute.IsCachingSafe;
 
