@@ -17437,9 +17437,6 @@
         <member name="M:Sudoku.Analytics.Steps.Singles.NormalComplexSingleStep.CompareTo(Sudoku.Analytics.Step)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.Steps.Singles.NormalComplexSingleStep.GetName(System.IFormatProvider)">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.Singles.SingleStep">
             <summary>
             Represents a data structure that describes for a technique of <b>Single</b>.
@@ -23490,381 +23487,6 @@
             Indicates naked single.
             </summary>
         </member>
-        <member name="F:Sudoku.Categorization.Technique.PointingFullHouse">
-            <summary>
-            Indicates full house, with pointing.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.ClaimingFullHouse">
-            <summary>
-            Indicates full house, with claiming.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedPairFullHouse">
-            <summary>
-            Indicates full house, with naked pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedPairPlusFullHouse">
-            <summary>
-            Indicates full house, with naked pair (+).
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.HiddenPairFullHouse">
-            <summary>
-            Indicates full house, with hidden pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedPairFullHouse">
-            <summary>
-            Indicates full house, with locked pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedHiddenPairFullHouse">
-            <summary>
-            Indicates full house, with locked hidden pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedTripleFullHouse">
-            <summary>
-            Indicates full house, with naked triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedTriplePlusFullHouse">
-            <summary>
-            Indicates full house, with naked triple (+).
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.HiddenTripleFullHouse">
-            <summary>
-            Indicates full house, with hidden triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedTripleFullHouse">
-            <summary>
-            Indicates full house, with locked triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedHiddenTripleFullHouse">
-            <summary>
-            Indicates full house, with locked hidden triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedQuadrupleFullHouse">
-            <summary>
-            Indicates full house, with naked quadruple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedQuadruplePlusFullHouse">
-            <summary>
-            Indicates full house, with naked quadruple (+).
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.HiddenQuadrupleFullHouse">
-            <summary>
-            Indicates full house, with hidden quadruple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.PointingCrosshatchingBlock">
-            <summary>
-            Indicates crosshatching in block, with pointing.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.ClaimingCrosshatchingBlock">
-            <summary>
-            Indicates crosshatching in block, with claiming.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedPairCrosshatchingBlock">
-            <summary>
-            Indicates crosshatching in block, with naked pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedPairPlusCrosshatchingBlock">
-            <summary>
-            Indicates crosshatching in block, with naked pair (+).
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.HiddenPairCrosshatchingBlock">
-            <summary>
-            Indicates crosshatching in block, with hidden pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedPairCrosshatchingBlock">
-            <summary>
-            Indicates crosshatching in block, with locked pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedHiddenPairCrosshatchingBlock">
-            <summary>
-            Indicates crosshatching in block, with locked hidden pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedTripleCrosshatchingBlock">
-            <summary>
-            Indicates crosshatching in block, with naked triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedTriplePlusCrosshatchingBlock">
-            <summary>
-            Indicates crosshatching in block, with naked triple (+).
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.HiddenTripleCrosshatchingBlock">
-            <summary>
-            Indicates crosshatching in block, with hidden triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedTripleCrosshatchingBlock">
-            <summary>
-            Indicates crosshatching in block, with locked triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedHiddenTripleCrosshatchingBlock">
-            <summary>
-            Indicates crosshatching in block, with locked hidden triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedQuadrupleCrosshatchingBlock">
-            <summary>
-            Indicates crosshatching in block, with naked quadruple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedQuadruplePlusCrosshatchingBlock">
-            <summary>
-            Indicates crosshatching in block, with naked quadruple (+).
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.HiddenQuadrupleCrosshatchingBlock">
-            <summary>
-            Indicates full house, with hidden quadruple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.PointingCrosshatchingRow">
-            <summary>
-            Indicates crosshatching in row, with pointing.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.ClaimingCrosshatchingRow">
-            <summary>
-            Indicates crosshatching in row, with claiming.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedPairCrosshatchingRow">
-            <summary>
-            Indicates crosshatching in row, with naked pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedPairPlusCrosshatchingRow">
-            <summary>
-            Indicates crosshatching in row, with naked pair (+).
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.HiddenPairCrosshatchingRow">
-            <summary>
-            Indicates crosshatching in row, with hidden pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedPairCrosshatchingRow">
-            <summary>
-            Indicates crosshatching in row, with locked pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedHiddenPairCrosshatchingRow">
-            <summary>
-            Indicates crosshatching in row, with locked hidden pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedTripleCrosshatchingRow">
-            <summary>
-            Indicates crosshatching in row, with naked triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedTriplePlusCrosshatchingRow">
-            <summary>
-            Indicates crosshatching in row, with naked triple (+).
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.HiddenTripleCrosshatchingRow">
-            <summary>
-            Indicates crosshatching in row, with hidden triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedTripleCrosshatchingRow">
-            <summary>
-            Indicates crosshatching in row, with locked triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedHiddenTripleCrosshatchingRow">
-            <summary>
-            Indicates crosshatching in row, with locked hidden triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedQuadrupleCrosshatchingRow">
-            <summary>
-            Indicates crosshatching in row, with naked quadruple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedQuadruplePlusCrosshatchingRow">
-            <summary>
-            Indicates crosshatching in row, with naked quadruple (+).
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.HiddenQuadrupleCrosshatchingRow">
-            <summary>
-            Indicates full house, with hidden quadruple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.PointingCrosshatchingColumn">
-            <summary>
-            Indicates crosshatching in column, with pointing.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.ClaimingCrosshatchingColumn">
-            <summary>
-            Indicates crosshatching in column, with claiming.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedPairCrosshatchingColumn">
-            <summary>
-            Indicates crosshatching in column, with naked pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedPairPlusCrosshatchingColumn">
-            <summary>
-            Indicates crosshatching in column, with naked pair (+).
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.HiddenPairCrosshatchingColumn">
-            <summary>
-            Indicates crosshatching in column, with hidden pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedPairCrosshatchingColumn">
-            <summary>
-            Indicates crosshatching in column, with locked pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedHiddenPairCrosshatchingColumn">
-            <summary>
-            Indicates crosshatching in column, with locked hidden pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedTripleCrosshatchingColumn">
-            <summary>
-            Indicates crosshatching in column, with naked triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedTriplePlusCrosshatchingColumn">
-            <summary>
-            Indicates crosshatching in column, with naked triple (+).
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.HiddenTripleCrosshatchingColumn">
-            <summary>
-            Indicates crosshatching in column, with hidden triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedTripleCrosshatchingColumn">
-            <summary>
-            Indicates crosshatching in column, with locked triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedHiddenTripleCrosshatchingColumn">
-            <summary>
-            Indicates crosshatching in column, with locked hidden triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedQuadrupleCrosshatchingColumn">
-            <summary>
-            Indicates crosshatching in column, with naked quadruple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedQuadruplePlusCrosshatchingColumn">
-            <summary>
-            Indicates crosshatching in column, with naked quadruple (+).
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.HiddenQuadrupleCrosshatchingColumn">
-            <summary>
-            Indicates full house, with hidden quadruple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.PointingNakedSingle">
-            <summary>
-            Indicates naked single, with pointing.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.ClaimingNakedSingle">
-            <summary>
-            Indicates naked single, with claiming.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedPairNakedSingle">
-            <summary>
-            Indicates naked single, with naked pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedPairPlusNakedSingle">
-            <summary>
-            Indicates naked single, with naked pair (+).
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.HiddenPairNakedSingle">
-            <summary>
-            Indicates naked single, with hidden pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedPairNakedSingle">
-            <summary>
-            Indicates naked single, with locked pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedHiddenPairNakedSingle">
-            <summary>
-            Indicates naked single, with locked hidden pair.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedTripleNakedSingle">
-            <summary>
-            Indicates naked single, with naked triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedTriplePlusNakedSingle">
-            <summary>
-            Indicates naked single, with naked triple (+).
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.HiddenTripleNakedSingle">
-            <summary>
-            Indicates naked single, with hidden triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedTripleNakedSingle">
-            <summary>
-            Indicates naked single, with locked triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.LockedHiddenTripleNakedSingle">
-            <summary>
-            Indicates naked single, with locked hidden triple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedQuadrupleNakedSingle">
-            <summary>
-            Indicates naked single, with naked quadruple.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.NakedQuadruplePlusNakedSingle">
-            <summary>
-            Indicates naked single, with naked quadruple (+).
-            </summary>
-        </member>
-        <member name="F:Sudoku.Categorization.Technique.HiddenQuadrupleNakedSingle">
-            <summary>
-            Indicates full house, with hidden quadruple.
-            </summary>
-        </member>
         <member name="F:Sudoku.Categorization.Technique.ComplexFullHouse">
             <summary>
             Indicates complex full house.
@@ -25823,35 +25445,6 @@
             All possible aliases of the current technique.
             If the technique does not contain any aliases, the return value will be <see langword="null"/>.
             </returns>
-        </member>
-        <member name="M:Sudoku.Categorization.TechniqueExtensions..ComplexSingleUsing(Sudoku.Categorization.Technique)">
-            <summary>
-            <para>
-            Combine the technique with indirect technique, to produce a new <see cref="T:Sudoku.Categorization.Technique"/> field,
-            describing the complex single usage.
-            For example, <see cref="F:Sudoku.Categorization.Technique.CrosshatchingBlock"/> combining with <see cref="F:Sudoku.Categorization.Technique.HiddenPair"/>
-            will produce <see cref="F:Sudoku.Categorization.Technique.HiddenPairCrosshatchingBlock"/>.
-            </para>
-            <para>
-            The current instance must be a direct technique specified. The value can be:
-            <list type="bullet">
-            <item><see cref="F:Sudoku.Categorization.Technique.FullHouse"/></item>
-            <item><see cref="F:Sudoku.Categorization.Technique.CrosshatchingBlock"/></item>
-            <item><see cref="F:Sudoku.Categorization.Technique.CrosshatchingRow"/></item>
-            <item><see cref="F:Sudoku.Categorization.Technique.CrosshatchingColumn"/></item>
-            <item><see cref="F:Sudoku.Categorization.Technique.NakedSingle"/></item>
-            </list>
-            </para>
-            </summary>
-            <param name="indirect">
-            The indirect technique used. The value can be ones of group <see cref="F:Sudoku.Categorization.TechniqueGroup.LockedCandidates"/>
-            and <see cref="F:Sudoku.Categorization.TechniqueGroup.Subset"/>.
-            </param>
-            <returns>The combined result.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">Throws when the current instance is not a direct technique.</exception>
-            <exception cref="T:System.NotSupportedException">
-            Throws when the argument <paramref name="indirect"/> is neither locked candidates nor subset.
-            </exception>
         </member>
         <member name="M:Sudoku.Categorization.TechniqueExtensions..TryGetGroup">
             <summary>
@@ -29503,31 +29096,6 @@
               Looks up a localized string similar to Claiming.
             </summary>
         </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.ClaimingCrosshatchingBlock">
-            <summary>
-              Looks up a localized string similar to Claiming Crosshatching in Block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.ClaimingCrosshatchingColumn">
-            <summary>
-              Looks up a localized string similar to Claiming Crosshatching in Column.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.ClaimingCrosshatchingRow">
-            <summary>
-              Looks up a localized string similar to Claiming Crosshatching in Row.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.ClaimingFullHouse">
-            <summary>
-              Looks up a localized string similar to Claiming Full House.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.ClaimingNakedSingle">
-            <summary>
-              Looks up a localized string similar to Claiming Naked Single.
-            </summary>
-        </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.Colon">
             <summary>
               Looks up a localized string similar to :.
@@ -30818,59 +30386,9 @@
               Looks up a localized string similar to Hidden Pair.
             </summary>
         </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.HiddenPairCrosshatchingBlock">
-            <summary>
-              Looks up a localized string similar to Hidden Pair Crosshatching Block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.HiddenPairCrosshatchingColumn">
-            <summary>
-              Looks up a localized string similar to Hidden Pair Crosshatching Column.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.HiddenPairCrosshatchingRow">
-            <summary>
-              Looks up a localized string similar to Hidden Pair Crosshatching Row.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.HiddenPairFullHouse">
-            <summary>
-              Looks up a localized string similar to Hidden Pair Full House.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.HiddenPairNakedSingle">
-            <summary>
-              Looks up a localized string similar to Hidden Pair Naked Single.
-            </summary>
-        </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.HiddenQuadruple">
             <summary>
               Looks up a localized string similar to Hidden Quadruple.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.HiddenQuadrupleCrosshatchingBlock">
-            <summary>
-              Looks up a localized string similar to Hidden Quadruple Crosshatching Block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.HiddenQuadrupleCrosshatchingColumn">
-            <summary>
-              Looks up a localized string similar to Hidden Quadruple Crosshatching Column.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.HiddenQuadrupleCrosshatchingRow">
-            <summary>
-              Looks up a localized string similar to Hidden Quadruple Crosshatching Row.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.HiddenQuadrupleFullHouse">
-            <summary>
-              Looks up a localized string similar to Hidden Quadruple Full House.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.HiddenQuadrupleNakedSingle">
-            <summary>
-              Looks up a localized string similar to Hidden Quadruple Naked Single.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.HiddenSingleBlock">
@@ -30891,31 +30409,6 @@
         <member name="P:Sudoku.Resources.AnalyticsResources.HiddenTriple">
             <summary>
               Looks up a localized string similar to Hidden Triple.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.HiddenTripleCrosshatchingBlock">
-            <summary>
-              Looks up a localized string similar to Hidden Triple Crosshatching Block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.HiddenTripleCrosshatchingColumn">
-            <summary>
-              Looks up a localized string similar to Hidden Triple Crosshatching Column.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.HiddenTripleCrosshatchingRow">
-            <summary>
-              Looks up a localized string similar to Hidden Triple Crosshatching Row.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.HiddenTripleFullHouse">
-            <summary>
-              Looks up a localized string similar to Hidden Triple Full House.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.HiddenTripleNakedSingle">
-            <summary>
-              Looks up a localized string similar to Hidden Triple Naked Single.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.HiddenUniqueRectangle">
@@ -31083,59 +30576,9 @@
               Looks up a localized string similar to Locked Hidden Pair.
             </summary>
         </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedHiddenPairCrosshatchingBlock">
-            <summary>
-              Looks up a localized string similar to Locked Hidden Pair Crosshatching Block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedHiddenPairCrosshatchingColumn">
-            <summary>
-              Looks up a localized string similar to Locked Hidden Pair Crosshatching Column.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedHiddenPairCrosshatchingRow">
-            <summary>
-              Looks up a localized string similar to Locked Hidden Pair Crosshatching Row.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedHiddenPairFullHouse">
-            <summary>
-              Looks up a localized string similar to Locked Hidden Pair Full House.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedHiddenPairNakedSingle">
-            <summary>
-              Looks up a localized string similar to Locked Hidden Pair Naked Single.
-            </summary>
-        </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.LockedHiddenTriple">
             <summary>
               Looks up a localized string similar to Locked Hidden Triple.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedHiddenTripleCrosshatchingBlock">
-            <summary>
-              Looks up a localized string similar to Locked Hidden Triple Crosshatching Block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedHiddenTripleCrosshatchingColumn">
-            <summary>
-              Looks up a localized string similar to Locked Hidden Triple Crosshatching Column.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedHiddenTripleCrosshatchingRow">
-            <summary>
-              Looks up a localized string similar to Locked Hidden Triple Crosshatching Row.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedHiddenTripleFullHouse">
-            <summary>
-              Looks up a localized string similar to Locked Hidden Triple Full House.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedHiddenTripleNakedSingle">
-            <summary>
-              Looks up a localized string similar to Locked Hidden Triple Naked Single.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.LockedMemberQ">
@@ -31153,31 +30596,6 @@
               Looks up a localized string similar to Locked Pair.
             </summary>
         </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedPairCrosshatchingBlock">
-            <summary>
-              Looks up a localized string similar to Locked Pair Crosshatching Block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedPairCrosshatchingColumn">
-            <summary>
-              Looks up a localized string similar to Locked Pair Crosshatching Column.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedPairCrosshatchingRow">
-            <summary>
-              Looks up a localized string similar to Locked Pair Crosshatching Row.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedPairFullHouse">
-            <summary>
-              Looks up a localized string similar to Locked Pair Full House.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedPairNakedSingle">
-            <summary>
-              Looks up a localized string similar to Locked Pair Naked Single.
-            </summary>
-        </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.LockedQiuDeadlyPattern">
             <summary>
               Looks up a localized string similar to Locked Qiu&apos;s Deadly Pattern.
@@ -31186,31 +30604,6 @@
         <member name="P:Sudoku.Resources.AnalyticsResources.LockedTriple">
             <summary>
               Looks up a localized string similar to Locked Triple.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedTripleCrosshatchingBlock">
-            <summary>
-              Looks up a localized string similar to Locked Triple Crosshatching Block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedTripleCrosshatchingColumn">
-            <summary>
-              Looks up a localized string similar to Locked Triple Crosshatching Column.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedTripleCrosshatchingRow">
-            <summary>
-              Looks up a localized string similar to Locked Triple Crosshatching Row.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedTripleFullHouse">
-            <summary>
-              Looks up a localized string similar to Locked Triple Full House.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.LockedTripleNakedSingle">
-            <summary>
-              Looks up a localized string similar to Locked Triple Naked Single.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.LWing">
@@ -31361,59 +30754,9 @@
               Looks up a localized string similar to Naked Pair.
             </summary>
         </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedPairCrosshatchingBlock">
-            <summary>
-              Looks up a localized string similar to Naked Pair Crosshatching Block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedPairCrosshatchingColumn">
-            <summary>
-              Looks up a localized string similar to Naked Pair Crosshatching Column.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedPairCrosshatchingRow">
-            <summary>
-              Looks up a localized string similar to Naked Pair Crosshatching Row.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedPairFullHouse">
-            <summary>
-              Looks up a localized string similar to Naked Pair Full House.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedPairNakedSingle">
-            <summary>
-              Looks up a localized string similar to Naked Pair Naked Single.
-            </summary>
-        </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.NakedPairPlus">
             <summary>
               Looks up a localized string similar to Naked Pair (+).
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedPairPlusCrosshatchingBlock">
-            <summary>
-              Looks up a localized string similar to Naked Pair (+) Crosshatching Block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedPairPlusCrosshatchingColumn">
-            <summary>
-              Looks up a localized string similar to Naked Pair (+) Crosshatching Column.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedPairPlusCrosshatchingRow">
-            <summary>
-              Looks up a localized string similar to Naked Pair (+) Crosshatching Row.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedPairPlusFullHouse">
-            <summary>
-              Looks up a localized string similar to Naked Pair (+) Full House.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedPairPlusNakedSingle">
-            <summary>
-              Looks up a localized string similar to Naked Pair (+) Naked Single.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.NakedQuadruple">
@@ -31421,59 +30764,9 @@
               Looks up a localized string similar to Naked Quadruple.
             </summary>
         </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedQuadrupleCrosshatchingBlock">
-            <summary>
-              Looks up a localized string similar to Naked Quadruple Crosshatching Block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedQuadrupleCrosshatchingColumn">
-            <summary>
-              Looks up a localized string similar to Naked Quadruple Crosshatching Column.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedQuadrupleCrosshatchingRow">
-            <summary>
-              Looks up a localized string similar to Naked Quadruple Crosshatching Row.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedQuadrupleFullHouse">
-            <summary>
-              Looks up a localized string similar to Naked Quadruple Full House.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedQuadrupleNakedSingle">
-            <summary>
-              Looks up a localized string similar to Naked Quadruple Naked Single.
-            </summary>
-        </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.NakedQuadruplePlus">
             <summary>
               Looks up a localized string similar to Naked Quadruple (+).
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedQuadruplePlusCrosshatchingBlock">
-            <summary>
-              Looks up a localized string similar to Naked Quadruple (+) Crosshatching Block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedQuadruplePlusCrosshatchingColumn">
-            <summary>
-              Looks up a localized string similar to Naked Quadruple (+) Crosshatching Column.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedQuadruplePlusCrosshatchingRow">
-            <summary>
-              Looks up a localized string similar to Naked Quadruple (+) Crosshatching Row.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedQuadruplePlusFullHouse">
-            <summary>
-              Looks up a localized string similar to Naked Quadruple (+) Full House.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedQuadruplePlusNakedSingle">
-            <summary>
-              Looks up a localized string similar to Naked Quadruple (+) Naked Single.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.NakedSingle">
@@ -31486,59 +30779,9 @@
               Looks up a localized string similar to Naked Triple.
             </summary>
         </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedTripleCrosshatchingBlock">
-            <summary>
-              Looks up a localized string similar to Naked Triple Crosshatching Block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedTripleCrosshatchingColumn">
-            <summary>
-              Looks up a localized string similar to Naked Triple Crosshatching Column.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedTripleCrosshatchingRow">
-            <summary>
-              Looks up a localized string similar to Naked Triple Crosshatching Row.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedTripleFullHouse">
-            <summary>
-              Looks up a localized string similar to Naked Triple Full House.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedTripleNakedSingle">
-            <summary>
-              Looks up a localized string similar to Naked Triple Naked Single.
-            </summary>
-        </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.NakedTriplePlus">
             <summary>
               Looks up a localized string similar to Naked Triple (+).
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedTriplePlusCrosshatchingBlock">
-            <summary>
-              Looks up a localized string similar to Naked Triple (+) Crosshatching Block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedTriplePlusCrosshatchingColumn">
-            <summary>
-              Looks up a localized string similar to Naked Triple (+) Crosshatching Column.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedTriplePlusCrosshatchingRow">
-            <summary>
-              Looks up a localized string similar to Naked Triple (+) Crosshatching Row.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedTriplePlusFullHouse">
-            <summary>
-              Looks up a localized string similar to Naked Triple (+) Full House.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.NakedTriplePlusNakedSingle">
-            <summary>
-              Looks up a localized string similar to Naked Triple (+) Naked Single.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.NestedSuffix_Level1">
@@ -31649,31 +30892,6 @@
         <member name="P:Sudoku.Resources.AnalyticsResources.Pointing">
             <summary>
               Looks up a localized string similar to Pointing.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.PointingCrosshatchingBlock">
-            <summary>
-              Looks up a localized string similar to Pointing Crosshatching in Block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.PointingCrosshatchingColumn">
-            <summary>
-              Looks up a localized string similar to Pointing Crosshatching in Column.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.PointingCrosshatchingRow">
-            <summary>
-              Looks up a localized string similar to Pointing Crosshatching in Row.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.PointingFullHouse">
-            <summary>
-              Looks up a localized string similar to Pointing Full House.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.PointingNakedSingle">
-            <summary>
-              Looks up a localized string similar to Pointing Naked Single.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.PrimarySingleConstraint">

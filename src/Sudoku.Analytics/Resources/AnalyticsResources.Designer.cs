@@ -997,51 +997,6 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Claiming Crosshatching in Block.
-        /// </summary>
-        public static string ClaimingCrosshatchingBlock {
-            get {
-                return ResourceManager.GetString("ClaimingCrosshatchingBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Claiming Crosshatching in Column.
-        /// </summary>
-        public static string ClaimingCrosshatchingColumn {
-            get {
-                return ResourceManager.GetString("ClaimingCrosshatchingColumn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Claiming Crosshatching in Row.
-        /// </summary>
-        public static string ClaimingCrosshatchingRow {
-            get {
-                return ResourceManager.GetString("ClaimingCrosshatchingRow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Claiming Full House.
-        /// </summary>
-        public static string ClaimingFullHouse {
-            get {
-                return ResourceManager.GetString("ClaimingFullHouse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Claiming Naked Single.
-        /// </summary>
-        public static string ClaimingNakedSingle {
-            get {
-                return ResourceManager.GetString("ClaimingNakedSingle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to :.
         /// </summary>
         public static string Colon {
@@ -3364,101 +3319,11 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hidden Pair Crosshatching Block.
-        /// </summary>
-        public static string HiddenPairCrosshatchingBlock {
-            get {
-                return ResourceManager.GetString("HiddenPairCrosshatchingBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hidden Pair Crosshatching Column.
-        /// </summary>
-        public static string HiddenPairCrosshatchingColumn {
-            get {
-                return ResourceManager.GetString("HiddenPairCrosshatchingColumn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hidden Pair Crosshatching Row.
-        /// </summary>
-        public static string HiddenPairCrosshatchingRow {
-            get {
-                return ResourceManager.GetString("HiddenPairCrosshatchingRow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hidden Pair Full House.
-        /// </summary>
-        public static string HiddenPairFullHouse {
-            get {
-                return ResourceManager.GetString("HiddenPairFullHouse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hidden Pair Naked Single.
-        /// </summary>
-        public static string HiddenPairNakedSingle {
-            get {
-                return ResourceManager.GetString("HiddenPairNakedSingle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Hidden Quadruple.
         /// </summary>
         public static string HiddenQuadruple {
             get {
                 return ResourceManager.GetString("HiddenQuadruple", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hidden Quadruple Crosshatching Block.
-        /// </summary>
-        public static string HiddenQuadrupleCrosshatchingBlock {
-            get {
-                return ResourceManager.GetString("HiddenQuadrupleCrosshatchingBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hidden Quadruple Crosshatching Column.
-        /// </summary>
-        public static string HiddenQuadrupleCrosshatchingColumn {
-            get {
-                return ResourceManager.GetString("HiddenQuadrupleCrosshatchingColumn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hidden Quadruple Crosshatching Row.
-        /// </summary>
-        public static string HiddenQuadrupleCrosshatchingRow {
-            get {
-                return ResourceManager.GetString("HiddenQuadrupleCrosshatchingRow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hidden Quadruple Full House.
-        /// </summary>
-        public static string HiddenQuadrupleFullHouse {
-            get {
-                return ResourceManager.GetString("HiddenQuadrupleFullHouse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hidden Quadruple Naked Single.
-        /// </summary>
-        public static string HiddenQuadrupleNakedSingle {
-            get {
-                return ResourceManager.GetString("HiddenQuadrupleNakedSingle", resourceCulture);
             }
         }
         
@@ -3495,51 +3360,6 @@ namespace Sudoku.Resources {
         public static string HiddenTriple {
             get {
                 return ResourceManager.GetString("HiddenTriple", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hidden Triple Crosshatching Block.
-        /// </summary>
-        public static string HiddenTripleCrosshatchingBlock {
-            get {
-                return ResourceManager.GetString("HiddenTripleCrosshatchingBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hidden Triple Crosshatching Column.
-        /// </summary>
-        public static string HiddenTripleCrosshatchingColumn {
-            get {
-                return ResourceManager.GetString("HiddenTripleCrosshatchingColumn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hidden Triple Crosshatching Row.
-        /// </summary>
-        public static string HiddenTripleCrosshatchingRow {
-            get {
-                return ResourceManager.GetString("HiddenTripleCrosshatchingRow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hidden Triple Full House.
-        /// </summary>
-        public static string HiddenTripleFullHouse {
-            get {
-                return ResourceManager.GetString("HiddenTripleFullHouse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hidden Triple Naked Single.
-        /// </summary>
-        public static string HiddenTripleNakedSingle {
-            get {
-                return ResourceManager.GetString("HiddenTripleNakedSingle", resourceCulture);
             }
         }
         
@@ -3841,101 +3661,11 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locked Hidden Pair Crosshatching Block.
-        /// </summary>
-        public static string LockedHiddenPairCrosshatchingBlock {
-            get {
-                return ResourceManager.GetString("LockedHiddenPairCrosshatchingBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Hidden Pair Crosshatching Column.
-        /// </summary>
-        public static string LockedHiddenPairCrosshatchingColumn {
-            get {
-                return ResourceManager.GetString("LockedHiddenPairCrosshatchingColumn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Hidden Pair Crosshatching Row.
-        /// </summary>
-        public static string LockedHiddenPairCrosshatchingRow {
-            get {
-                return ResourceManager.GetString("LockedHiddenPairCrosshatchingRow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Hidden Pair Full House.
-        /// </summary>
-        public static string LockedHiddenPairFullHouse {
-            get {
-                return ResourceManager.GetString("LockedHiddenPairFullHouse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Hidden Pair Naked Single.
-        /// </summary>
-        public static string LockedHiddenPairNakedSingle {
-            get {
-                return ResourceManager.GetString("LockedHiddenPairNakedSingle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Locked Hidden Triple.
         /// </summary>
         public static string LockedHiddenTriple {
             get {
                 return ResourceManager.GetString("LockedHiddenTriple", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Hidden Triple Crosshatching Block.
-        /// </summary>
-        public static string LockedHiddenTripleCrosshatchingBlock {
-            get {
-                return ResourceManager.GetString("LockedHiddenTripleCrosshatchingBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Hidden Triple Crosshatching Column.
-        /// </summary>
-        public static string LockedHiddenTripleCrosshatchingColumn {
-            get {
-                return ResourceManager.GetString("LockedHiddenTripleCrosshatchingColumn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Hidden Triple Crosshatching Row.
-        /// </summary>
-        public static string LockedHiddenTripleCrosshatchingRow {
-            get {
-                return ResourceManager.GetString("LockedHiddenTripleCrosshatchingRow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Hidden Triple Full House.
-        /// </summary>
-        public static string LockedHiddenTripleFullHouse {
-            get {
-                return ResourceManager.GetString("LockedHiddenTripleFullHouse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Hidden Triple Naked Single.
-        /// </summary>
-        public static string LockedHiddenTripleNakedSingle {
-            get {
-                return ResourceManager.GetString("LockedHiddenTripleNakedSingle", resourceCulture);
             }
         }
         
@@ -3967,51 +3697,6 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locked Pair Crosshatching Block.
-        /// </summary>
-        public static string LockedPairCrosshatchingBlock {
-            get {
-                return ResourceManager.GetString("LockedPairCrosshatchingBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Pair Crosshatching Column.
-        /// </summary>
-        public static string LockedPairCrosshatchingColumn {
-            get {
-                return ResourceManager.GetString("LockedPairCrosshatchingColumn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Pair Crosshatching Row.
-        /// </summary>
-        public static string LockedPairCrosshatchingRow {
-            get {
-                return ResourceManager.GetString("LockedPairCrosshatchingRow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Pair Full House.
-        /// </summary>
-        public static string LockedPairFullHouse {
-            get {
-                return ResourceManager.GetString("LockedPairFullHouse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Pair Naked Single.
-        /// </summary>
-        public static string LockedPairNakedSingle {
-            get {
-                return ResourceManager.GetString("LockedPairNakedSingle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Locked Qiu&apos;s Deadly Pattern.
         /// </summary>
         public static string LockedQiuDeadlyPattern {
@@ -4026,51 +3711,6 @@ namespace Sudoku.Resources {
         public static string LockedTriple {
             get {
                 return ResourceManager.GetString("LockedTriple", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Triple Crosshatching Block.
-        /// </summary>
-        public static string LockedTripleCrosshatchingBlock {
-            get {
-                return ResourceManager.GetString("LockedTripleCrosshatchingBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Triple Crosshatching Column.
-        /// </summary>
-        public static string LockedTripleCrosshatchingColumn {
-            get {
-                return ResourceManager.GetString("LockedTripleCrosshatchingColumn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Triple Crosshatching Row.
-        /// </summary>
-        public static string LockedTripleCrosshatchingRow {
-            get {
-                return ResourceManager.GetString("LockedTripleCrosshatchingRow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Triple Full House.
-        /// </summary>
-        public static string LockedTripleFullHouse {
-            get {
-                return ResourceManager.GetString("LockedTripleFullHouse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Locked Triple Naked Single.
-        /// </summary>
-        public static string LockedTripleNakedSingle {
-            get {
-                return ResourceManager.GetString("LockedTripleNakedSingle", resourceCulture);
             }
         }
         
@@ -4339,101 +3979,11 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Naked Pair Crosshatching Block.
-        /// </summary>
-        public static string NakedPairCrosshatchingBlock {
-            get {
-                return ResourceManager.GetString("NakedPairCrosshatchingBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Pair Crosshatching Column.
-        /// </summary>
-        public static string NakedPairCrosshatchingColumn {
-            get {
-                return ResourceManager.GetString("NakedPairCrosshatchingColumn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Pair Crosshatching Row.
-        /// </summary>
-        public static string NakedPairCrosshatchingRow {
-            get {
-                return ResourceManager.GetString("NakedPairCrosshatchingRow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Pair Full House.
-        /// </summary>
-        public static string NakedPairFullHouse {
-            get {
-                return ResourceManager.GetString("NakedPairFullHouse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Pair Naked Single.
-        /// </summary>
-        public static string NakedPairNakedSingle {
-            get {
-                return ResourceManager.GetString("NakedPairNakedSingle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Naked Pair (+).
         /// </summary>
         public static string NakedPairPlus {
             get {
                 return ResourceManager.GetString("NakedPairPlus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Pair (+) Crosshatching Block.
-        /// </summary>
-        public static string NakedPairPlusCrosshatchingBlock {
-            get {
-                return ResourceManager.GetString("NakedPairPlusCrosshatchingBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Pair (+) Crosshatching Column.
-        /// </summary>
-        public static string NakedPairPlusCrosshatchingColumn {
-            get {
-                return ResourceManager.GetString("NakedPairPlusCrosshatchingColumn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Pair (+) Crosshatching Row.
-        /// </summary>
-        public static string NakedPairPlusCrosshatchingRow {
-            get {
-                return ResourceManager.GetString("NakedPairPlusCrosshatchingRow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Pair (+) Full House.
-        /// </summary>
-        public static string NakedPairPlusFullHouse {
-            get {
-                return ResourceManager.GetString("NakedPairPlusFullHouse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Pair (+) Naked Single.
-        /// </summary>
-        public static string NakedPairPlusNakedSingle {
-            get {
-                return ResourceManager.GetString("NakedPairPlusNakedSingle", resourceCulture);
             }
         }
         
@@ -4447,101 +3997,11 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Naked Quadruple Crosshatching Block.
-        /// </summary>
-        public static string NakedQuadrupleCrosshatchingBlock {
-            get {
-                return ResourceManager.GetString("NakedQuadrupleCrosshatchingBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Quadruple Crosshatching Column.
-        /// </summary>
-        public static string NakedQuadrupleCrosshatchingColumn {
-            get {
-                return ResourceManager.GetString("NakedQuadrupleCrosshatchingColumn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Quadruple Crosshatching Row.
-        /// </summary>
-        public static string NakedQuadrupleCrosshatchingRow {
-            get {
-                return ResourceManager.GetString("NakedQuadrupleCrosshatchingRow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Quadruple Full House.
-        /// </summary>
-        public static string NakedQuadrupleFullHouse {
-            get {
-                return ResourceManager.GetString("NakedQuadrupleFullHouse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Quadruple Naked Single.
-        /// </summary>
-        public static string NakedQuadrupleNakedSingle {
-            get {
-                return ResourceManager.GetString("NakedQuadrupleNakedSingle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Naked Quadruple (+).
         /// </summary>
         public static string NakedQuadruplePlus {
             get {
                 return ResourceManager.GetString("NakedQuadruplePlus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Quadruple (+) Crosshatching Block.
-        /// </summary>
-        public static string NakedQuadruplePlusCrosshatchingBlock {
-            get {
-                return ResourceManager.GetString("NakedQuadruplePlusCrosshatchingBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Quadruple (+) Crosshatching Column.
-        /// </summary>
-        public static string NakedQuadruplePlusCrosshatchingColumn {
-            get {
-                return ResourceManager.GetString("NakedQuadruplePlusCrosshatchingColumn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Quadruple (+) Crosshatching Row.
-        /// </summary>
-        public static string NakedQuadruplePlusCrosshatchingRow {
-            get {
-                return ResourceManager.GetString("NakedQuadruplePlusCrosshatchingRow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Quadruple (+) Full House.
-        /// </summary>
-        public static string NakedQuadruplePlusFullHouse {
-            get {
-                return ResourceManager.GetString("NakedQuadruplePlusFullHouse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Quadruple (+) Naked Single.
-        /// </summary>
-        public static string NakedQuadruplePlusNakedSingle {
-            get {
-                return ResourceManager.GetString("NakedQuadruplePlusNakedSingle", resourceCulture);
             }
         }
         
@@ -4564,101 +4024,11 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Naked Triple Crosshatching Block.
-        /// </summary>
-        public static string NakedTripleCrosshatchingBlock {
-            get {
-                return ResourceManager.GetString("NakedTripleCrosshatchingBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Triple Crosshatching Column.
-        /// </summary>
-        public static string NakedTripleCrosshatchingColumn {
-            get {
-                return ResourceManager.GetString("NakedTripleCrosshatchingColumn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Triple Crosshatching Row.
-        /// </summary>
-        public static string NakedTripleCrosshatchingRow {
-            get {
-                return ResourceManager.GetString("NakedTripleCrosshatchingRow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Triple Full House.
-        /// </summary>
-        public static string NakedTripleFullHouse {
-            get {
-                return ResourceManager.GetString("NakedTripleFullHouse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Triple Naked Single.
-        /// </summary>
-        public static string NakedTripleNakedSingle {
-            get {
-                return ResourceManager.GetString("NakedTripleNakedSingle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Naked Triple (+).
         /// </summary>
         public static string NakedTriplePlus {
             get {
                 return ResourceManager.GetString("NakedTriplePlus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Triple (+) Crosshatching Block.
-        /// </summary>
-        public static string NakedTriplePlusCrosshatchingBlock {
-            get {
-                return ResourceManager.GetString("NakedTriplePlusCrosshatchingBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Triple (+) Crosshatching Column.
-        /// </summary>
-        public static string NakedTriplePlusCrosshatchingColumn {
-            get {
-                return ResourceManager.GetString("NakedTriplePlusCrosshatchingColumn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Triple (+) Crosshatching Row.
-        /// </summary>
-        public static string NakedTriplePlusCrosshatchingRow {
-            get {
-                return ResourceManager.GetString("NakedTriplePlusCrosshatchingRow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Triple (+) Full House.
-        /// </summary>
-        public static string NakedTriplePlusFullHouse {
-            get {
-                return ResourceManager.GetString("NakedTriplePlusFullHouse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naked Triple (+) Naked Single.
-        /// </summary>
-        public static string NakedTriplePlusNakedSingle {
-            get {
-                return ResourceManager.GetString("NakedTriplePlusNakedSingle", resourceCulture);
             }
         }
         
@@ -4857,51 +4227,6 @@ namespace Sudoku.Resources {
         public static string Pointing {
             get {
                 return ResourceManager.GetString("Pointing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pointing Crosshatching in Block.
-        /// </summary>
-        public static string PointingCrosshatchingBlock {
-            get {
-                return ResourceManager.GetString("PointingCrosshatchingBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pointing Crosshatching in Column.
-        /// </summary>
-        public static string PointingCrosshatchingColumn {
-            get {
-                return ResourceManager.GetString("PointingCrosshatchingColumn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pointing Crosshatching in Row.
-        /// </summary>
-        public static string PointingCrosshatchingRow {
-            get {
-                return ResourceManager.GetString("PointingCrosshatchingRow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pointing Full House.
-        /// </summary>
-        public static string PointingFullHouse {
-            get {
-                return ResourceManager.GetString("PointingFullHouse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pointing Naked Single.
-        /// </summary>
-        public static string PointingNakedSingle {
-            get {
-                return ResourceManager.GetString("PointingNakedSingle", resourceCulture);
             }
         }
         

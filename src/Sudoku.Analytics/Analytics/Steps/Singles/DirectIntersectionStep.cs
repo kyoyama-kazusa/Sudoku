@@ -51,7 +51,7 @@ public sealed partial class DirectIntersectionStep(
 		} + 2;
 
 	/// <inheritdoc/>
-	public override Technique Code => BasedOn.ComplexSingleUsing(IsPointing ? Technique.Pointing : Technique.Claiming);
+	public override Technique Code => BasedOn;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

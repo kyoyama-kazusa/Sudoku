@@ -64,7 +64,7 @@ public sealed partial class DirectSubsetStep(
 	public override int BaseDifficulty => IsNaked ? 33 : 37;
 
 	/// <inheritdoc/>
-	public override Technique Code => BasedOn.ComplexSingleUsing(SubsetTechnique);
+	public override Technique Code => BasedOn;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

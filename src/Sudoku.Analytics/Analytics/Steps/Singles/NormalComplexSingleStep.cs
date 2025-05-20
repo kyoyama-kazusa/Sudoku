@@ -101,39 +101,6 @@ public sealed class NormalComplexSingleStep(
 			};
 	}
 
-	/// <inheritdoc/>
-	public override string GetName(IFormatProvider? formatProvider)
-	{
-		var (hasLockedCandidates, hasSubset) = (false, false);
-		foreach (var techniqueGroup in IndirectTechniques)
-		{
-			foreach (var technique in techniqueGroup)
-			{
-				switch (technique.Group)
-				{
-					case TechniqueGroup.LockedCandidates: { hasLockedCandidates = true; break; }
-					case TechniqueGroup.Subset: { hasSubset = true; break; }
-				}
-			}
-		}
-
-		var culture = GetCulture(formatProvider);
-		var lockedCandidatesName = SR.Get("Concept_LockedCandidates", culture);
-		var subsetName = SR.Get("Concept_Subset", culture);
-		var basedOnName = BasedOn.GetName(culture);
-		var isChinese = SR.IsChinese(culture);
-		var spacing = isChinese ? string.Empty : " ";
-		var prefix = (hasLockedCandidates, hasSubset) switch
-		{
-			(true, true) => $"{lockedCandidatesName}{spacing}{subsetName}",
-			(true, false) => lockedCandidatesName,
-			(false, true) => subsetName
-		};
-		return isChinese
-			? $"{base.GetName(culture)}{SR.Get("_Token_CenterDot", culture)}{prefix}{basedOnName}"
-			: $"{base.GetName(culture)} ({prefix}{spacing}{basedOnName})";
-	}
-
 	private string TechniqueNotation(string cultureName)
 	{
 		var culture = new CultureInfo(cultureName);

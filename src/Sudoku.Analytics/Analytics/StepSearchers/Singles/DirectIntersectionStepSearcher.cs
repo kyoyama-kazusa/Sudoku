@@ -28,10 +28,8 @@ namespace Sudoku.Analytics.StepSearchers.Singles;
 /// </summary>
 [StepSearcher(
 	"StepSearcherName_DirectIntersectionStepSearcher",
-	Technique.PointingFullHouse, Technique.PointingCrosshatchingBlock, Technique.PointingCrosshatchingRow,
-	Technique.PointingCrosshatchingColumn, Technique.PointingNakedSingle,
-	Technique.ClaimingFullHouse, Technique.ClaimingCrosshatchingBlock, Technique.ClaimingCrosshatchingRow,
-	Technique.ClaimingCrosshatchingColumn, Technique.ClaimingNakedSingle,
+	Technique.ComplexFullHouse, Technique.ComplexCrosshatchingBlock, Technique.ComplexCrosshatchingRow,
+	Technique.ComplexCrosshatchingColumn, Technique.ComplexNakedSingle,
 	IsCachingSafe = true,
 	IsAvailabilityReadOnly = true,
 	IsOrderingFixed = true,

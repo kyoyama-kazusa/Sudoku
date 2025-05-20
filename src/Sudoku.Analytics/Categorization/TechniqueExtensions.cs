@@ -198,47 +198,6 @@ public static class TechniqueExtensions
 				: null;
 
 		/// <summary>
-		/// <para>
-		/// Combine the technique with indirect technique, to produce a new <see cref="Technique"/> field,
-		/// describing the complex single usage.
-		/// For example, <see cref="Technique.CrosshatchingBlock"/> combining with <see cref="Technique.HiddenPair"/>
-		/// will produce <see cref="Technique.HiddenPairCrosshatchingBlock"/>.
-		/// </para>
-		/// <para>
-		/// The current instance must be a direct technique specified. The value can be:
-		/// <list type="bullet">
-		/// <item><see cref="Technique.FullHouse"/></item>
-		/// <item><see cref="Technique.CrosshatchingBlock"/></item>
-		/// <item><see cref="Technique.CrosshatchingRow"/></item>
-		/// <item><see cref="Technique.CrosshatchingColumn"/></item>
-		/// <item><see cref="Technique.NakedSingle"/></item>
-		/// </list>
-		/// </para>
-		/// </summary>
-		/// <param name="indirect">
-		/// The indirect technique used. The value can be ones of group <see cref="TechniqueGroup.LockedCandidates"/>
-		/// and <see cref="TechniqueGroup.Subset"/>.
-		/// </param>
-		/// <returns>The combined result.</returns>
-		/// <exception cref="ArgumentOutOfRangeException">Throws when the current instance is not a direct technique.</exception>
-		/// <exception cref="NotSupportedException">
-		/// Throws when the argument <paramref name="indirect"/> is neither locked candidates nor subset.
-		/// </exception>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public Technique ComplexSingleUsing(Technique indirect)
-			=> @this switch
-			{
-				Technique.FullHouse or >= Technique.CrosshatchingBlock and <= Technique.CrosshatchingColumn or Technique.NakedSingle
-					=> indirect.Group switch
-					{
-						TechniqueGroup.LockedCandidates or TechniqueGroup.Subset => Technique.Parse($"{indirect}{@this}"),
-						_ when Enum.IsDefined(indirect) => throw new NotSupportedException(SR.ExceptionMessage("ComplexSingleNotSupportedToday")),
-						_ => throw new ArgumentOutOfRangeException(nameof(indirect))
-					},
-				_ => throw new ArgumentOutOfRangeException(nameof(@this))
-			};
-
-		/// <summary>
 		/// Try to get the group that the current <see cref="Technique"/> belongs to.
 		/// If a technique doesn't contain a corresponding group, this method will return <see langword="null"/>.
 		/// No exception will be thrown.

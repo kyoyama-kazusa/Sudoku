@@ -8,26 +8,8 @@ public sealed class DirectSubsetGenerator : ComplexSingleGenerator
 	/// <inheritdoc/>
 	public override TechniqueSet SupportedTechniques
 		=> [
-			Technique.NakedPairFullHouse, Technique.NakedPairCrosshatchingBlock, Technique.NakedPairCrosshatchingRow,
-			Technique.NakedPairCrosshatchingColumn, Technique.NakedPairNakedSingle,
-			Technique.NakedTripleFullHouse, Technique.NakedTripleCrosshatchingBlock, Technique.NakedTripleCrosshatchingRow,
-			Technique.NakedTripleCrosshatchingColumn, Technique.NakedTripleNakedSingle,
-			Technique.NakedQuadrupleFullHouse, Technique.NakedQuadrupleCrosshatchingBlock, Technique.NakedQuadrupleCrosshatchingRow,
-			Technique.NakedQuadrupleCrosshatchingColumn, Technique.NakedQuadrupleNakedSingle,
-			Technique.HiddenPairFullHouse, Technique.HiddenPairCrosshatchingBlock, Technique.HiddenPairCrosshatchingRow,
-			Technique.HiddenPairCrosshatchingColumn, Technique.HiddenPairNakedSingle,
-			Technique.HiddenTripleFullHouse, Technique.HiddenTripleCrosshatchingBlock, Technique.HiddenTripleCrosshatchingRow,
-			Technique.HiddenTripleCrosshatchingColumn, Technique.HiddenTripleNakedSingle,
-			Technique.HiddenQuadrupleFullHouse, Technique.HiddenQuadrupleCrosshatchingBlock, Technique.HiddenQuadrupleCrosshatchingRow,
-			Technique.HiddenQuadrupleCrosshatchingColumn, Technique.HiddenQuadrupleNakedSingle,
-			Technique.LockedPairFullHouse, Technique.LockedPairCrosshatchingBlock, Technique.LockedPairCrosshatchingRow,
-			Technique.LockedPairCrosshatchingColumn, Technique.LockedPairNakedSingle,
-			Technique.LockedTripleFullHouse, Technique.LockedTripleCrosshatchingBlock, Technique.LockedTripleCrosshatchingRow,
-			Technique.LockedTripleCrosshatchingColumn, Technique.LockedTripleNakedSingle,
-			Technique.LockedHiddenPairFullHouse, Technique.LockedHiddenPairCrosshatchingBlock, Technique.LockedHiddenPairCrosshatchingRow,
-			Technique.LockedHiddenPairCrosshatchingColumn, Technique.LockedHiddenPairNakedSingle,
-			Technique.LockedHiddenTripleFullHouse, Technique.LockedHiddenTripleCrosshatchingBlock, Technique.LockedHiddenTripleCrosshatchingRow,
-			Technique.LockedHiddenTripleCrosshatchingColumn, Technique.LockedHiddenTripleNakedSingle
+			Technique.ComplexFullHouse, Technique.ComplexCrosshatchingBlock, Technique.ComplexCrosshatchingRow,
+			Technique.ComplexCrosshatchingColumn, Technique.ComplexNakedSingle
 		];
 
 	/// <inheritdoc/>

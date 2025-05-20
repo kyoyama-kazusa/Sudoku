@@ -8,10 +8,8 @@ public sealed class DirectIntersectionGenerator : ComplexSingleGenerator
 	/// <inheritdoc/>
 	public override TechniqueSet SupportedTechniques
 		=> [
-			Technique.PointingFullHouse, Technique.PointingCrosshatchingBlock, Technique.PointingCrosshatchingRow,
-			Technique.PointingCrosshatchingColumn, Technique.PointingNakedSingle,
-			Technique.ClaimingFullHouse, Technique.ClaimingCrosshatchingBlock, Technique.ClaimingCrosshatchingRow,
-			Technique.ClaimingCrosshatchingColumn, Technique.ClaimingNakedSingle
+			Technique.ComplexFullHouse, Technique.ComplexCrosshatchingBlock, Technique.ComplexCrosshatchingRow,
+			Technique.ComplexCrosshatchingColumn, Technique.ComplexNakedSingle
 		];
 
 	/// <inheritdoc/>
