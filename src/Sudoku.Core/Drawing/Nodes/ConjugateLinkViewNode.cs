@@ -4,18 +4,36 @@ namespace Sudoku.Drawing.Nodes;
 /// Defines a view node that highlights for a conjugate pair.
 /// </summary>
 /// <param name="identifier"><inheritdoc/></param>
-/// <param name="start">Indicates the start point.</param>
-/// <param name="end">Indicates the end point.</param>
-/// <param name="digit">Indicates the digit used.</param>
+/// <param name="start"><inheritdoc cref="Start" path="/summary"/></param>
+/// <param name="end"><inheritdoc cref="End" path="/summary"/></param>
+/// <param name="digit"><inheritdoc cref="Digit" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode | TypeImplFlags.Object_ToString)]
 [method: JsonConstructor]
-public sealed partial class ConjugateLinkViewNode(
-	ColorIdentifier identifier,
-	[Property, HashCodeMember, StringMember] Cell start,
-	[Property, HashCodeMember, StringMember] Cell end,
-	[Property, HashCodeMember, StringMember] Digit digit
-) : ViewNode(identifier), ILinkViewNode
+public sealed partial class ConjugateLinkViewNode(ColorIdentifier identifier, Cell start, Cell end, Digit digit) :
+	ViewNode(identifier),
+	ILinkViewNode
 {
+	/// <summary>
+	/// Indicates the start point.
+	/// </summary>
+	[HashCodeMember]
+	[StringMember]
+	public Cell Start { get; } = start;
+
+	/// <summary>
+	/// Indicates the end point.
+	/// </summary>
+	[HashCodeMember]
+	[StringMember]
+	public Cell End { get; } = end;
+
+	/// <summary>
+	/// Indicates the digit used.
+	/// </summary>
+	[HashCodeMember]
+	[StringMember]
+	public Digit Digit { get; } = digit;
+
 	/// <summary>
 	/// Indicates the target conjugate pair.
 	/// </summary>

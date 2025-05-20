@@ -4,18 +4,35 @@ namespace Sudoku.Drawing.Nodes;
 /// Defines a view node that highlights for a chain link.
 /// </summary>
 /// <param name="identifier"><inheritdoc/></param>
-/// <param name="start">Indicates the start point.</param>
-/// <param name="end">Indicates the end point.</param>
-/// <param name="isStrongLink">Indicates whether the link is a strong link.</param>
+/// <param name="start"><inheritdoc cref="Start" path="/summary"/></param>
+/// <param name="end"><inheritdoc cref="End" path="/summary"/></param>
+/// <param name="isStrongLink"><inheritdoc cref="IsStrongLink" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode | TypeImplFlags.Object_ToString)]
 [method: JsonConstructor]
-public sealed partial class ChainLinkViewNode(
-	ColorIdentifier identifier,
-	[Property, HashCodeMember, StringMember] CandidateMap start,
-	[Property, HashCodeMember, StringMember] CandidateMap end,
-	[Property, StringMember] bool isStrongLink
-) : BasicViewNode(identifier), ILinkViewNode
+public sealed partial class ChainLinkViewNode(ColorIdentifier identifier, CandidateMap start, CandidateMap end, bool isStrongLink) :
+	BasicViewNode(identifier),
+	ILinkViewNode
 {
+	/// <summary>
+	/// Indicates whether the link is a strong link.
+	/// </summary>
+	[StringMember]
+	public bool IsStrongLink { get; } = isStrongLink;
+
+	/// <summary>
+	/// Indicates the start point.
+	/// </summary>
+	[HashCodeMember]
+	[StringMember]
+	public CandidateMap Start { get; } = start;
+
+	/// <summary>
+	/// Indicates the end point.
+	/// </summary>
+	[HashCodeMember]
+	[StringMember]
+	public CandidateMap End { get; } = end;
+
 	/// <inheritdoc/>
 	object ILinkViewNode.Start => Start;
 

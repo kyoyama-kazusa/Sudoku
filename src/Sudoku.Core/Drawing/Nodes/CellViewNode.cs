@@ -4,11 +4,17 @@ namespace Sudoku.Drawing.Nodes;
 /// Defines a view node that highlights for a cell.
 /// </summary>
 /// <param name="identifier"><inheritdoc/></param>
-/// <param name="cell">Indicates the cell highlighted.</param>
+/// <param name="cell"><inheritdoc cref="Cell" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode | TypeImplFlags.Object_ToString)]
 [method: JsonConstructor]
-public sealed partial class CellViewNode(ColorIdentifier identifier, [Property, HashCodeMember] Cell cell) : BasicViewNode(identifier)
+public sealed partial class CellViewNode(ColorIdentifier identifier, Cell cell) : BasicViewNode(identifier)
 {
+	/// <summary>
+	/// Indicates the cell highlighted.
+	/// </summary>
+	[HashCodeMember]
+	public Cell Cell { get; } = cell;
+
 	/// <summary>
 	/// Indicates the cell string.
 	/// </summary>

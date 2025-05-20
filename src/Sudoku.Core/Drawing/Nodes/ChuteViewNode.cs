@@ -4,12 +4,18 @@ namespace Sudoku.Drawing.Nodes;
 /// Defines a view node that highlights for a chute (i.e. 3 houses that is in a three blocks in a line).
 /// </summary>
 /// <param name="identifier"><inheritdoc/></param>
-/// <param name="chuteIndex">Indicates the chute index. The value can be between 0 and 5.</param>
+/// <param name="chuteIndex"><inheritdoc cref="ChuteIndex" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode | TypeImplFlags.Object_ToString)]
 [method: JsonConstructor]
-public sealed partial class ChuteViewNode(ColorIdentifier identifier, [Property, HashCodeMember, StringMember] int chuteIndex) :
-	BasicViewNode(identifier)
+public sealed partial class ChuteViewNode(ColorIdentifier identifier, int chuteIndex) : BasicViewNode(identifier)
 {
+	/// <summary>
+	/// Indicates the chute index. The value can be between 0 and 5.
+	/// </summary>
+	[HashCodeMember]
+	[StringMember]
+	public int ChuteIndex { get; } = chuteIndex;
+
 	/// <summary>
 	/// Indicates whether the chute is in a row.
 	/// </summary>

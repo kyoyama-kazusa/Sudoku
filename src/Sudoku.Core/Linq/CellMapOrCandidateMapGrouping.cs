@@ -6,17 +6,14 @@ namespace Sudoku.Linq;
 /// <typeparam name="TMap">The type of the map that stores the <see cref="Values"/>.</typeparam>
 /// <typeparam name="TElement">The type of elements stored in <see cref="Values"/>.</typeparam>
 /// <typeparam name="TKey">The type of the key in the group.</typeparam>
-/// <param name="key">Indicates the key used.</param>
-/// <param name="values">Indicates the candidates.</param>
+/// <param name="key"><inheritdoc cref="Key" path="/summary"/></param>
+/// <param name="values"><inheritdoc cref="Values" path="/summary"/></param>
 /// <seealso cref="CellMap"/>
 /// <seealso cref="CandidateMap"/>
 [TypeImpl(
 	TypeImplFlags.Object_Equals | TypeImplFlags.Object_GetHashCode | TypeImplFlags.EqualityOperators | TypeImplFlags.Equatable,
 	IsLargeStructure = true)]
-public readonly partial struct CellMapOrCandidateMapGrouping<TMap, TElement, TKey>(
-	[Property] TKey key,
-	[Property, HashCodeMember] in TMap values
-) :
+public readonly partial struct CellMapOrCandidateMapGrouping<TMap, TElement, TKey>(TKey key, in TMap values) :
 	IEnumerable<TElement>,
 	IEquatable<CellMapOrCandidateMapGrouping<TMap, TElement, TKey>>,
 	IEqualityOperators<CellMapOrCandidateMapGrouping<TMap, TElement, TKey>, CellMapOrCandidateMapGrouping<TMap, TElement, TKey>, bool>,
@@ -33,8 +30,17 @@ public readonly partial struct CellMapOrCandidateMapGrouping<TMap, TElement, TKe
 	/// <seealso cref="Values"/>
 	public int Count => Values.Count;
 
+	/// <summary>
+	/// Indicates the key used.
+	/// </summary>
+	public TKey Key { get; } = key;
+
+	/// <summary>
+	/// Indicates the candidates.
+	/// </summary>
+	[HashCodeMember]
 	[EquatableMember]
-	private TMap ValuesEntry => Values;
+	public TMap Values { get; } = values;
 
 
 	/// <inheritdoc cref="ICellMapOrCandidateMap{TSelf, TElement}.this[TElement]"/>

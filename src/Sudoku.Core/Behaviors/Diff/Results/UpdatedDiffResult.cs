@@ -3,9 +3,15 @@ namespace Sudoku.Behaviors.Diff.Results;
 /// <summary>
 /// Represents a difference that describes a type of digits (given, value or candidate) is updated.
 /// </summary>
-/// <param name="candidates">Indicates the candidates to be updated.</param>
-public abstract partial class UpdatedDiffResult([Property] CandidateMap candidates) : DiffResult
+/// <param name="candidates"><inheritdoc cref="Candidates" path="/summary"/></param>
+public abstract class UpdatedDiffResult(CandidateMap candidates) : DiffResult
 {
+	/// <summary>
+	/// Indicates the candidates to be updated.
+	/// </summary>
+	public CandidateMap Candidates { get; } = candidates;
+
+
 	/// <inheritdoc/>
 	public abstract override string NotationPrefix { get; }
 

@@ -3,19 +3,38 @@ namespace Sudoku.Drawing;
 /// <summary>
 /// Defines a <see cref="ColorIdentifier"/> derived type that uses color value (like type <c>System.Drawing.Color</c>) to distinct with colors.
 /// </summary>
-/// <param name="alpha">Indicates the color alpha raw values to be assigned.</param>
-/// <param name="red">Indicates the color red raw values to be assigned.</param>
-/// <param name="green">Indicates the color green raw values to be assigned.</param>
-/// <param name="blue">Indicates the color blue raw values to be assigned.</param>
+/// <param name="alpha"><inheritdoc cref="Alpha" path="/summary"/></param>
+/// <param name="red"><inheritdoc cref="Red" path="/summary"/></param>
+/// <param name="green"><inheritdoc cref="Green" path="/summary"/></param>
+/// <param name="blue"><inheritdoc cref="Blue" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode | TypeImplFlags.Object_ToString)]
 [method: JsonConstructor]
-public sealed partial class ColorColorIdentifier(
-	[Property, StringMember] byte alpha,
-	[Property, StringMember] byte red,
-	[Property, StringMember] byte green,
-	[Property, StringMember] byte blue
-) : ColorIdentifier
+public sealed partial class ColorColorIdentifier(byte alpha, byte red, byte green, byte blue) : ColorIdentifier
 {
+	/// <summary>
+	/// Indicates the color alpha raw values to be assigned.
+	/// </summary>
+	[StringMember]
+	public byte Alpha { get; } = alpha;
+
+	/// <summary>
+	/// Indicates the color red raw values to be assigned.
+	/// </summary>
+	[StringMember]
+	public byte Red { get; } = red;
+
+	/// <summary>
+	/// Indicates the color green raw values to be assigned.
+	/// </summary>
+	[StringMember]
+	public byte Green { get; } = green;
+
+	/// <summary>
+	/// Indicates the color blue raw values to be assigned.
+	/// </summary>
+	[StringMember]
+	public byte Blue { get; } = blue;
+
 	[HashCodeMember]
 	private int HashCode => Alpha << 24 | Red << 16 | Green << 8 | Blue;
 

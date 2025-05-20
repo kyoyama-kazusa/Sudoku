@@ -4,17 +4,13 @@ namespace Sudoku.Drawing.Nodes;
 /// Defines a view node that highlights for a baba group.
 /// </summary>
 /// <param name="identifier"><inheritdoc/></param>
-/// <param name="cell">Indicates the cell used.</param>
-/// <param name="digitsMask">Indicates a mask that hold digits used.</param>
-/// <param name="unknownValueChar">Indicates the character that represents the baba group name.</param>
+/// <param name="cell"><inheritdoc cref="Cell" path="/summary"/></param>
+/// <param name="unknownValueChar"><inheritdoc cref="UnknownValueChar" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode | TypeImplFlags.Object_ToString)]
 [method: JsonConstructor]
-public sealed partial class BabaGroupViewNode(
-	ColorIdentifier identifier,
-	[Property, HashCodeMember] Cell cell,
-	[Property, StringMember] char unknownValueChar,
-	[Property] Mask digitsMask
-) : BasicViewNode(identifier)
+public sealed partial class BabaGroupViewNode(ColorIdentifier identifier, Cell cell, char unknownValueChar, Mask digitsMask) :
+	BasicViewNode(identifier)
 {
 	/// <summary>
 	/// Initializes a <see cref="BabaGroupViewNode"/> instance via the specified values.
@@ -25,6 +21,23 @@ public sealed partial class BabaGroupViewNode(
 	{
 	}
 
+
+	/// <summary>
+	/// Indicates the cell used.
+	/// </summary>
+	[HashCodeMember]
+	public int Cell { get; } = cell;
+
+	/// <summary>
+	/// Indicates the character that represents the baba group name.
+	/// </summary>
+	[StringMember]
+	public char UnknownValueChar { get; } = unknownValueChar;
+
+	/// <summary>
+	/// Indicates a mask that hold digits used.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
 
 	/// <summary>
 	/// Indicates the cell string.
