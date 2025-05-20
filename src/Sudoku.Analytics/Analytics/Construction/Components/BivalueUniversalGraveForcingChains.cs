@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Construction.Components;
 /// <summary>
 /// Represents a multiple forcing chains that is applied to a bi-value universal grave + n.
 /// </summary>
-/// <param name="trueCandidates">Indicates all true candidates.</param>
+/// <param name="trueCandidates"><inheritdoc cref="TrueCandidates" path="/summary"/></param>
 /// <param name="conclusions"><inheritdoc cref="MultipleForcingChains(Conclusion[])" path="/param[@name='conclusions']"/></param>
-public sealed partial class BivalueUniversalGraveForcingChains([Property] in CandidateMap trueCandidates, params Conclusion[] conclusions) :
+public sealed partial class BivalueUniversalGraveForcingChains(in CandidateMap trueCandidates, params Conclusion[] conclusions) :
 	MultipleForcingChains(conclusions)
 {
 	/// <inheritdoc/>
@@ -16,6 +16,11 @@ public sealed partial class BivalueUniversalGraveForcingChains([Property] in Can
 
 	/// <inheritdoc/>
 	public override bool IsAdvancedMultiple => true;
+
+	/// <summary>
+	/// Indicates all true candidates.
+	/// </summary>
+	public CandidateMap TrueCandidates { get; } = trueCandidates;
 
 
 	/// <inheritdoc/>

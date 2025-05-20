@@ -3,10 +3,10 @@ namespace Sudoku.Analytics.Construction.Chaining;
 /// <summary>
 /// Represents a list of <see cref="ChainingRule"/> instances.
 /// </summary>
-/// <param name="rules">A list of rules.</param>
+/// <param name="rules"><inheritdoc cref="Rules" path="/summary"/></param>
 [CollectionBuilder(typeof(ChainingRuleCollection), nameof(Create))]
 [TypeImpl(TypeImplFlags.AllObjectMethods)]
-public readonly ref partial struct ChainingRuleCollection([Property] ReadOnlySpan<ChainingRule> rules) :
+public readonly ref partial struct ChainingRuleCollection(ReadOnlySpan<ChainingRule> rules) :
 	IEnumerable<ChainingRule>,
 	IToArrayMethod<ChainingRuleCollection, ChainingRule>
 {
@@ -18,6 +18,11 @@ public readonly ref partial struct ChainingRuleCollection([Property] ReadOnlySpa
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		get => Rules.Length;
 	}
+
+	/// <summary>
+	/// Indicates the rules.
+	/// </summary>
+	public ReadOnlySpan<ChainingRule> Rules { get; } = rules;
 
 
 	/// <summary>

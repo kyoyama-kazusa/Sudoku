@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Construction.Components;
 /// <summary>
 /// Represents a blossom loop.
 /// </summary>
-/// <param name="conclusions">Indicates the conclusions used.</param>
+/// <param name="conclusions"><inheritdoc cref="Conclusions" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_Equals | TypeImplFlags.Object_ToString | TypeImplFlags.AllEqualityComparisonOperators)]
-public sealed partial class BlossomLoop([Property] params ConclusionSet conclusions) :
+public sealed partial class BlossomLoop(params ConclusionSet conclusions) :
 	SortedDictionary<Candidate, StrongForcingChain>,
 	IComparable<BlossomLoop>,
 	IComparisonOperators<BlossomLoop, BlossomLoop, bool>,
@@ -69,6 +69,11 @@ public sealed partial class BlossomLoop([Property] params ConclusionSet conclusi
 	/// Indicates the complexity of each branch.
 	/// </summary>
 	public ReadOnlySpan<int> BranchedComplexity => (from chain in Values select chain.Length).ToArray();
+
+	/// <summary>
+	/// Indicates the conclusions.
+	/// </summary>
+	public ConclusionSet Conclusions { get; } = conclusions;
 
 	/// <inheritdoc/>
 	ComponentType IComponent.Type => ComponentType.BlossomLoop;

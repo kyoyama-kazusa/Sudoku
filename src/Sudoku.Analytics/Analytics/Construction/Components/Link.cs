@@ -7,21 +7,13 @@ namespace Sudoku.Analytics.Construction.Components;
 /// only if they holds same node values, regardless of what link type two <see cref="Link"/> instances use.
 /// </b></para>
 /// </summary>
-/// <param name="firstNode">Indicates the first node to be used.</param>
-/// <param name="secondNode">Indicates the second node to be used.</param>
-/// <param name="isStrong">Indicates whether the link type is a strong link or not.</param>
-/// <param name="groupedLinkPattern">
-/// Indicates the pattern that the grouped link used. The value can be used as a "tag" recording extra information.
-/// The default value is <see langword="null"/>.
-/// </param>
+/// <param name="firstNode"><inheritdoc cref="FirstNode" path="/summary"/></param>
+/// <param name="secondNode"><inheritdoc cref="SecondNode" path="/summary"/></param>
+/// <param name="isStrong"><inheritdoc cref="IsStrong" path="/summary"/></param>
+/// <param name="groupedLinkPattern"><inheritdoc cref="GroupedLinkPattern" path="/summary"/></param>
 /// <seealso cref="Node"/>
 [TypeImpl(TypeImplFlags.Object_Equals | TypeImplFlags.EqualityOperators)]
-public sealed partial class Link(
-	[Property] Node firstNode,
-	[Property] Node secondNode,
-	[Property] bool isStrong,
-	[Property] Pattern? groupedLinkPattern = null
-) :
+public sealed partial class Link(Node firstNode, Node secondNode, bool isStrong, Pattern? groupedLinkPattern = null) :
 	IComponent,
 	IEquatable<Link>,
 	IEqualityOperators<Link, Link, bool>
@@ -53,6 +45,27 @@ public sealed partial class Link(
 	public bool IsBivalueCellLink
 		=> this is ({ Map: { Cells: [var c1], Digits: var d1 } }, { Map: { Cells: [var c2], Digits: var d2 } })
 		&& c1 == c2 && d1 != d2 && BitOperations.IsPow2(d1) && BitOperations.IsPow2(d2);
+
+	/// <summary>
+	/// Indicates whether the link type is a strong link or not.
+	/// </summary>
+	public bool IsStrong { get; } = isStrong;
+
+	/// <summary>
+	/// Indicates the first node.
+	/// </summary>
+	public Node FirstNode { get; } = firstNode;
+
+	/// <summary>
+	/// Indicates the second node.
+	/// </summary>
+	public Node SecondNode { get; } = secondNode;
+
+	/// <summary>
+	/// Indicates the pattern that the grouped link used. The value can be used as a "tag" recording extra information.
+	/// The default value is <see langword="null"/>.
+	/// </summary>
+	public Pattern? GroupedLinkPattern { get; } = groupedLinkPattern;
 
 	/// <inheritdoc/>
 	ComponentType IComponent.Type => ComponentType.ChainLink;

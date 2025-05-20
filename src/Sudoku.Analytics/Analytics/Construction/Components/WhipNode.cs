@@ -3,15 +3,15 @@ namespace Sudoku.Analytics.Construction.Components;
 /// <summary>
 /// Represents a whip node.
 /// </summary>
-/// <param name="assignment">Indicates the assignment conclusion.</param>
-/// <param name="availableAssignments">Indicates the available assignments.</param>
-/// <param name="parent">Indicates the parent node.</param>
+/// <param name="assignment"><inheritdoc cref="Assignment" path="/summary"/></param>
+/// <param name="availableAssignments"><inheritdoc cref="AvailableAssignments" path="/summary"/></param>
+/// <param name="parent"><inheritdoc cref="Parent" path="/summary"/></param>
 [StructLayout(LayoutKind.Auto)]
 [TypeImpl(TypeImplFlags.AllObjectMethods | TypeImplFlags.Equatable | TypeImplFlags.EqualityOperators)]
 public sealed partial class WhipNode(
-	[Property, HashCodeMember] WhipAssignment assignment,
-	[Property] ReadOnlyMemory<WhipAssignment> availableAssignments,
-	[Property] WhipNode? parent = null
+	WhipAssignment assignment,
+	ReadOnlyMemory<WhipAssignment> availableAssignments,
+	WhipNode? parent = null
 ) : IParentLinkedNode<WhipNode>
 {
 	/// <summary>
@@ -22,6 +22,18 @@ public sealed partial class WhipNode(
 	{
 	}
 
+
+	/// <summary>
+	/// Indicates the available assignments.
+	/// </summary>
+	public ReadOnlyMemory<WhipAssignment> AvailableAssignments { get; } = availableAssignments;
+
+	/// <summary>
+	/// Indicates the assignment conclusion.
+	/// </summary>
+	[HashCodeMember]
+	[EquatableMember]
+	public WhipAssignment Assignment { get; } = assignment;
 
 	/// <inheritdoc/>
 	public WhipNode Root
@@ -37,11 +49,13 @@ public sealed partial class WhipNode(
 		}
 	}
 
+	/// <summary>
+	/// Indicates the parent node.
+	/// </summary>
+	public WhipNode? Parent { get; } = parent;
+
 	/// <inheritdoc/>
 	ComponentType IComponent.Type => ComponentType.WhipNode;
-
-	[EquatableMember]
-	private WhipAssignment AssignmentEntry => Assignment;
 
 
 	/// <inheritdoc/>

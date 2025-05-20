@@ -17,7 +17,7 @@ namespace Sudoku.Analytics.Construction.Components;
 	TypeImplFlags.Object_Equals | TypeImplFlags.Object_ToString | TypeImplFlags.AllEqualityComparisonOperators,
 	OtherModifiersOnEquals = "sealed",
 	OtherModifiersOnToString = "sealed")]
-public partial class MultipleForcingChains([Property(Setter = PropertySetters.InternalSet)] params Conclusion[] conclusions) :
+public partial class MultipleForcingChains(params Conclusion[] conclusions) :
 	SortedDictionary<Candidate, UnnamedChain>,
 	IAnyAllMethod<MultipleForcingChains, KeyValuePair<Candidate, UnnamedChain>>,
 	IComparable<MultipleForcingChains>,
@@ -67,6 +67,9 @@ public partial class MultipleForcingChains([Property(Setter = PropertySetters.In
 
 	/// <inheritdoc/>
 	public ReadOnlySpan<int> BranchedComplexity => (from v in Values select v.Length).ToArray();
+
+	/// <inheritdoc/>
+	public Conclusion[] Conclusions { get; internal set; } = conclusions;
 
 	/// <inheritdoc/>
 	public CandidateMap Candidates => [.. Keys];

@@ -3,27 +3,30 @@ namespace Sudoku.Measuring;
 /// <summary>
 /// Represents a factor that describes a rule for calculating difficulty rating for a step in one factor.
 /// </summary>
-/// <param name="resourceKey">Indicates the factor resource key.</param>
-/// <param name="parameterNames">
-/// Indicates a list of <see cref="string"/> instances that binds with real instance properties
-/// stored inside a <see cref="Step"/> instance, representing the target step type is compatible
-/// with the current factor and can be calculated its rating.
-/// </param>
-/// <param name="reflectedStepType">Indicates the relied <see cref="Type"/> instance.</param>
-/// <param name="formula">Provides with a formula that calculates for the result.</param>
+/// <param name="resourceKey"><inheritdoc cref="FactorResourceKey" path="/summary"/></param>
+/// <param name="parameterNames"><inheritdoc cref="ParameterNames" path="/summary"/></param>
+/// <param name="reflectedStepType"><inheritdoc cref="ReflectedStepType" path="/summary"/></param>
+/// <param name="formula"><inheritdoc cref="Formula" path="/summary"/></param>
 [method: SetsRequiredMembers]
-public readonly partial struct Factor(
-	[Property(Accessibility = "public required", NamingRule = "Factor>@", Setter = PropertySetters.Init)] string resourceKey,
-	[Property(Accessibility = "public required", Setter = PropertySetters.Init)] string[] parameterNames,
-	[Property(Accessibility = "public required", Setter = PropertySetters.Init)] Type reflectedStepType,
-	[Property(Accessibility = "public required", Setter = PropertySetters.Init)] Func<ReadOnlySpan<object?>, int> formula
-)
+public readonly struct Factor(string resourceKey, string[] parameterNames, Type reflectedStepType, Func<ReadOnlySpan<object?>, int> formula)
 {
 	/// <summary>
 	/// Default property flags, including properties that are explicitly interface implemented.
 	/// </summary>
 	private const BindingFlags PropertyFlags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
 
+
+	/// <summary>
+	/// Indicates the factor resource key.
+	/// </summary>
+	public required string FactorResourceKey { get; init; } = resourceKey;
+
+	/// <summary>
+	/// Indicates a list of <see cref="string"/> instances that binds with real instance properties
+	/// stored inside a <see cref="Step"/> instance, representing the target step type is compatible
+	/// with the current factor and can be calculated its rating.
+	/// </summary>
+	public required string[] ParameterNames { get; init; } = parameterNames;
 
 	/// <summary>
 	/// Indicates a <see cref="PropertyInfo"/> instance that creates from property <see cref="ParameterNames"/>.
@@ -85,6 +88,16 @@ public readonly partial struct Factor(
 			static bool nameMatcher(string a, string b) => a == b || a.Contains('.') && a[(a.LastIndexOf('.') + 1)..] == b;
 		}
 	}
+
+	/// <summary>
+	/// Indicates the relied <see cref="Type"/> instance.
+	/// </summary>
+	public required Type ReflectedStepType { get; init; } = reflectedStepType;
+
+	/// <summary>
+	/// Provides with a formula that calculates for the result.
+	/// </summary>
+	public required Func<ReadOnlySpan<object?>, int> Formula { get; init; } = formula;
 
 
 	/// <summary>

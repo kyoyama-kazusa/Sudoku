@@ -7,18 +7,11 @@ namespace Sudoku.Analytics.Construction.Components;
 /// <item>To build a dynamic forcing chain branch. Use multiple parents to build a multi-parent node.</item>
 /// </list>
 /// </summary>
-/// <param name="map">Indicates the backing map.</param>
-/// <param name="isOn">Indicates whether the node is on.</param>
-/// <param name="parents">
-/// <para>Indicates the parent node. The value can be <see langword="null"/> in handling.</para>
-/// <para><i>This value doesn't participate in equality comparison.</i></para>
-/// </param>
+/// <param name="map"><inheritdoc cref="_map" path="/summary"/></param>
+/// <param name="isOn"><inheritdoc cref="IsOn" path="/summary"/></param>
+/// <param name="parents"><inheritdoc cref="Parents" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.AllObjectMethods | TypeImplFlags.AllEqualityComparisonOperators)]
-public sealed partial class Node(
-	[Field, HashCodeMember] in CandidateMap map,
-	[Property, HashCodeMember] bool isOn,
-	[Property(Setter = PropertySetters.Set)] NodeSet? parents = null
-) :
+public sealed partial class Node(in CandidateMap map, bool isOn, NodeSet? parents = null) :
 	IComparable<Node>,
 	IComparisonOperators<Node, Node, bool>,
 	ICloneable,
@@ -36,9 +29,22 @@ public sealed partial class Node(
 
 
 	/// <summary>
+	/// Indicates the backing map.
+	/// </summary>
+	[HashCodeMember]
+	private readonly CandidateMap _map = map;
+
+
+	/// <summary>
 	/// Indicates whether the node is a grouped node.
 	/// </summary>
 	public bool IsGroupedNode => _map.Count >= 2;
+
+	/// <summary>
+	/// Indicates whether the node is on.
+	/// </summary>
+	[HashCodeMember]
+	public bool IsOn { get; } = isOn;
 
 	/// <summary>
 	/// Indicates the map of candidates the node uses.
@@ -58,6 +64,12 @@ public sealed partial class Node(
 			return result;
 		}
 	}
+
+	/// <summary>
+	/// <para>Indicates the parent node. The value can be <see langword="null"/> in handling.</para>
+	/// <para>Please note that <i>this value doesn't participate in equality comparison.</i></para>
+	/// </summary>
+	public NodeSet? Parents { get; set; } = parents;
 
 	/// <inheritdoc/>
 	ComponentType IComponent.Type => ComponentType.ChainNode;

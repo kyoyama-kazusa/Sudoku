@@ -12374,17 +12374,17 @@
             <summary>
             Represents the permutation information for best triplet.
             </summary>
-            <param name="bestResult">Indicates the best result.</param>
-            <param name="resultMask">Indicates the result mask.</param>
-            <param name="resultNumberOfBits">Indicates the result number of bits.</param>
+            <param name="bestResult"><inheritdoc cref="P:Sudoku.Shuffling.Minlex.BestTripletPermutation.BestResult" path="/summary"/></param>
+            <param name="resultMask"><inheritdoc cref="P:Sudoku.Shuffling.Minlex.BestTripletPermutation.ResultMask" path="/summary"/></param>
+            <param name="resultNumberOfBits"><inheritdoc cref="P:Sudoku.Shuffling.Minlex.BestTripletPermutation.ResultNumberOfBits" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Shuffling.Minlex.BestTripletPermutation.#ctor(System.Int32,System.Int32,System.Int32)">
             <summary>
             Represents the permutation information for best triplet.
             </summary>
-            <param name="bestResult">Indicates the best result.</param>
-            <param name="resultMask">Indicates the result mask.</param>
-            <param name="resultNumberOfBits">Indicates the result number of bits.</param>
+            <param name="bestResult"><inheritdoc cref="P:Sudoku.Shuffling.Minlex.BestTripletPermutation.BestResult" path="/summary"/></param>
+            <param name="resultMask"><inheritdoc cref="P:Sudoku.Shuffling.Minlex.BestTripletPermutation.ResultMask" path="/summary"/></param>
+            <param name="resultNumberOfBits"><inheritdoc cref="P:Sudoku.Shuffling.Minlex.BestTripletPermutation.ResultNumberOfBits" path="/summary"/></param>
         </member>
         <member name="F:Sudoku.Shuffling.Minlex.BestTripletPermutation.Perm">
             <summary>
@@ -12398,17 +12398,17 @@
         </member>
         <member name="P:Sudoku.Shuffling.Minlex.BestTripletPermutation.BestResult">
             <summary>
-            The generated property declaration for parameter <c>bestResult</c>.
+            Indicates the best result.
             </summary>
         </member>
         <member name="P:Sudoku.Shuffling.Minlex.BestTripletPermutation.ResultMask">
             <summary>
-            The generated property declaration for parameter <c>resultMask</c>.
+            Indicates the result mask.
             </summary>
         </member>
         <member name="P:Sudoku.Shuffling.Minlex.BestTripletPermutation.ResultNumberOfBits">
             <summary>
-            The generated property declaration for parameter <c>resultNumberOfBits</c>.
+            Indicates the result number of bits.
             </summary>
         </member>
         <member name="T:Sudoku.Shuffling.Minlex.GridMinlexExtensions">
@@ -13511,7 +13511,7 @@
             Stores a list of clauses, where each clause is an array of <see cref="T:System.Int32"/> literals.
             Using positive integers to represents a variable assigned <see langword="true"/>; for negative integers, <see langword="false"/>.
             </summary>
-            <param name="numVars">Indicates total number of variables.</param>
+            <param name="numVars"><inheritdoc cref="P:Sudoku.Solving.BooleanSatisfiability.ConjunctiveNormalFormFormula.NumVars" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Solving.BooleanSatisfiability.ConjunctiveNormalFormFormula.#ctor(System.Int32)">
             <summary>
@@ -13519,11 +13519,16 @@
             Stores a list of clauses, where each clause is an array of <see cref="T:System.Int32"/> literals.
             Using positive integers to represents a variable assigned <see langword="true"/>; for negative integers, <see langword="false"/>.
             </summary>
-            <param name="numVars">Indicates total number of variables.</param>
+            <param name="numVars"><inheritdoc cref="P:Sudoku.Solving.BooleanSatisfiability.ConjunctiveNormalFormFormula.NumVars" path="/summary"/></param>
         </member>
         <member name="F:Sudoku.Solving.BooleanSatisfiability.ConjunctiveNormalFormFormula._clauses">
             <summary>
             Indicates the list of clauses.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Solving.BooleanSatisfiability.ConjunctiveNormalFormFormula.NumVars">
+            <summary>
+            Indicates total number of variables.
             </summary>
         </member>
         <member name="M:Sudoku.Solving.BooleanSatisfiability.ConjunctiveNormalFormFormula.AddClause(System.Int32[])">
@@ -13540,11 +13545,6 @@
         </member>
         <member name="M:Sudoku.Solving.BooleanSatisfiability.ConjunctiveNormalFormFormula.System#Collections#Generic#IEnumerable{System#ReadOnlyMemory{System#Int32}}#GetEnumerator">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Solving.BooleanSatisfiability.ConjunctiveNormalFormFormula.NumVars">
-            <summary>
-            The generated property declaration for parameter <c>numVars</c>.
-            </summary>
         </member>
         <member name="T:Sudoku.Solving.BooleanSatisfiability.SatSolver">
             <summary>

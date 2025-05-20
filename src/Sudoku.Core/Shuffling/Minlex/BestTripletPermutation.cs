@@ -3,14 +3,10 @@ namespace Sudoku.Shuffling.Minlex;
 /// <summary>
 /// Represents the permutation information for best triplet.
 /// </summary>
-/// <param name="bestResult">Indicates the best result.</param>
-/// <param name="resultMask">Indicates the result mask.</param>
-/// <param name="resultNumberOfBits">Indicates the result number of bits.</param>
-public partial struct BestTripletPermutation(
-	[Property(Setter = PropertySetters.Set)] int bestResult,
-	[Property(Setter = PropertySetters.Set)] int resultMask,
-	[Property(Setter = PropertySetters.Set)] int resultNumberOfBits
-)
+/// <param name="bestResult"><inheritdoc cref="BestResult" path="/summary"/></param>
+/// <param name="resultMask"><inheritdoc cref="ResultMask" path="/summary"/></param>
+/// <param name="resultNumberOfBits"><inheritdoc cref="ResultNumberOfBits" path="/summary"/></param>
+public partial struct BestTripletPermutation(int bestResult, int resultMask, int resultNumberOfBits)
 {
 	/// <summary>
 	/// Indicates the permutation cases.
@@ -552,4 +548,20 @@ public partial struct BestTripletPermutation(
 		],
 	];
 #pragma warning restore format
+
+
+	/// <summary>
+	/// Indicates the best result.
+	/// </summary>
+	public int BestResult { get; set; } = bestResult;
+
+	/// <summary>
+	/// Indicates the result mask.
+	/// </summary>
+	public int ResultMask { get; set; } = resultMask;
+
+	/// <summary>
+	/// Indicates the result number of bits.
+	/// </summary>
+	public int ResultNumberOfBits { get; set; } = resultNumberOfBits;
 }

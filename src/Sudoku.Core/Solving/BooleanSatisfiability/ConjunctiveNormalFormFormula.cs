@@ -5,14 +5,19 @@ namespace Sudoku.Solving.BooleanSatisfiability;
 /// Stores a list of clauses, where each clause is an array of <see cref="int"/> literals.
 /// Using positive integers to represents a variable assigned <see langword="true"/>; for negative integers, <see langword="false"/>.
 /// </summary>
-/// <param name="numVars">Indicates total number of variables.</param>
-public sealed partial class ConjunctiveNormalFormFormula([Property(Setter = PropertySetters.PrivateSet)] int numVars) :
-	IEnumerable<ReadOnlyMemory<int>>
+/// <param name="numVars"><inheritdoc cref="NumVars" path="/summary"/></param>
+public sealed class ConjunctiveNormalFormFormula(int numVars) : IEnumerable<ReadOnlyMemory<int>>
 {
 	/// <summary>
 	/// Indicates the list of clauses.
 	/// </summary>
 	private readonly List<ReadOnlyMemory<int>> _clauses = [];
+
+
+	/// <summary>
+	/// Indicates total number of variables.
+	/// </summary>
+	public int NumVars { get; private set; } = numVars;
 
 
 	/// <summary>

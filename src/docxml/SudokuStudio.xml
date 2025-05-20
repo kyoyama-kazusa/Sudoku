@@ -188,71 +188,71 @@
             <summary>
             Represents a type that binds with a analyze tab page type that implements <see cref="T:SudokuStudio.ComponentModel.IAnalyzerTab"/>.
             </summary>
-            <param name="header">Indicates the header.</param>
-            <param name="iconSource">Indicates the icon source.</param>
-            <param name="page">Indicates the tab page.</param>
+            <param name="header"><inheritdoc cref="P:SudokuStudio.BindableSource.AnalyzeTabPageBindableSource.Header" path="/summary"/></param>
+            <param name="iconSource"><inheritdoc cref="P:SudokuStudio.BindableSource.AnalyzeTabPageBindableSource.IconSource" path="/summary"/></param>
+            <param name="page"><inheritdoc cref="P:SudokuStudio.BindableSource.AnalyzeTabPageBindableSource.Page" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.ComponentModel.IAnalyzerTab"/>
         </member>
         <member name="M:SudokuStudio.BindableSource.AnalyzeTabPageBindableSource.#ctor(System.String,Microsoft.UI.Xaml.Controls.IconSource,SudokuStudio.ComponentModel.IAnalyzerTab)">
             <summary>
             Represents a type that binds with a analyze tab page type that implements <see cref="T:SudokuStudio.ComponentModel.IAnalyzerTab"/>.
             </summary>
-            <param name="header">Indicates the header.</param>
-            <param name="iconSource">Indicates the icon source.</param>
-            <param name="page">Indicates the tab page.</param>
+            <param name="header"><inheritdoc cref="P:SudokuStudio.BindableSource.AnalyzeTabPageBindableSource.Header" path="/summary"/></param>
+            <param name="iconSource"><inheritdoc cref="P:SudokuStudio.BindableSource.AnalyzeTabPageBindableSource.IconSource" path="/summary"/></param>
+            <param name="page"><inheritdoc cref="P:SudokuStudio.BindableSource.AnalyzeTabPageBindableSource.Page" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.ComponentModel.IAnalyzerTab"/>
         </member>
         <member name="P:SudokuStudio.BindableSource.AnalyzeTabPageBindableSource.Header">
             <summary>
-            The generated property declaration for parameter <c>header</c>.
+            Indicates the header.
             </summary>
         </member>
         <member name="P:SudokuStudio.BindableSource.AnalyzeTabPageBindableSource.IconSource">
             <summary>
-            The generated property declaration for parameter <c>iconSource</c>.
+            Indicates the icon source.
             </summary>
         </member>
         <member name="P:SudokuStudio.BindableSource.AnalyzeTabPageBindableSource.Page">
             <summary>
-            The generated property declaration for parameter <c>page</c>.
+            Indicates the tab page.
             </summary>
         </member>
         <member name="T:SudokuStudio.BindableSource.CollectedStepBindableSource">
             <summary>
             Represents a bindable source for collected steps.
             </summary>
-            <param name="title">Indicates the title.</param>
-            <param name="step">Indicates the step.</param>
-            <param name="children">Indicates the values.</param>
-            <param name="description">Indicates the description.</param>
+            <param name="title"><inheritdoc cref="P:SudokuStudio.BindableSource.CollectedStepBindableSource.Title" path="/summary"/></param>
+            <param name="step"><inheritdoc cref="P:SudokuStudio.BindableSource.CollectedStepBindableSource.Step" path="/summary"/></param>
+            <param name="children"><inheritdoc cref="P:SudokuStudio.BindableSource.CollectedStepBindableSource.Children" path="/summary"/></param>
+            <param name="description"><inheritdoc cref="P:SudokuStudio.BindableSource.CollectedStepBindableSource.Description" path="/summary"/></param>
         </member>
         <member name="M:SudokuStudio.BindableSource.CollectedStepBindableSource.#ctor(System.String,Sudoku.Analytics.Step,System.Collections.Generic.IEnumerable{SudokuStudio.BindableSource.CollectedStepBindableSource},System.Collections.Generic.IEnumerable{Microsoft.UI.Xaml.Documents.Inline})">
             <summary>
             Represents a bindable source for collected steps.
             </summary>
-            <param name="title">Indicates the title.</param>
-            <param name="step">Indicates the step.</param>
-            <param name="children">Indicates the values.</param>
-            <param name="description">Indicates the description.</param>
+            <param name="title"><inheritdoc cref="P:SudokuStudio.BindableSource.CollectedStepBindableSource.Title" path="/summary"/></param>
+            <param name="step"><inheritdoc cref="P:SudokuStudio.BindableSource.CollectedStepBindableSource.Step" path="/summary"/></param>
+            <param name="children"><inheritdoc cref="P:SudokuStudio.BindableSource.CollectedStepBindableSource.Children" path="/summary"/></param>
+            <param name="description"><inheritdoc cref="P:SudokuStudio.BindableSource.CollectedStepBindableSource.Description" path="/summary"/></param>
         </member>
         <member name="P:SudokuStudio.BindableSource.CollectedStepBindableSource.Title">
             <summary>
-            The generated property declaration for parameter <c>title</c>.
+            Indicates the title.
             </summary>
         </member>
         <member name="P:SudokuStudio.BindableSource.CollectedStepBindableSource.Step">
             <summary>
-            The generated property declaration for parameter <c>step</c>.
+            Indicates the step.
             </summary>
         </member>
         <member name="P:SudokuStudio.BindableSource.CollectedStepBindableSource.Children">
             <summary>
-            The generated property declaration for parameter <c>children</c>.
+            Indicates the values.
             </summary>
         </member>
         <member name="P:SudokuStudio.BindableSource.CollectedStepBindableSource.Description">
             <summary>
-            The generated property declaration for parameter <c>description</c>.
+            Indicates the description.
             </summary>
         </member>
         <member name="T:SudokuStudio.BindableSource.GroupedNodeInfo">
@@ -624,14 +624,14 @@
             <summary>
             Represents a bindable source for a <see cref="T:Sudoku.Categorization.Technique"/>.
             </summary>
-            <param name="techniqueField">Indicates the technique field.</param>
+            <param name="techniqueField"><inheritdoc cref="P:SudokuStudio.BindableSource.TechniqueViewBindableSource.TechniqueField" path="/summary"/></param>
             <seealso cref="T:Sudoku.Categorization.Technique"/>
         </member>
         <member name="M:SudokuStudio.BindableSource.TechniqueViewBindableSource.#ctor(Sudoku.Categorization.Technique)">
             <summary>
             Represents a bindable source for a <see cref="T:Sudoku.Categorization.Technique"/>.
             </summary>
-            <param name="techniqueField">Indicates the technique field.</param>
+            <param name="techniqueField"><inheritdoc cref="P:SudokuStudio.BindableSource.TechniqueViewBindableSource.TechniqueField" path="/summary"/></param>
             <seealso cref="T:Sudoku.Categorization.Technique"/>
         </member>
         <member name="P:SudokuStudio.BindableSource.TechniqueViewBindableSource.TechniqueName">
@@ -639,14 +639,14 @@
             Indicates the name of the technique.
             </summary>
         </member>
+        <member name="P:SudokuStudio.BindableSource.TechniqueViewBindableSource.TechniqueField">
+            <summary>
+            Indicates the technique field.
+            </summary>
+        </member>
         <member name="P:SudokuStudio.BindableSource.TechniqueViewBindableSource.ContainingGroup">
             <summary>
             Indicates the containing group for the current technique.
-            </summary>
-        </member>
-        <member name="P:SudokuStudio.BindableSource.TechniqueViewBindableSource.TechniqueField">
-            <summary>
-            The generated property declaration for parameter <c>techniqueField</c>.
             </summary>
         </member>
         <member name="T:SudokuStudio.BindableSource.TechniqueViewGroupBindableSource">

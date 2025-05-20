@@ -3,14 +3,19 @@ namespace SudokuStudio.BindableSource;
 /// <summary>
 /// Represents a bindable source for a <see cref="Technique"/>.
 /// </summary>
-/// <param name="techniqueField">Indicates the technique field.</param>
+/// <param name="techniqueField"><inheritdoc cref="TechniqueField" path="/summary"/></param>
 /// <seealso cref="Technique"/>
-public sealed partial class TechniqueViewBindableSource([Property(Setter = PropertySetters.Init)] Technique techniqueField)
+public sealed class TechniqueViewBindableSource(Technique techniqueField)
 {
 	/// <summary>
 	/// Indicates the name of the technique.
 	/// </summary>
 	public string TechniqueName => TechniqueField.GetName(App.CurrentCulture);
+
+	/// <summary>
+	/// Indicates the technique field.
+	/// </summary>
+	public Technique TechniqueField { get; init; } = techniqueField;
 
 	/// <summary>
 	/// Indicates the containing group for the current technique.

@@ -3,15 +3,15 @@ namespace Sudoku.Analytics.Construction.Components;
 /// <summary>
 /// Represents a binary forcing chains (contradiction forcing chains or double forcing chains).
 /// </summary>
-/// <param name="branch1">Indicates the first branch.</param>
-/// <param name="branch2">Indicates the second branch.</param>
-/// <param name="conclusion">Indicates the conclusion.</param>
-/// <param name="isContradiction">Indicates whether the pattern is a contradiction forcing chains.</param>
+/// <param name="branch1"><inheritdoc cref="Branch1" path="/summary"/></param>
+/// <param name="branch2"><inheritdoc cref="Branch2" path="/summary"/></param>
+/// <param name="conclusion"><inheritdoc cref="Conclusion" path="/summary"/></param>
+/// <param name="isContradiction"><inheritdoc cref="IsContradiction" path="/summary"/></param>
 public sealed partial class BinaryForcingChains(
-	[Property] UnnamedChain branch1,
-	[Property] UnnamedChain branch2,
-	[Property] Conclusion conclusion,
-	[Property] bool isContradiction
+	UnnamedChain branch1,
+	UnnamedChain branch2,
+	Conclusion conclusion,
+	bool isContradiction
 ) :
 	IBinaryForcingChains<BinaryForcingChains, UnnamedChain>,
 	IDynamicForcingChains
@@ -25,8 +25,18 @@ public sealed partial class BinaryForcingChains(
 	/// <inheritdoc/>
 	public bool IsDynamic => true;
 
+	/// <summary>
+	/// Indicates whether the pattern is a contradiction forcing chains.
+	/// </summary>
+	public bool IsContradiction { get; } = isContradiction;
+
 	/// <inheritdoc/>
 	public int Complexity => BranchedComplexity.Sum();
+
+	/// <summary>
+	/// Indicates the conclusion.
+	/// </summary>
+	public Conclusion Conclusion { get; } = conclusion;
 
 	/// <inheritdoc/>
 	public Mask DigitsMask
@@ -48,6 +58,16 @@ public sealed partial class BinaryForcingChains(
 
 	/// <inheritdoc/>
 	public ReadOnlySpan<int> BranchedComplexity => from v in Branches select v.Length;
+
+	/// <summary>
+	/// Indicates the first branch.
+	/// </summary>
+	public UnnamedChain Branch1 { get; } = branch1;
+
+	/// <summary>
+	/// Indicates the second branch.
+	/// </summary>
+	public UnnamedChain Branch2 { get; } = branch2;
 
 	/// <inheritdoc/>
 	ComponentType IComponent.Type => ComponentType.BinaryForcingChains;
