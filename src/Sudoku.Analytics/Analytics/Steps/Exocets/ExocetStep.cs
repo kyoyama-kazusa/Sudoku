@@ -6,20 +6,20 @@ namespace Sudoku.Analytics.Steps.Exocets;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digitsMask">Indicates the mask that holds a list of digits used in the pattern.</param>
-/// <param name="baseCells">Indicates the base cells used.</param>
-/// <param name="targetCells">Indicates the target cells used.</param>
-/// <param name="endoTargetCells">Indicates the endo-target cells used.</param>
-/// <param name="crosslineCells">Indicates the cross-line cells used.</param>
-public abstract partial class ExocetStep(
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+/// <param name="baseCells"><inheritdoc cref="BaseCells" path="/summary"/></param>
+/// <param name="targetCells"><inheritdoc cref="TargetCells" path="/summary"/></param>
+/// <param name="endoTargetCells"><inheritdoc cref="EndoTargetCells" path="/summary"/></param>
+/// <param name="crosslineCells"><inheritdoc cref="CrosslineCells" path="/summary"/></param>
+public abstract class ExocetStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] Mask digitsMask,
-	[Property] in CellMap baseCells,
-	[Property] in CellMap targetCells,
-	[Property] in CellMap endoTargetCells,
-	[Property] in CellMap crosslineCells
+	Mask digitsMask,
+	in CellMap baseCells,
+	in CellMap targetCells,
+	in CellMap endoTargetCells,
+	in CellMap crosslineCells
 ) : FullPencilmarkingStep(conclusions, views, options)
 {
 	/// <summary>
@@ -55,4 +55,29 @@ public abstract partial class ExocetStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
+
+	/// <summary>
+	/// Indicates the mask that holds a list of digits used in the pattern.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
+
+	/// <summary>
+	/// Indicates the base cells used.
+	/// </summary>
+	public CellMap BaseCells { get; } = baseCells;
+
+	/// <summary>
+	/// Indicates the target cells used.
+	/// </summary>
+	public CellMap TargetCells { get; } = targetCells;
+
+	/// <summary>
+	/// Indicates the endo-target cells used.
+	/// </summary>
+	public CellMap EndoTargetCells { get; } = endoTargetCells;
+
+	/// <summary>
+	/// Indicates the cross-line cells used.
+	/// </summary>
+	public CellMap CrosslineCells { get; } = crosslineCells;
 }

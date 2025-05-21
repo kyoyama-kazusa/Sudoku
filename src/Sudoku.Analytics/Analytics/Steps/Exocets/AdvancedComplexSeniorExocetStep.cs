@@ -6,15 +6,15 @@ namespace Sudoku.Analytics.Steps.Exocets;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digitsMask"><inheritdoc/></param>
-/// <param name="baseCells"><inheritdoc/></param>
-/// <param name="targetCells"><inheritdoc/></param>
-/// <param name="endoTargetCells"><inheritdoc/></param>
-/// <param name="crosslineCells"><inheritdoc/></param>
-/// <param name="crosslineHousesMask">Indicates the mask holding a list of houses spanned for cross-line cells.</param>
-/// <param name="extraHousesMask">Indicates the mask holding a list of extra houses.</param>
-/// <param name="almostHiddenSetMask">The mask that holds a list of digits forming an external AHS.</param>
-public sealed partial class AdvancedComplexSeniorExocetStep(
+/// <param name="digitsMask"><inheritdoc cref="ExocetStep.DigitsMask" path="/summary"/></param>
+/// <param name="baseCells"><inheritdoc cref="ExocetStep.BaseCells" path="/summary"/></param>
+/// <param name="targetCells"><inheritdoc cref="ExocetStep.TargetCells" path="/summary"/></param>
+/// <param name="endoTargetCells"><inheritdoc cref="ExocetStep.EndoTargetCells" path="/summary"/></param>
+/// <param name="crosslineCells"><inheritdoc cref="ExocetStep.CrosslineCells" path="/summary"/></param>
+/// <param name="crosslineHousesMask"><inheritdoc cref="CrosslineHousesMask" path="/summary"/></param>
+/// <param name="extraHousesMask"><inheritdoc cref="ExtraHousesMask" path="/summary"/></param>
+/// <param name="almostHiddenSetMask"><inheritdoc cref="AlmostHiddenSetMask" path="/summary"/></param>
+public sealed class AdvancedComplexSeniorExocetStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
@@ -23,9 +23,9 @@ public sealed partial class AdvancedComplexSeniorExocetStep(
 	in CellMap targetCells,
 	in CellMap endoTargetCells,
 	in CellMap crosslineCells,
-	[Property] HouseMask crosslineHousesMask,
-	[Property] HouseMask extraHousesMask,
-	[Property] Mask almostHiddenSetMask
+	HouseMask crosslineHousesMask,
+	HouseMask extraHousesMask,
+	Mask almostHiddenSetMask
 ) :
 	ExocetStep(conclusions, views, options, digitsMask, baseCells, targetCells, endoTargetCells, crosslineCells),
 	IComplexSeniorExocet
@@ -49,4 +49,19 @@ public sealed partial class AdvancedComplexSeniorExocetStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | AlmostHiddenSetMask);
+
+	/// <summary>
+	/// Indicates the mask holding a list of houses spanned for cross-line cells.
+	/// </summary>
+	public HouseMask CrosslineHousesMask { get; } = crosslineHousesMask;
+
+	/// <summary>
+	/// Indicates the mask holding a list of extra houses.
+	/// </summary>
+	public HouseMask ExtraHousesMask { get; } = extraHousesMask;
+
+	/// <summary>
+	/// The mask that holds a list of digits forming an external AHS.
+	/// </summary>
+	public Mask AlmostHiddenSetMask { get; } = almostHiddenSetMask;
 }

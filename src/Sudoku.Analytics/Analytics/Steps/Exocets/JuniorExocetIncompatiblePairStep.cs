@@ -6,17 +6,17 @@ namespace Sudoku.Analytics.Steps.Exocets;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digitsMask"><inheritdoc/></param>
-/// <param name="incompatibleCandidates">Indicates the incompatible candidates.</param>
-/// <param name="baseCells"><inheritdoc/></param>
-/// <param name="targetCells"><inheritdoc/></param>
-/// <param name="crosslineCells"><inheritdoc/></param>
-public sealed partial class JuniorExocetIncompatiblePairStep(
+/// <param name="digitsMask"><inheritdoc cref="ExocetStep.DigitsMask" path="/summary"/></param>
+/// <param name="incompatibleCandidates"><inheritdoc cref="IncompatibleCandidates" path="/summary"/></param>
+/// <param name="baseCells"><inheritdoc cref="ExocetStep.BaseCells" path="/summary"/></param>
+/// <param name="targetCells"><inheritdoc cref="ExocetStep.TargetCells" path="/summary"/></param>
+/// <param name="crosslineCells"><inheritdoc cref="ExocetStep.CrosslineCells" path="/summary"/></param>
+public sealed class JuniorExocetIncompatiblePairStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Mask digitsMask,
-	[Property] in CandidateMap incompatibleCandidates,
+	in CandidateMap incompatibleCandidates,
 	in CellMap baseCells,
 	in CellMap targetCells,
 	in CellMap crosslineCells
@@ -27,4 +27,9 @@ public sealed partial class JuniorExocetIncompatiblePairStep(
 
 	/// <inheritdoc/>
 	public override Technique Code => Technique.JuniorExocetIncompatiblePair;
+
+	/// <summary>
+	/// Indicates the incompatible candidates.
+	/// </summary>
+	public CandidateMap IncompatibleCandidates { get; } = incompatibleCandidates;
 }

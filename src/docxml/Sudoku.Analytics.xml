@@ -14272,14 +14272,14 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="endoTargetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="crosslineHousesMask">Indicates the mask holding a list of houses spanned for cross-line cells.</param>
-            <param name="extraHousesMask">Indicates the mask holding a list of extra houses.</param>
-            <param name="almostHiddenSetMask">The mask that holds a list of digits forming an external AHS.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="crosslineHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.AdvancedComplexSeniorExocetStep.CrosslineHousesMask" path="/summary"/></param>
+            <param name="extraHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.AdvancedComplexSeniorExocetStep.ExtraHousesMask" path="/summary"/></param>
+            <param name="almostHiddenSetMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.AdvancedComplexSeniorExocetStep.AlmostHiddenSetMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.AdvancedComplexSeniorExocetStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int32,System.Int32,System.Int16)">
             <summary>
@@ -14288,14 +14288,14 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="endoTargetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="crosslineHousesMask">Indicates the mask holding a list of houses spanned for cross-line cells.</param>
-            <param name="extraHousesMask">Indicates the mask holding a list of extra houses.</param>
-            <param name="almostHiddenSetMask">The mask that holds a list of digits forming an external AHS.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="crosslineHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.AdvancedComplexSeniorExocetStep.CrosslineHousesMask" path="/summary"/></param>
+            <param name="extraHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.AdvancedComplexSeniorExocetStep.ExtraHousesMask" path="/summary"/></param>
+            <param name="almostHiddenSetMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.AdvancedComplexSeniorExocetStep.AlmostHiddenSetMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.AdvancedComplexSeniorExocetStep.BaseDifficulty">
             <inheritdoc/>
@@ -14308,17 +14308,17 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.AdvancedComplexSeniorExocetStep.CrosslineHousesMask">
             <summary>
-            The generated property declaration for parameter <c>crosslineHousesMask</c>.
+            Indicates the mask holding a list of houses spanned for cross-line cells.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.AdvancedComplexSeniorExocetStep.ExtraHousesMask">
             <summary>
-            The generated property declaration for parameter <c>extraHousesMask</c>.
+            Indicates the mask holding a list of extra houses.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.AdvancedComplexSeniorExocetStep.AlmostHiddenSetMask">
             <summary>
-            The generated property declaration for parameter <c>almostHiddenSetMask</c>.
+            The mask that holds a list of digits forming an external AHS.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.ComplexExocetLockedMemberStep">
@@ -14328,13 +14328,13 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="endoTargetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="crosslineHousesMask">Indicates the mask holding a list of houses spanned for cross-line cells.</param>
-            <param name="extraHousesMask">Indicates the mask holding a list of extra houses.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="crosslineHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ComplexExocetLockedMemberStep.CrosslineHousesMask" path="/summary"/></param>
+            <param name="extraHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ComplexExocetLockedMemberStep.ExtraHousesMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.ComplexExocetLockedMemberStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int32,System.Int32)">
             <summary>
@@ -14343,13 +14343,13 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="endoTargetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="crosslineHousesMask">Indicates the mask holding a list of houses spanned for cross-line cells.</param>
-            <param name="extraHousesMask">Indicates the mask holding a list of extra houses.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="crosslineHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ComplexExocetLockedMemberStep.CrosslineHousesMask" path="/summary"/></param>
+            <param name="extraHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ComplexExocetLockedMemberStep.ExtraHousesMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ComplexExocetLockedMemberStep.BaseDifficulty">
             <inheritdoc/>
@@ -14359,12 +14359,12 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ComplexExocetLockedMemberStep.CrosslineHousesMask">
             <summary>
-            The generated property declaration for parameter <c>crosslineHousesMask</c>.
+            Indicates the mask holding a list of houses spanned for cross-line cells.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ComplexExocetLockedMemberStep.ExtraHousesMask">
             <summary>
-            The generated property declaration for parameter <c>extraHousesMask</c>.
+            Indicates the mask holding a list of extra houses.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetAdjacentTargetStep">
@@ -14374,13 +14374,13 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="crosslineHousesMask">Indicates the mask holding a list of houses spanned for cross-line cells.</param>
-            <param name="extraHousesMask">Indicates the mask holding a list of extra houses.</param>
-            <param name="singleMirrors">Indicates the single mirror cells. The value should be used one-by-one.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="crosslineHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetAdjacentTargetStep.CrosslineHousesMask" path="/summary"/></param>
+            <param name="extraHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetAdjacentTargetStep.ExtraHousesMask" path="/summary"/></param>
+            <param name="singleMirrors"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetAdjacentTargetStep.SingleMirrors" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetAdjacentTargetStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int32,System.Int32,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -14389,13 +14389,13 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="crosslineHousesMask">Indicates the mask holding a list of houses spanned for cross-line cells.</param>
-            <param name="extraHousesMask">Indicates the mask holding a list of extra houses.</param>
-            <param name="singleMirrors">Indicates the single mirror cells. The value should be used one-by-one.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="crosslineHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetAdjacentTargetStep.CrosslineHousesMask" path="/summary"/></param>
+            <param name="extraHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetAdjacentTargetStep.ExtraHousesMask" path="/summary"/></param>
+            <param name="singleMirrors"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetAdjacentTargetStep.SingleMirrors" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetAdjacentTargetStep.BaseDifficulty">
             <inheritdoc/>
@@ -14405,17 +14405,17 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetAdjacentTargetStep.CrosslineHousesMask">
             <summary>
-            The generated property declaration for parameter <c>crosslineHousesMask</c>.
+            Indicates the mask holding a list of houses spanned for cross-line cells.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetAdjacentTargetStep.ExtraHousesMask">
             <summary>
-            The generated property declaration for parameter <c>extraHousesMask</c>.
+            Indicates the mask holding a list of extra houses.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetAdjacentTargetStep.SingleMirrors">
             <summary>
-            The generated property declaration for parameter <c>singleMirrors</c>.
+            Indicates the single mirror cells. The value should be used one-by-one.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetMirrorConjugatePairStep">
@@ -14425,13 +14425,13 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="crosslineHousesMask">Indicates the mask holding a list of houses spanned for cross-line cells.</param>
-            <param name="extraHousesMask">Indicates the mask holding a list of extra houses.</param>
-            <param name="conjugatePairs">Indicates the conjugate pairs used.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="crosslineHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetMirrorConjugatePairStep.CrosslineHousesMask" path="/summary"/></param>
+            <param name="extraHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetMirrorConjugatePairStep.ExtraHousesMask" path="/summary"/></param>
+            <param name="conjugatePairs"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetMirrorConjugatePairStep.ConjugatePairs" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetMirrorConjugatePairStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int32,System.Int32,Sudoku.Concepts.Conjugate[])">
             <summary>
@@ -14440,13 +14440,13 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="crosslineHousesMask">Indicates the mask holding a list of houses spanned for cross-line cells.</param>
-            <param name="extraHousesMask">Indicates the mask holding a list of extra houses.</param>
-            <param name="conjugatePairs">Indicates the conjugate pairs used.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="crosslineHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetMirrorConjugatePairStep.CrosslineHousesMask" path="/summary"/></param>
+            <param name="extraHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetMirrorConjugatePairStep.ExtraHousesMask" path="/summary"/></param>
+            <param name="conjugatePairs"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetMirrorConjugatePairStep.ConjugatePairs" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetMirrorConjugatePairStep.BaseDifficulty">
             <inheritdoc/>
@@ -14459,17 +14459,17 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetMirrorConjugatePairStep.CrosslineHousesMask">
             <summary>
-            The generated property declaration for parameter <c>crosslineHousesMask</c>.
+            Indicates the mask holding a list of houses spanned for cross-line cells.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetMirrorConjugatePairStep.ExtraHousesMask">
             <summary>
-            The generated property declaration for parameter <c>extraHousesMask</c>.
+            Indicates the mask holding a list of extra houses.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ComplexJuniorExocetMirrorConjugatePairStep.ConjugatePairs">
             <summary>
-            The generated property declaration for parameter <c>conjugatePairs</c>.
+            Indicates the conjugate pairs used.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.DoubleExocetGeneralizedFishStep">
@@ -14479,12 +14479,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="baseCellsTheOther">Indicates the other side of the base cells.</param>
-            <param name="targetCellsTheOther">Indicates the other side of the target cells.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="baseCellsTheOther"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.DoubleExocetGeneralizedFishStep.BaseCellsTheOther" path="/summary"/></param>
+            <param name="targetCellsTheOther"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.DoubleExocetGeneralizedFishStep.TargetCellsTheOther" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.DoubleExocetGeneralizedFishStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -14493,12 +14493,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="baseCellsTheOther">Indicates the other side of the base cells.</param>
-            <param name="targetCellsTheOther">Indicates the other side of the target cells.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="baseCellsTheOther"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.DoubleExocetGeneralizedFishStep.BaseCellsTheOther" path="/summary"/></param>
+            <param name="targetCellsTheOther"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.DoubleExocetGeneralizedFishStep.TargetCellsTheOther" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.DoubleExocetGeneralizedFishStep.BaseDifficulty">
             <inheritdoc/>
@@ -14508,12 +14508,12 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.DoubleExocetGeneralizedFishStep.BaseCellsTheOther">
             <summary>
-            The generated property declaration for parameter <c>baseCellsTheOther</c>.
+            Indicates the other side of the base cells.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.DoubleExocetGeneralizedFishStep.TargetCellsTheOther">
             <summary>
-            The generated property declaration for parameter <c>targetCellsTheOther</c>.
+            Indicates the other side of the target cells.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.ExocetLockedMemberStep">
@@ -14523,12 +14523,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="lockedMemberDigitsMask">Indicates the mask that holds a list of locked member digits.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="endoTargetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="lockedMemberDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetLockedMemberStep.LockedMemberDigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.ExocetLockedMemberStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -14537,12 +14537,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="lockedMemberDigitsMask">Indicates the mask that holds a list of locked member digits.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="endoTargetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="lockedMemberDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetLockedMemberStep.LockedMemberDigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ExocetLockedMemberStep.BaseDifficulty">
             <inheritdoc/>
@@ -14552,7 +14552,7 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ExocetLockedMemberStep.LockedMemberDigitsMask">
             <summary>
-            The generated property declaration for parameter <c>lockedMemberDigitsMask</c>.
+            Indicates the mask that holds a list of locked member digits.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.ExocetMirrorConjugatePairStep">
@@ -14562,12 +14562,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="endoTargetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="conjugatePairs">Indicates the conjugate pairs used.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="conjugatePairs"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetMirrorConjugatePairStep.ConjugatePairs" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.ExocetMirrorConjugatePairStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.Conjugate[])">
             <summary>
@@ -14576,12 +14576,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="endoTargetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="conjugatePairs">Indicates the conjugate pairs used.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="conjugatePairs"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetMirrorConjugatePairStep.ConjugatePairs" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ExocetMirrorConjugatePairStep.BaseDifficulty">
             <inheritdoc/>
@@ -14591,7 +14591,7 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ExocetMirrorConjugatePairStep.ConjugatePairs">
             <summary>
-            The generated property declaration for parameter <c>conjugatePairs</c>.
+            Indicates the conjugate pairs used.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.ExocetStep">
@@ -14601,11 +14601,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask">Indicates the mask that holds a list of digits used in the pattern.</param>
-            <param name="baseCells">Indicates the base cells used.</param>
-            <param name="targetCells">Indicates the target cells used.</param>
-            <param name="endoTargetCells">Indicates the endo-target cells used.</param>
-            <param name="crosslineCells">Indicates the cross-line cells used.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.ExocetStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -14614,11 +14614,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask">Indicates the mask that holds a list of digits used in the pattern.</param>
-            <param name="baseCells">Indicates the base cells used.</param>
-            <param name="targetCells">Indicates the target cells used.</param>
-            <param name="endoTargetCells">Indicates the endo-target cells used.</param>
-            <param name="crosslineCells">Indicates the cross-line cells used.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.Delta">
             <summary>
@@ -14656,27 +14656,27 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask">
             <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
+            Indicates the mask that holds a list of digits used in the pattern.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells">
             <summary>
-            The generated property declaration for parameter <c>baseCells</c>.
+            Indicates the base cells used.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells">
             <summary>
-            The generated property declaration for parameter <c>targetCells</c>.
+            Indicates the target cells used.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells">
             <summary>
-            The generated property declaration for parameter <c>endoTargetCells</c>.
+            Indicates the endo-target cells used.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells">
             <summary>
-            The generated property declaration for parameter <c>crosslineCells</c>.
+            Indicates the cross-line cells used.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.JuniorExocetAdjacentTargetStep">
@@ -14686,12 +14686,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="endoTargetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="singleMirrors">Indicates the single mirror cells. The value should be used one-by-one.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="singleMirrors"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetAdjacentTargetStep.SingleMirrors" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.JuniorExocetAdjacentTargetStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -14700,12 +14700,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="endoTargetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="singleMirrors">Indicates the single mirror cells. The value should be used one-by-one.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="singleMirrors"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetAdjacentTargetStep.SingleMirrors" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetAdjacentTargetStep.BaseDifficulty">
             <inheritdoc/>
@@ -14715,7 +14715,7 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetAdjacentTargetStep.SingleMirrors">
             <summary>
-            The generated property declaration for parameter <c>singleMirrors</c>.
+            Indicates the single mirror cells. The value should be used one-by-one.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.JuniorExocetGeneralizedFishStep">
@@ -14725,11 +14725,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="targetPairMask">Indicates the mask that holds the pair of digits that target cells forming a naked pair of such digits.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="targetPairMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetGeneralizedFishStep.TargetPairMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.JuniorExocetGeneralizedFishStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -14738,11 +14738,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="targetPairMask">Indicates the mask that holds the pair of digits that target cells forming a naked pair of such digits.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="targetPairMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetGeneralizedFishStep.TargetPairMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetGeneralizedFishStep.BaseDifficulty">
             <inheritdoc/>
@@ -14752,7 +14752,7 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetGeneralizedFishStep.TargetPairMask">
             <summary>
-            The generated property declaration for parameter <c>targetPairMask</c>.
+            Indicates the mask that holds the pair of digits that target cells forming a naked pair of such digits.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.JuniorExocetIncompatiblePairStep">
@@ -14762,11 +14762,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="incompatibleCandidates">Indicates the incompatible candidates.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="incompatibleCandidates"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetIncompatiblePairStep.IncompatibleCandidates" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.JuniorExocetIncompatiblePairStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CandidateMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -14775,11 +14775,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="incompatibleCandidates">Indicates the incompatible candidates.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="incompatibleCandidates"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetIncompatiblePairStep.IncompatibleCandidates" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetIncompatiblePairStep.BaseDifficulty">
             <inheritdoc/>
@@ -14789,7 +14789,7 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetIncompatiblePairStep.IncompatibleCandidates">
             <summary>
-            The generated property declaration for parameter <c>incompatibleCandidates</c>.
+            Indicates the incompatible candidates.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorAlmostHiddenSetStep">
@@ -14799,12 +14799,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="extraCells">Indicates the cells that provides with the AHS rule.</param>
-            <param name="extraDigitsMask">Indicates the mask that holds the digits used by the AHS.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="extraCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorAlmostHiddenSetStep.ExtraCells" path="/summary"/></param>
+            <param name="extraDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorAlmostHiddenSetStep.ExtraDigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorAlmostHiddenSetStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int16)">
             <summary>
@@ -14813,12 +14813,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="extraCells">Indicates the cells that provides with the AHS rule.</param>
-            <param name="extraDigitsMask">Indicates the mask that holds the digits used by the AHS.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="extraCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorAlmostHiddenSetStep.ExtraCells" path="/summary"/></param>
+            <param name="extraDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorAlmostHiddenSetStep.ExtraDigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorAlmostHiddenSetStep.BaseDifficulty">
             <inheritdoc/>
@@ -14837,6 +14837,16 @@
         <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorAlmostHiddenSetStep.Factors">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorAlmostHiddenSetStep.ExtraCells">
+            <summary>
+            Indicates the cells that provides with the AHS rule.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorAlmostHiddenSetStep.ExtraDigitsMask">
+            <summary>
+            Indicates the mask that holds the digits used by the AHS.
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorAlmostHiddenSetStep.Sudoku#Analytics#Traits#IPatternType3StepTrait{Sudoku#Analytics#Steps#Exocets#JuniorExocetMirrorAlmostHiddenSetStep}#IsHidden">
             <inheritdoc/>
         </member>
@@ -14846,16 +14856,6 @@
         <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorAlmostHiddenSetStep.Sudoku#Analytics#Traits#IPatternType3StepTrait{Sudoku#Analytics#Steps#Exocets#JuniorExocetMirrorAlmostHiddenSetStep}#SubsetCells">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorAlmostHiddenSetStep.ExtraCells">
-            <summary>
-            The generated property declaration for parameter <c>extraCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorAlmostHiddenSetStep.ExtraDigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>extraDigitsMask</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorSyncStep">
             <summary>
             Provides with a step that is a <b>Junior Exocet (Mirror Sync)</b> technique.
@@ -14863,10 +14863,10 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorSyncStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -14875,10 +14875,10 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetMirrorSyncStep.BaseDifficulty">
             <inheritdoc/>
@@ -14893,11 +14893,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="targetPairMask">Indicates the mask that holds the pair of digits that target cells forming a naked pair of such digits.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="targetPairMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetTargetPairStep.TargetPairMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.JuniorExocetTargetPairStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -14906,11 +14906,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="targetPairMask">Indicates the mask that holds the pair of digits that target cells forming a naked pair of such digits.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="targetPairMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetTargetPairStep.TargetPairMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetTargetPairStep.BaseDifficulty">
             <inheritdoc/>
@@ -14920,7 +14920,7 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.JuniorExocetTargetPairStep.TargetPairMask">
             <summary>
-            The generated property declaration for parameter <c>targetPairMask</c>.
+            Indicates the mask that holds the pair of digits that target cells forming a naked pair of such digits.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.NormalComplexExocetStep">
@@ -14930,13 +14930,13 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="endoTargetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="crosslineHousesMask">Indicates the mask holding a list of houses spanned for cross-line cells.</param>
-            <param name="extraHousesMask">Indicates the mask holding a list of extra houses.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="crosslineHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.NormalComplexExocetStep.CrosslineHousesMask" path="/summary"/></param>
+            <param name="extraHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.NormalComplexExocetStep.ExtraHousesMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.NormalComplexExocetStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int32,System.Int32)">
             <summary>
@@ -14945,13 +14945,13 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="endoTargetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="crosslineHousesMask">Indicates the mask holding a list of houses spanned for cross-line cells.</param>
-            <param name="extraHousesMask">Indicates the mask holding a list of extra houses.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="crosslineHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.NormalComplexExocetStep.CrosslineHousesMask" path="/summary"/></param>
+            <param name="extraHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.NormalComplexExocetStep.ExtraHousesMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.NormalComplexExocetStep.BaseDifficulty">
             <inheritdoc/>
@@ -14961,12 +14961,12 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.NormalComplexExocetStep.CrosslineHousesMask">
             <summary>
-            The generated property declaration for parameter <c>crosslineHousesMask</c>.
+            Indicates the mask holding a list of houses spanned for cross-line cells.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.NormalComplexExocetStep.ExtraHousesMask">
             <summary>
-            The generated property declaration for parameter <c>extraHousesMask</c>.
+            Indicates the mask holding a list of extra houses.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.NormalDoubleExocetStep">
@@ -14976,12 +14976,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="baseCellsTheOther">Indicates the other side of the base cells.</param>
-            <param name="targetCellsTheOther">Indicates the other side of the target cells.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="baseCellsTheOther"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.NormalDoubleExocetStep.BaseCellsTheOther" path="/summary"/></param>
+            <param name="targetCellsTheOther"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.NormalDoubleExocetStep.TargetCellsTheOther" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.NormalDoubleExocetStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -14990,24 +14990,24 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="baseCellsTheOther">Indicates the other side of the base cells.</param>
-            <param name="targetCellsTheOther">Indicates the other side of the target cells.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="baseCellsTheOther"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.NormalDoubleExocetStep.BaseCellsTheOther" path="/summary"/></param>
+            <param name="targetCellsTheOther"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.NormalDoubleExocetStep.TargetCellsTheOther" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.NormalDoubleExocetStep.Code">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.NormalDoubleExocetStep.BaseCellsTheOther">
             <summary>
-            The generated property declaration for parameter <c>baseCellsTheOther</c>.
+            Indicates the other side of the base cells.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.NormalDoubleExocetStep.TargetCellsTheOther">
             <summary>
-            The generated property declaration for parameter <c>targetCellsTheOther</c>.
+            Indicates the other side of the target cells.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.NormalExocetStep">
@@ -15017,12 +15017,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="endoTargetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="conjugatePairs">Indicates the conjugate pairs used in target.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="conjugatePairs"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.NormalExocetStep.ConjugatePairs" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.NormalExocetStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.Conjugate[])">
             <summary>
@@ -15031,12 +15031,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="endoTargetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
-            <param name="conjugatePairs">Indicates the conjugate pairs used in target.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
+            <param name="conjugatePairs"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.NormalExocetStep.ConjugatePairs" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.NormalExocetStep.BaseDifficulty">
             <inheritdoc/>
@@ -15050,13 +15050,13 @@
         <member name="P:Sudoku.Analytics.Steps.Exocets.NormalExocetStep.Factors">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.Exocets.NormalExocetStep.Sudoku#Analytics#Traits#IConjugatePairTrait#ConjugatePairsCount">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.NormalExocetStep.ConjugatePairs">
             <summary>
-            The generated property declaration for parameter <c>conjugatePairs</c>.
+            Indicates the conjugate pairs used in target.
             </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Exocets.NormalExocetStep.Sudoku#Analytics#Traits#IConjugatePairTrait#ConjugatePairsCount">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.SeniorExocetTrueBaseStep">
             <summary>
@@ -15065,12 +15065,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="trueBaseDigit">Indicates the target true base digit that is used for endo-target cell, as value representation.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="endoTargetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="trueBaseDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.SeniorExocetTrueBaseStep.TrueBaseDigit" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.SeniorExocetTrueBaseStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -15079,12 +15079,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="trueBaseDigit">Indicates the target true base digit that is used for endo-target cell, as value representation.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="endoTargetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="trueBaseDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.SeniorExocetTrueBaseStep.TrueBaseDigit" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="endoTargetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.EndoTargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.SeniorExocetTrueBaseStep.BaseDifficulty">
             <inheritdoc/>
@@ -15094,7 +15094,7 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.SeniorExocetTrueBaseStep.TrueBaseDigit">
             <summary>
-            The generated property declaration for parameter <c>trueBaseDigit</c>.
+            Indicates the target true base digit that is used for endo-target cell, as value representation.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.WeakExocetAdjacentTargetStep">
@@ -15104,12 +15104,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="stabilityBalancer">Indicates the value cell that makes the exocet pattern to be stable.</param>
-            <param name="missingValueCell">Indicates the missing value cell in cross-line.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="stabilityBalancer"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.WeakExocetAdjacentTargetStep.StabilityBalancer" path="/summary"/></param>
+            <param name="missingValueCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.WeakExocetAdjacentTargetStep.MissingValueCell" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.WeakExocetAdjacentTargetStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -15118,12 +15118,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="stabilityBalancer">Indicates the value cell that makes the exocet pattern to be stable.</param>
-            <param name="missingValueCell">Indicates the missing value cell in cross-line.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="stabilityBalancer"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.WeakExocetAdjacentTargetStep.StabilityBalancer" path="/summary"/></param>
+            <param name="missingValueCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.WeakExocetAdjacentTargetStep.MissingValueCell" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.WeakExocetAdjacentTargetStep.BaseDifficulty">
             <inheritdoc/>
@@ -15133,12 +15133,12 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.WeakExocetAdjacentTargetStep.StabilityBalancer">
             <summary>
-            The generated property declaration for parameter <c>stabilityBalancer</c>.
+            Indicates the value cell that makes the exocet pattern to be stable.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.WeakExocetAdjacentTargetStep.MissingValueCell">
             <summary>
-            The generated property declaration for parameter <c>missingValueCell</c>.
+            Indicates the missing value cell in cross-line.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.WeakExocetBzRectangleStep">
@@ -15148,12 +15148,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="stabilityBalancer">Indicates the value cell that makes the exocet pattern to be stable.</param>
-            <param name="missingValueCell">Indicates the missing value cell in cross-line.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="stabilityBalancer"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.WeakExocetBzRectangleStep.StabilityBalancer" path="/summary"/></param>
+            <param name="missingValueCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.WeakExocetBzRectangleStep.MissingValueCell" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.WeakExocetBzRectangleStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -15162,12 +15162,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="stabilityBalancer">Indicates the value cell that makes the exocet pattern to be stable.</param>
-            <param name="missingValueCell">Indicates the missing value cell in cross-line.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="stabilityBalancer"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.WeakExocetBzRectangleStep.StabilityBalancer" path="/summary"/></param>
+            <param name="missingValueCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.WeakExocetBzRectangleStep.MissingValueCell" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.WeakExocetBzRectangleStep.BaseDifficulty">
             <inheritdoc/>
@@ -15177,12 +15177,12 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.WeakExocetBzRectangleStep.StabilityBalancer">
             <summary>
-            The generated property declaration for parameter <c>stabilityBalancer</c>.
+            Indicates the value cell that makes the exocet pattern to be stable.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.WeakExocetBzRectangleStep.MissingValueCell">
             <summary>
-            The generated property declaration for parameter <c>missingValueCell</c>.
+            Indicates the missing value cell in cross-line.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.WeakExocetSlashStep">
@@ -15192,12 +15192,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="stabilityBalancer">Indicates the value cell that makes the exocet pattern to be stable.</param>
-            <param name="missingValueCell">Indicates the missing value cell in cross-line.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="stabilityBalancer"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.WeakExocetSlashStep.StabilityBalancer" path="/summary"/></param>
+            <param name="missingValueCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.WeakExocetSlashStep.MissingValueCell" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.WeakExocetSlashStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -15206,12 +15206,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="stabilityBalancer">Indicates the value cell that makes the exocet pattern to be stable.</param>
-            <param name="missingValueCell">Indicates the missing value cell in cross-line.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="stabilityBalancer"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.WeakExocetSlashStep.StabilityBalancer" path="/summary"/></param>
+            <param name="missingValueCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.WeakExocetSlashStep.MissingValueCell" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.WeakExocetSlashStep.BaseDifficulty">
             <inheritdoc/>
@@ -15221,12 +15221,12 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.WeakExocetSlashStep.StabilityBalancer">
             <summary>
-            The generated property declaration for parameter <c>stabilityBalancer</c>.
+            Indicates the value cell that makes the exocet pattern to be stable.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.WeakExocetSlashStep.MissingValueCell">
             <summary>
-            The generated property declaration for parameter <c>missingValueCell</c>.
+            Indicates the missing value cell in cross-line.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Exocets.WeakExocetStep">
@@ -15236,12 +15236,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="stabilityBalancer">Indicates the value cell that makes the exocet pattern to be stable.</param>
-            <param name="missingValueCell">Indicates the missing value cell in cross-line.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="stabilityBalancer"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.WeakExocetStep.StabilityBalancer" path="/summary"/></param>
+            <param name="missingValueCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.WeakExocetStep.MissingValueCell" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Exocets.WeakExocetStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -15250,12 +15250,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="stabilityBalancer">Indicates the value cell that makes the exocet pattern to be stable.</param>
-            <param name="missingValueCell">Indicates the missing value cell in cross-line.</param>
-            <param name="baseCells"><inheritdoc/></param>
-            <param name="targetCells"><inheritdoc/></param>
-            <param name="crosslineCells"><inheritdoc/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.DigitsMask" path="/summary"/></param>
+            <param name="stabilityBalancer"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.WeakExocetStep.StabilityBalancer" path="/summary"/></param>
+            <param name="missingValueCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.WeakExocetStep.MissingValueCell" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.BaseCells" path="/summary"/></param>
+            <param name="targetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.TargetCells" path="/summary"/></param>
+            <param name="crosslineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Exocets.ExocetStep.CrosslineCells" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.WeakExocetStep.BaseDifficulty">
             <inheritdoc/>
@@ -15265,12 +15265,12 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.WeakExocetStep.StabilityBalancer">
             <summary>
-            The generated property declaration for parameter <c>stabilityBalancer</c>.
+            Indicates the value cell that makes the exocet pattern to be stable.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Exocets.WeakExocetStep.MissingValueCell">
             <summary>
-            The generated property declaration for parameter <c>missingValueCell</c>.
+            Indicates the missing value cell in cross-line.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Fishes.ComplexFishStep">

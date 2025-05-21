@@ -6,19 +6,19 @@ namespace Sudoku.Analytics.Steps.Exocets;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digitsMask"><inheritdoc/></param>
-/// <param name="stabilityBalancer">Indicates the value cell that makes the exocet pattern to be stable.</param>
-/// <param name="missingValueCell">Indicates the missing value cell in cross-line.</param>
-/// <param name="baseCells"><inheritdoc/></param>
-/// <param name="targetCells"><inheritdoc/></param>
-/// <param name="crosslineCells"><inheritdoc/></param>
-public sealed partial class WeakExocetBzRectangleStep(
+/// <param name="digitsMask"><inheritdoc cref="ExocetStep.DigitsMask" path="/summary"/></param>
+/// <param name="stabilityBalancer"><inheritdoc cref="StabilityBalancer" path="/summary"/></param>
+/// <param name="missingValueCell"><inheritdoc cref="MissingValueCell" path="/summary"/></param>
+/// <param name="baseCells"><inheritdoc cref="ExocetStep.BaseCells" path="/summary"/></param>
+/// <param name="targetCells"><inheritdoc cref="ExocetStep.TargetCells" path="/summary"/></param>
+/// <param name="crosslineCells"><inheritdoc cref="ExocetStep.CrosslineCells" path="/summary"/></param>
+public sealed class WeakExocetBzRectangleStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Mask digitsMask,
-	[Property] Cell stabilityBalancer,
-	[Property] Cell missingValueCell,
+	Cell stabilityBalancer,
+	Cell missingValueCell,
 	in CellMap baseCells,
 	in CellMap targetCells,
 	in CellMap crosslineCells
@@ -29,4 +29,14 @@ public sealed partial class WeakExocetBzRectangleStep(
 
 	/// <inheritdoc/>
 	public override Technique Code => Technique.WeakExocetBzRectangle;
+
+	/// <summary>
+	/// Indicates the value cell that makes the exocet pattern to be stable.
+	/// </summary>
+	public Cell StabilityBalancer { get; } = stabilityBalancer;
+
+	/// <summary>
+	/// Indicates the missing value cell in cross-line.
+	/// </summary>
+	public Cell MissingValueCell { get; } = missingValueCell;
 }

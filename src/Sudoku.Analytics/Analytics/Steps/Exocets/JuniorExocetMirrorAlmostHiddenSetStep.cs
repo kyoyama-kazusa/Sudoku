@@ -6,13 +6,13 @@ namespace Sudoku.Analytics.Steps.Exocets;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digitsMask"><inheritdoc/></param>
-/// <param name="baseCells"><inheritdoc/></param>
-/// <param name="targetCells"><inheritdoc/></param>
-/// <param name="crosslineCells"><inheritdoc/></param>
-/// <param name="extraCells">Indicates the cells that provides with the AHS rule.</param>
-/// <param name="extraDigitsMask">Indicates the mask that holds the digits used by the AHS.</param>
-public sealed partial class JuniorExocetMirrorAlmostHiddenSetStep(
+/// <param name="digitsMask"><inheritdoc cref="ExocetStep.DigitsMask" path="/summary"/></param>
+/// <param name="baseCells"><inheritdoc cref="ExocetStep.BaseCells" path="/summary"/></param>
+/// <param name="targetCells"><inheritdoc cref="ExocetStep.TargetCells" path="/summary"/></param>
+/// <param name="crosslineCells"><inheritdoc cref="ExocetStep.CrosslineCells" path="/summary"/></param>
+/// <param name="extraCells"><inheritdoc cref="ExtraCells" path="/summary"/></param>
+/// <param name="extraDigitsMask"><inheritdoc cref="ExtraDigitsMask" path="/summary"/></param>
+public sealed class JuniorExocetMirrorAlmostHiddenSetStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
@@ -20,8 +20,8 @@ public sealed partial class JuniorExocetMirrorAlmostHiddenSetStep(
 	in CellMap baseCells,
 	in CellMap targetCells,
 	in CellMap crosslineCells,
-	[Property] in CellMap extraCells,
-	[Property] Mask extraDigitsMask
+	in CellMap extraCells,
+	Mask extraDigitsMask
 ) :
 	ExocetStep(conclusions, views, options, digitsMask, baseCells, targetCells, CellMap.Empty, crosslineCells),
 	IPatternType3StepTrait<JuniorExocetMirrorAlmostHiddenSetStep>
@@ -50,6 +50,16 @@ public sealed partial class JuniorExocetMirrorAlmostHiddenSetStep(
 				static args => OeisSequences.A002024((int)args![0]!)
 			)
 		];
+
+	/// <summary>
+	/// Indicates the cells that provides with the AHS rule.
+	/// </summary>
+	public CellMap ExtraCells { get; } = extraCells;
+
+	/// <summary>
+	/// Indicates the mask that holds the digits used by the AHS.
+	/// </summary>
+	public Mask ExtraDigitsMask { get; } = extraDigitsMask;
 
 	/// <inheritdoc/>
 	bool IPatternType3StepTrait<JuniorExocetMirrorAlmostHiddenSetStep>.IsHidden => true;
