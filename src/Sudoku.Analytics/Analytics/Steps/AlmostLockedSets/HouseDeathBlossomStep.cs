@@ -6,18 +6,18 @@ namespace Sudoku.Analytics.Steps.AlmostLockedSets;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="house">Indicates the pivot house.</param>
-/// <param name="digit">Indicates the digit.</param>
-/// <param name="branches">Indicates the branches.</param>
-/// <param name="zDigitsMask">Indicates the digits mask as eliminations.</param>
-public sealed partial class HouseDeathBlossomStep(
+/// <param name="house"><inheritdoc cref="House" path="/summary"/></param>
+/// <param name="digit"><inheritdoc cref="Digit" path="/summary"/></param>
+/// <param name="branches"><inheritdoc cref="Branches" path="/summary"/></param>
+/// <param name="zDigitsMask"><inheritdoc cref="ZDigitsMask" path="/summary"/></param>
+public sealed class HouseDeathBlossomStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] House house,
-	[Property] Digit digit,
-	[Property] HouseBlossomBranchCollection branches,
-	[Property] Mask zDigitsMask
+	House house,
+	Digit digit,
+	HouseBlossomBranchCollection branches,
+	Mask zDigitsMask
 ) : DeathBlossomStep(conclusions, views, options), IBranchTrait, IDeathBlossomCollection<HouseBlossomBranchCollection, House>
 {
 	/// <inheritdoc/>
@@ -46,6 +46,26 @@ public sealed partial class HouseDeathBlossomStep(
 				static args => OeisSequences.A002024((int)args![0]!)
 			)
 		];
+
+	/// <summary>
+	/// Indicates the pivot house.
+	/// </summary>
+	public House House { get; } = house;
+
+	/// <summary>
+	/// Indicates the digit.
+	/// </summary>
+	public Digit Digit { get; } = digit;
+
+	/// <summary>
+	/// Indicates the digits mask as eliminations.
+	/// </summary>
+	public Mask ZDigitsMask { get; } = zDigitsMask;
+
+	/// <summary>
+	/// Indicates the branches.
+	/// </summary>
+	public HouseBlossomBranchCollection Branches { get; } = branches;
 
 	/// <inheritdoc/>
 	int IBranchTrait.BranchesCount => Branches.Count;

@@ -6,8 +6,8 @@ namespace Sudoku.Analytics.Steps.Chains;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="pattern"><inheritdoc/></param>
-public sealed partial class BinaryForcingChainsStep(
+/// <param name="pattern"><inheritdoc cref="PatternBasedChainStep.Pattern" path="/summary"/></param>
+public sealed class BinaryForcingChainsStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,

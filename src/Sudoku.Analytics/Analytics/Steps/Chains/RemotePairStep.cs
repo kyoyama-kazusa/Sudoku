@@ -6,16 +6,16 @@ namespace Sudoku.Analytics.Steps.Chains;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="cells">Indicates the cells used.</param>
-/// <param name="isComplex">Indicates whether the pattern is complex.</param>
-/// <param name="digitsMask">Indicates the digits used.</param>
-public sealed partial class RemotePairStep(
+/// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
+/// <param name="isComplex"><inheritdoc cref="IsComplex" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+public sealed class RemotePairStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] in CellMap cells,
-	[Property] bool isComplex,
-	[Property] Mask digitsMask
+	in CellMap cells,
+	bool isComplex,
+	Mask digitsMask
 ) : SpecializedChainStep(conclusions, views, options)
 {
 	/// <inheritdoc/>
@@ -23,6 +23,11 @@ public sealed partial class RemotePairStep(
 
 	/// <inheritdoc/>
 	public override bool IsDynamic => Code == Technique.ComplexRemotePair;
+
+	/// <summary>
+	/// Indicates whether the pattern is complex.
+	/// </summary>
+	public bool IsComplex { get; } = isComplex;
 
 	/// <inheritdoc/>
 	public override int Complexity => Cells.Count;
@@ -42,6 +47,16 @@ public sealed partial class RemotePairStep(
 			new(SR.EnglishLanguage, [CellsStr, FirstUnknownCharacterString, SecondUnknownCharacterString]),
 			new(SR.ChineseLanguage, [CellsStr, FirstUnknownCharacterString, SecondUnknownCharacterString])
 		];
+
+	/// <summary>
+	/// Indicates the cells used.
+	/// </summary>
+	public CellMap Cells { get; } = cells;
+
+	/// <summary>
+	/// Indicates the digits used.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
 
 	private string CellsStr => Options.Converter.CellConverter(Cells);
 

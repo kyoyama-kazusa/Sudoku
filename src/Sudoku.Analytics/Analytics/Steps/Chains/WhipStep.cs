@@ -6,16 +6,16 @@ namespace Sudoku.Analytics.Steps.Chains;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="truths">Indicates all truths.</param>
-/// <param name="links">Indicates all links.</param>
-/// <param name="isGrouped">Indicates whether the whip pattern is grouped.</param>
-public sealed partial class WhipStep(
+/// <param name="truths"><inheritdoc cref="Truths" path="/summary"/></param>
+/// <param name="links"><inheritdoc cref="Links" path="/summary"/></param>
+/// <param name="isGrouped"><inheritdoc cref="IsGrouped" path="/summary"/></param>
+public sealed class WhipStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] ReadOnlyMemory<Space> truths,
-	[Property] ReadOnlyMemory<Space> links,
-	[Property] bool isGrouped
+	ReadOnlyMemory<Space> truths,
+	ReadOnlyMemory<Space> links,
+	bool isGrouped
 ) : SpecializedChainStep(conclusions, views, options)
 {
 	/// <inheritdoc/>
@@ -24,11 +24,26 @@ public sealed partial class WhipStep(
 	/// <inheritdoc/>
 	public override bool IsDynamic => true;
 
+	/// <summary>
+	/// Indicates whether the whip pattern is grouped.
+	/// </summary>
+	public bool IsGrouped { get; } = isGrouped;
+
 	/// <inheritdoc/>
 	public override int Complexity => Views![0].OfType<CandidateViewNode>().Length; // A tricky way to check number of nodes used.
 
 	/// <inheritdoc/>
 	public override int BaseDifficulty => IsGrouped ? 82 : 80;
+
+	/// <summary>
+	/// Indicates the truths.
+	/// </summary>
+	public ReadOnlyMemory<Space> Truths { get; } = truths;
+
+	/// <summary>
+	/// Indicates the links.
+	/// </summary>
+	public ReadOnlyMemory<Space> Links { get; } = links;
 
 	/// <inheritdoc/>
 	public override Technique Code => IsGrouped ? Technique.GroupedWhip : Technique.Whip;

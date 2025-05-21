@@ -6,20 +6,20 @@ namespace Sudoku.Analytics.Steps.AlmostLockedSets;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="row">Indicates the row.</param>
-/// <param name="column">Indicates the column.</param>
-/// <param name="blocks">Indicates the blocks used.</param>
-/// <param name="digitsMask">Indicates the digits mask.</param>
-/// <param name="digitsCanAppearTwiceOrMore">Indicates the digits that can appear in the target row and column twice or more.</param>
-public sealed partial class FatRingStep(
+/// <param name="row"><inheritdoc cref="Row" path="/summary"/></param>
+/// <param name="column"><inheritdoc cref="Column" path="/summary"/></param>
+/// <param name="blocks"><inheritdoc cref="Blocks" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+/// <param name="digitsCanAppearTwiceOrMore"><inheritdoc cref="DigitsCanAppearTwiceOrMore" path="/summary"/></param>
+public sealed class FatRingStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] RowIndex row,
-	[Property] ColumnIndex column,
-	[Property] HouseMask blocks,
-	[Property] Mask digitsMask,
-	[Property] Mask digitsCanAppearTwiceOrMore
+	RowIndex row,
+	ColumnIndex column,
+	HouseMask blocks,
+	Mask digitsMask,
+	Mask digitsCanAppearTwiceOrMore
 ) : AlmostLockedSetsStep(conclusions, views, options)
 {
 	/// <inheritdoc/>
@@ -37,6 +37,31 @@ public sealed partial class FatRingStep(
 			new(SR.EnglishLanguage, [DigitsString, RowString, ColumnString]),
 			new(SR.ChineseLanguage, [DigitsString, RowString, ColumnString])
 		];
+
+	/// <summary>
+	/// Indicates the row used.
+	/// </summary>
+	public RowIndex Row { get; } = row;
+
+	/// <summary>
+	/// Indicates the column used.
+	/// </summary>
+	public ColumnIndex Column { get; } = column;
+
+	/// <summary>
+	/// Indicates the blocks used.
+	/// </summary>
+	public BlockIndex Blocks { get; } = blocks;
+
+	/// <summary>
+	/// Indicates the digits mask.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
+
+	/// <summary>
+	/// Indicates the digits that can appear in the target row and column twice or more.
+	/// </summary>
+	public Mask DigitsCanAppearTwiceOrMore { get; } = digitsCanAppearTwiceOrMore;
 
 	private string DigitsString => Options.Converter.DigitConverter(DigitsMask);
 

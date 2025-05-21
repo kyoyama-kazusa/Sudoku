@@ -6,18 +6,18 @@ namespace Sudoku.Analytics.Steps.AlmostLockedSets;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="nTimesAlmostLockedSetsDigitsMask">Indicates the digits A^nLS used.</param>
-/// <param name="nTimesAlmostLockedSetsCells">Indicates the A^nLS cells used.</param>
-/// <param name="branches">Indicates the detail branches.</param>
-/// <param name="freedomDegree">Indicates the freedom degree of this A^nLS.</param>
-public sealed partial class NTimesAlmostLockedSetsDeathBlossomStep(
+/// <param name="nTimesAlmostLockedSetsDigitsMask"><inheritdoc cref="NTimesAlmostLockedSetsDigitsMask" path="/summary"/></param>
+/// <param name="nTimesAlmostLockedSetsCells"><inheritdoc cref="NTimesAlmostLockedSetsCells" path="/summary"/></param>
+/// <param name="branches"><inheritdoc cref="Branches" path="/summary"/></param>
+/// <param name="freedomDegree"><inheritdoc cref="FreedomDegree" path="/summary"/></param>
+public sealed class NTimesAlmostLockedSetsDeathBlossomStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] Mask nTimesAlmostLockedSetsDigitsMask,
-	[Property] in CellMap nTimesAlmostLockedSetsCells,
-	[Property] NTimesAlmostLockedSetsBlossomBranchCollection branches,
-	[Property] int freedomDegree
+	Mask nTimesAlmostLockedSetsDigitsMask,
+	in CellMap nTimesAlmostLockedSetsCells,
+	NTimesAlmostLockedSetsBlossomBranchCollection branches,
+	int freedomDegree
 ) :
 	DeathBlossomStep(conclusions, views, options),
 	IBranchTrait,
@@ -25,6 +25,11 @@ public sealed partial class NTimesAlmostLockedSetsDeathBlossomStep(
 {
 	/// <inheritdoc/>
 	public override int BaseDifficulty => base.BaseDifficulty + 5;
+
+	/// <summary>
+	/// Indicates the freedom degree of this A^nLS.
+	/// </summary>
+	public int FreedomDegree { get; } = freedomDegree;
 
 	/// <inheritdoc/>
 	public override Technique Code => Technique.NTimesAlmostLockedSetsDeathBlossom;
@@ -49,6 +54,21 @@ public sealed partial class NTimesAlmostLockedSetsDeathBlossomStep(
 				static args => OeisSequences.A002024((int)args![0]!)
 			)
 		];
+
+	/// <summary>
+	/// Indicates the digits A^nLS used.
+	/// </summary>
+	public Mask NTimesAlmostLockedSetsDigitsMask { get; } = nTimesAlmostLockedSetsDigitsMask;
+
+	/// <summary>
+	/// Indicates the A^nLS cells used.
+	/// </summary>
+	public CellMap NTimesAlmostLockedSetsCells { get; } = nTimesAlmostLockedSetsCells;
+
+	/// <summary>
+	/// Indicates the detail branches.
+	/// </summary>
+	public NTimesAlmostLockedSetsBlossomBranchCollection Branches { get; } = branches;
 
 	/// <inheritdoc/>
 	int IBranchTrait.BranchesCount => Branches.Count;

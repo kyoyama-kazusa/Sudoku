@@ -6,16 +6,16 @@ namespace Sudoku.Analytics.Steps.AlmostLockedSets;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="pivot">Indicates the pivot cell.</param>
-/// <param name="branches">Indicates the branches.</param>
-/// <param name="zDigitsMask">Indicates the digits mask as eliminations.</param>
-public sealed partial class NormalDeathBlossomStep(
+/// <param name="pivot"><inheritdoc cref="Pivot" path="/summary"/></param>
+/// <param name="branches"><inheritdoc cref="Branches" path="/summary"/></param>
+/// <param name="zDigitsMask"><inheritdoc cref="ZDigitsMask" path="/summary"/></param>
+public sealed class NormalDeathBlossomStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] Cell pivot,
-	[Property] NormalBlossomBranchCollection branches,
-	[Property] Mask zDigitsMask
+	Cell pivot,
+	NormalBlossomBranchCollection branches,
+	Mask zDigitsMask
 ) : DeathBlossomStep(conclusions, views, options), IBranchTrait, IDeathBlossomCollection<NormalBlossomBranchCollection, Digit>
 {
 	/// <inheritdoc/>
@@ -41,6 +41,21 @@ public sealed partial class NormalDeathBlossomStep(
 				static args => OeisSequences.A002024((int)args![0]!)
 			)
 		];
+
+	/// <summary>
+	/// Indicates the pivot cell.
+	/// </summary>
+	public Cell Pivot { get; } = pivot;
+
+	/// <summary>
+	/// Indicates the digits mask as eliminations.
+	/// </summary>
+	public Mask ZDigitsMask { get; } = zDigitsMask;
+
+	/// <summary>
+	/// Indicates the branches.
+	/// </summary>
+	public NormalBlossomBranchCollection Branches { get; } = branches;
 
 	/// <inheritdoc/>
 	int IBranchTrait.BranchesCount => Branches.Count;

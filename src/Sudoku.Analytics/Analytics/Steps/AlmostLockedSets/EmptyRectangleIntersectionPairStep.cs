@@ -6,20 +6,20 @@ namespace Sudoku.Analytics.Steps.AlmostLockedSets;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="startCell">Indicates the start cell to be calculated.</param>
-/// <param name="endCell">Indicates the end cell to be calculated.</param>
-/// <param name="house">Indicates the house index that the empty rectangle forms.</param>
-/// <param name="digit1">Indicates the first digit used.</param>
-/// <param name="digit2">Indicates the second digit used.</param>
-public sealed partial class EmptyRectangleIntersectionPairStep(
+/// <param name="startCell"><inheritdoc cref="StartCell" path="/summary"/></param>
+/// <param name="endCell"><inheritdoc cref="EndCell" path="/summary"/></param>
+/// <param name="house"><inheritdoc cref="House" path="/summary"/></param>
+/// <param name="digit1"><inheritdoc cref="Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="Digit2" path="/summary"/></param>
+public sealed class EmptyRectangleIntersectionPairStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] Cell startCell,
-	[Property] Cell endCell,
-	[Property] House house,
-	[Property] Digit digit1,
-	[Property] Digit digit2
+	Cell startCell,
+	Cell endCell,
+	House house,
+	Digit digit1,
+	Digit digit2
 ) : AlmostLockedSetsStep(conclusions, views, options)
 {
 	/// <inheritdoc/>
@@ -30,6 +30,31 @@ public sealed partial class EmptyRectangleIntersectionPairStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(1 << Digit1 | 1 << Digit2);
+
+	/// <summary>
+	/// Indicates the start cell to be calculated.
+	/// </summary>
+	public Cell StartCell { get; } = startCell;
+
+	/// <summary>
+	/// Indicates the end cell to be calculated.
+	/// </summary>
+	public Cell EndCell { get; } = endCell;
+
+	/// <summary>
+	/// Indicates the house index that the empty rectangle forms.
+	/// </summary>
+	public House House { get; } = house;
+
+	/// <summary>
+	/// Indicates the first digit used.
+	/// </summary>
+	public Digit Digit1 { get; } = digit1;
+
+	/// <summary>
+	/// Indicates the second digit used.
+	/// </summary>
+	public Digit Digit2 { get; } = digit2;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

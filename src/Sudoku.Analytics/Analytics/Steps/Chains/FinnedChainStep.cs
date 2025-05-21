@@ -7,15 +7,15 @@ namespace Sudoku.Analytics.Steps.Chains;
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="pattern"><inheritdoc/></param>
-/// <param name="fins">Indicates the extra fins.</param>
-/// <param name="basedComponent">Indicates the base component.</param>
-public sealed partial class FinnedChainStep(
+/// <param name="fins"><inheritdoc cref="Fins" path="/summary"/></param>
+/// <param name="basedComponent"><inheritdoc cref="BasedComponent" path="/summary"/></param>
+public sealed class FinnedChainStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	NamedChain pattern,
-	[Property] in CandidateMap fins,
-	[Property] MultipleChainBasedComponent basedComponent
+	in CandidateMap fins,
+	MultipleChainBasedComponent basedComponent
 ) : NormalChainStep(conclusions, views, options, pattern)
 {
 	/// <inheritdoc/>
@@ -38,6 +38,16 @@ public sealed partial class FinnedChainStep(
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations
 		=> [new(SR.EnglishLanguage, [ChainString, FinsStr]), new(SR.ChineseLanguage, [ChainString, FinsStr])];
+
+	/// <summary>
+	/// Indicates the extra fins.
+	/// </summary>
+	public CandidateMap Fins { get; } = fins;
+
+	/// <summary>
+	/// Indicates the base component.
+	/// </summary>
+	public MultipleChainBasedComponent BasedComponent { get; } = basedComponent;
 
 	private string FinsStr => Fins.ToString(CoordinateConverter.GetInstance(Options.Converter));
 }
