@@ -3149,8 +3149,8 @@
             </summary>
             <typeparam name="TInput">The type of input values.</typeparam>
             <typeparam name="TOutput">The type of output values.</typeparam>
-            <param name="pane">Indicates the sudoku pane control.</param>
-            <param name="converter">Indicates the position converter.</param>
+            <param name="pane"><inheritdoc cref="P:SudokuStudio.Drawing.CreatorBase`2.Pane" path="/summary"/></param>
+            <param name="converter"><inheritdoc cref="P:SudokuStudio.Drawing.CreatorBase`2.Converter" path="/summary"/></param>
             <seealso cref="T:Microsoft.UI.Xaml.Shapes.Shape"/>
         </member>
         <member name="M:SudokuStudio.Drawing.CreatorBase`2.#ctor(SudokuStudio.Views.Controls.SudokuPane,SudokuStudio.Input.SudokuPanePositionConverter)">
@@ -3159,8 +3159,8 @@
             </summary>
             <typeparam name="TInput">The type of input values.</typeparam>
             <typeparam name="TOutput">The type of output values.</typeparam>
-            <param name="pane">Indicates the sudoku pane control.</param>
-            <param name="converter">Indicates the position converter.</param>
+            <param name="pane"><inheritdoc cref="P:SudokuStudio.Drawing.CreatorBase`2.Pane" path="/summary"/></param>
+            <param name="converter"><inheritdoc cref="P:SudokuStudio.Drawing.CreatorBase`2.Converter" path="/summary"/></param>
             <seealso cref="T:Microsoft.UI.Xaml.Shapes.Shape"/>
         </member>
         <member name="F:SudokuStudio.Drawing.CreatorBase`2.SqrtOf2">
@@ -3173,22 +3173,22 @@
             Indicates the rotate angle (45 degrees).
             </summary>
         </member>
+        <member name="P:SudokuStudio.Drawing.CreatorBase`2.Pane">
+            <summary>
+            Indicates the sudoku pane control.
+            </summary>
+        </member>
+        <member name="P:SudokuStudio.Drawing.CreatorBase`2.Converter">
+            <summary>
+            Indicates the position converter.
+            </summary>
+        </member>
         <member name="M:SudokuStudio.Drawing.CreatorBase`2.CreateShapes(System.ReadOnlySpan{`0})">
             <summary>
             Creates a list of <see cref="T:Microsoft.UI.Xaml.Shapes.Shape"/> instances representing grouped nodes.
             </summary>
             <param name="nodes">The link view nodes.</param>
             <returns>A <see cref="T:Microsoft.UI.Xaml.Shapes.Shape"/> instance.</returns>
-        </member>
-        <member name="P:SudokuStudio.Drawing.CreatorBase`2.Pane">
-            <summary>
-            The generated property declaration for parameter <c>pane</c>.
-            </summary>
-        </member>
-        <member name="P:SudokuStudio.Drawing.CreatorBase`2.Converter">
-            <summary>
-            The generated property declaration for parameter <c>converter</c>.
-            </summary>
         </member>
         <member name="T:SudokuStudio.Drawing.DrawableFactory">
             <summary>
@@ -3378,15 +3378,25 @@
             <summary>
             Represents drawing context.
             </summary>
-            <param name="sudokuPane">Indicates the sudoku pane.</param>
-            <param name="controlAddingActions">Indicates the control adding actions. The collection can be used by playing animation.</param>
+            <param name="sudokuPane"><inheritdoc cref="P:SudokuStudio.Drawing.DrawingContext.SudokuPane" path="/summary"/></param>
+            <param name="controlAddingActions"><inheritdoc cref="P:SudokuStudio.Drawing.DrawingContext.ControlAddingActions" path="/summary"/></param>
         </member>
         <member name="M:SudokuStudio.Drawing.DrawingContext.#ctor(SudokuStudio.Views.Controls.SudokuPane,SudokuStudio.Drawing.AnimatedResultCollection)">
             <summary>
             Represents drawing context.
             </summary>
-            <param name="sudokuPane">Indicates the sudoku pane.</param>
-            <param name="controlAddingActions">Indicates the control adding actions. The collection can be used by playing animation.</param>
+            <param name="sudokuPane"><inheritdoc cref="P:SudokuStudio.Drawing.DrawingContext.SudokuPane" path="/summary"/></param>
+            <param name="controlAddingActions"><inheritdoc cref="P:SudokuStudio.Drawing.DrawingContext.ControlAddingActions" path="/summary"/></param>
+        </member>
+        <member name="P:SudokuStudio.Drawing.DrawingContext.SudokuPane">
+            <summary>
+            Indicates the sudoku pane.
+            </summary>
+        </member>
+        <member name="P:SudokuStudio.Drawing.DrawingContext.ControlAddingActions">
+            <summary>
+            Indicates the control adding actions. The collection can be used by playing animation.
+            </summary>
         </member>
         <member name="M:SudokuStudio.Drawing.DrawingContext.Deconstruct(SudokuStudio.Views.Controls.SudokuPane@,SudokuStudio.Drawing.AnimatedResultCollection@)">
             <target name="method">
@@ -3395,25 +3405,6 @@
 					the value-tuple syntax like <c>(a, b, c)</c> to define your own deconstruction logic.
 				</summary>
 			</target>
-        </member>
-        <member name="P:SudokuStudio.Drawing.DrawingContext.SudokuPane">
-            <summary>
-            The generated property declaration for parameter <c>sudokuPane</c>.
-            </summary>
-        </member>
-        <member name="P:SudokuStudio.Drawing.DrawingContext.ControlAddingActions">
-            <summary>
-            The generated property declaration for parameter <c>controlAddingActions</c>.
-            </summary>
-        </member>
-        <member name="M:SudokuStudio.Drawing.DrawingContext.Equals(System.Object)">
-            <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
-        </member>
-        <member name="M:SudokuStudio.Drawing.DrawingContext.GetHashCode">
-            <inheritdoc cref="M:System.Object.GetHashCode"/>
-        </member>
-        <member name="M:SudokuStudio.Drawing.DrawingContext.ToString">
-            <inheritdoc cref="M:System.Object.ToString"/>
         </member>
         <member name="T:SudokuStudio.Drawing.DrawingMode">
             <summary>
@@ -3564,8 +3555,8 @@
             </summary>
             <param name="pane">Indicates the sudoku pane control.</param>
             <param name="converter">Indicates the position converter.</param>
-            <param name="candidateNodes">Indicates the candidate view nodes.</param>
-            <param name="conclusions">Indicates the conclusions of the whole chain.</param>
+            <param name="candidateNodes"><inheritdoc cref="P:SudokuStudio.Drawing.PathCreator.CandidateNodes" path="/summary"/></param>
+            <param name="conclusions"><inheritdoc cref="P:SudokuStudio.Drawing.PathCreator.Conclusions" path="/summary"/></param>
             <seealso cref="T:Microsoft.UI.Xaml.Shapes.Path"/>
         </member>
         <member name="M:SudokuStudio.Drawing.PathCreator.#ctor(SudokuStudio.Views.Controls.SudokuPane,SudokuStudio.Input.SudokuPanePositionConverter,System.ReadOnlyMemory{Sudoku.Drawing.Nodes.CandidateViewNode},System.ReadOnlyMemory{Sudoku.Concepts.Conclusion})">
@@ -3574,9 +3565,19 @@
             </summary>
             <param name="pane">Indicates the sudoku pane control.</param>
             <param name="converter">Indicates the position converter.</param>
-            <param name="candidateNodes">Indicates the candidate view nodes.</param>
-            <param name="conclusions">Indicates the conclusions of the whole chain.</param>
+            <param name="candidateNodes"><inheritdoc cref="P:SudokuStudio.Drawing.PathCreator.CandidateNodes" path="/summary"/></param>
+            <param name="conclusions"><inheritdoc cref="P:SudokuStudio.Drawing.PathCreator.Conclusions" path="/summary"/></param>
             <seealso cref="T:Microsoft.UI.Xaml.Shapes.Path"/>
+        </member>
+        <member name="P:SudokuStudio.Drawing.PathCreator.Conclusions">
+            <summary>
+            Indicates the conclusions of the whole chain.
+            </summary>
+        </member>
+        <member name="P:SudokuStudio.Drawing.PathCreator.CandidateNodes">
+            <summary>
+            Indicates the candidate view nodes.
+            </summary>
         </member>
         <member name="M:SudokuStudio.Drawing.PathCreator.CreateShapes(System.ReadOnlySpan{Sudoku.Drawing.Nodes.ILinkViewNode})">
             <inheritdoc/>
@@ -3589,16 +3590,6 @@
             <param name="pt1">The start point.</param>
             <param name="pt2">The end point.</param>
             <returns>An instance of type <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:Microsoft.UI.Xaml.Media.Geometry"/>.</returns>
-        </member>
-        <member name="P:SudokuStudio.Drawing.PathCreator.CandidateNodes">
-            <summary>
-            The generated property declaration for parameter <c>candidateNodes</c>.
-            </summary>
-        </member>
-        <member name="P:SudokuStudio.Drawing.PathCreator.Conclusions">
-            <summary>
-            The generated property declaration for parameter <c>conclusions</c>.
-            </summary>
         </member>
         <member name="T:SudokuStudio.StepSearcherCollectionExtensions">
             <summary>
@@ -3972,18 +3963,18 @@
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.CandidatePickerSelectedCandidateChangedEventHandler"/>.
             </summary>
             <seealso cref="T:SudokuStudio.Interaction.CandidatePickerSelectedCandidateChangedEventHandler"/>
-            <param name="newValue">The new value.</param>
+            <param name="newValue"><inheritdoc cref="P:SudokuStudio.Interaction.CandidatePickerSelectedCandidateChangedEventArgs.NewValue" path="/summary"/></param>
         </member>
         <member name="M:SudokuStudio.Interaction.CandidatePickerSelectedCandidateChangedEventArgs.#ctor(System.Int32)">
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.CandidatePickerSelectedCandidateChangedEventHandler"/>.
             </summary>
             <seealso cref="T:SudokuStudio.Interaction.CandidatePickerSelectedCandidateChangedEventHandler"/>
-            <param name="newValue">The new value.</param>
+            <param name="newValue"><inheritdoc cref="P:SudokuStudio.Interaction.CandidatePickerSelectedCandidateChangedEventArgs.NewValue" path="/summary"/></param>
         </member>
         <member name="P:SudokuStudio.Interaction.CandidatePickerSelectedCandidateChangedEventArgs.NewValue">
             <summary>
-            The generated property declaration for parameter <c>newValue</c>.
+            The new value.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.CandidatePickerSelectedCandidateChangedEventHandler">
@@ -4212,16 +4203,16 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.DigitInputEventHandler"/>.
             </summary>
-            <param name="cell">Indicates the cell that raises the event triggered.</param>
-            <param name="newDigitInput">Indicates the digit input that raises the event triggered. -1 is for clear the cell.</param>
+            <param name="cell"><inheritdoc cref="P:SudokuStudio.Interaction.DigitInputEventArgs.Cell" path="/summary"/></param>
+            <param name="newDigitInput"><inheritdoc cref="P:SudokuStudio.Interaction.DigitInputEventArgs.DigitInput" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.DigitInputEventHandler"/>
         </member>
         <member name="M:SudokuStudio.Interaction.DigitInputEventArgs.#ctor(System.Int32,System.Int32)">
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.DigitInputEventHandler"/>.
             </summary>
-            <param name="cell">Indicates the cell that raises the event triggered.</param>
-            <param name="newDigitInput">Indicates the digit input that raises the event triggered. -1 is for clear the cell.</param>
+            <param name="cell"><inheritdoc cref="P:SudokuStudio.Interaction.DigitInputEventArgs.Cell" path="/summary"/></param>
+            <param name="newDigitInput"><inheritdoc cref="P:SudokuStudio.Interaction.DigitInputEventArgs.DigitInput" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.DigitInputEventHandler"/>
         </member>
         <member name="P:SudokuStudio.Interaction.DigitInputEventArgs.Cancel">
@@ -4229,19 +4220,19 @@
             A <see cref="T:System.Boolean"/> value indicating whether the event will cancel the inputting operation.
             </summary>
         </member>
-        <member name="P:SudokuStudio.Interaction.DigitInputEventArgs.Candidate">
-            <summary>
-            Indicates the candidate constructed. -1 is for the case that <see cref="P:SudokuStudio.Interaction.DigitInputEventArgs.DigitInput"/> is -1.
-            </summary>
-        </member>
         <member name="P:SudokuStudio.Interaction.DigitInputEventArgs.Cell">
             <summary>
-            The generated property declaration for parameter <c>cell</c>.
+            Indicates the cell that raises the event triggered.
             </summary>
         </member>
         <member name="P:SudokuStudio.Interaction.DigitInputEventArgs.DigitInput">
             <summary>
-            The generated property declaration for parameter <c>newDigitInput</c>.
+            Indicates the digit input that raises the event triggered. -1 is for clear the cell.
+            </summary>
+        </member>
+        <member name="P:SudokuStudio.Interaction.DigitInputEventArgs.Candidate">
+            <summary>
+            Indicates the candidate constructed. -1 is for the case that <see cref="P:SudokuStudio.Interaction.DigitInputEventArgs.DigitInput"/> is -1.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.DigitInputEventHandler">
@@ -4256,19 +4247,19 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.DigitSetSelectedDigitChangedEventHandler"/>.
             </summary>
+            <param name="newDigit"><inheritdoc cref="P:SudokuStudio.Interaction.DigitSetSelectedDigitChangedEventArgs.NewDigit" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.DigitSetSelectedDigitChangedEventHandler"/>
-            <param name="newDigit">Indicates the new digit selected.</param>
         </member>
         <member name="M:SudokuStudio.Interaction.DigitSetSelectedDigitChangedEventArgs.#ctor(System.Int32)">
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.DigitSetSelectedDigitChangedEventHandler"/>.
             </summary>
+            <param name="newDigit"><inheritdoc cref="P:SudokuStudio.Interaction.DigitSetSelectedDigitChangedEventArgs.NewDigit" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.DigitSetSelectedDigitChangedEventHandler"/>
-            <param name="newDigit">Indicates the new digit selected.</param>
         </member>
         <member name="P:SudokuStudio.Interaction.DigitSetSelectedDigitChangedEventArgs.NewDigit">
             <summary>
-            The generated property declaration for parameter <c>newDigit</c>.
+            Indicates the new digit selected.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.DigitSetSelectedDigitChangedEventHandler">
@@ -4283,17 +4274,27 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.GridUpdatedEventHandler"/>.
             </summary>
-            <param name="mouseButton">Indicates the mouse button clicked.</param>
-            <param name="candidate">The candidate clicked.</param>
+            <param name="mouseButton"><inheritdoc cref="P:SudokuStudio.Interaction.GridClickedEventArgs.MouseButton" path="/summary"/></param>
+            <param name="candidate"><inheritdoc cref="P:SudokuStudio.Interaction.GridClickedEventArgs.Candidate" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.GridUpdatedEventHandler"/>
         </member>
         <member name="M:SudokuStudio.Interaction.GridClickedEventArgs.#ctor(SudokuStudio.Interaction.MouseButton,System.Int32)">
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.GridUpdatedEventHandler"/>.
             </summary>
-            <param name="mouseButton">Indicates the mouse button clicked.</param>
-            <param name="candidate">The candidate clicked.</param>
+            <param name="mouseButton"><inheritdoc cref="P:SudokuStudio.Interaction.GridClickedEventArgs.MouseButton" path="/summary"/></param>
+            <param name="candidate"><inheritdoc cref="P:SudokuStudio.Interaction.GridClickedEventArgs.Candidate" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.GridUpdatedEventHandler"/>
+        </member>
+        <member name="P:SudokuStudio.Interaction.GridClickedEventArgs.MouseButton">
+            <summary>
+            The candidate clicked.
+            </summary>
+        </member>
+        <member name="P:SudokuStudio.Interaction.GridClickedEventArgs.Candidate">
+            <summary>
+            Indicates the mouse button clicked.
+            </summary>
         </member>
         <member name="P:SudokuStudio.Interaction.GridClickedEventArgs.Cell">
             <summary>
@@ -4330,16 +4331,6 @@
             </summary>
             <param name="candidate">The candidate.</param>
             <returns>A pair of two values indicating chute indices in a mega-row and mega-column.</returns>
-        </member>
-        <member name="P:SudokuStudio.Interaction.GridClickedEventArgs.MouseButton">
-            <summary>
-            The generated property declaration for parameter <c>mouseButton</c>.
-            </summary>
-        </member>
-        <member name="P:SudokuStudio.Interaction.GridClickedEventArgs.Candidate">
-            <summary>
-            The generated property declaration for parameter <c>candidate</c>.
-            </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.GridClickedEventHandler">
             <summary>
@@ -4403,63 +4394,20 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.GridUpdatedEventHandler"/>.
             </summary>
-            <param name="behavior">Indicates the behavior.</param>
-            <param name="newValue">
-            <para>Indicates the new value to be replaced.</para>
-            <para>
-            The type of the value is <see cref="T:System.Object"/> because the internal type will be varied
-            from different value of property <see cref="P:SudokuStudio.Interaction.GridUpdatedEventArgs.Behavior"/>. The target type is:
-            <list type="table">
-            <listheader>
-            <term>Value of property <see cref="P:SudokuStudio.Interaction.GridUpdatedEventArgs.Behavior"/></term>
-            <description>Target type of this property</description>
-            </listheader>
-            <item>
-            <term><see cref="F:SudokuStudio.Interaction.GridUpdatedBehavior.Elimination"/></term>
-            <description>An <see cref="T:System.Int32"/> value indicating the candidate eliminated.</description>
-            </item>
-            <item>
-            <term><see cref="F:SudokuStudio.Interaction.GridUpdatedBehavior.EliminationMultiple"/></term>
-            <description>
-            An <see cref="T:System.Int16"/> value indicating the candidates eliminated,
-            by <c><![CDATA[>> 9]]></c> to get the target cell, and <c><![CDATA[& 511]]></c> to get digits eliminated.
-            </description>
-            </item>
-            <item>
-            <term><see cref="F:SudokuStudio.Interaction.GridUpdatedBehavior.Assignment"/></term>
-            <description>A <see cref="T:System.Int32"/> value indicating the candidate set.</description>
-            </item>
-            <item>
-            <term><see cref="F:SudokuStudio.Interaction.GridUpdatedBehavior.Clear"/></term>
-            <description>A <see cref="T:System.Int32"/> value indicating the cell to be set empty.</description>
-            </item>
-            <item>
-            <term><see cref="F:SudokuStudio.Interaction.GridUpdatedBehavior.Undoing"/></term>
-            <description>A <see cref="T:Sudoku.Concepts.Grid"/> value indicating the newer grid to be replaced with the original one.</description>
-            </item>
-            <item>
-            <term><see cref="F:SudokuStudio.Interaction.GridUpdatedBehavior.Redoing"/></term>
-            <description>A <see cref="T:Sudoku.Concepts.Grid"/> value indicating the newer grid to be replaced with the original one.</description>
-            </item>
-            <item>
-            <term><see cref="F:SudokuStudio.Interaction.GridUpdatedBehavior.Replacing"/></term>
-            <description>A <see cref="T:Sudoku.Concepts.Grid"/> value indicating the newer grid to be replaced with the original one.</description>
-            </item>
-            </list>
-            </para>
-            <para>
-            You can use pattern matching to check the internal type such as <c>NewValue is T targetValue</c>,
-            or just use type casting: <c>(T)NewValue</c> if you know what the behavior is currently.
-            </para>
-            </param>
+            <param name="behavior"><inheritdoc cref="P:SudokuStudio.Interaction.GridUpdatedEventArgs.Behavior" path="/summary"/></param>
+            <param name="newValue"><inheritdoc cref="P:SudokuStudio.Interaction.GridUpdatedEventArgs.NewValue" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.GridUpdatedEventHandler"/>
         </member>
         <member name="M:SudokuStudio.Interaction.GridUpdatedEventArgs.#ctor(SudokuStudio.Interaction.GridUpdatedBehavior,System.Object)">
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.GridUpdatedEventHandler"/>.
             </summary>
-            <param name="behavior">Indicates the behavior.</param>
-            <param name="newValue">
+            <param name="behavior"><inheritdoc cref="P:SudokuStudio.Interaction.GridUpdatedEventArgs.Behavior" path="/summary"/></param>
+            <param name="newValue"><inheritdoc cref="P:SudokuStudio.Interaction.GridUpdatedEventArgs.NewValue" path="/summary"/></param>
+            <seealso cref="T:SudokuStudio.Interaction.GridUpdatedEventHandler"/>
+        </member>
+        <member name="P:SudokuStudio.Interaction.GridUpdatedEventArgs.NewValue">
+            <summary>
             <para>Indicates the new value to be replaced.</para>
             <para>
             The type of the value is <see cref="T:System.Object"/> because the internal type will be varied
@@ -4506,17 +4454,11 @@
             You can use pattern matching to check the internal type such as <c>NewValue is T targetValue</c>,
             or just use type casting: <c>(T)NewValue</c> if you know what the behavior is currently.
             </para>
-            </param>
-            <seealso cref="T:SudokuStudio.Interaction.GridUpdatedEventHandler"/>
+            </summary>
         </member>
         <member name="P:SudokuStudio.Interaction.GridUpdatedEventArgs.Behavior">
             <summary>
-            The generated property declaration for parameter <c>behavior</c>.
-            </summary>
-        </member>
-        <member name="P:SudokuStudio.Interaction.GridUpdatedEventArgs.NewValue">
-            <summary>
-            The generated property declaration for parameter <c>newValue</c>.
+            Indicates the behavior.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.GridUpdatedEventHandler">
@@ -4556,33 +4498,33 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.HouseCompletedEventHandler"/>.
             </summary>
-            <param name="lastCell">Indicates the last cell finished.</param>
-            <param name="house">Indicates the house finished.</param>
-            <param name="method">Indicates a method kind that makes a house be completed.</param>
+            <param name="lastCell"><inheritdoc cref="P:SudokuStudio.Interaction.HouseCompletedEventArgs.LastCell" path="/summary"/></param>
+            <param name="house"><inheritdoc cref="P:SudokuStudio.Interaction.HouseCompletedEventArgs.House" path="/summary"/></param>
+            <param name="method"><inheritdoc cref="P:SudokuStudio.Interaction.HouseCompletedEventArgs.Method" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.HouseCompletedEventHandler"/>
         </member>
         <member name="M:SudokuStudio.Interaction.HouseCompletedEventArgs.#ctor(System.Int32,System.Int32,SudokuStudio.Interaction.PuzzleUpdatingMethod)">
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.HouseCompletedEventHandler"/>.
             </summary>
-            <param name="lastCell">Indicates the last cell finished.</param>
-            <param name="house">Indicates the house finished.</param>
-            <param name="method">Indicates a method kind that makes a house be completed.</param>
+            <param name="lastCell"><inheritdoc cref="P:SudokuStudio.Interaction.HouseCompletedEventArgs.LastCell" path="/summary"/></param>
+            <param name="house"><inheritdoc cref="P:SudokuStudio.Interaction.HouseCompletedEventArgs.House" path="/summary"/></param>
+            <param name="method"><inheritdoc cref="P:SudokuStudio.Interaction.HouseCompletedEventArgs.Method" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.HouseCompletedEventHandler"/>
+        </member>
+        <member name="P:SudokuStudio.Interaction.HouseCompletedEventArgs.Method">
+            <summary>
+            Indicates a method kind that makes a house be completed.
+            </summary>
         </member>
         <member name="P:SudokuStudio.Interaction.HouseCompletedEventArgs.LastCell">
             <summary>
-            The generated property declaration for parameter <c>lastCell</c>.
+            Indicates the last cell finished.
             </summary>
         </member>
         <member name="P:SudokuStudio.Interaction.HouseCompletedEventArgs.House">
             <summary>
-            The generated property declaration for parameter <c>house</c>.
-            </summary>
-        </member>
-        <member name="P:SudokuStudio.Interaction.HouseCompletedEventArgs.Method">
-            <summary>
-            The generated property declaration for parameter <c>method</c>.
+            Indicates the house finished.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.HouseCompletedEventHandler">
@@ -4673,8 +4615,8 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.OpenFileFailedEventHandler"/>.
             </summary>
+            <param name="reason"><inheritdoc cref="P:SudokuStudio.Interaction.OpenFileFailedEventArgs.Reason" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.OpenFileFailedEventHandler"/>
-            <param name="reason">The failed reason.</param>
             <remarks>
             Initializes an <see cref="T:SudokuStudio.Interaction.OpenFileFailedEventArgs"/> instance via the specified reason.
             </remarks>
@@ -4683,15 +4625,15 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.OpenFileFailedEventHandler"/>.
             </summary>
+            <param name="reason"><inheritdoc cref="P:SudokuStudio.Interaction.OpenFileFailedEventArgs.Reason" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.OpenFileFailedEventHandler"/>
-            <param name="reason">The failed reason.</param>
             <remarks>
             Initializes an <see cref="T:SudokuStudio.Interaction.OpenFileFailedEventArgs"/> instance via the specified reason.
             </remarks>
         </member>
         <member name="P:SudokuStudio.Interaction.OpenFileFailedEventArgs.Reason">
             <summary>
-            The generated property declaration for parameter <c>reason</c>.
+            The failed reason.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.OpenFileFailedEventHandler">
@@ -4731,14 +4673,14 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.PuzzleCompletedEventHandler"/>.
             </summary>
-            <param name="finishedPuzzle">Indicates the finished puzzle.</param>
+            <param name="finishedPuzzle"><inheritdoc cref="P:SudokuStudio.Interaction.PuzzleCompletedEventArgs.FinishedPuzzle" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.PuzzleCompletedEventHandler"/>
         </member>
         <member name="M:SudokuStudio.Interaction.PuzzleCompletedEventArgs.#ctor(Sudoku.Concepts.Grid@)">
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.PuzzleCompletedEventHandler"/>.
             </summary>
-            <param name="finishedPuzzle">Indicates the finished puzzle.</param>
+            <param name="finishedPuzzle"><inheritdoc cref="P:SudokuStudio.Interaction.PuzzleCompletedEventArgs.FinishedPuzzle" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.PuzzleCompletedEventHandler"/>
         </member>
         <member name="P:SudokuStudio.Interaction.PuzzleCompletedEventArgs.IsFullyFixed">
@@ -4748,7 +4690,7 @@
         </member>
         <member name="P:SudokuStudio.Interaction.PuzzleCompletedEventArgs.FinishedPuzzle">
             <summary>
-            The generated property declaration for parameter <c>finishedPuzzle</c>.
+            Indicates the finished puzzle.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.PuzzleCompletedEventHandler">
@@ -4778,7 +4720,7 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.ReceivedDroppedFileFailedEventHandler"/>.
             </summary>
-            <param name="reason">The failed reason.</param>
+            <param name="reason"><inheritdoc cref="P:SudokuStudio.Interaction.ReceivedDroppedFileFailedEventArgs.Reason" path="/summary"/></param>
             <remarks>
             Initializes a <see cref="T:SudokuStudio.Interaction.ReceivedDroppedFileFailedEventArgs"/> instance via the specified reason.
             </remarks>
@@ -4788,7 +4730,7 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.ReceivedDroppedFileFailedEventHandler"/>.
             </summary>
-            <param name="reason">The failed reason.</param>
+            <param name="reason"><inheritdoc cref="P:SudokuStudio.Interaction.ReceivedDroppedFileFailedEventArgs.Reason" path="/summary"/></param>
             <remarks>
             Initializes a <see cref="T:SudokuStudio.Interaction.ReceivedDroppedFileFailedEventArgs"/> instance via the specified reason.
             </remarks>
@@ -4796,7 +4738,7 @@
         </member>
         <member name="P:SudokuStudio.Interaction.ReceivedDroppedFileFailedEventArgs.Reason">
             <summary>
-            The generated property declaration for parameter <c>reason</c>.
+            The failed reason.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.ReceivedDroppedFileFailedEventHandler">
@@ -4831,26 +4773,26 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.ReceivedDroppedFileSuccessfullyEventHandler"/>.
             </summary>
-            <param name="filePath">The path of the dropped file.</param>
-            <param name="gridInfo">The loaded grid info.</param>
+            <param name="filePath"><inheritdoc cref="P:SudokuStudio.Interaction.ReceivedDroppedFileSuccessfullyEventArgs.FilePath" path="/summary"/></param>
+            <param name="gridInfo"><inheritdoc cref="P:SudokuStudio.Interaction.ReceivedDroppedFileSuccessfullyEventArgs.GridInfo" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.ReceivedDroppedFileSuccessfullyEventHandler"/>
         </member>
         <member name="M:SudokuStudio.Interaction.ReceivedDroppedFileSuccessfullyEventArgs.#ctor(System.String,SudokuStudio.Configuration.GridInfo)">
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.ReceivedDroppedFileSuccessfullyEventHandler"/>.
             </summary>
-            <param name="filePath">The path of the dropped file.</param>
-            <param name="gridInfo">The loaded grid info.</param>
+            <param name="filePath"><inheritdoc cref="P:SudokuStudio.Interaction.ReceivedDroppedFileSuccessfullyEventArgs.FilePath" path="/summary"/></param>
+            <param name="gridInfo"><inheritdoc cref="P:SudokuStudio.Interaction.ReceivedDroppedFileSuccessfullyEventArgs.GridInfo" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.ReceivedDroppedFileSuccessfullyEventHandler"/>
         </member>
         <member name="P:SudokuStudio.Interaction.ReceivedDroppedFileSuccessfullyEventArgs.FilePath">
             <summary>
-            The generated property declaration for parameter <c>filePath</c>.
+            The path of the dropped file.
             </summary>
         </member>
         <member name="P:SudokuStudio.Interaction.ReceivedDroppedFileSuccessfullyEventArgs.GridInfo">
             <summary>
-            The generated property declaration for parameter <c>gridInfo</c>.
+            The loaded grid info.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.ReceivedDroppedFileSuccessfullyEventHandler">
@@ -4865,25 +4807,25 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.SaveFileFailedEventHandler"/>.
             </summary>
-            <seealso cref="T:SudokuStudio.Interaction.SaveFileFailedEventHandler"/>
-            <param name="reason">The failed reason.</param>
+            <param name="reason"><inheritdoc cref="P:SudokuStudio.Interaction.SaveFileFailedEventArgs.Reason" path="/summary"/></param>
             <remarks>
             Initializes an <see cref="T:SudokuStudio.Interaction.SaveFileFailedEventArgs"/> instance via the specified reason.
             </remarks>
+            <seealso cref="T:SudokuStudio.Interaction.SaveFileFailedEventHandler"/>
         </member>
         <member name="M:SudokuStudio.Interaction.SaveFileFailedEventArgs.#ctor(SudokuStudio.Interaction.SaveFileFailedReason)">
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.SaveFileFailedEventHandler"/>.
             </summary>
-            <seealso cref="T:SudokuStudio.Interaction.SaveFileFailedEventHandler"/>
-            <param name="reason">The failed reason.</param>
+            <param name="reason"><inheritdoc cref="P:SudokuStudio.Interaction.SaveFileFailedEventArgs.Reason" path="/summary"/></param>
             <remarks>
             Initializes an <see cref="T:SudokuStudio.Interaction.SaveFileFailedEventArgs"/> instance via the specified reason.
             </remarks>
+            <seealso cref="T:SudokuStudio.Interaction.SaveFileFailedEventHandler"/>
         </member>
         <member name="P:SudokuStudio.Interaction.SaveFileFailedEventArgs.Reason">
             <summary>
-            The generated property declaration for parameter <c>reason</c>.
+            The failed reason.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.SaveFileFailedEventHandler">
@@ -4925,19 +4867,19 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.TechniqueGroupViewStepAppliedEventHandler"/>.
             </summary>
-            <param name="selectedSearcherInfo">The selected searcher's information.</param>
+            <param name="selectedSearcherInfo"><inheritdoc cref="P:SudokuStudio.Interaction.StepSearcherListViewItemSelectedEventArgs.SelectedSearcherInfo" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.TechniqueGroupViewStepAppliedEventHandler"/>
         </member>
         <member name="M:SudokuStudio.Interaction.StepSearcherListViewItemSelectedEventArgs.#ctor(SudokuStudio.Configuration.StepSearcherInfo)">
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.TechniqueGroupViewStepAppliedEventHandler"/>.
             </summary>
-            <param name="selectedSearcherInfo">The selected searcher's information.</param>
+            <param name="selectedSearcherInfo"><inheritdoc cref="P:SudokuStudio.Interaction.StepSearcherListViewItemSelectedEventArgs.SelectedSearcherInfo" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.TechniqueGroupViewStepAppliedEventHandler"/>
         </member>
         <member name="P:SudokuStudio.Interaction.StepSearcherListViewItemSelectedEventArgs.SelectedSearcherInfo">
             <summary>
-            The generated property declaration for parameter <c>selectedSearcherInfo</c>.
+            The selected searcher's information.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.StepSearcherListViewItemSelectedEventHandler">
@@ -5086,7 +5028,7 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.SudokuPaneMouseWheelChangedEventHandler"/>.
             </summary>
-            <param name="isClockwise">A <see cref="T:System.Boolean"/> value indicating whether the mouse wheel is clockwise.</param>
+            <param name="isClockwise"><inheritdoc cref="P:SudokuStudio.Interaction.SudokuPaneMouseWheelChangedEventArgs.IsClockwise" path="/summary"/></param>
             <remarks>
             Initializes a <see cref="T:SudokuStudio.Interaction.SudokuPaneMouseWheelChangedEventArgs"/> instance via a <see cref="T:System.Boolean"/> value
             indicating whether the mouse wheel is clockwise.
@@ -5097,7 +5039,7 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.SudokuPaneMouseWheelChangedEventHandler"/>.
             </summary>
-            <param name="isClockwise">A <see cref="T:System.Boolean"/> value indicating whether the mouse wheel is clockwise.</param>
+            <param name="isClockwise"><inheritdoc cref="P:SudokuStudio.Interaction.SudokuPaneMouseWheelChangedEventArgs.IsClockwise" path="/summary"/></param>
             <remarks>
             Initializes a <see cref="T:SudokuStudio.Interaction.SudokuPaneMouseWheelChangedEventArgs"/> instance via a <see cref="T:System.Boolean"/> value
             indicating whether the mouse wheel is clockwise.
@@ -5106,7 +5048,7 @@
         </member>
         <member name="P:SudokuStudio.Interaction.SudokuPaneMouseWheelChangedEventArgs.IsClockwise">
             <summary>
-            The generated property declaration for parameter <c>isClockwise</c>.
+            A <see cref="T:System.Boolean"/> value indicating whether the mouse wheel is clockwise.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.SudokuPaneMouseWheelChangedEventHandler">
@@ -5121,19 +5063,19 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.TechniqueGroupViewStepAppliedEventHandler"/>.
             </summary>
-            <param name="step">The step.</param>
+            <param name="step"><inheritdoc cref="P:SudokuStudio.Interaction.TechniqueGroupViewStepAppliedEventArgs.ChosenStep" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.TechniqueGroupViewStepAppliedEventHandler"/>
         </member>
         <member name="M:SudokuStudio.Interaction.TechniqueGroupViewStepAppliedEventArgs.#ctor(Sudoku.Analytics.Step)">
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.TechniqueGroupViewStepAppliedEventHandler"/>.
             </summary>
-            <param name="step">The step.</param>
+            <param name="step"><inheritdoc cref="P:SudokuStudio.Interaction.TechniqueGroupViewStepAppliedEventArgs.ChosenStep" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.TechniqueGroupViewStepAppliedEventHandler"/>
         </member>
         <member name="P:SudokuStudio.Interaction.TechniqueGroupViewStepAppliedEventArgs.ChosenStep">
             <summary>
-            The generated property declaration for parameter <c>step</c>.
+            The step.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.TechniqueGroupViewStepAppliedEventHandler">
@@ -5148,19 +5090,19 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.TechniqueGroupViewStepChosenEventHandler"/>.
             </summary>
-            <param name="step">The step.</param>
+            <param name="step"><inheritdoc cref="P:SudokuStudio.Interaction.TechniqueGroupViewStepChosenEventArgs.ChosenStep" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.TechniqueGroupViewStepChosenEventHandler"/>
         </member>
         <member name="M:SudokuStudio.Interaction.TechniqueGroupViewStepChosenEventArgs.#ctor(Sudoku.Analytics.Step)">
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.TechniqueGroupViewStepChosenEventHandler"/>.
             </summary>
-            <param name="step">The step.</param>
+            <param name="step"><inheritdoc cref="P:SudokuStudio.Interaction.TechniqueGroupViewStepChosenEventArgs.ChosenStep" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.TechniqueGroupViewStepChosenEventHandler"/>
         </member>
         <member name="P:SudokuStudio.Interaction.TechniqueGroupViewStepChosenEventArgs.ChosenStep">
             <summary>
-            The generated property declaration for parameter <c>step</c>.
+            The step.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.TechniqueGroupViewStepChosenEventHandler">
@@ -5175,26 +5117,26 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.TechniqueViewCurrentSelectedTechniqueChangedEventHandler"/>.
             </summary>
-            <param name="technique">The technique to be assigned.</param>
-            <param name="isSelected">Indicates whether the field is selected.</param>
+            <param name="technique"><inheritdoc cref="P:SudokuStudio.Interaction.TechniqueViewCurrentSelectedTechniqueChangedEventArgs.Technique" path="/summary"/></param>
+            <param name="isSelected"><inheritdoc cref="P:SudokuStudio.Interaction.TechniqueViewCurrentSelectedTechniqueChangedEventArgs.IsSelected" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.TechniqueViewCurrentSelectedTechniqueChangedEventHandler"/>
         </member>
         <member name="M:SudokuStudio.Interaction.TechniqueViewCurrentSelectedTechniqueChangedEventArgs.#ctor(Sudoku.Categorization.Technique,System.Boolean)">
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.TechniqueViewCurrentSelectedTechniqueChangedEventHandler"/>.
             </summary>
-            <param name="technique">The technique to be assigned.</param>
-            <param name="isSelected">Indicates whether the field is selected.</param>
+            <param name="technique"><inheritdoc cref="P:SudokuStudio.Interaction.TechniqueViewCurrentSelectedTechniqueChangedEventArgs.Technique" path="/summary"/></param>
+            <param name="isSelected"><inheritdoc cref="P:SudokuStudio.Interaction.TechniqueViewCurrentSelectedTechniqueChangedEventArgs.IsSelected" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.TechniqueViewCurrentSelectedTechniqueChangedEventHandler"/>
-        </member>
-        <member name="P:SudokuStudio.Interaction.TechniqueViewCurrentSelectedTechniqueChangedEventArgs.Technique">
-            <summary>
-            The generated property declaration for parameter <c>technique</c>.
-            </summary>
         </member>
         <member name="P:SudokuStudio.Interaction.TechniqueViewCurrentSelectedTechniqueChangedEventArgs.IsSelected">
             <summary>
-            The generated property declaration for parameter <c>isSelected</c>.
+            Indicates whether the field is selected.
+            </summary>
+        </member>
+        <member name="P:SudokuStudio.Interaction.TechniqueViewCurrentSelectedTechniqueChangedEventArgs.Technique">
+            <summary>
+            The technique to be assigned.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.TechniqueViewCurrentSelectedTechniqueChangedEventHandler">
@@ -5209,19 +5151,19 @@
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.TechniqueViewSelectedTechniquesChangedEventHandler"/>.
             </summary>
-            <param name="techniqueSet">The technique set to be assigned.</param>
+            <param name="techniqueSet"><inheritdoc cref="P:SudokuStudio.Interaction.TechniqueViewSelectedTechniquesChangedEventArgs.TechniqueSet" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.TechniqueViewSelectedTechniquesChangedEventHandler"/>
         </member>
         <member name="M:SudokuStudio.Interaction.TechniqueViewSelectedTechniquesChangedEventArgs.#ctor(Sudoku.Categorization.TechniqueSet)">
             <summary>
             Provides event data used by delegate type <see cref="T:SudokuStudio.Interaction.TechniqueViewSelectedTechniquesChangedEventHandler"/>.
             </summary>
-            <param name="techniqueSet">The technique set to be assigned.</param>
+            <param name="techniqueSet"><inheritdoc cref="P:SudokuStudio.Interaction.TechniqueViewSelectedTechniquesChangedEventArgs.TechniqueSet" path="/summary"/></param>
             <seealso cref="T:SudokuStudio.Interaction.TechniqueViewSelectedTechniquesChangedEventHandler"/>
         </member>
         <member name="P:SudokuStudio.Interaction.TechniqueViewSelectedTechniquesChangedEventArgs.TechniqueSet">
             <summary>
-            The generated property declaration for parameter <c>techniqueSet</c>.
+            The technique set to be assigned.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.TechniqueViewSelectedTechniquesChangedEventHandler">
@@ -5281,24 +5223,24 @@
             <summary>
             Represents for event handler data provider.
             </summary>
-            <param name="item">Item being removed.</param>
-            <param name="tokenItem"><see cref="P:SudokuStudio.Interaction.TokenItemRemovingEventArgs.TokenItem"/> container being closed.</param>
+            <param name="item"><inheritdoc cref="P:SudokuStudio.Interaction.TokenItemRemovingEventArgs.Item" path="/summary"/></param>
+            <param name="tokenItem"><inheritdoc cref="P:SudokuStudio.Interaction.TokenItemRemovingEventArgs.TokenItem" path="/summary"/></param>
         </member>
         <member name="M:SudokuStudio.Interaction.TokenItemRemovingEventArgs.#ctor(System.Object,SudokuStudio.Views.Controls.TokenItem)">
             <summary>
             Represents for event handler data provider.
             </summary>
-            <param name="item">Item being removed.</param>
-            <param name="tokenItem"><see cref="P:SudokuStudio.Interaction.TokenItemRemovingEventArgs.TokenItem"/> container being closed.</param>
+            <param name="item"><inheritdoc cref="P:SudokuStudio.Interaction.TokenItemRemovingEventArgs.Item" path="/summary"/></param>
+            <param name="tokenItem"><inheritdoc cref="P:SudokuStudio.Interaction.TokenItemRemovingEventArgs.TokenItem" path="/summary"/></param>
         </member>
         <member name="P:SudokuStudio.Interaction.TokenItemRemovingEventArgs.Item">
             <summary>
-            The generated property declaration for parameter <c>item</c>.
+            Item being removed.
             </summary>
         </member>
         <member name="P:SudokuStudio.Interaction.TokenItemRemovingEventArgs.TokenItem">
             <summary>
-            The generated property declaration for parameter <c>tokenItem</c>.
+            <see cref="P:SudokuStudio.Interaction.TokenItemRemovingEventArgs.TokenItem"/> container being closed.
             </summary>
         </member>
         <member name="T:SudokuStudio.Interaction.ValueConverters.BooleanToCornerRadiusConverter">

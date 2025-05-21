@@ -3,6 +3,12 @@ namespace SudokuStudio.Interaction;
 /// <summary>
 /// Provides event data used by delegate type <see cref="DigitSetSelectedDigitChangedEventHandler"/>.
 /// </summary>
+/// <param name="newDigit"><inheritdoc cref="NewDigit" path="/summary"/></param>
 /// <seealso cref="DigitSetSelectedDigitChangedEventHandler"/>
-/// <param name="newDigit">Indicates the new digit selected.</param>
-public sealed partial class DigitSetSelectedDigitChangedEventArgs([Property] Digit newDigit) : EventArgs;
+public sealed class DigitSetSelectedDigitChangedEventArgs(Digit newDigit) : EventArgs
+{
+	/// <summary>
+	/// Indicates the new digit selected.
+	/// </summary>
+	public Digit NewDigit { get; } = newDigit;
+}

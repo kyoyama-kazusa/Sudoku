@@ -8,12 +8,12 @@ namespace Sudoku.Generating;
 [TypeImpl(TypeImplFlags.AllObjectMethods)]
 public ref partial struct PatternBasedPuzzleGenerator(ref readonly CellMap seedPattern, Digit missingDigit = -1) : IGenerator<Grid>
 {
-#pragma warning disable IDE0052
+#pragma warning disable IDE0052, CS0414
 	/// <summary>
 	/// Indicates whether the generator is cancelled.
 	/// </summary>
 	private bool? _isCancelled;
-#pragma warning restore IDE0052
+#pragma warning restore IDE0052, CS0414
 
 	/// <summary>
 	/// Indicates the predefind pattern used.

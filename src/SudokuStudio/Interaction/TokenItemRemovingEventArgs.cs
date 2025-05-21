@@ -7,6 +7,17 @@ namespace SudokuStudio.Interaction;
 /// <summary>
 /// Represents for event handler data provider.
 /// </summary>
-/// <param name="item">Item being removed.</param>
-/// <param name="tokenItem"><see cref="TokenItem"/> container being closed.</param>
-public partial class TokenItemRemovingEventArgs([Property] object item, [Property] TokenItem tokenItem) : EventArgs;
+/// <param name="item"><inheritdoc cref="Item" path="/summary"/></param>
+/// <param name="tokenItem"><inheritdoc cref="TokenItem" path="/summary"/></param>
+public class TokenItemRemovingEventArgs(object item, TokenItem tokenItem) : EventArgs
+{
+	/// <summary>
+	/// Item being removed.
+	/// </summary>
+	public object Item { get; } = item;
+
+	/// <summary>
+	/// <see cref="TokenItem"/> container being closed.
+	/// </summary>
+	public TokenItem TokenItem { get; } = tokenItem;
+}

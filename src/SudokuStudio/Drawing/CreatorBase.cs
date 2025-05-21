@@ -5,10 +5,10 @@ namespace SudokuStudio.Drawing;
 /// </summary>
 /// <typeparam name="TInput">The type of input values.</typeparam>
 /// <typeparam name="TOutput">The type of output values.</typeparam>
-/// <param name="pane">Indicates the sudoku pane control.</param>
-/// <param name="converter">Indicates the position converter.</param>
+/// <param name="pane"><inheritdoc cref="Pane" path="/summary"/></param>
+/// <param name="converter"><inheritdoc cref="Converter" path="/summary"/></param>
 /// <seealso cref="Shape"/>
-internal abstract partial class CreatorBase<TInput, TOutput>([Property] SudokuPane pane, [Property] SudokuPanePositionConverter converter)
+internal abstract class CreatorBase<TInput, TOutput>(SudokuPane pane, SudokuPanePositionConverter converter)
 {
 	/// <summary>
 	/// Indicates the square root of 2.
@@ -19,6 +19,17 @@ internal abstract partial class CreatorBase<TInput, TOutput>([Property] SudokuPa
 	/// Indicates the rotate angle (45 degrees).
 	/// </summary>
 	protected const double RotateAngle = PI / 4;
+
+
+	/// <summary>
+	/// Indicates the sudoku pane control.
+	/// </summary>
+	public SudokuPane Pane { get; } = pane;
+
+	/// <summary>
+	/// Indicates the position converter.
+	/// </summary>
+	public SudokuPanePositionConverter Converter { get; } = converter;
 
 
 	/// <summary>

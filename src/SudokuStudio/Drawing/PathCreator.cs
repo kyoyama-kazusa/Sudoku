@@ -5,16 +5,27 @@ namespace SudokuStudio.Drawing;
 /// </summary>
 /// <param name="pane">Indicates the sudoku pane control.</param>
 /// <param name="converter">Indicates the position converter.</param>
-/// <param name="candidateNodes">Indicates the candidate view nodes.</param>
-/// <param name="conclusions">Indicates the conclusions of the whole chain.</param>
+/// <param name="candidateNodes"><inheritdoc cref="CandidateNodes" path="/summary"/></param>
+/// <param name="conclusions"><inheritdoc cref="Conclusions" path="/summary"/></param>
 /// <seealso cref="Path"/>
-internal sealed partial class PathCreator(
+internal sealed class PathCreator(
 	SudokuPane pane,
 	SudokuPanePositionConverter converter,
-	[Property] ReadOnlyMemory<CandidateViewNode> candidateNodes,
-	[Property] ReadOnlyMemory<Conclusion> conclusions
+	ReadOnlyMemory<CandidateViewNode> candidateNodes,
+	ReadOnlyMemory<Conclusion> conclusions
 ) : CreatorBase<ILinkViewNode, Shape>(pane, converter)
 {
+	/// <summary>
+	/// Indicates the conclusions of the whole chain.
+	/// </summary>
+	public ReadOnlyMemory<Conclusion> Conclusions { get; } = conclusions;
+
+	/// <summary>
+	/// Indicates the candidate view nodes.
+	/// </summary>
+	public ReadOnlyMemory<CandidateViewNode> CandidateNodes { get; } = candidateNodes;
+
+
 	/// <inheritdoc/>
 	public override ReadOnlySpan<Shape> CreateShapes(ReadOnlySpan<ILinkViewNode> nodes)
 	{

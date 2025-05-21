@@ -3,11 +3,21 @@ namespace SudokuStudio.Interaction;
 /// <summary>
 /// Provides event data used by delegate type <see cref="GridUpdatedEventHandler"/>.
 /// </summary>
-/// <param name="mouseButton">Indicates the mouse button clicked.</param>
-/// <param name="candidate">The candidate clicked.</param>
+/// <param name="mouseButton"><inheritdoc cref="MouseButton" path="/summary"/></param>
+/// <param name="candidate"><inheritdoc cref="Candidate" path="/summary"/></param>
 /// <seealso cref="GridUpdatedEventHandler"/>
-public sealed partial class GridClickedEventArgs([Property] MouseButton mouseButton, [Property] Candidate candidate) : EventArgs
+public sealed class GridClickedEventArgs(MouseButton mouseButton, Candidate candidate) : EventArgs
 {
+	/// <summary>
+	/// The candidate clicked.
+	/// </summary>
+	public MouseButton MouseButton { get; } = mouseButton;
+
+	/// <summary>
+	/// Indicates the mouse button clicked.
+	/// </summary>
+	public Candidate Candidate { get; } = candidate;
+
 	/// <summary>
 	/// Indicates the clicked cell.
 	/// </summary>
