@@ -3,16 +3,16 @@ namespace Sudoku.Analytics.Steps.Invalidity;
 /// <summary>
 /// Provides with a step that is a <b>Bivalue Oddagon Type 3</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="loopCells"><inheritdoc/></param>
 /// <param name="digit1"><inheritdoc/></param>
 /// <param name="digit2"><inheritdoc/></param>
 /// <param name="extraCells">Indicates the extra cells used.</param>
 /// <param name="extraDigitsMask">Indicates the mask that contains all extra digits used.</param>
 public sealed partial class BivalueOddagonType3Step(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	in CellMap loopCells,

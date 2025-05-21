@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Steps.Uniqueness;
 /// <summary>
 /// Provides with a step that is a <b>Unique Rectangle Sue de Coq</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="digit1"><inheritdoc/></param>
 /// <param name="digit2"><inheritdoc/></param>
 /// <param name="cells"><inheritdoc/></param>
@@ -24,7 +24,7 @@ namespace Sudoku.Analytics.Steps.Uniqueness;
 /// <param name="intersectionCells">Indicates the cells in the intersection from houses <see cref="Block"/> and <see cref="Line"/>.</param>
 /// <param name="absoluteOffset"><inheritdoc/></param>
 public sealed partial class UniqueRectangleSueDeCoqStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit1,

@@ -3,14 +3,14 @@ namespace Sudoku.Analytics.Steps.AlmostLockedSets;
 /// <summary>
 /// Provides with a step that is a <b>Death Blossom</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="pivot">Indicates the pivot cell.</param>
 /// <param name="branches">Indicates the branches.</param>
 /// <param name="zDigitsMask">Indicates the digits mask as eliminations.</param>
 public sealed partial class NormalDeathBlossomStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] Cell pivot,

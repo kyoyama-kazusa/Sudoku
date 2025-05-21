@@ -17,7 +17,7 @@ namespace Sudoku.Analytics.Steps.Singles;
 /// <param name="basedOn"><inheritdoc cref="ComplexSingleStep.BasedOn" path="/summary"/></param>
 /// <param name="subsetTechnique">Indicates the subset technique used.</param>
 public sealed partial class DirectSubsetStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Cell cell,
@@ -45,7 +45,7 @@ public sealed partial class DirectSubsetStep(
 
 	/// <summary>
 	/// <inheritdoc
-	///     cref="NakedSubsetStep(StepConclusions, View[], StepGathererOptions, int, in CellMap, short, bool?)"
+	///     cref="NakedSubsetStep(ReadOnlyMemory{Conclusion}, View[], StepGathererOptions, int, in CellMap, short, bool?)"
 	///     path="/param[@name='isLocked']"/>
 	/// </summary>
 	public bool? IsLocked

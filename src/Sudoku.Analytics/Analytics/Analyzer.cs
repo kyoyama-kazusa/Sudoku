@@ -685,5 +685,5 @@ public sealed class Analyzer : StepGatherer, IAnalyzer<Analyzer, AnalysisResult,
 	/// Gets field <c><![CDATA[<Conclusions>k__BackingField]]></c> inside type <see cref="Step"/>.
 	/// </summary>
 	[UnsafeAccessor(UnsafeAccessorKind.Field, Name = "<Conclusions>k__BackingField")]
-	private static extern ref StepConclusions ConclusionBackingField(Step step);
+	private static extern ref ReadOnlyMemory<Conclusion> ConclusionBackingField(Step step);
 }

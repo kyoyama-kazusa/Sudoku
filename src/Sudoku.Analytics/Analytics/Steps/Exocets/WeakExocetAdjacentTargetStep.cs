@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Steps.Exocets;
 /// <summary>
 /// Provides with a step that is a <b>Weak Exocet (Adjacent Target)</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="digitsMask"><inheritdoc/></param>
 /// <param name="stabilityBalancer">Indicates the value cell that makes the exocet pattern to be stable.</param>
 /// <param name="missingValueCell">Indicates the missing value cell in cross-line.</param>
@@ -13,7 +13,7 @@ namespace Sudoku.Analytics.Steps.Exocets;
 /// <param name="targetCells"><inheritdoc/></param>
 /// <param name="crosslineCells"><inheritdoc/></param>
 public sealed partial class WeakExocetAdjacentTargetStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Mask digitsMask,

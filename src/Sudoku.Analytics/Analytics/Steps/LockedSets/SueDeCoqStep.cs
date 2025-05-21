@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Steps.LockedSets;
 /// <summary>
 /// Provides with a step that is a <b>Sue de Coq</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="block">Indicates the block index that the current pattern used.</param>
 /// <param name="line">Indicates the line (row or column) index that the current pattern used.</param>
 /// <param name="blockMask">Indicates the block mask.</param>
@@ -19,7 +19,7 @@ namespace Sudoku.Analytics.Steps.LockedSets;
 /// Indicates the cells that the current pattern used in an intersection of <see cref="BlockCells"/> and <see cref="LineCells"/>.
 /// </param>
 public sealed partial class SueDeCoqStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] House block,

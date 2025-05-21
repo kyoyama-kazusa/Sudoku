@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Steps.Uniqueness;
 /// <summary>
 /// Provides with a step that is a <b>Unique Rectangle</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="code"><inheritdoc cref="Step.Code" path="/summary"/></param>
 /// <param name="digit1">Indicates the first digit used.</param>
 /// <param name="digit2">Indicates the second digit used. This value is always greater than <see cref="Digit1"/>.</param>
@@ -23,7 +23,7 @@ namespace Sudoku.Analytics.Steps.Uniqueness;
 /// </para>
 /// </param>
 public abstract partial class UniqueRectangleStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property(Accessibility = "public sealed override")] Technique code,

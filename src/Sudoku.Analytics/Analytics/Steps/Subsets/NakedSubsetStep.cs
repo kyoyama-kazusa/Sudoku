@@ -27,7 +27,7 @@ namespace Sudoku.Analytics.Steps.Subsets;
 /// </list>
 /// </param>
 public sealed partial class NakedSubsetStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	House house,

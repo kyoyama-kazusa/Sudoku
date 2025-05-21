@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Steps.Fishes;
 /// <summary>
 /// Provides with a step that is a <b>Complex Fish</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="digit"><inheritdoc/></param>
 /// <param name="baseSetsMask"><inheritdoc/></param>
 /// <param name="coverSetsMask"><inheritdoc/></param>
@@ -23,7 +23,7 @@ namespace Sudoku.Analytics.Steps.Fishes;
 /// <param name="isCannibalism">Indicates whether the fish contains any cannibalism.</param>
 /// <param name="isSiamese"><inheritdoc/></param>
 public sealed partial class ComplexFishStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit,

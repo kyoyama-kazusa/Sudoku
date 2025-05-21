@@ -8679,12 +8679,13 @@
         </member>
         <member name="P:Sudoku.Drawing.IDrawable.Conclusions">
             <summary>
-            Indicates the conclusions that the step can be eliminated or assigned to.
+            Indicates the conclusions that a step produces,
+            meaning the specified candidates in this property can be safely set or deleted.
             </summary>
         </member>
         <member name="P:Sudoku.Drawing.IDrawable.Views">
             <summary>
-            Indicates the views of the step that may be displayed onto the screen using pictures.
+            Indicates the view collection that represents <see cref="T:Sudoku.Drawing.ViewNode"/> data, used by rendering APIs.
             </summary>
         </member>
         <member name="T:Sudoku.Drawing.IDrawableItem">

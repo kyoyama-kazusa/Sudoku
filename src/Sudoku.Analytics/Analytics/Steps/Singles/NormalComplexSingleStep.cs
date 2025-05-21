@@ -12,7 +12,7 @@ namespace Sudoku.Analytics.Steps.Singles;
 /// <param name="basedOn"><inheritdoc cref="ComplexSingleStep.BasedOn" path="/summary"/></param>
 /// <param name="indirectTechniques"><inheritdoc cref="ComplexSingleStep.IndirectTechniques" path="/summary"/></param>
 public sealed class NormalComplexSingleStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Cell cell,

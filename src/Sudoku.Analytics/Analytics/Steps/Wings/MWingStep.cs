@@ -3,16 +3,16 @@ namespace Sudoku.Analytics.Steps.Wings;
 /// <summary>
 /// Provides with a step that is a <b>(Grouped) M-Wing</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="node1">Indicates the node 1.</param>
 /// <param name="node2">Indicates the node 2.</param>
 /// <param name="strongXyCell">Indicates the strong XY cell.</param>
 /// <param name="weakXyCell">Indicates the weak XY cell.</param>
 /// <param name="digitsMask">Indicates the digits used.</param>
 public sealed partial class MWingStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] in CellMap node1,

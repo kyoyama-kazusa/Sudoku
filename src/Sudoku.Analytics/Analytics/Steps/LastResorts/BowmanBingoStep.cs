@@ -3,12 +3,12 @@ namespace Sudoku.Analytics.Steps.LastResorts;
 /// <summary>
 /// Provides with a step that is a <b>Bowman's Bingo</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="contradictionLinks">Indicates the list of contradiction links.</param>
 public sealed partial class BowmanBingoStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] Conclusion[] contradictionLinks

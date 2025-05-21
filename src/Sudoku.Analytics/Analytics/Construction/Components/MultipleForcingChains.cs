@@ -78,7 +78,7 @@ public partial class MultipleForcingChains(params Conclusion[] conclusions) :
 	ComponentType IComponent.Type => ComponentType.MultipleForcingChains;
 
 	/// <inheritdoc/>
-	StepConclusions IForcingChains.Conclusions => Conclusions;
+	ReadOnlyMemory<Conclusion> IForcingChains.Conclusions => Conclusions;
 
 	/// <inheritdoc/>
 	ReadOnlySpan<UnnamedChain> IForcingChains.Branches => Values.ToArray();

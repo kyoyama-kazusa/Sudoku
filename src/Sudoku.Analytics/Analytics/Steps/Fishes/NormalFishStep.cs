@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Steps.Fishes;
 /// <summary>
 /// Provides with a step that is an <b>Normal Fish</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="digit"><inheritdoc/></param>
 /// <param name="baseSetsMask"><inheritdoc/></param>
 /// <param name="coverSetsMask"><inheritdoc/></param>
@@ -13,7 +13,7 @@ namespace Sudoku.Analytics.Steps.Fishes;
 /// <param name="isSashimi"><inheritdoc/></param>
 /// <param name="isSiamese">Indicates whether the pattern is a Siamese Fish.</param>
 public sealed class NormalFishStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit,

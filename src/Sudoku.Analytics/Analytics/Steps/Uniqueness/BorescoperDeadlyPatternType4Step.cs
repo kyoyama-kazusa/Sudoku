@@ -3,15 +3,15 @@ namespace Sudoku.Analytics.Steps.Uniqueness;
 /// <summary>
 /// Provides with a step that is a <b>Borescoper's Deadly Pattern Type 4</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="cells"><inheritdoc/></param>
 /// <param name="digitsMask"><inheritdoc/></param>
 /// <param name="conjugateHouse">Indicates the cells used as generalized conjugate.</param>
 /// <param name="extraDigitsMask">Indicates the mask of extra digits used.</param>
 public sealed partial class BorescoperDeadlyPatternType4Step(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	in CellMap cells,

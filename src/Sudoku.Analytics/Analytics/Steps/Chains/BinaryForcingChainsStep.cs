@@ -3,12 +3,12 @@ namespace Sudoku.Analytics.Steps.Chains;
 /// <summary>
 /// Provides with a step that is a <b>Dynamic Binary Forcing Chains</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="pattern"><inheritdoc/></param>
 public sealed partial class BinaryForcingChainsStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	BinaryForcingChains pattern

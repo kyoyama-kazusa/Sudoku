@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Steps.Wings;
 /// <summary>
 /// Provides with a step that is a <b>(Siamese) (Grouped) XYZ-Ring</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="intersectDigit">Indicates the digit Z for XYZ-Wing pattern.</param>
 /// <param name="pivot">Indicates the pivot cell.</param>
 /// <param name="leafCell1">Indicates the leaf cell 1.</param>
@@ -16,7 +16,7 @@ namespace Sudoku.Analytics.Steps.Wings;
 /// <param name="isGrouped">Indicates whether the conjugate pair is grouped one.</param>
 /// <param name="isSiamese">Indicates whether the XYZ-loop is a Siamese one.</param>
 public sealed partial class XyzRingStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] Digit intersectDigit,

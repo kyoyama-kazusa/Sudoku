@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Steps.Exocets;
 /// <summary>
 /// Provides with a step that is a <b>Junior Exocet (Adjacent Target)</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="digitsMask"><inheritdoc/></param>
 /// <param name="baseCells"><inheritdoc/></param>
 /// <param name="targetCells"><inheritdoc/></param>
@@ -13,7 +13,7 @@ namespace Sudoku.Analytics.Steps.Exocets;
 /// <param name="crosslineCells"><inheritdoc/></param>
 /// <param name="singleMirrors">Indicates the single mirror cells. The value should be used one-by-one.</param>
 public sealed partial class JuniorExocetAdjacentTargetStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Mask digitsMask,

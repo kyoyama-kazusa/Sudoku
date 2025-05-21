@@ -3,14 +3,14 @@ namespace Sudoku.Analytics.Steps.Uniqueness;
 /// <summary>
 /// Provides with a step that is an <b>Anonymous Deadly Pattern</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="digitsMask">Indicates the digits used.</param>
 /// <param name="cells">Indicates cells used.</param>
 /// <param name="technique"><inheritdoc cref="Code" path="/summary"/></param>
 public abstract partial class AnonymousDeadlyPatternStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] Mask digitsMask,

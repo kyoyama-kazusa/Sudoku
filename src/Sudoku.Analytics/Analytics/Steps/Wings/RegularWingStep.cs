@@ -3,15 +3,15 @@ namespace Sudoku.Analytics.Steps.Wings;
 /// <summary>
 /// Provides with a step that is a <b>Regular Wing</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="pivot">Indicates the cell that blossomed its petals.</param>
 /// <param name="pivotCandidatesCount">Indicates the number of digits in the pivot cell.</param>
 /// <param name="digitsMask">Indicates a mask that contains all digits used.</param>
 /// <param name="petals">Indicates the petals used.</param>
 public sealed partial class RegularWingStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] Cell pivot,

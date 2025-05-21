@@ -3,14 +3,14 @@ namespace Sudoku.Analytics.Steps.Invalidity;
 /// <summary>
 /// Provides with a step that is a <b>Bi-value Oddagon</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="loopCells">Indicates the loop of cells used.</param>
 /// <param name="digit1">Indicates the first digit used.</param>
 /// <param name="digit2">Indicates the second digit used.</param>
 public abstract partial class BivalueOddagonStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] in CellMap loopCells,

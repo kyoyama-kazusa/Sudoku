@@ -3,15 +3,15 @@ namespace Sudoku.Analytics.Steps.Uniqueness;
 /// <summary>
 /// Provides with a step that is a <b>Unique Loop</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="digit1">Indicates the first digit used.</param>
 /// <param name="digit2">Indicates the second digit used.</param>
 /// <param name="loop">Indicates the whole loop of cells used.</param>
 /// <param name="loopPath">Indicates the loop path.</param>
 public abstract partial class UniqueLoopStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] Digit digit1,

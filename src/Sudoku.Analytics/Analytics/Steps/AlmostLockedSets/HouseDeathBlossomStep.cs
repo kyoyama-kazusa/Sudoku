@@ -3,15 +3,15 @@ namespace Sudoku.Analytics.Steps.AlmostLockedSets;
 /// <summary>
 /// Provides with a step that is a <b>Death Blossom (House Blooming)</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="house">Indicates the pivot house.</param>
 /// <param name="digit">Indicates the digit.</param>
 /// <param name="branches">Indicates the branches.</param>
 /// <param name="zDigitsMask">Indicates the digits mask as eliminations.</param>
 public sealed partial class HouseDeathBlossomStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] House house,

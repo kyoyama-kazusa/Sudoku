@@ -3,16 +3,16 @@ namespace Sudoku.Analytics.Steps.Uniqueness;
 /// <summary>
 /// Provides with a step that is an <b>Anonymous Deadly Pattern Type 3</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="patternCandidates"><inheritdoc/></param>
 /// <param name="targetCells">Indicates the target cells.</param>
 /// <param name="subsetCells">Indicates the subset cells.</param>
 /// <param name="subsetDigitsMask">Indicates the extra digits used.</param>
 /// <param name="technique"><inheritdoc/></param>
 public sealed partial class AnonymousDeadlyPatternType3Step(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] in CandidateMap patternCandidates,

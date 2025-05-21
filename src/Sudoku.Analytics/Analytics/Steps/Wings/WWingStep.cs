@@ -3,15 +3,15 @@ namespace Sudoku.Analytics.Steps.Wings;
 /// <summary>
 /// Provides with a step that is a <b>(Grouped) W-Wing</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="startCell">Indicates the start cell.</param>
 /// <param name="endCell">Indicates the end cell.</param>
 /// <param name="bridge">Indicates the bridge cells connecting with cells <see cref="StartCell"/> and <see cref="EndCell"/>.</param>
 /// <param name="digitsMask">Indicates the digits used.</param>
 public sealed partial class WWingStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] Cell startCell,

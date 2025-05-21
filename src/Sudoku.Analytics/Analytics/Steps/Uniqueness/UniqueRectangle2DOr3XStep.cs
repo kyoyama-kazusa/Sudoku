@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Steps.Uniqueness;
 /// <summary>
 /// Provides with a step that is a <b>Unique Rectangle 2D (or 3X)</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="code"><inheritdoc/></param>
 /// <param name="digit1"><inheritdoc/></param>
 /// <param name="digit2"><inheritdoc/></param>
@@ -16,7 +16,7 @@ namespace Sudoku.Analytics.Steps.Uniqueness;
 /// <param name="xyCell">Indicates a bi-value cell that only contains digit X and Y.</param>
 /// <param name="absoluteOffset"><inheritdoc/></param>
 public sealed partial class UniqueRectangle2DOr3XStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Technique code,

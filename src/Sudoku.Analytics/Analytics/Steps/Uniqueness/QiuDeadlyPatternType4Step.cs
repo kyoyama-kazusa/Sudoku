@@ -3,16 +3,16 @@ namespace Sudoku.Analytics.Steps.Uniqueness;
 /// <summary>
 /// Provides with a step that is a <b>Qiu's Deadly Pattern Type 4</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="is2LinesWith2Cells"><inheritdoc/></param>
 /// <param name="houses"><inheritdoc/></param>
 /// <param name="corner1"><inheritdoc/></param>
 /// <param name="corner2"><inheritdoc/></param>
 /// <param name="conjugatePair">Indicates the conjugate pair used.</param>
 public sealed partial class QiuDeadlyPatternType4Step(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	bool is2LinesWith2Cells,

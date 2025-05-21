@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Steps.Invalidity;
 /// <summary>
 /// Provides with a step that is a <b>Chromatic Pattern XZ</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="blocks"><inheritdoc/></param>
 /// <param name="pattern"><inheritdoc/></param>
 /// <param name="cells">Indicates the cells that contains extra digit.</param>
@@ -13,7 +13,7 @@ namespace Sudoku.Analytics.Steps.Invalidity;
 /// <param name="digitsMask"><inheritdoc/></param>
 /// <param name="extraDigitsMask">Indicates the mask of extra digits.</param>
 public sealed partial class ChromaticPatternXzStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	House[] blocks,

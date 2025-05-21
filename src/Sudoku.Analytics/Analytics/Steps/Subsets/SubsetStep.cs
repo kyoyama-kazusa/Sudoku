@@ -10,7 +10,7 @@ namespace Sudoku.Analytics.Steps.Subsets;
 /// <param name="cells">Indicates the cells used.</param>
 /// <param name="digitsMask">Indicates the mask that contains all digits used.</param>
 public abstract partial class SubsetStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] House house,

@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Steps.Fishes;
 /// <summary>
 /// Provides with a step that is a <b>Fish</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="digit">Indicates the digit used.</param>
 /// <param name="baseSetsMask">Indicates the mask that contains the base sets.</param>
 /// <param name="coverSetsMask">Indicates the mask that contains the cover sets.</param>
@@ -32,7 +32,7 @@ namespace Sudoku.Analytics.Steps.Fishes;
 /// </param>
 /// <param name="isSiamese">Indicates whether the pattern is a Siamese Fish.</param>
 public abstract partial class FishStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] Digit digit,

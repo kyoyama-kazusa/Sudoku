@@ -3,15 +3,15 @@ namespace Sudoku.Analytics.Steps.Wings;
 /// <summary>
 /// Provides with a step that is a <b>Multi-Branch W-Wing</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="leaves">The leaves of the pattern.</param>
 /// <param name="root">The root cells that corresponds to each leaf.</param>
 /// <param name="house">Indicates the house that all cells in <see cref="Root"/> lie in.</param>
 /// <param name="digitsMask">Indicates the digits used.</param>
 public sealed partial class MultiBranchWWingStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] in CellMap leaves,

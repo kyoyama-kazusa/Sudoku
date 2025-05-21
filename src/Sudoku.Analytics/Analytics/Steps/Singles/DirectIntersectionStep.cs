@@ -16,7 +16,7 @@ namespace Sudoku.Analytics.Steps.Singles;
 /// <param name="basedOn"><inheritdoc cref="ComplexSingleStep.BasedOn" path="/summary"/></param>
 /// <param name="isPointing">Indicates whether the current locked candidates pattern used is pointing.</param>
 public sealed partial class DirectIntersectionStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Cell cell,

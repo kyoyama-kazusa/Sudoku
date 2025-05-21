@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Steps.LastResorts;
 /// <summary>
 /// Provides with a step that is a <b>Pattern Overlay</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
-public sealed class PatternOverlayStep(StepConclusions conclusions, StepGathererOptions options) :
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
+public sealed class PatternOverlayStep(ReadOnlyMemory<Conclusion> conclusions, StepGathererOptions options) :
 	LastResortStep(conclusions, null, options)
 {
 	/// <inheritdoc/>

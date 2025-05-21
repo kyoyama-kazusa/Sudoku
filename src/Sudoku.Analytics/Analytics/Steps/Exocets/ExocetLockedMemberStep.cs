@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Steps.Exocets;
 /// <summary>
 /// Provides with a step that is an <b>Exocet (Locked Member)</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="digitsMask"><inheritdoc/></param>
 /// <param name="lockedMemberDigitsMask">Indicates the mask that holds a list of locked member digits.</param>
 /// <param name="baseCells"><inheritdoc/></param>
@@ -13,7 +13,7 @@ namespace Sudoku.Analytics.Steps.Exocets;
 /// <param name="endoTargetCells"><inheritdoc/></param>
 /// <param name="crosslineCells"><inheritdoc/></param>
 public sealed partial class ExocetLockedMemberStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Mask digitsMask,

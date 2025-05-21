@@ -3,15 +3,15 @@ namespace Sudoku.Analytics.Steps.Uniqueness;
 /// <summary>
 /// Provides with a step that is a <b>Bi-value Universal Grave Type 3</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="trueCandidates">Indicates the true candidates used.</param>
 /// <param name="subsetDigitsMask">Indicates the mask of subset digits.</param>
 /// <param name="cells">Indicates the subset cells used.</param>
 /// <param name="isNaked">Indicates whether the subset is naked.</param>
 public sealed partial class BivalueUniversalGraveType3Step(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] in CandidateMap trueCandidates,

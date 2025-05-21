@@ -11,7 +11,7 @@ namespace Sudoku.Analytics.Steps.Intersections;
 /// <param name="coverCells">Indicates the cells in cover set.</param>
 /// <param name="hasValueCell">Indicates whether the step contains value cells.</param>
 public sealed partial class AlmostLockedCandidatesStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] Mask digitsMask,

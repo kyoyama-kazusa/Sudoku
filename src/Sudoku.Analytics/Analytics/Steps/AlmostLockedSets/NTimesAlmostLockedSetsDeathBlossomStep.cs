@@ -3,15 +3,15 @@ namespace Sudoku.Analytics.Steps.AlmostLockedSets;
 /// <summary>
 /// Provides with a step that is a <b>n-Times ALS Death Blossom</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="nTimesAlmostLockedSetsDigitsMask">Indicates the digits A^nLS used.</param>
 /// <param name="nTimesAlmostLockedSetsCells">Indicates the A^nLS cells used.</param>
 /// <param name="branches">Indicates the detail branches.</param>
 /// <param name="freedomDegree">Indicates the freedom degree of this A^nLS.</param>
 public sealed partial class NTimesAlmostLockedSetsDeathBlossomStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] Mask nTimesAlmostLockedSetsDigitsMask,

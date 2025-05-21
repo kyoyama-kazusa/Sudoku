@@ -13,7 +13,7 @@ namespace Sudoku.Analytics;
 	OtherModifiersOnGetHashCode = "sealed",
 	OtherModifiersOnToString = "sealed",
 	OtherModifiersOnEquatableEquals = "virtual")]
-public abstract partial class Step(StepConclusions conclusions, View[]? views, StepGathererOptions options) :
+public abstract partial class Step(ReadOnlyMemory<Conclusion> conclusions, View[]? views, StepGathererOptions options) :
 	IComparable<Step>,
 	IComparisonOperators<Step, Step, bool>,
 	IDrawable,
@@ -129,7 +129,7 @@ public abstract partial class Step(StepConclusions conclusions, View[]? views, S
 	public abstract Mask DigitsUsed { get; }
 
 	/// <inheritdoc cref="IDrawable.Conclusions"/>
-	public StepConclusions Conclusions { get; } = conclusions;
+	public ReadOnlyMemory<Conclusion> Conclusions { get; } = conclusions;
 
 	/// <inheritdoc cref="IDrawable.Views"/>
 	public View[]? Views { get; } = views;

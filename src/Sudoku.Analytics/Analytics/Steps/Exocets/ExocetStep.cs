@@ -3,16 +3,16 @@ namespace Sudoku.Analytics.Steps.Exocets;
 /// <summary>
 /// Provides with a step that is an <b>Exocet</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="digitsMask">Indicates the mask that holds a list of digits used in the pattern.</param>
 /// <param name="baseCells">Indicates the base cells used.</param>
 /// <param name="targetCells">Indicates the target cells used.</param>
 /// <param name="endoTargetCells">Indicates the endo-target cells used.</param>
 /// <param name="crosslineCells">Indicates the cross-line cells used.</param>
 public abstract partial class ExocetStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] Mask digitsMask,

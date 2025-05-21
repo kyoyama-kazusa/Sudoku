@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Steps.Exocets;
 /// <summary>
 /// Provides with a step that is an <b>Advanced Complex Senior Exocet</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="digitsMask"><inheritdoc/></param>
 /// <param name="baseCells"><inheritdoc/></param>
 /// <param name="targetCells"><inheritdoc/></param>
@@ -15,7 +15,7 @@ namespace Sudoku.Analytics.Steps.Exocets;
 /// <param name="extraHousesMask">Indicates the mask holding a list of extra houses.</param>
 /// <param name="almostHiddenSetMask">The mask that holds a list of digits forming an external AHS.</param>
 public sealed partial class AdvancedComplexSeniorExocetStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Mask digitsMask,

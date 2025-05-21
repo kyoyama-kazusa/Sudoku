@@ -10,7 +10,7 @@ namespace Sudoku.Analytics.Steps.Intersections;
 /// <param name="baseSet">Indicates the house that the current locked candidates forms.</param>
 /// <param name="coverSet">Indicates the house that the current locked candidates effects.</param>
 public sealed partial class LockedCandidatesStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] Digit digit,

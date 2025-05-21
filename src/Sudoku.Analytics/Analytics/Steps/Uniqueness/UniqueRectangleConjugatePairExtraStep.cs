@@ -4,9 +4,9 @@ namespace Sudoku.Analytics.Steps.Uniqueness;
 /// Provides with a step that is a <b>Unique Rectangle Conjugate Pair(s) Extra</b>
 /// (a.k.a. <b>Unique Rectangle Strong Link Extra</b>) technique. Especially for UR + 3/1SL, UR + 4/1SL and UR + 4/2SL.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="code"><inheritdoc/></param>
 /// <param name="digit1"><inheritdoc/></param>
 /// <param name="digit2"><inheritdoc/></param>
@@ -17,7 +17,7 @@ namespace Sudoku.Analytics.Steps.Uniqueness;
 /// <param name="extraDigitsMask">Indicates the extra digits used.</param>
 /// <param name="absoluteOffset"><inheritdoc/></param>
 public sealed partial class UniqueRectangleConjugatePairExtraStep(
-	StepConclusions conclusions,
+	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Technique code,

@@ -18,7 +18,7 @@ public interface IForcingChains : IChainOrForcingChains, IFormattable
 	/// <summary>
 	/// Indicates the conclusions of the pattern.
 	/// </summary>
-	public abstract StepConclusions Conclusions { get; }
+	public abstract ReadOnlyMemory<Conclusion> Conclusions { get; }
 
 	/// <summary>
 	/// Indicates the complexity of each branch.

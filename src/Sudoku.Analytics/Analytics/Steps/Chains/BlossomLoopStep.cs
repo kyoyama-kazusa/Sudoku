@@ -3,11 +3,11 @@ namespace Sudoku.Analytics.Steps.Chains;
 /// <summary>
 /// Provides with a step that is a <b>Blossom Loop</b> technique.
 /// </summary>
-/// <param name="conclusions"><inheritdoc/></param>
-/// <param name="views"><inheritdoc/></param>
-/// <param name="options"><inheritdoc/></param>
+/// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="pattern"><inheritdoc/></param>
-public sealed class BlossomLoopStep(StepConclusions conclusions, View[]? views, StepGathererOptions options, BlossomLoop pattern) :
+public sealed class BlossomLoopStep(ReadOnlyMemory<Conclusion> conclusions, View[]? views, StepGathererOptions options, BlossomLoop pattern) :
 	PatternBasedChainStep(conclusions, views, options, pattern)
 {
 	/// <inheritdoc/>
