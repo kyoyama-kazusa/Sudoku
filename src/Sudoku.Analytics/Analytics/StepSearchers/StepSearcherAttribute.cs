@@ -3,11 +3,11 @@ namespace Sudoku.Analytics.StepSearchers;
 /// <summary>
 /// Indicates a type marked this attribute is a runnable <see cref="StepSearcher"/>.
 /// </summary>
-/// <param name="nameKey">Indicates the key in resource dictionary.</param>
+/// <param name="nameKey"><inheritdoc cref="NameKey" path="/summary"/></param>
 /// <param name="techniques">All supported techniques.</param>
 /// <seealso cref="StepSearcher"/>
 [AttributeUsage(AttributeTargets.Class, Inherited = false)]
-public sealed partial class StepSearcherAttribute([Property] string nameKey, params Technique[] techniques) : Attribute
+public sealed class StepSearcherAttribute(string nameKey, params Technique[] techniques) : Attribute
 {
 	/// <summary>
 	/// <para>
@@ -54,6 +54,11 @@ public sealed partial class StepSearcherAttribute([Property] string nameKey, par
 	/// By default the value is <see langword="true"/>.
 	/// </summary>
 	public bool SupportAnalyzingMultipleSolutionsPuzzle { get; init; } = true;
+
+	/// <summary>
+	/// Indicates the key in resource dictionary.
+	/// </summary>
+	public string NameKey { get; } = nameKey;
 
 	/// <summary>
 	/// Indicates the runtime options that controls extra behaviors.

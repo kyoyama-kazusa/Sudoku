@@ -5,8 +5,8 @@ namespace Sudoku.Behaviors.Ittoryu;
 /// This finder only uses single techniques (Hidden Singles and Naked Singles) to solve a puzzle;
 /// complex singles won't be supported for now.
 /// </summary>
-/// <param name="supportedTechniques">Indicates the supported techniques. By default, all singles are included.</param>
-public sealed partial class DisorderedIttoryuFinder([Property] params TechniqueSet supportedTechniques)
+/// <param name="supportedTechniques"><inheritdoc cref="SupportedTechniques" path="/summary"/></param>
+public sealed class DisorderedIttoryuFinder(params TechniqueSet supportedTechniques)
 {
 	/// <summary>
 	/// Initializes a <see cref="DisorderedIttoryuFinder"/> instance.
@@ -22,6 +22,12 @@ public sealed partial class DisorderedIttoryuFinder([Property] params TechniqueS
 	public DisorderedIttoryuFinder(IEnumerable<Technique> techniques) : this([.. techniques])
 	{
 	}
+
+
+	/// <summary>
+	/// Indicates the supported techniques. By default, all singles are included.
+	/// </summary>
+	public TechniqueSet SupportedTechniques { get; } = supportedTechniques;
 
 
 	/// <summary>

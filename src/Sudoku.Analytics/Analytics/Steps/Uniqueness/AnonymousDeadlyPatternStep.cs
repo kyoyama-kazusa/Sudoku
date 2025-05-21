@@ -8,14 +8,14 @@ namespace Sudoku.Analytics.Steps.Uniqueness;
 /// <param name="options"><inheritdoc/></param>
 /// <param name="digitsMask">Indicates the digits used.</param>
 /// <param name="cells">Indicates cells used.</param>
-/// <param name="technique"><inheritdoc cref="Step.Code" path="/summary"/></param>
+/// <param name="technique"><inheritdoc cref="Code" path="/summary"/></param>
 public abstract partial class AnonymousDeadlyPatternStep(
 	StepConclusions conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	[Property] Mask digitsMask,
 	[Property] in CellMap cells,
-	[Property(Accessibility = "public sealed override", NamingRule = "Code", EmitPropertyStyle = EmitPropertyStyle.ReturnParameter)] Technique technique
+	Technique technique
 ) : ConditionalDeadlyPatternStep(conclusions, views, options), IDeadlyPatternTypeTrait
 {
 	/// <inheritdoc/>
@@ -27,6 +27,9 @@ public abstract partial class AnonymousDeadlyPatternStep(
 
 	/// <inheritdoc/>
 	public sealed override bool OnlyUseBivalueCells => false;
+
+	/// <inheritdoc/>
+	public sealed override Technique Code { get; } = technique;
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
