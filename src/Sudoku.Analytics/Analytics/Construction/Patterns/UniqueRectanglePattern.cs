@@ -3,12 +3,11 @@ namespace Sudoku.Analytics.Construction.Patterns;
 /// <summary>
 /// Represents a Unique Rectangle.
 /// </summary>
-/// <param name="cells">The cells.</param>
-/// <param name="digitsMask">The digits mask.</param>
-/// <param name="otherDigitsMask">The other digits mask.</param>
+/// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+/// <param name="otherDigitsMask"><inheritdoc cref="OtherDigitsMask" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode)]
-public sealed partial class UniqueRectanglePattern([Property] in CellMap cells, [Property] Mask digitsMask, [Property] Mask otherDigitsMask) :
-	Pattern
+public sealed partial class UniqueRectanglePattern(in CellMap cells, Mask digitsMask, Mask otherDigitsMask) : Pattern
 {
 	/// <summary>
 	/// The table of all possible pattern cells.
@@ -76,6 +75,21 @@ public sealed partial class UniqueRectanglePattern([Property] in CellMap cells, 
 
 	/// <inheritdoc/>
 	public override PatternType Type => PatternType.UniqueRectangle;
+
+	/// <summary>
+	/// The cells.
+	/// </summary>
+	public CellMap Cells { get; } = cells;
+
+	/// <summary>
+	/// The digits mask.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
+
+	/// <summary>
+	/// The other digits mask.
+	/// </summary>
+	public Mask OtherDigitsMask { get; } = otherDigitsMask;
 
 
 	/// <include file="../../global-doc-comments.xml" path="g/csharp7/feature[@name='deconstruction-method']/target[@name='method']"/>

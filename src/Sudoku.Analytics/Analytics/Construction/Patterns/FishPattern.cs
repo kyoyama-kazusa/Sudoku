@@ -3,19 +3,13 @@ namespace Sudoku.Analytics.Construction.Patterns;
 /// <summary>
 /// Represents a fish pattern.
 /// </summary>
-/// <param name="digit">Indicates the digit to be used.</param>
-/// <param name="baseSets">Indicates the base sets.</param>
-/// <param name="coverSets">Indicates the cover sets.</param>
-/// <param name="exofins">Indicates the exo-fins.</param>
-/// <param name="endofins">Indicates the endo-fins.</param>
+/// <param name="digit"><inheritdoc cref="Digit" path="/summary"/></param>
+/// <param name="baseSets"><inheritdoc cref="BaseSets" path="/summary"/></param>
+/// <param name="coverSets"><inheritdoc cref="CoverSets" path="/summary"/></param>
+/// <param name="exofins"><inheritdoc cref="Exofins" path="/summary"/></param>
+/// <param name="endofins"><inheritdoc cref="Endofins" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode | TypeImplFlags.Object_ToString)]
-public sealed partial class FishPattern(
-	[Property, HashCodeMember] Digit digit,
-	[Property, HashCodeMember] HouseMask baseSets,
-	[Property, HashCodeMember] HouseMask coverSets,
-	[Property, HashCodeMember] in CellMap exofins,
-	[Property, HashCodeMember] in CellMap endofins
-) :
+public sealed partial class FishPattern(Digit digit, HouseMask baseSets, HouseMask coverSets, in CellMap exofins, in CellMap endofins) :
 	Pattern,
 	IFormattable
 {
@@ -60,6 +54,36 @@ public sealed partial class FishPattern(
 	/// Indicates all fins.
 	/// </summary>
 	public CellMap Fins => Exofins | Endofins;
+
+	/// <summary>
+	/// Indicates the digit to be used.
+	/// </summary>
+	[HashCodeMember]
+	public Digit Digit { get; } = digit;
+
+	/// <summary>
+	/// Indicates the base sets.
+	/// </summary>
+	[HashCodeMember]
+	public HouseMask BaseSets { get; } = baseSets;
+
+	/// <summary>
+	/// Indicates the cover sets.
+	/// </summary>
+	[HashCodeMember]
+	public HouseMask CoverSets { get; } = coverSets;
+
+	/// <summary>
+	/// Indicates exo-fins.
+	/// </summary>
+	[HashCodeMember]
+	public CellMap Exofins { get; } = exofins;
+
+	/// <summary>
+	/// Indicates endo-fins.
+	/// </summary>
+	[HashCodeMember]
+	public CellMap Endofins { get; } = endofins;
 
 
 	/// <inheritdoc/>

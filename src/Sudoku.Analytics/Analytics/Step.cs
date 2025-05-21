@@ -4,23 +4,16 @@ namespace Sudoku.Analytics;
 /// Provides with a solving step that describes for a technique usage,
 /// with conclusions and detail data for the corresponding technique pattern.
 /// </summary>
-/// <param name="conclusions"><inheritdoc cref="IDrawable.Conclusions" path="/summary"/></param>
-/// <param name="views"><inheritdoc cref="IDrawable.Views" path="/summary"/></param>
-/// <param name="options">
-/// Indicates an optional instance that provides with extra information for a step searcher.
-/// This instance can be used for checking some extra information about a step such as notations to a cell, candidate, etc.
-/// </param>
+/// <param name="conclusions"><inheritdoc cref="Conclusions" path="/summary"/></param>
+/// <param name="views"><inheritdoc cref="Views" path="/summary"/></param>
+/// <param name="options"><inheritdoc cref="Options" path="/summary"/></param>
 [TypeImpl(
 	TypeImplFlags.AllObjectMethods | TypeImplFlags.AllEqualityComparisonOperators | TypeImplFlags.Equatable,
 	OtherModifiersOnEquals = "sealed",
 	OtherModifiersOnGetHashCode = "sealed",
 	OtherModifiersOnToString = "sealed",
 	OtherModifiersOnEquatableEquals = "virtual")]
-public abstract partial class Step(
-	[Property] StepConclusions conclusions,
-	[Property] View[]? views,
-	[Property] StepGathererOptions options
-) :
+public abstract partial class Step(StepConclusions conclusions, View[]? views, StepGathererOptions options) :
 	IComparable<Step>,
 	IComparisonOperators<Step, Step, bool>,
 	IDrawable,
@@ -134,6 +127,18 @@ public abstract partial class Step(
 	/// Indicates all digits used in the corresponding pattern of the current step.
 	/// </summary>
 	public abstract Mask DigitsUsed { get; }
+
+	/// <inheritdoc cref="IDrawable.Conclusions"/>
+	public StepConclusions Conclusions { get; } = conclusions;
+
+	/// <inheritdoc cref="IDrawable.Views"/>
+	public View[]? Views { get; } = views;
+
+	/// <summary>
+	/// Indicates an optional instance that provides with extra information for a step searcher.
+	/// This instance can be used for checking some extra information about a step such as notations to a cell, candidate, etc.
+	/// </summary>
+	public StepGathererOptions Options { get; } = options;
 
 	/// <summary>
 	/// <para>Indicates whether property <see cref="FormatTypeIdentifier"/> will inherit from base type.</para>

@@ -3,22 +3,22 @@ namespace Sudoku.Analytics.Construction.Patterns;
 /// <summary>
 /// Defines a data pattern that describes an AHS.
 /// </summary>
-/// <param name="cells">Indicates the cells used.</param>
-/// <param name="house">Indicates the house used.</param>
-/// <param name="digitsMask">Indicates the mask of digits used.</param>
-/// <param name="subsetDigitsMask">Indicates the mask of subset digits used.</param>
-/// <param name="candidatesCanFormWeakLink">Indicates all candidates that can be used as weak links.</param>
+/// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
+/// <param name="house"><inheritdoc cref="House" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+/// <param name="subsetDigitsMask"><inheritdoc cref="SubsetDigitsMask" path="/summary"/></param>
+/// <param name="candidatesCanFormWeakLink"><inheritdoc cref="CandidatesCanFormWeakLink" path="/summary"/></param>
 /// <remarks>
 /// An <b>Almost Hidden Set</b> is a sudoku concept, which describes a case that
 /// <c>n</c> digits are only appeared inside <c>(n + 1)</c> cells in a house.
 /// </remarks>
 [TypeImpl(TypeImplFlags.Object_GetHashCode | TypeImplFlags.ComparisonOperators)]
 public sealed partial class AlmostHiddenSetPattern(
-	[Property, HashCodeMember] in CellMap cells,
-	[Property, HashCodeMember] House house,
-	[Property, HashCodeMember] Mask digitsMask,
-	[Property, HashCodeMember] Mask subsetDigitsMask,
-	[Property, HashCodeMember] in CandidateMap candidatesCanFormWeakLink
+	in CellMap cells,
+	House house,
+	Mask digitsMask,
+	Mask subsetDigitsMask,
+	in CandidateMap candidatesCanFormWeakLink
 ) :
 	Pattern,
 	IComparable<AlmostHiddenSetPattern>,
@@ -29,6 +29,36 @@ public sealed partial class AlmostHiddenSetPattern(
 
 	/// <inheritdoc/>
 	public override PatternType Type => PatternType.AlmostHiddenSet;
+
+	/// <summary>
+	/// Indicates the cells used.
+	/// </summary>
+	[HashCodeMember]
+	public CellMap Cells { get; } = cells;
+
+	/// <summary>
+	/// Indicates the house used.
+	/// </summary>
+	[HashCodeMember]
+	public House House { get; } = house;
+
+	/// <summary>
+	/// Indicates the mask of digits used.
+	/// </summary>
+	[HashCodeMember]
+	public Mask DigitsMask { get; } = digitsMask;
+
+	/// <summary>
+	/// Indicates the mask of subset digits used.
+	/// </summary>
+	[HashCodeMember]
+	public Mask SubsetDigitsMask { get; } = subsetDigitsMask;
+
+	/// <summary>
+	/// Indicates all candidates that can be used as weak links.
+	/// </summary>
+	[HashCodeMember]
+	public CandidateMap CandidatesCanFormWeakLink { get; } = candidatesCanFormWeakLink;
 
 
 	/// <inheritdoc/>

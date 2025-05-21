@@ -3,13 +3,10 @@ namespace Sudoku.Analytics.Construction.Patterns;
 /// <summary>
 /// Defines a data pattern that describes an ALS.
 /// </summary>
-/// <param name="digitsMask">Indicates the mask of digits used.</param>
-/// <param name="cells">Indicates the cells used.</param>
-/// <param name="possibleEliminationMap">Gets the possible cells that can store eliminations for the ALS.</param>
-/// <param name="eliminationMap">
-/// The cells that can be eliminated, grouped by digit. The former 9 elements of the array is the cells
-/// that can be eliminated for the corresponding digit, and the last element is the merged cells.
-/// </param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
+/// <param name="possibleEliminationMap"><inheritdoc cref="PossibleEliminationMap" path="/summary"/></param>
+/// <param name="eliminationMap"><inheritdoc cref="EliminationMap" path="/summary"/></param>
 /// <remarks>
 /// An <b>Almost Locked Set</b> is a sudoku concept, which describes a case that
 /// <c>n</c> cells contains <c>(n + 1)</c> kinds of different digits.
@@ -17,10 +14,10 @@ namespace Sudoku.Analytics.Construction.Patterns;
 /// </remarks>
 [TypeImpl(TypeImplFlags.Object_GetHashCode | TypeImplFlags.Object_ToString | TypeImplFlags.ComparisonOperators)]
 public sealed partial class AlmostLockedSetPattern(
-	[Property, HashCodeMember] Mask digitsMask,
-	[Property, HashCodeMember] in CellMap cells,
-	[Property] in CellMap possibleEliminationMap,
-	[Property] CellMap[] eliminationMap
+	Mask digitsMask,
+	in CellMap cells,
+	in CellMap possibleEliminationMap,
+	CellMap[] eliminationMap
 ) :
 	Pattern,
 	IComparable<AlmostLockedSetPattern>,
@@ -50,6 +47,29 @@ public sealed partial class AlmostLockedSetPattern(
 
 	/// <inheritdoc/>
 	public override PatternType Type => PatternType.AlmostLockedSet;
+
+	/// <summary>
+	/// Indicates the mask of digits used.
+	/// </summary>
+	[HashCodeMember]
+	public Mask DigitsMask { get; } = digitsMask;
+
+	/// <summary>
+	/// Indicates the cells used.
+	/// </summary>
+	[HashCodeMember]
+	public CellMap Cells { get; } = cells;
+
+	/// <summary>
+	/// Gets the possible cells that can store eliminations for the ALS.
+	/// </summary>
+	public CellMap PossibleEliminationMap { get; } = possibleEliminationMap;
+
+	/// <summary>
+	/// The cells that can be eliminated, grouped by digit. The former 9 elements of the array is the cells
+	/// that can be eliminated for the corresponding digit, and the last element is the merged cells.
+	/// </summary>
+	public CellMap[] EliminationMap { get; } = eliminationMap;
 
 	/// <summary>
 	/// Indicates the house used.

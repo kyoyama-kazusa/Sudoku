@@ -3,17 +3,13 @@ namespace Sudoku.Analytics.Construction.Patterns;
 /// <summary>
 /// Represents a chromatic pattern.
 /// </summary>
-/// <param name="block1Cells">Indicates the cells used in first block.</param>
-/// <param name="block2Cells">Indicates the cells used in second block.</param>
-/// <param name="block3Cells">Indicates the cells used in third block.</param>
-/// <param name="block4Cells">Indicates the cells used in fourth block.</param>
+/// <param name="block1Cells"><inheritdoc cref="Block1Cells" path="/summary"/></param>
+/// <param name="block2Cells"><inheritdoc cref="Block2Cells" path="/summary"/></param>
+/// <param name="block3Cells"><inheritdoc cref="Block3Cells" path="/summary"/></param>
+/// <param name="block4Cells"><inheritdoc cref="Block4Cells" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode)]
-public sealed partial class ChromaticPatternPattern(
-	[Property] Cell[] block1Cells,
-	[Property] Cell[] block2Cells,
-	[Property] Cell[] block3Cells,
-	[Property] Cell[] block4Cells
-) : Pattern
+public sealed partial class ChromaticPatternPattern(Cell[] block1Cells, Cell[] block2Cells, Cell[] block3Cells, Cell[] block4Cells) :
+	Pattern
 {
 	/// <summary>
 	/// All possible blocks combinations being reserved for chromatic pattern searcher's usages.
@@ -96,6 +92,26 @@ public sealed partial class ChromaticPatternPattern(
 
 	/// <inheritdoc/>
 	public override PatternType Type => PatternType.ChromaticPattern;
+
+	/// <summary>
+	/// Indicates the cells used in first block.
+	/// </summary>
+	public Cell[] Block1Cells { get; } = block1Cells;
+
+	/// <summary>
+	/// Indicates the cells used in second block.
+	/// </summary>
+	public Cell[] Block2Cells { get; } = block2Cells;
+
+	/// <summary>
+	/// Indicates the cells used in third block.
+	/// </summary>
+	public Cell[] Block3Cells { get; } = block3Cells;
+
+	/// <summary>
+	/// Indicates the cells used in fourth block.
+	/// </summary>
+	public Cell[] Block4Cells { get; } = block4Cells;
 
 	/// <summary>
 	/// Indicates all cells used.

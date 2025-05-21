@@ -23,11 +23,10 @@ namespace Sudoku.Analytics.Construction.Patterns;
 /// <item><term>B</term><description>Base-line Cells.</description></item>
 /// </list>
 /// </summary>
-/// <param name="Lines1">The first pair of lines.</param>
-/// <param name="Lines2">The second pair of lines.</param>
+/// <param name="lines1"><inheritdoc cref="Lines1" path="/summary"/></param>
+/// <param name="lines2"><inheritdoc cref="Lines2" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode)]
-public sealed partial class QiuDeadlyPattern2Pattern([Property] HouseMask Lines1, [Property] HouseMask Lines2) :
-	Pattern
+public sealed partial class QiuDeadlyPattern2Pattern(HouseMask lines1, HouseMask lines2) : Pattern
 {
 	/// <summary>
 	/// Indicates the patterns for case 2.
@@ -80,6 +79,16 @@ public sealed partial class QiuDeadlyPattern2Pattern([Property] HouseMask Lines1
 			return result;
 		}
 	}
+
+	/// <summary>
+	/// The first pair of lines.
+	/// </summary>
+	public HouseMask Lines1 { get; } = lines1;
+
+	/// <summary>
+	/// The second pair of lines.
+	/// </summary>
+	public HouseMask Lines2 { get; } = lines2;
 
 
 	/// <inheritdoc/>

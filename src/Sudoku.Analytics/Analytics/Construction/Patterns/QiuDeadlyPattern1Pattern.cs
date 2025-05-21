@@ -24,10 +24,10 @@ namespace Sudoku.Analytics.Construction.Patterns;
 /// <item><term>B</term><description>Base-line Cells.</description></item>
 /// </list>
 /// </summary>
-/// <param name="Corner">The corner cells that is <c>P</c> in that sketch.</param>
-/// <param name="Lines">The base-line cells that is <c>B</c> in that sketch.</param>
+/// <param name="corner"><inheritdoc cref="Corner" path="/summary"/></param>
+/// <param name="lines"><inheritdoc cref="Lines" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode)]
-public sealed partial class QiuDeadlyPattern1Pattern([Property] in CellMap Corner, [Property] HouseMask Lines) : Pattern
+public sealed partial class QiuDeadlyPattern1Pattern(in CellMap corner, HouseMask lines) : Pattern
 {
 	/// <summary>
 	/// Indicates the line offsets of the patterns.
@@ -100,6 +100,16 @@ public sealed partial class QiuDeadlyPattern1Pattern([Property] in CellMap Corne
 			return HousesMap[block] & ~(HousesMap[l1] | HousesMap[l2]);
 		}
 	}
+
+	/// <summary>
+	/// The corner cells that is <c>P</c> in that sketch.
+	/// </summary>
+	public CellMap Corner { get; } = corner;
+
+	/// <summary>
+	/// The base-line cells that is <c>B</c> in that sketch.
+	/// </summary>
+	public HouseMask Lines { get; } = lines;
 
 
 	/// <inheritdoc/>

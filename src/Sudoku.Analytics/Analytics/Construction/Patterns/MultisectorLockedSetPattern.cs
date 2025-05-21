@@ -3,15 +3,11 @@ namespace Sudoku.Analytics.Construction.Patterns;
 /// <summary>
 /// Represents a pattern for multi-sector locked sets.
 /// </summary>
-/// <param name="map">The map of cells used.</param>
-/// <param name="rowCount">The number of rows used.</param>
-/// <param name="columnCount">The number of columns used.</param>
+/// <param name="map"><inheritdoc cref="Map" path="/summary"/></param>
+/// <param name="rowCount"><inheritdoc cref="RowCount" path="/summary"/></param>
+/// <param name="columnCount"><inheritdoc cref="ColumnCount" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode)]
-public sealed partial class MultisectorLockedSetPattern(
-	[Property, HashCodeMember] in CellMap map,
-	[Property] RowIndex rowCount,
-	[Property] ColumnIndex columnCount
-) : Pattern
+public sealed partial class MultisectorLockedSetPattern(in CellMap map, RowIndex rowCount, ColumnIndex columnCount) : Pattern
 {
 	/// <summary>
 	/// Indicates the list initialized with the static constructor.
@@ -77,6 +73,22 @@ public sealed partial class MultisectorLockedSetPattern(
 
 	/// <inheritdoc/>
 	public override PatternType Type => PatternType.MultisectorLockedSet;
+
+	/// <summary>
+	/// The map of cells used.
+	/// </summary>
+	[HashCodeMember]
+	public CellMap Map { get; } = map;
+
+	/// <summary>
+	/// The number of rows used.
+	/// </summary>
+	public RowIndex RowCount { get; } = rowCount;
+
+	/// <summary>
+	/// The number of columns used.
+	/// </summary>
+	public ColumnIndex ColumnCount { get; } = columnCount;
 
 
 	/// <include file="../../global-doc-comments.xml" path="g/csharp7/feature[@name='deconstruction-method']/target[@name='method']"/>

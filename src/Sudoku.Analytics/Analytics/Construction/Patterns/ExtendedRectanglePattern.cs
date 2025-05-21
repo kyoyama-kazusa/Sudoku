@@ -3,17 +3,12 @@ namespace Sudoku.Analytics.Construction.Patterns;
 /// <summary>
 /// Represents an extended rectangle pattern.
 /// </summary>
-/// <param name="isFat">Indicates whether the pattern is fat.</param>
-/// <param name="patternCells">Indicates the cells used.</param>
-/// <param name="pairCells">Indicates a list of pairs of cells used.</param>
-/// <param name="size">Indicates the size of the pattern.</param>
+/// <param name="isFat"><inheritdoc cref="IsFat" path="/summary"/></param>
+/// <param name="patternCells"><inheritdoc cref="PatternCells" path="/summary"/></param>
+/// <param name="pairCells"><inheritdoc cref="PairCells" path="/summary"/></param>
+/// <param name="size"><inheritdoc cref="Size" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode)]
-public sealed partial class ExtendedRectanglePattern(
-	[Property] bool isFat,
-	[Property, HashCodeMember] in CellMap patternCells,
-	[Property] (Cell Left, Cell Right)[] pairCells,
-	[Property] int size
-) : Pattern
+public sealed partial class ExtendedRectanglePattern(bool isFat, in CellMap patternCells, (Cell Left, Cell Right)[] pairCells, int size) : Pattern
 {
 	/// <summary>
 	/// Indicates all possible extended rectangle pattern combinations.
@@ -146,6 +141,27 @@ public sealed partial class ExtendedRectanglePattern(
 
 	/// <inheritdoc/>
 	public override bool IsChainingCompatible => false;
+
+	/// <summary>
+	/// Indicates whether the pattern is fat.
+	/// </summary>
+	public bool IsFat { get; } = isFat;
+
+	/// <summary>
+	/// Indicates the cells used.
+	/// </summary>
+	[HashCodeMember]
+	public CellMap PatternCells { get; } = patternCells;
+
+	/// <summary>
+	/// Indicates a list of pairs of cells used.
+	/// </summary>
+	public (Cell Left, Cell Right)[] PairCells { get; } = pairCells;
+
+	/// <summary>
+	/// Indicates the size of the pattern.
+	/// </summary>
+	public int Size { get; } = size;
 
 	/// <inheritdoc/>
 	public override PatternType Type => PatternType.ExtendedRectangle;

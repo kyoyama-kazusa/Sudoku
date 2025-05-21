@@ -3,21 +3,33 @@ namespace Sudoku.Analytics.Construction.Patterns;
 /// <summary>
 /// Defines a temporary type that records a pair of data for a bi-value oddagon.
 /// </summary>
-/// <param name="loopCells">Indicates the cells of the whole loop.</param>
-/// <param name="extraCells">Indicates the extra cells.</param>
-/// <param name="digitsMask">Indicates the mask of digits that the loop used.</param>
+/// <param name="loopCells"><inheritdoc cref="LoopCells" path="/summary"/></param>
+/// <param name="extraCells"><inheritdoc cref="ExtraCells" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode)]
-public sealed partial class BivalueOddagonPattern(
-	[Property, HashCodeMember] in CellMap loopCells,
-	[Property] in CellMap extraCells,
-	[Property] Mask digitsMask
-) : Pattern
+public sealed partial class BivalueOddagonPattern(in CellMap loopCells, in CellMap extraCells, Mask digitsMask) : Pattern
 {
 	/// <inheritdoc/>
 	public override bool IsChainingCompatible => false;
 
 	/// <inheritdoc/>
 	public override PatternType Type => PatternType.BivalueOddagon;
+
+	/// <summary>
+	/// Indicates the cells of the whole loop.
+	/// </summary>
+	[HashCodeMember]
+	public CellMap LoopCells { get; } = loopCells;
+
+	/// <summary>
+	/// Indicates the extra cells.
+	/// </summary>
+	public CellMap ExtraCells { get; } = extraCells;
+
+	/// <summary>
+	/// Indicates the mask of digits that the loop used.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
 
 
 	/// <include file="../../global-doc-comments.xml" path="g/csharp7/feature[@name='deconstruction-method']/target[@name='method']"/>

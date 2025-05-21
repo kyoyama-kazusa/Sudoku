@@ -3,17 +3,32 @@ namespace Sudoku.Analytics.Construction.Patterns;
 /// <summary>
 /// Represents for a data set that describes the complete information about a unique loop technique.
 /// </summary>
-/// <param name="loop">Indicates the cells used in this whole unique loop.</param>
-/// <param name="path">Indicates the detail path of the loop.</param>
-/// <param name="digitsMask">Indicates the digits used, represented as a mask.</param>
+/// <param name="loop"><inheritdoc cref="Loop" path="/summary"/></param>
+/// <param name="path"><inheritdoc cref="Path" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode | TypeImplFlags.Object_ToString)]
-public sealed partial class UniqueLoopPattern([Property] in CellMap loop, [Property] Cell[] path, [Property] Mask digitsMask) : Pattern
+public sealed partial class UniqueLoopPattern(in CellMap loop, Cell[] path, Mask digitsMask) : Pattern
 {
 	/// <inheritdoc/>
 	public override bool IsChainingCompatible => false;
 
 	/// <inheritdoc/>
 	public override PatternType Type => PatternType.UniqueLoop;
+
+	/// <summary>
+	/// Indicates the cells used in this whole unique loop.
+	/// </summary>
+	public CellMap Loop { get; } = loop;
+
+	/// <summary>
+	/// Indicates the detail path of the loop.
+	/// </summary>
+	public Cell[] Path { get; } = path;
+
+	/// <summary>
+	/// Indicates the digits used, represented as a mask.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
 
 	[HashCodeMember]
 	private int LoopHashCode => Loop.GetHashCode();

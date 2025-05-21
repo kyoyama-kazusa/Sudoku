@@ -3,9 +3,9 @@ namespace Sudoku.Analytics.Construction.Patterns;
 /// <summary>
 /// Represents a domino loop pattern.
 /// </summary>
-/// <param name="cells">Indicates the cells used.</param>
+/// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode | TypeImplFlags.Object_ToString)]
-public sealed partial class DominoLoopPattern([Property] Cell[] cells) : Pattern
+public sealed partial class DominoLoopPattern(Cell[] cells) : Pattern
 {
 	/// <summary>
 	/// Indicateds all possible patterns.
@@ -82,6 +82,11 @@ public sealed partial class DominoLoopPattern([Property] Cell[] cells) : Pattern
 
 	/// <inheritdoc/>
 	public override bool IsChainingCompatible => false;
+
+	/// <summary>
+	/// Indicates the cells used.
+	/// </summary>
+	public Cell[] Cells { get; } = cells;
 
 	/// <inheritdoc/>
 	public override PatternType Type => PatternType.DominoLoop;

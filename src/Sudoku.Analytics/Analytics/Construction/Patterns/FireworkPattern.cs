@@ -18,11 +18,10 @@ namespace Sudoku.Analytics.Construction.Patterns;
 /// '-------'-------'-------'
 /// ]]></code>
 /// </summary>
-/// <param name="map">Indicates the full map of all cells used.</param>
-/// <param name="pivot">The pivot cell. This property can be <see langword="null"/> if four cells are used.</param>
+/// <param name="map"><inheritdoc cref="Map" path="/summary"/></param>
+/// <param name="pivot"><inheritdoc cref="Pivot" path="/summary"/></param>
 [TypeImpl(TypeImplFlags.Object_GetHashCode)]
-public sealed partial class FireworkPattern([Property, HashCodeMember] in CellMap map, [Property, HashCodeMember] Cell? pivot) :
-	Pattern
+public sealed partial class FireworkPattern(in CellMap map, Cell? pivot) : Pattern
 {
 	/// <summary>
 	/// Indicates the patterns used.
@@ -114,6 +113,18 @@ public sealed partial class FireworkPattern([Property, HashCodeMember] in CellMa
 
 	/// <inheritdoc/>
 	public override PatternType Type => PatternType.Firework;
+
+	/// <summary>
+	/// Indicates the full map of all cells used.
+	/// </summary>
+	[HashCodeMember]
+	public CellMap Map { get; } = map;
+
+	/// <summary>
+	/// The pivot cell. This property can be <see langword="null"/> if four cells are used.
+	/// </summary>
+	[HashCodeMember]
+	public Cell? Pivot { get; } = pivot;
 
 
 	/// <inheritdoc/>

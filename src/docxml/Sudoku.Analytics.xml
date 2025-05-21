@@ -5602,11 +5602,11 @@
             <summary>
             Defines a data pattern that describes an AHS.
             </summary>
-            <param name="cells">Indicates the cells used.</param>
-            <param name="house">Indicates the house used.</param>
-            <param name="digitsMask">Indicates the mask of digits used.</param>
-            <param name="subsetDigitsMask">Indicates the mask of subset digits used.</param>
-            <param name="candidatesCanFormWeakLink">Indicates all candidates that can be used as weak links.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.Cells" path="/summary"/></param>
+            <param name="house"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.House" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.DigitsMask" path="/summary"/></param>
+            <param name="subsetDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.SubsetDigitsMask" path="/summary"/></param>
+            <param name="candidatesCanFormWeakLink"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.CandidatesCanFormWeakLink" path="/summary"/></param>
             <remarks>
             An <b>Almost Hidden Set</b> is a sudoku concept, which describes a case that
             <c>n</c> digits are only appeared inside <c>(n + 1)</c> cells in a house.
@@ -5616,11 +5616,11 @@
             <summary>
             Defines a data pattern that describes an AHS.
             </summary>
-            <param name="cells">Indicates the cells used.</param>
-            <param name="house">Indicates the house used.</param>
-            <param name="digitsMask">Indicates the mask of digits used.</param>
-            <param name="subsetDigitsMask">Indicates the mask of subset digits used.</param>
-            <param name="candidatesCanFormWeakLink">Indicates all candidates that can be used as weak links.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.Cells" path="/summary"/></param>
+            <param name="house"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.House" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.DigitsMask" path="/summary"/></param>
+            <param name="subsetDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.SubsetDigitsMask" path="/summary"/></param>
+            <param name="candidatesCanFormWeakLink"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.CandidatesCanFormWeakLink" path="/summary"/></param>
             <remarks>
             An <b>Almost Hidden Set</b> is a sudoku concept, which describes a case that
             <c>n</c> digits are only appeared inside <c>(n + 1)</c> cells in a house.
@@ -5631,6 +5631,31 @@
         </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.Type">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.Cells">
+            <summary>
+            Indicates the cells used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.House">
+            <summary>
+            Indicates the house used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.DigitsMask">
+            <summary>
+            Indicates the mask of digits used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.SubsetDigitsMask">
+            <summary>
+            Indicates the mask of subset digits used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.CandidatesCanFormWeakLink">
+            <summary>
+            Indicates all candidates that can be used as weak links.
+            </summary>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.Equals(Sudoku.Analytics.Construction.Pattern)">
             <inheritdoc/>
@@ -5646,31 +5671,6 @@
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.System#Numerics#IEqualityOperators{Sudoku#Analytics#Construction#Patterns#AlmostHiddenSetPattern,Sudoku#Analytics#Construction#Patterns#AlmostHiddenSetPattern,System#Boolean}#op_Inequality(Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern,Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern)">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.Cells">
-            <summary>
-            The generated property declaration for parameter <c>cells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.House">
-            <summary>
-            The generated property declaration for parameter <c>house</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.DigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.SubsetDigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>subsetDigitsMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.CandidatesCanFormWeakLink">
-            <summary>
-            The generated property declaration for parameter <c>candidatesCanFormWeakLink</c>.
-            </summary>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.AlmostHiddenSetPattern.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
@@ -5691,13 +5691,10 @@
             <summary>
             Defines a data pattern that describes an ALS.
             </summary>
-            <param name="digitsMask">Indicates the mask of digits used.</param>
-            <param name="cells">Indicates the cells used.</param>
-            <param name="possibleEliminationMap">Gets the possible cells that can store eliminations for the ALS.</param>
-            <param name="eliminationMap">
-            The cells that can be eliminated, grouped by digit. The former 9 elements of the array is the cells
-            that can be eliminated for the corresponding digit, and the last element is the merged cells.
-            </param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.DigitsMask" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.Cells" path="/summary"/></param>
+            <param name="possibleEliminationMap"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.PossibleEliminationMap" path="/summary"/></param>
+            <param name="eliminationMap"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.EliminationMap" path="/summary"/></param>
             <remarks>
             An <b>Almost Locked Set</b> is a sudoku concept, which describes a case that
             <c>n</c> cells contains <c>(n + 1)</c> kinds of different digits.
@@ -5708,13 +5705,10 @@
             <summary>
             Defines a data pattern that describes an ALS.
             </summary>
-            <param name="digitsMask">Indicates the mask of digits used.</param>
-            <param name="cells">Indicates the cells used.</param>
-            <param name="possibleEliminationMap">Gets the possible cells that can store eliminations for the ALS.</param>
-            <param name="eliminationMap">
-            The cells that can be eliminated, grouped by digit. The former 9 elements of the array is the cells
-            that can be eliminated for the corresponding digit, and the last element is the merged cells.
-            </param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.DigitsMask" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.Cells" path="/summary"/></param>
+            <param name="possibleEliminationMap"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.PossibleEliminationMap" path="/summary"/></param>
+            <param name="eliminationMap"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.EliminationMap" path="/summary"/></param>
             <remarks>
             An <b>Almost Locked Set</b> is a sudoku concept, which describes a case that
             <c>n</c> cells contains <c>(n + 1)</c> kinds of different digits.
@@ -5738,6 +5732,27 @@
         </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.Type">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.DigitsMask">
+            <summary>
+            Indicates the mask of digits used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.Cells">
+            <summary>
+            Indicates the cells used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.PossibleEliminationMap">
+            <summary>
+            Gets the possible cells that can store eliminations for the ALS.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.EliminationMap">
+            <summary>
+            The cells that can be eliminated, grouped by digit. The former 9 elements of the array is the cells
+            that can be eliminated for the corresponding digit, and the last element is the merged cells.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.House">
             <summary>
@@ -5815,26 +5830,6 @@
         <member name="M:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.System#Numerics#IEqualityOperators{Sudoku#Analytics#Construction#Patterns#AlmostLockedSetPattern,Sudoku#Analytics#Construction#Patterns#AlmostLockedSetPattern,System#Boolean}#op_Inequality(Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern,Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern)">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.DigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.Cells">
-            <summary>
-            The generated property declaration for parameter <c>cells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.PossibleEliminationMap">
-            <summary>
-            The generated property declaration for parameter <c>possibleEliminationMap</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.EliminationMap">
-            <summary>
-            The generated property declaration for parameter <c>eliminationMap</c>.
-            </summary>
-        </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
@@ -5857,17 +5852,17 @@
             <summary>
             Represents an avoidable rectangle.
             </summary>
-            <param name="cells">Indicates the cells used.</param>
-            <param name="digitsMask">Indicates the digits used.</param>
-            <param name="valuesMap">Indicates the value cells.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.DigitsMask" path="/summary"/></param>
+            <param name="valuesMap"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.ValuesMap" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.#ctor(Sudoku.Concepts.CellMap@,System.Int16,Sudoku.Concepts.CellMap@)">
             <summary>
             Represents an avoidable rectangle.
             </summary>
-            <param name="cells">Indicates the cells used.</param>
-            <param name="digitsMask">Indicates the digits used.</param>
-            <param name="valuesMap">Indicates the value cells.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.DigitsMask" path="/summary"/></param>
+            <param name="valuesMap"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.ValuesMap" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.IsChainingCompatible">
             <inheritdoc/>
@@ -5875,26 +5870,26 @@
         <member name="P:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.Type">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.Cells">
+            <summary>
+            Indicates the cells used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.DigitsMask">
+            <summary>
+            Indicates the digits used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.ValuesMap">
+            <summary>
+            Indicates the value cells.
+            </summary>
+        </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.Equals(Sudoku.Analytics.Construction.Pattern)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.Clone">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.Cells">
-            <summary>
-            The generated property declaration for parameter <c>cells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.DigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.ValuesMap">
-            <summary>
-            The generated property declaration for parameter <c>valuesMap</c>.
-            </summary>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.AvoidableRectanglePattern.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
@@ -5903,23 +5898,38 @@
             <summary>
             Defines a temporary type that records a pair of data for a bi-value oddagon.
             </summary>
-            <param name="loopCells">Indicates the cells of the whole loop.</param>
-            <param name="extraCells">Indicates the extra cells.</param>
-            <param name="digitsMask">Indicates the mask of digits that the loop used.</param>
+            <param name="loopCells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.LoopCells" path="/summary"/></param>
+            <param name="extraCells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.ExtraCells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.DigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.#ctor(Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int16)">
             <summary>
             Defines a temporary type that records a pair of data for a bi-value oddagon.
             </summary>
-            <param name="loopCells">Indicates the cells of the whole loop.</param>
-            <param name="extraCells">Indicates the extra cells.</param>
-            <param name="digitsMask">Indicates the mask of digits that the loop used.</param>
+            <param name="loopCells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.LoopCells" path="/summary"/></param>
+            <param name="extraCells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.ExtraCells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.DigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.IsChainingCompatible">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.Type">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.LoopCells">
+            <summary>
+            Indicates the cells of the whole loop.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.ExtraCells">
+            <summary>
+            Indicates the extra cells.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.DigitsMask">
+            <summary>
+            Indicates the mask of digits that the loop used.
+            </summary>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.Deconstruct(Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int16@)">
             <target name="method">
@@ -5934,21 +5944,6 @@
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.Clone">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.LoopCells">
-            <summary>
-            The generated property declaration for parameter <c>loopCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.ExtraCells">
-            <summary>
-            The generated property declaration for parameter <c>extraCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.DigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
-            </summary>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.BivalueOddagonPattern.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
@@ -6142,19 +6137,19 @@
             <summary>
             Represents a chromatic pattern.
             </summary>
-            <param name="block1Cells">Indicates the cells used in first block.</param>
-            <param name="block2Cells">Indicates the cells used in second block.</param>
-            <param name="block3Cells">Indicates the cells used in third block.</param>
-            <param name="block4Cells">Indicates the cells used in fourth block.</param>
+            <param name="block1Cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Block1Cells" path="/summary"/></param>
+            <param name="block2Cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Block2Cells" path="/summary"/></param>
+            <param name="block3Cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Block3Cells" path="/summary"/></param>
+            <param name="block4Cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Block4Cells" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.#ctor(System.Int32[],System.Int32[],System.Int32[],System.Int32[])">
             <summary>
             Represents a chromatic pattern.
             </summary>
-            <param name="block1Cells">Indicates the cells used in first block.</param>
-            <param name="block2Cells">Indicates the cells used in second block.</param>
-            <param name="block3Cells">Indicates the cells used in third block.</param>
-            <param name="block4Cells">Indicates the cells used in fourth block.</param>
+            <param name="block1Cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Block1Cells" path="/summary"/></param>
+            <param name="block2Cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Block2Cells" path="/summary"/></param>
+            <param name="block3Cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Block3Cells" path="/summary"/></param>
+            <param name="block4Cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Block4Cells" path="/summary"/></param>
         </member>
         <member name="F:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.ChromaticPatternBlocksCombinations">
             <summary>
@@ -6209,6 +6204,26 @@
         <member name="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Type">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Block1Cells">
+            <summary>
+            Indicates the cells used in first block.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Block2Cells">
+            <summary>
+            Indicates the cells used in second block.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Block3Cells">
+            <summary>
+            Indicates the cells used in third block.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Block4Cells">
+            <summary>
+            Indicates the cells used in fourth block.
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Map">
             <summary>
             Indicates all cells used.
@@ -6228,26 +6243,6 @@
         <member name="M:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Clone">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Block1Cells">
-            <summary>
-            The generated property declaration for parameter <c>block1Cells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Block2Cells">
-            <summary>
-            The generated property declaration for parameter <c>block2Cells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Block3Cells">
-            <summary>
-            The generated property declaration for parameter <c>block3Cells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.Block4Cells">
-            <summary>
-            The generated property declaration for parameter <c>block4Cells</c>.
-            </summary>
-        </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.ChromaticPatternPattern.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
@@ -6255,13 +6250,13 @@
             <summary>
             Represents a domino loop pattern.
             </summary>
-            <param name="cells">Indicates the cells used.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.DominoLoopPattern.Cells" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.DominoLoopPattern.#ctor(System.Int32[])">
             <summary>
             Represents a domino loop pattern.
             </summary>
-            <param name="cells">Indicates the cells used.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.DominoLoopPattern.Cells" path="/summary"/></param>
         </member>
         <member name="F:Sudoku.Analytics.Construction.Patterns.DominoLoopPattern.Patterns">
             <summary>
@@ -6284,6 +6279,11 @@
         <member name="P:Sudoku.Analytics.Construction.Patterns.DominoLoopPattern.IsChainingCompatible">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.DominoLoopPattern.Cells">
+            <summary>
+            Indicates the cells used.
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.DominoLoopPattern.Type">
             <inheritdoc/>
         </member>
@@ -6298,11 +6298,6 @@
         <member name="M:Sudoku.Analytics.Construction.Patterns.DominoLoopPattern.Clone">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.DominoLoopPattern.Cells">
-            <summary>
-            The generated property declaration for parameter <c>cells</c>.
-            </summary>
-        </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.DominoLoopPattern.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
@@ -6313,19 +6308,19 @@
             <summary>
             Represents an extended rectangle pattern.
             </summary>
-            <param name="isFat">Indicates whether the pattern is fat.</param>
-            <param name="patternCells">Indicates the cells used.</param>
-            <param name="pairCells">Indicates a list of pairs of cells used.</param>
-            <param name="size">Indicates the size of the pattern.</param>
+            <param name="isFat"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.IsFat" path="/summary"/></param>
+            <param name="patternCells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.PatternCells" path="/summary"/></param>
+            <param name="pairCells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.PairCells" path="/summary"/></param>
+            <param name="size"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.Size" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.#ctor(System.Boolean,Sudoku.Concepts.CellMap@,System.ValueTuple{System.Int32,System.Int32}[],System.Int32)">
             <summary>
             Represents an extended rectangle pattern.
             </summary>
-            <param name="isFat">Indicates whether the pattern is fat.</param>
-            <param name="patternCells">Indicates the cells used.</param>
-            <param name="pairCells">Indicates a list of pairs of cells used.</param>
-            <param name="size">Indicates the size of the pattern.</param>
+            <param name="isFat"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.IsFat" path="/summary"/></param>
+            <param name="patternCells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.PatternCells" path="/summary"/></param>
+            <param name="pairCells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.PairCells" path="/summary"/></param>
+            <param name="size"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.Size" path="/summary"/></param>
         </member>
         <member name="F:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.AllPatterns">
             <summary>
@@ -6402,6 +6397,26 @@
         <member name="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.IsChainingCompatible">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.IsFat">
+            <summary>
+            Indicates whether the pattern is fat.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.PatternCells">
+            <summary>
+            Indicates the cells used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.PairCells">
+            <summary>
+            Indicates a list of pairs of cells used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.Size">
+            <summary>
+            Indicates the size of the pattern.
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.Type">
             <inheritdoc/>
         </member>
@@ -6418,26 +6433,6 @@
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.Clone">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.IsFat">
-            <summary>
-            The generated property declaration for parameter <c>isFat</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.PatternCells">
-            <summary>
-            The generated property declaration for parameter <c>patternCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.PairCells">
-            <summary>
-            The generated property declaration for parameter <c>pairCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.Size">
-            <summary>
-            The generated property declaration for parameter <c>size</c>.
-            </summary>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.ExtendedRectanglePattern.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
@@ -6461,8 +6456,8 @@
             '-------'-------'-------'
             ]]></code>
             </summary>
-            <param name="map">Indicates the full map of all cells used.</param>
-            <param name="pivot">The pivot cell. This property can be <see langword="null"/> if four cells are used.</param>
+            <param name="map"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.FireworkPattern.Map" path="/summary"/></param>
+            <param name="pivot"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.FireworkPattern.Pivot" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.FireworkPattern.#ctor(Sudoku.Concepts.CellMap@,System.Nullable{System.Int32})">
             <summary>
@@ -6483,8 +6478,8 @@
             '-------'-------'-------'
             ]]></code>
             </summary>
-            <param name="map">Indicates the full map of all cells used.</param>
-            <param name="pivot">The pivot cell. This property can be <see langword="null"/> if four cells are used.</param>
+            <param name="map"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.FireworkPattern.Map" path="/summary"/></param>
+            <param name="pivot"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.FireworkPattern.Pivot" path="/summary"/></param>
         </member>
         <member name="F:Sudoku.Analytics.Construction.Patterns.FireworkPattern.Patterns">
             <summary>
@@ -6522,21 +6517,21 @@
         <member name="P:Sudoku.Analytics.Construction.Patterns.FireworkPattern.Type">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.FireworkPattern.Map">
+            <summary>
+            Indicates the full map of all cells used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.FireworkPattern.Pivot">
+            <summary>
+            The pivot cell. This property can be <see langword="null"/> if four cells are used.
+            </summary>
+        </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.FireworkPattern.Equals(Sudoku.Analytics.Construction.Pattern)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.FireworkPattern.Clone">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.FireworkPattern.Map">
-            <summary>
-            The generated property declaration for parameter <c>map</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.FireworkPattern.Pivot">
-            <summary>
-            The generated property declaration for parameter <c>pivot</c>.
-            </summary>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.FireworkPattern.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
@@ -6545,21 +6540,21 @@
             <summary>
             Represents a fish pattern.
             </summary>
-            <param name="digit">Indicates the digit to be used.</param>
-            <param name="baseSets">Indicates the base sets.</param>
-            <param name="coverSets">Indicates the cover sets.</param>
-            <param name="exofins">Indicates the exo-fins.</param>
-            <param name="endofins">Indicates the endo-fins.</param>
+            <param name="digit"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.FishPattern.Digit" path="/summary"/></param>
+            <param name="baseSets"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.FishPattern.BaseSets" path="/summary"/></param>
+            <param name="coverSets"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.FishPattern.CoverSets" path="/summary"/></param>
+            <param name="exofins"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.FishPattern.Exofins" path="/summary"/></param>
+            <param name="endofins"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.FishPattern.Endofins" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.FishPattern.#ctor(System.Int32,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@)">
             <summary>
             Represents a fish pattern.
             </summary>
-            <param name="digit">Indicates the digit to be used.</param>
-            <param name="baseSets">Indicates the base sets.</param>
-            <param name="coverSets">Indicates the cover sets.</param>
-            <param name="exofins">Indicates the exo-fins.</param>
-            <param name="endofins">Indicates the endo-fins.</param>
+            <param name="digit"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.FishPattern.Digit" path="/summary"/></param>
+            <param name="baseSets"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.FishPattern.BaseSets" path="/summary"/></param>
+            <param name="coverSets"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.FishPattern.CoverSets" path="/summary"/></param>
+            <param name="exofins"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.FishPattern.Exofins" path="/summary"/></param>
+            <param name="endofins"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.FishPattern.Endofins" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.FishPattern.IsComplex">
             <summary>
@@ -6582,6 +6577,31 @@
             Indicates all fins.
             </summary>
         </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.FishPattern.Digit">
+            <summary>
+            Indicates the digit to be used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.FishPattern.BaseSets">
+            <summary>
+            Indicates the base sets.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.FishPattern.CoverSets">
+            <summary>
+            Indicates the cover sets.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.FishPattern.Exofins">
+            <summary>
+            Indicates exo-fins.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.FishPattern.Endofins">
+            <summary>
+            Indicates endo-fins.
+            </summary>
+        </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.FishPattern.Equals(Sudoku.Analytics.Construction.Pattern)">
             <inheritdoc/>
         </member>
@@ -6601,31 +6621,6 @@
         <member name="M:Sudoku.Analytics.Construction.Patterns.FishPattern.System#IFormattable#ToString(System.String,System.IFormatProvider)">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.FishPattern.Digit">
-            <summary>
-            The generated property declaration for parameter <c>digit</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.FishPattern.BaseSets">
-            <summary>
-            The generated property declaration for parameter <c>baseSets</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.FishPattern.CoverSets">
-            <summary>
-            The generated property declaration for parameter <c>coverSets</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.FishPattern.Exofins">
-            <summary>
-            The generated property declaration for parameter <c>exofins</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.FishPattern.Endofins">
-            <summary>
-            The generated property declaration for parameter <c>endofins</c>.
-            </summary>
-        </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.FishPattern.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
@@ -6636,23 +6631,38 @@
             <summary>
             Represents for a data set that describes the complete information about a guardian technique.
             </summary>
-            <param name="loopCells">Indicates the cells used in this whole guardian loop.</param>
-            <param name="guardians">Indicates the extra cells that is used as guardians.</param>
-            <param name="digit">Indicates the digit used.</param>
+            <param name="loopCells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.GuardianPattern.LoopCells" path="/summary"/></param>
+            <param name="guardians"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.GuardianPattern.Guardians" path="/summary"/></param>
+            <param name="digit"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.GuardianPattern.Digit" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.GuardianPattern.#ctor(Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int32)">
             <summary>
             Represents for a data set that describes the complete information about a guardian technique.
             </summary>
-            <param name="loopCells">Indicates the cells used in this whole guardian loop.</param>
-            <param name="guardians">Indicates the extra cells that is used as guardians.</param>
-            <param name="digit">Indicates the digit used.</param>
+            <param name="loopCells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.GuardianPattern.LoopCells" path="/summary"/></param>
+            <param name="guardians"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.GuardianPattern.Guardians" path="/summary"/></param>
+            <param name="digit"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.GuardianPattern.Digit" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.GuardianPattern.IsChainingCompatible">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.GuardianPattern.Type">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.GuardianPattern.LoopCells">
+            <summary>
+            Indicates the cells used in this whole guardian loop.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.GuardianPattern.Guardians">
+            <summary>
+            Indicates the extra cells that is used as guardians.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.GuardianPattern.Digit">
+            <summary>
+            Indicates the digit used.
+            </summary>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.GuardianPattern.Deconstruct(Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int32@)">
             <target name="method">
@@ -6668,21 +6678,6 @@
         <member name="M:Sudoku.Analytics.Construction.Patterns.GuardianPattern.Clone">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.GuardianPattern.LoopCells">
-            <summary>
-            The generated property declaration for parameter <c>loopCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.GuardianPattern.Guardians">
-            <summary>
-            The generated property declaration for parameter <c>guardians</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.GuardianPattern.Digit">
-            <summary>
-            The generated property declaration for parameter <c>digit</c>.
-            </summary>
-        </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.GuardianPattern.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
@@ -6690,17 +6685,17 @@
             <summary>
             Represents a pattern for multi-sector locked sets.
             </summary>
-            <param name="map">The map of cells used.</param>
-            <param name="rowCount">The number of rows used.</param>
-            <param name="columnCount">The number of columns used.</param>
+            <param name="map"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.Map" path="/summary"/></param>
+            <param name="rowCount"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.RowCount" path="/summary"/></param>
+            <param name="columnCount"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.ColumnCount" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.#ctor(Sudoku.Concepts.CellMap@,System.Int32,System.Int32)">
             <summary>
             Represents a pattern for multi-sector locked sets.
             </summary>
-            <param name="map">The map of cells used.</param>
-            <param name="rowCount">The number of rows used.</param>
-            <param name="columnCount">The number of columns used.</param>
+            <param name="map"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.Map" path="/summary"/></param>
+            <param name="rowCount"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.RowCount" path="/summary"/></param>
+            <param name="columnCount"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.ColumnCount" path="/summary"/></param>
         </member>
         <member name="F:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.Patterns">
             <summary>
@@ -6738,6 +6733,21 @@
         <member name="P:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.Type">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.Map">
+            <summary>
+            The map of cells used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.RowCount">
+            <summary>
+            The number of rows used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.ColumnCount">
+            <summary>
+            The number of columns used.
+            </summary>
+        </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.Deconstruct(Sudoku.Concepts.CellMap@,System.Int32@,System.Int32@)">
             <target name="method">
 				<summary>
@@ -6751,21 +6761,6 @@
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.Clone">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.Map">
-            <summary>
-            The generated property declaration for parameter <c>map</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.RowCount">
-            <summary>
-            The generated property declaration for parameter <c>rowCount</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.ColumnCount">
-            <summary>
-            The generated property declaration for parameter <c>columnCount</c>.
-            </summary>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.MultisectorLockedSetPattern.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
@@ -6795,8 +6790,8 @@
             <item><term>B</term><description>Base-line Cells.</description></item>
             </list>
             </summary>
-            <param name="Corner">The corner cells that is <c>P</c> in that sketch.</param>
-            <param name="Lines">The base-line cells that is <c>B</c> in that sketch.</param>
+            <param name="corner"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.Corner" path="/summary"/></param>
+            <param name="lines"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.Lines" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.#ctor(Sudoku.Concepts.CellMap@,System.Int32)">
             <summary>
@@ -6823,8 +6818,8 @@
             <item><term>B</term><description>Base-line Cells.</description></item>
             </list>
             </summary>
-            <param name="Corner">The corner cells that is <c>P</c> in that sketch.</param>
-            <param name="Lines">The base-line cells that is <c>B</c> in that sketch.</param>
+            <param name="corner"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.Corner" path="/summary"/></param>
+            <param name="lines"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.Lines" path="/summary"/></param>
         </member>
         <member name="F:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.LineOffsets">
             <summary>
@@ -6872,21 +6867,21 @@
             Indicates the mirror cells.
             </summary>
         </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.Corner">
+            <summary>
+            The corner cells that is <c>P</c> in that sketch.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.Lines">
+            <summary>
+            The base-line cells that is <c>B</c> in that sketch.
+            </summary>
+        </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.Equals(Sudoku.Analytics.Construction.Pattern)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.Clone">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.Corner">
-            <summary>
-            The generated property declaration for parameter <c>Corner</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.Lines">
-            <summary>
-            The generated property declaration for parameter <c>Lines</c>.
-            </summary>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern1Pattern.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
@@ -6915,8 +6910,8 @@
             <item><term>B</term><description>Base-line Cells.</description></item>
             </list>
             </summary>
-            <param name="Lines1">The first pair of lines.</param>
-            <param name="Lines2">The second pair of lines.</param>
+            <param name="lines1"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern2Pattern.Lines1" path="/summary"/></param>
+            <param name="lines2"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern2Pattern.Lines2" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern2Pattern.#ctor(System.Int32,System.Int32)">
             <summary>
@@ -6942,8 +6937,8 @@
             <item><term>B</term><description>Base-line Cells.</description></item>
             </list>
             </summary>
-            <param name="Lines1">The first pair of lines.</param>
-            <param name="Lines2">The second pair of lines.</param>
+            <param name="lines1"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern2Pattern.Lines1" path="/summary"/></param>
+            <param name="lines2"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern2Pattern.Lines2" path="/summary"/></param>
         </member>
         <member name="F:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern2Pattern.Patterns">
             <summary>
@@ -6974,21 +6969,21 @@
             Indicates the crossline cells.
             </summary>
         </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern2Pattern.Lines1">
+            <summary>
+            The first pair of lines.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern2Pattern.Lines2">
+            <summary>
+            The second pair of lines.
+            </summary>
+        </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern2Pattern.Equals(Sudoku.Analytics.Construction.Pattern)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern2Pattern.Clone">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern2Pattern.Lines1">
-            <summary>
-            The generated property declaration for parameter <c>Lines1</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern2Pattern.Lines2">
-            <summary>
-            The generated property declaration for parameter <c>Lines2</c>.
-            </summary>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.QiuDeadlyPattern2Pattern.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
@@ -6997,23 +6992,38 @@
             <summary>
             Represents for a data set that describes the complete information about a unique loop technique.
             </summary>
-            <param name="loop">Indicates the cells used in this whole unique loop.</param>
-            <param name="path">Indicates the detail path of the loop.</param>
-            <param name="digitsMask">Indicates the digits used, represented as a mask.</param>
+            <param name="loop"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.Loop" path="/summary"/></param>
+            <param name="path"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.Path" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.DigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.#ctor(Sudoku.Concepts.CellMap@,System.Int32[],System.Int16)">
             <summary>
             Represents for a data set that describes the complete information about a unique loop technique.
             </summary>
-            <param name="loop">Indicates the cells used in this whole unique loop.</param>
-            <param name="path">Indicates the detail path of the loop.</param>
-            <param name="digitsMask">Indicates the digits used, represented as a mask.</param>
+            <param name="loop"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.Loop" path="/summary"/></param>
+            <param name="path"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.Path" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.DigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.IsChainingCompatible">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.Type">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.Loop">
+            <summary>
+            Indicates the cells used in this whole unique loop.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.Path">
+            <summary>
+            Indicates the detail path of the loop.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.DigitsMask">
+            <summary>
+            Indicates the digits used, represented as a mask.
+            </summary>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.Deconstruct(Sudoku.Concepts.CellMap@,System.Int32[]@,System.Int16@)">
             <target name="method">
@@ -7053,21 +7063,6 @@
             </para>
             </remarks>
         </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.Loop">
-            <summary>
-            The generated property declaration for parameter <c>loop</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.Path">
-            <summary>
-            The generated property declaration for parameter <c>path</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.DigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
-            </summary>
-        </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.UniqueLoopPattern.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
@@ -7078,17 +7073,17 @@
             <summary>
             Represents a Unique Rectangle.
             </summary>
-            <param name="cells">The cells.</param>
-            <param name="digitsMask">The digits mask.</param>
-            <param name="otherDigitsMask">The other digits mask.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.DigitsMask" path="/summary"/></param>
+            <param name="otherDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.OtherDigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.#ctor(Sudoku.Concepts.CellMap@,System.Int16,System.Int16)">
             <summary>
             Represents a Unique Rectangle.
             </summary>
-            <param name="cells">The cells.</param>
-            <param name="digitsMask">The digits mask.</param>
-            <param name="otherDigitsMask">The other digits mask.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.DigitsMask" path="/summary"/></param>
+            <param name="otherDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.OtherDigitsMask" path="/summary"/></param>
         </member>
         <member name="F:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.AllPatterns">
             <summary>
@@ -7100,6 +7095,21 @@
         </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.Type">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.Cells">
+            <summary>
+            The cells.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.DigitsMask">
+            <summary>
+            The digits mask.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.OtherDigitsMask">
+            <summary>
+            The other digits mask.
+            </summary>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.Deconstruct(Sudoku.Concepts.CellMap@,System.Int16@)">
             <target name="method">
@@ -7146,21 +7156,6 @@
             <param name="cells">All four cells.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
         </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.Cells">
-            <summary>
-            The generated property declaration for parameter <c>cells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.DigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.OtherDigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>otherDigitsMask</c>.
-            </summary>
-        </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.UniqueRectanglePattern.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
@@ -7168,25 +7163,25 @@
             <summary>
             Represents an XYZ-Wing pattern.
             </summary>
-            <param name="pivot">Indicates the pivot cell.</param>
-            <param name="leafCell1">Indicates the leaf cell 1.</param>
-            <param name="leafCell2">Indicates the leaf cell 2.</param>
-            <param name="house1">Indicates the house 1.</param>
-            <param name="house2">Indicates the house 2.</param>
-            <param name="digitsMask">Indicates all digits.</param>
-            <param name="zDigit">Indicates the digit Z.</param>
+            <param name="pivot"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.Pivot" path="/summary"/></param>
+            <param name="leafCell1"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.LeafCell1" path="/summary"/></param>
+            <param name="leafCell2"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.LeafCell2" path="/summary"/></param>
+            <param name="house1"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.House1" path="/summary"/></param>
+            <param name="house2"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.House2" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.DigitsMask" path="/summary"/></param>
+            <param name="zDigit"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.ZDigit" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int16,System.Int32)">
             <summary>
             Represents an XYZ-Wing pattern.
             </summary>
-            <param name="pivot">Indicates the pivot cell.</param>
-            <param name="leafCell1">Indicates the leaf cell 1.</param>
-            <param name="leafCell2">Indicates the leaf cell 2.</param>
-            <param name="house1">Indicates the house 1.</param>
-            <param name="house2">Indicates the house 2.</param>
-            <param name="digitsMask">Indicates all digits.</param>
-            <param name="zDigit">Indicates the digit Z.</param>
+            <param name="pivot"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.Pivot" path="/summary"/></param>
+            <param name="leafCell1"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.LeafCell1" path="/summary"/></param>
+            <param name="leafCell2"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.LeafCell2" path="/summary"/></param>
+            <param name="house1"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.House1" path="/summary"/></param>
+            <param name="house2"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.House2" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.DigitsMask" path="/summary"/></param>
+            <param name="zDigit"><inheritdoc cref="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.ZDigit" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.IsChainingCompatible">
             <inheritdoc/>
@@ -7197,6 +7192,41 @@
         <member name="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.Cells">
             <summary>
             Indicates the full pattern of cells.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.Pivot">
+            <summary>
+            Indicates the pivot cell.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.LeafCell1">
+            <summary>
+            Indicates the leaf cell 1.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.LeafCell2">
+            <summary>
+            Indicates the leaf cell 2.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.House1">
+            <summary>
+            Indicates the house 1.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.House2">
+            <summary>
+            Indicates the house 2.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.DigitsMask">
+            <summary>
+            Indicates all digits.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.ZDigit">
+            <summary>
+            Indicates the digit Z.
             </summary>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.Deconstruct(Sudoku.Concepts.CellMap@,System.Int16@,System.Int32@)">
@@ -7226,41 +7256,6 @@
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.System#IFormattable#ToString(System.String,System.IFormatProvider)">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.Pivot">
-            <summary>
-            The generated property declaration for parameter <c>pivot</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.LeafCell1">
-            <summary>
-            The generated property declaration for parameter <c>leafCell1</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.LeafCell2">
-            <summary>
-            The generated property declaration for parameter <c>leafCell2</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.House1">
-            <summary>
-            The generated property declaration for parameter <c>house1</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.House2">
-            <summary>
-            The generated property declaration for parameter <c>house2</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.DigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.ZDigit">
-            <summary>
-            The generated property declaration for parameter <c>zDigit</c>.
-            </summary>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Patterns.XyzWingPattern.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
@@ -8322,7 +8317,7 @@
             Represents an exception that will be thrown if an invalid case has been encountered during analyzing a sudoku puzzle.
             </summary>
             <param name="grid"><inheritdoc/></param>
-            <param name="stepSearcherType">The type of the step searcher that throws the exception.</param>
+            <param name="stepSearcherType"><inheritdoc cref="P:Sudoku.Analytics.PuzzleInvalidException.StepSearcherType" path="/summary"/></param>
             <remarks>
             This exception will be thrown as an unexpected behavior. For example, the puzzle is checked as a unique puzzle,
             but a step searcher may contain a bug that causes the problem throwing this exception. Please check for property
@@ -8335,7 +8330,7 @@
             Represents an exception that will be thrown if an invalid case has been encountered during analyzing a sudoku puzzle.
             </summary>
             <param name="grid"><inheritdoc/></param>
-            <param name="stepSearcherType">The type of the step searcher that throws the exception.</param>
+            <param name="stepSearcherType"><inheritdoc cref="P:Sudoku.Analytics.PuzzleInvalidException.StepSearcherType" path="/summary"/></param>
             <remarks>
             This exception will be thrown as an unexpected behavior. For example, the puzzle is checked as a unique puzzle,
             but a step searcher may contain a bug that causes the problem throwing this exception. Please check for property
@@ -8348,21 +8343,21 @@
         </member>
         <member name="P:Sudoku.Analytics.PuzzleInvalidException.StepSearcherType">
             <summary>
-            The generated property declaration for parameter <c>stepSearcherType</c>.
+            The type of the step searcher that throws the exception.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.RuntimeAnalysisException">
             <summary>
             Represents an exception type that will be thrown by an <see cref="T:Sudoku.Analytics.Analyzer"/> instance.
             </summary>
-            <param name="grid">Indicates the grid to be analyzed.</param>
+            <param name="grid"><inheritdoc cref="P:Sudoku.Analytics.RuntimeAnalysisException.InvalidGrid" path="/summary"/></param>
             <seealso cref="T:Sudoku.Analytics.Analyzer"/>
         </member>
         <member name="M:Sudoku.Analytics.RuntimeAnalysisException.#ctor(Sudoku.Concepts.Grid@)">
             <summary>
             Represents an exception type that will be thrown by an <see cref="T:Sudoku.Analytics.Analyzer"/> instance.
             </summary>
-            <param name="grid">Indicates the grid to be analyzed.</param>
+            <param name="grid"><inheritdoc cref="P:Sudoku.Analytics.RuntimeAnalysisException.InvalidGrid" path="/summary"/></param>
             <seealso cref="T:Sudoku.Analytics.Analyzer"/>
         </member>
         <member name="P:Sudoku.Analytics.RuntimeAnalysisException.Message">
@@ -8370,7 +8365,7 @@
         </member>
         <member name="P:Sudoku.Analytics.RuntimeAnalysisException.InvalidGrid">
             <summary>
-            The generated property declaration for parameter <c>grid</c>.
+            Indicates the grid to be analyzed.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Step">
@@ -8378,24 +8373,18 @@
             Provides with a solving step that describes for a technique usage,
             with conclusions and detail data for the corresponding technique pattern.
             </summary>
-            <param name="conclusions"><inheritdoc cref="P:Sudoku.Drawing.IDrawable.Conclusions" path="/summary"/></param>
-            <param name="views"><inheritdoc cref="P:Sudoku.Drawing.IDrawable.Views" path="/summary"/></param>
-            <param name="options">
-            Indicates an optional instance that provides with extra information for a step searcher.
-            This instance can be used for checking some extra information about a step such as notations to a cell, candidate, etc.
-            </param>
+            <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
+            <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
+            <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Step.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions)">
             <summary>
             Provides with a solving step that describes for a technique usage,
             with conclusions and detail data for the corresponding technique pattern.
             </summary>
-            <param name="conclusions"><inheritdoc cref="P:Sudoku.Drawing.IDrawable.Conclusions" path="/summary"/></param>
-            <param name="views"><inheritdoc cref="P:Sudoku.Drawing.IDrawable.Views" path="/summary"/></param>
-            <param name="options">
-            Indicates an optional instance that provides with extra information for a step searcher.
-            This instance can be used for checking some extra information about a step such as notations to a cell, candidate, etc.
-            </param>
+            <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
+            <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
+            <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Step.IsAssignment">
             <summary>
@@ -8488,6 +8477,18 @@
         <member name="P:Sudoku.Analytics.Step.DigitsUsed">
             <summary>
             Indicates all digits used in the corresponding pattern of the current step.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Step.Conclusions">
+            <inheritdoc cref="P:Sudoku.Drawing.IDrawable.Conclusions"/>
+        </member>
+        <member name="P:Sudoku.Analytics.Step.Views">
+            <inheritdoc cref="P:Sudoku.Drawing.IDrawable.Views"/>
+        </member>
+        <member name="P:Sudoku.Analytics.Step.Options">
+            <summary>
+            Indicates an optional instance that provides with extra information for a step searcher.
+            This instance can be used for checking some extra information about a step such as notations to a cell, candidate, etc.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Step.TechniqueResourceKeyInheritsFromBase">
@@ -8612,21 +8613,6 @@
             The return value can be <see langword="null"/> if the step doesn't contain an equivalent resource key.
             </summary>
             <param name="culture">Indicates the current culture used.</param>
-        </member>
-        <member name="P:Sudoku.Analytics.Step.Conclusions">
-            <summary>
-            The generated property declaration for parameter <c>conclusions</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Step.Views">
-            <summary>
-            The generated property declaration for parameter <c>views</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Step.Options">
-            <summary>
-            The generated property declaration for parameter <c>options</c>.
-            </summary>
         </member>
         <member name="M:Sudoku.Analytics.Step.Equals(System.Object)">
             <inheritdoc cref="M:System.Object.Equals(System.Object)"/>
