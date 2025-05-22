@@ -6,17 +6,17 @@ namespace Sudoku.Analytics.Steps.Invalidity;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="loopCells">Indicates the loop of cells used.</param>
-/// <param name="digit1">Indicates the first digit used.</param>
-/// <param name="digit2">Indicates the second digit used.</param>
-public abstract partial class BivalueOddagonStep(
+/// <param name="loopCells"><inheritdoc cref="LoopCells" path="/summary"/></param>
+/// <param name="digit1"><inheritdoc cref="Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="Digit2" path="/summary"/></param>
+public abstract class BivalueOddagonStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] in CellMap loopCells,
-	[Property] Digit digit1,
-	[Property] Digit digit2
-) : NegativeRankStep(conclusions, views, options), ICellListTrait
+	in CellMap loopCells,
+	Digit digit1,
+	Digit digit2
+) : InvalidityStep(conclusions, views, options), ICellListTrait
 {
 	/// <summary>
 	/// Indicates the type of the technique.
@@ -31,6 +31,21 @@ public abstract partial class BivalueOddagonStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(1 << Digit1 | 1 << Digit2);
+
+	/// <summary>
+	/// Indicates the loop of cells used.
+	/// </summary>
+	public CellMap LoopCells { get; } = loopCells;
+
+	/// <summary>
+	/// Indicates the first digit used.
+	/// </summary>
+	public Digit Digit1 { get; } = digit1;
+
+	/// <summary>
+	/// Indicates the second digit used.
+	/// </summary>
+	public Digit Digit2 { get; } = digit2;
 
 	/// <inheritdoc/>
 	public override FactorArray Factors

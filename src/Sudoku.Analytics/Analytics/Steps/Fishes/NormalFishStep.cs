@@ -6,11 +6,11 @@ namespace Sudoku.Analytics.Steps.Fishes;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit"><inheritdoc/></param>
-/// <param name="baseSetsMask"><inheritdoc/></param>
-/// <param name="coverSetsMask"><inheritdoc/></param>
+/// <param name="digit"><inheritdoc cref="FishStep.Digit" path="/summary"/></param>
+/// <param name="baseSetsMask"><inheritdoc cref="FishStep.BaseSetsMask" path="/summary"/></param>
+/// <param name="coverSetsMask"><inheritdoc cref="FishStep.CoverSetsMask" path="/summary"/></param>
 /// <param name="fins">Indicates the fins.</param>
-/// <param name="isSashimi"><inheritdoc/></param>
+/// <param name="isSashimi"><inheritdoc cref="FishStep.IsSashimi" path="/summary"/></param>
 /// <param name="isSiamese">Indicates whether the pattern is a Siamese Fish.</param>
 public sealed class NormalFishStep(
 	ReadOnlyMemory<Conclusion> conclusions,

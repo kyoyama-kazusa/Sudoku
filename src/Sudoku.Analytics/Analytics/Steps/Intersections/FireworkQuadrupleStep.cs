@@ -6,8 +6,8 @@ namespace Sudoku.Analytics.Steps.Intersections;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="digitsMask"><inheritdoc/></param>
+/// <param name="cells"><inheritdoc cref="FireworkStep.Cells" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="FireworkStep.DigitsMask" path="/summary"/></param>
 public sealed class FireworkQuadrupleStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,

@@ -6,20 +6,20 @@ namespace Sudoku.Analytics.Steps.Invalidity;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="loopCells"><inheritdoc/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="extraCells">Indicates the extra cells used.</param>
-/// <param name="extraDigitsMask">Indicates the mask that contains all extra digits used.</param>
-public sealed partial class BivalueOddagonType3Step(
+/// <param name="loopCells"><inheritdoc cref="BivalueOddagonStep.LoopCells" path="/summary"/></param>
+/// <param name="digit1"><inheritdoc cref="BivalueOddagonStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="BivalueOddagonStep.Digit2" path="/summary"/></param>
+/// <param name="extraCells"><inheritdoc cref="ExtraCells" path="/summary"/></param>
+/// <param name="extraDigitsMask"><inheritdoc cref="ExtraDigitsMask" path="/summary"/></param>
+public sealed class BivalueOddagonType3Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	in CellMap loopCells,
 	Digit digit1,
 	Digit digit2,
-	[Property] in CellMap extraCells,
-	[Property] Mask extraDigitsMask
+	in CellMap extraCells,
+	Mask extraDigitsMask
 ) : BivalueOddagonStep(conclusions, views, options, loopCells, digit1, digit2), IExtraCellListTrait
 {
 	/// <inheritdoc/>
@@ -27,6 +27,16 @@ public sealed partial class BivalueOddagonType3Step(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | ExtraDigitsMask);
+
+	/// <summary>
+	/// Indicates the extra cells used.
+	/// </summary>
+	public CellMap ExtraCells { get; } = extraCells;
+
+	/// <summary>
+	/// Indicates the mask that contains all extra digits used.
+	/// </summary>
+	public Mask ExtraDigitsMask { get; } = extraDigitsMask;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

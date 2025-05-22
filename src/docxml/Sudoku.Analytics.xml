@@ -15280,22 +15280,15 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit"><inheritdoc/></param>
-            <param name="baseSetsMask"><inheritdoc/></param>
-            <param name="coverSetsMask"><inheritdoc/></param>
-            <param name="exofins">
-            Indicates the fins, positioned outside the fish.
-            They will be defined if cover sets cannot be fully covered, with the number of cover sets being equal to the number of base sets.
-            </param>
-            <param name="endofins">
-            Indicates the fins, positioned inside the fish. Generally speaking, they will be defined if they are in multiple base sets.
-            </param>
-            <param name="isFranken">
-            Indicates whether the fish is a Franken fish. If <see langword="true"/>, a Franken fish; otherwise, a Mutant fish.
-            </param>
-            <param name="isSashimi"><inheritdoc/></param>
-            <param name="isCannibalism">Indicates whether the fish contains any cannibalism.</param>
-            <param name="isSiamese"><inheritdoc/></param>
+            <param name="digit"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.Digit" path="/summary"/></param>
+            <param name="baseSetsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.BaseSetsMask" path="/summary"/></param>
+            <param name="coverSetsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.CoverSetsMask" path="/summary"/></param>
+            <param name="exofins"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.Exofins" path="/summary"/></param>
+            <param name="endofins"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.Endofins" path="/summary"/></param>
+            <param name="isFranken"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.IsFranken" path="/summary"/></param>
+            <param name="isSashimi"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.IsSashimi" path="/summary"/></param>
+            <param name="isCannibalism"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.IsCannibalism" path="/summary"/></param>
+            <param name="isSiamese"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.IsSiamese" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Boolean,System.Nullable{System.Boolean},System.Boolean,System.Boolean)">
             <summary>
@@ -15304,22 +15297,25 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit"><inheritdoc/></param>
-            <param name="baseSetsMask"><inheritdoc/></param>
-            <param name="coverSetsMask"><inheritdoc/></param>
-            <param name="exofins">
-            Indicates the fins, positioned outside the fish.
-            They will be defined if cover sets cannot be fully covered, with the number of cover sets being equal to the number of base sets.
-            </param>
-            <param name="endofins">
-            Indicates the fins, positioned inside the fish. Generally speaking, they will be defined if they are in multiple base sets.
-            </param>
-            <param name="isFranken">
+            <param name="digit"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.Digit" path="/summary"/></param>
+            <param name="baseSetsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.BaseSetsMask" path="/summary"/></param>
+            <param name="coverSetsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.CoverSetsMask" path="/summary"/></param>
+            <param name="exofins"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.Exofins" path="/summary"/></param>
+            <param name="endofins"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.Endofins" path="/summary"/></param>
+            <param name="isFranken"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.IsFranken" path="/summary"/></param>
+            <param name="isSashimi"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.IsSashimi" path="/summary"/></param>
+            <param name="isCannibalism"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.IsCannibalism" path="/summary"/></param>
+            <param name="isSiamese"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.IsSiamese" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.IsFranken">
+            <summary>
             Indicates whether the fish is a Franken fish. If <see langword="true"/>, a Franken fish; otherwise, a Mutant fish.
-            </param>
-            <param name="isSashimi"><inheritdoc/></param>
-            <param name="isCannibalism">Indicates whether the fish contains any cannibalism.</param>
-            <param name="isSiamese"><inheritdoc/></param>
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.IsCannibalism">
+            <summary>
+            Indicates whether the fish contains any cannibalism.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.BaseDifficulty">
             <inheritdoc/>
@@ -15333,28 +15329,20 @@
         <member name="P:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.Factors">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.Equals(Sudoku.Analytics.Step)">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.Exofins">
             <summary>
-            The generated property declaration for parameter <c>exofins</c>.
+            Indicates the fins, positioned outside the fish.
+            They will be defined if cover sets cannot be fully covered,
+            with the number of cover sets being equal to the number of base sets.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.Endofins">
             <summary>
-            The generated property declaration for parameter <c>endofins</c>.
+            Indicates the fins, positioned inside the fish. Generally speaking, they will be defined if they are in multiple base sets.
             </summary>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.IsFranken">
-            <summary>
-            The generated property declaration for parameter <c>isFranken</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.IsCannibalism">
-            <summary>
-            The generated property declaration for parameter <c>isCannibalism</c>.
-            </summary>
+        <member name="M:Sudoku.Analytics.Steps.Fishes.ComplexFishStep.Equals(Sudoku.Analytics.Step)">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Fishes.FishStep">
             <summary>
@@ -15363,31 +15351,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit">Indicates the digit used.</param>
-            <param name="baseSetsMask">Indicates the mask that contains the base sets.</param>
-            <param name="coverSetsMask">Indicates the mask that contains the cover sets.</param>
-            <param name="fins">Indicates the fins used.</param>
-            <param name="isSashimi">
-            <para>Indicates whether the fish is a Sashimi fish.</para>
-            <para>
-            All cases are as below:
-            <list type="table">
-            <item>
-            <term><see langword="true"/></term>
-            <description>The fish is a sashimi finned fish.</description>
-            </item>
-            <item>
-            <term><see langword="false"/></term>
-            <description>The fish is a normal finned fish.</description>
-            </item>
-            <item>
-            <term><see langword="null"/></term>
-            <description>The fish doesn't contain any fin.</description>
-            </item>
-            </list>
-            </para>
-            </param>
-            <param name="isSiamese">Indicates whether the pattern is a Siamese Fish.</param>
+            <param name="digit"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.Digit" path="/summary"/></param>
+            <param name="baseSetsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.BaseSetsMask" path="/summary"/></param>
+            <param name="coverSetsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.CoverSetsMask" path="/summary"/></param>
+            <param name="fins"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.Fins" path="/summary"/></param>
+            <param name="isSashimi"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.IsSashimi" path="/summary"/></param>
+            <param name="isSiamese"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.IsSiamese" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Fishes.FishStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,System.Nullable{System.Boolean},System.Boolean)">
             <summary>
@@ -15396,11 +15365,20 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit">Indicates the digit used.</param>
-            <param name="baseSetsMask">Indicates the mask that contains the base sets.</param>
-            <param name="coverSetsMask">Indicates the mask that contains the cover sets.</param>
-            <param name="fins">Indicates the fins used.</param>
-            <param name="isSashimi">
+            <param name="digit"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.Digit" path="/summary"/></param>
+            <param name="baseSetsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.BaseSetsMask" path="/summary"/></param>
+            <param name="coverSetsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.CoverSetsMask" path="/summary"/></param>
+            <param name="fins"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.Fins" path="/summary"/></param>
+            <param name="isSashimi"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.IsSashimi" path="/summary"/></param>
+            <param name="isSiamese"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.IsSiamese" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Fishes.FishStep.IsSiamese">
+            <summary>
+            Indicates whether the pattern is a Siamese Fish.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Fishes.FishStep.IsSashimi">
+            <summary>
             <para>Indicates whether the fish is a Sashimi fish.</para>
             <para>
             All cases are as below:
@@ -15419,8 +15397,7 @@
             </item>
             </list>
             </para>
-            </param>
-            <param name="isSiamese">Indicates whether the pattern is a Siamese Fish.</param>
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Fishes.FishStep.Size">
             <inheritdoc/>
@@ -15440,6 +15417,26 @@
         <member name="P:Sudoku.Analytics.Steps.Fishes.FishStep.DigitsUsed">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Steps.Fishes.FishStep.Digit">
+            <summary>
+            Indicates the digit used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Fishes.FishStep.BaseSetsMask">
+            <summary>
+            Indicates the mask that describes the base sets.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Fishes.FishStep.CoverSetsMask">
+            <summary>
+            Indicates the mask that describes the cover sets.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Fishes.FishStep.Fins">
+            <summary>
+            Indicates all the fins. For complex fishes, this property also includes endo-fins.
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.Steps.Fishes.FishStep.Pattern">
             <summary>
             Creates a <see cref="T:Sudoku.Analytics.Construction.Patterns.FishPattern"/> instance via the current data.
@@ -15453,36 +15450,6 @@
         <member name="M:Sudoku.Analytics.Steps.Fishes.FishStep.ToString(System.IFormatProvider)">
             <inheritdoc cref="M:Sudoku.Analytics.Step.ToString(System.IFormatProvider)"/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.Fishes.FishStep.Digit">
-            <summary>
-            The generated property declaration for parameter <c>digit</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Fishes.FishStep.BaseSetsMask">
-            <summary>
-            The generated property declaration for parameter <c>baseSetsMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Fishes.FishStep.CoverSetsMask">
-            <summary>
-            The generated property declaration for parameter <c>coverSetsMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Fishes.FishStep.Fins">
-            <summary>
-            The generated property declaration for parameter <c>fins</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Fishes.FishStep.IsSashimi">
-            <summary>
-            The generated property declaration for parameter <c>isSashimi</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Fishes.FishStep.IsSiamese">
-            <summary>
-            The generated property declaration for parameter <c>isSiamese</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.Fishes.NormalFishStep">
             <summary>
             Provides with a step that is an <b>Normal Fish</b> technique.
@@ -15490,11 +15457,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit"><inheritdoc/></param>
-            <param name="baseSetsMask"><inheritdoc/></param>
-            <param name="coverSetsMask"><inheritdoc/></param>
+            <param name="digit"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.Digit" path="/summary"/></param>
+            <param name="baseSetsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.BaseSetsMask" path="/summary"/></param>
+            <param name="coverSetsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.CoverSetsMask" path="/summary"/></param>
             <param name="fins">Indicates the fins.</param>
-            <param name="isSashimi"><inheritdoc/></param>
+            <param name="isSashimi"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.IsSashimi" path="/summary"/></param>
             <param name="isSiamese">Indicates whether the pattern is a Siamese Fish.</param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Fishes.NormalFishStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,System.Nullable{System.Boolean},System.Boolean)">
@@ -15504,11 +15471,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit"><inheritdoc/></param>
-            <param name="baseSetsMask"><inheritdoc/></param>
-            <param name="coverSetsMask"><inheritdoc/></param>
+            <param name="digit"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.Digit" path="/summary"/></param>
+            <param name="baseSetsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.BaseSetsMask" path="/summary"/></param>
+            <param name="coverSetsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.CoverSetsMask" path="/summary"/></param>
             <param name="fins">Indicates the fins.</param>
-            <param name="isSashimi"><inheritdoc/></param>
+            <param name="isSashimi"><inheritdoc cref="P:Sudoku.Analytics.Steps.Fishes.FishStep.IsSashimi" path="/summary"/></param>
             <param name="isSiamese">Indicates whether the pattern is a Siamese Fish.</param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Fishes.NormalFishStep.BaseDifficulty">
@@ -15554,10 +15521,10 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask">Indicates the mask that contains the digits used.</param>
-            <param name="baseCells">Indicates the cells in base set.</param>
-            <param name="coverCells">Indicates the cells in cover set.</param>
-            <param name="hasValueCell">Indicates whether the step contains value cells.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.BaseCells" path="/summary"/></param>
+            <param name="coverCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.CoverCells" path="/summary"/></param>
+            <param name="hasValueCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.HasValueCell" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Boolean)">
             <summary>
@@ -15566,10 +15533,15 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsMask">Indicates the mask that contains the digits used.</param>
-            <param name="baseCells">Indicates the cells in base set.</param>
-            <param name="coverCells">Indicates the cells in cover set.</param>
-            <param name="hasValueCell">Indicates whether the step contains value cells.</param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.DigitsMask" path="/summary"/></param>
+            <param name="baseCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.BaseCells" path="/summary"/></param>
+            <param name="coverCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.CoverCells" path="/summary"/></param>
+            <param name="hasValueCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.HasValueCell" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.HasValueCell">
+            <summary>
+            Indicates whether the step contains value cells.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.BaseDifficulty">
             <inheritdoc/>
@@ -15583,31 +15555,26 @@
         <member name="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.DigitsUsed">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.DigitsMask">
+            <summary>
+            Indicates the mask that contains the digits used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.BaseCells">
+            <summary>
+            Indicates the cells in base set.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.CoverCells">
+            <summary>
+            Indicates the cells in cover set.
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.Interpolations">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.Factors">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.DigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.BaseCells">
-            <summary>
-            The generated property declaration for parameter <c>baseCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.CoverCells">
-            <summary>
-            The generated property declaration for parameter <c>coverCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Intersections.AlmostLockedCandidatesStep.HasValueCell">
-            <summary>
-            The generated property declaration for parameter <c>hasValueCell</c>.
-            </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Intersections.FireworkQuadrupleStep">
             <summary>
@@ -15616,8 +15583,8 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="digitsMask"><inheritdoc/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.FireworkStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.FireworkStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Intersections.FireworkQuadrupleStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Concepts.CellMap@,System.Int16)">
             <summary>
@@ -15626,8 +15593,8 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="digitsMask"><inheritdoc/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.FireworkStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.FireworkStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.FireworkQuadrupleStep.BaseDifficulty">
             <inheritdoc/>
@@ -15648,8 +15615,8 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="cells">Indicates the cells used.</param>
-            <param name="digitsMask">Indicates the mask of digits used.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.FireworkStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.FireworkStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Intersections.FireworkStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Concepts.CellMap@,System.Int16)">
             <summary>
@@ -15658,8 +15625,8 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="cells">Indicates the cells used.</param>
-            <param name="digitsMask">Indicates the mask of digits used.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.FireworkStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.FireworkStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.FireworkStep.BaseDifficulty">
             <inheritdoc/>
@@ -15672,12 +15639,12 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.FireworkStep.Cells">
             <summary>
-            The generated property declaration for parameter <c>cells</c>.
+            Indicates the cells used.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.FireworkStep.DigitsMask">
             <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
+            Indicates the mask of digits used.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Intersections.FireworkTripleStep">
@@ -15687,8 +15654,8 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="digitsMask"><inheritdoc/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.FireworkStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.FireworkStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Intersections.FireworkTripleStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Concepts.CellMap@,System.Int16)">
             <summary>
@@ -15697,8 +15664,8 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="digitsMask"><inheritdoc/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.FireworkStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.FireworkStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.FireworkTripleStep.BaseDifficulty">
             <inheritdoc/>
@@ -15735,11 +15702,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="set1House">Indicates the house of <see cref="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set1"/>.</param>
-            <param name="set2House">Indicates the house of <see cref="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set2"/>.</param>
-            <param name="set1">Indicates the first set to be used.</param>
-            <param name="set2">Indicates the second set to be used.</param>
-            <param name="digitsMask">Indicates all 6 digits used.</param>
+            <param name="set1House"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set1House" path="/summary"/></param>
+            <param name="set2House"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set2House" path="/summary"/></param>
+            <param name="set1"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set1" path="/summary"/></param>
+            <param name="set2"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set2" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int16)">
             <summary>
@@ -15748,11 +15715,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="set1House">Indicates the house of <see cref="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set1"/>.</param>
-            <param name="set2House">Indicates the house of <see cref="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set2"/>.</param>
-            <param name="set1">Indicates the first set to be used.</param>
-            <param name="set2">Indicates the second set to be used.</param>
-            <param name="digitsMask">Indicates all 6 digits used.</param>
+            <param name="set1House"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set1House" path="/summary"/></param>
+            <param name="set2House"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set2House" path="/summary"/></param>
+            <param name="set1"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set1" path="/summary"/></param>
+            <param name="set2"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set2" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.BaseDifficulty">
             <inheritdoc/>
@@ -15763,33 +15730,33 @@
         <member name="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.DigitsUsed">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Interpolations">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set1House">
             <summary>
-            The generated property declaration for parameter <c>set1House</c>.
+            Indicates the house of <see cref="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set1"/>.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set2House">
             <summary>
-            The generated property declaration for parameter <c>set2House</c>.
+            Indicates the house of <see cref="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set2"/>.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set1">
             <summary>
-            The generated property declaration for parameter <c>set1</c>.
+            Indicates the first set to be used.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Set2">
             <summary>
-            The generated property declaration for parameter <c>set2</c>.
+            Indicates the second set to be used.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.DigitsMask">
             <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
+            Indicates all 6 digits used.
             </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Intersections.LawOfLeftoverStep.Interpolations">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Intersections.LockedCandidatesStep">
             <summary>
@@ -15798,9 +15765,9 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit">Indicates the digit used.</param>
-            <param name="baseSet">Indicates the house that the current locked candidates forms.</param>
-            <param name="coverSet">Indicates the house that the current locked candidates effects.</param>
+            <param name="digit"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.LockedCandidatesStep.Digit" path="/summary"/></param>
+            <param name="baseSet"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.LockedCandidatesStep.BaseSet" path="/summary"/></param>
+            <param name="coverSet"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.LockedCandidatesStep.CoverSet" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Intersections.LockedCandidatesStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -15809,9 +15776,9 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit">Indicates the digit used.</param>
-            <param name="baseSet">Indicates the house that the current locked candidates forms.</param>
-            <param name="coverSet">Indicates the house that the current locked candidates effects.</param>
+            <param name="digit"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.LockedCandidatesStep.Digit" path="/summary"/></param>
+            <param name="baseSet"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.LockedCandidatesStep.BaseSet" path="/summary"/></param>
+            <param name="coverSet"><inheritdoc cref="P:Sudoku.Analytics.Steps.Intersections.LockedCandidatesStep.CoverSet" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.LockedCandidatesStep.BaseDifficulty">
             <inheritdoc/>
@@ -15822,23 +15789,23 @@
         <member name="P:Sudoku.Analytics.Steps.Intersections.LockedCandidatesStep.DigitsUsed">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.Intersections.LockedCandidatesStep.Interpolations">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.LockedCandidatesStep.Digit">
             <summary>
-            The generated property declaration for parameter <c>digit</c>.
+            Indicates the digit used.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.LockedCandidatesStep.BaseSet">
             <summary>
-            The generated property declaration for parameter <c>baseSet</c>.
+            Indicates the house that the current locked candidates forms.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Intersections.LockedCandidatesStep.CoverSet">
             <summary>
-            The generated property declaration for parameter <c>coverSet</c>.
+            Indicates the house that the current locked candidates effects.
             </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Intersections.LockedCandidatesStep.Interpolations">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep">
             <summary>
@@ -15847,9 +15814,9 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="loopCells">Indicates the loop of cells used.</param>
-            <param name="digit1">Indicates the first digit used.</param>
-            <param name="digit2">Indicates the second digit used.</param>
+            <param name="loopCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.LoopCells" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Digit2" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Concepts.CellMap@,System.Int32,System.Int32)">
             <summary>
@@ -15858,9 +15825,9 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="loopCells">Indicates the loop of cells used.</param>
-            <param name="digit1">Indicates the first digit used.</param>
-            <param name="digit2">Indicates the second digit used.</param>
+            <param name="loopCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.LoopCells" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Digit2" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Type">
             <summary>
@@ -15876,6 +15843,21 @@
         <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.DigitsUsed">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.LoopCells">
+            <summary>
+            Indicates the loop of cells used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Digit1">
+            <summary>
+            Indicates the first digit used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Digit2">
+            <summary>
+            Indicates the second digit used.
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Factors">
             <inheritdoc/>
         </member>
@@ -15888,21 +15870,6 @@
         <member name="M:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.CompareTo(Sudoku.Analytics.Step)">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.LoopCells">
-            <summary>
-            The generated property declaration for parameter <c>loopCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Digit1">
-            <summary>
-            The generated property declaration for parameter <c>digit1</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Digit2">
-            <summary>
-            The generated property declaration for parameter <c>digit2</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType2Step">
             <summary>
             Provides with a step that is a <b>Bivalue Oddagon Type 2</b> technique.
@@ -15910,10 +15877,10 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="loopCells"><inheritdoc/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="extraDigit">Indicates the extra digit used.</param>
+            <param name="loopCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.LoopCells" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Digit2" path="/summary"/></param>
+            <param name="extraDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType2Step.ExtraDigit" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType2Step.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Concepts.CellMap@,System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -15922,10 +15889,10 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="loopCells"><inheritdoc/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="extraDigit">Indicates the extra digit used.</param>
+            <param name="loopCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.LoopCells" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Digit2" path="/summary"/></param>
+            <param name="extraDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType2Step.ExtraDigit" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType2Step.Type">
             <inheritdoc/>
@@ -15936,13 +15903,13 @@
         <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType2Step.DigitsUsed">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType2Step.Interpolations">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType2Step.ExtraDigit">
             <summary>
-            The generated property declaration for parameter <c>extraDigit</c>.
+            Indicates the extra digit used.
             </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType2Step.Interpolations">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType3Step">
             <summary>
@@ -15951,11 +15918,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="loopCells"><inheritdoc/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="extraCells">Indicates the extra cells used.</param>
-            <param name="extraDigitsMask">Indicates the mask that contains all extra digits used.</param>
+            <param name="loopCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.LoopCells" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Digit2" path="/summary"/></param>
+            <param name="extraCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType3Step.ExtraCells" path="/summary"/></param>
+            <param name="extraDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType3Step.ExtraDigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType3Step.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Concepts.CellMap@,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,System.Int16)">
             <summary>
@@ -15964,17 +15931,27 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="loopCells"><inheritdoc/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="extraCells">Indicates the extra cells used.</param>
-            <param name="extraDigitsMask">Indicates the mask that contains all extra digits used.</param>
+            <param name="loopCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.LoopCells" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonStep.Digit2" path="/summary"/></param>
+            <param name="extraCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType3Step.ExtraCells" path="/summary"/></param>
+            <param name="extraDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType3Step.ExtraDigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType3Step.Type">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType3Step.DigitsUsed">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType3Step.ExtraCells">
+            <summary>
+            Indicates the extra cells used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType3Step.ExtraDigitsMask">
+            <summary>
+            Indicates the mask that contains all extra digits used.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType3Step.Interpolations">
             <inheritdoc/>
@@ -15985,16 +15962,6 @@
         <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType3Step.Sudoku#Analytics#Traits#IExtraCellListTrait#ExtraCellSize">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType3Step.ExtraCells">
-            <summary>
-            The generated property declaration for parameter <c>extraCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Invalidity.BivalueOddagonType3Step.ExtraDigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>extraDigitsMask</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep">
             <summary>
             Provides with a step that is a <b>Chromatic Pattern</b> technique.
@@ -16002,9 +15969,9 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="blocks">Indicates the blocks that the current pattern lies in.</param>
-            <param name="pattern">Indicates the cells used.</param>
-            <param name="digitsMask">Indicates the mask of digits.</param>
+            <param name="blocks"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.Blocks" path="/summary"/></param>
+            <param name="pattern"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.Pattern" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32[],Sudoku.Concepts.CellMap@,System.Int16)">
             <summary>
@@ -16013,9 +15980,9 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="blocks">Indicates the blocks that the current pattern lies in.</param>
-            <param name="pattern">Indicates the cells used.</param>
-            <param name="digitsMask">Indicates the mask of digits.</param>
+            <param name="blocks"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.Blocks" path="/summary"/></param>
+            <param name="pattern"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.Pattern" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.BaseDifficulty">
             <inheritdoc/>
@@ -16025,17 +15992,17 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.Blocks">
             <summary>
-            The generated property declaration for parameter <c>blocks</c>.
+            Indicates the blocks that the current pattern lies in.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.Pattern">
             <summary>
-            The generated property declaration for parameter <c>pattern</c>.
+            Indicates the cells used.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.DigitsMask">
             <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
+            Indicates the mask of digits.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternType1Step">
@@ -16045,10 +16012,10 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="blocks"><inheritdoc/></param>
-            <param name="pattern"><inheritdoc/></param>
-            <param name="extraCell">Indicates the extra cell used.</param>
-            <param name="digitsMask"><inheritdoc/></param>
+            <param name="blocks"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.Blocks" path="/summary"/></param>
+            <param name="pattern"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.Pattern" path="/summary"/></param>
+            <param name="extraCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternType1Step.ExtraCell" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternType1Step.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32[],Sudoku.Concepts.CellMap@,System.Int32,System.Int16)">
             <summary>
@@ -16057,10 +16024,10 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="blocks"><inheritdoc/></param>
-            <param name="pattern"><inheritdoc/></param>
-            <param name="extraCell">Indicates the extra cell used.</param>
-            <param name="digitsMask"><inheritdoc/></param>
+            <param name="blocks"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.Blocks" path="/summary"/></param>
+            <param name="pattern"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.Pattern" path="/summary"/></param>
+            <param name="extraCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternType1Step.ExtraCell" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternType1Step.Code">
             <inheritdoc/>
@@ -16068,13 +16035,13 @@
         <member name="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternType1Step.DigitsUsed">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternType1Step.Interpolations">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternType1Step.ExtraCell">
             <summary>
-            The generated property declaration for parameter <c>extraCell</c>.
+            Indicates the extra cell used.
             </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternType1Step.Interpolations">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternXzStep">
             <summary>
@@ -16083,12 +16050,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="blocks"><inheritdoc/></param>
-            <param name="pattern"><inheritdoc/></param>
-            <param name="cells">Indicates the cells that contains extra digit.</param>
-            <param name="extraCell">Indicates the extra cell used.</param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="extraDigitsMask">Indicates the mask of extra digits.</param>
+            <param name="blocks"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.Blocks" path="/summary"/></param>
+            <param name="pattern"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.Pattern" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternXzStep.Cells" path="/summary"/></param>
+            <param name="extraCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternXzStep.ExtraCell" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.DigitsMask" path="/summary"/></param>
+            <param name="extraDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternXzStep.ExtraDigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternXzStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32[],Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int32,System.Int16,System.Int16)">
             <summary>
@@ -16097,12 +16064,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="blocks"><inheritdoc/></param>
-            <param name="pattern"><inheritdoc/></param>
-            <param name="cells">Indicates the cells that contains extra digit.</param>
-            <param name="extraCell">Indicates the extra cell used.</param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="extraDigitsMask">Indicates the mask of extra digits.</param>
+            <param name="blocks"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.Blocks" path="/summary"/></param>
+            <param name="pattern"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.Pattern" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternXzStep.Cells" path="/summary"/></param>
+            <param name="extraCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternXzStep.ExtraCell" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternStep.DigitsMask" path="/summary"/></param>
+            <param name="extraDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternXzStep.ExtraDigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternXzStep.BaseDifficulty">
             <inheritdoc/>
@@ -16113,23 +16080,23 @@
         <member name="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternXzStep.DigitsUsed">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternXzStep.Interpolations">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternXzStep.Cells">
             <summary>
-            The generated property declaration for parameter <c>cells</c>.
+            Indicates the cells that contains extra digit.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternXzStep.ExtraCell">
             <summary>
-            The generated property declaration for parameter <c>extraCell</c>.
+            Indicates the extra cell used.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternXzStep.ExtraDigitsMask">
             <summary>
-            The generated property declaration for parameter <c>extraDigitsMask</c>.
+            Indicates the mask of extra digits.
             </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Invalidity.ChromaticPatternXzStep.Interpolations">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Invalidity.GuardianStep">
             <summary>
@@ -16138,9 +16105,9 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit">Indicates the digit used.</param>
-            <param name="loopCells">Indicates the cells of the loop used.</param>
-            <param name="guardians">Indicates the guardian cells.</param>
+            <param name="digit"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.GuardianStep.Digit" path="/summary"/></param>
+            <param name="loopCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.GuardianStep.LoopCells" path="/summary"/></param>
+            <param name="guardians"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.GuardianStep.Guardians" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Invalidity.GuardianStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -16149,9 +16116,9 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit">Indicates the digit used.</param>
-            <param name="loopCells">Indicates the cells of the loop used.</param>
-            <param name="guardians">Indicates the guardian cells.</param>
+            <param name="digit"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.GuardianStep.Digit" path="/summary"/></param>
+            <param name="loopCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.GuardianStep.LoopCells" path="/summary"/></param>
+            <param name="guardians"><inheritdoc cref="P:Sudoku.Analytics.Steps.Invalidity.GuardianStep.Guardians" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.GuardianStep.BaseDifficulty">
             <inheritdoc/>
@@ -16161,6 +16128,21 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.GuardianStep.DigitsUsed">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Invalidity.GuardianStep.Digit">
+            <summary>
+            Indicates the digit used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Invalidity.GuardianStep.LoopCells">
+            <summary>
+            Indicates the cells of the loop used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Invalidity.GuardianStep.Guardians">
+            <summary>
+            Indicates the guardian cells.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Invalidity.GuardianStep.Interpolations">
             <inheritdoc/>
@@ -16183,32 +16165,17 @@
         <member name="M:Sudoku.Analytics.Steps.Invalidity.GuardianStep.CompareTo(Sudoku.Analytics.Step)">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.Invalidity.GuardianStep.Digit">
+        <member name="T:Sudoku.Analytics.Steps.Invalidity.InvalidityStep">
             <summary>
-            The generated property declaration for parameter <c>digit</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Invalidity.GuardianStep.LoopCells">
-            <summary>
-            The generated property declaration for parameter <c>loopCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Invalidity.GuardianStep.Guardians">
-            <summary>
-            The generated property declaration for parameter <c>guardians</c>.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Analytics.Steps.Invalidity.NegativeRankStep">
-            <summary>
-            Provides with a step that is a <b>Negative Rank</b> technique.
+            Provides with a step that is an <b>Invalidity</b> technique.
             </summary>
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
         </member>
-        <member name="M:Sudoku.Analytics.Steps.Invalidity.NegativeRankStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions)">
+        <member name="M:Sudoku.Analytics.Steps.Invalidity.InvalidityStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions)">
             <summary>
-            Provides with a step that is a <b>Negative Rank</b> technique.
+            Provides with a step that is an <b>Invalidity</b> technique.
             </summary>
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>

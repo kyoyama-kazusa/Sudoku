@@ -6,17 +6,17 @@ namespace Sudoku.Analytics.Steps.Invalidity;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="blocks"><inheritdoc/></param>
-/// <param name="pattern"><inheritdoc/></param>
-/// <param name="extraCell">Indicates the extra cell used.</param>
-/// <param name="digitsMask"><inheritdoc/></param>
-public sealed partial class ChromaticPatternType1Step(
+/// <param name="blocks"><inheritdoc cref="ChromaticPatternStep.Blocks" path="/summary"/></param>
+/// <param name="pattern"><inheritdoc cref="ChromaticPatternStep.Pattern" path="/summary"/></param>
+/// <param name="extraCell"><inheritdoc cref="ExtraCell" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="ChromaticPatternStep.DigitsMask" path="/summary"/></param>
+public sealed class ChromaticPatternType1Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	House[] blocks,
 	in CellMap pattern,
-	[Property] Cell extraCell,
+	Cell extraCell,
 	Mask digitsMask
 ) : ChromaticPatternStep(conclusions, views, options, blocks, pattern, digitsMask)
 {
@@ -25,6 +25,11 @@ public sealed partial class ChromaticPatternType1Step(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
+
+	/// <summary>
+	/// Indicates the extra cell used.
+	/// </summary>
+	public Cell ExtraCell { get; } = extraCell;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

@@ -6,17 +6,17 @@ namespace Sudoku.Analytics.Steps.Invalidity;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="blocks">Indicates the blocks that the current pattern lies in.</param>
-/// <param name="pattern">Indicates the cells used.</param>
-/// <param name="digitsMask">Indicates the mask of digits.</param>
-public abstract partial class ChromaticPatternStep(
+/// <param name="blocks"><inheritdoc cref="Blocks" path="/summary"/></param>
+/// <param name="pattern"><inheritdoc cref="Pattern" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+public abstract class ChromaticPatternStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] House[] blocks,
-	[Property] in CellMap pattern,
-	[Property] Mask digitsMask
-) : NegativeRankStep(conclusions, views, options)
+	House[] blocks,
+	in CellMap pattern,
+	Mask digitsMask
+) : InvalidityStep(conclusions, views, options)
 {
 	/// <inheritdoc/>
 	public override int BaseDifficulty => 65;
@@ -24,8 +24,22 @@ public abstract partial class ChromaticPatternStep(
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
 
-	private protected string BlocksStr
-		=> Options.Converter.HouseConverter(Blocks.Aggregate(@delegate.BitMerger));
+	/// <summary>
+	/// Indicates the blocks that the current pattern lies in.
+	/// </summary>
+	public House[] Blocks { get; } = blocks;
+
+	/// <summary>
+	/// Indicates the cells used.
+	/// </summary>
+	public CellMap Pattern { get; } = pattern;
+
+	/// <summary>
+	/// Indicates the mask of digits.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
+
+	private protected string BlocksStr => Options.Converter.HouseConverter(Blocks.Aggregate(@delegate.BitMerger));
 
 	private protected string CellsStr => Options.Converter.CellConverter(Pattern);
 

@@ -6,17 +6,17 @@ namespace Sudoku.Analytics.Steps.Invalidity;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit">Indicates the digit used.</param>
-/// <param name="loopCells">Indicates the cells of the loop used.</param>
-/// <param name="guardians">Indicates the guardian cells.</param>
-public sealed partial class GuardianStep(
+/// <param name="digit"><inheritdoc cref="Digit" path="/summary"/></param>
+/// <param name="loopCells"><inheritdoc cref="LoopCells" path="/summary"/></param>
+/// <param name="guardians"><inheritdoc cref="Guardians" path="/summary"/></param>
+public sealed class GuardianStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] Digit digit,
-	[Property] in CellMap loopCells,
-	[Property] in CellMap guardians
-) : NegativeRankStep(conclusions, views, options), ICellListTrait, IGuardianTrait
+	Digit digit,
+	in CellMap loopCells,
+	in CellMap guardians
+) : InvalidityStep(conclusions, views, options), ICellListTrait, IGuardianTrait
 {
 	/// <inheritdoc/>
 	public override int BaseDifficulty => 55;
@@ -26,6 +26,21 @@ public sealed partial class GuardianStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(1 << Digit);
+
+	/// <summary>
+	/// Indicates the digit used.
+	/// </summary>
+	public Digit Digit { get; } = digit;
+
+	/// <summary>
+	/// Indicates the cells of the loop used.
+	/// </summary>
+	public CellMap LoopCells { get; } = loopCells;
+
+	/// <summary>
+	/// Indicates the guardian cells.
+	/// </summary>
+	public CellMap Guardians { get; } = guardians;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

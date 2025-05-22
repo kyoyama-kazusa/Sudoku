@@ -6,16 +6,16 @@ namespace Sudoku.Analytics.Steps.Intersections;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit">Indicates the digit used.</param>
-/// <param name="baseSet">Indicates the house that the current locked candidates forms.</param>
-/// <param name="coverSet">Indicates the house that the current locked candidates effects.</param>
-public sealed partial class LockedCandidatesStep(
+/// <param name="digit"><inheritdoc cref="Digit" path="/summary"/></param>
+/// <param name="baseSet"><inheritdoc cref="BaseSet" path="/summary"/></param>
+/// <param name="coverSet"><inheritdoc cref="CoverSet" path="/summary"/></param>
+public sealed class LockedCandidatesStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] Digit digit,
-	[Property] House baseSet,
-	[Property] House coverSet
+	Digit digit,
+	House baseSet,
+	House coverSet
 ) : IntersectionStep(conclusions, views, options)
 {
 	/// <inheritdoc/>
@@ -26,6 +26,21 @@ public sealed partial class LockedCandidatesStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(1 << Digit);
+
+	/// <summary>
+	/// Indicates the digit used.
+	/// </summary>
+	public Digit Digit { get; } = digit;
+
+	/// <summary>
+	/// Indicates the house that the current locked candidates forms.
+	/// </summary>
+	public House BaseSet { get; } = baseSet;
+
+	/// <summary>
+	/// Indicates the house that the current locked candidates effects.
+	/// </summary>
+	public House CoverSet { get; } = coverSet;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

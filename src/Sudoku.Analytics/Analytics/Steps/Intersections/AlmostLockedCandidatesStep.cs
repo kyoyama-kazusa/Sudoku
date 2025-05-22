@@ -6,20 +6,25 @@ namespace Sudoku.Analytics.Steps.Intersections;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digitsMask">Indicates the mask that contains the digits used.</param>
-/// <param name="baseCells">Indicates the cells in base set.</param>
-/// <param name="coverCells">Indicates the cells in cover set.</param>
-/// <param name="hasValueCell">Indicates whether the step contains value cells.</param>
-public sealed partial class AlmostLockedCandidatesStep(
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+/// <param name="baseCells"><inheritdoc cref="BaseCells" path="/summary"/></param>
+/// <param name="coverCells"><inheritdoc cref="CoverCells" path="/summary"/></param>
+/// <param name="hasValueCell"><inheritdoc cref="HasValueCell" path="/summary"/></param>
+public sealed class AlmostLockedCandidatesStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] Mask digitsMask,
-	[Property] in CellMap baseCells,
-	[Property] in CellMap coverCells,
-	[Property] bool hasValueCell
+	Mask digitsMask,
+	in CellMap baseCells,
+	in CellMap coverCells,
+	bool hasValueCell
 ) : IntersectionStep(conclusions, views, options), ISizeTrait
 {
+	/// <summary>
+	/// Indicates whether the step contains value cells.
+	/// </summary>
+	public bool HasValueCell { get; } = hasValueCell;
+
 	/// <inheritdoc/>
 	public override int BaseDifficulty => 45;
 
@@ -39,6 +44,21 @@ public sealed partial class AlmostLockedCandidatesStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
+
+	/// <summary>
+	/// Indicates the mask that contains the digits used.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
+
+	/// <summary>
+	/// Indicates the cells in base set.
+	/// </summary>
+	public CellMap BaseCells { get; } = baseCells;
+
+	/// <summary>
+	/// Indicates the cells in cover set.
+	/// </summary>
+	public CellMap CoverCells { get; } = coverCells;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

@@ -6,37 +6,40 @@ namespace Sudoku.Analytics.Steps.Fishes;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit"><inheritdoc/></param>
-/// <param name="baseSetsMask"><inheritdoc/></param>
-/// <param name="coverSetsMask"><inheritdoc/></param>
-/// <param name="exofins">
-/// Indicates the fins, positioned outside the fish.
-/// They will be defined if cover sets cannot be fully covered, with the number of cover sets being equal to the number of base sets.
-/// </param>
-/// <param name="endofins">
-/// Indicates the fins, positioned inside the fish. Generally speaking, they will be defined if they are in multiple base sets.
-/// </param>
-/// <param name="isFranken">
-/// Indicates whether the fish is a Franken fish. If <see langword="true"/>, a Franken fish; otherwise, a Mutant fish.
-/// </param>
-/// <param name="isSashimi"><inheritdoc/></param>
-/// <param name="isCannibalism">Indicates whether the fish contains any cannibalism.</param>
-/// <param name="isSiamese"><inheritdoc/></param>
-public sealed partial class ComplexFishStep(
+/// <param name="digit"><inheritdoc cref="FishStep.Digit" path="/summary"/></param>
+/// <param name="baseSetsMask"><inheritdoc cref="FishStep.BaseSetsMask" path="/summary"/></param>
+/// <param name="coverSetsMask"><inheritdoc cref="FishStep.CoverSetsMask" path="/summary"/></param>
+/// <param name="exofins"><inheritdoc cref="Exofins" path="/summary"/></param>
+/// <param name="endofins"><inheritdoc cref="Endofins" path="/summary"/></param>
+/// <param name="isFranken"><inheritdoc cref="IsFranken" path="/summary"/></param>
+/// <param name="isSashimi"><inheritdoc cref="FishStep.IsSashimi" path="/summary"/></param>
+/// <param name="isCannibalism"><inheritdoc cref="IsCannibalism" path="/summary"/></param>
+/// <param name="isSiamese"><inheritdoc cref="FishStep.IsSiamese" path="/summary"/></param>
+public sealed class ComplexFishStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit,
 	HouseMask baseSetsMask,
 	HouseMask coverSetsMask,
-	[Property] in CellMap exofins,
-	[Property] in CellMap endofins,
-	[Property] bool isFranken,
+	in CellMap exofins,
+	in CellMap endofins,
+	bool isFranken,
 	bool? isSashimi,
-	[Property] bool isCannibalism,
+	bool isCannibalism,
 	bool isSiamese = false
 ) : FishStep(conclusions, views, options, digit, baseSetsMask, coverSetsMask, exofins | endofins, isSashimi, isSiamese)
 {
+	/// <summary>
+	/// Indicates whether the fish is a Franken fish. If <see langword="true"/>, a Franken fish; otherwise, a Mutant fish.
+	/// </summary>
+	public bool IsFranken { get; } = isFranken;
+
+	/// <summary>
+	/// Indicates whether the fish contains any cannibalism.
+	/// </summary>
+	public bool IsCannibalism { get; } = isCannibalism;
+
 	/// <inheritdoc/>
 	public override int BaseDifficulty => 32;
 
@@ -82,6 +85,18 @@ public sealed partial class ComplexFishStep(
 				static args => (bool)args![0]! ? 3 : 0
 			)
 		];
+
+	/// <summary>
+	/// Indicates the fins, positioned outside the fish.
+	/// They will be defined if cover sets cannot be fully covered,
+	/// with the number of cover sets being equal to the number of base sets.
+	/// </summary>
+	public CellMap Exofins { get; } = exofins;
+
+	/// <summary>
+	/// Indicates the fins, positioned inside the fish. Generally speaking, they will be defined if they are in multiple base sets.
+	/// </summary>
+	public CellMap Endofins { get; } = endofins;
 
 
 	/// <inheritdoc/>

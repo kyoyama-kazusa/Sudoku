@@ -6,20 +6,20 @@ namespace Sudoku.Analytics.Steps.Intersections;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="set1House">Indicates the house of <see cref="Set1"/>.</param>
-/// <param name="set2House">Indicates the house of <see cref="Set2"/>.</param>
-/// <param name="set1">Indicates the first set to be used.</param>
-/// <param name="set2">Indicates the second set to be used.</param>
-/// <param name="digitsMask">Indicates all 6 digits used.</param>
-public sealed partial class LawOfLeftoverStep(
+/// <param name="set1House"><inheritdoc cref="Set1House" path="/summary"/></param>
+/// <param name="set2House"><inheritdoc cref="Set2House" path="/summary"/></param>
+/// <param name="set1"><inheritdoc cref="Set1" path="/summary"/></param>
+/// <param name="set2"><inheritdoc cref="Set2" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+public sealed class LawOfLeftoverStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] House set1House,
-	[Property] House set2House,
-	[Property] in CellMap set1,
-	[Property] in CellMap set2,
-	[Property] Mask digitsMask
+	House set1House,
+	House set2House,
+	in CellMap set1,
+	in CellMap set2,
+	Mask digitsMask
 ) : IntersectionStep(conclusions, views, options)
 {
 	/// <inheritdoc/>
@@ -30,6 +30,31 @@ public sealed partial class LawOfLeftoverStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
+
+	/// <summary>
+	/// Indicates the house of <see cref="Set1"/>.
+	/// </summary>
+	public House Set1House { get; } = set1House;
+
+	/// <summary>
+	/// Indicates the house of <see cref="Set2"/>.
+	/// </summary>
+	public House Set2House { get; } = set2House;
+
+	/// <summary>
+	/// Indicates the first set to be used.
+	/// </summary>
+	public CellMap Set1 { get; } = set1;
+
+	/// <summary>
+	/// Indicates the second set to be used.
+	/// </summary>
+	public CellMap Set2 { get; } = set2;
+
+	/// <summary>
+	/// Indicates all 6 digits used.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations
