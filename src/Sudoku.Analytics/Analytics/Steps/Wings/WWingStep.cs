@@ -6,18 +6,18 @@ namespace Sudoku.Analytics.Steps.Wings;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="startCell">Indicates the start cell.</param>
-/// <param name="endCell">Indicates the end cell.</param>
-/// <param name="bridge">Indicates the bridge cells connecting with cells <see cref="StartCell"/> and <see cref="EndCell"/>.</param>
-/// <param name="digitsMask">Indicates the digits used.</param>
-public sealed partial class WWingStep(
+/// <param name="startCell"><inheritdoc cref="StartCell" path="/summary"/></param>
+/// <param name="endCell"><inheritdoc cref="EndCell" path="/summary"/></param>
+/// <param name="bridge"><inheritdoc cref="Bridge" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+public sealed class WWingStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] Cell startCell,
-	[Property] Cell endCell,
-	[Property] in CellMap bridge,
-	[Property] Mask digitsMask
+	Cell startCell,
+	Cell endCell,
+	in CellMap bridge,
+	Mask digitsMask
 ) : IrregularWingStep(conclusions, views, options)
 {
 	/// <inheritdoc/>
@@ -34,6 +34,26 @@ public sealed partial class WWingStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
+
+	/// <summary>
+	/// Indicates the start cell.
+	/// </summary>
+	public Cell StartCell { get; } = startCell;
+
+	/// <summary>
+	/// Indicates the end cell.
+	/// </summary>
+	public Cell EndCell { get; } = endCell;
+
+	/// <summary>
+	/// Indicates the bridge cells connecting with cells <see cref="StartCell"/> and <see cref="EndCell"/>.
+	/// </summary>
+	public CellMap Bridge { get; } = bridge;
+
+	/// <summary>
+	/// Indicates the digits used.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

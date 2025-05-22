@@ -6,17 +6,8 @@ namespace Sudoku.Analytics.Steps.SymmetricalPlacements;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="symmetricType">
-/// Indicates the symmetric type used. The supported value can only be:
-/// <list type="bullet">
-/// <item><see cref="SymmetricType.Central"/></item>
-/// <item><see cref="SymmetricType.Diagonal"/></item>
-/// <item><see cref="SymmetricType.AntiDiagonal"/></item>
-/// <item><see cref="SymmetricType.XAxis"/></item>
-/// <item><see cref="SymmetricType.YAxis"/></item>
-/// </list>
-/// </param>
-/// <param name="mapping"><inheritdoc/></param>
+/// <param name="symmetricType"><inheritdoc cref="GurthSymmetricalPlacementStep.SymmetricType" path="/summary"/></param>
+/// <param name="mapping"><inheritdoc cref="GurthSymmetricalPlacementStep.Mapping" path="/summary"/></param>
 public sealed class AntiGurthSymmetricalPlacementStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,

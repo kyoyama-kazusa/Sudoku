@@ -6,18 +6,18 @@ namespace Sudoku.Analytics.Steps.Wings;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="pivot">Indicates the cell that blossomed its petals.</param>
-/// <param name="pivotCandidatesCount">Indicates the number of digits in the pivot cell.</param>
-/// <param name="digitsMask">Indicates a mask that contains all digits used.</param>
-/// <param name="petals">Indicates the petals used.</param>
-public sealed partial class RegularWingStep(
+/// <param name="pivot"><inheritdoc cref="Pivot" path="/summary"/></param>
+/// <param name="pivotCandidatesCount"><inheritdoc cref="PivotCandidatesCount" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+/// <param name="petals"><inheritdoc cref="Petals" path="/summary"/></param>
+public sealed class RegularWingStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] Cell pivot,
-	[Property] int pivotCandidatesCount,
-	[Property] Mask digitsMask,
-	[Property] in CellMap petals
+	Cell pivot,
+	int pivotCandidatesCount,
+	Mask digitsMask,
+	in CellMap petals
 ) : WingStep(conclusions, views, options), ISizeTrait
 {
 	/// <summary>
@@ -70,6 +70,26 @@ public sealed partial class RegularWingStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
+
+	/// <summary>
+	/// Indicates the cell that blossomed its petals.
+	/// </summary>
+	public Cell Pivot { get; } = pivot;
+
+	/// <summary>
+	/// Indicates the number of digits in the pivot cell.
+	/// </summary>
+	public int PivotCandidatesCount { get; } = pivotCandidatesCount;
+
+	/// <summary>
+	/// Indicates a mask that contains all digits used.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
+
+	/// <summary>
+	/// Indicates the petals used.
+	/// </summary>
+	public CellMap Petals { get; } = petals;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

@@ -17332,19 +17332,7 @@
             <param name="house"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.House" path="/summary"/></param>
             <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.Cells" path="/summary"/></param>
             <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.DigitsMask" path="/summary"/></param>
-            <param name="isLocked">
-            Indicates which locked type this subset is. The cases are as belows:
-            <list type="table">
-            <item>
-            <term><see langword="true"/></term>
-            <description>The subset is a locked hidden subset.</description>
-            </item>
-            <item>
-            <term><see langword="false"/></term>
-            <description>The subset is a normal hidden subset without any extra locked candidates.</description>
-            </item>
-            </list>
-            </param>
+            <param name="isLocked"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.HiddenSubsetStep.IsLocked" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Subsets.HiddenSubsetStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,Sudoku.Concepts.CellMap@,System.Int16,System.Boolean)">
             <summary>
@@ -17356,7 +17344,10 @@
             <param name="house"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.House" path="/summary"/></param>
             <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.Cells" path="/summary"/></param>
             <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.DigitsMask" path="/summary"/></param>
-            <param name="isLocked">
+            <param name="isLocked"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.HiddenSubsetStep.IsLocked" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Subsets.HiddenSubsetStep.IsLocked">
+            <summary>
             Indicates which locked type this subset is. The cases are as belows:
             <list type="table">
             <item>
@@ -17368,7 +17359,7 @@
             <description>The subset is a normal hidden subset without any extra locked candidates.</description>
             </item>
             </list>
-            </param>
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Subsets.HiddenSubsetStep.BaseDifficulty">
             <inheritdoc/>
@@ -17382,11 +17373,6 @@
         <member name="P:Sudoku.Analytics.Steps.Subsets.HiddenSubsetStep.Factors">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.Subsets.HiddenSubsetStep.IsLocked">
-            <summary>
-            The generated property declaration for parameter <c>isLocked</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.Subsets.NakedSubsetStep">
             <summary>
             Represents a data structure that describes for a technique of <b>Naked Subset</b>.
@@ -17397,23 +17383,7 @@
             <param name="house"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.House" path="/summary"/></param>
             <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.Cells" path="/summary"/></param>
             <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.DigitsMask" path="/summary"/></param>
-            <param name="isLocked">
-            Indicates which locked type this subset is. The cases are as follows:
-            <list type="table">
-            <item>
-            <term><see langword="true" /></term>
-            <description>The subset is a locked subset.</description>
-            </item>
-            <item>
-            <term><see langword="false" /></term>
-            <description>The subset is a naked subset with at least one extra locked candidate.</description>
-            </item>
-            <item>
-            <term><see langword="null" /></term>
-            <description>The subset is a normal naked subset without any extra locked candidates.</description>
-            </item>
-            </list>
-            </param>
+            <param name="isLocked"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.NakedSubsetStep.IsLocked" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Subsets.NakedSubsetStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,Sudoku.Concepts.CellMap@,System.Int16,System.Nullable{System.Boolean})">
             <summary>
@@ -17425,7 +17395,10 @@
             <param name="house"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.House" path="/summary"/></param>
             <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.Cells" path="/summary"/></param>
             <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.DigitsMask" path="/summary"/></param>
-            <param name="isLocked">
+            <param name="isLocked"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.NakedSubsetStep.IsLocked" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Subsets.NakedSubsetStep.IsLocked">
+            <summary>
             Indicates which locked type this subset is. The cases are as follows:
             <list type="table">
             <item>
@@ -17441,7 +17414,7 @@
             <description>The subset is a normal naked subset without any extra locked candidates.</description>
             </item>
             </list>
-            </param>
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Subsets.NakedSubsetStep.Code">
             <inheritdoc/>
@@ -17452,11 +17425,6 @@
         <member name="P:Sudoku.Analytics.Steps.Subsets.NakedSubsetStep.Factors">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.Subsets.NakedSubsetStep.IsLocked">
-            <summary>
-            The generated property declaration for parameter <c>isLocked</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.Subsets.SubsetStep">
             <summary>
             Represents a data structure that describes for a technique of <b>Subset</b>.
@@ -17464,9 +17432,9 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="house">Indiscates the house that pattern cells lying.</param>
-            <param name="cells">Indicates the cells used.</param>
-            <param name="digitsMask">Indicates the mask that contains all digits used.</param>
+            <param name="house"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.House" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Subsets.SubsetStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,Sudoku.Concepts.CellMap@,System.Int16)">
             <summary>
@@ -17475,9 +17443,9 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="house">Indiscates the house that pattern cells lying.</param>
-            <param name="cells">Indicates the cells used.</param>
-            <param name="digitsMask">Indicates the mask that contains all digits used.</param>
+            <param name="house"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.House" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.BaseDifficulty">
             <inheritdoc/>
@@ -17490,17 +17458,17 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.House">
             <summary>
-            The generated property declaration for parameter <c>house</c>.
+            Indiscates the house that pattern cells lying.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.Cells">
             <summary>
-            The generated property declaration for parameter <c>cells</c>.
+            Indicates the cells used.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Subsets.SubsetStep.DigitsMask">
             <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
+            Indicates the mask that contains all digits used.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.SymmetricalPlacements.AntiGurthSymmetricalPlacementStep">
@@ -17510,17 +17478,8 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="symmetricType">
-            Indicates the symmetric type used. The supported value can only be:
-            <list type="bullet">
-            <item><see cref="F:Sudoku.SymmetricType.Central"/></item>
-            <item><see cref="F:Sudoku.SymmetricType.Diagonal"/></item>
-            <item><see cref="F:Sudoku.SymmetricType.AntiDiagonal"/></item>
-            <item><see cref="F:Sudoku.SymmetricType.XAxis"/></item>
-            <item><see cref="F:Sudoku.SymmetricType.YAxis"/></item>
-            </list>
-            </param>
-            <param name="mapping"><inheritdoc/></param>
+            <param name="symmetricType"><inheritdoc cref="P:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.SymmetricType" path="/summary"/></param>
+            <param name="mapping"><inheritdoc cref="P:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.Mapping" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.SymmetricalPlacements.AntiGurthSymmetricalPlacementStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.SymmetricType,System.Nullable{System.Int32}[])">
             <summary>
@@ -17529,17 +17488,8 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="symmetricType">
-            Indicates the symmetric type used. The supported value can only be:
-            <list type="bullet">
-            <item><see cref="F:Sudoku.SymmetricType.Central"/></item>
-            <item><see cref="F:Sudoku.SymmetricType.Diagonal"/></item>
-            <item><see cref="F:Sudoku.SymmetricType.AntiDiagonal"/></item>
-            <item><see cref="F:Sudoku.SymmetricType.XAxis"/></item>
-            <item><see cref="F:Sudoku.SymmetricType.YAxis"/></item>
-            </list>
-            </param>
-            <param name="mapping"><inheritdoc/></param>
+            <param name="symmetricType"><inheritdoc cref="P:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.SymmetricType" path="/summary"/></param>
+            <param name="mapping"><inheritdoc cref="P:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.Mapping" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.SymmetricalPlacements.AntiGurthSymmetricalPlacementStep.BaseDifficulty">
             <inheritdoc/>
@@ -17557,17 +17507,8 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="symmetricType">
-            Indicates the symmetric type used. The supported value can only be:
-            <list type="bullet">
-            <item><see cref="F:Sudoku.SymmetricType.Central"/></item>
-            <item><see cref="F:Sudoku.SymmetricType.Diagonal"/></item>
-            <item><see cref="F:Sudoku.SymmetricType.AntiDiagonal"/></item>
-            </list>
-            </param>
-            <param name="mapping">
-            Indicates the mapping relations; in other words, this table shows what digits has symmetrical placement relation to what digits.
-            </param>
+            <param name="symmetricType"><inheritdoc cref="P:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.SymmetricType" path="/summary"/></param>
+            <param name="mapping"><inheritdoc cref="P:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.Mapping" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.SymmetricType,System.Nullable{System.Int32}[])">
             <summary>
@@ -17576,17 +17517,8 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="symmetricType">
-            Indicates the symmetric type used. The supported value can only be:
-            <list type="bullet">
-            <item><see cref="F:Sudoku.SymmetricType.Central"/></item>
-            <item><see cref="F:Sudoku.SymmetricType.Diagonal"/></item>
-            <item><see cref="F:Sudoku.SymmetricType.AntiDiagonal"/></item>
-            </list>
-            </param>
-            <param name="mapping">
-            Indicates the mapping relations; in other words, this table shows what digits has symmetrical placement relation to what digits.
-            </param>
+            <param name="symmetricType"><inheritdoc cref="P:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.SymmetricType" path="/summary"/></param>
+            <param name="mapping"><inheritdoc cref="P:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.Mapping" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.BaseDifficulty">
             <inheritdoc/>
@@ -17594,21 +17526,27 @@
         <member name="P:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.Code">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.SymmetricType">
+            <summary>
+            Indicates the symmetric type used. The supported value can only be:
+            <list type="bullet">
+            <item><see cref="F:Sudoku.SymmetricType.Central"/></item>
+            <item><see cref="F:Sudoku.SymmetricType.Diagonal"/></item>
+            <item><see cref="F:Sudoku.SymmetricType.AntiDiagonal"/></item>
+            </list>
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.DigitsUsed">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.Interpolations">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.SymmetricType">
-            <summary>
-            The generated property declaration for parameter <c>symmetricType</c>.
-            </summary>
-        </member>
         <member name="P:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.Mapping">
             <summary>
-            The generated property declaration for parameter <c>mapping</c>.
+            Indicates the mapping relations;
+            in other words, this table shows what digits has symmetrical placement relation to what digits.
             </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.SymmetricalPlacements.GurthSymmetricalPlacementStep.Interpolations">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.SymmetricalPlacements.SymmetryStep">
             <summary>
@@ -21389,10 +21327,10 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="leaves">The leaves of the pattern.</param>
-            <param name="root">The root cells that corresponds to each leaf.</param>
-            <param name="house">Indicates the house that all cells in <see cref="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.Root"/> lie in.</param>
-            <param name="digitsMask">Indicates the digits used.</param>
+            <param name="leaves"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.Leaves" path="/summary"/></param>
+            <param name="root"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.Root" path="/summary"/></param>
+            <param name="house"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.House" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int32,System.Int16)">
             <summary>
@@ -21401,10 +21339,10 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="leaves">The leaves of the pattern.</param>
-            <param name="root">The root cells that corresponds to each leaf.</param>
-            <param name="house">Indicates the house that all cells in <see cref="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.Root"/> lie in.</param>
-            <param name="digitsMask">Indicates the digits used.</param>
+            <param name="leaves"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.Leaves" path="/summary"/></param>
+            <param name="root"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.Root" path="/summary"/></param>
+            <param name="house"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.House" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.IsGrouped">
             <inheritdoc/>
@@ -21424,31 +21362,31 @@
         <member name="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.DigitsUsed">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.Leaves">
+            <summary>
+            The leaves of the pattern.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.Root">
+            <summary>
+            The root cells that corresponds to each leaf.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.House">
+            <summary>
+            Indicates the house that all cells in <see cref="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.Root"/> lie in.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.DigitsMask">
+            <summary>
+            Indicates the digits used.
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.Interpolations">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.Factors">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.Leaves">
-            <summary>
-            The generated property declaration for parameter <c>leaves</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.Root">
-            <summary>
-            The generated property declaration for parameter <c>root</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.House">
-            <summary>
-            The generated property declaration for parameter <c>house</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.MultiBranchWWingStep.DigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
-            </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Wings.MWingStep">
             <summary>
@@ -21457,11 +21395,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="node1">Indicates the node 1.</param>
-            <param name="node2">Indicates the node 2.</param>
-            <param name="strongXyCell">Indicates the strong XY cell.</param>
-            <param name="weakXyCell">Indicates the weak XY cell.</param>
-            <param name="digitsMask">Indicates the digits used.</param>
+            <param name="node1"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MWingStep.Node1" path="/summary"/></param>
+            <param name="node2"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MWingStep.Node2" path="/summary"/></param>
+            <param name="strongXyCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MWingStep.StrongXyCell" path="/summary"/></param>
+            <param name="weakXyCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MWingStep.WeakXyCell" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MWingStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Wings.MWingStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int32,System.Int32,System.Int16)">
             <summary>
@@ -21470,11 +21408,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="node1">Indicates the node 1.</param>
-            <param name="node2">Indicates the node 2.</param>
-            <param name="strongXyCell">Indicates the strong XY cell.</param>
-            <param name="weakXyCell">Indicates the weak XY cell.</param>
-            <param name="digitsMask">Indicates the digits used.</param>
+            <param name="node1"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MWingStep.Node1" path="/summary"/></param>
+            <param name="node2"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MWingStep.Node2" path="/summary"/></param>
+            <param name="strongXyCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MWingStep.StrongXyCell" path="/summary"/></param>
+            <param name="weakXyCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MWingStep.WeakXyCell" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.MWingStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.MWingStep.IsSymmetricPattern">
             <inheritdoc/>
@@ -21485,42 +21423,42 @@
         <member name="P:Sudoku.Analytics.Steps.Wings.MWingStep.BaseDifficulty">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.MWingStep.Code">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.MWingStep.DigitsUsed">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.MWingStep.Interpolations">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.MWingStep.Code">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Analytics.Steps.Wings.MWingStep.Equals(Sudoku.Analytics.Step)">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.MWingStep.Node1">
             <summary>
-            The generated property declaration for parameter <c>node1</c>.
+            Indicates the node 1.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.MWingStep.Node2">
             <summary>
-            The generated property declaration for parameter <c>node2</c>.
+            Indicates the node 2.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.MWingStep.StrongXyCell">
             <summary>
-            The generated property declaration for parameter <c>strongXyCell</c>.
+            Indicates the strong XY cell.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.MWingStep.WeakXyCell">
             <summary>
-            The generated property declaration for parameter <c>weakXyCell</c>.
+            Indicates the weak XY cell.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.MWingStep.DigitsMask">
             <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
+            Indicates the digits used.
             </summary>
+        </member>
+        <member name="M:Sudoku.Analytics.Steps.Wings.MWingStep.Equals(Sudoku.Analytics.Step)">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Wings.RegularWingStep">
             <summary>
@@ -21529,10 +21467,10 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="pivot">Indicates the cell that blossomed its petals.</param>
-            <param name="pivotCandidatesCount">Indicates the number of digits in the pivot cell.</param>
-            <param name="digitsMask">Indicates a mask that contains all digits used.</param>
-            <param name="petals">Indicates the petals used.</param>
+            <param name="pivot"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.Pivot" path="/summary"/></param>
+            <param name="pivotCandidatesCount"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.PivotCandidatesCount" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.DigitsMask" path="/summary"/></param>
+            <param name="petals"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.Petals" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Wings.RegularWingStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,System.Int16,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -21541,10 +21479,10 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="pivot">Indicates the cell that blossomed its petals.</param>
-            <param name="pivotCandidatesCount">Indicates the number of digits in the pivot cell.</param>
-            <param name="digitsMask">Indicates a mask that contains all digits used.</param>
-            <param name="petals">Indicates the petals used.</param>
+            <param name="pivot"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.Pivot" path="/summary"/></param>
+            <param name="pivotCandidatesCount"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.PivotCandidatesCount" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.DigitsMask" path="/summary"/></param>
+            <param name="petals"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.Petals" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.IsIncomplete">
             <summary>
@@ -21596,31 +21534,31 @@
         <member name="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.DigitsUsed">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.Pivot">
+            <summary>
+            Indicates the cell that blossomed its petals.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.PivotCandidatesCount">
+            <summary>
+            Indicates the number of digits in the pivot cell.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.DigitsMask">
+            <summary>
+            Indicates a mask that contains all digits used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.Petals">
+            <summary>
+            Indicates the petals used.
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.Interpolations">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.Factors">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.Pivot">
-            <summary>
-            The generated property declaration for parameter <c>pivot</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.PivotCandidatesCount">
-            <summary>
-            The generated property declaration for parameter <c>pivotCandidatesCount</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.DigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.RegularWingStep.Petals">
-            <summary>
-            The generated property declaration for parameter <c>petals</c>.
-            </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Wings.WingStep">
             <summary>
@@ -21645,10 +21583,10 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="startCell">Indicates the start cell.</param>
-            <param name="endCell">Indicates the end cell.</param>
-            <param name="bridge">Indicates the bridge cells connecting with cells <see cref="P:Sudoku.Analytics.Steps.Wings.WWingStep.StartCell"/> and <see cref="P:Sudoku.Analytics.Steps.Wings.WWingStep.EndCell"/>.</param>
-            <param name="digitsMask">Indicates the digits used.</param>
+            <param name="startCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.WWingStep.StartCell" path="/summary"/></param>
+            <param name="endCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.WWingStep.EndCell" path="/summary"/></param>
+            <param name="bridge"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.WWingStep.Bridge" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.WWingStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Wings.WWingStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,System.Int16)">
             <summary>
@@ -21657,10 +21595,10 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="startCell">Indicates the start cell.</param>
-            <param name="endCell">Indicates the end cell.</param>
-            <param name="bridge">Indicates the bridge cells connecting with cells <see cref="P:Sudoku.Analytics.Steps.Wings.WWingStep.StartCell"/> and <see cref="P:Sudoku.Analytics.Steps.Wings.WWingStep.EndCell"/>.</param>
-            <param name="digitsMask">Indicates the digits used.</param>
+            <param name="startCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.WWingStep.StartCell" path="/summary"/></param>
+            <param name="endCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.WWingStep.EndCell" path="/summary"/></param>
+            <param name="bridge"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.WWingStep.Bridge" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.WWingStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.WWingStep.IsSymmetricPattern">
             <inheritdoc/>
@@ -21677,28 +21615,28 @@
         <member name="P:Sudoku.Analytics.Steps.Wings.WWingStep.DigitsUsed">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.WWingStep.Interpolations">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.WWingStep.StartCell">
             <summary>
-            The generated property declaration for parameter <c>startCell</c>.
+            Indicates the start cell.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.WWingStep.EndCell">
             <summary>
-            The generated property declaration for parameter <c>endCell</c>.
+            Indicates the end cell.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.WWingStep.Bridge">
             <summary>
-            The generated property declaration for parameter <c>bridge</c>.
+            Indicates the bridge cells connecting with cells <see cref="P:Sudoku.Analytics.Steps.Wings.WWingStep.StartCell"/> and <see cref="P:Sudoku.Analytics.Steps.Wings.WWingStep.EndCell"/>.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.WWingStep.DigitsMask">
             <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
+            Indicates the digits used.
             </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.WWingStep.Interpolations">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.Wings.XyzRingStep">
             <summary>
@@ -21707,15 +21645,15 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="intersectDigit">Indicates the digit Z for XYZ-Wing pattern.</param>
-            <param name="pivot">Indicates the pivot cell.</param>
-            <param name="leafCell1">Indicates the leaf cell 1.</param>
-            <param name="leafCell2">Indicates the leaf cell 2.</param>
-            <param name="xyzDigitsMask">Indicates the digits used.</param>
-            <param name="conjugateHousesMask">Indicates the conjugate houses used.</param>
-            <param name="isNice">Indicates whether the pattern is a nice loop.</param>
-            <param name="isGrouped">Indicates whether the conjugate pair is grouped one.</param>
-            <param name="isSiamese">Indicates whether the XYZ-loop is a Siamese one.</param>
+            <param name="intersectDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.IntersectDigit" path="/summary"/></param>
+            <param name="pivot"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.Pivot" path="/summary"/></param>
+            <param name="leafCell1"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.LeafCell1" path="/summary"/></param>
+            <param name="leafCell2"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.LeafCell2" path="/summary"/></param>
+            <param name="xyzDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.XyzDigitsMask" path="/summary"/></param>
+            <param name="conjugateHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.ConjugateHousesMask" path="/summary"/></param>
+            <param name="isNice"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.IsNice" path="/summary"/></param>
+            <param name="isGrouped"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.IsGrouped" path="/summary"/></param>
+            <param name="isSiamese"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.IsSiamese" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.Wings.XyzRingStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,System.Int32,System.Int32,System.Int16,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
@@ -21724,15 +21662,30 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="intersectDigit">Indicates the digit Z for XYZ-Wing pattern.</param>
-            <param name="pivot">Indicates the pivot cell.</param>
-            <param name="leafCell1">Indicates the leaf cell 1.</param>
-            <param name="leafCell2">Indicates the leaf cell 2.</param>
-            <param name="xyzDigitsMask">Indicates the digits used.</param>
-            <param name="conjugateHousesMask">Indicates the conjugate houses used.</param>
-            <param name="isNice">Indicates whether the pattern is a nice loop.</param>
-            <param name="isGrouped">Indicates whether the conjugate pair is grouped one.</param>
-            <param name="isSiamese">Indicates whether the XYZ-loop is a Siamese one.</param>
+            <param name="intersectDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.IntersectDigit" path="/summary"/></param>
+            <param name="pivot"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.Pivot" path="/summary"/></param>
+            <param name="leafCell1"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.LeafCell1" path="/summary"/></param>
+            <param name="leafCell2"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.LeafCell2" path="/summary"/></param>
+            <param name="xyzDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.XyzDigitsMask" path="/summary"/></param>
+            <param name="conjugateHousesMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.ConjugateHousesMask" path="/summary"/></param>
+            <param name="isNice"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.IsNice" path="/summary"/></param>
+            <param name="isGrouped"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.IsGrouped" path="/summary"/></param>
+            <param name="isSiamese"><inheritdoc cref="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.IsSiamese" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.IsNice">
+            <summary>
+            Indicates whether the pattern is a nice loop.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.IsGrouped">
+            <summary>
+            Indicates whether the conjugate pair is grouped one.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.IsSiamese">
+            <summary>
+            Indicates whether the XYZ-loop is a Siamese one.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.BaseDifficulty">
             <inheritdoc/>
@@ -21743,6 +21696,36 @@
         <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.DigitsUsed">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.IntersectDigit">
+            <summary>
+            Indicates the digit Z for XYZ-Wing pattern.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.Pivot">
+            <summary>
+            Indicates the pivot cell.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.LeafCell1">
+            <summary>
+            Indicates the leaf cell 1.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.LeafCell2">
+            <summary>
+            Indicates the leaf cell 2.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.XyzDigitsMask">
+            <summary>
+            Indicates the digits used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.ConjugateHousesMask">
+            <summary>
+            Indicates the conjugate houses used.
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.Pattern">
             <summary>
             Indicates the pattern.
@@ -21750,51 +21733,6 @@
         </member>
         <member name="M:Sudoku.Analytics.Steps.Wings.XyzRingStep.Equals(Sudoku.Analytics.Step)">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.IntersectDigit">
-            <summary>
-            The generated property declaration for parameter <c>intersectDigit</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.Pivot">
-            <summary>
-            The generated property declaration for parameter <c>pivot</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.LeafCell1">
-            <summary>
-            The generated property declaration for parameter <c>leafCell1</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.LeafCell2">
-            <summary>
-            The generated property declaration for parameter <c>leafCell2</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.XyzDigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>xyzDigitsMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.ConjugateHousesMask">
-            <summary>
-            The generated property declaration for parameter <c>conjugateHousesMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.IsNice">
-            <summary>
-            The generated property declaration for parameter <c>isNice</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.IsGrouped">
-            <summary>
-            The generated property declaration for parameter <c>isGrouped</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.Wings.XyzRingStep.IsSiamese">
-            <summary>
-            The generated property declaration for parameter <c>isSiamese</c>.
-            </summary>
         </member>
         <member name="T:Sudoku.Analytics.Traits.IBranchTrait">
             <summary>

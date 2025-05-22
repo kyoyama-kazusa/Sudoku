@@ -6,23 +6,14 @@ namespace Sudoku.Analytics.Steps.SymmetricalPlacements;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="symmetricType">
-/// Indicates the symmetric type used. The supported value can only be:
-/// <list type="bullet">
-/// <item><see cref="SymmetricType.Central"/></item>
-/// <item><see cref="SymmetricType.Diagonal"/></item>
-/// <item><see cref="SymmetricType.AntiDiagonal"/></item>
-/// </list>
-/// </param>
-/// <param name="mapping">
-/// Indicates the mapping relations; in other words, this table shows what digits has symmetrical placement relation to what digits.
-/// </param>
-public partial class GurthSymmetricalPlacementStep(
+/// <param name="symmetricType"><inheritdoc cref="SymmetricType" path="/summary"/></param>
+/// <param name="mapping"><inheritdoc cref="Mapping" path="/summary"/></param>
+public class GurthSymmetricalPlacementStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] SymmetricType symmetricType,
-	[Property] Digit?[]? mapping
+	SymmetricType symmetricType,
+	Digit?[]? mapping
 ) : SymmetryStep(conclusions, views, options)
 {
 	/// <inheritdoc/>
@@ -37,8 +28,24 @@ public partial class GurthSymmetricalPlacementStep(
 	/// <inheritdoc/>
 	public override Technique Code => Technique.GurthSymmetricalPlacement;
 
+	/// <summary>
+	/// Indicates the symmetric type used. The supported value can only be:
+	/// <list type="bullet">
+	/// <item><see cref="SymmetricType.Central"/></item>
+	/// <item><see cref="SymmetricType.Diagonal"/></item>
+	/// <item><see cref="SymmetricType.AntiDiagonal"/></item>
+	/// </list>
+	/// </summary>
+	public SymmetricType SymmetricType { get; } = symmetricType;
+
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => 0;
+
+	/// <summary>
+	/// Indicates the mapping relations;
+	/// in other words, this table shows what digits has symmetrical placement relation to what digits.
+	/// </summary>
+	public Digit?[]? Mapping { get; } = mapping;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

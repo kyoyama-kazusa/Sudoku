@@ -9,29 +9,32 @@ namespace Sudoku.Analytics.Steps.Subsets;
 /// <param name="house"><inheritdoc cref="SubsetStep.House" path="/summary"/></param>
 /// <param name="cells"><inheritdoc cref="SubsetStep.Cells" path="/summary"/></param>
 /// <param name="digitsMask"><inheritdoc cref="SubsetStep.DigitsMask" path="/summary"/></param>
-/// <param name="isLocked">
-/// Indicates which locked type this subset is. The cases are as belows:
-/// <list type="table">
-/// <item>
-/// <term><see langword="true"/></term>
-/// <description>The subset is a locked hidden subset.</description>
-/// </item>
-/// <item>
-/// <term><see langword="false"/></term>
-/// <description>The subset is a normal hidden subset without any extra locked candidates.</description>
-/// </item>
-/// </list>
-/// </param>
-public sealed partial class HiddenSubsetStep(
+/// <param name="isLocked"><inheritdoc cref="IsLocked" path="/summary"/></param>
+public sealed class HiddenSubsetStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	House house,
 	in CellMap cells,
 	Mask digitsMask,
-	[Property] bool isLocked
+	bool isLocked
 ) : SubsetStep(conclusions, views, options, house, cells, digitsMask)
 {
+	/// <summary>
+	/// Indicates which locked type this subset is. The cases are as belows:
+	/// <list type="table">
+	/// <item>
+	/// <term><see langword="true"/></term>
+	/// <description>The subset is a locked hidden subset.</description>
+	/// </item>
+	/// <item>
+	/// <term><see langword="false"/></term>
+	/// <description>The subset is a normal hidden subset without any extra locked candidates.</description>
+	/// </item>
+	/// </list>
+	/// </summary>
+	public bool IsLocked { get; } = isLocked;
+
 	/// <inheritdoc/>
 	public override int BaseDifficulty => base.BaseDifficulty + 4;
 

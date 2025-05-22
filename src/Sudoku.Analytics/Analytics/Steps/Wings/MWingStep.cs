@@ -6,20 +6,20 @@ namespace Sudoku.Analytics.Steps.Wings;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="node1">Indicates the node 1.</param>
-/// <param name="node2">Indicates the node 2.</param>
-/// <param name="strongXyCell">Indicates the strong XY cell.</param>
-/// <param name="weakXyCell">Indicates the weak XY cell.</param>
-/// <param name="digitsMask">Indicates the digits used.</param>
-public sealed partial class MWingStep(
+/// <param name="node1"><inheritdoc cref="Node1" path="/summary"/></param>
+/// <param name="node2"><inheritdoc cref="Node2" path="/summary"/></param>
+/// <param name="strongXyCell"><inheritdoc cref="StrongXyCell" path="/summary"/></param>
+/// <param name="weakXyCell"><inheritdoc cref="WeakXyCell" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+public sealed class MWingStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] in CellMap node1,
-	[Property] in CellMap node2,
-	[Property] Cell strongXyCell,
-	[Property] Cell weakXyCell,
-	[Property] Mask digitsMask
+	in CellMap node1,
+	in CellMap node2,
+	Cell strongXyCell,
+	Cell weakXyCell,
+	Mask digitsMask
 ) : IrregularWingStep(conclusions, views, options)
 {
 	/// <inheritdoc/>
@@ -32,6 +32,9 @@ public sealed partial class MWingStep(
 	public override int BaseDifficulty => 45;
 
 	/// <inheritdoc/>
+	public override Technique Code => IsGrouped ? Technique.GroupedMWing : Technique.MWing;
+
+	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
 
 	/// <inheritdoc/>
@@ -41,8 +44,30 @@ public sealed partial class MWingStep(
 			new(SR.ChineseLanguage, [Node1Str, Node2Str, Cell1Str, Cell2Str])
 		];
 
-	/// <inheritdoc/>
-	public override Technique Code => IsGrouped ? Technique.GroupedMWing : Technique.MWing;
+	/// <summary>
+	/// Indicates the node 1.
+	/// </summary>
+	public CellMap Node1 { get; } = node1;
+
+	/// <summary>
+	/// Indicates the node 2.
+	/// </summary>
+	public CellMap Node2 { get; } = node2;
+
+	/// <summary>
+	/// Indicates the strong XY cell.
+	/// </summary>
+	public Cell StrongXyCell { get; } = strongXyCell;
+
+	/// <summary>
+	/// Indicates the weak XY cell.
+	/// </summary>
+	public Cell WeakXyCell { get; } = weakXyCell;
+
+	/// <summary>
+	/// Indicates the digits used.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
 
 	private string Node1Str => Options.Converter.CellConverter(Node1);
 
