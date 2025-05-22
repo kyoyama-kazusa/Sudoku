@@ -6,12 +6,12 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="is2LinesWith2Cells"><inheritdoc/></param>
-/// <param name="houses"><inheritdoc/></param>
-/// <param name="corner1"><inheritdoc/></param>
-/// <param name="corner2"><inheritdoc/></param>
-/// <param name="conjugatePair">Indicates the conjugate pair used.</param>
-public sealed partial class QiuDeadlyPatternType4Step(
+/// <param name="is2LinesWith2Cells"><inheritdoc cref="QiuDeadlyPatternStep.Is2LinesWith2Cells" path="/summary"/></param>
+/// <param name="houses"><inheritdoc cref="QiuDeadlyPatternStep.Houses" path="/summary"/></param>
+/// <param name="corner1"><inheritdoc cref="QiuDeadlyPatternStep.Corner1" path="/summary"/></param>
+/// <param name="corner2"><inheritdoc cref="QiuDeadlyPatternStep.Corner2" path="/summary"/></param>
+/// <param name="conjugatePair"><inheritdoc cref="ConjugatePair" path="/summary"/></param>
+public sealed class QiuDeadlyPatternType4Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
@@ -19,7 +19,7 @@ public sealed partial class QiuDeadlyPatternType4Step(
 	HouseMask houses,
 	Cell? corner1,
 	Cell? corner2,
-	[Property] in Conjugate conjugatePair
+	in Conjugate conjugatePair
 ) : QiuDeadlyPatternStep(conclusions, views, options, is2LinesWith2Cells, houses, corner1, corner2)
 {
 	/// <inheritdoc/>
@@ -30,6 +30,11 @@ public sealed partial class QiuDeadlyPatternType4Step(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(1 << ConjugatePair.Digit);
+
+	/// <summary>
+	/// Indicates the conjugate pair used.
+	/// </summary>
+	public Conjugate ConjugatePair { get; } = conjugatePair;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

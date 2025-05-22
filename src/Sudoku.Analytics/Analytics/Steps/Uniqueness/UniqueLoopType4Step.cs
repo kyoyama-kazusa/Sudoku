@@ -6,19 +6,19 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="loop"><inheritdoc/></param>
-/// <param name="conjugatePair">Indicates the conjugate pair used.</param>
-/// <param name="loopPath"><inheritdoc/></param>
-public sealed partial class UniqueLoopType4Step(
+/// <param name="digit1"><inheritdoc cref="UniqueLoopStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueLoopStep.Digit2" path="/summary"/></param>
+/// <param name="loop"><inheritdoc cref="UniqueLoopStep.Loop" path="/summary"/></param>
+/// <param name="conjugatePair"><inheritdoc cref="ConjugatePair" path="/summary"/></param>
+/// <param name="loopPath"><inheritdoc cref="UniqueLoopStep.LoopPath" path="/summary"/></param>
+public sealed class UniqueLoopType4Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit1,
 	Digit digit2,
 	in CellMap loop,
-	[Property] in Conjugate conjugatePair,
+	in Conjugate conjugatePair,
 	Cell[] loopPath
 ) : UniqueLoopStep(conclusions, views, options, digit1, digit2, loop, loopPath)
 {
@@ -27,6 +27,11 @@ public sealed partial class UniqueLoopType4Step(
 
 	/// <inheritdoc/>
 	public override int BaseDifficulty => base.BaseDifficulty + 1;
+
+	/// <summary>
+	/// Indicates the conjugate pair used.
+	/// </summary>
+	public Conjugate ConjugatePair { get; } = conjugatePair;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

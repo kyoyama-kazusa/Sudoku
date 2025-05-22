@@ -6,18 +6,18 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="digitsMask"><inheritdoc/></param>
-/// <param name="subsetCells">Indicates the cells that the subset used.</param>
-/// <param name="subsetDigitsMask">Indicates the mask of subset digits used.</param>
-public sealed partial class BorescoperDeadlyPatternType3Step(
+/// <param name="cells"><inheritdoc cref="BorescoperDeadlyPatternStep.Cells" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="BorescoperDeadlyPatternStep.DigitsMask" path="/summary"/></param>
+/// <param name="subsetCells"><inheritdoc cref="SubsetCells" path="/summary"/></param>
+/// <param name="subsetDigitsMask"><inheritdoc cref="SubsetDigitsMask" path="/summary"/></param>
+public sealed class BorescoperDeadlyPatternType3Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	in CellMap cells,
 	Mask digitsMask,
-	[Property] in CellMap subsetCells,
-	[Property] Mask subsetDigitsMask
+	in CellMap subsetCells,
+	Mask subsetDigitsMask
 ) :
 	BorescoperDeadlyPatternStep(conclusions, views, options, cells, digitsMask),
 	IPatternType3StepTrait<BorescoperDeadlyPatternType3Step>
@@ -27,6 +27,16 @@ public sealed partial class BorescoperDeadlyPatternType3Step(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | SubsetDigitsMask);
+
+	/// <summary>
+	/// Indicates the cells that the subset used.
+	/// </summary>
+	public CellMap SubsetCells { get; } = subsetCells;
+
+	/// <summary>
+	/// Indicates the mask of subset digits used.
+	/// </summary>
+	public Mask SubsetDigitsMask { get; } = subsetDigitsMask;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

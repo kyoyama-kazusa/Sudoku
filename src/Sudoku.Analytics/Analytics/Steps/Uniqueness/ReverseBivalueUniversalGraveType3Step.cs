@@ -6,20 +6,20 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="subsetHouse">Indicates the subset house used.</param>
-/// <param name="subsetMask">Indicates the subset digits mask.</param>
-/// <param name="pattern"><inheritdoc/></param>
-/// <param name="emptyCells"><inheritdoc/></param>
-public sealed partial class ReverseBivalueUniversalGraveType3Step(
+/// <param name="digit1"><inheritdoc cref="ReverseBivalueUniversalGraveStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="ReverseBivalueUniversalGraveStep.Digit2" path="/summary"/></param>
+/// <param name="subsetHouse"><inheritdoc cref="SubsetHouse" path="/summary"/></param>
+/// <param name="subsetMask"><inheritdoc cref="SubsetMask" path="/summary"/></param>
+/// <param name="pattern"><inheritdoc cref="ReverseBivalueUniversalGraveStep.CompletePattern" path="/summary"/></param>
+/// <param name="emptyCells"><inheritdoc cref="ReverseBivalueUniversalGraveStep.EmptyCells" path="/summary"/></param>
+public sealed class ReverseBivalueUniversalGraveType3Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit1,
 	Digit digit2,
-	[Property] House subsetHouse,
-	[Property] Mask subsetMask,
+	House subsetHouse,
+	Mask subsetMask,
 	in CellMap pattern,
 	in CellMap emptyCells
 ) : ReverseBivalueUniversalGraveStep(conclusions, views, options, digit1, digit2, pattern, emptyCells)
@@ -29,6 +29,16 @@ public sealed partial class ReverseBivalueUniversalGraveType3Step(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | SubsetMask);
+
+	/// <summary>
+	/// Indicates the subset house used.
+	/// </summary>
+	public House SubsetHouse { get; } = subsetHouse;
+
+	/// <summary>
+	/// Indicates the subset digits mask.
+	/// </summary>
+	public Mask SubsetMask { get; } = subsetMask;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

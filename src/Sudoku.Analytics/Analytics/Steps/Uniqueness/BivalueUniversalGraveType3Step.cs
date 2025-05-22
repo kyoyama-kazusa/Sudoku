@@ -6,19 +6,21 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="trueCandidates">Indicates the true candidates used.</param>
-/// <param name="subsetDigitsMask">Indicates the mask of subset digits.</param>
-/// <param name="cells">Indicates the subset cells used.</param>
-/// <param name="isNaked">Indicates whether the subset is naked.</param>
-public sealed partial class BivalueUniversalGraveType3Step(
+/// <param name="trueCandidates"><inheritdoc cref="TrueCandidates" path="/summary"/></param>
+/// <param name="subsetDigitsMask"><inheritdoc cref="SubsetDigitsMask" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
+/// <param name="isNaked"><inheritdoc cref="IsNaked" path="/summary"/></param>
+public sealed class BivalueUniversalGraveType3Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] in CandidateMap trueCandidates,
-	[Property] Mask subsetDigitsMask,
-	[Property] in CellMap cells,
-	[Property] bool isNaked
-) : BivalueUniversalGraveStep(conclusions, views, options), IPatternType3StepTrait<BivalueUniversalGraveType3Step>
+	in CandidateMap trueCandidates,
+	Mask subsetDigitsMask,
+	in CellMap cells,
+	bool isNaked
+) :
+	BivalueUniversalGraveStep(conclusions, views, options),
+	IPatternType3StepTrait<BivalueUniversalGraveType3Step>
 {
 	/// <inheritdoc/>
 	public override int Type => 3;
@@ -28,6 +30,26 @@ public sealed partial class BivalueUniversalGraveType3Step(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(TrueCandidates.Digits | SubsetDigitsMask);
+
+	/// <summary>
+	/// Indicates the true candidates used.
+	/// </summary>
+	public CandidateMap TrueCandidates { get; } = trueCandidates;
+
+	/// <summary>
+	/// Indicates the mask of subset digits.
+	/// </summary>
+	public Mask SubsetDigitsMask { get; } = subsetDigitsMask;
+
+	/// <summary>
+	/// Indicates the subset cells used.
+	/// </summary>
+	public CellMap Cells { get; } = cells;
+
+	/// <summary>
+	/// Indicates whether the subset is naked.
+	/// </summary>
+	public bool IsNaked { get; } = isNaked;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

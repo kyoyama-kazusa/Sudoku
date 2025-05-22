@@ -6,14 +6,14 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit">Indicates the extra digit.</param>
-/// <param name="cells">Indicates the cells used.</param>
-public sealed partial class BivalueUniversalGraveType2Step(
+/// <param name="extraDigit"><inheritdoc cref="ExtraDigit" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
+public sealed class BivalueUniversalGraveType2Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property(NamingRule = "Extra>@")] Digit digit,
-	[Property] in CellMap cells
+	Digit extraDigit,
+	in CellMap cells
 ) : BivalueUniversalGraveStep(conclusions, views, options), ITrueCandidatesTrait, ICellListTrait
 {
 	/// <inheritdoc/>
@@ -24,6 +24,16 @@ public sealed partial class BivalueUniversalGraveType2Step(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(1 << ExtraDigit);
+
+	/// <summary>
+	/// Indicates the extra digit.
+	/// </summary>
+	public Digit ExtraDigit { get; } = extraDigit;
+
+	/// <summary>
+	/// Indicates the cells used.
+	/// </summary>
+	public CellMap Cells { get; } = cells;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

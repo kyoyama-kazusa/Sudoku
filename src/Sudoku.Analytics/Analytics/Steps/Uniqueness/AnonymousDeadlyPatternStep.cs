@@ -6,17 +6,19 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digitsMask">Indicates the digits used.</param>
-/// <param name="cells">Indicates cells used.</param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
 /// <param name="technique"><inheritdoc cref="Code" path="/summary"/></param>
-public abstract partial class AnonymousDeadlyPatternStep(
+public abstract class AnonymousDeadlyPatternStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] Mask digitsMask,
-	[Property] in CellMap cells,
+	Mask digitsMask,
+	in CellMap cells,
 	Technique technique
-) : ConditionalDeadlyPatternStep(conclusions, views, options), IDeadlyPatternTypeTrait
+) :
+	ConditionalDeadlyPatternStep(conclusions, views, options),
+	IDeadlyPatternTypeTrait
 {
 	/// <inheritdoc/>
 	public override int BaseDifficulty
@@ -33,6 +35,16 @@ public abstract partial class AnonymousDeadlyPatternStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
+
+	/// <summary>
+	/// Indicates the digits used.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
+
+	/// <summary>
+	/// Indicates cells used.
+	/// </summary>
+	public CellMap Cells { get; } = cells;
 
 	private protected string DigitsStr => Options.Converter.DigitConverter(DigitsMask);
 

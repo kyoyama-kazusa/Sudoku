@@ -6,18 +6,18 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="extraDigit">Indicates the extra digit used.</param>
-/// <param name="pattern"><inheritdoc/></param>
-/// <param name="emptyCells"><inheritdoc/></param>
-public sealed partial class ReverseBivalueUniversalGraveType2Step(
+/// <param name="digit1"><inheritdoc cref="ReverseBivalueUniversalGraveStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="ReverseBivalueUniversalGraveStep.Digit2" path="/summary"/></param>
+/// <param name="extraDigit"><inheritdoc cref="ExtraDigit" path="/summary"/></param>
+/// <param name="pattern"><inheritdoc cref="ReverseBivalueUniversalGraveStep.CompletePattern" path="/summary"/></param>
+/// <param name="emptyCells"><inheritdoc cref="ReverseBivalueUniversalGraveStep.EmptyCells" path="/summary"/></param>
+public sealed class ReverseBivalueUniversalGraveType2Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit1,
 	Digit digit2,
-	[Property] Digit extraDigit,
+	Digit extraDigit,
 	in CellMap pattern,
 	in CellMap emptyCells
 ) : ReverseBivalueUniversalGraveStep(conclusions, views, options, digit1, digit2, pattern, emptyCells)
@@ -30,6 +30,11 @@ public sealed partial class ReverseBivalueUniversalGraveType2Step(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | (Mask)(1 << ExtraDigit));
+
+	/// <summary>
+	/// Indicates the extra digit used.
+	/// </summary>
+	public Digit ExtraDigit { get; } = extraDigit;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

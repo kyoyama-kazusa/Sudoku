@@ -6,14 +6,14 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="cells">Indicates the cells used in this pattern.</param>
-/// <param name="digitsMask">Indicates the mask of digits used.</param>
-public abstract partial class ExtendedRectangleStep(
+/// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+public abstract class ExtendedRectangleStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] in CellMap cells,
-	[Property] Mask digitsMask
+	in CellMap cells,
+	Mask digitsMask
 ) : UnconditionalDeadlyPatternStep(conclusions, views, options), IDeadlyPatternTypeTrait, ICellListTrait
 {
 	/// <inheritdoc/>
@@ -30,6 +30,16 @@ public abstract partial class ExtendedRectangleStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
+
+	/// <summary>
+	/// Indicates the cells used in this pattern.
+	/// </summary>
+	public CellMap Cells { get; } = cells;
+
+	/// <summary>
+	/// Indicates the mask of digits used.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
 
 	/// <inheritdoc/>
 	public override FactorArray Factors

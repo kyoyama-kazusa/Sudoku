@@ -6,16 +6,16 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digitsMask">Indicates the mask of digits used.</param>
-/// <param name="cells">Indicates the cells used.</param>
-/// <param name="xzCell">Indicates the extra cell used. This cell is a bivalue cell that only contains digit X and Z.</param>
-public sealed partial class BivalueUniversalGraveXzStep(
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
+/// <param name="xzCell"><inheritdoc cref="XzCell" path="/summary"/></param>
+public sealed class BivalueUniversalGraveXzStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] Mask digitsMask,
-	[Property] in CellMap cells,
-	[Property] Cell xzCell
+	Mask digitsMask,
+	in CellMap cells,
+	Cell xzCell
 ) : BivalueUniversalGraveStep(conclusions, views, options)
 {
 	/// <inheritdoc/>
@@ -29,6 +29,21 @@ public sealed partial class BivalueUniversalGraveXzStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
+
+	/// <summary>
+	/// Indicates the extra cell used. This cell is a bivalue cell that only contains digit X and Z.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
+
+	/// <summary>
+	/// Indicates the cells used.
+	/// </summary>
+	public CellMap Cells { get; } = cells;
+
+	/// <summary>
+	/// The generated property declaration for parameter <c>xzCell</c>.
+	/// </summary>
+	public Cell XzCell { get; } = xzCell;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

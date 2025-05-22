@@ -6,18 +6,18 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="digitsMask"><inheritdoc/></param>
-/// <param name="conjugateHouse">Indicates the cells used as generalized conjugate.</param>
-/// <param name="extraDigitsMask">Indicates the mask of extra digits used.</param>
-public sealed partial class BorescoperDeadlyPatternType4Step(
+/// <param name="cells"><inheritdoc cref="BorescoperDeadlyPatternStep.Cells" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="BorescoperDeadlyPatternStep.DigitsMask" path="/summary"/></param>
+/// <param name="conjugateHouse"><inheritdoc cref="ConjugateHouse" path="/summary"/></param>
+/// <param name="extraDigitsMask"><inheritdoc cref="ExtraDigitsMask" path="/summary"/></param>
+public sealed class BorescoperDeadlyPatternType4Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	in CellMap cells,
 	Mask digitsMask,
-	[Property] in CellMap conjugateHouse,
-	[Property] Mask extraDigitsMask
+	in CellMap conjugateHouse,
+	Mask extraDigitsMask
 ) : BorescoperDeadlyPatternStep(conclusions, views, options, cells, digitsMask)
 {
 	/// <inheritdoc/>
@@ -25,6 +25,16 @@ public sealed partial class BorescoperDeadlyPatternType4Step(
 
 	/// <inheritdoc/>
 	public override int Type => 4;
+
+	/// <summary>
+	/// Indicates the cells used as generalized conjugate.
+	/// </summary>
+	public CellMap ConjugateHouse { get; } = conjugateHouse;
+
+	/// <summary>
+	/// Indicates the mask of extra digits used.
+	/// </summary>
+	public Mask ExtraDigitsMask { get; } = extraDigitsMask;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

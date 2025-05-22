@@ -6,16 +6,16 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digitsMask">Indicates the mask of digits used.</param>
-/// <param name="cells">Indicates the cells used.</param>
-/// <param name="conjugatePair">Indicates the conjugate pair used.</param>
-public sealed partial class BivalueUniversalGraveType4Step(
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
+/// <param name="conjugatePair"><inheritdoc cref="ConjugatePair" path="/summary"/></param>
+public sealed class BivalueUniversalGraveType4Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] Mask digitsMask,
-	[Property] in CellMap cells,
-	[Property] in Conjugate conjugatePair
+	Mask digitsMask,
+	in CellMap cells,
+	in Conjugate conjugatePair
 ) : BivalueUniversalGraveStep(conclusions, views, options)
 {
 	/// <inheritdoc/>
@@ -29,6 +29,21 @@ public sealed partial class BivalueUniversalGraveType4Step(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
+
+	/// <summary>
+	/// Indicates the mask of digits used.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
+
+	/// <summary>
+	/// Indicates the cells used.
+	/// </summary>
+	public CellMap Cells { get; } = cells;
+
+	/// <summary>
+	/// Indicates the conjugate pair used.
+	/// </summary>
+	public Conjugate ConjugatePair { get; } = conjugatePair;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

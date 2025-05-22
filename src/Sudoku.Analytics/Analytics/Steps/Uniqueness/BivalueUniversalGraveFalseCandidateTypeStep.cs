@@ -6,12 +6,12 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="falseCandidate">Indicates the false candidate that will cause a BUG deadly pattern if it is true.</param>
-public sealed partial class BivalueUniversalGraveFalseCandidateTypeStep(
+/// <param name="falseCandidate"><inheritdoc cref="FalseCandidate" path="/summary"/></param>
+public sealed class BivalueUniversalGraveFalseCandidateTypeStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] Candidate falseCandidate
+	Candidate falseCandidate
 ) : BivalueUniversalGraveStep(conclusions, views, options)
 {
 	/// <inheritdoc/>
@@ -25,6 +25,11 @@ public sealed partial class BivalueUniversalGraveFalseCandidateTypeStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(1 << FalseCandidate % 9);
+
+	/// <summary>
+	/// Indicates the false candidate that will cause a BUG deadly pattern if it is true.
+	/// </summary>
+	public Candidate FalseCandidate { get; } = falseCandidate;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

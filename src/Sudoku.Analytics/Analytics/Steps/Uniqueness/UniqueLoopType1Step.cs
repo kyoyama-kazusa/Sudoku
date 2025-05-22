@@ -6,10 +6,10 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="loop"><inheritdoc/></param>
-/// <param name="loopPath"><inheritdoc/></param>
+/// <param name="digit1"><inheritdoc cref="UniqueLoopStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueLoopStep.Digit2" path="/summary"/></param>
+/// <param name="loop"><inheritdoc cref="UniqueLoopStep.Loop" path="/summary"/></param>
+/// <param name="loopPath"><inheritdoc cref="UniqueLoopStep.LoopPath" path="/summary"/></param>
 public sealed class UniqueLoopType1Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,

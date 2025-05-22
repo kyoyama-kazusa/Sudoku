@@ -6,12 +6,12 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="trueCandidates">Indicates the true candidates.</param>
+/// <param name="trueCandidates"><inheritdoc cref="TrueCandidates" path="/summary"/></param>
 public sealed partial class BivalueUniversalGraveMultipleStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] in CandidateMap trueCandidates
+	in CandidateMap trueCandidates
 ) : BivalueUniversalGraveStep(conclusions, views, options), ITrueCandidatesTrait, ICandidateListTrait
 {
 	/// <inheritdoc/>
@@ -28,6 +28,11 @@ public sealed partial class BivalueUniversalGraveMultipleStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => TrueCandidates.Digits;
+
+	/// <summary>
+	/// Indicates the true candidates.
+	/// </summary>
+	public CandidateMap TrueCandidates { get; } = trueCandidates;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

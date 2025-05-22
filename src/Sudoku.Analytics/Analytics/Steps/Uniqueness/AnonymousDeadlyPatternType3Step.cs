@@ -6,19 +6,19 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="patternCandidates"><inheritdoc/></param>
-/// <param name="targetCells">Indicates the target cells.</param>
-/// <param name="subsetCells">Indicates the subset cells.</param>
-/// <param name="subsetDigitsMask">Indicates the extra digits used.</param>
-/// <param name="technique"><inheritdoc/></param>
-public sealed partial class AnonymousDeadlyPatternType3Step(
+/// <param name="patternCandidates"><inheritdoc cref="PatternCandidates" path="/summary"/></param>
+/// <param name="targetCells"><inheritdoc cref="TargetCells" path="/summary"/></param>
+/// <param name="subsetCells"><inheritdoc cref="SubsetCells" path="/summary"/></param>
+/// <param name="subsetDigitsMask"><inheritdoc cref="SubsetDigitsMask" path="/summary"/></param>
+/// <param name="technique"><inheritdoc cref="Step.Code" path="/summary"/></param>
+public sealed class AnonymousDeadlyPatternType3Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] in CandidateMap patternCandidates,
-	[Property] in CellMap targetCells,
-	[Property] in CellMap subsetCells,
-	[Property] Mask subsetDigitsMask,
+	in CandidateMap patternCandidates,
+	in CellMap targetCells,
+	in CellMap subsetCells,
+	Mask subsetDigitsMask,
 	Technique technique
 ) :
 	AnonymousDeadlyPatternStep(conclusions, views, options, patternCandidates.Digits, patternCandidates.Cells, technique),
@@ -29,6 +29,24 @@ public sealed partial class AnonymousDeadlyPatternType3Step(
 
 	/// <inheritdoc/>
 	public override int Type => 3;
+
+	/// <inheritdoc cref="AnonymousDeadlyPatternType1Step.PatternCandidates"/>
+	public CandidateMap PatternCandidates { get; } = patternCandidates;
+
+	/// <summary>
+	/// Indicates the target cells.
+	/// </summary>
+	public CellMap TargetCells { get; } = targetCells;
+
+	/// <summary>
+	/// Indicates the subset cells.
+	/// </summary>
+	public CellMap SubsetCells { get; } = subsetCells;
+
+	/// <summary>
+	/// Indicates the extra digits used.
+	/// </summary>
+	public Mask SubsetDigitsMask { get; } = subsetDigitsMask;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

@@ -6,29 +6,41 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="loop"><inheritdoc/></param>
-/// <param name="subsetCells">Indicates the cells that are subset cells.</param>
-/// <param name="subsetDigitsMask">Indicates the mask that contains the subset digits used in this instance.</param>
-/// <param name="loopPath"><inheritdoc/></param>
-public sealed partial class UniqueLoopType3Step(
+/// <param name="digit1"><inheritdoc cref="UniqueLoopStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueLoopStep.Digit2" path="/summary"/></param>
+/// <param name="loop"><inheritdoc cref="UniqueLoopStep.Loop" path="/summary"/></param>
+/// <param name="subsetCells"><inheritdoc cref="SubsetCells" path="/summary"/></param>
+/// <param name="subsetDigitsMask"><inheritdoc cref="SubsetDigitsMask" path="/summary"/></param>
+/// <param name="loopPath"><inheritdoc cref="UniqueLoopStep.LoopPath" path="/summary"/></param>
+public sealed class UniqueLoopType3Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit1,
 	Digit digit2,
 	in CellMap loop,
-	[Property] in CellMap subsetCells,
-	[Property] Mask subsetDigitsMask,
+	in CellMap subsetCells,
+	Mask subsetDigitsMask,
 	Cell[] loopPath
-) : UniqueLoopStep(conclusions, views, options, digit1, digit2, loop, loopPath), IPatternType3StepTrait<UniqueLoopType3Step>
+) :
+	UniqueLoopStep(conclusions, views, options, digit1, digit2, loop, loopPath),
+	IPatternType3StepTrait<UniqueLoopType3Step>
 {
 	/// <inheritdoc/>
 	public override int Type => 3;
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | SubsetDigitsMask);
+
+	/// <summary>
+	/// Indicates the cells that are subset cells.
+	/// </summary>
+	public CellMap SubsetCells { get; } = subsetCells;
+
+	/// <summary>
+	/// Indicates the mask that contains the subset digits used in this instance.
+	/// </summary>
+	public Mask SubsetDigitsMask { get; } = subsetDigitsMask;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

@@ -6,19 +6,22 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit1">Indicates the first digit used.</param>
-/// <param name="digit2">Indicates the second digit used.</param>
-/// <param name="pattern">Indicates the pattern, all possible cells included.</param>
-/// <param name="emptyCells">Indicates the empty cells used. This cells have already included in <paramref name="pattern"/>.</param>
-public abstract partial class ReverseBivalueUniversalGraveStep(
+/// <param name="digit1"><inheritdoc cref="Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="Digit2" path="/summary"/></param>
+/// <param name="pattern"><inheritdoc cref="CompletePattern" path="/summary"/></param>
+/// <param name="emptyCells"><inheritdoc cref="EmptyCells" path="/summary"/></param>
+public abstract class ReverseBivalueUniversalGraveStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] Digit digit1,
-	[Property] Digit digit2,
-	[Property(NamingRule = "Complete>@")] in CellMap pattern,
-	[Property] in CellMap emptyCells
-) : MiscellaneousDeadlyPatternStep(conclusions, views, options), IDeadlyPatternTypeTrait, ICellListTrait
+	Digit digit1,
+	Digit digit2,
+	in CellMap pattern,
+	in CellMap emptyCells
+) :
+	MiscellaneousDeadlyPatternStep(conclusions, views, options),
+	IDeadlyPatternTypeTrait,
+	ICellListTrait
 {
 	/// <inheritdoc/>
 	public override bool OnlyUseBivalueCells => false;
@@ -39,6 +42,26 @@ public abstract partial class ReverseBivalueUniversalGraveStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(1 << Digit1 | 1 << Digit2);
+
+	/// <summary>
+	/// Indicates the first digit used.
+	/// </summary>
+	public Digit Digit1 { get; } = digit1;
+
+	/// <summary>
+	/// Indicates the second digit used.
+	/// </summary>
+	public Digit Digit2 { get; } = digit2;
+
+	/// <summary>
+	/// Indicates the pattern, all possible cells included.
+	/// </summary>
+	public CellMap CompletePattern { get; } = pattern;
+
+	/// <summary>
+	/// Indicates the empty cells used. This cells have already included in <see cref="CompletePattern"/>.
+	/// </summary>
+	public CellMap EmptyCells { get; } = emptyCells;
 
 	/// <summary>
 	/// Indicates the last cells used that are not empty.

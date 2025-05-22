@@ -6,17 +6,17 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="patternCandidates"><inheritdoc/></param>
-/// <param name="targetCells">Indicates the target cells.</param>
-/// <param name="extraDigit">Indicates the extra digit.</param>
-/// <param name="technique"><inheritdoc/></param>
-public sealed partial class AnonymousDeadlyPatternType2Step(
+/// <param name="patternCandidates"><inheritdoc cref="PatternCandidates" path="/summary"/></param>
+/// <param name="targetCells"><inheritdoc cref="TargetCells" path="/summary"/></param>
+/// <param name="extraDigit"><inheritdoc cref="ExtraDigit" path="/summary"/></param>
+/// <param name="technique"><inheritdoc cref="Step.Code" path="/summary"/></param>
+public sealed class AnonymousDeadlyPatternType2Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] in CandidateMap patternCandidates,
-	[Property] in CellMap targetCells,
-	[Property] Digit extraDigit,
+	in CandidateMap patternCandidates,
+	in CellMap targetCells,
+	Digit extraDigit,
 	Technique technique
 ) : AnonymousDeadlyPatternStep(conclusions, views, options, patternCandidates.Digits, patternCandidates.Cells, technique)
 {
@@ -28,6 +28,19 @@ public sealed partial class AnonymousDeadlyPatternType2Step(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | (Mask)(1 << ExtraDigit));
+
+	/// <inheritdoc cref="AnonymousDeadlyPatternType1Step.PatternCandidates"/>
+	public CandidateMap PatternCandidates { get; } = patternCandidates;
+
+	/// <summary>
+	/// Indicates the target cells.
+	/// </summary>
+	public CellMap TargetCells { get; } = targetCells;
+
+	/// <summary>
+	/// Indicates the extra digit.
+	/// </summary>
+	public Digit ExtraDigit { get; } = extraDigit;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

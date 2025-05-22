@@ -6,23 +6,25 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="digitsMask"><inheritdoc/></param>
-/// <param name="subsetCells">Indicates the extra cells used that can form the subset.</param>
-/// <param name="subsetDigitsMask">Indicates the subset digits used.</param>
-/// <param name="house">Indicates the house that subset formed.</param>
-/// <param name="isCannibalism">Indicates whether the pattern is cannibalism.</param>
-public sealed partial class ExtendedRectangleType3Step(
+/// <param name="cells"><inheritdoc cref="ExtendedRectangleStep.Cells" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="ExtendedRectangleStep.DigitsMask" path="/summary"/></param>
+/// <param name="subsetCells"><inheritdoc cref="SubsetCells" path="/summary"/></param>
+/// <param name="subsetDigitsMask"><inheritdoc cref="SubsetDigitsMask" path="/summary"/></param>
+/// <param name="house"><inheritdoc cref="House" path="/summary"/></param>
+/// <param name="isCannibalism"><inheritdoc cref="IsCannibalism" path="/summary"/></param>
+public sealed class ExtendedRectangleType3Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	in CellMap cells,
 	Mask digitsMask,
-	[Property] in CellMap subsetCells,
-	[Property] Mask subsetDigitsMask,
-	[Property] House house,
-	[Property] bool isCannibalism
-) : ExtendedRectangleStep(conclusions, views, options, cells, digitsMask), IPatternType3StepTrait<ExtendedRectangleType3Step>
+	in CellMap subsetCells,
+	Mask subsetDigitsMask,
+	House house,
+	bool isCannibalism
+) :
+	ExtendedRectangleStep(conclusions, views, options, cells, digitsMask),
+	IPatternType3StepTrait<ExtendedRectangleType3Step>
 {
 	/// <inheritdoc/>
 	public override int Type => 3;
@@ -32,6 +34,26 @@ public sealed partial class ExtendedRectangleType3Step(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | SubsetDigitsMask);
+
+	/// <summary>
+	/// Indicates the extra cells used that can form the subset.
+	/// </summary>
+	public CellMap SubsetCells { get; } = subsetCells;
+
+	/// <summary>
+	/// Indicates the subset digits used.
+	/// </summary>
+	public Mask SubsetDigitsMask { get; } = subsetDigitsMask;
+
+	/// <summary>
+	/// Indicates the house that subset formed.
+	/// </summary>
+	public int House { get; } = house;
+
+	/// <summary>
+	/// Indicates whether the pattern is cannibalism.
+	/// </summary>
+	public bool IsCannibalism { get; } = isCannibalism;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

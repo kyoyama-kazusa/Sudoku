@@ -6,10 +6,10 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="is2LinesWith2Cells"><inheritdoc/></param>
-/// <param name="houses"><inheritdoc/></param>
-/// <param name="corner1"><inheritdoc/></param>
-/// <param name="corner2"><inheritdoc/></param>
+/// <param name="is2LinesWith2Cells"><inheritdoc cref="QiuDeadlyPatternStep.Is2LinesWith2Cells" path="/summary"/></param>
+/// <param name="houses"><inheritdoc cref="QiuDeadlyPatternStep.Houses" path="/summary"/></param>
+/// <param name="corner1"><inheritdoc cref="QiuDeadlyPatternStep.Corner1" path="/summary"/></param>
+/// <param name="corner2"><inheritdoc cref="QiuDeadlyPatternStep.Corner2" path="/summary"/></param>
 public abstract class QiuDeadlyPatternExternalTypeStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,

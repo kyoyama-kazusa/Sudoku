@@ -6,23 +6,23 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="baseCell">Indicates the base cell used.</param>
-/// <param name="targetCell">Indicates the target cell used.</param>
-/// <param name="house">Indicates the house where the pattern lies.</param>
-/// <param name="absoluteOffset"><inheritdoc/></param>
-public sealed partial class AvoidableRectangleHiddenSingleStep(
+/// <param name="digit1"><inheritdoc cref="UniqueRectangleStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueRectangleStep.Digit2" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="UniqueRectangleStep.Cells" path="/summary"/></param>
+/// <param name="baseCell"><inheritdoc cref="BaseCell" path="/summary"/></param>
+/// <param name="targetCell"><inheritdoc cref="TargetCell" path="/summary"/></param>
+/// <param name="house"><inheritdoc cref="House" path="/summary"/></param>
+/// <param name="absoluteOffset"><inheritdoc cref="UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+public sealed class AvoidableRectangleHiddenSingleStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit1,
 	Digit digit2,
 	in CellMap cells,
-	[Property] Cell baseCell,
-	[Property] Cell targetCell,
-	[Property] House house,
+	Cell baseCell,
+	Cell targetCell,
+	House house,
 	int absoluteOffset
 ) : UniqueRectangleStep(
 	conclusions,
@@ -38,6 +38,21 @@ public sealed partial class AvoidableRectangleHiddenSingleStep(
 {
 	/// <inheritdoc/>
 	public override int BaseDifficulty => base.BaseDifficulty + 2;
+
+	/// <summary>
+	/// Indicates the base cell used.
+	/// </summary>
+	public Cell BaseCell { get; } = baseCell;
+
+	/// <summary>
+	/// Indicates the target cell used.
+	/// </summary>
+	public Cell TargetCell { get; } = targetCell;
+
+	/// <summary>
+	/// Indicates the house where the pattern lies.
+	/// </summary>
+	public House House { get; } = house;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

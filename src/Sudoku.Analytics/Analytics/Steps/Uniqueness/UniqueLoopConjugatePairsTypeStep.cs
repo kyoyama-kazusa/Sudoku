@@ -6,13 +6,13 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="loop"><inheritdoc/></param>
-/// <param name="loopPath"><inheritdoc/></param>
-/// <param name="extraDigitsCellsCount">Indicates the number cells containing extra digits.</param>
-/// <param name="conjugatePairs">Indicates the conjugate pairs.</param>
-public sealed partial class UniqueLoopConjugatePairsTypeStep(
+/// <param name="digit1"><inheritdoc cref="UniqueLoopStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueLoopStep.Digit2" path="/summary"/></param>
+/// <param name="loop"><inheritdoc cref="UniqueLoopStep.Loop" path="/summary"/></param>
+/// <param name="loopPath"><inheritdoc cref="UniqueLoopStep.LoopPath" path="/summary"/></param>
+/// <param name="extraDigitsCellsCount"><inheritdoc cref="ExtraDigitsCellsCount" path="/summary"/></param>
+/// <param name="conjugatePairs"><inheritdoc cref="ConjugatePairs" path="/summary"/></param>
+public sealed class UniqueLoopConjugatePairsTypeStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
@@ -20,8 +20,8 @@ public sealed partial class UniqueLoopConjugatePairsTypeStep(
 	Digit digit2,
 	in CellMap loop,
 	Cell[] loopPath,
-	[Property] int extraDigitsCellsCount,
-	[Property] Conjugate[] conjugatePairs
+	int extraDigitsCellsCount,
+	Conjugate[] conjugatePairs
 ) : UniqueLoopStep(conclusions, views, options, digit1, digit2, loop, loopPath)
 {
 	/// <inheritdoc/>
@@ -47,6 +47,16 @@ public sealed partial class UniqueLoopConjugatePairsTypeStep(
 
 	/// <inheritdoc/>
 	public override Technique Code => Technique.UniqueLoopStrongLinkType;
+
+	/// <summary>
+	/// Indicates the number cells containing extra digits.
+	/// </summary>
+	public int ExtraDigitsCellsCount { get; } = extraDigitsCellsCount;
+
+	/// <summary>
+	/// Indicates the conjugate pairs.
+	/// </summary>
+	public Conjugate[] ConjugatePairs { get; } = conjugatePairs;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

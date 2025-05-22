@@ -6,15 +6,17 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="cells">The map that contains the cells used for this technique.</param>
-/// <param name="digitsMask">Indicates the mask of used digits.</param>
-public abstract partial class BorescoperDeadlyPatternStep(
+/// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+public abstract class BorescoperDeadlyPatternStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] in CellMap cells,
-	[Property] Mask digitsMask
-) : UnconditionalDeadlyPatternStep(conclusions, views, options), IDeadlyPatternTypeTrait
+	in CellMap cells,
+	Mask digitsMask
+) :
+	UnconditionalDeadlyPatternStep(conclusions, views, options),
+	IDeadlyPatternTypeTrait
 {
 	/// <inheritdoc/>
 	public override bool OnlyUseBivalueCells => false;
@@ -30,6 +32,16 @@ public abstract partial class BorescoperDeadlyPatternStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
+
+	/// <summary>
+	/// The map that contains the cells used for this technique.
+	/// </summary>
+	public CellMap Cells { get; } = cells;
+
+	/// <summary>
+	/// Indicates the mask of used digits.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
 
 	private protected string DigitsStr => Options.Converter.DigitConverter(DigitsMask);
 

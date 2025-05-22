@@ -6,13 +6,13 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="is2LinesWith2Cells"><inheritdoc/></param>
-/// <param name="houses"><inheritdoc/></param>
-/// <param name="corner1"><inheritdoc/></param>
-/// <param name="corner2"><inheritdoc/></param>
-/// <param name="mirrorCells">Indicates the mirror cells.</param>
-/// <param name="targetDigit">Indicates the target digit.</param>
-public sealed partial class QiuDeadlyPatternExternalType2Step(
+/// <param name="is2LinesWith2Cells"><inheritdoc cref="QiuDeadlyPatternStep.Is2LinesWith2Cells" path="/summary"/></param>
+/// <param name="houses"><inheritdoc cref="QiuDeadlyPatternStep.Houses" path="/summary"/></param>
+/// <param name="corner1"><inheritdoc cref="QiuDeadlyPatternStep.Corner1" path="/summary"/></param>
+/// <param name="corner2"><inheritdoc cref="QiuDeadlyPatternStep.Corner2" path="/summary"/></param>
+/// <param name="mirrorCells"><inheritdoc cref="MirrorCells" path="/summary"/></param>
+/// <param name="targetDigit"><inheritdoc cref="TargetDigit" path="/summary"/></param>
+public sealed class QiuDeadlyPatternExternalType2Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
@@ -20,8 +20,8 @@ public sealed partial class QiuDeadlyPatternExternalType2Step(
 	HouseMask houses,
 	Cell? corner1,
 	Cell? corner2,
-	[Property] in CellMap mirrorCells,
-	[Property] Digit targetDigit
+	in CellMap mirrorCells,
+	Digit targetDigit
 ) : QiuDeadlyPatternExternalTypeStep(conclusions, views, options, is2LinesWith2Cells, houses, corner1, corner2)
 {
 	/// <inheritdoc/>
@@ -32,6 +32,16 @@ public sealed partial class QiuDeadlyPatternExternalType2Step(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(1 << TargetDigit);
+
+	/// <summary>
+	/// Indicates the mirror cells.
+	/// </summary>
+	public CellMap MirrorCells { get; } = mirrorCells;
+
+	/// <summary>
+	/// Indicates the target digit.
+	/// </summary>
+	public Digit TargetDigit { get; } = targetDigit;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations
