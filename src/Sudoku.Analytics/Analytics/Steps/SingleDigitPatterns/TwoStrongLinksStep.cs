@@ -6,20 +6,25 @@ namespace Sudoku.Analytics.Steps.SingleDigitPatterns;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit"><inheritdoc/></param>
-/// <param name="baseHouse">Indicates the base house used.</param>
-/// <param name="targetHouse">Indicates the target house used.</param>
-/// <param name="isGrouped">Indicates whether the links is grouped.</param>
-public sealed partial class TwoStrongLinksStep(
+/// <param name="digit"><inheritdoc cref="SingleDigitPatternStep.Digit" path="/summary"/></param>
+/// <param name="baseHouse"><inheritdoc cref="BaseHouse" path="/summary"/></param>
+/// <param name="targetHouse"><inheritdoc cref="TargetHouse" path="/summary"/></param>
+/// <param name="isGrouped"><inheritdoc cref="IsGrouped" path="/summary"/></param>
+public sealed class TwoStrongLinksStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit,
-	[Property] House baseHouse,
-	[Property] House targetHouse,
-	[Property] bool isGrouped
+	House baseHouse,
+	House targetHouse,
+	bool isGrouped
 ) : SingleDigitPatternStep(conclusions, views, options, digit)
 {
+	/// <summary>
+	/// Indicates whether the links is grouped.
+	/// </summary>
+	public bool IsGrouped { get; } = isGrouped;
+
 	/// <inheritdoc/>
 	public override int BaseDifficulty
 		=> Code switch
@@ -40,6 +45,16 @@ public sealed partial class TwoStrongLinksStep(
 			(1, 1) or (2, 2) => IsGrouped ? Technique.GroupedSkyscraper : Technique.Skyscraper,
 			(1, 2) or (2, 1) => IsGrouped ? Technique.GroupedTwoStringKite : Technique.TwoStringKite
 		};
+
+	/// <summary>
+	/// Indicates the base house used.
+	/// </summary>
+	public House BaseHouse { get; } = baseHouse;
+
+	/// <summary>
+	/// Indicates the target house used.
+	/// </summary>
+	public House TargetHouse { get; } = targetHouse;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

@@ -6,16 +6,16 @@ namespace Sudoku.Analytics.Steps.Permutations;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="cells">Indicates the target cells used in the pattern.</param>
-/// <param name="digitsMask">Indicates the digits used.</param>
-/// <param name="lockedCombinations">Indicates all locked combinations.</param>
-public sealed partial class AlignedExclusionStep(
+/// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+/// <param name="lockedCombinations"><inheritdoc cref="LockedCombinations" path="/summary"/></param>
+public sealed class AlignedExclusionStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] in CellMap cells,
-	[Property] Mask digitsMask,
-	[Property] (Digit[], Cell)[] lockedCombinations
+	in CellMap cells,
+	Mask digitsMask,
+	(Digit[], Cell)[] lockedCombinations
 ) : PermutationStep(conclusions, views, options), ISizeTrait
 {
 	/// <inheritdoc/>
@@ -42,6 +42,21 @@ public sealed partial class AlignedExclusionStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
+
+	/// <summary>
+	/// Indicates the target cells used in the pattern.
+	/// </summary>
+	public CellMap Cells { get; } = cells;
+
+	/// <summary>
+	/// Indicates the digits used.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
+
+	/// <summary>
+	/// Indicates all locked combinations.
+	/// </summary>
+	public (Digit[], Cell)[] LockedCombinations { get; } = lockedCombinations;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

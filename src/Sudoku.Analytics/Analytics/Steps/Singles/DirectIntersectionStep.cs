@@ -8,26 +8,26 @@ namespace Sudoku.Analytics.Steps.Singles;
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="cell"><inheritdoc cref="SingleStep.Cell" path="/summary"/></param>
 /// <param name="digit"><inheritdoc cref="SingleStep.Digit" path="/summary"/></param>
-/// <param name="intersectionCells">Indicates the intersection cells.</param>
-/// <param name="intersectionHouse">Indicates the intersection house.</param>
-/// <param name="interim">Indicates the interim cells.</param>
-/// <param name="interimDigit">Indicates the interim digit.</param>
+/// <param name="intersectionCells"><inheritdoc cref="IntersectionCells" path="/summary"/></param>
+/// <param name="intersectionHouse"><inheritdoc cref="IntersectionHouse" path="/summary"/></param>
+/// <param name="interim"><inheritdoc cref="Interim" path="/summary"/></param>
+/// <param name="interimDigit"><inheritdoc cref="InterimDigit" path="/summary"/></param>
 /// <param name="subtype"><inheritdoc cref="SingleStep.Subtype" path="/summary"/></param>
 /// <param name="basedOn"><inheritdoc cref="ComplexSingleStep.BasedOn" path="/summary"/></param>
-/// <param name="isPointing">Indicates whether the current locked candidates pattern used is pointing.</param>
-public sealed partial class DirectIntersectionStep(
+/// <param name="isPointing"><inheritdoc cref="IsPointing" path="/summary"/></param>
+public sealed class DirectIntersectionStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Cell cell,
 	Digit digit,
-	[Property] in CellMap intersectionCells,
-	[Property] House intersectionHouse,
-	[Property] in CellMap interim,
-	[Property] Digit interimDigit,
+	in CellMap intersectionCells,
+	House intersectionHouse,
+	in CellMap interim,
+	Digit interimDigit,
 	SingleSubtype subtype,
 	Technique basedOn,
-	[Property] bool isPointing
+	bool isPointing
 ) : ComplexSingleStep(
 	conclusions,
 	views,
@@ -39,6 +39,11 @@ public sealed partial class DirectIntersectionStep(
 	[[isPointing ? Technique.Pointing : Technique.Claiming]]
 )
 {
+	/// <summary>
+	/// Indicates whether the current locked candidates pattern used is pointing.
+	/// </summary>
+	public bool IsPointing { get; } = isPointing;
+
 	/// <inheritdoc/>
 	public override int BaseDifficulty
 		=> BasedOn switch
@@ -52,6 +57,26 @@ public sealed partial class DirectIntersectionStep(
 
 	/// <inheritdoc/>
 	public override Technique Code => BasedOn;
+
+	/// <summary>
+	/// Indicates the intersection cells.
+	/// </summary>
+	public CellMap IntersectionCells { get; } = intersectionCells;
+
+	/// <summary>
+	/// Indicates the intersection house.
+	/// </summary>
+	public House IntersectionHouse { get; } = intersectionHouse;
+
+	/// <summary>
+	/// Indicates the interim cells.
+	/// </summary>
+	public CellMap Interim { get; } = interim;
+
+	/// <summary>
+	/// Indicates the interim digit.
+	/// </summary>
+	public Digit InterimDigit { get; } = interimDigit;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

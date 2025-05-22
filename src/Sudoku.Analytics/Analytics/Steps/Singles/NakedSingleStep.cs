@@ -9,24 +9,34 @@ namespace Sudoku.Analytics.Steps.Singles;
 /// <param name="cell"><inheritdoc cref="SingleStep.Cell" path="/summary"/></param>
 /// <param name="digit"><inheritdoc cref="SingleStep.Digit" path="/summary"/></param>
 /// <param name="subtype"><inheritdoc cref="SingleStep.Subtype" path="/summary"/></param>
-/// <param name="lasting"><inheritdoc cref="ILastingTrait.Lasting" path="/summary" /></param>
-/// <param name="lastingHouseType">Indicates the lasting house type.</param>
-public sealed partial class NakedSingleStep(
+/// <param name="lasting"><inheritdoc cref="Lasting" path="/summary"/></param>
+/// <param name="lastingHouseType"><inheritdoc cref="LastingHouseType" path="/summary"/></param>
+public sealed class NakedSingleStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Cell cell,
 	Digit digit,
 	SingleSubtype subtype,
-	[Property] int lasting,
-	[Property] HouseType lastingHouseType
-) : SingleStep(conclusions, views, options, cell, digit, subtype), ILastingTrait
+	int lasting,
+	HouseType lastingHouseType
+) :
+	SingleStep(conclusions, views, options, cell, digit, subtype),
+	ILastingTrait
 {
 	/// <inheritdoc/>
 	public override int BaseDifficulty => Options.IsDirectMode ? 23 : 10;
 
+	/// <inheritdoc cref="ILastingTrait.Lasting"/>
+	public int Lasting { get; } = lasting;
+
 	/// <inheritdoc/>
 	public override Technique Code => Technique.NakedSingle;
+
+	/// <summary>
+	/// Indicates the lasting house type.
+	/// </summary>
+	public HouseType LastingHouseType { get; } = lastingHouseType;
 
 
 	/// <inheritdoc/>

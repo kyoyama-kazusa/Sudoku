@@ -8,28 +8,28 @@ namespace Sudoku.Analytics.Steps.Singles;
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="cell"><inheritdoc cref="SingleStep.Cell" path="/summary"/></param>
 /// <param name="digit"><inheritdoc cref="SingleStep.Digit" path="/summary"/></param>
-/// <param name="subsetCells">Indicates the subset cells used.</param>
-/// <param name="subsetDigitsMask">Indicates the digits that the subset used.</param>
-/// <param name="subsetHouse">Indicates the subset house.</param>
-/// <param name="interim">Indicates the interim cells used.</param>
-/// <param name="interimDigitsMask">Indicates the digits produced in interim.</param>
+/// <param name="subsetCells"><inheritdoc cref="SubsetCells" path="/summary"/></param>
+/// <param name="subsetDigitsMask"><inheritdoc cref="SubsetDigitsMask" path="/summary"/></param>
+/// <param name="subsetHouse"><inheritdoc cref="SubsetHouse" path="/summary"/></param>
+/// <param name="interim"><inheritdoc cref="Interim" path="/summary"/></param>
+/// <param name="interimDigitsMask"><inheritdoc cref="InterimDigitsMask" path="/summary"/></param>
 /// <param name="subtype"><inheritdoc cref="SingleStep.Subtype" path="/summary"/></param>
 /// <param name="basedOn"><inheritdoc cref="ComplexSingleStep.BasedOn" path="/summary"/></param>
-/// <param name="subsetTechnique">Indicates the subset technique used.</param>
-public sealed partial class DirectSubsetStep(
+/// <param name="subsetTechnique"><inheritdoc cref="SubsetTechnique" path="/summary"/></param>
+public sealed class DirectSubsetStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Cell cell,
 	Digit digit,
-	[Property] in CellMap subsetCells,
-	[Property] Mask subsetDigitsMask,
-	[Property] House subsetHouse,
-	[Property] in CellMap interim,
-	[Property] Mask interimDigitsMask,
+	in CellMap subsetCells,
+	Mask subsetDigitsMask,
+	House subsetHouse,
+	in CellMap interim,
+	Mask interimDigitsMask,
 	SingleSubtype subtype,
 	Technique basedOn,
-	[Property] Technique subsetTechnique
+	Technique subsetTechnique
 ) :
 	ComplexSingleStep(conclusions, views, options, cell, digit, subtype, basedOn, [[subsetTechnique]]),
 	ISizeTrait,
@@ -65,6 +65,36 @@ public sealed partial class DirectSubsetStep(
 
 	/// <inheritdoc/>
 	public override Technique Code => BasedOn;
+
+	/// <summary>
+	/// Indicates the subset technique used.
+	/// </summary>
+	public Technique SubsetTechnique { get; } = subsetTechnique;
+
+	/// <summary>
+	/// Indicates the subset cells used.
+	/// </summary>
+	public CellMap SubsetCells { get; } = subsetCells;
+
+	/// <summary>
+	/// Indicates the digits that the subset used.
+	/// </summary>
+	public Mask SubsetDigitsMask { get; } = subsetDigitsMask;
+
+	/// <summary>
+	/// Indicates the subset house.
+	/// </summary>
+	public House SubsetHouse { get; } = subsetHouse;
+
+	/// <summary>
+	/// Indicates the interim cells used.
+	/// </summary>
+	public CellMap Interim { get; } = interim;
+
+	/// <summary>
+	/// Indicates the digits produced in interim.
+	/// </summary>
+	public Mask InterimDigitsMask { get; } = interimDigitsMask;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

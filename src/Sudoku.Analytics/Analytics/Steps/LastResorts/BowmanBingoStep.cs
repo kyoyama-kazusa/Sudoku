@@ -6,13 +6,15 @@ namespace Sudoku.Analytics.Steps.LastResorts;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="contradictionLinks">Indicates the list of contradiction links.</param>
-public sealed partial class BowmanBingoStep(
+/// <param name="contradictionLinks"><inheritdoc cref="ContradictionLinks" path="/summary"/></param>
+public sealed class BowmanBingoStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] Conclusion[] contradictionLinks
-) : LastResortStep(conclusions, views, options), ISizeTrait
+	Conclusion[] contradictionLinks
+) :
+	LastResortStep(conclusions, views, options),
+	ISizeTrait
 {
 	/// <inheritdoc/>
 	public override int BaseDifficulty => 80;
@@ -22,6 +24,11 @@ public sealed partial class BowmanBingoStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => Mask.Create(from link in ContradictionLinks select link.Digit);
+
+	/// <summary>
+	/// Indicates the list of contradiction links.
+	/// </summary>
+	public Conclusion[] ContradictionLinks { get; } = contradictionLinks;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

@@ -6,14 +6,19 @@ namespace Sudoku.Analytics.Steps.LastResorts;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="isTemplateDeletion">Indicates the current template step is a template deletion.</param>
-public sealed partial class TemplateStep(
+/// <param name="isTemplateDeletion"><inheritdoc cref="IsTemplateDeletion" path="/summary"/></param>
+public sealed class TemplateStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] bool isTemplateDeletion
+	bool isTemplateDeletion
 ) : LastResortStep(conclusions, views, options)
 {
+	/// <summary>
+	/// Indicates the current template step is a template deletion.
+	/// </summary>
+	public bool IsTemplateDeletion { get; } = isTemplateDeletion;
+
 	/// <inheritdoc/>
 	public override int BaseDifficulty => 90;
 
@@ -29,8 +34,7 @@ public sealed partial class TemplateStep(
 	public override Mask DigitsUsed => (Mask)(1 << Digit);
 
 	/// <inheritdoc/>
-	public override InterpolationArray Interpolations
-		=> [new(SR.EnglishLanguage, [DigitStr]), new(SR.ChineseLanguage, [DigitStr])];
+	public override InterpolationArray Interpolations => [new(SR.EnglishLanguage, [DigitStr]), new(SR.ChineseLanguage, [DigitStr])];
 
 	private string DigitStr => Options.Converter.DigitConverter((Mask)(1 << Digit));
 }

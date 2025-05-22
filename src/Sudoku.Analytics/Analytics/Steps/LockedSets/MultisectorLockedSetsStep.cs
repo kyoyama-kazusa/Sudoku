@@ -6,28 +6,50 @@ namespace Sudoku.Analytics.Steps.LockedSets;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="cells">Indicates the cells used in this pattern.</param>
-/// <param name="rowsCount">Indicates the number of rows used.</param>
-/// <param name="columnsCount">Indicates the number of columns used.</param>
-/// <param name="digitsMask">Indicates the digits used.</param>
-public sealed partial class MultisectorLockedSetsStep(
+/// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
+/// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
+/// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+public sealed class MultisectorLockedSetsStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] in CellMap cells,
-	[Property] int rowsCount,
-	[Property] int columnsCount,
-	[Property] Mask digitsMask
-) : LockedSetStep(conclusions, views, options), ICellListTrait
+	in CellMap cells,
+	int rowsCount,
+	int columnsCount,
+	Mask digitsMask
+) :
+	LockedSetStep(conclusions, views, options),
+	ICellListTrait
 {
 	/// <inheritdoc/>
 	public override int BaseDifficulty => 94;
+
+	/// <summary>
+	/// Indicates the number of rows used.
+	/// </summary>
+	public int RowsCount { get; } = rowsCount;
+
+	/// <summary>
+	/// Indicates the number of columns used.
+	/// </summary>
+	public int ColumnsCount { get; } = columnsCount;
 
 	/// <inheritdoc/>
 	public override Technique Code => Technique.MultisectorLockedSets;
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
+
+	/// <summary>
+	/// Indicates the cells used in this pattern.
+	/// </summary>
+	public CellMap Cells { get; } = cells;
+
+	/// <summary>
+	/// Indicates the digits used.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

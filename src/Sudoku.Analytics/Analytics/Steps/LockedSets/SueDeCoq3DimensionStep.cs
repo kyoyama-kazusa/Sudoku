@@ -6,22 +6,22 @@ namespace Sudoku.Analytics.Steps.LockedSets;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="rowDigitsMask">Indicates the digits mask that describes which digits are used in this pattern in a row.</param>
-/// <param name="columnDigitsMask">Indicates the digits mask that describes which digits are used in this pattern in a column.</param>
-/// <param name="blockDigitsMask">Indicates the digits mask that describes which digits are used in this pattern in a block.</param>
-/// <param name="rowCells">Indicates the cells used in this pattern in a row.</param>
-/// <param name="columnCells">Indicates the cells used in this pattern in a column.</param>
-/// <param name="blockCells">Indicates the cells used in this pattern in a block.</param>
-public sealed partial class SueDeCoq3DimensionStep(
+/// <param name="rowDigitsMask"><inheritdoc cref="RowDigitsMask" path="/summary"/></param>
+/// <param name="columnDigitsMask"><inheritdoc cref="ColumnDigitsMask" path="/summary"/></param>
+/// <param name="blockDigitsMask"><inheritdoc cref="BlockDigitsMask" path="/summary"/></param>
+/// <param name="rowCells"><inheritdoc cref="RowCells" path="/summary"/></param>
+/// <param name="columnCells"><inheritdoc cref="ColumnCells" path="/summary"/></param>
+/// <param name="blockCells"><inheritdoc cref="BlockCells" path="/summary"/></param>
+public sealed class SueDeCoq3DimensionStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] Mask rowDigitsMask,
-	[Property] Mask columnDigitsMask,
-	[Property] Mask blockDigitsMask,
-	[Property] in CellMap rowCells,
-	[Property] in CellMap columnCells,
-	[Property] in CellMap blockCells
+	Mask rowDigitsMask,
+	Mask columnDigitsMask,
+	Mask blockDigitsMask,
+	in CellMap rowCells,
+	in CellMap columnCells,
+	in CellMap blockCells
 ) : LockedSetStep(conclusions, views, options)
 {
 	/// <inheritdoc/>
@@ -32,6 +32,36 @@ public sealed partial class SueDeCoq3DimensionStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)((Mask)(RowDigitsMask | ColumnDigitsMask) | BlockDigitsMask);
+
+	/// <summary>
+	/// Indicates the digits mask that describes which digits are used in this pattern in a row.
+	/// </summary>
+	public Mask RowDigitsMask { get; } = rowDigitsMask;
+
+	/// <summary>
+	/// Indicates the digits mask that describes which digits are used in this pattern in a column.
+	/// </summary>
+	public Mask ColumnDigitsMask { get; } = columnDigitsMask;
+
+	/// <summary>
+	/// Indicates the digits mask that describes which digits are used in this pattern in a block.
+	/// </summary>
+	public Mask BlockDigitsMask { get; } = blockDigitsMask;
+
+	/// <summary>
+	/// Indicates the cells used in this pattern in a row.
+	/// </summary>
+	public CellMap RowCells { get; } = rowCells;
+
+	/// <summary>
+	/// Indicates the cells used in this pattern in a column.
+	/// </summary>
+	public CellMap ColumnCells { get; } = columnCells;
+
+	/// <summary>
+	/// Indicates the cells used in this pattern in a block.
+	/// </summary>
+	public CellMap BlockCells { get; } = blockCells;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

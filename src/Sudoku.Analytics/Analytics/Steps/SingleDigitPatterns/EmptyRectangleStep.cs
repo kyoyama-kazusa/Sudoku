@@ -6,16 +6,16 @@ namespace Sudoku.Analytics.Steps.SingleDigitPatterns;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit"><inheritdoc/></param>
-/// <param name="block">Indicates the block that the real empty rectangle pattern lis in.</param>
-/// <param name="conjugatePair">Indicates the conjugate pair used.</param>
-public sealed partial class EmptyRectangleStep(
+/// <param name="digit"><inheritdoc cref="SingleDigitPatternStep.Digit" path="/summary"/></param>
+/// <param name="block"><inheritdoc cref="Block" path="/summary"/></param>
+/// <param name="conjugatePair"><inheritdoc cref="ConjugatePair" path="/summary"/></param>
+public sealed class EmptyRectangleStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit,
-	[Property] House block,
-	[Property] in Conjugate conjugatePair
+	BlockIndex block,
+	in Conjugate conjugatePair
 ) : SingleDigitPatternStep(conclusions, views, options, digit)
 {
 	/// <inheritdoc/>
@@ -23,6 +23,16 @@ public sealed partial class EmptyRectangleStep(
 
 	/// <inheritdoc/>
 	public override Technique Code => Technique.EmptyRectangle;
+
+	/// <summary>
+	/// Indicates the block that the real empty rectangle pattern lis in.
+	/// </summary>
+	public BlockIndex Block { get; } = block;
+
+	/// <summary>
+	/// Indicates the conjugate pair used.
+	/// </summary>
+	public Conjugate ConjugatePair { get; } = conjugatePair;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

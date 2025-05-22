@@ -23,8 +23,7 @@ public sealed class PatternOverlayStep(ReadOnlyMemory<Conclusion> conclusions, S
 	public override Mask DigitsUsed => (Mask)(1 << Digit);
 
 	/// <inheritdoc/>
-	public override InterpolationArray Interpolations
-		=> [new(SR.EnglishLanguage, [DigitStr]), new(SR.ChineseLanguage, [DigitStr])];
+	public override InterpolationArray Interpolations => [new(SR.EnglishLanguage, [DigitStr]), new(SR.ChineseLanguage, [DigitStr])];
 
 	private string DigitStr => Options.Converter.DigitConverter((Mask)(1 << Digit));
 }

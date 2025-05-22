@@ -8,29 +8,30 @@ namespace Sudoku.Analytics.Steps.Singles;
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="cell"><inheritdoc cref="SingleStep.Cell" path="/summary"/></param>
 /// <param name="digit"><inheritdoc cref="SingleStep.Digit" path="/summary"/></param>
-/// <param name="house">The house to be displayed.</param>
-/// <param name="enableAndIsLastDigit">
-/// Indicates whether currently options enable "Last Digit" technique, and the current instance is a real Last Digit.
-/// If the technique is not a Last Digit, the value must be <see langword="false"/>.
-/// </param>
-/// <param name="lasting"><inheritdoc cref="ILastingTrait.Lasting" path="/summary"/></param>
+/// <param name="house"><inheritdoc cref="House" path="/summary"/></param>
+/// <param name="enableAndIsLastDigit"><inheritdoc cref="EnableAndIsLastDigit" path="/summary"/></param>
+/// <param name="lasting"><inheritdoc cref="Lasting" path="/summary"/></param>
 /// <param name="subtype"><inheritdoc cref="SingleStep.Subtype" path="/summary"/></param>
-/// <param name="excluderInfo">
-/// Indicates the excluder information. The value can be <see langword="null"/> if the target step is a Last Digit.
-/// </param>
-public partial class HiddenSingleStep(
+/// <param name="excluderInfo"><inheritdoc cref="ExcluderInfo" path="/summary"/></param>
+public class HiddenSingleStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Cell cell,
 	Digit digit,
-	[Property] House house,
-	[Property] bool enableAndIsLastDigit,
-	[Property] Cell lasting,
+	House house,
+	bool enableAndIsLastDigit,
+	Cell lasting,
 	SingleSubtype subtype,
-	[Property] ExcluderInfo? excluderInfo
+	ExcluderInfo? excluderInfo
 ) : SingleStep(conclusions, views, options, cell, digit, subtype), ILastingTrait
 {
+	/// <summary>
+	/// Indicates whether currently options enable "Last Digit" technique, and the current instance is a real Last Digit.
+	/// If the technique is not a Last Digit, the value must be <see langword="false"/>.
+	/// </summary>
+	public bool EnableAndIsLastDigit { get; } = enableAndIsLastDigit;
+
 	/// <inheritdoc/>
 	public sealed override int BaseDifficulty
 		=> EnableAndIsLastDigit ? 11 : House < 9 ? Options.IsDirectMode ? 12 : 19 : Options.IsDirectMode ? 15 : 23;
@@ -44,12 +45,25 @@ public partial class HiddenSingleStep(
 			_ => (Technique)((int)Technique.HiddenSingleBlock + (int)House.HouseType)
 		};
 
+	/// <summary>
+	/// The house to be displayed.
+	/// </summary>
+	public House House { get; } = house;
+
+	/// <inheritdoc cref="ILastingTrait.Lasting"/>
+	public Cell Lasting { get; } = lasting;
+
 	/// <inheritdoc/>
 	public sealed override InterpolationArray Interpolations
 		=> [
 			new(SR.EnglishLanguage, EnableAndIsLastDigit ? [DigitStr] : [HouseStr]),
 			new(SR.ChineseLanguage, EnableAndIsLastDigit ? [DigitStr] : [HouseStr])
 		];
+
+	/// <summary>
+	/// Indicates the excluder information. The value can be <see langword="null"/> if the target step is a Last Digit.
+	/// </summary>
+	public ExcluderInfo? ExcluderInfo { get; } = excluderInfo;
 
 	private string DigitStr => Options.Converter.DigitConverter((Mask)(1 << Digit));
 
