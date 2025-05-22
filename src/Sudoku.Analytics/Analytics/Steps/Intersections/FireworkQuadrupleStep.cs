@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Steps.Intersections;
+namespace Sudoku.Analytics.Steps;
 
 /// <summary>
 /// Provides with a step that is a <b>Firework Quadruple</b> technique.

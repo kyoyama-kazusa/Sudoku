@@ -28,7 +28,7 @@
 // * Advanced Senior Exocet
 // * Weak Exocet with some other value cells
 
-namespace Sudoku.Analytics.StepSearchers.Exocets;
+namespace Sudoku.Analytics.StepSearchers;
 
 using TargetCellsGroup = CellMapOrCandidateMapGrouping<CellMap, Cell, House>;
 

@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.Uniqueness;
+namespace Sudoku.Analytics.StepSearchers;
 
 public partial class UniqueLoopStepSearcher
 {

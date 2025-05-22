@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Steps.Intersections;
+namespace Sudoku.Analytics.Steps;
 
 /// <summary>
 /// Represents a data structure that describes for a technique of <b>Locked Candidates</b>.

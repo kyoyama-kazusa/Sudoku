@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.SymmetricalPlacements;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with a <b>Gurth's Symmetrical Placement</b> step searcher.

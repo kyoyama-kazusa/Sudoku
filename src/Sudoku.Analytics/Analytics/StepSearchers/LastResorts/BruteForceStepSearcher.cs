@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.LastResorts;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with a <b>Brute Force</b> step searcher.

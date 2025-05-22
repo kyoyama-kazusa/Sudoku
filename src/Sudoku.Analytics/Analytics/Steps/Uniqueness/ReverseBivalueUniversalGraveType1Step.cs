@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Steps.Uniqueness;
+namespace Sudoku.Analytics.Steps;
 
 /// <summary>
 /// Provides with a step that is a <b>Reverse Bi-value Universal Grave Type 1</b> technique.

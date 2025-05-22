@@ -1098,100 +1098,100 @@
             <seealso cref="T:Sudoku.Analytics.Collector"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.EnableFullHouse">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.SingleStepSearcher.EnableFullHouse"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.SingleStepSearcher.EnableFullHouse"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.EnableLastDigit">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.SingleStepSearcher.EnableLastDigit"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.SingleStepSearcher.EnableLastDigit"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.HiddenSinglesInBlockFirst">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.SingleStepSearcher.HiddenSinglesInBlockFirst"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.SingleStepSearcher.HiddenSinglesInBlockFirst"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.EnableOrderingStepsByLastingValue">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.SingleStepSearcher.EnableOrderingStepsByLastingValue"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.SingleStepSearcher.EnableOrderingStepsByLastingValue"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AllowDirectPointing">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.DirectIntersectionStepSearcher.AllowDirectPointing"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DirectIntersectionStepSearcher.AllowDirectPointing"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AllowDirectClaiming">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.DirectIntersectionStepSearcher.AllowDirectClaiming"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DirectIntersectionStepSearcher.AllowDirectClaiming"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AllowDirectLockedSubset">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.DirectSubsetStepSearcher.AllowDirectLockedSubset"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DirectSubsetStepSearcher.AllowDirectLockedSubset"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AllowDirectNakedSubset">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.DirectSubsetStepSearcher.AllowDirectNakedSubset"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DirectSubsetStepSearcher.AllowDirectNakedSubset"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AllowDirectLockedHiddenSubset">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.DirectSubsetStepSearcher.AllowDirectLockedHiddenSubset"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DirectSubsetStepSearcher.AllowDirectLockedHiddenSubset"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AllowDirectHiddenSubset">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.DirectSubsetStepSearcher.AllowDirectHiddenSubset"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DirectSubsetStepSearcher.AllowDirectHiddenSubset"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.DirectNakedSubsetMaxSize">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.DirectSubsetStepSearcher.DirectNakedSubsetMaxSize"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DirectSubsetStepSearcher.DirectNakedSubsetMaxSize"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.DirectHiddenSubsetMaxSize">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.DirectSubsetStepSearcher.DirectHiddenSubsetMaxSize"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DirectSubsetStepSearcher.DirectHiddenSubsetMaxSize"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.NakedSubsetMaxSizeInComplexSingle">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.ComplexSingleStepSearcher.NakedSubsetMaxSize"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.ComplexSingleStepSearcher.NakedSubsetMaxSize"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.HiddenSubsetMaxSizeInComplexSingle">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.ComplexSingleStepSearcher.HiddenSubsetMaxSize"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.ComplexSingleStepSearcher.HiddenSubsetMaxSize"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.DisableFinnedOrSashimiXWing">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Fishes.NormalFishStepSearcher.DisableFinnedOrSashimiXWing"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.NormalFishStepSearcher.DisableFinnedOrSashimiXWing"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.DisableGroupedTurbotFish">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.SingleDigitPatterns.GroupedTwoStrongLinksStepSearcher.DisableGroupedTurbotFish"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.GroupedTwoStrongLinksStepSearcher.DisableGroupedTurbotFish"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AllowSiameseNormalFish">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Fishes.NormalFishStepSearcher.AllowSiamese"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.NormalFishStepSearcher.AllowSiamese"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AllowSiameseComplexFish">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Fishes.ComplexFishStepSearcher.AllowSiamese"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.ComplexFishStepSearcher.AllowSiamese"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.MaxSizeOfComplexFish">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Fishes.ComplexFishStepSearcher.MaxSize"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.ComplexFishStepSearcher.MaxSize"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AllowIncompleteUniqueRectangles">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Uniqueness.UniqueRectangleStepSearcher.AllowIncompleteUniqueRectangles"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.UniqueRectangleStepSearcher.AllowIncompleteUniqueRectangles"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.SearchForExtendedUniqueRectangles">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Uniqueness.UniqueRectangleStepSearcher.SearchForExtendedUniqueRectangles"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.UniqueRectangleStepSearcher.SearchForExtendedUniqueRectangles"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.SearchExtendedBivalueUniversalGraveTypes">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Uniqueness.BivalueUniversalGraveStepSearcher.SearchExtendedTypes"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.BivalueUniversalGraveStepSearcher.SearchExtendedTypes"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AlmostLockedCandidatesCheckValueTypes">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Intersections.AlmostLockedCandidatesStepSearcher.CheckValueTypes"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.AlmostLockedCandidatesStepSearcher.CheckValueTypes"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.CheckAlmostLockedQuadruple">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Intersections.AlmostLockedCandidatesStepSearcher.CheckAlmostLockedQuadruple"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.AlmostLockedCandidatesStepSearcher.CheckAlmostLockedQuadruple"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AllowSiameseXyzRing">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Wings.XyzRingStepSearcher.AllowSiamese"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.XyzRingStepSearcher.AllowSiamese"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.MaxSizeOfRegularWing">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Wings.RegularWingStepSearcher.MaxSearchingPivotsCount"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.RegularWingStepSearcher.MaxSearchingPivotsCount"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.MakeConclusionAroundBackdoorsNormalChain">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Chains.ChainStepSearcher.MakeConclusionAroundBackdoors"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.ChainStepSearcher.MakeConclusionAroundBackdoors"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.MakeConclusionAroundBackdoorsGroupedChain">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Chains.GroupedChainStepSearcher.MakeConclusionAroundBackdoors"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.GroupedChainStepSearcher.MakeConclusionAroundBackdoors"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.AlignedExclusionMaxSearchingSize">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Permutations.AlignedExclusionStepSearcher.MaxSearchingSize"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.AlignedExclusionStepSearcher.MaxSearchingSize"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.SearchForReverseBugPartiallyUsedTypes">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Uniqueness.ReverseBivalueUniversalGraveStepSearcher.AllowPartiallyUsedTypes"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.ReverseBivalueUniversalGraveStepSearcher.AllowPartiallyUsedTypes"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.ReverseBugMaxSearchingEmptyCellsCount">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Uniqueness.ReverseBivalueUniversalGraveStepSearcher.MaxSearchingEmptyCellsCount"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.ReverseBivalueUniversalGraveStepSearcher.MaxSearchingEmptyCellsCount"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.SearchExtendedDeathBlossomTypes">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.AlmostLockedSets.DeathBlossomStepSearcher.SearchExtendedTypes"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DeathBlossomStepSearcher.SearchExtendedTypes"/>
         </member>
         <member name="P:SudokuStudio.Configuration.AnalysisPreferenceGroup.DisplayDifficultyRatingForSudokuExplainer">
             <summary>
@@ -11289,106 +11289,106 @@
             <inheritdoc cref="P:Sudoku.Behaviors.Ittoryu.DisorderedIttoryuFinder.SupportedTechniques"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.EnableFullHouse">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.SingleStepSearcher.EnableFullHouse"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.SingleStepSearcher.EnableFullHouse"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.EnableLastDigit">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.SingleStepSearcher.EnableLastDigit"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.SingleStepSearcher.EnableLastDigit"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.HiddenSinglesInBlockFirst">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.SingleStepSearcher.HiddenSinglesInBlockFirst"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.SingleStepSearcher.HiddenSinglesInBlockFirst"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.EnableOrderingStepsByLastingValue">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.SingleStepSearcher.EnableOrderingStepsByLastingValue"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.SingleStepSearcher.EnableOrderingStepsByLastingValue"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AllowDirectPointing">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.DirectIntersectionStepSearcher.AllowDirectPointing"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DirectIntersectionStepSearcher.AllowDirectPointing"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AllowDirectClaiming">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.DirectIntersectionStepSearcher.AllowDirectClaiming"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DirectIntersectionStepSearcher.AllowDirectClaiming"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AllowDirectLockedSubset">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.DirectSubsetStepSearcher.AllowDirectLockedSubset"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DirectSubsetStepSearcher.AllowDirectLockedSubset"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AllowDirectNakedSubset">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.DirectSubsetStepSearcher.AllowDirectNakedSubset"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DirectSubsetStepSearcher.AllowDirectNakedSubset"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AllowDirectLockedHiddenSubset">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.DirectSubsetStepSearcher.AllowDirectLockedHiddenSubset"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DirectSubsetStepSearcher.AllowDirectLockedHiddenSubset"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AllowDirectHiddenSubset">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.DirectSubsetStepSearcher.AllowDirectHiddenSubset"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DirectSubsetStepSearcher.AllowDirectHiddenSubset"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.DirectNakedSubsetMaxSize">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.DirectSubsetStepSearcher.DirectNakedSubsetMaxSize"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DirectSubsetStepSearcher.DirectNakedSubsetMaxSize"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.DirectHiddenSubsetMaxSize">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.DirectSubsetStepSearcher.DirectHiddenSubsetMaxSize"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DirectSubsetStepSearcher.DirectHiddenSubsetMaxSize"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.NakedSubsetMaxSizeInComplexSingle">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.ComplexSingleStepSearcher.NakedSubsetMaxSize"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.ComplexSingleStepSearcher.NakedSubsetMaxSize"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.HiddenSubsetMaxSizeInComplexSingle">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Singles.ComplexSingleStepSearcher.HiddenSubsetMaxSize"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.ComplexSingleStepSearcher.HiddenSubsetMaxSize"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.DisableFinnedOrSashimiXWing">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Fishes.NormalFishStepSearcher.DisableFinnedOrSashimiXWing"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.NormalFishStepSearcher.DisableFinnedOrSashimiXWing"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.DisableGroupedTurbotFish">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.SingleDigitPatterns.GroupedTwoStrongLinksStepSearcher.DisableGroupedTurbotFish"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.GroupedTwoStrongLinksStepSearcher.DisableGroupedTurbotFish"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AllowSiameseNormalFish">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Fishes.NormalFishStepSearcher.AllowSiamese"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.NormalFishStepSearcher.AllowSiamese"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AllowSiameseComplexFish">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Fishes.ComplexFishStepSearcher.AllowSiamese"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.ComplexFishStepSearcher.AllowSiamese"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.MaxSizeOfComplexFish">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Fishes.ComplexFishStepSearcher.MaxSize"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.ComplexFishStepSearcher.MaxSize"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.MaxSizeOfRegularWing">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Wings.RegularWingStepSearcher.MaxSearchingPivotsCount"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.RegularWingStepSearcher.MaxSearchingPivotsCount"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AllowIncompleteUniqueRectangles">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Uniqueness.UniqueRectangleStepSearcher.AllowIncompleteUniqueRectangles"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.UniqueRectangleStepSearcher.AllowIncompleteUniqueRectangles"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.SearchForExtendedUniqueRectangles">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Uniqueness.UniqueRectangleStepSearcher.SearchForExtendedUniqueRectangles"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.UniqueRectangleStepSearcher.SearchForExtendedUniqueRectangles"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.SearchExtendedBivalueUniversalGraveTypes">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Uniqueness.BivalueUniversalGraveStepSearcher.SearchExtendedTypes"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.BivalueUniversalGraveStepSearcher.SearchExtendedTypes"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AlmostLockedCandidatesCheckValueTypes">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Intersections.AlmostLockedCandidatesStepSearcher.CheckValueTypes"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.AlmostLockedCandidatesStepSearcher.CheckValueTypes"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.CheckAlmostLockedQuadruple">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Intersections.AlmostLockedCandidatesStepSearcher.CheckAlmostLockedQuadruple"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.AlmostLockedCandidatesStepSearcher.CheckAlmostLockedQuadruple"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.MakeConclusionAroundBackdoorsNormalChain">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Chains.ChainStepSearcher.MakeConclusionAroundBackdoors"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.ChainStepSearcher.MakeConclusionAroundBackdoors"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.MakeConclusionAroundBackdoorsGroupedChain">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Chains.GroupedChainStepSearcher.MakeConclusionAroundBackdoors"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.GroupedChainStepSearcher.MakeConclusionAroundBackdoors"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.SearchExtendedDeathBlossomTypes">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.AlmostLockedSets.DeathBlossomStepSearcher.SearchExtendedTypes"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.DeathBlossomStepSearcher.SearchExtendedTypes"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.SearchForReverseBugPartiallyUsedTypes">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Uniqueness.ReverseBivalueUniversalGraveStepSearcher.AllowPartiallyUsedTypes"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.ReverseBivalueUniversalGraveStepSearcher.AllowPartiallyUsedTypes"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.ReverseBugMaxSearchingEmptyCellsCount">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Uniqueness.ReverseBivalueUniversalGraveStepSearcher.MaxSearchingEmptyCellsCount"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.ReverseBivalueUniversalGraveStepSearcher.MaxSearchingEmptyCellsCount"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AllowSiameseXyzRing">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Wings.XyzRingStepSearcher.AllowSiamese"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.XyzRingStepSearcher.AllowSiamese"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AlignedExclusionMaxSearchingSize">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.Permutations.AlignedExclusionStepSearcher.MaxSearchingSize"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.AlignedExclusionStepSearcher.MaxSearchingSize"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.TemplateDeleteOnly">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.LastResorts.TemplateStepSearcher.TemplateDeleteOnly"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.TemplateStepSearcher.TemplateDeleteOnly"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.BowmanBingoMaxLength">
-            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.LastResorts.BowmanBingoStepSearcher.MaxLength"/>
+            <inheritdoc cref="P:Sudoku.Analytics.StepSearchers.BowmanBingoStepSearcher.MaxLength"/>
         </member>
         <member name="P:SudokuStudio.Views.Attached.AnalyzerProperties.AnalyzerUseIttoryuMode">
             <inheritdoc cref="P:Sudoku.Analytics.Configuration.StepGathererOptions.UseIttoryuMode"/>

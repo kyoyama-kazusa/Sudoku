@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.SingleDigitPatterns;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with an <b>Empty Rectangle</b> step searcher.

@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Steps.SingleDigitPatterns;
+namespace Sudoku.Analytics.Steps;
 
 /// <summary>
 /// Provides with a step that is an <b>Empty Rectangle</b> technique.

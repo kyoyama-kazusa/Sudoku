@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.Chains;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with a <b>Chain</b> step searcher.

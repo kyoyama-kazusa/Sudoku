@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.Chains;
+namespace Sudoku.Analytics.StepSearchers;
 
 using ConflictedInfo = ((Cell Left, Cell Right), CellMap InfluencedRange);
 

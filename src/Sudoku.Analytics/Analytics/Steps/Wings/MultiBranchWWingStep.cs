@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Steps.Wings;
+namespace Sudoku.Analytics.Steps;
 
 /// <summary>
 /// Provides with a step that is a <b>Multi-Branch W-Wing</b> technique.

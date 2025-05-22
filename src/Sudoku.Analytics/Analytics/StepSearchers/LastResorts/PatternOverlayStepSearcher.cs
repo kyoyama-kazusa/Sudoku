@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.LastResorts;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with a <b>Pattern Overlay</b> step searcher.

@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Steps.Uniqueness;
+namespace Sudoku.Analytics.Steps;
 
 /// <summary>
 /// Provides with a step that is a <b>Unique Rectangle External Type 1/2</b> or <b>Avoidable Rectangle External Type 1/2</b> technique.

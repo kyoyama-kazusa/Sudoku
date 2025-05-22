@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.Uniqueness;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with a <b>Reverse Bivalue Universal Grave</b> step searcher.

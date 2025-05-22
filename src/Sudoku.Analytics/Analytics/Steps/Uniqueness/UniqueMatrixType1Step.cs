@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Steps.Uniqueness;
+namespace Sudoku.Analytics.Steps;
 
 /// <summary>
 /// Provides with a step that is a <b>Unique Matrix Type 1</b> technique.

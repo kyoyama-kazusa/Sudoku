@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Steps.Chains;
+namespace Sudoku.Analytics.Steps;
 
 /// <summary>
 /// Provides with a step that is a <b>Bi-value Universal Grave + n Forcing Chains</b> technique.

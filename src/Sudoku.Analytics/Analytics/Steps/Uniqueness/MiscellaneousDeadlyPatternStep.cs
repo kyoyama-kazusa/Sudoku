@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Steps.Uniqueness;
+namespace Sudoku.Analytics.Steps;
 
 /// <summary>
 /// Provides with a step that is a <b>Miscellaneous Deadly Pattern</b> technique.

@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.Intersections;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with an <b>Almost Locked Candidates</b> step searcher.

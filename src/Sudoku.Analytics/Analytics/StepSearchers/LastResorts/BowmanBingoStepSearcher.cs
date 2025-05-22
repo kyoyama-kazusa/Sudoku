@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.LastResorts;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with a <b>Bowman's Bingo</b> step searcher.

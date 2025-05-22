@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.AlmostLockedSets;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with an <b>Extended Subset Principle</b> step searcher.

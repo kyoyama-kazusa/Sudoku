@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Steps.Uniqueness;
+namespace Sudoku.Analytics.Steps;
 
 /// <summary>
 /// Provides with a step that is a <b>Unique Rectangle Conjugate Pair(s)</b> (a.k.a. <b>Unique Rectangle Strong Link</b>) technique.

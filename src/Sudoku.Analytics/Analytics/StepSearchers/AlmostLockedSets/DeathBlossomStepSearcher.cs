@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.AlmostLockedSets;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with a <b>Death Blossom</b> step searcher.

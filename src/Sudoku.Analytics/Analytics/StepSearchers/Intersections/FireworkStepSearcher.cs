@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.Intersections;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with a <b>Firework</b> step searcher. The step searcher will include the following techniques:

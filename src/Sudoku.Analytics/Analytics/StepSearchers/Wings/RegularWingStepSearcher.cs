@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.Wings;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with a <b>Regular Wing</b> step searcher.

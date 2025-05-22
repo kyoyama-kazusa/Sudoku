@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Steps.AlmostLockedSets;
+namespace Sudoku.Analytics.Steps;
 
 /// <summary>
 /// Provides with a step that is a <b>Fat Ring</b> technique.

@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Steps.LastResorts;
+namespace Sudoku.Analytics.Steps;
 
 /// <summary>
 /// Provides with a step that is a <b>Bowman's Bingo</b> technique.

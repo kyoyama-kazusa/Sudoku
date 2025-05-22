@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.LockedSets;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with a <b>Domino Loop</b> (i.e. SK Loop) step searcher.

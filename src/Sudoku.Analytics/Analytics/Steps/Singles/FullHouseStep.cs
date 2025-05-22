@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Steps.Singles;
+namespace Sudoku.Analytics.Steps;
 
 /// <summary>
 /// Represents a data structure that describes for a technique of <b>Full House</b>.

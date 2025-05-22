@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.Invalidity;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// <para>

@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.Permutations;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with an <b>Aligned Exclusion</b> step searcher.

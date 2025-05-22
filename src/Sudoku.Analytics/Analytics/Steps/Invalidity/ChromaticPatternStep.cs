@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Steps.Invalidity;
+namespace Sudoku.Analytics.Steps;
 
 /// <summary>
 /// Provides with a step that is a <b>Chromatic Pattern</b> technique.

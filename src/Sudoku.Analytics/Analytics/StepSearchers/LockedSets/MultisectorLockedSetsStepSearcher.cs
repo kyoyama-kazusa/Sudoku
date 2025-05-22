@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers.LockedSets;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with a <b>Multi-sector Locked Sets</b> step searcher.
