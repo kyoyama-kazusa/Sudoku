@@ -6,16 +6,16 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="code"><inheritdoc/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="isAvoidable"><inheritdoc/></param>
-/// <param name="xDigit">Indicates the digit X defined in this pattern.</param>
-/// <param name="yDigit">Indicates the digit Y defined in this pattern.</param>
-/// <param name="xyCell">Indicates a bi-value cell that only contains digit X and Y.</param>
-/// <param name="absoluteOffset"><inheritdoc/></param>
-public sealed partial class UniqueRectangle2DOr3XStep(
+/// <param name="code"><inheritdoc cref="Step.Code" path="/summary"/></param>
+/// <param name="digit1"><inheritdoc cref="UniqueRectangleStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueRectangleStep.Digit2" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="UniqueRectangleStep.Cells" path="/summary"/></param>
+/// <param name="isAvoidable"><inheritdoc cref="UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+/// <param name="xDigit"><inheritdoc cref="XDigit" path="/summary"/></param>
+/// <param name="yDigit"><inheritdoc cref="YDigit" path="/summary"/></param>
+/// <param name="xyCell"><inheritdoc cref="XyCell" path="/summary"/></param>
+/// <param name="absoluteOffset"><inheritdoc cref="UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+public sealed class UniqueRectangle2DOr3XStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
@@ -24,17 +24,32 @@ public sealed partial class UniqueRectangle2DOr3XStep(
 	Digit digit2,
 	in CellMap cells,
 	bool isAvoidable,
-	[Property] Digit xDigit,
-	[Property] Digit yDigit,
-	[Property] Cell xyCell,
+	Digit xDigit,
+	Digit yDigit,
+	Cell xyCell,
 	int absoluteOffset
-) : UniqueRectangleStep(conclusions, views, options, code, digit1, digit2,  cells, isAvoidable, absoluteOffset)
+) : UniqueRectangleStep(conclusions, views, options, code, digit1, digit2, cells, isAvoidable, absoluteOffset)
 {
 	/// <inheritdoc/>
 	public override int BaseDifficulty => base.BaseDifficulty + 2;
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | (Mask)(1 << XDigit | 1 << YDigit));
+
+	/// <summary>
+	/// Indicates the digit X defined in this pattern.
+	/// </summary>
+	public Digit XDigit { get; } = xDigit;
+
+	/// <summary>
+	/// Indicates the digit Y defined in this pattern.
+	/// </summary>
+	public Digit YDigit { get; } = yDigit;
+
+	/// <summary>
+	/// Indicates a bi-value cell that only contains digit X and Y.
+	/// </summary>
+	public Cell XyCell { get; } = xyCell;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

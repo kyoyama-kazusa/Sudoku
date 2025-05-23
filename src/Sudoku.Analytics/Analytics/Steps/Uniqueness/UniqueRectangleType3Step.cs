@@ -6,30 +6,28 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="extraCells">Indicates the extra cells used, forming the subset.</param>
-/// <param name="extraDigitsMask">Indicates the mask that contains all extra digits used.</param>
-/// <param name="house">Indicates the house used.</param>
-/// <param name="isAvoidable"><inheritdoc/></param>
-/// <param name="absoluteOffset"><inheritdoc/></param>
-/// <param name="isNaked">
-/// Indicates whether the subset is naked subset. If <see langword="true"/>, a naked subset; otherwise, a hidden subset.
-/// </param>
-public sealed partial class UniqueRectangleType3Step(
+/// <param name="digit1"><inheritdoc cref="UniqueRectangleStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueRectangleStep.Digit2" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="UniqueRectangleStep.Cells" path="/summary"/></param>
+/// <param name="extraCells"><inheritdoc cref="ExtraCells" path="/summary"/></param>
+/// <param name="extraDigitsMask"><inheritdoc cref="ExtraDigitsMask" path="/summary"/></param>
+/// <param name="house"><inheritdoc cref="House" path="/summary"/></param>
+/// <param name="isAvoidable"><inheritdoc cref="UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+/// <param name="absoluteOffset"><inheritdoc cref="UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+/// <param name="isNaked"><inheritdoc cref="IsNaked" path="/summary"/></param>
+public sealed class UniqueRectangleType3Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit1,
 	Digit digit2,
 	in CellMap cells,
-	[Property] in CellMap extraCells,
-	[Property] Mask extraDigitsMask,
-	[Property] House house,
+	in CellMap extraCells,
+	Mask extraDigitsMask,
+	House house,
 	bool isAvoidable,
 	int absoluteOffset,
-	[Property] bool isNaked = true
+	bool isNaked = true
 ) :
 	UniqueRectangleStep(
 		conclusions,
@@ -44,11 +42,31 @@ public sealed partial class UniqueRectangleType3Step(
 	),
 	IPatternType3StepTrait<UniqueRectangleType3Step>
 {
+	/// <summary>
+	/// Indicates whether the subset is naked subset. If <see langword="true"/>, a naked subset; otherwise, a hidden subset.
+	/// </summary>
+	public bool IsNaked { get; } = isNaked;
+
 	/// <inheritdoc/>
 	public override int Type => 3;
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | ExtraDigitsMask);
+
+	/// <summary>
+	/// Indicates the extra cells used, forming the subset.
+	/// </summary>
+	public CellMap ExtraCells { get; } = extraCells;
+
+	/// <summary>
+	/// Indicates the mask that contains all extra digits used.
+	/// </summary>
+	public Mask ExtraDigitsMask { get; } = extraDigitsMask;
+
+	/// <summary>
+	/// Indicates the house used.
+	/// </summary>
+	public House House { get; } = house;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

@@ -6,26 +6,26 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="isIncomplete">Indicates whether the pattern is incomplete.</param>
-/// <param name="isAvoidable"><inheritdoc/></param>
-/// <param name="isDoublyLinked">Indicates whether the ALS-XZ pattern is doubly-linked.</param>
-/// <param name="almostLockedSet">The extra ALS.</param>
+/// <param name="digit1"><inheritdoc cref="UniqueRectangleStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueRectangleStep.Digit2" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="UniqueRectangleStep.Cells" path="/summary"/></param>
+/// <param name="isIncomplete"><inheritdoc cref="IsIncomplete" path="/summary"/></param>
+/// <param name="isAvoidable"><inheritdoc cref="UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+/// <param name="isDoublyLinked"><inheritdoc cref="IsDoublyLinked" path="/summary"/></param>
+/// <param name="almostLockedSet"><inheritdoc cref="AlmostLockedSet" path="/summary"/></param>
 /// <param name="multivalueCellsCount">Indicates the number of multi-value cells.</param>
-/// <param name="absoluteOffset"><inheritdoc/></param>
-public sealed partial class UniqueRectangleAlmostLockedSetsXzStep(
+/// <param name="absoluteOffset"><inheritdoc cref="UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+public sealed class UniqueRectangleAlmostLockedSetsXzStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit1,
 	Digit digit2,
 	in CellMap cells,
-	[Property] bool isIncomplete,
+	bool isIncomplete,
 	bool isAvoidable,
-	[Property] bool isDoublyLinked,
-	[Property] AlmostLockedSetPattern almostLockedSet,
+	bool isDoublyLinked,
+	AlmostLockedSetPattern almostLockedSet,
 	Cell multivalueCellsCount,
 	int absoluteOffset
 ) : UniqueRectangleStep(
@@ -50,6 +50,16 @@ public sealed partial class UniqueRectangleAlmostLockedSetsXzStep(
 	absoluteOffset
 )
 {
+	/// <summary>
+	/// Indicates whether the pattern is incomplete.
+	/// </summary>
+	public bool IsIncomplete { get; } = isIncomplete;
+
+	/// <summary>
+	/// Indicates whether the ALS-XZ pattern is doubly-linked.
+	/// </summary>
+	public bool IsDoublyLinked { get; } = isDoublyLinked;
+
 	/// <inheritdoc/>
 	public override int BaseDifficulty => base.BaseDifficulty + (IsDoublyLinked ? 7 : 6);
 
@@ -76,6 +86,11 @@ public sealed partial class UniqueRectangleAlmostLockedSetsXzStep(
 				static args => (bool)args![0]! ? 1 : 0
 			)
 		];
+
+	/// <summary>
+	/// Indicates the extra ALS.
+	/// </summary>
+	public AlmostLockedSetPattern AlmostLockedSet { get; } = almostLockedSet;
 
 	private string AlsStr => AlmostLockedSet.ToString(Options.Converter);
 }

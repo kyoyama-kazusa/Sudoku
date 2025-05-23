@@ -7,16 +7,16 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="code"><inheritdoc/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="isAvoidable"><inheritdoc/></param>
-/// <param name="conjugatePairs"><inheritdoc/></param>
-/// <param name="extraCells">Indicates the extra cells used.</param>
-/// <param name="extraDigitsMask">Indicates the extra digits used.</param>
-/// <param name="absoluteOffset"><inheritdoc/></param>
-public sealed partial class UniqueRectangleConjugatePairExtraStep(
+/// <param name="code"><inheritdoc cref="Step.Code" path="/summary"/></param>
+/// <param name="digit1"><inheritdoc cref="UniqueRectangleStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueRectangleStep.Digit2" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="UniqueRectangleStep.Cells" path="/summary"/></param>
+/// <param name="isAvoidable"><inheritdoc cref="UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+/// <param name="conjugatePairs"><inheritdoc cref="UniqueRectangleConjugatePairStep.ConjugatePairs" path="/summary"/></param>
+/// <param name="extraCells"><inheritdoc cref="ExtraCells" path="/summary"/></param>
+/// <param name="extraDigitsMask"><inheritdoc cref="ExtraDigitsMask" path="/summary"/></param>
+/// <param name="absoluteOffset"><inheritdoc cref="UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+public sealed class UniqueRectangleConjugatePairExtraStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
@@ -26,8 +26,8 @@ public sealed partial class UniqueRectangleConjugatePairExtraStep(
 	in CellMap cells,
 	bool isAvoidable,
 	Conjugate[] conjugatePairs,
-	[Property] in CellMap extraCells,
-	[Property] Mask extraDigitsMask,
+	in CellMap extraCells,
+	Mask extraDigitsMask,
 	int absoluteOffset
 ) :
 	UniqueRectangleConjugatePairStep(
@@ -49,6 +49,16 @@ public sealed partial class UniqueRectangleConjugatePairExtraStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | ExtraDigitsMask);
+
+	/// <summary>
+	/// Indicates the extra cells used.
+	/// </summary>
+	public CellMap ExtraCells { get; } = extraCells;
+
+	/// <summary>
+	/// Indicates the extra digits used.
+	/// </summary>
+	public Mask ExtraDigitsMask { get; } = extraDigitsMask;
 
 	/// <inheritdoc/>
 	protected override bool TechniqueResourceKeyInheritsFromBase => true;

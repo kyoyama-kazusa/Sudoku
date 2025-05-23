@@ -6,21 +6,21 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-/// <param name="isIncomplete">Indicates whether the pattern is incomplete.</param>
-/// <param name="absoluteOffset"><inheritdoc/></param>
-public sealed partial class UniqueRectangleExternalTurbotFishStep(
+/// <param name="digit1"><inheritdoc cref="UniqueRectangleStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueRectangleStep.Digit2" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="UniqueRectangleStep.Cells" path="/summary"/></param>
+/// <param name="guardianCells"><inheritdoc cref="GuardianCells" path="/summary"/></param>
+/// <param name="isIncomplete"><inheritdoc cref="IsIncomplete" path="/summary"/></param>
+/// <param name="absoluteOffset"><inheritdoc cref="UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+public sealed class UniqueRectangleExternalTurbotFishStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit1,
 	Digit digit2,
 	in CellMap cells,
-	[Property] in CellMap guardianCells,
-	[Property] bool isIncomplete,
+	in CellMap guardianCells,
+	bool isIncomplete,
 	int absoluteOffset
 ) :
 	UniqueRectangleStep(
@@ -37,8 +37,18 @@ public sealed partial class UniqueRectangleExternalTurbotFishStep(
 	IIncompleteTrait,
 	IGuardianTrait
 {
+	/// <summary>
+	/// Indicates whether the pattern is incomplete.
+	/// </summary>
+	public bool IsIncomplete { get; } = isIncomplete;
+
 	/// <inheritdoc/>
 	public override int BaseDifficulty => base.BaseDifficulty + 1;
+
+	/// <summary>
+	/// Indicates the cells that the guardians lie in.
+	/// </summary>
+	public CellMap GuardianCells { get; } = guardianCells;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

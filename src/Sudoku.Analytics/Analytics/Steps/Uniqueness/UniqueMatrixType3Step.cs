@@ -6,25 +6,37 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="digitsMask"><inheritdoc/></param>
-/// <param name="subsetDigitsMask">Indicates the mask that describes the extra digits used in the subset.</param>
-/// <param name="subsetCells">Indicates the cells that the subset used.</param>
-public sealed partial class UniqueMatrixType3Step(
+/// <param name="cells"><inheritdoc cref="UniqueMatrixStep.Cells" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="UniqueMatrixStep.DigitsMask" path="/summary"/></param>
+/// <param name="subsetDigitsMask"><inheritdoc cref="SubsetDigitsMask" path="/summary"/></param>
+/// <param name="subsetCells"><inheritdoc cref="SubsetCells" path="/summary"/></param>
+public sealed class UniqueMatrixType3Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	in CellMap cells,
 	Mask digitsMask,
-	[Property] in CellMap subsetCells,
-	[Property] Mask subsetDigitsMask
-) : UniqueMatrixStep(conclusions, views, options, cells, digitsMask), IPatternType3StepTrait<UniqueMatrixType3Step>
+	in CellMap subsetCells,
+	Mask subsetDigitsMask
+) :
+	UniqueMatrixStep(conclusions, views, options, cells, digitsMask),
+	IPatternType3StepTrait<UniqueMatrixType3Step>
 {
 	/// <inheritdoc/>
 	public override int Type => 3;
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | SubsetDigitsMask);
+
+	/// <summary>
+	/// Indicates the mask that describes the extra digits used in the subset.
+	/// </summary>
+	public CellMap SubsetCells { get; } = subsetCells;
+
+	/// <summary>
+	/// Indicates the cells that the subset used.
+	/// </summary>
+	public Mask SubsetDigitsMask { get; } = subsetDigitsMask;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

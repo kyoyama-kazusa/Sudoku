@@ -6,20 +6,25 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="digitsMask"><inheritdoc/></param>
-/// <param name="candidate">Indicates the true candidate.</param>
-public sealed partial class UniqueMatrixType1Step(
+/// <param name="cells"><inheritdoc cref="UniqueMatrixStep.Cells" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="UniqueMatrixStep.DigitsMask" path="/summary"/></param>
+/// <param name="candidate"><inheritdoc cref="Candidate" path="/summary"/></param>
+public sealed class UniqueMatrixType1Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	in CellMap cells,
 	Mask digitsMask,
-	[Property] Candidate candidate
+	Candidate candidate
 ) : UniqueMatrixStep(conclusions, views, options, cells, digitsMask)
 {
 	/// <inheritdoc/>
 	public override int Type => 1;
+
+	/// <summary>
+	/// Indicates the true candidate.
+	/// </summary>
+	public Candidate Candidate { get; } = candidate;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

@@ -6,24 +6,24 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-/// <param name="almostLockedSet">Indicates the almost locked set pattern used.</param>
-/// <param name="isIncomplete">Indicates whether the rectangle is incomplete.</param>
-/// <param name="isAvoidable"><inheritdoc/></param>
-/// <param name="absoluteOffset"><inheritdoc/></param>
-public sealed partial class UniqueRectangleExternalAlmostLockedSetsXzStep(
+/// <param name="digit1"><inheritdoc cref="UniqueRectangleStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueRectangleStep.Digit2" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="UniqueRectangleStep.Cells" path="/summary"/></param>
+/// <param name="guardianCells"><inheritdoc cref="GuardianCells" path="/summary"/></param>
+/// <param name="almostLockedSet"><inheritdoc cref="AlmostLockedSet" path="/summary"/></param>
+/// <param name="isIncomplete"><inheritdoc cref="IsIncomplete" path="/summary"/></param>
+/// <param name="isAvoidable"><inheritdoc cref="UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+/// <param name="absoluteOffset"><inheritdoc cref="UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+public sealed class UniqueRectangleExternalAlmostLockedSetsXzStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit1,
 	Digit digit2,
 	in CellMap cells,
-	[Property] in CellMap guardianCells,
-	[Property] AlmostLockedSetPattern almostLockedSet,
-	[Property] bool isIncomplete,
+	in CellMap guardianCells,
+	AlmostLockedSetPattern almostLockedSet,
+	bool isIncomplete,
 	bool isAvoidable,
 	int absoluteOffset
 ) :
@@ -41,8 +41,18 @@ public sealed partial class UniqueRectangleExternalAlmostLockedSetsXzStep(
 	IIncompleteTrait,
 	IGuardianTrait
 {
+	/// <summary>
+	/// Indicates whether the rectangle is incomplete.
+	/// </summary>
+	public bool IsIncomplete { get; } = isIncomplete;
+
 	/// <inheritdoc/>
 	public override int BaseDifficulty => base.BaseDifficulty + 3;
+
+	/// <summary>
+	/// Indicates the cells that the guardians lie in.
+	/// </summary>
+	public CellMap GuardianCells { get; } = guardianCells;
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | AlmostLockedSet.DigitsMask);
@@ -76,6 +86,11 @@ public sealed partial class UniqueRectangleExternalAlmostLockedSetsXzStep(
 				static args => (bool)args![0]! ? 1 : 0
 			)
 		];
+
+	/// <summary>
+	/// Indicates the almost locked set pattern used.
+	/// </summary>
+	public AlmostLockedSetPattern AlmostLockedSet { get; } = almostLockedSet;
 
 	/// <inheritdoc/>
 	int IGuardianTrait.GuardianCellsCount => GuardianCells.Count;

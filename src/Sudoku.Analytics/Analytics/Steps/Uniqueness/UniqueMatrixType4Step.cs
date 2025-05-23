@@ -6,20 +6,20 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="digitsMask"><inheritdoc/></param>
-/// <param name="digit1">Indicates the first digit used in the conjugate.</param>
-/// <param name="digit2">Indicates the second digit used in the conjugate.</param>
-/// <param name="conjugateHouse">Indicates the cells that describes the generalized conjugate pair.</param>
-public sealed partial class UniqueMatrixType4Step(
+/// <param name="cells"><inheritdoc cref="UniqueMatrixStep.Cells" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="UniqueMatrixStep.DigitsMask" path="/summary"/></param>
+/// <param name="digit1"><inheritdoc cref="Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="Digit2" path="/summary"/></param>
+/// <param name="conjugateHouse"><inheritdoc cref="ConjugateHouse" path="/summary"/></param>
+public sealed class UniqueMatrixType4Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	in CellMap cells,
 	Mask digitsMask,
-	[Property] Digit digit1,
-	[Property] Digit digit2,
-	[Property] in CellMap conjugateHouse
+	Digit digit1,
+	Digit digit2,
+	in CellMap conjugateHouse
 ) : UniqueMatrixStep(conclusions, views, options, cells, digitsMask)
 {
 	/// <inheritdoc/>
@@ -27,6 +27,21 @@ public sealed partial class UniqueMatrixType4Step(
 
 	/// <inheritdoc/>
 	public override int BaseDifficulty => base.BaseDifficulty + 2;
+
+	/// <summary>
+	/// Indicates the first digit used in the conjugate.
+	/// </summary>
+	public Digit Digit1 { get; } = digit1;
+
+	/// <summary>
+	/// Indicates the second digit used in the conjugate.
+	/// </summary>
+	public Digit Digit2 { get; } = digit2;
+
+	/// <summary>
+	/// Indicates the cells that describes the generalized conjugate pair.
+	/// </summary>
+	public CellMap ConjugateHouse { get; } = conjugateHouse;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

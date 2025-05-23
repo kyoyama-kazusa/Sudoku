@@ -6,26 +6,26 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-/// <param name="subsetCells">The extra cells that forms the subset.</param>
-/// <param name="subsetDigitsMask">Indicates the digits that the subset are used.</param>
-/// <param name="isIncomplete">Indicates whether the rectangle is incomplete.</param>
-/// <param name="isAvoidable"><inheritdoc/></param>
-/// <param name="absoluteOffset"><inheritdoc/></param>
-public sealed partial class UniqueRectangleExternalType3Step(
+/// <param name="digit1"><inheritdoc cref="UniqueRectangleStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueRectangleStep.Digit2" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="UniqueRectangleStep.Cells" path="/summary"/></param>
+/// <param name="guardianCells"><inheritdoc cref="GuardianCells" path="/summary"/></param>
+/// <param name="subsetCells"><inheritdoc cref="SubsetCells" path="/summary"/></param>
+/// <param name="subsetDigitsMask"><inheritdoc cref="SubsetDigitsMask" path="/summary"/></param>
+/// <param name="isIncomplete"><inheritdoc cref="IsIncomplete" path="/summary"/></param>
+/// <param name="isAvoidable"><inheritdoc cref="UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+/// <param name="absoluteOffset"><inheritdoc cref="UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+public sealed class UniqueRectangleExternalType3Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit1,
 	Digit digit2,
 	in CellMap cells,
-	[Property] in CellMap guardianCells,
-	[Property] in CellMap subsetCells,
-	[Property] Mask subsetDigitsMask,
-	[Property] bool isIncomplete,
+	in CellMap guardianCells,
+	in CellMap subsetCells,
+	Mask subsetDigitsMask,
+	bool isIncomplete,
 	bool isAvoidable,
 	int absoluteOffset
 ) :
@@ -44,10 +44,24 @@ public sealed partial class UniqueRectangleExternalType3Step(
 	IPatternType3StepTrait<UniqueRectangleExternalType3Step>
 {
 	/// <inheritdoc/>
+	public bool IsIncomplete { get; } = isIncomplete;
+
+	/// <inheritdoc/>
 	public override int BaseDifficulty => base.BaseDifficulty + 1;
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | SubsetDigitsMask);
+
+	/// <summary>
+	/// Indicates the cells that the guardians lie in.
+	/// </summary>
+	public CellMap GuardianCells { get; } = guardianCells;
+
+	/// <inheritdoc/>
+	public CellMap SubsetCells { get; } = subsetCells;
+
+	/// <inheritdoc/>
+	public Mask SubsetDigitsMask { get; } = subsetDigitsMask;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

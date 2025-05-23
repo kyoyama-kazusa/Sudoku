@@ -6,14 +6,14 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="absoluteOffset"><inheritdoc/></param>
-/// <param name="extraCells">Indicates the extra cells used.</param>
-/// <param name="subsetIncludedCorner">Indicates the subset-included corner cell.</param>
-/// <param name="extraDigitsMask">Indicates the extra digits used.</param>
-public sealed partial class UniqueRectangleBurredSubsetStep(
+/// <param name="digit1"><inheritdoc cref="UniqueRectangleStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueRectangleStep.Digit2" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="UniqueRectangleStep.Cells" path="/summary"/></param>
+/// <param name="absoluteOffset"><inheritdoc cref="UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+/// <param name="extraCells"><inheritdoc cref="ExtraCells" path="/summary"/></param>
+/// <param name="subsetIncludedCorner"><inheritdoc cref="SubsetIncludedCorner" path="/summary"/></param>
+/// <param name="extraDigitsMask"><inheritdoc cref="ExtraDigitsMask" path="/summary"/></param>
+public sealed class UniqueRectangleBurredSubsetStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
@@ -21,9 +21,9 @@ public sealed partial class UniqueRectangleBurredSubsetStep(
 	Digit digit2,
 	in CellMap cells,
 	int absoluteOffset,
-	[Property] in CellMap extraCells,
-	[Property] Cell subsetIncludedCorner,
-	[Property] Mask extraDigitsMask
+	in CellMap extraCells,
+	Cell subsetIncludedCorner,
+	Mask extraDigitsMask
 ) :
 	UniqueRectangleBurredStep(
 		conclusions,
@@ -43,6 +43,21 @@ public sealed partial class UniqueRectangleBurredSubsetStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | ExtraDigitsMask);
+
+	/// <summary>
+	/// Indicates the extra cells used.
+	/// </summary>
+	public CellMap ExtraCells { get; } = extraCells;
+
+	/// <summary>
+	/// Indicates the subset-included corner cell.
+	/// </summary>
+	public Cell SubsetIncludedCorner { get; } = subsetIncludedCorner;
+
+	/// <summary>
+	/// Indicates the extra digits used.
+	/// </summary>
+	public Mask ExtraDigitsMask { get; } = extraDigitsMask;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

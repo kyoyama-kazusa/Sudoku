@@ -6,24 +6,24 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-/// <param name="guardianDigit">Indicates the digit that the guardians are used.</param>
-/// <param name="isIncomplete">Indicates whether the rectangle is incomplete.</param>
-/// <param name="isAvoidable"><inheritdoc/></param>
-/// <param name="absoluteOffset"><inheritdoc/></param>
-public sealed partial class UniqueRectangleExternalType1Or2Step(
+/// <param name="digit1"><inheritdoc cref="UniqueRectangleStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueRectangleStep.Digit2" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="UniqueRectangleStep.Cells" path="/summary"/></param>
+/// <param name="guardianCells"><inheritdoc cref="GuardianCells" path="/summary"/></param>
+/// <param name="guardianDigit"><inheritdoc cref="GuardianDigit" path="/summary"/></param>
+/// <param name="isIncomplete"><inheritdoc cref="IsIncomplete" path="/summary"/></param>
+/// <param name="isAvoidable"><inheritdoc cref="UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+/// <param name="absoluteOffset"><inheritdoc cref="UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+public sealed class UniqueRectangleExternalType1Or2Step(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
 	Digit digit1,
 	Digit digit2,
 	in CellMap cells,
-	[Property] in CellMap guardianCells,
-	[Property] Digit guardianDigit,
-	[Property] bool isIncomplete,
+	in CellMap guardianCells,
+	Digit guardianDigit,
+	bool isIncomplete,
 	bool isAvoidable,
 	int absoluteOffset
 ) :
@@ -48,7 +48,18 @@ public sealed partial class UniqueRectangleExternalType1Or2Step(
 	IGuardianTrait
 {
 	/// <inheritdoc/>
+	public bool IsIncomplete { get; } = isIncomplete;
+
+	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | (Mask)(1 << GuardianDigit));
+
+	/// <inheritdoc/>
+	public CellMap GuardianCells { get; } = guardianCells;
+
+	/// <summary>
+	/// Indicates the digit that the guardians are used.
+	/// </summary>
+	public Digit GuardianDigit { get; } = guardianDigit;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

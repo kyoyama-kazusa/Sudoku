@@ -19766,8 +19766,8 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="cells">Indicates the cells used in this pattern.</param>
-            <param name="digitsMask">Indicates the mask that describes all digits used in this pattern.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueMatrixStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Concepts.CellMap@,System.Int16)">
             <summary>
@@ -19776,8 +19776,8 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="cells">Indicates the cells used in this pattern.</param>
-            <param name="digitsMask">Indicates the mask that describes all digits used in this pattern.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.DigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixStep.OnlyUseBivalueCells">
             <inheritdoc/>
@@ -19796,12 +19796,12 @@
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixStep.Cells">
             <summary>
-            The generated property declaration for parameter <c>cells</c>.
+            Indicates the cells used in this pattern.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixStep.DigitsMask">
             <summary>
-            The generated property declaration for parameter <c>digitsMask</c>.
+            Indicates the mask that describes all digits used in this pattern.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueMatrixType1Step">
@@ -19811,9 +19811,9 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="candidate">Indicates the true candidate.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.DigitsMask" path="/summary"/></param>
+            <param name="candidate"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixType1Step.Candidate" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueMatrixType1Step.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Concepts.CellMap@,System.Int16,System.Int32)">
             <summary>
@@ -19822,20 +19822,20 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="candidate">Indicates the true candidate.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.DigitsMask" path="/summary"/></param>
+            <param name="candidate"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixType1Step.Candidate" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType1Step.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType1Step.Interpolations">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType1Step.Candidate">
             <summary>
-            The generated property declaration for parameter <c>candidate</c>.
+            Indicates the true candidate.
             </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType1Step.Interpolations">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueMatrixType2Step">
             <summary>
@@ -19844,9 +19844,9 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="extraDigit">Indicates the extra digit used.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.DigitsMask" path="/summary"/></param>
+            <param name="extraDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixType2Step.ExtraDigit" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueMatrixType2Step.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Concepts.CellMap@,System.Int16,System.Int32)">
             <summary>
@@ -19855,9 +19855,9 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="extraDigit">Indicates the extra digit used.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.DigitsMask" path="/summary"/></param>
+            <param name="extraDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixType2Step.ExtraDigit" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType2Step.Type">
             <inheritdoc/>
@@ -19868,13 +19868,13 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType2Step.DigitsUsed">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType2Step.Interpolations">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType2Step.ExtraDigit">
             <summary>
-            The generated property declaration for parameter <c>extraDigit</c>.
+            Indicates the extra digit used.
             </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType2Step.Interpolations">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueMatrixType3Step">
             <summary>
@@ -19883,10 +19883,10 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="subsetDigitsMask">Indicates the mask that describes the extra digits used in the subset.</param>
-            <param name="subsetCells">Indicates the cells that the subset used.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.DigitsMask" path="/summary"/></param>
+            <param name="subsetDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixType3Step.SubsetDigitsMask" path="/summary"/></param>
+            <param name="subsetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixType3Step.SubsetCells" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueMatrixType3Step.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Concepts.CellMap@,System.Int16,Sudoku.Concepts.CellMap@,System.Int16)">
             <summary>
@@ -19895,16 +19895,26 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="subsetDigitsMask">Indicates the mask that describes the extra digits used in the subset.</param>
-            <param name="subsetCells">Indicates the cells that the subset used.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.DigitsMask" path="/summary"/></param>
+            <param name="subsetDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixType3Step.SubsetDigitsMask" path="/summary"/></param>
+            <param name="subsetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixType3Step.SubsetCells" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType3Step.Type">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType3Step.DigitsUsed">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType3Step.SubsetCells">
+            <summary>
+            Indicates the mask that describes the extra digits used in the subset.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType3Step.SubsetDigitsMask">
+            <summary>
+            Indicates the cells that the subset used.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType3Step.Interpolations">
             <inheritdoc/>
@@ -19918,16 +19928,6 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType3Step.Sudoku#Analytics#Traits#IPatternType3StepTrait{Sudoku#Analytics#Steps#UniqueMatrixType3Step}#SubsetSize">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType3Step.SubsetCells">
-            <summary>
-            The generated property declaration for parameter <c>subsetCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType3Step.SubsetDigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>subsetDigitsMask</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueMatrixType4Step">
             <summary>
             Provides with a step that is a <b>Unique Square Type 4</b> technique.
@@ -19935,11 +19935,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="digit1">Indicates the first digit used in the conjugate.</param>
-            <param name="digit2">Indicates the second digit used in the conjugate.</param>
-            <param name="conjugateHouse">Indicates the cells that describes the generalized conjugate pair.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.DigitsMask" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixType4Step.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixType4Step.Digit2" path="/summary"/></param>
+            <param name="conjugateHouse"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixType4Step.ConjugateHouse" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueMatrixType4Step.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Concepts.CellMap@,System.Int16,System.Int32,System.Int32,Sudoku.Concepts.CellMap@)">
             <summary>
@@ -19948,11 +19948,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="digitsMask"><inheritdoc/></param>
-            <param name="digit1">Indicates the first digit used in the conjugate.</param>
-            <param name="digit2">Indicates the second digit used in the conjugate.</param>
-            <param name="conjugateHouse">Indicates the cells that describes the generalized conjugate pair.</param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.Cells" path="/summary"/></param>
+            <param name="digitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixStep.DigitsMask" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixType4Step.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixType4Step.Digit2" path="/summary"/></param>
+            <param name="conjugateHouse"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueMatrixType4Step.ConjugateHouse" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType4Step.Type">
             <inheritdoc/>
@@ -19960,23 +19960,23 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType4Step.BaseDifficulty">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType4Step.Interpolations">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType4Step.Digit1">
             <summary>
-            The generated property declaration for parameter <c>digit1</c>.
+            Indicates the first digit used in the conjugate.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType4Step.Digit2">
             <summary>
-            The generated property declaration for parameter <c>digit2</c>.
+            Indicates the second digit used in the conjugate.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType4Step.ConjugateHouse">
             <summary>
-            The generated property declaration for parameter <c>conjugateHouse</c>.
+            Indicates the cells that describes the generalized conjugate pair.
             </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueMatrixType4Step.Interpolations">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.UniquenessClueCoverStep">
             <summary>
@@ -20043,15 +20043,15 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="code"><inheritdoc/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="xDigit">Indicates the digit X defined in this pattern.</param>
-            <param name="yDigit">Indicates the digit Y defined in this pattern.</param>
-            <param name="xyCell">Indicates a bi-value cell that only contains digit X and Y.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="code"><inheritdoc cref="P:Sudoku.Analytics.Step.Code" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="xDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangle2DOr3XStep.XDigit" path="/summary"/></param>
+            <param name="yDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangle2DOr3XStep.YDigit" path="/summary"/></param>
+            <param name="xyCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangle2DOr3XStep.XyCell" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangle2DOr3XStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Categorization.Technique,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -20060,15 +20060,15 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="code"><inheritdoc/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="xDigit">Indicates the digit X defined in this pattern.</param>
-            <param name="yDigit">Indicates the digit Y defined in this pattern.</param>
-            <param name="xyCell">Indicates a bi-value cell that only contains digit X and Y.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="code"><inheritdoc cref="P:Sudoku.Analytics.Step.Code" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="xDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangle2DOr3XStep.XDigit" path="/summary"/></param>
+            <param name="yDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangle2DOr3XStep.YDigit" path="/summary"/></param>
+            <param name="xyCell"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangle2DOr3XStep.XyCell" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangle2DOr3XStep.BaseDifficulty">
             <inheritdoc/>
@@ -20076,23 +20076,23 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangle2DOr3XStep.DigitsUsed">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangle2DOr3XStep.Interpolations">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangle2DOr3XStep.XDigit">
             <summary>
-            The generated property declaration for parameter <c>xDigit</c>.
+            Indicates the digit X defined in this pattern.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangle2DOr3XStep.YDigit">
             <summary>
-            The generated property declaration for parameter <c>yDigit</c>.
+            Indicates the digit Y defined in this pattern.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangle2DOr3XStep.XyCell">
             <summary>
-            The generated property declaration for parameter <c>xyCell</c>.
+            Indicates a bi-value cell that only contains digit X and Y.
             </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangle2DOr3XStep.Interpolations">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleAlmostLockedSetsXzStep">
             <summary>
@@ -20101,15 +20101,15 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isIncomplete">Indicates whether the pattern is incomplete.</param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="isDoublyLinked">Indicates whether the ALS-XZ pattern is doubly-linked.</param>
-            <param name="almostLockedSet">The extra ALS.</param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isIncomplete"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleAlmostLockedSetsXzStep.IsIncomplete" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="isDoublyLinked"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleAlmostLockedSetsXzStep.IsDoublyLinked" path="/summary"/></param>
+            <param name="almostLockedSet"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleAlmostLockedSetsXzStep.AlmostLockedSet" path="/summary"/></param>
             <param name="multivalueCellsCount">Indicates the number of multi-value cells.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleAlmostLockedSetsXzStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,System.Boolean,System.Boolean,System.Boolean,Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern,System.Int32,System.Int32)">
             <summary>
@@ -20118,15 +20118,25 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isIncomplete">Indicates whether the pattern is incomplete.</param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="isDoublyLinked">Indicates whether the ALS-XZ pattern is doubly-linked.</param>
-            <param name="almostLockedSet">The extra ALS.</param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isIncomplete"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleAlmostLockedSetsXzStep.IsIncomplete" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="isDoublyLinked"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleAlmostLockedSetsXzStep.IsDoublyLinked" path="/summary"/></param>
+            <param name="almostLockedSet"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleAlmostLockedSetsXzStep.AlmostLockedSet" path="/summary"/></param>
             <param name="multivalueCellsCount">Indicates the number of multi-value cells.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleAlmostLockedSetsXzStep.IsIncomplete">
+            <summary>
+            Indicates whether the pattern is incomplete.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleAlmostLockedSetsXzStep.IsDoublyLinked">
+            <summary>
+            Indicates whether the ALS-XZ pattern is doubly-linked.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleAlmostLockedSetsXzStep.BaseDifficulty">
             <inheritdoc/>
@@ -20140,19 +20150,9 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleAlmostLockedSetsXzStep.Factors">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleAlmostLockedSetsXzStep.IsIncomplete">
-            <summary>
-            The generated property declaration for parameter <c>isIncomplete</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleAlmostLockedSetsXzStep.IsDoublyLinked">
-            <summary>
-            The generated property declaration for parameter <c>isDoublyLinked</c>.
-            </summary>
-        </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleAlmostLockedSetsXzStep.AlmostLockedSet">
             <summary>
-            The generated property declaration for parameter <c>almostLockedSet</c>.
+            Indicates the extra ALS.
             </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleBurredStep">
@@ -20162,12 +20162,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="code"><inheritdoc/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="code"><inheritdoc cref="P:Sudoku.Analytics.Step.Code" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleBurredStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Categorization.Technique,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,System.Boolean,System.Int32)">
             <summary>
@@ -20176,12 +20176,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="code"><inheritdoc/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="code"><inheritdoc cref="P:Sudoku.Analytics.Step.Code" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep">
             <summary>
@@ -20190,13 +20190,13 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
-            <param name="extraCells">Indicates the extra cells used.</param>
-            <param name="subsetIncludedCorner">Indicates the subset-included corner cell.</param>
-            <param name="extraDigitsMask">Indicates the extra digits used.</param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+            <param name="extraCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.ExtraCells" path="/summary"/></param>
+            <param name="subsetIncludedCorner"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.SubsetIncludedCorner" path="/summary"/></param>
+            <param name="extraDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.ExtraDigitsMask" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,System.Int32,Sudoku.Concepts.CellMap@,System.Int32,System.Int16)">
             <summary>
@@ -20205,19 +20205,34 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
-            <param name="extraCells">Indicates the extra cells used.</param>
-            <param name="subsetIncludedCorner">Indicates the subset-included corner cell.</param>
-            <param name="extraDigitsMask">Indicates the extra digits used.</param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+            <param name="extraCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.ExtraCells" path="/summary"/></param>
+            <param name="subsetIncludedCorner"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.SubsetIncludedCorner" path="/summary"/></param>
+            <param name="extraDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.ExtraDigitsMask" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.BaseDifficulty">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.DigitsUsed">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.ExtraCells">
+            <summary>
+            Indicates the extra cells used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.SubsetIncludedCorner">
+            <summary>
+            Indicates the subset-included corner cell.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.ExtraDigitsMask">
+            <summary>
+            Indicates the extra digits used.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.Interpolations">
             <inheritdoc/>
@@ -20237,21 +20252,6 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.Sudoku#Analytics#Traits#IPatternType3StepTrait{Sudoku#Analytics#Steps#UniqueRectangleBurredSubsetStep}#SubsetCells">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.ExtraCells">
-            <summary>
-            The generated property declaration for parameter <c>extraCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.SubsetIncludedCorner">
-            <summary>
-            The generated property declaration for parameter <c>subsetIncludedCorner</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleBurredSubsetStep.ExtraDigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>extraDigitsMask</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairExtraStep">
             <summary>
             Provides with a step that is a <b>Unique Rectangle Conjugate Pair(s) Extra</b>
@@ -20260,15 +20260,15 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="code"><inheritdoc/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="conjugatePairs"><inheritdoc/></param>
-            <param name="extraCells">Indicates the extra cells used.</param>
-            <param name="extraDigitsMask">Indicates the extra digits used.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="code"><inheritdoc cref="P:Sudoku.Analytics.Step.Code" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="conjugatePairs"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairStep.ConjugatePairs" path="/summary"/></param>
+            <param name="extraCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairExtraStep.ExtraCells" path="/summary"/></param>
+            <param name="extraDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairExtraStep.ExtraDigitsMask" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairExtraStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Categorization.Technique,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,System.Boolean,Sudoku.Concepts.Conjugate[],Sudoku.Concepts.CellMap@,System.Int16,System.Int32)">
             <summary>
@@ -20278,15 +20278,15 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="code"><inheritdoc/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="conjugatePairs"><inheritdoc/></param>
-            <param name="extraCells">Indicates the extra cells used.</param>
-            <param name="extraDigitsMask">Indicates the extra digits used.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="code"><inheritdoc cref="P:Sudoku.Analytics.Step.Code" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="conjugatePairs"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairStep.ConjugatePairs" path="/summary"/></param>
+            <param name="extraCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairExtraStep.ExtraCells" path="/summary"/></param>
+            <param name="extraDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairExtraStep.ExtraDigitsMask" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairExtraStep.BaseDifficulty">
             <inheritdoc/>
@@ -20294,21 +20294,21 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairExtraStep.DigitsUsed">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairExtraStep.ExtraCells">
+            <summary>
+            Indicates the extra cells used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairExtraStep.ExtraDigitsMask">
+            <summary>
+            Indicates the extra digits used.
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairExtraStep.TechniqueResourceKeyInheritsFromBase">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairExtraStep.Sudoku#Analytics#Traits#IConjugatePairTrait#ConjugatePairsCount">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairExtraStep.ExtraCells">
-            <summary>
-            The generated property declaration for parameter <c>extraCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairExtraStep.ExtraDigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>extraDigitsMask</c>.
-            </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairStep">
             <summary>
@@ -20317,13 +20317,13 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="code"><inheritdoc/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="conjugatePairs">Indicates the conjugate pairs used.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="code"><inheritdoc cref="P:Sudoku.Analytics.Step.Code" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="conjugatePairs"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairStep.ConjugatePairs" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Categorization.Technique,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,System.Boolean,Sudoku.Concepts.Conjugate[],System.Int32)">
             <summary>
@@ -20332,19 +20332,24 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="code"><inheritdoc/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="conjugatePairs">Indicates the conjugate pairs used.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="code"><inheritdoc cref="P:Sudoku.Analytics.Step.Code" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="conjugatePairs"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairStep.ConjugatePairs" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairStep.BaseDifficulty">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairStep.Type">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairStep.ConjugatePairs">
+            <summary>
+            Indicates the conjugate pairs used.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairStep.Interpolations">
             <inheritdoc/>
@@ -20355,11 +20360,6 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairStep.Sudoku#Analytics#Traits#IConjugatePairTrait#ConjugatePairsCount">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleConjugatePairStep.ConjugatePairs">
-            <summary>
-            The generated property declaration for parameter <c>conjugatePairs</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep">
             <summary>
             Provides with a step that is a <b>Unique Rectangle External Almost Locked Sets XZ Rule</b> technique.
@@ -20367,14 +20367,14 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-            <param name="almostLockedSet">Indicates the almost locked set pattern used.</param>
-            <param name="isIncomplete">Indicates whether the rectangle is incomplete.</param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="guardianCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.GuardianCells" path="/summary"/></param>
+            <param name="almostLockedSet"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.AlmostLockedSet" path="/summary"/></param>
+            <param name="isIncomplete"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.IsIncomplete" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern,System.Boolean,System.Boolean,System.Int32)">
             <summary>
@@ -20383,17 +20383,27 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-            <param name="almostLockedSet">Indicates the almost locked set pattern used.</param>
-            <param name="isIncomplete">Indicates whether the rectangle is incomplete.</param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="guardianCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.GuardianCells" path="/summary"/></param>
+            <param name="almostLockedSet"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.AlmostLockedSet" path="/summary"/></param>
+            <param name="isIncomplete"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.IsIncomplete" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.IsIncomplete">
+            <summary>
+            Indicates whether the rectangle is incomplete.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.BaseDifficulty">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.GuardianCells">
+            <summary>
+            Indicates the cells that the guardians lie in.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.DigitsUsed">
             <inheritdoc/>
@@ -20404,23 +20414,13 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.Factors">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.Sudoku#Analytics#Traits#IGuardianTrait#GuardianCellsCount">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.GuardianCells">
-            <summary>
-            The generated property declaration for parameter <c>guardianCells</c>.
-            </summary>
-        </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.AlmostLockedSet">
             <summary>
-            The generated property declaration for parameter <c>almostLockedSet</c>.
+            Indicates the almost locked set pattern used.
             </summary>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.IsIncomplete">
-            <summary>
-            The generated property declaration for parameter <c>isIncomplete</c>.
-            </summary>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalAlmostLockedSetsXzStep.Sudoku#Analytics#Traits#IGuardianTrait#GuardianCellsCount">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleExternalTurbotFishStep">
             <summary>
@@ -20429,12 +20429,12 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-            <param name="isIncomplete">Indicates whether the pattern is incomplete.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="guardianCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalTurbotFishStep.GuardianCells" path="/summary"/></param>
+            <param name="isIncomplete"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalTurbotFishStep.IsIncomplete" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleExternalTurbotFishStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Boolean,System.Int32)">
             <summary>
@@ -20443,15 +20443,25 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-            <param name="isIncomplete">Indicates whether the pattern is incomplete.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="guardianCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalTurbotFishStep.GuardianCells" path="/summary"/></param>
+            <param name="isIncomplete"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalTurbotFishStep.IsIncomplete" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalTurbotFishStep.IsIncomplete">
+            <summary>
+            Indicates whether the pattern is incomplete.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalTurbotFishStep.BaseDifficulty">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalTurbotFishStep.GuardianCells">
+            <summary>
+            Indicates the cells that the guardians lie in.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalTurbotFishStep.Interpolations">
             <inheritdoc/>
@@ -20462,16 +20472,6 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalTurbotFishStep.Sudoku#Analytics#Traits#IGuardianTrait#GuardianCellsCount">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalTurbotFishStep.GuardianCells">
-            <summary>
-            The generated property declaration for parameter <c>guardianCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalTurbotFishStep.IsIncomplete">
-            <summary>
-            The generated property declaration for parameter <c>isIncomplete</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step">
             <summary>
             Provides with a step that is a <b>Unique Rectangle External Type 1/2</b> or <b>Avoidable Rectangle External Type 1/2</b> technique.
@@ -20479,14 +20479,14 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-            <param name="guardianDigit">Indicates the digit that the guardians are used.</param>
-            <param name="isIncomplete">Indicates whether the rectangle is incomplete.</param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="guardianCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step.GuardianCells" path="/summary"/></param>
+            <param name="guardianDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step.GuardianDigit" path="/summary"/></param>
+            <param name="isIncomplete"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step.IsIncomplete" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int32,System.Boolean,System.Boolean,System.Int32)">
             <summary>
@@ -20495,17 +20495,28 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-            <param name="guardianDigit">Indicates the digit that the guardians are used.</param>
-            <param name="isIncomplete">Indicates whether the rectangle is incomplete.</param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="guardianCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step.GuardianCells" path="/summary"/></param>
+            <param name="guardianDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step.GuardianDigit" path="/summary"/></param>
+            <param name="isIncomplete"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step.IsIncomplete" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step.IsIncomplete">
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step.DigitsUsed">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step.GuardianCells">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step.GuardianDigit">
+            <summary>
+            Indicates the digit that the guardians are used.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step.Interpolations">
             <inheritdoc/>
@@ -20516,21 +20527,6 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step.Sudoku#Analytics#Traits#IGuardianTrait#GuardianCellsCount">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step.GuardianCells">
-            <summary>
-            The generated property declaration for parameter <c>guardianCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step.GuardianDigit">
-            <summary>
-            The generated property declaration for parameter <c>guardianDigit</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType1Or2Step.IsIncomplete">
-            <summary>
-            The generated property declaration for parameter <c>isIncomplete</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step">
             <summary>
             Provides with a step that is a <b>Unique Rectangle External Type 3</b> technique.
@@ -20538,15 +20534,15 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-            <param name="subsetCells">The extra cells that forms the subset.</param>
-            <param name="subsetDigitsMask">Indicates the digits that the subset are used.</param>
-            <param name="isIncomplete">Indicates whether the rectangle is incomplete.</param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="guardianCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.GuardianCells" path="/summary"/></param>
+            <param name="subsetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.SubsetCells" path="/summary"/></param>
+            <param name="subsetDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.SubsetDigitsMask" path="/summary"/></param>
+            <param name="isIncomplete"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.IsIncomplete" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int16,System.Boolean,System.Boolean,System.Int32)">
             <summary>
@@ -20555,20 +20551,34 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-            <param name="subsetCells">The extra cells that forms the subset.</param>
-            <param name="subsetDigitsMask">Indicates the digits that the subset are used.</param>
-            <param name="isIncomplete">Indicates whether the rectangle is incomplete.</param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="guardianCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.GuardianCells" path="/summary"/></param>
+            <param name="subsetCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.SubsetCells" path="/summary"/></param>
+            <param name="subsetDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.SubsetDigitsMask" path="/summary"/></param>
+            <param name="isIncomplete"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.IsIncomplete" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.IsIncomplete">
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.BaseDifficulty">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.DigitsUsed">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.GuardianCells">
+            <summary>
+            Indicates the cells that the guardians lie in.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.SubsetCells">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.SubsetDigitsMask">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.Interpolations">
@@ -20583,26 +20593,6 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.Sudoku#Analytics#Traits#IPatternType3StepTrait{Sudoku#Analytics#Steps#UniqueRectangleExternalType3Step}#SubsetSize">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.GuardianCells">
-            <summary>
-            The generated property declaration for parameter <c>guardianCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.SubsetCells">
-            <summary>
-            The generated property declaration for parameter <c>subsetCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.SubsetDigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>subsetDigitsMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType3Step.IsIncomplete">
-            <summary>
-            The generated property declaration for parameter <c>isIncomplete</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step">
             <summary>
             Provides with a step that is a <b>Unique Rectangle External Type 4</b> technique.
@@ -20610,14 +20600,14 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-            <param name="conjugatePair">Indicates the conjugate pair used.</param>
-            <param name="isIncomplete">Indicates whether the rectangle is incomplete.</param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="guardianCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.GuardianCells" path="/summary"/></param>
+            <param name="conjugatePair"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.ConjugatePair" path="/summary"/></param>
+            <param name="isIncomplete"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.IsIncomplete" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.Conjugate,System.Boolean,System.Boolean,System.Int32)">
             <summary>
@@ -20626,14 +20616,17 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-            <param name="conjugatePair">Indicates the conjugate pair used.</param>
-            <param name="isIncomplete">Indicates whether the rectangle is incomplete.</param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="guardianCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.GuardianCells" path="/summary"/></param>
+            <param name="conjugatePair"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.ConjugatePair" path="/summary"/></param>
+            <param name="isIncomplete"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.IsIncomplete" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.IsIncomplete">
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.BaseDifficulty">
             <inheritdoc/>
@@ -20641,26 +20634,21 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.DigitsUsed">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.GuardianCells">
+            <summary>
+            Indicates the cells that the guardians lie in.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.ConjugatePair">
+            <summary>
+            Indicates the conjugate pair used.
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.Interpolations">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.Factors">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.GuardianCells">
-            <summary>
-            The generated property declaration for parameter <c>guardianCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.ConjugatePair">
-            <summary>
-            The generated property declaration for parameter <c>conjugatePair</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalType4Step.IsIncomplete">
-            <summary>
-            The generated property declaration for parameter <c>isIncomplete</c>.
-            </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep">
             <summary>
@@ -20669,14 +20657,14 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-            <param name="cellPair">Indicates the cell pair.</param>
-            <param name="isIncomplete">Indicates whether the rectangle is incomplete.</param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="guardianCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep.GuardianCells" path="/summary"/></param>
+            <param name="cellPair"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep.CellPair" path="/summary"/></param>
+            <param name="isIncomplete"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep.IsIncomplete" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Boolean,System.Boolean,System.Int32)">
             <summary>
@@ -20685,17 +20673,28 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-            <param name="cellPair">Indicates the cell pair.</param>
-            <param name="isIncomplete">Indicates whether the rectangle is incomplete.</param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="guardianCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep.GuardianCells" path="/summary"/></param>
+            <param name="cellPair"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep.CellPair" path="/summary"/></param>
+            <param name="isIncomplete"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep.IsIncomplete" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep.IsIncomplete">
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep.BaseDifficulty">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep.GuardianCells">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep.CellPair">
+            <summary>
+            Indicates the cell pair.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep.Interpolations">
             <inheritdoc/>
@@ -20706,21 +20705,6 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep.Sudoku#Analytics#Traits#IGuardianTrait#GuardianCellsCount">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep.GuardianCells">
-            <summary>
-            The generated property declaration for parameter <c>guardianCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep.CellPair">
-            <summary>
-            The generated property declaration for parameter <c>cellPair</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalWWingStep.IsIncomplete">
-            <summary>
-            The generated property declaration for parameter <c>isIncomplete</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep">
             <summary>
             Provides with a step that is a <b>Unique Rectangle External XY-Wing</b> technique.
@@ -20728,14 +20712,14 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-            <param name="cellPair">Indicates the cell pair.</param>
-            <param name="isIncomplete">Indicates whether the rectangle is incomplete.</param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="guardianCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep.GuardianCells" path="/summary"/></param>
+            <param name="cellPair"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep.CellPair" path="/summary"/></param>
+            <param name="isIncomplete"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep.IsIncomplete" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Boolean,System.Boolean,System.Int32)">
             <summary>
@@ -20744,17 +20728,28 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="guardianCells">Indicates the cells that the guardians lie in.</param>
-            <param name="cellPair">Indicates the cell pair.</param>
-            <param name="isIncomplete">Indicates whether the rectangle is incomplete.</param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="guardianCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep.GuardianCells" path="/summary"/></param>
+            <param name="cellPair"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep.CellPair" path="/summary"/></param>
+            <param name="isIncomplete"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep.IsIncomplete" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep.IsIncomplete">
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep.BaseDifficulty">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep.GuardianCells">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep.CellPair">
+            <summary>
+            Indicates the cell pair.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep.Interpolations">
             <inheritdoc/>
@@ -20765,21 +20760,6 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep.Sudoku#Analytics#Traits#IGuardianTrait#GuardianCellsCount">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep.GuardianCells">
-            <summary>
-            The generated property declaration for parameter <c>guardianCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep.CellPair">
-            <summary>
-            The generated property declaration for parameter <c>cellPair</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleExternalXyWingStep.IsIncomplete">
-            <summary>
-            The generated property declaration for parameter <c>isIncomplete</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep">
             <summary>
             Provides with a step that is a <b>Unique Rectangle Regular Wing</b> technique.
@@ -20787,15 +20767,15 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="code"><inheritdoc/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="branches">Indicates the branches used.</param>
-            <param name="petals">Indicates the petals used.</param>
-            <param name="extraDigitsMask">Indicates the mask that contains all extra digits.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="code"><inheritdoc cref="P:Sudoku.Analytics.Step.Code" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="branches"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep.Branches" path="/summary"/></param>
+            <param name="petals"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep.Petals" path="/summary"/></param>
+            <param name="extraDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep.ExtraDigitsMask"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Categorization.Technique,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,System.Boolean,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int16,System.Int32)">
             <summary>
@@ -20804,39 +20784,39 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="code"><inheritdoc/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="branches">Indicates the branches used.</param>
-            <param name="petals">Indicates the petals used.</param>
-            <param name="extraDigitsMask">Indicates the mask that contains all extra digits.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="code"><inheritdoc cref="P:Sudoku.Analytics.Step.Code" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="branches"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep.Branches" path="/summary"/></param>
+            <param name="petals"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep.Petals" path="/summary"/></param>
+            <param name="extraDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep.ExtraDigitsMask"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep.DigitsUsed">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep.Branches">
+            <summary>
+            Indicates the branches used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep.Petals">
+            <summary>
+            Indicates the petals used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep.ExtraDigitsMask">
+            <summary>
+            Indicates the mask that contains all extra digits.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep.Interpolations">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep.Factors">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep.Branches">
-            <summary>
-            The generated property declaration for parameter <c>branches</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep.Petals">
-            <summary>
-            The generated property declaration for parameter <c>petals</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleRegularWingStep.ExtraDigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>extraDigitsMask</c>.
-            </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleStep">
             <summary>
@@ -20846,21 +20826,11 @@
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
             <param name="code"><inheritdoc cref="P:Sudoku.Analytics.Step.Code" path="/summary"/></param>
-            <param name="digit1">Indicates the first digit used.</param>
-            <param name="digit2">Indicates the second digit used. This value is always greater than <see cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1"/>.</param>
-            <param name="cells">Indicates the cells used in this pattern.</param>
-            <param name="isAvoidable">
-            Indicates whether the current rectangle is an avoidable rectangle.
-            If <see langword="true"/>, an avoidable rectangle; otherwise, a unique rectangle.
-            </param>
-            <param name="absoluteOffset">
-            <para>Indicates the absolute offset.</para>
-            <para>
-            The value is an <see cref="T:System.Int32"/> value, as an index, in order to distinct with all unique rectangle patterns.
-            The greater the value is, the later the corresponding pattern will be processed.
-            The value must be between 0 and 485, because the total number of possible patterns is 486.
-            </para>
-            </param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Categorization.Technique,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,System.Boolean,System.Int32)">
             <summary>
@@ -20870,24 +20840,20 @@
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
             <param name="code"><inheritdoc cref="P:Sudoku.Analytics.Step.Code" path="/summary"/></param>
-            <param name="digit1">Indicates the first digit used.</param>
-            <param name="digit2">Indicates the second digit used. This value is always greater than <see cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1"/>.</param>
-            <param name="cells">Indicates the cells used in this pattern.</param>
-            <param name="isAvoidable">
-            Indicates whether the current rectangle is an avoidable rectangle.
-            If <see langword="true"/>, an avoidable rectangle; otherwise, a unique rectangle.
-            </param>
-            <param name="absoluteOffset">
-            <para>Indicates the absolute offset.</para>
-            <para>
-            The value is an <see cref="T:System.Int32"/> value, as an index, in order to distinct with all unique rectangle patterns.
-            The greater the value is, the later the corresponding pattern will be processed.
-            The value must be between 0 and 485, because the total number of possible patterns is 486.
-            </para>
-            </param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleStep.OnlyUseBivalueCells">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable">
+            <summary>
+            Indicates whether the current rectangle is an avoidable rectangle.
+            If <see langword="true"/>, an avoidable rectangle; otherwise, a unique rectangle.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Type">
             <inheritdoc/>
@@ -20895,44 +20861,44 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleStep.BaseDifficulty">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleStep.DigitsUsed">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Analytics.Steps.UniqueRectangleStep.Equals(Sudoku.Analytics.Step)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Analytics.Steps.UniqueRectangleStep.CompareTo(Sudoku.Analytics.Step)">
-            <inheritdoc/>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset">
+            <summary>
+            <para>Indicates the absolute offset.</para>
+            <para>
+            The value is an <see cref="T:System.Int32"/> value, as an index, in order to distinct with all unique rectangle patterns.
+            The greater the value is, the later the corresponding pattern will be processed.
+            The value must be between 0 and 485, because the total number of possible patterns is 486.
+            </para>
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Code">
             <summary>
             The generated property declaration for parameter <c>code</c>.
             </summary>
         </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleStep.DigitsUsed">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1">
             <summary>
-            The generated property declaration for parameter <c>digit1</c>.
+            Indicates the first digit used.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2">
             <summary>
-            The generated property declaration for parameter <c>digit2</c>.
+            Indicates the second digit used. This value is always greater than <see cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1"/>.
             </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells">
             <summary>
-            The generated property declaration for parameter <c>cells</c>.
+            Indicates the cells used in this pattern.
             </summary>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable">
-            <summary>
-            The generated property declaration for parameter <c>isAvoidable</c>.
-            </summary>
+        <member name="M:Sudoku.Analytics.Steps.UniqueRectangleStep.Equals(Sudoku.Analytics.Step)">
+            <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset">
-            <summary>
-            The generated property declaration for parameter <c>absoluteOffset</c>.
-            </summary>
+        <member name="M:Sudoku.Analytics.Steps.UniqueRectangleStep.CompareTo(Sudoku.Analytics.Step)">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep">
             <summary>
@@ -20941,23 +20907,21 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="block">Indicates the block index that the Sue de Coq pattern used.</param>
-            <param name="line">Indicates the line (row or column) index that the Sue de Coq pattern used.</param>
-            <param name="blockMask">Indicates the mask that contains all digits from the block of the Sue de Coq pattern.</param>
-            <param name="lineMask">Indicates the cells in the line of the Sue de Coq pattern.</param>
-            <param name="intersectionMask">
-            Indicates the mask that contains all digits from the intersection of houses <see cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Block"/> and <see cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Line"/>.
-            </param>
-            <param name="isCannibalistic">Indicates whether the Sue de Coq pattern is a cannibalism.</param>
-            <param name="isolatedDigitsMask">Indicates the mask that contains all isolated digits.</param>
-            <param name="blockCells">Indicates the cells in the block of the Sue de Coq pattern.</param>
-            <param name="lineCells">Indicates the cells in the line (row or column) of the Sue de Coq pattern.</param>
-            <param name="intersectionCells">Indicates the cells in the intersection from houses <see cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Block"/> and <see cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Line"/>.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="block"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Block" path="/summary"/></param>
+            <param name="line"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Line" path="/summary"/></param>
+            <param name="blockMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.BlockMask" path="/summary"/></param>
+            <param name="lineMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.LineMask" path="/summary"/></param>
+            <param name="intersectionMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.IntersectionMask" path="/summary"/></param>
+            <param name="isCannibalism"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.IsCannibalism" path="/summary"/></param>
+            <param name="isolatedDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.IsolatedDigitsMask" path="/summary"/></param>
+            <param name="blockCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.BlockCells" path="/summary"/></param>
+            <param name="lineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.LineCells" path="/summary"/></param>
+            <param name="intersectionCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.IntersectionCells" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,System.Boolean,System.Int32,System.Int32,System.Int16,System.Int16,System.Int16,System.Boolean,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int32)">
             <summary>
@@ -20966,29 +20930,77 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="block">Indicates the block index that the Sue de Coq pattern used.</param>
-            <param name="line">Indicates the line (row or column) index that the Sue de Coq pattern used.</param>
-            <param name="blockMask">Indicates the mask that contains all digits from the block of the Sue de Coq pattern.</param>
-            <param name="lineMask">Indicates the cells in the line of the Sue de Coq pattern.</param>
-            <param name="intersectionMask">
-            Indicates the mask that contains all digits from the intersection of houses <see cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Block"/> and <see cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Line"/>.
-            </param>
-            <param name="isCannibalistic">Indicates whether the Sue de Coq pattern is a cannibalism.</param>
-            <param name="isolatedDigitsMask">Indicates the mask that contains all isolated digits.</param>
-            <param name="blockCells">Indicates the cells in the block of the Sue de Coq pattern.</param>
-            <param name="lineCells">Indicates the cells in the line (row or column) of the Sue de Coq pattern.</param>
-            <param name="intersectionCells">Indicates the cells in the intersection from houses <see cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Block"/> and <see cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Line"/>.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="block"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Block" path="/summary"/></param>
+            <param name="line"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Line" path="/summary"/></param>
+            <param name="blockMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.BlockMask" path="/summary"/></param>
+            <param name="lineMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.LineMask" path="/summary"/></param>
+            <param name="intersectionMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.IntersectionMask" path="/summary"/></param>
+            <param name="isCannibalism"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.IsCannibalism" path="/summary"/></param>
+            <param name="isolatedDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.IsolatedDigitsMask" path="/summary"/></param>
+            <param name="blockCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.BlockCells" path="/summary"/></param>
+            <param name="lineCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.LineCells" path="/summary"/></param>
+            <param name="intersectionCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.IntersectionCells" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.IsCannibalism">
+            <summary>
+            Indicates whether the Sue de Coq pattern is a cannibalism.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.BaseDifficulty">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.DigitsUsed">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Block">
+            <summary>
+            Indicates the block index that the Sue de Coq pattern used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Line">
+            <summary>
+            Indicates the line (row or column) index that the Sue de Coq pattern used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.BlockMask">
+            <summary>
+            Indicates the mask that contains all digits from the block of the Sue de Coq pattern.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.LineMask">
+            <summary>
+            Indicates the cells in the line of the Sue de Coq pattern.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.IntersectionMask">
+            <summary>
+            Indicates the mask that contains all digits from the intersection of houses <see cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Block"/> and <see cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Line"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.IsolatedDigitsMask">
+            <summary>
+            Indicates the mask that contains all isolated digits.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.BlockCells">
+            <summary>
+            Indicates the cells in the block of the Sue de Coq pattern.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.LineCells">
+            <summary>
+            Indicates the cells in the line (row or column) of the Sue de Coq pattern.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.IntersectionCells">
+            <summary>
+            Indicates the cells in the intersection from houses <see cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Block"/> and <see cref="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Line"/>.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Interpolations">
             <inheritdoc/>
@@ -21002,56 +21014,6 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Sudoku#Analytics#Traits#IIsolatedDigitTrait#IsolatedDigitsCount">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Block">
-            <summary>
-            The generated property declaration for parameter <c>block</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.Line">
-            <summary>
-            The generated property declaration for parameter <c>line</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.BlockMask">
-            <summary>
-            The generated property declaration for parameter <c>blockMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.LineMask">
-            <summary>
-            The generated property declaration for parameter <c>lineMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.IntersectionMask">
-            <summary>
-            The generated property declaration for parameter <c>intersectionMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.IsCannibalistic">
-            <summary>
-            The generated property declaration for parameter <c>isCannibalistic</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.IsolatedDigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>isolatedDigitsMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.BlockCells">
-            <summary>
-            The generated property declaration for parameter <c>blockCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.LineCells">
-            <summary>
-            The generated property declaration for parameter <c>lineCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleSueDeCoqStep.IntersectionCells">
-            <summary>
-            The generated property declaration for parameter <c>intersectionCells</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleType1Step">
             <summary>
             Provides with a step that is a <b>Unique Rectangle Type 1</b> technique.
@@ -21059,11 +21021,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleType1Step.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,System.Boolean,System.Int32)">
             <summary>
@@ -21072,11 +21034,11 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType1Step.Type">
             <inheritdoc/>
@@ -21091,13 +21053,13 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="code"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="extraDigit">Indicates the extra digit used.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="code"><inheritdoc cref="P:Sudoku.Analytics.Step.Code" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="extraDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleType2Or5Step.ExtraDigit" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleType2Or5Step.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,Sudoku.Categorization.Technique,Sudoku.Concepts.CellMap@,System.Boolean,System.Int32,System.Int32)">
             <summary>
@@ -21106,13 +21068,13 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="code"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="extraDigit">Indicates the extra digit used.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="code"><inheritdoc cref="P:Sudoku.Analytics.Step.Code" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="extraDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleType2Or5Step.ExtraDigit" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType2Or5Step.BaseDifficulty">
             <inheritdoc/>
@@ -21120,16 +21082,16 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType2Or5Step.Type">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType2Or5Step.ExtraDigit">
+            <summary>
+            Indicates the extra digit used.
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType2Or5Step.DigitsUsed">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType2Or5Step.Interpolations">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType2Or5Step.ExtraDigit">
-            <summary>
-            The generated property declaration for parameter <c>extraDigit</c>.
-            </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleType3Step">
             <summary>
@@ -21138,17 +21100,15 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="extraCells">Indicates the extra cells used, forming the subset.</param>
-            <param name="extraDigitsMask">Indicates the mask that contains all extra digits used.</param>
-            <param name="house">Indicates the house used.</param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
-            <param name="isNaked">
-            Indicates whether the subset is naked subset. If <see langword="true"/>, a naked subset; otherwise, a hidden subset.
-            </param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="extraCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.ExtraCells" path="/summary"/></param>
+            <param name="extraDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.ExtraDigitsMask" path="/summary"/></param>
+            <param name="house"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.House" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+            <param name="isNaked"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.IsNaked" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleType3Step.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int16,System.Int32,System.Boolean,System.Int32,System.Boolean)">
             <summary>
@@ -21157,23 +21117,41 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="extraCells">Indicates the extra cells used, forming the subset.</param>
-            <param name="extraDigitsMask">Indicates the mask that contains all extra digits used.</param>
-            <param name="house">Indicates the house used.</param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="absoluteOffset"><inheritdoc/></param>
-            <param name="isNaked">
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="extraCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.ExtraCells" path="/summary"/></param>
+            <param name="extraDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.ExtraDigitsMask" path="/summary"/></param>
+            <param name="house"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.House" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+            <param name="isNaked"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.IsNaked" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.IsNaked">
+            <summary>
             Indicates whether the subset is naked subset. If <see langword="true"/>, a naked subset; otherwise, a hidden subset.
-            </param>
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.Type">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.DigitsUsed">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.ExtraCells">
+            <summary>
+            Indicates the extra cells used, forming the subset.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.ExtraDigitsMask">
+            <summary>
+            Indicates the mask that contains all extra digits used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.House">
+            <summary>
+            Indicates the house used.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.Interpolations">
             <inheritdoc/>
@@ -21193,26 +21171,6 @@
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.Sudoku#Analytics#Traits#IPatternType3StepTrait{Sudoku#Analytics#Steps#UniqueRectangleType3Step}#SubsetCells">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.ExtraCells">
-            <summary>
-            The generated property declaration for parameter <c>extraCells</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.ExtraDigitsMask">
-            <summary>
-            The generated property declaration for parameter <c>extraDigitsMask</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.House">
-            <summary>
-            The generated property declaration for parameter <c>house</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleType3Step.IsNaked">
-            <summary>
-            The generated property declaration for parameter <c>isNaked</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.Analytics.Steps.UniqueRectangleWWingStep">
             <summary>
             Provides with a step that is a <b>Unique Rectangle W-Wing</b> technique.
@@ -21220,15 +21178,15 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="code"><inheritdoc/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="wDigit">Indicates the digit W.</param>
-            <param name="connectors">Indicates the connectors.</param>
-            <param name="endCells">Indicates the end cells.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="code"><inheritdoc cref="P:Sudoku.Analytics.Step.Code" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="wDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleWWingStep.WDigit" path="/summary"/></param>
+            <param name="connectors"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleWWingStep.Connectors" path="/summary"/></param>
+            <param name="endCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleWWingStep.EndCells" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Analytics.Steps.UniqueRectangleWWingStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,Sudoku.Categorization.Technique,System.Int32,System.Int32,Sudoku.Concepts.CellMap@,System.Boolean,System.Int32,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int32)">
             <summary>
@@ -21237,39 +21195,39 @@
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="code"><inheritdoc/></param>
-            <param name="digit1"><inheritdoc/></param>
-            <param name="digit2"><inheritdoc/></param>
-            <param name="cells"><inheritdoc/></param>
-            <param name="isAvoidable"><inheritdoc/></param>
-            <param name="wDigit">Indicates the digit W.</param>
-            <param name="connectors">Indicates the connectors.</param>
-            <param name="endCells">Indicates the end cells.</param>
-            <param name="absoluteOffset"><inheritdoc/></param>
+            <param name="code"><inheritdoc cref="P:Sudoku.Analytics.Step.Code" path="/summary"/></param>
+            <param name="digit1"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit1" path="/summary"/></param>
+            <param name="digit2"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Digit2" path="/summary"/></param>
+            <param name="cells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.Cells" path="/summary"/></param>
+            <param name="isAvoidable"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+            <param name="wDigit"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleWWingStep.WDigit" path="/summary"/></param>
+            <param name="connectors"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleWWingStep.Connectors" path="/summary"/></param>
+            <param name="endCells"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleWWingStep.EndCells" path="/summary"/></param>
+            <param name="absoluteOffset"><inheritdoc cref="P:Sudoku.Analytics.Steps.UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleWWingStep.DigitsUsed">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleWWingStep.WDigit">
+            <summary>
+            Indicates the digit W.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleWWingStep.Connectors">
+            <summary>
+            Indicates the connectors.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleWWingStep.EndCells">
+            <summary>
+            Indicates the end cells.
+            </summary>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleWWingStep.Interpolations">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Steps.UniqueRectangleWWingStep.Factors">
             <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleWWingStep.WDigit">
-            <summary>
-            The generated property declaration for parameter <c>wDigit</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleWWingStep.Connectors">
-            <summary>
-            The generated property declaration for parameter <c>connectors</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Analytics.Steps.UniqueRectangleWWingStep.EndCells">
-            <summary>
-            The generated property declaration for parameter <c>endCells</c>.
-            </summary>
         </member>
         <member name="T:Sudoku.Analytics.Steps.IrregularWingStep">
             <summary>

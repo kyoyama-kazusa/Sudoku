@@ -6,16 +6,16 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="code"><inheritdoc/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="isAvoidable"><inheritdoc/></param>
-/// <param name="wDigit">Indicates the digit W.</param>
-/// <param name="connectors">Indicates the connectors.</param>
-/// <param name="endCells">Indicates the end cells.</param>
-/// <param name="absoluteOffset"><inheritdoc/></param>
-public sealed partial class UniqueRectangleWWingStep(
+/// <param name="code"><inheritdoc cref="Step.Code" path="/summary"/></param>
+/// <param name="digit1"><inheritdoc cref="UniqueRectangleStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueRectangleStep.Digit2" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="UniqueRectangleStep.Cells" path="/summary"/></param>
+/// <param name="isAvoidable"><inheritdoc cref="UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+/// <param name="wDigit"><inheritdoc cref="WDigit" path="/summary"/></param>
+/// <param name="connectors"><inheritdoc cref="Connectors" path="/summary"/></param>
+/// <param name="endCells"><inheritdoc cref="EndCells" path="/summary"/></param>
+/// <param name="absoluteOffset"><inheritdoc cref="UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+public sealed class UniqueRectangleWWingStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
@@ -24,9 +24,9 @@ public sealed partial class UniqueRectangleWWingStep(
 	Digit digit2,
 	in CellMap cells,
 	bool isAvoidable,
-	[Property] Digit wDigit,
-	[Property] in CellMap connectors,
-	[Property] in CellMap endCells,
+	Digit wDigit,
+	in CellMap connectors,
+	in CellMap endCells,
 	int absoluteOffset
 ) : UniqueRectangleStep(
 	conclusions,
@@ -42,6 +42,21 @@ public sealed partial class UniqueRectangleWWingStep(
 {
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | (Mask)(1 << WDigit));
+
+	/// <summary>
+	/// Indicates the digit W.
+	/// </summary>
+	public Digit WDigit { get; } = wDigit;
+
+	/// <summary>
+	/// Indicates the connectors.
+	/// </summary>
+	public CellMap Connectors { get; } = connectors;
+
+	/// <summary>
+	/// Indicates the end cells.
+	/// </summary>
+	public CellMap EndCells { get; } = endCells;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

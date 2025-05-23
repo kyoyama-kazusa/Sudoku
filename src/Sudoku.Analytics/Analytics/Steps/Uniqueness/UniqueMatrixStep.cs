@@ -6,15 +6,17 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="cells">Indicates the cells used in this pattern.</param>
-/// <param name="digitsMask">Indicates the mask that describes all digits used in this pattern.</param>
-public abstract partial class UniqueMatrixStep(
+/// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
+/// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
+public abstract class UniqueMatrixStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property] in CellMap cells,
-	[Property] Mask digitsMask
-) : UnconditionalDeadlyPatternStep(conclusions, views, options), IDeadlyPatternTypeTrait
+	in CellMap cells,
+	Mask digitsMask
+) :
+	UnconditionalDeadlyPatternStep(conclusions, views, options),
+	IDeadlyPatternTypeTrait
 {
 	/// <inheritdoc/>
 	public sealed override bool OnlyUseBivalueCells => true;
@@ -30,6 +32,16 @@ public abstract partial class UniqueMatrixStep(
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => DigitsMask;
+
+	/// <summary>
+	/// Indicates the cells used in this pattern.
+	/// </summary>
+	public CellMap Cells { get; } = cells;
+
+	/// <summary>
+	/// Indicates the mask that describes all digits used in this pattern.
+	/// </summary>
+	public Mask DigitsMask { get; } = digitsMask;
 
 	private protected string DigitsStr => Options.Converter.DigitConverter(DigitsMask);
 

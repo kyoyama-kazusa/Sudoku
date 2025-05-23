@@ -6,16 +6,16 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="code"><inheritdoc/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="isAvoidable"><inheritdoc/></param>
-/// <param name="branches">Indicates the branches used.</param>
-/// <param name="petals">Indicates the petals used.</param>
-/// <param name="extraDigitsMask">Indicates the mask that contains all extra digits.</param>
-/// <param name="absoluteOffset"><inheritdoc/></param>
-public sealed partial class UniqueRectangleRegularWingStep(
+/// <param name="code"><inheritdoc cref="Step.Code" path="/summary"/></param>
+/// <param name="digit1"><inheritdoc cref="UniqueRectangleStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueRectangleStep.Digit2" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="UniqueRectangleStep.Cells" path="/summary"/></param>
+/// <param name="isAvoidable"><inheritdoc cref="UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+/// <param name="branches"><inheritdoc cref="Branches" path="/summary"/></param>
+/// <param name="petals"><inheritdoc cref="Petals" path="/summary"/></param>
+/// <param name="extraDigitsMask"><inheritdoc cref="ExtraDigitsMask"/></param>
+/// <param name="absoluteOffset"><inheritdoc cref="UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+public sealed class UniqueRectangleRegularWingStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
@@ -24,14 +24,29 @@ public sealed partial class UniqueRectangleRegularWingStep(
 	Digit digit2,
 	in CellMap cells,
 	bool isAvoidable,
-	[Property] in CellMap branches,
-	[Property] in CellMap petals,
-	[Property] Mask extraDigitsMask,
+	in CellMap branches,
+	in CellMap petals,
+	Mask extraDigitsMask,
 	int absoluteOffset
 ) : UniqueRectangleStep(conclusions, views, options, code, digit1, digit2, cells, isAvoidable, absoluteOffset)
 {
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(base.DigitsUsed | ExtraDigitsMask);
+
+	/// <summary>
+	/// Indicates the branches used.
+	/// </summary>
+	public CellMap Branches { get; } = branches;
+
+	/// <summary>
+	/// Indicates the petals used.
+	/// </summary>
+	public CellMap Petals { get; } = petals;
+
+	/// <summary>
+	/// Indicates the mask that contains all extra digits.
+	/// </summary>
+	public Mask ExtraDigitsMask { get; } = extraDigitsMask;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations

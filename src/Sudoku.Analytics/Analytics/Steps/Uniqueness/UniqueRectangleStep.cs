@@ -7,35 +7,33 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="code"><inheritdoc cref="Step.Code" path="/summary"/></param>
-/// <param name="digit1">Indicates the first digit used.</param>
-/// <param name="digit2">Indicates the second digit used. This value is always greater than <see cref="Digit1"/>.</param>
-/// <param name="cells">Indicates the cells used in this pattern.</param>
-/// <param name="isAvoidable">
-/// Indicates whether the current rectangle is an avoidable rectangle.
-/// If <see langword="true"/>, an avoidable rectangle; otherwise, a unique rectangle.
-/// </param>
-/// <param name="absoluteOffset">
-/// <para>Indicates the absolute offset.</para>
-/// <para>
-/// The value is an <see cref="int"/> value, as an index, in order to distinct with all unique rectangle patterns.
-/// The greater the value is, the later the corresponding pattern will be processed.
-/// The value must be between 0 and 485, because the total number of possible patterns is 486.
-/// </para>
-/// </param>
-public abstract partial class UniqueRectangleStep(
+/// <param name="digit1"><inheritdoc cref="Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="Digit2" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
+/// <param name="isAvoidable"><inheritdoc cref="IsAvoidable" path="/summary"/></param>
+/// <param name="absoluteOffset"><inheritdoc cref="AbsoluteOffset" path="/summary"/></param>
+public abstract class UniqueRectangleStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
-	[Property(Accessibility = "public sealed override")] Technique code,
-	[Property] Digit digit1,
-	[Property] Digit digit2,
-	[Property] in CellMap cells,
-	[Property] bool isAvoidable,
-	[Property] int absoluteOffset
-) : UnconditionalDeadlyPatternStep(conclusions, views, options), IDeadlyPatternTypeTrait
+	Technique code,
+	Digit digit1,
+	Digit digit2,
+	in CellMap cells,
+	bool isAvoidable,
+	int absoluteOffset
+) :
+	UnconditionalDeadlyPatternStep(conclusions, views, options),
+	IDeadlyPatternTypeTrait
 {
 	/// <inheritdoc/>
 	public override bool OnlyUseBivalueCells => true;
+
+	/// <summary>
+	/// Indicates whether the current rectangle is an avoidable rectangle.
+	/// If <see langword="true"/>, an avoidable rectangle; otherwise, a unique rectangle.
+	/// </summary>
+	public bool IsAvoidable { get; } = isAvoidable;
 
 	/// <inheritdoc/>
 	public virtual int Type => 7;
@@ -43,8 +41,38 @@ public abstract partial class UniqueRectangleStep(
 	/// <inheritdoc/>
 	public override int BaseDifficulty => 45;
 
+	/// <summary>
+	/// <para>Indicates the absolute offset.</para>
+	/// <para>
+	/// The value is an <see cref="int"/> value, as an index, in order to distinct with all unique rectangle patterns.
+	/// The greater the value is, the later the corresponding pattern will be processed.
+	/// The value must be between 0 and 485, because the total number of possible patterns is 486.
+	/// </para>
+	/// </summary>
+	public int AbsoluteOffset { get; } = absoluteOffset;
+
+	/// <summary>
+	/// The generated property declaration for parameter <c>code</c>.
+	/// </summary>
+	public sealed override Technique Code => code;
+
 	/// <inheritdoc/>
 	public override Mask DigitsUsed => (Mask)(1 << Digit1 | 1 << Digit2);
+
+	/// <summary>
+	/// Indicates the first digit used.
+	/// </summary>
+	public Digit Digit1 { get; } = digit1;
+
+	/// <summary>
+	/// Indicates the second digit used. This value is always greater than <see cref="Digit1"/>.
+	/// </summary>
+	public Digit Digit2 { get; } = digit2;
+
+	/// <summary>
+	/// Indicates the cells used in this pattern.
+	/// </summary>
+	public CellMap Cells { get; } = cells;
 
 	private protected string DigitsStr => Options.Converter.DigitConverter((Mask)(1 << Digit1 | 1 << Digit2));
 

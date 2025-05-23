@@ -6,14 +6,14 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-/// <param name="code"><inheritdoc/></param>
-/// <param name="digit1"><inheritdoc/></param>
-/// <param name="digit2"><inheritdoc/></param>
-/// <param name="cells"><inheritdoc/></param>
-/// <param name="isAvoidable"><inheritdoc/></param>
-/// <param name="conjugatePairs">Indicates the conjugate pairs used.</param>
-/// <param name="absoluteOffset"><inheritdoc/></param>
-public partial class UniqueRectangleConjugatePairStep(
+/// <param name="code"><inheritdoc cref="Step.Code" path="/summary"/></param>
+/// <param name="digit1"><inheritdoc cref="UniqueRectangleStep.Digit1" path="/summary"/></param>
+/// <param name="digit2"><inheritdoc cref="UniqueRectangleStep.Digit2" path="/summary"/></param>
+/// <param name="cells"><inheritdoc cref="UniqueRectangleStep.Cells" path="/summary"/></param>
+/// <param name="isAvoidable"><inheritdoc cref="UniqueRectangleStep.IsAvoidable" path="/summary"/></param>
+/// <param name="conjugatePairs"><inheritdoc cref="ConjugatePairs" path="/summary"/></param>
+/// <param name="absoluteOffset"><inheritdoc cref="UniqueRectangleStep.AbsoluteOffset" path="/summary"/></param>
+public class UniqueRectangleConjugatePairStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
@@ -22,7 +22,7 @@ public partial class UniqueRectangleConjugatePairStep(
 	Digit digit2,
 	in CellMap cells,
 	bool isAvoidable,
-	[Property] Conjugate[] conjugatePairs,
+	Conjugate[] conjugatePairs,
 	int absoluteOffset
 ) :
 	UniqueRectangleStep(conclusions, views, options, code, digit1, digit2, cells, isAvoidable, absoluteOffset),
@@ -34,6 +34,11 @@ public partial class UniqueRectangleConjugatePairStep(
 	/// <inheritdoc/>
 	public sealed override int Type
 		=> Code switch { Technique.UniqueRectangleType4 => 4, Technique.UniqueRectangleType6 => 6, _ => base.Type };
+
+	/// <summary>
+	/// Indicates the conjugate pairs used.
+	/// </summary>
+	public Conjugate[] ConjugatePairs { get; } = conjugatePairs;
 
 	/// <inheritdoc/>
 	public override InterpolationArray Interpolations
