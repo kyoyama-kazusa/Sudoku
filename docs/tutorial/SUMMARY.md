@@ -99,9 +99,11 @@
 
 ## 构造 <a href="#construction" id="construction"></a>
 
-* [结构构造](construction/01-pattern-construction/README.md)
-  * [唯一矩形的结构构造](construction/01-pattern-construction/01-unique-rectangle-pattern-based-construction.md)
-  * [代入唯一矩形](construction/01-pattern-construction/02-unique-rectangle-plus-n.md)
+* [唯一矩形构造](construction/01-unique-rectangle-construction/README.md)
+  * [唯一矩形的结构构造](construction/01-unique-rectangle-construction/01-unique-rectangle-pattern-based-construction.md)
+  * [代入唯一矩形](construction/01-unique-rectangle-construction/02-unique-rectangle-plus-n.md)
+* [链构造](construction/02-chaining-construction/README.md)
+  * [Wing 构造](construction/02-chaining-construction/01-wing-construction.md)
 
 ## 附录 <a href="#appendix" id="appendix"></a>
 
