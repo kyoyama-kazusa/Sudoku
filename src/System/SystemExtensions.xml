@@ -10370,16 +10370,6 @@
              * Culture: &apos;{2}&apos;.
             </summary>
         </member>
-        <member name="T:System.Runtime.CompilerServices.IUnion">
-            <summary>
-            Indicates the type is a union.
-            </summary>
-        </member>
-        <member name="P:System.Runtime.CompilerServices.IUnion.Value">
-            <summary>
-            Indicates the result value.
-            </summary>
-        </member>
         <member name="T:System.Runtime.CompilerServices.LibraryIdentifiers">
             <summary>
             Represents some item names used by .NET library APIs.
@@ -10524,11 +10514,6 @@
         </member>
         <member name="M:System.Runtime.CompilerServices.TupleExtensions.&lt;G&gt;$E85C647F95A925158767E727F66EDA21`1.GetEnumerator">
             <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
-        </member>
-        <member name="T:System.Runtime.CompilerServices.UnionAttribute">
-            <summary>
-            Indicates the type is a union type.
-            </summary>
         </member>
         <member name="T:System.Runtime.CompilerServices.UnsafeExtensions">
             <summary>

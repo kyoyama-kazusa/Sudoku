@@ -28943,12 +28943,10 @@
             ○ Match with 2 alternative expressions.<br/>
                 ○ Match a sequence of expressions.<br/>
                     ○ Match '('.<br/>
+                    ○ Match a character in the set [1-9] atomically at least once.<br/>
                     ○ Match with 2 alternative expressions.<br/>
+                        ○ Match ')'.<br/>
                         ○ Match a sequence of expressions.<br/>
-                            ○ Match a character in the set [1-9] atomically at least once.<br/>
-                            ○ Match ')'.<br/>
-                        ○ Match a sequence of expressions.<br/>
-                            ○ Match a character in the set [1-9] atomically at least once.<br/>
                             ○ Match a whitespace character atomically any number of times.<br/>
                             ○ Match a character in the set [\-=].<br/>
                             ○ Match a whitespace character atomically any number of times.<br/>
@@ -28966,12 +28964,10 @@
                 ○ Match with 2 alternative expressions.<br/>
                     ○ Match a sequence of expressions.<br/>
                         ○ Match '('.<br/>
+                        ○ Match a character in the set [1-9] atomically at least once.<br/>
                         ○ Match with 2 alternative expressions.<br/>
+                            ○ Match ')'.<br/>
                             ○ Match a sequence of expressions.<br/>
-                                ○ Match a character in the set [1-9] atomically at least once.<br/>
-                                ○ Match ')'.<br/>
-                            ○ Match a sequence of expressions.<br/>
-                                ○ Match a character in the set [1-9] atomically at least once.<br/>
                                 ○ Match a whitespace character atomically any number of times.<br/>
                                 ○ Match a character in the set [\-=].<br/>
                                 ○ Match a whitespace character atomically any number of times.<br/>
