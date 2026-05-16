@@ -412,11 +412,14 @@ public partial struct CellMap : CellMapBase
 				};
 			}
 
-			return PopCount((ulong)low) is var popCountLow && popCountLow == index
-				? FallbackConstants.@long - 1 - LeadingZeroCount((ulong)low)
-				: popCountLow > index
-					? low.SetAt(index)
-					: high.SetAt(index - popCountLow) is var z and not FallbackConstants.@long ? z + Shifting : -1;
+			var lowPopCount = PopCount((ulong)low);
+			if (index < lowPopCount)
+			{
+				return low.SetAt(index);
+			}
+
+			var highIndex = index - lowPopCount;
+			return high.SetAt(highIndex) + Shifting;
 		}
 	}
 

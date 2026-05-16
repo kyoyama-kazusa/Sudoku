@@ -581,27 +581,27 @@ public static partial class BitOperationsExtensions
 				}
 			}
 
-			var (mask, size, @base) = (0x0000FFFFU, 16U, 0U);
-			if (order++ >= PopCount(@this))
+			// Generic fallback when neither BMI2.X64 nor BMI2 is available
+			// (e.g. arm64). The previous binary-search implementation used a
+			// uint mask, which could not reach bits >= 32 of the ulong input
+			// — for inputs with set bits in both the low and high halves it
+			// returned a position from the low half plus the saturating bits
+			// of the unused high-half iterations, instead of the actual
+			// position of the requested set bit.
+			if ((uint)order >= (uint)PopCount(@this))
 			{
 				return -1;
 			}
 
-			while (size > 0)
+			var t = @this;
+			for (var i = 0; t != 0; i++, t &= t - 1)
 			{
-				if (order > PopCount(@this & mask))
+				if (i == order)
 				{
-					@base += size;
-					size >>= 1;
-					mask |= mask << (int)size;
-				}
-				else
-				{
-					size >>= 1;
-					mask >>= (int)size;
+					return TrailingZeroCount(t);
 				}
 			}
-			return @base == FallbackConstants.@long ? -1 : (int)@base;
+			return -1;
 		}
 
 		/// <inheritdoc cref="GetEnumerator(sbyte)"/>
