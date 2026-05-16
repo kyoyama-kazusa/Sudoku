@@ -12,7 +12,7 @@ public sealed class SudokuFileHandler : IProgramSupportedFileHandler<GridInfo[]>
 	private static readonly JsonSerializerOptions Options = new(CommonSerializerOptions.PascalCasing)
 	{
 		IgnoreReadOnlyProperties = false,
-		Converters = { new JsonStringEnumConverter(PascalCaseJsonNamingPolicy.PascalCase, true) }
+		Converters = { new JsonStringEnumConverter(JsonNamingPolicy.PascalCase, true) }
 	};
 
 

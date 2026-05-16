@@ -7263,24 +7263,6 @@
             </returns>
             <seealso cref="P:System.Text.Json.JsonSerializerOptions.Converters"/>
         </member>
-        <member name="T:System.Text.Json.PascalCaseJsonNamingPolicy">
-            <summary>
-            Defines the pascal case JSON naming policy.
-            </summary>
-            <remarks>
-            This type cannot be initialized; instead, you can use the property <see cref="P:System.Text.Json.PascalCaseJsonNamingPolicy.PascalCase"/> to get the instance.
-            </remarks>
-            <seealso cref="P:System.Text.Json.PascalCaseJsonNamingPolicy.PascalCase"/>
-        </member>
-        <member name="P:System.Text.Json.PascalCaseJsonNamingPolicy.PascalCase">
-            <summary>
-            Gets the naming policy for pascal case.
-            </summary>
-            <returns>The naming policy for pascal case.</returns>
-        </member>
-        <member name="M:System.Text.Json.PascalCaseJsonNamingPolicy.ConvertName(System.String)">
-            <inheritdoc/>
-        </member>
         <member name="T:System.Text.Json.RangeConverter">
             <summary>
             Represents a JSON converter that serializes and deserializes a <see cref="T:System.Range"/> object.

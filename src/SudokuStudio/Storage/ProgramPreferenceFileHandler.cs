@@ -18,7 +18,7 @@ public sealed class ProgramPreferenceFileHandler : IProgramSupportedFileHandler<
 		IgnoreReadOnlyFields = true,
 		Converters =
 		{
-			new JsonStringEnumConverter(PascalCaseJsonNamingPolicy.PascalCase, true),
+			new JsonStringEnumConverter(JsonNamingPolicy.PascalCase, true),
 			new RangeConverter(),
 			new ColorConverter()
 		},
