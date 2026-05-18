@@ -4,10 +4,10 @@
 [![issues](https://img.shields.io/github/issues/kyoyama-kazusa/Sudoku?color=097abb)](https://github.com/kyoyama-kazusa/Sudoku/issues)
 [![license](https://img.shields.io/github/license/kyoyama-kazusa/Sudoku?color=097abb)](https://github.com/kyoyama-kazusa/Sudoku/blob/main/LICENSE)
 
-![](https://img.shields.io/badge/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C%23%2014-%23178600)
-![](https://img.shields.io/badge/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6-.NET%2010-blueviolet)
+![](https://img.shields.io/badge/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C%23%2015-%23178600)
+![](https://img.shields.io/badge/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6-.NET%2011-blueviolet)
 ![](https://img.shields.io/badge/%E7%BC%A9%E8%BF%9B-Tab-lightgrey)
-![](https://img.shields.io/badge/IDE-Visual%20Studio%202026%20v18.0-%23cf98fb)
+![](https://img.shields.io/badge/IDE-Visual%20Studio%202026-%23cf98fb)
 ![](https://img.shields.io/badge/%E8%AF%AD%E8%A8%80-%E8%8B%B1%E8%AF%AD%E3%80%81%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-success)
 [![](https://img.shields.io/badge/UI%20%E9%A1%B9%E7%9B%AE-SudokuStudio-%230d1117)](https://github.com/kyoyama-kazusa/Sudoku/tree/main/src/SudokuStudio/SudokuStudio)
 
