@@ -6,8 +6,8 @@ namespace Sudoku.Analytics.Construction.Components;
 /// </summary>
 /// <seealso cref="Node"/>
 /// <seealso cref="NodeSet"/>
-[CollectionBuilder(typeof(NodeOrNodeSet), nameof(Create))]
-public readonly partial union NodeOrNodeSet(Node, NodeSet) : IEnumerable<Node>
+[CollectionBuilder(typeof(NodeParents), nameof(Create))]
+public readonly partial union NodeParents(Node, NodeSet) : IEnumerable<Node>
 {
 	/// <summary>
 	/// Returns an enumerator instance that can iterate on each object of this type.
@@ -25,27 +25,27 @@ public readonly partial union NodeOrNodeSet(Node, NodeSet) : IEnumerable<Node>
 
 
 	/// <summary>
-	/// Creates a <see cref="NodeOrNodeSet"/> instance via the specified sequence of nodes.
+	/// Creates a <see cref="NodeParents"/> instance via the specified sequence of nodes.
 	/// </summary>
 	/// <param name="nodes">The nodes.</param>
-	/// <returns>A <see cref="NodeOrNodeSet"/> instance created.</returns>
+	/// <returns>A <see cref="NodeParents"/> instance created.</returns>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public static NodeOrNodeSet Create(ReadOnlySpan<Node> nodes)
+	public static NodeParents Create(ReadOnlySpan<Node> nodes)
 		=> nodes switch { [] => default, [var node] => node, _ => NodeSet.Create(nodes) };
 
 
 	/// <summary>
-	/// Explicit cast from <see cref="NodeOrNodeSet"/> into a <see cref="Node"/> instance;
+	/// Explicit cast from <see cref="NodeParents"/> into a <see cref="Node"/> instance;
 	/// if failed to be cast, the result value will be <see langword="null"/> instead of throwing exceptions.
 	/// </summary>
 	/// <param name="value">The value.</param>
-	public static explicit operator Node?(NodeOrNodeSet value) => value is Node node ? node : null;
+	public static explicit operator Node?(NodeParents value) => value is Node node ? node : null;
 
 	/// <summary>
-	/// Explicit cast from <see cref="NodeOrNodeSet"/> into a <see cref="Node"/> instance;
+	/// Explicit cast from <see cref="NodeParents"/> into a <see cref="Node"/> instance;
 	/// if failed to be cast, an <see cref="InvalidCastException"/> exception will be thrown.
 	/// </summary>
 	/// <param name="value">The value.</param>
-	public static explicit operator checked Node(NodeOrNodeSet value)
+	public static explicit operator checked Node(NodeParents value)
 		=> value is Node node ? node : throw new InvalidCastException();
 }

@@ -10,7 +10,7 @@ namespace Sudoku.Analytics.Construction.Components;
 /// <param name="map"><inheritdoc cref="_map" path="/summary"/></param>
 /// <param name="isOn"><inheritdoc cref="IsOn" path="/summary"/></param>
 /// <param name="parents"><inheritdoc cref="Parents" path="/summary"/></param>
-public sealed class Node(in CandidateMap map, bool isOn, NodeOrNodeSet parents = default) :
+public sealed class Node(in CandidateMap map, bool isOn, NodeParents parents = default) :
 	IComparable<Node>,
 	IComparisonOperators<Node, Node, bool>,
 	ICloneable,
@@ -49,10 +49,12 @@ public sealed class Node(in CandidateMap map, bool isOn, NodeOrNodeSet parents =
 	public ref readonly CandidateMap Map => ref _map;
 
 	/// <summary>
-	/// <para>Indicates the parent node. The value can be <see langword="null"/> in handling.</para>
-	/// <para>Please note that <i>this value doesn't participate in equality comparison.</i></para>
+	/// <para>
+	/// Indicates the parent node. The value can be <see langword="default"/> if no parent specified.
+	/// </para>
+	/// <para><b>This property doesn't participate in equality comparison.</b></para>
 	/// </summary>
-	public NodeOrNodeSet Parents { get; set; } = parents;
+	public NodeParents Parents { get; set; } = parents;
 
 	/// <inheritdoc/>
 	public Node Root
@@ -85,7 +87,7 @@ public sealed class Node(in CandidateMap map, bool isOn, NodeOrNodeSet parents =
 	public void Deconstruct(out bool isGroupedNode, out CandidateMap map) => (isGroupedNode, map) = (IsGroupedNode, _map);
 
 	/// <include file="../../global-doc-comments.xml" path="g/csharp7/feature[@name='deconstruct-method']/target[@name='method']"/>
-	public void Deconstruct(out bool isGroupedNode, out CandidateMap map, out NodeOrNodeSet parents)
+	public void Deconstruct(out bool isGroupedNode, out CandidateMap map, out NodeParents parents)
 		=> ((isGroupedNode, map), parents) = (this, Parents);
 
 	/// <inheritdoc/>
@@ -232,10 +234,10 @@ public sealed class Node(in CandidateMap map, bool isOn, NodeOrNodeSet parents =
 	/// <param name="node">The current node.</param>
 	/// <param name="parents">The parent nodes.</param>
 	/// <returns>The new node created.</returns>
-	public static Node Create(Node node, NodeOrNodeSet parents) => new(in node._map, node.IsOn, parents);
+	public static Node Create(Node node, NodeParents parents) => new(in node._map, node.IsOn, parents);
 
 	/// <inheritdoc/>
-	static Node IParentLinkedNode<Node>.Create(Node current, Node? parent) => Create(current, parent ?? default(NodeOrNodeSet));
+	static Node IParentLinkedNode<Node>.Create(Node current, Node? parent) => Create(current, parent ?? default(NodeParents));
 
 
 	/// <inheritdoc/>

@@ -1,12 +1,12 @@
 namespace Sudoku.Analytics.Construction.Components;
 
-public partial union NodeOrNodeSet
+public partial union NodeParents
 {
 	/// <summary>
 	/// Provides an enumerator of the current type.
 	/// </summary>
 	/// <param name="nodes">The nodes.</param>
-	public ref struct Enumerator(NodeOrNodeSet nodes) : IEnumerator<Node>
+	public ref struct Enumerator(NodeParents nodes) : IEnumerator<Node>
 	{
 		/// <summary>
 		/// The backing enumerator.
