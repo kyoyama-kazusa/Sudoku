@@ -24,7 +24,7 @@ public static class DependencyChecker
 	)
 	{
 		// Just check for such cases, inferring them by checking satisfiability of such patterns. Here're the cases:
-		// .---------------------------------------------.-------------------------------.-----------------------------.
+		// .-------------.-------------------------------.-------------------------------.-----------------------------.
 		// |     \\Cases | Case 1:                       | Case 2:                       | Case 3:                     |
 		// | Types\\     |   Cell link + House truth     |   House link + House truth    |   House link + Cell truth   |
 		// :-------------+-------------------------------+-------------------------------+-----------------------------:
