@@ -81,15 +81,13 @@ public sealed class IttoryuConstraint : Constraint, IComparisonOperatorConstrain
 
 		var localAnalyzer = Analyzer.Default
 			.WithStepSearchers(
-				// ROSLYN_ISSUE: Remove null-forgiving operator
-				// due to wrong analysis for Roslyn on extension member with complex nullable argument types.
 				new SingleStepSearcher
 				{
 					EnableFullHouse = true,
 					EnableLastDigit = true,
 					HiddenSinglesInBlockFirst = true,
 					EnableOrderingStepsByLastingValue = false
-				}!
+				}
 			)
 			.WithOptions(
 				new()

@@ -137,18 +137,16 @@ public sealed class Analyzer : StepGatherer
 	public static Analyzer SstsOnly
 		=> Default
 			.WithStepSearchers(
-				// ROSLYN_ISSUE: Remove null-forgiving operator
-				// due to wrong analysis for Roslyn on extension member with complex nullable argument types.
 				new SingleStepSearcher
 				{
 					EnableFullHouse = true,
 					EnableLastDigit = true,
 					HiddenSinglesInBlockFirst = true,
 					EnableOrderingStepsByLastingValue = false
-				}!,
-				new LockedSubsetStepSearcher()!,
-				new LockedCandidatesStepSearcher()!,
-				new NormalSubsetStepSearcher()!
+				},
+				new LockedSubsetStepSearcher(),
+				new LockedCandidatesStepSearcher(),
+				new NormalSubsetStepSearcher()
 			)
 			.WithOptions(new() { IsDirectMode = true });
 
@@ -158,30 +156,28 @@ public sealed class Analyzer : StepGatherer
 	public static Analyzer SudokuExplainer
 		=> Default
 			.WithStepSearchers(
-				// ROSLYN_ISSUE: Remove null-forgiving operator
-				// due to wrong analysis for Roslyn on extension member with complex nullable argument types.
 				new SingleStepSearcher
 				{
 					EnableFullHouse = true,
 					EnableLastDigit = true,
 					HiddenSinglesInBlockFirst = true,
 					EnableOrderingStepsByLastingValue = false
-				}!,
-				new LockedSubsetStepSearcher()!,
-				new LockedCandidatesStepSearcher()!,
-				new NormalSubsetStepSearcher()!,
-				new NormalFishStepSearcher { AllowSiamese = false }!,
-				new RegularWingStepSearcher { MaxSearchingPivotsCount = 3 }!,
+				},
+				new LockedSubsetStepSearcher(),
+				new LockedCandidatesStepSearcher(),
+				new NormalSubsetStepSearcher(),
+				new NormalFishStepSearcher { AllowSiamese = false },
+				new RegularWingStepSearcher { MaxSearchingPivotsCount = 3 },
 				new UniqueRectangleStepSearcher
 				{
 					AllowIncompleteUniqueRectangles = false,
 					SearchForExtendedUniqueRectangles = false
-				}!,
-				new UniqueLoopStepSearcher()!,
-				new BivalueUniversalGraveStepSearcher { SearchExtendedTypes = false }!,
-				new AlignedExclusionStepSearcher { MaxSearchingSize = 3 }!,
-				new ChainStepSearcher()!,
-				new MultipleForcingChainsStepSearcher()!
+				},
+				new UniqueLoopStepSearcher(),
+				new BivalueUniversalGraveStepSearcher { SearchExtendedTypes = false },
+				new AlignedExclusionStepSearcher { MaxSearchingSize = 3 },
+				new ChainStepSearcher(),
+				new MultipleForcingChainsStepSearcher()
 			)
 			.WithOptions(new() { IsDirectMode = true });
 

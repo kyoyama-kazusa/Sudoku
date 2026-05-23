@@ -453,9 +453,7 @@ public sealed partial class BivalueUniversalGraveStepSearcher : StepSearcher
 						]
 					],
 					context.Options,
-					// ROSLYN_ISSUE: Remove null-forgiving operator
-					// due to wrong analysis for Roslyn on extension member with complex nullable argument types.
-					Mask.Create(digits!),
+					Mask.Create(digits),
 					cells,
 					new(cell1, cell2, conjugatePairDigit)
 				);

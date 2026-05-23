@@ -10,10 +10,8 @@ public abstract class ComplexSingleGenerator : TechniqueGenerator, IJustOneCellG
 	/// </summary>
 	protected static readonly Analyzer Analyzer = Analyzer.Default
 		.WithStepSearchers(
-			// ROSLYN_ISSUE: Remove null-forgiving operator
-			// due to wrong analysis for Roslyn on extension member with complex nullable argument types.
-			new SingleStepSearcher { EnableFullHouse = true, HiddenSinglesInBlockFirst = true }!,
-			new DirectIntersectionStepSearcher { AllowDirectClaiming = true, AllowDirectPointing = true }!,
+			new SingleStepSearcher { EnableFullHouse = true, HiddenSinglesInBlockFirst = true },
+			new DirectIntersectionStepSearcher { AllowDirectClaiming = true, AllowDirectPointing = true },
 			new DirectSubsetStepSearcher
 			{
 				AllowDirectHiddenSubset = true,
@@ -22,7 +20,7 @@ public abstract class ComplexSingleGenerator : TechniqueGenerator, IJustOneCellG
 				AllowDirectNakedSubset = true,
 				DirectHiddenSubsetMaxSize = 4,
 				DirectNakedSubsetMaxSize = 4
-			}!
+			}
 		)
 		.WithOptions(new() { IsDirectMode = true });
 

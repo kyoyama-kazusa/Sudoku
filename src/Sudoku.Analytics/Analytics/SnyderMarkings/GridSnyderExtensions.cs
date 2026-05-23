@@ -11,10 +11,8 @@ public static class GridSnyderExtensions
 	/// </summary>
 	internal static readonly Collector Collector = new Collector()
 		.WithStepSearchers(
-			// ROSLYN_ISSUE: Remove null-forgiving operator
-			// due to wrong analysis for Roslyn on extension member with complex nullable argument types.
-			new SingleStepSearcher { EnableFullHouse = true, EnableLastDigit = true, HiddenSinglesInBlockFirst = true }!,
-			new DirectIntersectionStepSearcher { AllowDirectClaiming = true, AllowDirectPointing = true }!,
+			new SingleStepSearcher { EnableFullHouse = true, EnableLastDigit = true, HiddenSinglesInBlockFirst = true },
+			new DirectIntersectionStepSearcher { AllowDirectClaiming = true, AllowDirectPointing = true },
 			new DirectSubsetStepSearcher
 			{
 				AllowDirectHiddenSubset = true,
@@ -23,7 +21,7 @@ public static class GridSnyderExtensions
 				AllowDirectNakedSubset = true,
 				DirectHiddenSubsetMaxSize = 4,
 				DirectNakedSubsetMaxSize = 4
-			}!
+			}
 		)
 		.WithOptions(new() { IsDirectMode = true });
 
