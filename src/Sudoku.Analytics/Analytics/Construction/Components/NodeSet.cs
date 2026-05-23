@@ -84,10 +84,4 @@ public sealed class NodeSet : IComponent, IReadOnlyList<Node>, IReadOnlyCollecti
 	/// </summary>
 	/// <param name="nodes">The nodes.</param>
 	public static explicit operator Node?(NodeSet? nodes) => nodes?._nodes is [var node] ? node : null;
-
-	/// <summary>
-	/// Implicit cast from a <see cref="Node"/> to a <see cref="NodeSet"/> instance.
-	/// </summary>
-	/// <param name="node">The node.</param>
-	public static implicit operator NodeSet?(Node? node) => node is null ? null : new(node);
 }

@@ -62,7 +62,7 @@ public abstract partial class Chain :
 			while (queue.Count != 0)
 			{
 				var currentNode = queue.Dequeue();
-				foreach (var parentNode in currentNode.Parents ?? [])
+				foreach (var parentNode in currentNode.Parents)
 				{
 					queue.Enqueue(parentNode);
 					nodes.Add(parentNode);
@@ -80,7 +80,7 @@ public abstract partial class Chain :
 			var nodes = (List<Node>)[lastNode];
 			for (var node = (Node)lastNode.Parents!; isLoop ? node != lastNode : node is not null; node = (Node)node.Parents!)
 			{
-				nodes.Add(Node.Create(node, null));
+				nodes.Add(Node.Create(node, default));
 			}
 			_nodes = [.. nodes];
 

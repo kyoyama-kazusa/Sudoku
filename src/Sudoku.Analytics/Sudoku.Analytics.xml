@@ -7716,7 +7716,7 @@
             <param name="isOn"><inheritdoc cref="P:Sudoku.Analytics.Construction.Components.Node.IsOn" path="/summary"/></param>
             <param name="parents"><inheritdoc cref="P:Sudoku.Analytics.Construction.Components.Node.Parents" path="/summary"/></param>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.Node.#ctor(Sudoku.Concepts.CandidateMap@,System.Boolean,Sudoku.Analytics.Construction.Components.NodeSet)">
+        <member name="M:Sudoku.Analytics.Construction.Components.Node.#ctor(Sudoku.Concepts.CandidateMap@,System.Boolean,Sudoku.Analytics.Construction.Components.NodeOrNodeSet)">
             <summary>
             Represents a chain node. There're two ways to use it:
             <list type="number">
@@ -7758,14 +7758,14 @@
             Indicates the map of candidates the node uses.
             </summary>
         </member>
-        <member name="P:Sudoku.Analytics.Construction.Components.Node.Root">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Analytics.Construction.Components.Node.Parents">
             <summary>
             <para>Indicates the parent node. The value can be <see langword="null"/> in handling.</para>
             <para>Please note that <i>this value doesn't participate in equality comparison.</i></para>
             </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Components.Node.Root">
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Analytics.Construction.Components.Node.Sudoku#Analytics#Construction#IComponent#Type">
             <inheritdoc/>
@@ -7789,7 +7789,7 @@
 				</summary>
 			</target>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.Node.Deconstruct(System.Boolean@,Sudoku.Concepts.CandidateMap@,Sudoku.Analytics.Construction.Components.NodeSet@)">
+        <member name="M:Sudoku.Analytics.Construction.Components.Node.Deconstruct(System.Boolean@,Sudoku.Concepts.CandidateMap@,Sudoku.Analytics.Construction.Components.NodeOrNodeSet@)">
             <target name="method">
 				<summary>
 					Deconstructs the current instance into its individual components,
@@ -7890,21 +7890,16 @@
         <member name="M:Sudoku.Analytics.Construction.Components.Node.System#ICloneable#Clone">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.Node.Create(Sudoku.Analytics.Construction.Components.Node,Sudoku.Analytics.Construction.Components.Node)">
+        <member name="M:Sudoku.Analytics.Construction.Components.Node.Create(Sudoku.Analytics.Construction.Components.Node,Sudoku.Analytics.Construction.Components.NodeOrNodeSet)">
             <summary>
-            Creates a <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> instance with parent node.
-            </summary>
-            <param name="node">The current node.</param>
-            <param name="parent">The parent node.</param>
-            <returns>The new node created.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.Node.Create(Sudoku.Analytics.Construction.Components.Node,Sudoku.Analytics.Construction.Components.NodeSet)">
-            <summary>
-            Creates a <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> instance with a list of parent nodes.
+            Creates a <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> instance with a list of a single parent node or a list of parent nodes.
             </summary>
             <param name="node">The current node.</param>
             <param name="parents">The parent nodes.</param>
             <returns>The new node created.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.Node.Sudoku#Analytics#Construction#Components#IParentLinkedNode{Sudoku#Analytics#Construction#Components#Node}#Create(Sudoku.Analytics.Construction.Components.Node,Sudoku.Analytics.Construction.Components.Node)">
+            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Analytics.Construction.Components.Node.op_Equality(Sudoku.Analytics.Construction.Components.Node,Sudoku.Analytics.Construction.Components.Node)">
             <inheritdoc/>
@@ -7949,6 +7944,79 @@
             </summary>
             <seealso cref="P:Sudoku.Analytics.Construction.Components.Node.IsOn"/>
             <seealso cref="P:Sudoku.Analytics.Construction.Components.Node.Map"/>
+        </member>
+        <member name="T:Sudoku.Analytics.Construction.Components.NodeOrNodeSet">
+            <summary>
+            Represents a single <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> instance or a list of <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> instances
+            (a.k.a. <see cref="T:Sudoku.Analytics.Construction.Components.NodeSet"/> instance).
+            </summary>
+            <seealso cref="T:Sudoku.Analytics.Construction.Components.Node"/>
+            <seealso cref="T:Sudoku.Analytics.Construction.Components.NodeSet"/>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.NodeOrNodeSet.GetEnumerator">
+            <summary>
+            Returns an enumerator instance that can iterate on each object of this type.
+            </summary>
+            <returns>An enumerator instance of this type.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.NodeOrNodeSet.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.NodeOrNodeSet.System#Collections#Generic#IEnumerable{Sudoku#Analytics#Construction#Components#Node}#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.NodeOrNodeSet.Create(System.ReadOnlySpan{Sudoku.Analytics.Construction.Components.Node})">
+            <summary>
+            Creates a <see cref="T:Sudoku.Analytics.Construction.Components.NodeOrNodeSet"/> instance via the specified sequence of nodes.
+            </summary>
+            <param name="nodes">The nodes.</param>
+            <returns>A <see cref="T:Sudoku.Analytics.Construction.Components.NodeOrNodeSet"/> instance created.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.NodeOrNodeSet.op_Explicit(Sudoku.Analytics.Construction.Components.NodeOrNodeSet)~Sudoku.Analytics.Construction.Components.Node">
+            <summary>
+            Explicit cast from <see cref="T:Sudoku.Analytics.Construction.Components.NodeOrNodeSet"/> into a <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> instance;
+            if failed to be cast, the result value will be <see langword="null"/> instead of throwing exceptions.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.NodeOrNodeSet.op_CheckedExplicit(Sudoku.Analytics.Construction.Components.NodeOrNodeSet)~Sudoku.Analytics.Construction.Components.Node">
+            <summary>
+            Explicit cast from <see cref="T:Sudoku.Analytics.Construction.Components.NodeOrNodeSet"/> into a <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> instance;
+            if failed to be cast, an <see cref="T:System.InvalidCastException"/> exception will be thrown.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="T:Sudoku.Analytics.Construction.Components.NodeOrNodeSet.Enumerator">
+            <summary>
+            Provides an enumerator of the current type.
+            </summary>
+            <param name="nodes">The nodes.</param>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.NodeOrNodeSet.Enumerator.#ctor(Sudoku.Analytics.Construction.Components.NodeOrNodeSet)">
+            <summary>
+            Provides an enumerator of the current type.
+            </summary>
+            <param name="nodes">The nodes.</param>
+        </member>
+        <member name="F:Sudoku.Analytics.Construction.Components.NodeOrNodeSet.Enumerator._enumerator">
+            <summary>
+            The backing enumerator.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Components.NodeOrNodeSet.Enumerator.Current">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Analytics.Construction.Components.NodeOrNodeSet.Enumerator.System#Collections#IEnumerator#Current">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.NodeOrNodeSet.Enumerator.MoveNext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.NodeOrNodeSet.Enumerator.System#IDisposable#Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.NodeOrNodeSet.Enumerator.System#Collections#IEnumerator#Reset">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Components.NodeSet">
             <summary>
@@ -8022,12 +8090,6 @@
             Explicit cast from a <see cref="T:Sudoku.Analytics.Construction.Components.NodeSet"/> to a <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> instance.
             </summary>
             <param name="nodes">The nodes.</param>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.NodeSet.op_Implicit(Sudoku.Analytics.Construction.Components.Node)~Sudoku.Analytics.Construction.Components.NodeSet">
-            <summary>
-            Implicit cast from a <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> to a <see cref="T:Sudoku.Analytics.Construction.Components.NodeSet"/> instance.
-            </summary>
-            <param name="node">The node.</param>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Components.NormalBlossomBranchCollection">
             <summary>

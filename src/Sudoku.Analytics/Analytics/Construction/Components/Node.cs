@@ -10,7 +10,7 @@ namespace Sudoku.Analytics.Construction.Components;
 /// <param name="map"><inheritdoc cref="_map" path="/summary"/></param>
 /// <param name="isOn"><inheritdoc cref="IsOn" path="/summary"/></param>
 /// <param name="parents"><inheritdoc cref="Parents" path="/summary"/></param>
-public sealed class Node(in CandidateMap map, bool isOn, NodeSet? parents = null) :
+public sealed class Node(in CandidateMap map, bool isOn, NodeOrNodeSet parents = default) :
 	IComparable<Node>,
 	IComparisonOperators<Node, Node, bool>,
 	ICloneable,
@@ -48,6 +48,12 @@ public sealed class Node(in CandidateMap map, bool isOn, NodeSet? parents = null
 	/// </summary>
 	public ref readonly CandidateMap Map => ref _map;
 
+	/// <summary>
+	/// <para>Indicates the parent node. The value can be <see langword="null"/> in handling.</para>
+	/// <para>Please note that <i>this value doesn't participate in equality comparison.</i></para>
+	/// </summary>
+	public NodeOrNodeSet Parents { get; set; } = parents;
+
 	/// <inheritdoc/>
 	public Node Root
 	{
@@ -61,12 +67,6 @@ public sealed class Node(in CandidateMap map, bool isOn, NodeSet? parents = null
 			return result;
 		}
 	}
-
-	/// <summary>
-	/// <para>Indicates the parent node. The value can be <see langword="null"/> in handling.</para>
-	/// <para>Please note that <i>this value doesn't participate in equality comparison.</i></para>
-	/// </summary>
-	public NodeSet? Parents { get; set; } = parents;
 
 	/// <inheritdoc/>
 	ComponentType IComponent.Type => ComponentType.ChainNode;
@@ -85,7 +85,7 @@ public sealed class Node(in CandidateMap map, bool isOn, NodeSet? parents = null
 	public void Deconstruct(out bool isGroupedNode, out CandidateMap map) => (isGroupedNode, map) = (IsGroupedNode, _map);
 
 	/// <include file="../../global-doc-comments.xml" path="g/csharp7/feature[@name='deconstruct-method']/target[@name='method']"/>
-	public void Deconstruct(out bool isGroupedNode, out CandidateMap map, out NodeSet? parents)
+	public void Deconstruct(out bool isGroupedNode, out CandidateMap map, out NodeOrNodeSet parents)
 		=> ((isGroupedNode, map), parents) = (this, Parents);
 
 	/// <inheritdoc/>
@@ -227,20 +227,15 @@ public sealed class Node(in CandidateMap map, bool isOn, NodeSet? parents = null
 
 
 	/// <summary>
-	/// Creates a <see cref="Node"/> instance with parent node.
-	/// </summary>
-	/// <param name="node">The current node.</param>
-	/// <param name="parent">The parent node.</param>
-	/// <returns>The new node created.</returns>
-	public static Node Create(Node node, Node? parent) => new(in node._map, node.IsOn, parent);
-
-	/// <summary>
-	/// Creates a <see cref="Node"/> instance with a list of parent nodes.
+	/// Creates a <see cref="Node"/> instance with a list of a single parent node or a list of parent nodes.
 	/// </summary>
 	/// <param name="node">The current node.</param>
 	/// <param name="parents">The parent nodes.</param>
 	/// <returns>The new node created.</returns>
-	public static Node Create(Node node, NodeSet? parents) => new(in node._map, node.IsOn, parents);
+	public static Node Create(Node node, NodeOrNodeSet parents) => new(in node._map, node.IsOn, parents);
+
+	/// <inheritdoc/>
+	static Node IParentLinkedNode<Node>.Create(Node current, Node? parent) => Create(current, parent ?? default(NodeOrNodeSet));
 
 
 	/// <inheritdoc/>
