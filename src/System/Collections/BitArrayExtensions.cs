@@ -22,7 +22,6 @@ public static class BitArrayExtensions
 		/// Get the cardinality of the specified <see cref="BitArray"/>,
 		/// indicating the total number of bits set <see langword="true"/>.
 		/// </summary>
-		[SuppressMessage("Style", "IDE0002:Simplify Member Access", Justification = "<Pending>")]
 		public int Cardinality
 		{
 			get
@@ -49,6 +48,7 @@ public static class BitArrayExtensions
 				return sum;
 
 
+				[SuppressMessage("Style", "IDE0002:Simplify Member Access", Justification = "<Pending>")]
 				static unsafe int popcnt_Avx2(byte[] data)
 				{
 					var length = data.Length;

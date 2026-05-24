@@ -427,6 +427,9 @@ csharp_style_prefer_tuple_swap = false:suggestion
 dotnet_diagnostic.IDE0220.severity = silent
 dotnet_style_prefer_foreach_explicit_cast_in_source = when_strongly_typed
 
+# IDE0380: Remove unnecessary 'unsafe' modifier
+dotnet_diagnostic.IDE0380.severity = warning
+
 
 # CA1000: Do not declare static members on generic types
 dotnet_diagnostic.CA1000.severity = none
