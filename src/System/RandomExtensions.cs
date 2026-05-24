@@ -106,7 +106,7 @@ public static class RandomExtensions
 						} while (bitArray[index]);
 					}
 					result[i] = values[index];
-					bitArray[i] = true;
+					bitArray[index] = true;
 				}
 			}
 			else
