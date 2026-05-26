@@ -15,13 +15,20 @@ public readonly partial union NodeParents(Node, NodeSet) : IEnumerable<Node>
 	/// <returns>An enumerator instance of this type.</returns>
 	public Enumerator GetEnumerator() => new(this);
 
+	/// <summary>
+	/// Try cast the current instance as a single <see cref="Node"/> instance;
+	/// if failed to be cast, <see langword="null"/> will be returned.
+	/// </summary>
+	/// <returns>A valid <see cref="Node"/> instance or <see langword="null"/>.</returns>
+	public Node? AsNode() => Value is Node node ? node : null;
+
 	/// <inheritdoc/>
 	IEnumerator IEnumerable.GetEnumerator()
-		=> (this switch { Node node => (Node[])[node], NodeSet nodes => [.. nodes], _ => [] }).GetEnumerator();
+		=> (Value switch { Node node => (Node[])[node], NodeSet nodes => [.. nodes], _ => [] }).GetEnumerator();
 
 	/// <inheritdoc/>
 	IEnumerator<Node> IEnumerable<Node>.GetEnumerator()
-		=> (this switch { Node node => (Node[])[node], NodeSet nodes => [.. nodes], _ => [] }).AsEnumerable().GetEnumerator();
+		=> (Value switch { Node node => (Node[])[node], NodeSet nodes => [.. nodes], _ => [] }).AsEnumerable().GetEnumerator();
 
 
 	/// <summary>
@@ -32,20 +39,4 @@ public readonly partial union NodeParents(Node, NodeSet) : IEnumerable<Node>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public static NodeParents Create(ReadOnlySpan<Node> nodes)
 		=> nodes switch { [] => default, [var node] => node, _ => NodeSet.Create(nodes) };
-
-
-	/// <summary>
-	/// Explicit cast from <see cref="NodeParents"/> into a <see cref="Node"/> instance;
-	/// if failed to be cast, the result value will be <see langword="null"/> instead of throwing exceptions.
-	/// </summary>
-	/// <param name="value">The value.</param>
-	public static explicit operator Node?(NodeParents value) => value is Node node ? node : null;
-
-	/// <summary>
-	/// Explicit cast from <see cref="NodeParents"/> into a <see cref="Node"/> instance;
-	/// if failed to be cast, an <see cref="InvalidCastException"/> exception will be thrown.
-	/// </summary>
-	/// <param name="value">The value.</param>
-	public static explicit operator checked Node(NodeParents value)
-		=> value is Node node ? node : throw new InvalidCastException();
 }

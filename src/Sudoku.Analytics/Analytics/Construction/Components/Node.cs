@@ -61,10 +61,11 @@ public sealed class Node(in CandidateMap map, bool isOn, NodeParents parents = d
 	{
 		get
 		{
-			var (result, p) = (this, (Node?)Parents);
+			var (result, p) = (this, Parents.AsNode());
 			while (p is not null)
 			{
-				_ = (result = p, p = (Node?)p.Parents);
+				result = p;
+				p = p.Parents.AsNode();
 			}
 			return result;
 		}
@@ -74,7 +75,7 @@ public sealed class Node(in CandidateMap map, bool isOn, NodeParents parents = d
 	ComponentType IComponent.Type => ComponentType.ChainNode;
 
 	/// <inheritdoc/>
-	Node? IParentLinkedNode<Node>.Parent => (Node?)Parents;
+	Node? IParentLinkedNode<Node>.Parent => Parents.AsNode();
 
 	/// <summary>
 	/// The backing comparing value on <see cref="IsOn"/> property.
@@ -122,7 +123,7 @@ public sealed class Node(in CandidateMap map, bool isOn, NodeParents parents = d
 	/// <remarks><b>This method only checks for the first element of all parents.</b></remarks>
 	public bool IsAncestorOf(Node childNode, NodeComparison nodeComparison)
 	{
-		for (var node = childNode; node is not null; node = (Node?)node.Parents)
+		for (var node = childNode; node is not null; node = node.Parents.AsNode())
 		{
 			if (Equals(node, nodeComparison))
 			{

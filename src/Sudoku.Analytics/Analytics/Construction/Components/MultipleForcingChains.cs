@@ -267,7 +267,7 @@ public class MultipleForcingChains(params Conclusion[] conclusions) :
 			for (var x = 0; x < nodes.Length; i = (i + 1) % nodes.Length, x++)
 			{
 				currentNode.Parents = new Node(in nodes[i].Map, isOn);
-				currentNode = (Node)currentNode.Parents!;
+				currentNode = currentNode.Parents.AsNode()!;
 				isOn = !isOn;
 			}
 			return new(lastNode);

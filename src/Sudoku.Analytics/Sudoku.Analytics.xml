@@ -7961,6 +7961,13 @@
             </summary>
             <returns>An enumerator instance of this type.</returns>
         </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.NodeParents.AsNode">
+            <summary>
+            Try cast the current instance as a single <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> instance;
+            if failed to be cast, <see langword="null"/> will be returned.
+            </summary>
+            <returns>A valid <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> instance or <see langword="null"/>.</returns>
+        </member>
         <member name="M:Sudoku.Analytics.Construction.Components.NodeParents.System#Collections#IEnumerable#GetEnumerator">
             <inheritdoc/>
         </member>
@@ -7973,20 +7980,6 @@
             </summary>
             <param name="nodes">The nodes.</param>
             <returns>A <see cref="T:Sudoku.Analytics.Construction.Components.NodeParents"/> instance created.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.NodeParents.op_Explicit(Sudoku.Analytics.Construction.Components.NodeParents)~Sudoku.Analytics.Construction.Components.Node">
-            <summary>
-            Explicit cast from <see cref="T:Sudoku.Analytics.Construction.Components.NodeParents"/> into a <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> instance;
-            if failed to be cast, the result value will be <see langword="null"/> instead of throwing exceptions.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.NodeParents.op_CheckedExplicit(Sudoku.Analytics.Construction.Components.NodeParents)~Sudoku.Analytics.Construction.Components.Node">
-            <summary>
-            Explicit cast from <see cref="T:Sudoku.Analytics.Construction.Components.NodeParents"/> into a <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> instance;
-            if failed to be cast, an <see cref="T:System.InvalidCastException"/> exception will be thrown.
-            </summary>
-            <param name="value">The value.</param>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Components.NodeParents.Enumerator">
             <summary>

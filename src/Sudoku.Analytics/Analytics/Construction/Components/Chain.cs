@@ -78,7 +78,7 @@ public abstract partial class Chain :
 			IsDynamic = false;
 
 			var nodes = (List<Node>)[lastNode];
-			for (var node = (Node)lastNode.Parents!; isLoop ? node != lastNode : node is not null; node = (Node)node.Parents!)
+			for (var node = lastNode.Parents.AsNode()!; isLoop ? node != lastNode : node is not null; node = node.Parents.AsNode()!)
 			{
 				nodes.Add(Node.Create(node, default));
 			}
