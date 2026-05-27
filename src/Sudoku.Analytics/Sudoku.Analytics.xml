@@ -8064,6 +8064,12 @@
         <member name="M:Sudoku.Analytics.Construction.Components.NodeSet.ToString(Sudoku.Concepts.ValueConversions.ICandidateMapConverter,System.IFormatProvider)">
             <inheritdoc cref="M:Sudoku.Analytics.Construction.Components.Node.ToString(Sudoku.Concepts.ValueConversions.ICandidateMapConverter,System.IFormatProvider)"/>
         </member>
+        <member name="M:Sudoku.Analytics.Construction.Components.NodeSet.AsSpan">
+            <summary>
+            Converts the current instance into a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> instances.
+            </summary>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> instances.</returns>
+        </member>
         <member name="M:Sudoku.Analytics.Construction.Components.NodeSet.GetEnumerator">
             <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
         </member>
@@ -8079,12 +8085,6 @@
             </summary>
             <param name="nodes">A list of nodes.</param>
             <returns>A <see cref="T:Sudoku.Analytics.Construction.Components.NodeSet"/> instance returned.</returns>
-        </member>
-        <member name="M:Sudoku.Analytics.Construction.Components.NodeSet.op_Explicit(Sudoku.Analytics.Construction.Components.NodeSet)~Sudoku.Analytics.Construction.Components.Node">
-            <summary>
-            Explicit cast from a <see cref="T:Sudoku.Analytics.Construction.Components.NodeSet"/> to a <see cref="T:Sudoku.Analytics.Construction.Components.Node"/> instance.
-            </summary>
-            <param name="nodes">The nodes.</param>
         </member>
         <member name="T:Sudoku.Analytics.Construction.Components.NormalBlossomBranchCollection">
             <summary>

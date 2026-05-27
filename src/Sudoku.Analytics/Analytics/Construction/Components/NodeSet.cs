@@ -60,8 +60,14 @@ public sealed class NodeSet : IComponent, IReadOnlyList<Node>, IReadOnlyCollecti
 	public string ToString(ICandidateMapConverter converter, IFormatProvider? formatProvider)
 		=> $"[{string.Join(", ", from element in _nodes select element.ToString(converter, formatProvider))}]";
 
+	/// <summary>
+	/// Converts the current instance into a <see cref="ReadOnlySpan{T}"/> of <see cref="Node"/> instances.
+	/// </summary>
+	/// <returns>A <see cref="ReadOnlySpan{T}"/> of <see cref="Node"/> instances.</returns>
+	public ReadOnlySpan<Node> AsSpan() => _nodes.AsSpan();
+
 	/// <inheritdoc cref="IEnumerable{T}.GetEnumerator"/>
-	public AnonymousSpanEnumerator<Node> GetEnumerator() => new(_nodes.AsSpan());
+	public AnonymousSpanEnumerator<Node> GetEnumerator() => new(AsSpan());
 
 	/// <inheritdoc/>
 	IEnumerator IEnumerable.GetEnumerator() => _nodes.GetEnumerator();
@@ -77,11 +83,4 @@ public sealed class NodeSet : IComponent, IReadOnlyList<Node>, IReadOnlyCollecti
 	/// <returns>A <see cref="NodeSet"/> instance returned.</returns>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public static NodeSet Create(ReadOnlySpan<Node> nodes) => new([.. nodes]);
-
-
-	/// <summary>
-	/// Explicit cast from a <see cref="NodeSet"/> to a <see cref="Node"/> instance.
-	/// </summary>
-	/// <param name="nodes">The nodes.</param>
-	public static explicit operator Node?(NodeSet? nodes) => nodes?._nodes is [var node] ? node : null;
 }
