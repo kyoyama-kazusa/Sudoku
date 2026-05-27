@@ -3981,63 +3981,6 @@
         <member name="M:System.Linq.Enumerators.ReverseEnumerator`1.System#IDisposable#Dispose">
             <inheritdoc/>
         </member>
-        <member name="T:System.Linq.Enumerators.SingleElementEnumerator`1">
-            <summary>
-            Represents an enumerator that iterates over a single element.
-            </summary>
-            <typeparam name="T">The type of the element to enumerate.</typeparam>
-            <param name="_item">The sole element yielded by this enumerator.</param>
-        </member>
-        <member name="M:System.Linq.Enumerators.SingleElementEnumerator`1.#ctor(`0)">
-            <summary>
-            Represents an enumerator that iterates over a single element.
-            </summary>
-            <typeparam name="T">The type of the element to enumerate.</typeparam>
-            <param name="_item">The sole element yielded by this enumerator.</param>
-        </member>
-        <member name="F:System.Linq.Enumerators.SingleElementEnumerator`1._state">
-            <summary>
-            Tracks the state of the enumerator.
-            <list type="table">
-            <listheader>
-            <term>Value</term>
-            <description>Meaning</description>
-            </listheader>
-            <item>
-            <term>0</term>
-            <description>Initial (before first <see cref="M:System.Linq.Enumerators.SingleElementEnumerator`1.MoveNext"/>)</description>
-            </item>
-            <item>
-            <term>1</term>
-            <description>Positioned on the element (<see cref="P:System.Linq.Enumerators.SingleElementEnumerator`1.Current"/> is valid)</description>
-            </item>
-            <item>
-            <term>-1</term>
-            <description>Exhausted (after the element has been consumed)</description>
-            </item>
-            </list>
-            </summary>
-            <seealso cref="M:System.Linq.Enumerators.SingleElementEnumerator`1.MoveNext"/>
-            <seealso cref="P:System.Linq.Enumerators.SingleElementEnumerator`1.Current"/>
-        </member>
-        <member name="P:System.Linq.Enumerators.SingleElementEnumerator`1.Current">
-            <inheritdoc/>
-            <exception cref="T:System.InvalidOperationException">
-            Throws when state invalid (invokes this property, but enumerator is not started).
-            </exception>
-        </member>
-        <member name="P:System.Linq.Enumerators.SingleElementEnumerator`1.System#Collections#IEnumerator#Current">
-            <inheritdoc/>
-        </member>
-        <member name="M:System.Linq.Enumerators.SingleElementEnumerator`1.MoveNext">
-            <inheritdoc/>
-        </member>
-        <member name="M:System.Linq.Enumerators.SingleElementEnumerator`1.Dispose">
-            <inheritdoc/>
-        </member>
-        <member name="M:System.Linq.Enumerators.SingleElementEnumerator`1.System#Collections#IEnumerator#Reset">
-            <inheritdoc/>
-        </member>
         <member name="T:System.Linq.Enumerators.ValueTupleEnumerator`1">
             <summary>
             Provides with a mechanism to iterate a value tuple instance of a uniform type <typeparamref name="T"/>.
