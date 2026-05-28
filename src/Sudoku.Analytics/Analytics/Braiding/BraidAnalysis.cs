@@ -11,6 +11,11 @@ public static class BraidAnalysis
 	private static readonly CellMap[] TopThreeCellsMap;
 
 	/// <summary>
+	/// Represents all 9 intersections in each chute, indexed by <c>chuteIndex * 9 + houseRelativeIndex * 3 + segmentIndex</c>.
+	/// </summary>
+	private static readonly CellMap[] IntersectionsMap;
+
+	/// <summary>
 	/// Represents the map of all rotation patterns, grouped by sequence index (0..3) and type.
 	/// </summary>
 	private static readonly FrozenDictionary<Strand, ChuteStrandMap> StrandsMap;
@@ -21,6 +26,7 @@ public static class BraidAnalysis
 	{
 		var strandsMap = new Dictionary<Strand, ChuteStrandMap>();
 		TopThreeCellsMap = new CellMap[Chute.MaxChuteIndex * 3];
+		IntersectionsMap = new CellMap[Chute.MaxChuteIndex * 9];
 
 		// Iterate on each chute.
 		foreach (var (chuteIndex, _, housesMask) in Chute.Chutes)
@@ -29,6 +35,18 @@ public static class BraidAnalysis
 			var house1 = BitOperations.TrailingZeroCount(housesMask);
 			var house2 = housesMask.GetNextSet(house1);
 			var house3 = housesMask.GetNextSet(house2);
+
+			// Calculate for intersections map.
+			for (var h = 0; h < 3; h++)
+			{
+				ref readonly var houseCells = ref HousesMap[h switch { 0 => house1, 1 => house2, _ => house3 }];
+
+				// <c>s</c> represents the first, the middle and the last 3 cells.
+				for (var s = 0; s < 3; s++)
+				{
+					IntersectionsMap[chuteIndex * 9 + h * 3 + s] = houseCells[(s * 3)..(s * 3 + 3)];
+				}
+			}
 
 			// Starts with the specified segment.
 			for (var sequenceIndex = 0; sequenceIndex < 3; sequenceIndex++)
@@ -453,6 +471,70 @@ public static class BraidAnalysis
 			value.Add(strand, mask);
 		}
 	}
+
+	/// <summary>
+	/// Try to find available conclusions of the grid.
+	/// </summary>
+	/// <param name="grid">The grid.</param>
+	/// <param name="chuteIndex">The chute index.</param>
+	/// <returns>The conclusions found.</returns>
+	public static ReadOnlySpan<Conclusion> GetConclusions(in Grid grid, int chuteIndex)
+	{
+		var result = new List<Conclusion>();
+
+		// Try reduce.
+		if (!TryReduce(grid, out var mask, out var lookupThatCanReducedTo) || (mask >> chuteIndex & 1) == 0)
+		{
+			return [];
+		}
+
+		// Try to iterate on each intersection cells of the possible strands.
+		for (var houseRelativeIndex = 0; houseRelativeIndex < 3; houseRelativeIndex++)
+		{
+			for (var sequenceIndex = 0; sequenceIndex < 3; sequenceIndex++)
+			{
+				// 1. Find for intersection cells.
+				var intersectionCells = GetIntersectionCells(chuteIndex, houseRelativeIndex, sequenceIndex);
+
+				// 2. Find for N-Strand and Z-Strand that intersects with such cells.
+				var nStrand = new Strand(chuteIndex, (houseRelativeIndex - sequenceIndex + 3) % 3, StrandType.Downside);
+				var zStrand = new Strand(chuteIndex, (houseRelativeIndex + sequenceIndex) % 3, StrandType.Upside);
+
+				// 3. Get mask.
+				var nMask = lookupThatCanReducedTo[nStrand].Mask;
+				var zMask = lookupThatCanReducedTo[zStrand].Mask;
+
+				// 4. Union them up.
+				var allowedMask = (Mask)(nMask | zMask);
+
+				// 5. Find for conclusions using <c>allowedMask</c>.
+				foreach (var cell in intersectionCells)
+				{
+					if (grid.GetState(cell) != CellState.Empty)
+					{
+						continue;
+					}
+
+					foreach (var digit in (Mask)(grid.GetCandidates(cell) & ~allowedMask))
+					{
+						result.Add(new(Elimination, cell, digit));
+					}
+				}
+			}
+		}
+		return result.AsSpan();
+	}
+
+	/// <summary>
+	/// Gets the 3 cells of the specified intersection within a chute.
+	/// </summary>
+	/// <param name="chuteIndex">The chute index (0..6).</param>
+	/// <param name="houseRelativeIndex">The relative house index within the chute (0..2).</param>
+	/// <param name="segmentIndex">The segment index inside the house (0..2, indicating cells 0..3, 3..6, or 6..9).</param>
+	/// <returns>The map of the 3 cells in this intersection.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	private static ref readonly CellMap GetIntersectionCells(int chuteIndex, int houseRelativeIndex, int segmentIndex)
+		=> ref IntersectionsMap[chuteIndex * 9 + houseRelativeIndex * 3 + segmentIndex];
 
 
 	/// <include

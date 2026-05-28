@@ -1125,6 +1125,11 @@
             Indicates top-3 cells defined in the specified chute, sequence index and type.
             </summary>
         </member>
+        <member name="F:Sudoku.Analytics.Braiding.BraidAnalysis.IntersectionsMap">
+            <summary>
+            Represents all 9 intersections in each chute, indexed by <c>chuteIndex * 9 + houseRelativeIndex * 3 + segmentIndex</c>.
+            </summary>
+        </member>
         <member name="F:Sudoku.Analytics.Braiding.BraidAnalysis.StrandsMap">
             <summary>
             Represents the map of all rotation patterns, grouped by sequence index (0..3) and type.
@@ -1239,6 +1244,23 @@
             <param name="grid">The grid.</param>
             <param name="chuteIndex">The chute index (0..6). -1 for all chutes checking.</param>
             <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Analytics.Braiding.BraidAnalysis.GetConclusions(Sudoku.Concepts.Grid@,System.Int32)">
+            <summary>
+            Try to find available conclusions of the grid.
+            </summary>
+            <param name="grid">The grid.</param>
+            <param name="chuteIndex">The chute index.</param>
+            <returns>The conclusions found.</returns>
+        </member>
+        <member name="M:Sudoku.Analytics.Braiding.BraidAnalysis.GetIntersectionCells(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets the 3 cells of the specified intersection within a chute.
+            </summary>
+            <param name="chuteIndex">The chute index (0..6).</param>
+            <param name="houseRelativeIndex">The relative house index within the chute (0..2).</param>
+            <param name="segmentIndex">The segment index inside the house (0..2, indicating cells 0..3, 3..6, or 6..9).</param>
+            <returns>The map of the 3 cells in this intersection.</returns>
         </member>
         <member name="M:Sudoku.Analytics.Braiding.BraidAnalysis.DictionaryEquals``1(System.Collections.Generic.Dictionary{Sudoku.Analytics.Braiding.Strand,System.Int16},``0)">
             <inheritdoc cref="M:Sudoku.Analytics.Braiding.BraidAnalysis.&lt;G&gt;$986C2E0E189C64C0FB1B0919AE00744A.DictionaryEquals``1(``0)"/>
