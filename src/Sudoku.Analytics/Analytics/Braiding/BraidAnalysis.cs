@@ -181,10 +181,10 @@ public static class BraidAnalysis
 	/// Reduces the full grid of digit distribution on braid analysis.
 	/// </summary>
 	/// <param name="grid">The grid.</param>
-	/// <param name="reducedChutesMask">
+	/// <param name="chuteMaskThatCanBeReduced">
 	/// The result chute indices that can be reduced. The result value is a 6-bit mask indicating chute indices that can be reduced.
 	/// </param>
-	/// <param name="reducedLookup">The reduced dictionary (if can).</param>
+	/// <param name="lookupThatCanReducedTo">The reduced dictionary (if can).</param>
 	/// <returns>A <see cref="bool"/> result indicating whether it can be reduced.</returns>
 	/// <remarks>
 	/// Usage:
@@ -206,13 +206,13 @@ public static class BraidAnalysis
 	/// </remarks>
 	public static bool TryReduce(
 		in Grid grid,
-		out int reducedChutesMask,
-		out IReadOnlyDictionary<Strand, (BraidingType Type, Mask Mask)> reducedLookup
+		out int chuteMaskThatCanBeReduced,
+		out IReadOnlyDictionary<Strand, (BraidingType Type, Mask Mask)> lookupThatCanReducedTo
 	)
 	{
 		var originalMappedStrands = MapStrands(grid);
 		var tempReducedLookup = new Dictionary<Strand, (BraidingType, Mask)>();
-		reducedChutesMask = 0;
+		chuteMaskThatCanBeReduced = 0;
 		for (var chute = 0; chute < 6; chute++)
 		{
 			if (TryInferType(grid, chute, out var braidingType, out var reduced)
@@ -222,7 +222,7 @@ public static class BraidAnalysis
 				{
 					tempReducedLookup.Add(kvp.Key, (braidingType, kvp.Value));
 				}
-				reducedChutesMask |= 1 << chute;
+				chuteMaskThatCanBeReduced |= 1 << chute;
 			}
 			else
 			{
@@ -237,8 +237,8 @@ public static class BraidAnalysis
 			}
 		}
 
-		reducedLookup = tempReducedLookup;
-		return reducedChutesMask != 0;
+		lookupThatCanReducedTo = tempReducedLookup;
+		return chuteMaskThatCanBeReduced != 0;
 	}
 
 	/// <summary>
