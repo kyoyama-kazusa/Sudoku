@@ -92,13 +92,13 @@ public readonly struct Conclusion(Mask mask) :
 	/// <inheritdoc/>
 	public bool Equals(Conclusion other) => _mask == other._mask;
 
-	/// <inheritdoc/>
+	/// <inheritdoc cref="object.GetHashCode"/>
 	public override int GetHashCode() => _mask;
 
 	/// <inheritdoc/>
 	public int CompareTo(Conclusion other) => _mask.CompareTo(_mask);
 
-	/// <inheritdoc/>
+	/// <inheritdoc cref="object.ToString"/>
 	public override string ToString() => ToString(CoordinateConverter.InvariantCulture);
 
 	/// <summary>

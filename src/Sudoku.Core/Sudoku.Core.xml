@@ -1567,13 +1567,13 @@
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Concepts.Conclusion.GetHashCode">
-            <inheritdoc/>
+            <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
         <member name="M:Sudoku.Concepts.Conclusion.CompareTo(Sudoku.Concepts.Conclusion)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Concepts.Conclusion.ToString">
-            <inheritdoc/>
+            <inheritdoc cref="M:System.Object.ToString"/>
         </member>
         <member name="M:Sudoku.Concepts.Conclusion.ToString(System.Globalization.CultureInfo)">
             <summary>
