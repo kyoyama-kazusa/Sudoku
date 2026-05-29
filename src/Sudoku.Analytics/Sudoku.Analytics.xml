@@ -13797,8 +13797,8 @@
             </summary>
             <remarks>
             Although the type of this property is marked <see cref="T:System.FlagsAttribute"/>,
-            we still can't set multiple flag values into the result. The flags are filtered
-            during generating puzzles.
+            we still can't set multiple flag values into the result.
+            The flags are used in filtering possible puzzles during generating, rather than usages here.
             </remarks>
             <exception cref="T:System.InvalidOperationException">
             Throws when the target difficulty level is <see cref="F:Sudoku.Analytics.DifficultyLevel.Unknown"/>.

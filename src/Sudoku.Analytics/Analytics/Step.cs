@@ -85,8 +85,8 @@ public abstract class Step(ReadOnlyMemory<Conclusion> conclusions, View[]? views
 	/// </summary>
 	/// <remarks>
 	/// Although the type of this property is marked <see cref="FlagsAttribute"/>,
-	/// we still can't set multiple flag values into the result. The flags are filtered
-	/// during generating puzzles.
+	/// we still can't set multiple flag values into the result.
+	/// The flags are used in filtering possible puzzles during generating, rather than usages here.
 	/// </remarks>
 	/// <exception cref="InvalidOperationException">
 	/// Throws when the target difficulty level is <see cref="DifficultyLevel.Unknown"/>.
