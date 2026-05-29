@@ -549,7 +549,7 @@ public static class BraidAnalysis
 		/// <typeparam name="TDictionary">The type of dictionary to compare.</typeparam>
 		/// <param name="other">The other instance to be compared.</param>
 		/// <returns>A <see cref="bool"/> result.</returns>
-		public bool DictionaryEquals<TDictionary>(TDictionary? other) where TDictionary : IReadOnlyDictionary<Strand, Mask>
+		private bool DictionaryEquals<TDictionary>(TDictionary? other) where TDictionary : IReadOnlyDictionary<Strand, Mask>
 		{
 			if (other is null)
 			{
