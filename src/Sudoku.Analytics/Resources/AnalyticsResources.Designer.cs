@@ -864,6 +864,15 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Braid Analysis Lite.
+        /// </summary>
+        public static string BraidAnalysisLite {
+            get {
+                return ResourceManager.GetString("BraidAnalysisLite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Broken Loop Type 1.
         /// </summary>
         public static string BrokenLoopType1 {
@@ -5450,11 +5459,11 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Braid Analysis.
+        ///   Looks up a localized string similar to Braid Analysis Lite.
         /// </summary>
-        public static string StepSearcherName_BraidAnalysisStepSearcher {
+        public static string StepSearcherName_BraidAnalysisLiteStepSearcher {
             get {
-                return ResourceManager.GetString("StepSearcherName_BraidAnalysisStepSearcher", resourceCulture);
+                return ResourceManager.GetString("StepSearcherName_BraidAnalysisLiteStepSearcher", resourceCulture);
             }
         }
         

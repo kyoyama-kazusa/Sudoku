@@ -4,11 +4,11 @@ namespace Sudoku.Analytics.StepSearchers;
 /// Provides with a <b>Braid Analysis</b> step searcher.
 /// The step searcher will include the following techniques:
 /// <list type="bullet">
-/// <item>Braid Analysis</item>
+/// <item>Braid Analysis Lite</item>
 /// </list>
 /// </summary>
-[StepSearcher("StepSearcherName_BraidAnalysisStepSearcher", Technique.BraidAnalysis)]
-public sealed partial class BraidAnalysisStepSearcher : StepSearcher
+[StepSearcher("StepSearcherName_BraidAnalysisLiteStepSearcher", Technique.BraidAnalysisLite)]
+public sealed partial class BraidAnalysisLiteStepSearcher : StepSearcher
 {
 	/// <summary>
 	/// Indicates braiding indices.
@@ -193,7 +193,7 @@ public sealed partial class BraidAnalysisStepSearcher : StepSearcher
 							}
 
 							var unknownCharacterSequence = context.Options.BabaGroupInitialLetter.GetSequence(context.Options.BabaGroupLetterCase);
-							var step = new BraidAnalysisStep(
+							var step = new BraidAnalysisLiteStep(
 								conclusions.AsMemory(),
 								[
 									[

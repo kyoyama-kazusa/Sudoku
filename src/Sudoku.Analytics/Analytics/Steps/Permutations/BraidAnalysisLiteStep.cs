@@ -1,7 +1,7 @@
 namespace Sudoku.Analytics.Steps;
 
 /// <summary>
-/// Represents a data structure that describes for a technique of <b>Braid Analysis</b>.
+/// Represents a data structure that describes for a technique of <b>Braid Analysis Lite</b>.
 /// </summary>
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
@@ -11,7 +11,7 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="cells2"><inheritdoc cref="Cells" path="/summary"/></param>
 /// <param name="cells3"><inheritdoc cref="Cells" path="/summary"/></param>
 /// <param name="invalidDigitsMask"><inheritdoc cref="InvalidDigitsMask" path="/summary"/></param>
-public sealed class BraidAnalysisStep(
+public sealed class BraidAnalysisLiteStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,
@@ -32,7 +32,7 @@ public sealed class BraidAnalysisStep(
 	public override int BaseDifficulty => 60;
 
 	/// <inheritdoc/>
-	public override Technique Code => Technique.BraidAnalysis;
+	public override Technique Code => Technique.BraidAnalysisLite;
 
 	/// <inheritdoc/>
 	public override Mask DigitsUsed { get; } = digitsUsed;

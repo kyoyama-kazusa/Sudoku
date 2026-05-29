@@ -3207,10 +3207,20 @@ public enum Technique
 	//
 	#region Braid Analysis
 	/// <summary>
+	/// Indicates braid analysis lite.
+	/// </summary>
+	[TechniqueMetadata<BraidAnalysisLiteStepSearcher, BraidAnalysisLiteStep>(
+		Rating = 60,
+		DifficultyLevel = DifficultyLevel.Hard,
+		ContainingGroup = TechniqueGroup.BraidAnalysis,
+		Links = ["http://sudopedia.enjoysudoku.com/Braid_Analysis.html"])]
+	BraidAnalysisLite,
+
+	/// <summary>
 	/// Indicates braid analysis.
 	/// </summary>
-	[TechniqueMetadata<BraidAnalysisStepSearcher, BraidAnalysisStep>(
-		Rating = 60,
+	[TechniqueMetadata<BraidAnalysisLiteStepSearcher, BraidAnalysisLiteStep>(
+		Rating = 64,
 		DifficultyLevel = DifficultyLevel.Fiendish,
 		ContainingGroup = TechniqueGroup.BraidAnalysis,
 		Links = ["http://sudopedia.enjoysudoku.com/Braid_Analysis.html"])]

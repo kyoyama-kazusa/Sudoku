@@ -3430,18 +3430,24 @@
     <value>全强链死环类型 4</value>
     <comment>Technique Name</comment>
   </data>
-  <data name="BraidAnalysis" xml:space="preserve">
+  <data name="c" xml:space="preserve">
     <value>三同对</value>
     <comment>Technique Name</comment>
   </data>
   <data name="TechniqueGroup_BraidAnalysis" xml:space="preserve">
-    <value>三同对</value>
+    <value>并排宫线股分析</value>
   </data>
-  <data name="StepSearcherName_BraidAnalysisStepSearcher" xml:space="preserve">
+  <data name="StepSearcherName_BraidAnalysisLiteStepSearcher" xml:space="preserve">
     <value>三同对</value>
     <comment>Step Searcher Name</comment>
   </data>
   <data name="TechniqueFormat_BraidAnalysisStep" xml:space="preserve">
     <value>单元格 {1} 里的数字 {0} 中的 {2} 一旦出现，就会造成填数组合矛盾</value>
+  </data>
+  <data name="BraidAnalysis" xml:space="preserve">
+    <value>并排宫线股分析</value>
+  </data>
+  <data name="BraidAnalysisLite" xml:space="preserve">
+    <value>三同对</value>
   </data>
 </root>

@@ -38,7 +38,7 @@ public partial class QiuDeadlyPatternStepSearcher					(): StepSearcher(27, 1);
 public partial class ReverseBivalueUniversalGraveStepSearcher		(): StepSearcher(28, 1);
 public partial class EmptyRectangleIntersectionPairStepSearcher		(): StepSearcher(29, 1);
 public partial class FireworkStepSearcher							(): StepSearcher(30, 1);
-public partial class BraidAnalysisStepSearcher						(): StepSearcher(31, 1);
+public partial class BraidAnalysisLiteStepSearcher					(): StepSearcher(31, 1);
 public partial class AntiGurthSymmetricalPlacementStepSearcher		(): StepSearcher(32, 1);
 public partial class BivalueOddagonStepSearcher						(): StepSearcher(33, 2);
 public partial class TrivalueOddagonStepSearcher					(): StepSearcher(34, 2);

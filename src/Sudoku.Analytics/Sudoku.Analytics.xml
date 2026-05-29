@@ -3183,6 +3183,11 @@
             Indicates sue de coq cannibalism.
             </summary>
         </member>
+        <member name="F:Sudoku.Analytics.Categorization.Technique.BraidAnalysisLite">
+            <summary>
+            Indicates braid analysis lite.
+            </summary>
+        </member>
         <member name="F:Sudoku.Analytics.Categorization.Technique.BraidAnalysis">
             <summary>
             Indicates braid analysis.
@@ -18217,29 +18222,29 @@
             </param>
             <returns>All digits that satisfied the firework rule. If none found, 0.</returns>
         </member>
-        <member name="T:Sudoku.Analytics.StepSearchers.BraidAnalysisStepSearcher">
+        <member name="T:Sudoku.Analytics.StepSearchers.BraidAnalysisLiteStepSearcher">
             <summary>
             Provides with a <b>Braid Analysis</b> step searcher.
             The step searcher will include the following techniques:
             <list type="bullet">
-            <item>Braid Analysis</item>
+            <item>Braid Analysis Lite</item>
             </list>
             </summary>
         </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.BraidAnalysisStepSearcher.BraidingIndices">
+        <member name="F:Sudoku.Analytics.StepSearchers.BraidAnalysisLiteStepSearcher.BraidingIndices">
             <summary>
             Indicates braiding indices.
             </summary>
         </member>
-        <member name="F:Sudoku.Analytics.StepSearchers.BraidAnalysisStepSearcher.TransitionIndices">
+        <member name="F:Sudoku.Analytics.StepSearchers.BraidAnalysisLiteStepSearcher.TransitionIndices">
             <summary>
             Indicates transition path indices.
             </summary>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.BraidAnalysisStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)">
+        <member name="M:Sudoku.Analytics.StepSearchers.BraidAnalysisLiteStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.BraidAnalysisStepSearcher.CheckWhetherEverySegmentHasAtLeastTwoEmptyCells(Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMap**,System.ReadOnlySpan{Sudoku.Concepts.CellMap},System.Int32[])">
+        <member name="M:Sudoku.Analytics.StepSearchers.BraidAnalysisLiteStepSearcher.CheckWhetherEverySegmentHasAtLeastTwoEmptyCells(Sudoku.Concepts.Grid@,Sudoku.Concepts.CellMap**,System.ReadOnlySpan{Sudoku.Concepts.CellMap},System.Int32[])">
             <summary>
             Check whether every segment has enough cells to be iterated.
             </summary>
@@ -18249,7 +18254,7 @@
             <param name="indices">The chosen chute indices.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.BraidAnalysisStepSearcher.CheckWhetherAll3TransitionPathsDifferentStartAreOkay(Sudoku.Concepts.Grid@,System.Int16,Sudoku.Concepts.CellMap**,Sudoku.Concepts.CellMap**)">
+        <member name="M:Sudoku.Analytics.StepSearchers.BraidAnalysisLiteStepSearcher.CheckWhetherAll3TransitionPathsDifferentStartAreOkay(Sudoku.Concepts.Grid@,System.Int16,Sudoku.Concepts.CellMap**,Sudoku.Concepts.CellMap**)">
             <summary>
             Check whether all 3 transition paths with different starts are okay.
             </summary>
@@ -23292,67 +23297,67 @@
         <member name="M:Sudoku.Analytics.Steps.AlignedExclusionStep.Equals(Sudoku.Analytics.Step)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Analytics.Steps.BraidAnalysisStep">
+        <member name="T:Sudoku.Analytics.Steps.BraidAnalysisLiteStep">
             <summary>
-            Represents a data structure that describes for a technique of <b>Braid Analysis</b>.
+            Represents a data structure that describes for a technique of <b>Braid Analysis Lite</b>.
             </summary>
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsUsed"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisStep.DigitsUsed" path="/summary"/></param>
-            <param name="cells1"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisStep.Cells" path="/summary"/></param>
-            <param name="cells2"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisStep.Cells" path="/summary"/></param>
-            <param name="cells3"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisStep.Cells" path="/summary"/></param>
-            <param name="invalidDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisStep.InvalidDigitsMask" path="/summary"/></param>
+            <param name="digitsUsed"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.DigitsUsed" path="/summary"/></param>
+            <param name="cells1"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.Cells" path="/summary"/></param>
+            <param name="cells2"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.Cells" path="/summary"/></param>
+            <param name="cells3"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.Cells" path="/summary"/></param>
+            <param name="invalidDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.InvalidDigitsMask" path="/summary"/></param>
         </member>
-        <member name="M:Sudoku.Analytics.Steps.BraidAnalysisStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int16)">
+        <member name="M:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.#ctor(System.ReadOnlyMemory{Sudoku.Concepts.Conclusion},Sudoku.Drawing.View[],Sudoku.Analytics.Configuration.StepGathererOptions,System.Int16,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,Sudoku.Concepts.CellMap@,System.Int16)">
             <summary>
-            Represents a data structure that describes for a technique of <b>Braid Analysis</b>.
+            Represents a data structure that describes for a technique of <b>Braid Analysis Lite</b>.
             </summary>
             <param name="conclusions"><inheritdoc cref="P:Sudoku.Analytics.Step.Conclusions" path="/summary"/></param>
             <param name="views"><inheritdoc cref="P:Sudoku.Analytics.Step.Views" path="/summary"/></param>
             <param name="options"><inheritdoc cref="P:Sudoku.Analytics.Step.Options" path="/summary"/></param>
-            <param name="digitsUsed"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisStep.DigitsUsed" path="/summary"/></param>
-            <param name="cells1"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisStep.Cells" path="/summary"/></param>
-            <param name="cells2"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisStep.Cells" path="/summary"/></param>
-            <param name="cells3"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisStep.Cells" path="/summary"/></param>
-            <param name="invalidDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisStep.InvalidDigitsMask" path="/summary"/></param>
+            <param name="digitsUsed"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.DigitsUsed" path="/summary"/></param>
+            <param name="cells1"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.Cells" path="/summary"/></param>
+            <param name="cells2"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.Cells" path="/summary"/></param>
+            <param name="cells3"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.Cells" path="/summary"/></param>
+            <param name="invalidDigitsMask"><inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.InvalidDigitsMask" path="/summary"/></param>
         </member>
-        <member name="F:Sudoku.Analytics.Steps.BraidAnalysisStep._cells1">
+        <member name="F:Sudoku.Analytics.Steps.BraidAnalysisLiteStep._cells1">
             <summary>
-            <inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisStep.Cells" path="/summary"/>
+            <inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.Cells" path="/summary"/>
             </summary>
         </member>
-        <member name="F:Sudoku.Analytics.Steps.BraidAnalysisStep._cells2">
+        <member name="F:Sudoku.Analytics.Steps.BraidAnalysisLiteStep._cells2">
             <summary>
-            <inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisStep.Cells" path="/summary"/>
+            <inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.Cells" path="/summary"/>
             </summary>
         </member>
-        <member name="F:Sudoku.Analytics.Steps.BraidAnalysisStep._cells3">
+        <member name="F:Sudoku.Analytics.Steps.BraidAnalysisLiteStep._cells3">
             <summary>
-            <inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisStep.Cells" path="/summary"/>
+            <inheritdoc cref="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.Cells" path="/summary"/>
             </summary>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.BraidAnalysisStep.BaseDifficulty">
+        <member name="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.BaseDifficulty">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.BraidAnalysisStep.Code">
+        <member name="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.Code">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.BraidAnalysisStep.DigitsUsed">
+        <member name="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.DigitsUsed">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.BraidAnalysisStep.InvalidDigitsMask">
+        <member name="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.InvalidDigitsMask">
             <summary>
             Indicates invalid digits mask.
             </summary>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.BraidAnalysisStep.Cells">
+        <member name="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.Cells">
             <summary>
             Indicates all cells used.
             </summary>
         </member>
-        <member name="P:Sudoku.Analytics.Steps.BraidAnalysisStep.Interpolations">
+        <member name="P:Sudoku.Analytics.Steps.BraidAnalysisLiteStep.Interpolations">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Steps.PermutationStep">
@@ -31391,6 +31396,11 @@
               Looks up a localized string similar to Braid Analysis.
             </summary>
         </member>
+        <member name="P:Sudoku.Resources.AnalyticsResources.BraidAnalysisLite">
+            <summary>
+              Looks up a localized string similar to Braid Analysis Lite.
+            </summary>
+        </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.BrokenLoopType1">
             <summary>
               Looks up a localized string similar to Broken Loop Type 1.
@@ -33945,9 +33955,9 @@
               Looks up a localized string similar to Bowman&apos;s Bingo.
             </summary>
         </member>
-        <member name="P:Sudoku.Resources.AnalyticsResources.StepSearcherName_BraidAnalysisStepSearcher">
+        <member name="P:Sudoku.Resources.AnalyticsResources.StepSearcherName_BraidAnalysisLiteStepSearcher">
             <summary>
-              Looks up a localized string similar to Braid Analysis.
+              Looks up a localized string similar to Braid Analysis Lite.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.AnalyticsResources.StepSearcherName_BrokenLoopStepSearcher">

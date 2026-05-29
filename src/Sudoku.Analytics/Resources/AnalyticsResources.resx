@@ -3376,16 +3376,19 @@ Is pattern rank-0: {6}</value>
   <data name="BrokenLoopType4" xml:space="preserve">
     <value>Broken Loop Type 4</value>
   </data>
-  <data name="BraidAnalysis" xml:space="preserve">
-    <value>Braid Analysis</value>
-  </data>
   <data name="TechniqueGroup_BraidAnalysis" xml:space="preserve">
     <value>Braid Analysis</value>
   </data>
-  <data name="StepSearcherName_BraidAnalysisStepSearcher" xml:space="preserve">
-    <value>Braid Analysis</value>
+  <data name="StepSearcherName_BraidAnalysisLiteStepSearcher" xml:space="preserve">
+    <value>Braid Analysis Lite</value>
   </data>
   <data name="TechniqueFormat_BraidAnalysisStep" xml:space="preserve">
     <value>Digits {0} in cells {1} will cause contradiction if any of digits {2} exists, due to valid combinations</value>
+  </data>
+  <data name="BraidAnalysis" xml:space="preserve">
+    <value>Braid Analysis</value>
+  </data>
+  <data name="BraidAnalysisLite" xml:space="preserve">
+    <value>Braid Analysis Lite</value>
   </data>
 </root>
