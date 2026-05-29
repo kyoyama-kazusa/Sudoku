@@ -199,10 +199,12 @@ public static class BraidAnalysis
 	/// Reduces the full grid of digit distribution on braid analysis.
 	/// </summary>
 	/// <param name="grid">The grid.</param>
-	/// <param name="chuteMaskThatCanBeReduced">
-	/// The result chute indices that can be reduced. The result value is a 6-bit mask indicating chute indices that can be reduced.
+	/// <param name="reducedChutesMask">
+	/// The result chute indices that can be reduced.
+	/// The result value is a 6-bit mask indicating chute indices that can be reduced,
+	/// where 1's represents corresponding chute can be reduced.
 	/// </param>
-	/// <param name="lookupThatCanReducedTo">The reduced dictionary (if can).</param>
+	/// <param name="reducedLookup">The reduced dictionary (if can).</param>
 	/// <returns>A <see cref="bool"/> result indicating whether it can be reduced.</returns>
 	/// <remarks>
 	/// Usage:
@@ -224,23 +226,23 @@ public static class BraidAnalysis
 	/// </remarks>
 	public static bool TryReduce(
 		in Grid grid,
-		out int chuteMaskThatCanBeReduced,
-		out IReadOnlyDictionary<Strand, (BraidingType Type, Mask Mask)> lookupThatCanReducedTo
+		out int reducedChutesMask,
+		out IReadOnlyDictionary<Strand, (BraidingType Type, Mask Mask)> reducedLookup
 	)
 	{
 		var originalMappedStrands = MapStrands(grid);
 		var tempReducedLookup = new Dictionary<Strand, (BraidingType, Mask)>();
-		chuteMaskThatCanBeReduced = 0;
+		reducedChutesMask = 0;
 		for (var chute = 0; chute < 6; chute++)
 		{
 			if (TryInferType(grid, chute, out var braidingType, out var reduced)
-				|| !((Dictionary<Strand, Mask>)MapStrands(grid, chute)).DictionaryEquals(reduced))
+				|| !MapStrands(grid, chute).DictionaryEquals(reduced))
 			{
 				foreach (var kvp in reduced)
 				{
 					tempReducedLookup.Add(kvp.Key, (braidingType, kvp.Value));
 				}
-				chuteMaskThatCanBeReduced |= 1 << chute;
+				reducedChutesMask |= 1 << chute;
 			}
 			else
 			{
@@ -255,8 +257,8 @@ public static class BraidAnalysis
 			}
 		}
 
-		lookupThatCanReducedTo = tempReducedLookup;
-		return chuteMaskThatCanBeReduced != 0;
+		reducedLookup = tempReducedLookup;
+		return reducedChutesMask != 0;
 	}
 
 	/// <summary>
@@ -265,14 +267,14 @@ public static class BraidAnalysis
 	/// <param name="grid">The grid.</param>
 	/// <param name="chuteIndex">The chute index (0..6).</param>
 	/// <param name="result">The type inferred. If none found, <see cref="BraidingType.Unknown"/> will be returned.</param>
-	/// <param name="resultLookup">The result distribution of digits must be appeared in the specified strands.</param>
+	/// <param name="strandMaskDistribution">The result distribution of digits must be appeared in the specified strands.</param>
 	/// <returns>A <see cref="bool"/> result indicating whether the type can be inferred with unique value.</returns>
 	/// <seealso cref="BraidingType.Unknown"/>
 	public static bool TryInferType(
 		in Grid grid,
 		int chuteIndex,
 		out BraidingType result,
-		out IReadOnlyDictionary<Strand, Mask> resultLookup
+		out IReadOnlyDictionary<Strand, Mask> strandMaskDistribution
 	)
 	{
 		result = BraidingType.Unknown;
@@ -425,7 +427,7 @@ public static class BraidAnalysis
 
 		// Get values and return.
 		result = candidateBraidingTypes.IsFlag ? candidateBraidingTypes : BraidingType.Unknown;
-		resultLookup = resultDictionary;
+		strandMaskDistribution = resultDictionary;
 		return result != BraidingType.Unknown;
 	}
 
@@ -540,16 +542,16 @@ public static class BraidAnalysis
 	/// <include
 	///     file="../../global-doc-comments.xml"
 	///     path="/g/csharp14/feature[@name='extension-container']/target[@name='container']"/>
+	/// <typeparam name="TDictionary">The type of dictionary to compare.</typeparam>
 	/// <param name="this">The dictionary.</param>
-	extension(Dictionary<Strand, Mask> @this)
+	extension<TDictionary>(TDictionary @this) where TDictionary : IReadOnlyDictionary<Strand, Mask>
 	{
 		/// <summary>
 		/// Compare two <see cref="Dictionary{TKey, TValue}"/> instances.
 		/// </summary>
-		/// <typeparam name="TDictionary">The type of dictionary to compare.</typeparam>
 		/// <param name="other">The other instance to be compared.</param>
 		/// <returns>A <see cref="bool"/> result.</returns>
-		private bool DictionaryEquals<TDictionary>(TDictionary? other) where TDictionary : IReadOnlyDictionary<Strand, Mask>
+		private bool DictionaryEquals(TDictionary? other)
 		{
 			if (other is null)
 			{
@@ -561,7 +563,7 @@ public static class BraidAnalysis
 			}
 			foreach (var key in other.Keys)
 			{
-				if (@this[key] != (other.TryGetValue(key, out var m) ? m : -1))
+				if (@this[key] != (other.TryGetValue(key, out var mask) ? mask : -1))
 				{
 					return false;
 				}

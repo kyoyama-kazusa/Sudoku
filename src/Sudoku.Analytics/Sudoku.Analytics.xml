@@ -1202,10 +1202,12 @@
             Reduces the full grid of digit distribution on braid analysis.
             </summary>
             <param name="grid">The grid.</param>
-            <param name="chuteMaskThatCanBeReduced">
-            The result chute indices that can be reduced. The result value is a 6-bit mask indicating chute indices that can be reduced.
+            <param name="reducedChutesMask">
+            The result chute indices that can be reduced.
+            The result value is a 6-bit mask indicating chute indices that can be reduced,
+            where 1's represents corresponding chute can be reduced.
             </param>
-            <param name="lookupThatCanReducedTo">The reduced dictionary (if can).</param>
+            <param name="reducedLookup">The reduced dictionary (if can).</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating whether it can be reduced.</returns>
             <remarks>
             Usage:
@@ -1233,7 +1235,7 @@
             <param name="grid">The grid.</param>
             <param name="chuteIndex">The chute index (0..6).</param>
             <param name="result">The type inferred. If none found, <see cref="F:Sudoku.Analytics.Braiding.BraidingType.Unknown"/> will be returned.</param>
-            <param name="resultLookup">The result distribution of digits must be appeared in the specified strands.</param>
+            <param name="strandMaskDistribution">The result distribution of digits must be appeared in the specified strands.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating whether the type can be inferred with unique value.</returns>
             <seealso cref="F:Sudoku.Analytics.Braiding.BraidingType.Unknown"/>
         </member>
@@ -1262,10 +1264,10 @@
             <param name="segmentIndex">The segment index inside the house (0..2, indicating cells 0..3, 3..6, or 6..9).</param>
             <returns>The map of the 3 cells in this intersection.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.Braiding.BraidAnalysis.DictionaryEquals``1(System.Collections.Generic.Dictionary{Sudoku.Analytics.Braiding.Strand,System.Int16},``0)">
-            <inheritdoc cref="M:Sudoku.Analytics.Braiding.BraidAnalysis.&lt;G&gt;$986C2E0E189C64C0FB1B0919AE00744A.DictionaryEquals``1(``0)"/>
+        <member name="M:Sudoku.Analytics.Braiding.BraidAnalysis.DictionaryEquals``1(``0,``0)">
+            <inheritdoc cref="M:Sudoku.Analytics.Braiding.BraidAnalysis.&lt;G&gt;$D4CC984F0C8717EB53B7642ADE992800`1.DictionaryEquals(`0)"/>
         </member>
-        <member name="T:Sudoku.Analytics.Braiding.BraidAnalysis.&lt;G&gt;$986C2E0E189C64C0FB1B0919AE00744A.&lt;M&gt;$79D28E2E4F0C687EFB967B0B418DFB72">
+        <member name="T:Sudoku.Analytics.Braiding.BraidAnalysis.&lt;G&gt;$D4CC984F0C8717EB53B7642ADE992800`1.&lt;M&gt;$1FB156A987EBA23401305D7FA3CB705A">
             <target name="container">
 				<summary>
 					<para>
@@ -1279,13 +1281,13 @@
 					</para>
 				</summary>
 			</target>
+            <typeparam name="TDictionary">The type of dictionary to compare.</typeparam>
             <param name="this">The dictionary.</param>
         </member>
-        <member name="M:Sudoku.Analytics.Braiding.BraidAnalysis.&lt;G&gt;$986C2E0E189C64C0FB1B0919AE00744A.DictionaryEquals``1(``0)">
+        <member name="M:Sudoku.Analytics.Braiding.BraidAnalysis.&lt;G&gt;$D4CC984F0C8717EB53B7642ADE992800`1.DictionaryEquals(`0)">
             <summary>
             Compare two <see cref="T:System.Collections.Generic.Dictionary`2"/> instances.
             </summary>
-            <typeparam name="TDictionary">The type of dictionary to compare.</typeparam>
             <param name="other">The other instance to be compared.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
