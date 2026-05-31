@@ -236,7 +236,7 @@ public static class BraidAnalysis
 		for (var chute = 0; chute < 6; chute++)
 		{
 			if (TryInferType(grid, chute, out var braidingType, out var reduced)
-				|| !MapStrands(grid, chute).DictionaryEquals(reduced))
+				|| !MapStrands(grid, chute).MaskDictionaryEquals(reduced))
 			{
 				foreach (var kvp in reduced)
 				{
@@ -416,7 +416,7 @@ public static class BraidAnalysis
 			}
 
 			// Compare equality of result dictionary.
-			if (resultDictionary.DictionaryEquals(previousResultDictionary))
+			if (resultDictionary.MaskDictionaryEquals(previousResultDictionary))
 			{
 				break;
 			}
@@ -551,7 +551,7 @@ public static class BraidAnalysis
 		/// </summary>
 		/// <param name="other">The other instance to be compared.</param>
 		/// <returns>A <see cref="bool"/> result.</returns>
-		private bool DictionaryEquals(TDictionary? other)
+		private bool MaskDictionaryEquals(TDictionary? other)
 		{
 			if (other is null)
 			{

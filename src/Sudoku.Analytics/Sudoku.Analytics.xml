@@ -1264,8 +1264,8 @@
             <param name="segmentIndex">The segment index inside the house (0..2, indicating cells 0..3, 3..6, or 6..9).</param>
             <returns>The map of the 3 cells in this intersection.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.Braiding.BraidAnalysis.DictionaryEquals``1(``0,``0)">
-            <inheritdoc cref="M:Sudoku.Analytics.Braiding.BraidAnalysis.&lt;G&gt;$D4CC984F0C8717EB53B7642ADE992800`1.DictionaryEquals(`0)"/>
+        <member name="M:Sudoku.Analytics.Braiding.BraidAnalysis.MaskDictionaryEquals``1(``0,``0)">
+            <inheritdoc cref="M:Sudoku.Analytics.Braiding.BraidAnalysis.&lt;G&gt;$D4CC984F0C8717EB53B7642ADE992800`1.MaskDictionaryEquals(`0)"/>
         </member>
         <member name="T:Sudoku.Analytics.Braiding.BraidAnalysis.&lt;G&gt;$D4CC984F0C8717EB53B7642ADE992800`1.&lt;M&gt;$1FB156A987EBA23401305D7FA3CB705A">
             <target name="container">
@@ -1284,7 +1284,7 @@
             <typeparam name="TDictionary">The type of dictionary to compare.</typeparam>
             <param name="this">The dictionary.</param>
         </member>
-        <member name="M:Sudoku.Analytics.Braiding.BraidAnalysis.&lt;G&gt;$D4CC984F0C8717EB53B7642ADE992800`1.DictionaryEquals(`0)">
+        <member name="M:Sudoku.Analytics.Braiding.BraidAnalysis.&lt;G&gt;$D4CC984F0C8717EB53B7642ADE992800`1.MaskDictionaryEquals(`0)">
             <summary>
             Compare two <see cref="T:System.Collections.Generic.Dictionary`2"/> instances.
             </summary>
