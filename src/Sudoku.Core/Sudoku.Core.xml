@@ -11080,36 +11080,6 @@ if (unionInstance.TryGetValue(out int instance)
         <member name="M:Sudoku.Descriptors.ColorDescriptor.op_Inequality(Sudoku.Descriptors.ColorDescriptor,Sudoku.Descriptors.ColorDescriptor)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Descriptors.ColorDescriptor.op_Implicit(System.ValueTuple{System.Byte,System.Byte,System.Byte})~Sudoku.Descriptors.ColorDescriptor">
-            <summary>
-            Implicit cast from (<see cref="T:System.Byte"/>, <see cref="T:System.Byte"/>, <see cref="T:System.Byte"/>) to <see cref="T:Sudoku.Descriptors.ColorDescriptor"/>.
-            </summary>
-            <param name="tuple">The tuple or ARGB values.</param>
-        </member>
-        <member name="M:Sudoku.Descriptors.ColorDescriptor.op_Explicit(Sudoku.Descriptors.ColorDescriptor)~System.Int32">
-            <summary>
-            Explicit cast from <see cref="T:Sudoku.Descriptors.ColorDescriptor"/> into <see cref="T:System.Int32"/> ID.
-            </summary>
-            <param name="descriptor">The descriptor.</param>
-        </member>
-        <member name="M:Sudoku.Descriptors.ColorDescriptor.op_Explicit(Sudoku.Descriptors.ColorDescriptor)~System.ValueTuple{System.Byte,System.Byte,System.Byte,System.Byte}">
-            <summary>
-            Explicit cast from <see cref="T:Sudoku.Descriptors.ColorDescriptor"/> into ARGB quadruple.
-            </summary>
-            <param name="descriptor">The descriptor.</param>
-        </member>
-        <member name="M:Sudoku.Descriptors.ColorDescriptor.op_Explicit(Sudoku.Descriptors.ColorDescriptor)~System.ValueTuple{System.Byte,System.Byte,System.Byte}">
-            <summary>
-            Explicit cast from <see cref="T:Sudoku.Descriptors.ColorDescriptor"/> into ARGB quadruple.
-            </summary>
-            <param name="descriptor">The descriptor.</param>
-        </member>
-        <member name="M:Sudoku.Descriptors.ColorDescriptor.op_Explicit(Sudoku.Descriptors.ColorDescriptor)~Sudoku.Descriptors.ColorDescriptorAlias">
-            <summary>
-            Explicit cast from <see cref="T:Sudoku.Descriptors.ColorDescriptor"/> into <see cref="T:Sudoku.Descriptors.ColorDescriptorAlias"/> field.
-            </summary>
-            <param name="descriptor">The descriptor.</param>
-        </member>
         <member name="T:Sudoku.Descriptors.Converter">
             <summary>
             Represents a JSON converter that can serialize and deserialize with instances of this type.

@@ -198,46 +198,6 @@ public readonly struct ColorDescriptor(long mask) :
 
 	/// <inheritdoc/>
 	public static bool operator !=(ColorDescriptor left, ColorDescriptor right) => !(left == right);
-
-
-	/// <summary>
-	/// Implicit cast from (<see cref="byte"/>, <see cref="byte"/>, <see cref="byte"/>) to <see cref="ColorDescriptor"/>.
-	/// </summary>
-	/// <param name="tuple">The tuple or ARGB values.</param>
-	public static implicit operator ColorDescriptor((byte Red, byte Green, byte Blue) tuple)
-		=> (255, tuple.Red, tuple.Green, tuple.Blue);
-
-	/// <summary>
-	/// Explicit cast from <see cref="ColorDescriptor"/> into <see cref="int"/> ID.
-	/// </summary>
-	/// <param name="descriptor">The descriptor.</param>
-	public static explicit operator int(ColorDescriptor descriptor)
-		=> descriptor.Type == ColorDescriptorType.Id ? descriptor.Id : throw new InvalidCastException();
-
-	/// <summary>
-	/// Explicit cast from <see cref="ColorDescriptor"/> into ARGB quadruple.
-	/// </summary>
-	/// <param name="descriptor">The descriptor.</param>
-	public static explicit operator (byte Alpha, byte Red, byte Green, byte Blue)(ColorDescriptor descriptor)
-		=> descriptor.Type == ColorDescriptorType.Argb
-			? (descriptor.Alpha, descriptor.Red, descriptor.Green, descriptor.Blue)
-			: throw new InvalidCastException();
-
-	/// <summary>
-	/// Explicit cast from <see cref="ColorDescriptor"/> into ARGB quadruple.
-	/// </summary>
-	/// <param name="descriptor">The descriptor.</param>
-	public static explicit operator (byte Red, byte Green, byte Blue)(ColorDescriptor descriptor)
-		=> descriptor.Type == ColorDescriptorType.Argb
-			? (descriptor.Red, descriptor.Green, descriptor.Blue)
-			: throw new InvalidCastException();
-
-	/// <summary>
-	/// Explicit cast from <see cref="ColorDescriptor"/> into <see cref="ColorDescriptorAlias"/> field.
-	/// </summary>
-	/// <param name="descriptor">The descriptor.</param>
-	public static explicit operator ColorDescriptorAlias(ColorDescriptor descriptor)
-		=> descriptor.Type == ColorDescriptorType.Alias ? descriptor.AliasedItem : throw new InvalidCastException();
 }
 
 /// <summary>
