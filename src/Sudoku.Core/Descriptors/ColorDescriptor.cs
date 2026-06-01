@@ -92,6 +92,7 @@ public readonly struct ColorDescriptor(long mask) :
 	/// <include
 	///     file="../../global-doc-comments.xml"
 	///     path="/g/csharp15/feature[@name='union']/target[@name='try-get-value-method']"/>
+	[EditorBrowsable(EditorBrowsableState.Never)]
 	public bool TryGetValue(out int value)
 	{
 		if (Type == ColorDescriptorType.Id)
@@ -106,6 +107,7 @@ public readonly struct ColorDescriptor(long mask) :
 	/// <include
 	///     file="../../global-doc-comments.xml"
 	///     path="/g/csharp15/feature[@name='union']/target[@name='try-get-value-method']"/>
+	[EditorBrowsable(EditorBrowsableState.Never)]
 	public bool TryGetValue(out (byte A, byte R, byte G, byte B) value)
 	{
 		if (Type == ColorDescriptorType.Argb)
@@ -126,6 +128,7 @@ public readonly struct ColorDescriptor(long mask) :
 	/// <include
 	///     file="../../global-doc-comments.xml"
 	///     path="/g/csharp15/feature[@name='union']/target[@name='try-get-value-method']"/>
+	[EditorBrowsable(EditorBrowsableState.Never)]
 	public bool TryGetValue(out ColorDescriptorAlias value)
 	{
 		if (Type == ColorDescriptorType.Alias)
