@@ -299,8 +299,8 @@ public partial struct CellMap : CellMapBase
 	/// <remarks>
 	/// An <b>Expanded Peers</b> is a list of cells that contains all peer cells of each cell
 	/// appeared in the current collection. For example, if a collection contains cells <c>r1c123</c>,
-	/// this collection will be the result of the expression <c>Peer.PeersMap[r1c1] | Peer.PeersMap[r1c2] | Peer.PeersMap[r1c3]</c>,
-	/// where the member <c>Peer.PeersMap</c> corresponds to the array <see cref="Peer.PeersMap"/>.
+	/// this collection will be the result of the expression
+	/// <c><see cref="Peer.PeersMap"/>[r1c1] | <see cref="Peer.PeersMap"/>[r1c2] | <see cref="Peer.PeersMap"/>[r1c3]</c>.
 	/// </remarks>
 	/// <seealso cref="Peer.PeersMap"/>
 	public readonly CellMap ExpandedPeers
