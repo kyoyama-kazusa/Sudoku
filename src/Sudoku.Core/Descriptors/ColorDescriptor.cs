@@ -21,10 +21,11 @@ namespace Sudoku.Descriptors;
 /// </remarks>
 /// <seealso cref="ColorDescriptorAlias"/>
 [JsonConverter(typeof(Converter))]
+[Union]
 public readonly struct ColorDescriptor(long mask) :
 	IEquatable<ColorDescriptor>,
 	IEqualityOperators<ColorDescriptor, ColorDescriptor, bool>,
-	ITuple
+	IUnion
 {
 	/// <summary>
 	/// Indicates the shift bits amount.
@@ -36,23 +37,19 @@ public readonly struct ColorDescriptor(long mask) :
 	/// Initializes a <see cref="ColorDescriptor"/> instance via the specified an integer ID.
 	/// </summary>
 	/// <param name="id">The ID value.</param>
-	private ColorDescriptor(int id) : this((long)ColorDescriptorType.Id << TypeShift | (long)id)
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public ColorDescriptor(int id) : this((long)ColorDescriptorType.Id << TypeShift | (long)id)
 	{
 	}
 
 	/// <summary>
 	/// Initializes a <see cref="ColorDescriptor"/> instance via ARGB values.
 	/// </summary>
-	/// <param name="a">The alpha value.</param>
-	/// <param name="r">The red value.</param>
-	/// <param name="g">The green value.</param>
-	/// <param name="b">The blue value.</param>
-	/// <remarks>
-	/// We should explicitly cast from bit-merged value into <see cref="uint"/> to prevent negative-bit extension,
-	/// which is unexpected behavior.
-	/// </remarks>
-	private ColorDescriptor(byte a, byte r, byte g, byte b) :
-		this((long)ColorDescriptorType.Argb << TypeShift | (uint)(a << 24 | r << 16 | g << 8 | b))
+	/// <param name="value">The value.</param>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public ColorDescriptor((byte A, byte R, byte G, byte B) value) :
+		// Explicitly cast into <see cref="uint"/> to prevent negative-bit extension.
+		this((long)ColorDescriptorType.Argb << TypeShift | (uint)(value.A << 24 | value.R << 16 | value.G << 8 | value.B))
 	{
 	}
 
@@ -60,10 +57,21 @@ public readonly struct ColorDescriptor(long mask) :
 	/// Initializes a <see cref="ColorDescriptor"/> instance via well-known item.
 	/// </summary>
 	/// <param name="item">The well-known item.</param>
-	private ColorDescriptor(ColorDescriptorAlias item) : this((long)ColorDescriptorType.Alias << TypeShift | (long)item)
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public ColorDescriptor(ColorDescriptorAlias item) : this((long)ColorDescriptorType.Alias << TypeShift | (long)item)
 	{
 	}
 
+
+	/// <inheritdoc/>
+	public object? Value
+		=> this switch
+		{
+			int v => v,
+			ValueTuple<byte, byte, byte, byte> v => v,
+			ColorDescriptorAlias v => v,
+			_ => null
+		};
 
 	/// <summary>
 	/// Indicates alpha value.
@@ -122,42 +130,48 @@ public readonly struct ColorDescriptor(long mask) :
 	/// </summary>
 	public long Mask { get; } = mask;
 
-	/// <inheritdoc/>
-	int ITuple.Length => 2;
 
-
-	/// <summary>
-	/// Returns a 2-element array.
-	/// The first element represents the type and the second element represents the data of color identifier.
-	/// The second value can be:
-	/// <list type="bullet">
-	/// <item>A quadruple of ARGB values (if <see cref="Type"/> is <see cref="ColorDescriptorType.Argb"/>)</item>
-	/// <item>An integer value (if <see cref="Type"/> is <see cref="ColorDescriptorType.Id"/>)</item>
-	/// <item>
-	/// An enumeration field of type <see cref="ColorDescriptorAlias"/>
-	/// (if <see cref="Type"/> is <see cref="ColorDescriptorType.Alias"/>)
-	/// </item>
-	/// </list>
-	/// </summary>
-	/// <param name="index">The desired index (0 or 1).</param>
-	/// <returns>The value of element at the specified index of that 2-element array.</returns>
-	/// <exception cref="IndexOutOfRangeException">Throws when <paramref name="index"/> is neither 0 nor 1.</exception>
-	/// <remarks>
-	/// This member allows you using patterns to check values like <c>identifier is (ColorIdentifierType.Argb, (255, 0, _, _))</c>.
-	/// </remarks>
-	object? ITuple.this[int index]
-		=> index switch
+	/// <include
+	///     file="../../global-doc-comments.xml"
+	///     path="/g/csharp15/feature[@name='union']/target[@name='try-get-value-method']"/>
+	public bool TryGetValue(out int value)
+	{
+		if (Type == ColorDescriptorType.Id)
 		{
-			0 => Type,
-			1 => Type switch
-			{
-				ColorDescriptorType.Argb => (Alpha, Red, Green, Blue),
-				ColorDescriptorType.Alias => AliasedItem,
-				ColorDescriptorType.Id => Id
-			},
-			_ => throw new IndexOutOfRangeException(nameof(index))
-		};
+			value = Id;
+			return true;
+		}
+		value = default;
+		return false;
+	}
 
+	/// <include
+	///     file="../../global-doc-comments.xml"
+	///     path="/g/csharp15/feature[@name='union']/target[@name='try-get-value-method']"/>
+	public bool TryGetValue(out (byte A, byte R, byte G, byte B) value)
+	{
+		if (Type == ColorDescriptorType.Argb)
+		{
+			value = (Alpha, Red, Green, Blue);
+			return true;
+		}
+		value = default;
+		return false;
+	}
+
+	/// <include
+	///     file="../../global-doc-comments.xml"
+	///     path="/g/csharp15/feature[@name='union']/target[@name='try-get-value-method']"/>
+	public bool TryGetValue(out ColorDescriptorAlias value)
+	{
+		if (Type == ColorDescriptorType.Alias)
+		{
+			value = AliasedItem;
+			return true;
+		}
+		value = default;
+		return false;
+	}
 
 	/// <inheritdoc/>
 	public override bool Equals([NotNullWhen(true)] object? obj) => obj is ColorDescriptor comparer && Equals(comparer);
@@ -170,11 +184,12 @@ public readonly struct ColorDescriptor(long mask) :
 
 	/// <inheritdoc cref="object.ToString"/>
 	public override string ToString()
-		=> Type switch
+		=> this switch
 		{
-			ColorDescriptorType.Argb => (Alpha, Red, Green, Blue).ToString(),
-			ColorDescriptorType.Id => Id.ToString(),
-			ColorDescriptorType.Alias => AliasedItem.ToString()
+			int v => v.ToString(),
+			ValueTuple<byte, byte, byte, byte> v => v.ToString(),
+			ColorDescriptorAlias v => v.ToString(),
+			_ => string.Empty
 		};
 
 
@@ -186,31 +201,11 @@ public readonly struct ColorDescriptor(long mask) :
 
 
 	/// <summary>
-	/// Implicit cast from <see cref="int"/> to <see cref="ColorDescriptor"/>.
-	/// </summary>
-	/// <param name="id">The ID.</param>
-	public static implicit operator ColorDescriptor(int id) => new(id);
-
-	/// <summary>
 	/// Implicit cast from (<see cref="byte"/>, <see cref="byte"/>, <see cref="byte"/>) to <see cref="ColorDescriptor"/>.
 	/// </summary>
 	/// <param name="tuple">The tuple or ARGB values.</param>
 	public static implicit operator ColorDescriptor((byte Red, byte Green, byte Blue) tuple)
-		=> new(255, tuple.Red, tuple.Green, tuple.Blue);
-
-	/// <summary>
-	/// Implicit cast from (<see cref="byte"/>, <see cref="byte"/>, <see cref="byte"/>, <see cref="byte"/>)
-	/// to <see cref="ColorDescriptor"/>.
-	/// </summary>
-	/// <param name="tuple">The tuple or ARGB values.</param>
-	public static implicit operator ColorDescriptor((byte Alpha, byte Red, byte Green, byte Blue) tuple)
-		=> new(tuple.Alpha, tuple.Red, tuple.Green, tuple.Blue);
-
-	/// <summary>
-	/// Implicit cast from <see cref="ColorDescriptorAlias"/> to <see cref="ColorDescriptor"/>.
-	/// </summary>
-	/// <param name="item">The aliased item.</param>
-	public static implicit operator ColorDescriptor(ColorDescriptorAlias item) => new(item);
+		=> (255, tuple.Red, tuple.Green, tuple.Blue);
 
 	/// <summary>
 	/// Explicit cast from <see cref="ColorDescriptor"/> into <see cref="int"/> ID.

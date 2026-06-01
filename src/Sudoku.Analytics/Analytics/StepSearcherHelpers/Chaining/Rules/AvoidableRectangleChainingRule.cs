@@ -124,7 +124,7 @@ public sealed class AvoidableRectangleChainingRule : ChainingRule
 			{
 				if (view.FindCell(cell) is { Identifier: var originalIdentifier } cellViewNode)
 				{
-					if (originalIdentifier is (_, >= ColorDescriptorAlias.Rectangle1 and <= ColorDescriptorAlias.Rectangle3))
+					if (originalIdentifier is >= ColorDescriptorAlias.Rectangle1 and <= ColorDescriptorAlias.Rectangle3)
 					{
 						// Skip for drawing the current cell if the cell has already been drawn
 						// with the same-categorized color (also an AUR color).

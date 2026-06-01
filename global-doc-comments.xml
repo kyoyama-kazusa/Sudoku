@@ -451,6 +451,47 @@ fixed (short* ptr = instance)
 		</feature>
 	</csharp14>
 
+	<!-- C# 15 -->
+	<csharp15>
+		<feature name="union">
+			<target name="try-get-value-method">
+				<summary>
+					Check whether the current type represents for the value of the same type
+					with the single parameter <paramref name="value"/> or not.
+					If so, this method will return <see langword="true"/>, with the parameter <paramref name="value"/>
+					having been assigned with such value; otherwise, <see langword="false"/>.
+				</summary>
+				<param name="value">The value (assigned when return value becomes <see langword="true"/>.</param>
+				<returns>
+					A <see cref="bool"/> value indicating whether the current instance represents
+					for the value of the same type with the parameter <paramref name="value"/>.
+				</returns>
+				<remarks>
+					<para>
+						C# 15 introduces feature "Union", allowing defining a <see langword="struct"/> or a <see langword="class"/>
+						to be union-like type. A <see langword="union"/> type is a type that is marked
+						with modifier <see langword="union"/>, with a single data member <c>Value</c> indicating the backing value.
+					</para>
+					<para>
+						However, by design, this property is of type <see cref="object"/> when multiple unrelated types
+						defined in a <see langword="union"/>, which may cause boxing and unboxing operations.
+					</para>
+					<para>
+						This method is designed to solve the problem. If the backing value is defined with customized logic,
+						we can avoid such boxing and unboxing operations. For example, the following code:
+						<code><![CDATA[
+if (unionInstance is int instance)
+    // ...]]></code>
+						will be translated into:
+						<code><![CDATA[
+if (unionInstance.TryGetValue(out int instance)
+    // ...]]></code>
+					</para>
+				</remarks>
+			</target>
+		</feature>
+	</csharp15>
+
 	<!-- .NET 9 -->
 	<dotnet>
 		<version value="8">

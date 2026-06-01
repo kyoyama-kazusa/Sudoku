@@ -458,7 +458,7 @@ public sealed partial class UniqueRectangleStepSearcher : StepSearcher
 		return !arMode && isIncomplete || arMode;
 
 
-		static bool nodeChecker(CandidateViewNode d) => d.Identifier is (_, ColorDescriptorAlias.Normal);
+		static bool nodeChecker(CandidateViewNode d) => d.Identifier is ColorDescriptorAlias.Normal;
 	}
 
 	/// <summary>

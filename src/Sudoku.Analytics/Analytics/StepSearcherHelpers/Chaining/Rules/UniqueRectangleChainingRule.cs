@@ -34,7 +34,7 @@ public abstract class UniqueRectangleChainingRule : ChainingRule
 					var candidate = cell * 9 + digit;
 					if (view.FindCandidate(candidate) is { Identifier: var originalIdentifier } candidateViewNode)
 					{
-						if (originalIdentifier is (_, >= ColorDescriptorAlias.Rectangle1 and <= ColorDescriptorAlias.Rectangle3))
+						if (originalIdentifier is >= ColorDescriptorAlias.Rectangle1 and <= ColorDescriptorAlias.Rectangle3)
 						{
 							// Skip for drawing the current cell if the cell has already been drawn
 							// with the same-categorized color (also an AUR color).
@@ -62,7 +62,7 @@ public abstract class UniqueRectangleChainingRule : ChainingRule
 			{
 				if (view.FindCell(cell) is { Identifier: var originalIdentifier } cellViewNode)
 				{
-					if (originalIdentifier is (_, >= ColorDescriptorAlias.Rectangle1 and <= ColorDescriptorAlias.Rectangle3))
+					if (originalIdentifier is >= ColorDescriptorAlias.Rectangle1 and <= ColorDescriptorAlias.Rectangle3)
 					{
 						// Skip for drawing the current cell if the cell has already been drawn
 						// with the same-categorized color (also an AUR color).

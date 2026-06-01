@@ -10879,24 +10879,20 @@
             </summary>
             <param name="id">The ID value.</param>
         </member>
-        <member name="M:Sudoku.Descriptors.ColorDescriptor.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+        <member name="M:Sudoku.Descriptors.ColorDescriptor.#ctor(System.ValueTuple{System.Byte,System.Byte,System.Byte,System.Byte})">
             <summary>
             Initializes a <see cref="T:Sudoku.Descriptors.ColorDescriptor"/> instance via ARGB values.
             </summary>
-            <param name="a">The alpha value.</param>
-            <param name="r">The red value.</param>
-            <param name="g">The green value.</param>
-            <param name="b">The blue value.</param>
-            <remarks>
-            We should explicitly cast from bit-merged value into <see cref="T:System.UInt32"/> to prevent negative-bit extension,
-            which is unexpected behavior.
-            </remarks>
+            <param name="value">The value.</param>
         </member>
         <member name="M:Sudoku.Descriptors.ColorDescriptor.#ctor(Sudoku.Descriptors.ColorDescriptorAlias)">
             <summary>
             Initializes a <see cref="T:Sudoku.Descriptors.ColorDescriptor"/> instance via well-known item.
             </summary>
             <param name="item">The well-known item.</param>
+        </member>
+        <member name="P:Sudoku.Descriptors.ColorDescriptor.Value">
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Descriptors.ColorDescriptor.Alpha">
             <summary>
@@ -10955,29 +10951,116 @@
             Indicates the whole 64-bit mask.
             </summary>
         </member>
-        <member name="P:Sudoku.Descriptors.ColorDescriptor.System#Runtime#CompilerServices#ITuple#Length">
-            <inheritdoc/>
+        <member name="M:Sudoku.Descriptors.ColorDescriptor.TryGetValue(System.Int32@)">
+            <target name="try-get-value-method">
+				<summary>
+					Check whether the current type represents for the value of the same type
+					with the single parameter <paramref name="value" /> or not.
+					If so, this method will return <see langword="true" />, with the parameter <paramref name="value" />
+					having been assigned with such value; otherwise, <see langword="false" />.
+				</summary>
+				<param name="value">The value (assigned when return value becomes <see langword="true" />.</param>
+				<returns>
+					A <see cref="T:System.Boolean" /> value indicating whether the current instance represents
+					for the value of the same type with the parameter <paramref name="value" />.
+				</returns>
+				<remarks>
+					<para>
+						C# 15 introduces feature "Union", allowing defining a <see langword="struct" /> or a <see langword="class" />
+						to be union-like type. A <see langword="union" /> type is a type that is marked
+						with modifier <see langword="union" />, with a single data member <c>Value</c> indicating the backing value.
+					</para>
+					<para>
+						However, by design, this property is of type <see cref="T:System.Object" /> when multiple unrelated types
+						defined in a <see langword="union" />, which may cause boxing and unboxing operations.
+					</para>
+					<para>
+						This method is designed to solve the problem. If the backing value is defined with customized logic,
+						we can avoid such boxing and unboxing operations. For example, the following code:
+						<code><![CDATA[
+if (unionInstance is int instance)
+    // ...]]></code>
+						will be translated into:
+						<code><![CDATA[
+if (unionInstance.TryGetValue(out int instance)
+    // ...]]></code>
+					</para>
+				</remarks>
+			</target>
         </member>
-        <member name="P:Sudoku.Descriptors.ColorDescriptor.System#Runtime#CompilerServices#ITuple#Item(System.Int32)">
-            <summary>
-            Returns a 2-element array.
-            The first element represents the type and the second element represents the data of color identifier.
-            The second value can be:
-            <list type="bullet">
-            <item>A quadruple of ARGB values (if <see cref="P:Sudoku.Descriptors.ColorDescriptor.Type"/> is <see cref="F:Sudoku.Descriptors.ColorDescriptorType.Argb"/>)</item>
-            <item>An integer value (if <see cref="P:Sudoku.Descriptors.ColorDescriptor.Type"/> is <see cref="F:Sudoku.Descriptors.ColorDescriptorType.Id"/>)</item>
-            <item>
-            An enumeration field of type <see cref="T:Sudoku.Descriptors.ColorDescriptorAlias"/>
-            (if <see cref="P:Sudoku.Descriptors.ColorDescriptor.Type"/> is <see cref="F:Sudoku.Descriptors.ColorDescriptorType.Alias"/>)
-            </item>
-            </list>
-            </summary>
-            <param name="index">The desired index (0 or 1).</param>
-            <returns>The value of element at the specified index of that 2-element array.</returns>
-            <exception cref="T:System.IndexOutOfRangeException">Throws when <paramref name="index"/> is neither 0 nor 1.</exception>
-            <remarks>
-            This member allows you using patterns to check values like <c>identifier is (ColorIdentifierType.Argb, (255, 0, _, _))</c>.
-            </remarks>
+        <member name="M:Sudoku.Descriptors.ColorDescriptor.TryGetValue(System.ValueTuple{System.Byte,System.Byte,System.Byte,System.Byte}@)">
+            <target name="try-get-value-method">
+				<summary>
+					Check whether the current type represents for the value of the same type
+					with the single parameter <paramref name="value" /> or not.
+					If so, this method will return <see langword="true" />, with the parameter <paramref name="value" />
+					having been assigned with such value; otherwise, <see langword="false" />.
+				</summary>
+				<param name="value">The value (assigned when return value becomes <see langword="true" />.</param>
+				<returns>
+					A <see cref="T:System.Boolean" /> value indicating whether the current instance represents
+					for the value of the same type with the parameter <paramref name="value" />.
+				</returns>
+				<remarks>
+					<para>
+						C# 15 introduces feature "Union", allowing defining a <see langword="struct" /> or a <see langword="class" />
+						to be union-like type. A <see langword="union" /> type is a type that is marked
+						with modifier <see langword="union" />, with a single data member <c>Value</c> indicating the backing value.
+					</para>
+					<para>
+						However, by design, this property is of type <see cref="T:System.Object" /> when multiple unrelated types
+						defined in a <see langword="union" />, which may cause boxing and unboxing operations.
+					</para>
+					<para>
+						This method is designed to solve the problem. If the backing value is defined with customized logic,
+						we can avoid such boxing and unboxing operations. For example, the following code:
+						<code><![CDATA[
+if (unionInstance is int instance)
+    // ...]]></code>
+						will be translated into:
+						<code><![CDATA[
+if (unionInstance.TryGetValue(out int instance)
+    // ...]]></code>
+					</para>
+				</remarks>
+			</target>
+        </member>
+        <member name="M:Sudoku.Descriptors.ColorDescriptor.TryGetValue(Sudoku.Descriptors.ColorDescriptorAlias@)">
+            <target name="try-get-value-method">
+				<summary>
+					Check whether the current type represents for the value of the same type
+					with the single parameter <paramref name="value" /> or not.
+					If so, this method will return <see langword="true" />, with the parameter <paramref name="value" />
+					having been assigned with such value; otherwise, <see langword="false" />.
+				</summary>
+				<param name="value">The value (assigned when return value becomes <see langword="true" />.</param>
+				<returns>
+					A <see cref="T:System.Boolean" /> value indicating whether the current instance represents
+					for the value of the same type with the parameter <paramref name="value" />.
+				</returns>
+				<remarks>
+					<para>
+						C# 15 introduces feature "Union", allowing defining a <see langword="struct" /> or a <see langword="class" />
+						to be union-like type. A <see langword="union" /> type is a type that is marked
+						with modifier <see langword="union" />, with a single data member <c>Value</c> indicating the backing value.
+					</para>
+					<para>
+						However, by design, this property is of type <see cref="T:System.Object" /> when multiple unrelated types
+						defined in a <see langword="union" />, which may cause boxing and unboxing operations.
+					</para>
+					<para>
+						This method is designed to solve the problem. If the backing value is defined with customized logic,
+						we can avoid such boxing and unboxing operations. For example, the following code:
+						<code><![CDATA[
+if (unionInstance is int instance)
+    // ...]]></code>
+						will be translated into:
+						<code><![CDATA[
+if (unionInstance.TryGetValue(out int instance)
+    // ...]]></code>
+					</para>
+				</remarks>
+			</target>
         </member>
         <member name="M:Sudoku.Descriptors.ColorDescriptor.Equals(System.Object)">
             <inheritdoc/>
@@ -10997,30 +11080,11 @@
         <member name="M:Sudoku.Descriptors.ColorDescriptor.op_Inequality(Sudoku.Descriptors.ColorDescriptor,Sudoku.Descriptors.ColorDescriptor)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Descriptors.ColorDescriptor.op_Implicit(System.Int32)~Sudoku.Descriptors.ColorDescriptor">
-            <summary>
-            Implicit cast from <see cref="T:System.Int32"/> to <see cref="T:Sudoku.Descriptors.ColorDescriptor"/>.
-            </summary>
-            <param name="id">The ID.</param>
-        </member>
         <member name="M:Sudoku.Descriptors.ColorDescriptor.op_Implicit(System.ValueTuple{System.Byte,System.Byte,System.Byte})~Sudoku.Descriptors.ColorDescriptor">
             <summary>
             Implicit cast from (<see cref="T:System.Byte"/>, <see cref="T:System.Byte"/>, <see cref="T:System.Byte"/>) to <see cref="T:Sudoku.Descriptors.ColorDescriptor"/>.
             </summary>
             <param name="tuple">The tuple or ARGB values.</param>
-        </member>
-        <member name="M:Sudoku.Descriptors.ColorDescriptor.op_Implicit(System.ValueTuple{System.Byte,System.Byte,System.Byte,System.Byte})~Sudoku.Descriptors.ColorDescriptor">
-            <summary>
-            Implicit cast from (<see cref="T:System.Byte"/>, <see cref="T:System.Byte"/>, <see cref="T:System.Byte"/>, <see cref="T:System.Byte"/>)
-            to <see cref="T:Sudoku.Descriptors.ColorDescriptor"/>.
-            </summary>
-            <param name="tuple">The tuple or ARGB values.</param>
-        </member>
-        <member name="M:Sudoku.Descriptors.ColorDescriptor.op_Implicit(Sudoku.Descriptors.ColorDescriptorAlias)~Sudoku.Descriptors.ColorDescriptor">
-            <summary>
-            Implicit cast from <see cref="T:Sudoku.Descriptors.ColorDescriptorAlias"/> to <see cref="T:Sudoku.Descriptors.ColorDescriptor"/>.
-            </summary>
-            <param name="item">The aliased item.</param>
         </member>
         <member name="M:Sudoku.Descriptors.ColorDescriptor.op_Explicit(Sudoku.Descriptors.ColorDescriptor)~System.Int32">
             <summary>

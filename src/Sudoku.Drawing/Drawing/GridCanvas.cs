@@ -154,9 +154,9 @@ public sealed partial class GridCanvas : IDisposable
 	private Color GetColor(ColorDescriptor id)
 		=> id switch
 		{
-			(_, (byte a, byte r, byte g, byte b)) => Color.FromArgb(a, r, g, b),
-			(_, int value) when TryGetPaletteColorByIndex(value, out var color) => Color.FromArgb(64, color),
-			(_, ColorDescriptorAlias alias) => alias switch
+			(byte a, byte r, byte g, byte b) => Color.FromArgb(a, r, g, b),
+			int value when TryGetPaletteColorByIndex(value, out var color) => Color.FromArgb(64, color),
+			ColorDescriptorAlias alias => alias switch
 			{
 				ColorDescriptorAlias.Normal => Settings.NormalColor,
 				ColorDescriptorAlias.Assignment => Settings.AssignmentColor,
