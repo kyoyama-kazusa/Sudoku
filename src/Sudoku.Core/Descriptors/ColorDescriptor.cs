@@ -74,42 +74,6 @@ public readonly struct ColorDescriptor(long mask) :
 		};
 
 	/// <summary>
-	/// Indicates alpha value.
-	/// The value becomes unsafe when <see cref="Type"/> is not <see cref="ColorDescriptorType.Argb"/> but no exceptions thrown.
-	/// </summary>
-	public byte Alpha => (byte)(ArgbMask >>> 24 & 255);
-
-	/// <summary>
-	/// Indicates red value.
-	/// The value becomes unsafe when <see cref="Type"/> is not <see cref="ColorDescriptorType.Argb"/> but no exceptions thrown.
-	/// </summary>
-	public byte Red => (byte)(ArgbMask >>> 16 & 255);
-
-	/// <summary>
-	/// Indicates green value.
-	/// The value becomes unsafe when <see cref="Type"/> is not <see cref="ColorDescriptorType.Argb"/> but no exceptions thrown.
-	/// </summary>
-	public byte Green => (byte)(ArgbMask >>> 8 & 255);
-
-	/// <summary>
-	/// Indicates blue value.
-	/// The value becomes unsafe when <see cref="Type"/> is not <see cref="ColorDescriptorType.Argb"/> but no exceptions thrown.
-	/// </summary>
-	public byte Blue => (byte)(ArgbMask & 255);
-
-	/// <summary>
-	/// Indicates an integer that describes the palette ID that a user has chosen.
-	/// The value becomes unsafe when <see cref="Type"/> is not <see cref="ColorDescriptorType.Id"/> but no exceptions thrown.
-	/// </summary>
-	public int Id => (int)ValueMask;
-
-	/// <summary>
-	/// Indicates an integer that represents ARGB values.
-	/// The value becomes unsafe when <see cref="Type"/> is not <see cref="ColorDescriptorType.Argb"/> but no exceptions thrown.
-	/// </summary>
-	public uint ArgbMask => (uint)(Mask & uint.MaxValue);
-
-	/// <summary>
 	/// Indicates the mask that only represents color data.
 	/// </summary>
 	public long ValueMask => Mask & (1L << TypeShift) - 1;
@@ -118,12 +82,6 @@ public readonly struct ColorDescriptor(long mask) :
 	/// Indicates the type of the color identifier.
 	/// </summary>
 	public ColorDescriptorType Type => (ColorDescriptorType)(Mask >>> TypeShift);
-
-	/// <summary>
-	/// Indicates an aliased value that directly points to an item that you want to color it to.
-	/// The value becomes unsafe when <see cref="Type"/> is not <see cref="ColorDescriptorType.Alias"/> but no exceptions thrown.
-	/// </summary>
-	public ColorDescriptorAlias AliasedItem => (ColorDescriptorAlias)ValueMask;
 
 	/// <summary>
 	/// Indicates the whole 64-bit mask.
@@ -138,7 +96,7 @@ public readonly struct ColorDescriptor(long mask) :
 	{
 		if (Type == ColorDescriptorType.Id)
 		{
-			value = Id;
+			value = (int)ValueMask;
 			return true;
 		}
 		value = default;
@@ -152,7 +110,13 @@ public readonly struct ColorDescriptor(long mask) :
 	{
 		if (Type == ColorDescriptorType.Argb)
 		{
-			value = (Alpha, Red, Green, Blue);
+			var argbMask = (uint)(Mask & uint.MaxValue);
+			value = (
+				(byte)(argbMask >>> 24 & 255),
+				(byte)(argbMask >>> 16 & 255),
+				(byte)(argbMask >>> 8 & 255),
+				(byte)(argbMask & 255)
+			);
 			return true;
 		}
 		value = default;
@@ -166,7 +130,7 @@ public readonly struct ColorDescriptor(long mask) :
 	{
 		if (Type == ColorDescriptorType.Alias)
 		{
-			value = AliasedItem;
+			value = (ColorDescriptorAlias)ValueMask;
 			return true;
 		}
 		value = default;
@@ -277,31 +241,28 @@ file sealed class Converter : JsonConverter<ColorDescriptor>
 	/// <inheritdoc/>
 	public override void Write(Utf8JsonWriter writer, ColorDescriptor value, JsonSerializerOptions options)
 	{
-		switch (value.Type)
+		switch (value)
 		{
-			case ColorDescriptorType.Argb:
+			case (byte a, byte r, byte g, byte b):
 			{
 				writer.WriteStartArray();
-				writer.WriteNumberValue(value.Alpha);
-				writer.WriteNumberValue(value.Red);
-				writer.WriteNumberValue(value.Green);
-				writer.WriteNumberValue(value.Blue);
+				writer.WriteNumberValue(a);
+				writer.WriteNumberValue(r);
+				writer.WriteNumberValue(g);
+				writer.WriteNumberValue(b);
 				writer.WriteEndArray();
 				break;
 			}
-
-			case ColorDescriptorType.Id:
+			case int id:
 			{
-				writer.WriteNumberValue(value.Id);
+				writer.WriteNumberValue(id);
 				break;
 			}
-
-			case ColorDescriptorType.Alias:
+			case ColorDescriptorAlias alias:
 			{
-				writer.WriteStringValue(value.AliasedItem.ToString());
+				writer.WriteStringValue(alias.ToString());
 				break;
 			}
-
 			default:
 			{
 				throw new JsonException("Invalid format.");

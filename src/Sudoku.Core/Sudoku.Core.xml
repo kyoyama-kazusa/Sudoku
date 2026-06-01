@@ -10894,42 +10894,6 @@
         <member name="P:Sudoku.Descriptors.ColorDescriptor.Value">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Descriptors.ColorDescriptor.Alpha">
-            <summary>
-            Indicates alpha value.
-            The value becomes unsafe when <see cref="P:Sudoku.Descriptors.ColorDescriptor.Type"/> is not <see cref="F:Sudoku.Descriptors.ColorDescriptorType.Argb"/> but no exceptions thrown.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Descriptors.ColorDescriptor.Red">
-            <summary>
-            Indicates red value.
-            The value becomes unsafe when <see cref="P:Sudoku.Descriptors.ColorDescriptor.Type"/> is not <see cref="F:Sudoku.Descriptors.ColorDescriptorType.Argb"/> but no exceptions thrown.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Descriptors.ColorDescriptor.Green">
-            <summary>
-            Indicates green value.
-            The value becomes unsafe when <see cref="P:Sudoku.Descriptors.ColorDescriptor.Type"/> is not <see cref="F:Sudoku.Descriptors.ColorDescriptorType.Argb"/> but no exceptions thrown.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Descriptors.ColorDescriptor.Blue">
-            <summary>
-            Indicates blue value.
-            The value becomes unsafe when <see cref="P:Sudoku.Descriptors.ColorDescriptor.Type"/> is not <see cref="F:Sudoku.Descriptors.ColorDescriptorType.Argb"/> but no exceptions thrown.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Descriptors.ColorDescriptor.Id">
-            <summary>
-            Indicates an integer that describes the palette ID that a user has chosen.
-            The value becomes unsafe when <see cref="P:Sudoku.Descriptors.ColorDescriptor.Type"/> is not <see cref="F:Sudoku.Descriptors.ColorDescriptorType.Id"/> but no exceptions thrown.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Descriptors.ColorDescriptor.ArgbMask">
-            <summary>
-            Indicates an integer that represents ARGB values.
-            The value becomes unsafe when <see cref="P:Sudoku.Descriptors.ColorDescriptor.Type"/> is not <see cref="F:Sudoku.Descriptors.ColorDescriptorType.Argb"/> but no exceptions thrown.
-            </summary>
-        </member>
         <member name="P:Sudoku.Descriptors.ColorDescriptor.ValueMask">
             <summary>
             Indicates the mask that only represents color data.
@@ -10938,12 +10902,6 @@
         <member name="P:Sudoku.Descriptors.ColorDescriptor.Type">
             <summary>
             Indicates the type of the color identifier.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Descriptors.ColorDescriptor.AliasedItem">
-            <summary>
-            Indicates an aliased value that directly points to an item that you want to color it to.
-            The value becomes unsafe when <see cref="P:Sudoku.Descriptors.ColorDescriptor.Type"/> is not <see cref="F:Sudoku.Descriptors.ColorDescriptorType.Alias"/> but no exceptions thrown.
             </summary>
         </member>
         <member name="P:Sudoku.Descriptors.ColorDescriptor.Mask">
