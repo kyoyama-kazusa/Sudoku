@@ -1,10 +1,10 @@
-namespace Sudoku.Diff.Results;
+namespace Sudoku.GridDifferences.Cases;
 
 /// <summary>
 /// Represents a difference that describes a type of digits (given, value or candidate) is updated.
 /// </summary>
 /// <param name="candidates"><inheritdoc cref="Candidates" path="/summary"/></param>
-public abstract class UpdatedDiffResult(CandidateMap candidates) : DiffResult
+public abstract class UpdatedGridDifference(CandidateMap candidates) : GridDifference
 {
 	/// <summary>
 	/// Indicates the candidates to be updated.

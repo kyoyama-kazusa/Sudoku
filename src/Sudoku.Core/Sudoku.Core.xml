@@ -11174,563 +11174,6 @@ if (unionInstance.TryGetValue(out int instance)
             Indicates the type is ID.
             </summary>
         </member>
-        <member name="T:Sudoku.Diff.DiffAnalysis">
-            <summary>
-            Provides a way to analyze difference between two grids.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Diff.DiffAnalysis.TryAnalyzeDiff(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,Sudoku.Diff.DiffResult@)">
-            <inheritdoc cref="M:Sudoku.Diff.DiffAnalysis.&lt;G&gt;$E25ADDC593CEDFD1EA006EC186C1D196.TryAnalyzeDiff(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,Sudoku.Diff.DiffResult@)"/>
-        </member>
-        <member name="M:Sudoku.Diff.DiffAnalysis.op_Subtraction(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@)">
-            <inheritdoc cref="M:Sudoku.Diff.DiffAnalysis.&lt;G&gt;$E25ADDC593CEDFD1EA006EC186C1D196.op_Subtraction(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@)"/>
-        </member>
-        <member name="M:Sudoku.Diff.DiffAnalysis.op_CheckedSubtraction(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@)">
-            <inheritdoc cref="M:Sudoku.Diff.DiffAnalysis.&lt;G&gt;$E25ADDC593CEDFD1EA006EC186C1D196.op_CheckedSubtraction(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@)"/>
-        </member>
-        <member name="T:Sudoku.Diff.DiffAnalysis.&lt;G&gt;$E25ADDC593CEDFD1EA006EC186C1D196.&lt;M&gt;$E25ADDC593CEDFD1EA006EC186C1D196">
-            <target name="container">
-				<summary>
-					<para>
-						Represents a nested <see langword="extension" /> block that includes extension members
-						that allows you using instance or static member reference syntax to visit them, avoiding some verbose referencing syntax
-						like <c>BlahBlahExtension.Method(InstanceMember)</c>, extending from extension methods introduced in C# 3.
-					</para>
-					<para>
-						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
-					</para>
-				</summary>
-			</target>
-        </member>
-        <member name="M:Sudoku.Diff.DiffAnalysis.&lt;G&gt;$E25ADDC593CEDFD1EA006EC186C1D196.TryAnalyzeDiff(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,Sudoku.Diff.DiffResult@)">
-            <summary>
-            Try to analyze difference between two grids if they have a same initial grid (with same digits from given cells).
-            </summary>
-            <param name="left">Indicates the first grid to be checked.</param>
-            <param name="right">Indicates the second grid to be checked.</param>
-            <param name="result">A <see cref="T:Sudoku.Diff.DiffResult"/> result indicating the difference result.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating whether two grids have a same initial grid.</returns>
-            <remarks>
-            It's not necessary to check validity of two grids <paramref name="left"/> and <paramref name="right"/> in this method,
-            but it might be failed to check in some difference cases; no exceptions will be thrown in this method,
-            except for some severe errors should be reported.
-            </remarks>
-        </member>
-        <member name="M:Sudoku.Diff.DiffAnalysis.&lt;G&gt;$E25ADDC593CEDFD1EA006EC186C1D196.op_Subtraction(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@)">
-            <summary>
-            Analyzes difference between two grids.
-            If two grids are not same from given cells, the return value will be <see langword="null"/>.
-            </summary>
-            <param name="left">The first grid to be checked.</param>
-            <param name="right">The second grid to be checked.</param>
-            <returns>The difference between two grids.</returns>
-        </member>
-        <member name="M:Sudoku.Diff.DiffAnalysis.&lt;G&gt;$E25ADDC593CEDFD1EA006EC186C1D196.op_CheckedSubtraction(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@)">
-            <summary>
-            Analyzes difference between two grids.
-            If two grids are not same from given cells, a <see cref="T:Sudoku.Diff.GridDiffTooMuchException"/> instance will be thrown.
-            </summary>
-            <param name="left">The first grid to be checked.</param>
-            <param name="right">The second grid to be checked.</param>
-            <returns>The difference between two grids.</returns>
-            <exception cref="T:Sudoku.Diff.GridDiffTooMuchException">Throws when two grids are not same from given cells.</exception>
-        </member>
-        <member name="T:Sudoku.Diff.DiffResult">
-            <summary>
-            Represents a difference result.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Diff.DiffResult.NotationPrefix">
-            <summary>
-            Indicates the notation prefix.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Diff.DiffResult.Notation">
-            <summary>
-            Indicates the simplified notation of the current difference result.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Diff.DiffResult.Type">
-            <summary>
-            Indicates the type of the difference.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Diff.DiffResult.EqualityContract">
-            <summary>
-            Indicates the target type.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Diff.DiffResult.Equals(System.Object)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.DiffResult.Equals(Sudoku.Diff.DiffResult)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.DiffResult.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.DiffResult.Clone">
-            <inheritdoc cref="M:System.ICloneable.Clone"/>
-        </member>
-        <member name="M:Sudoku.Diff.DiffResult.System#ICloneable#Clone">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.DiffResult.op_Equality(Sudoku.Diff.DiffResult,Sudoku.Diff.DiffResult)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.DiffResult.op_Inequality(Sudoku.Diff.DiffResult,Sudoku.Diff.DiffResult)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Diff.DiffType">
-            <summary>
-            Represents a difference type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Diff.DiffType.NothingChanged">
-            <summary>
-            Indicates two grids are same.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Diff.DiffType.AddGiven">
-            <summary>
-            Indicates given digits are added.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Diff.DiffType.AddModifiable">
-            <summary>
-            Indicates modifiable digits are added.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Diff.DiffType.AddCandidate">
-            <summary>
-            Indicates candidate digits are added.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Diff.DiffType.RemoveGiven">
-            <summary>
-            Indicates given digits are removed.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Diff.DiffType.RemoveModifiable">
-            <summary>
-            Indicates modifiable digits are removed.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Diff.DiffType.RemoveCandidate">
-            <summary>
-            Indicates candidate digits are removed.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Diff.DiffType.ChangedGiven">
-            <summary>
-            Indicates given digits are changed.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Diff.DiffType.ChangedModifiable">
-            <summary>
-            Indicates modifiable digits are changed.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Diff.DiffType.ChangedCandidate">
-            <summary>
-            Indicates candidate digits are changed.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Diff.DiffType.Reset">
-            <summary>
-            Indicates the second grid is the reset grid of the first one.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Diff.GridDiffTooMuchException">
-            <summary>
-            Represents an exception that describes two grids are different, and cannot analyze difference between them.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Diff.Results.AddCandidateDiffResult">
-            <summary>
-            Represents a difference that describes a list of candidate digits are added.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-            <param name="areCorrect"><inheritdoc path="/param[@name='areCorrect']"/></param>
-        </member>
-        <member name="M:Sudoku.Diff.Results.AddCandidateDiffResult.#ctor(Sudoku.Concepts.CandidateMap,System.Boolean)">
-            <summary>
-            Represents a difference that describes a list of candidate digits are added.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-            <param name="areCorrect"><inheritdoc path="/param[@name='areCorrect']"/></param>
-        </member>
-        <member name="P:Sudoku.Diff.Results.AddCandidateDiffResult.NotationPrefix">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.AddCandidateDiffResult.CellType">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.AddCandidateDiffResult.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.AddCandidateDiffResult.CellTypeString">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.AddCandidateDiffResult.Clone">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Diff.Results.AddDiffResult">
-            <summary>
-            Represents a difference that describes a type of digits (given, value or candidate) is added.
-            </summary>
-            <param name="candidates">
-            <inheritdoc cref="M:Sudoku.Diff.Results.UpdatedDiffResult.#ctor(Sudoku.Concepts.CandidateMap)" path="/param[@name='candidates']"/>
-            </param>
-            <param name="areCorrect"><inheritdoc cref="P:Sudoku.Diff.Results.AddDiffResult.AreCorrect" path="/summary"/></param>
-        </member>
-        <member name="M:Sudoku.Diff.Results.AddDiffResult.#ctor(Sudoku.Concepts.CandidateMap,System.Boolean)">
-            <summary>
-            Represents a difference that describes a type of digits (given, value or candidate) is added.
-            </summary>
-            <param name="candidates">
-            <inheritdoc cref="M:Sudoku.Diff.Results.UpdatedDiffResult.#ctor(Sudoku.Concepts.CandidateMap)" path="/param[@name='candidates']"/>
-            </param>
-            <param name="areCorrect"><inheritdoc cref="P:Sudoku.Diff.Results.AddDiffResult.AreCorrect" path="/summary"/></param>
-        </member>
-        <member name="P:Sudoku.Diff.Results.AddDiffResult.AreCorrect">
-            <summary>
-            Indicates whether the digits are correct to be added.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Diff.Results.AddDiffResult.Equals(Sudoku.Diff.DiffResult)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.AddDiffResult.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Diff.Results.AddGivenDiffResult">
-            <summary>
-            Represents a difference that describes a list of given digits are added.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-            <param name="areCorrect"><inheritdoc path="/param[@name='areCorrect']"/></param>
-        </member>
-        <member name="M:Sudoku.Diff.Results.AddGivenDiffResult.#ctor(Sudoku.Concepts.CandidateMap,System.Boolean)">
-            <summary>
-            Represents a difference that describes a list of given digits are added.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-            <param name="areCorrect"><inheritdoc path="/param[@name='areCorrect']"/></param>
-        </member>
-        <member name="P:Sudoku.Diff.Results.AddGivenDiffResult.NotationPrefix">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.AddGivenDiffResult.CellType">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.AddGivenDiffResult.Type">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.AddGivenDiffResult.Clone">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Diff.Results.AddModifiableDiffResult">
-            <summary>
-            Represents a difference that describes a list of modifiable digits are added.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-            <param name="areCorrect"><inheritdoc path="/param[@name='areCorrect']"/></param>
-        </member>
-        <member name="M:Sudoku.Diff.Results.AddModifiableDiffResult.#ctor(Sudoku.Concepts.CandidateMap,System.Boolean)">
-            <summary>
-            Represents a difference that describes a list of modifiable digits are added.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-            <param name="areCorrect"><inheritdoc path="/param[@name='areCorrect']"/></param>
-        </member>
-        <member name="P:Sudoku.Diff.Results.AddModifiableDiffResult.NotationPrefix">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.AddModifiableDiffResult.CellType">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.AddModifiableDiffResult.Type">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.AddModifiableDiffResult.Clone">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Diff.Results.ChangedCandidateDiffResult">
-            <summary>
-            Represents a difference that describes a list of candidate digits is changed.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-        </member>
-        <member name="M:Sudoku.Diff.Results.ChangedCandidateDiffResult.#ctor(Sudoku.Concepts.CandidateMap)">
-            <summary>
-            Represents a difference that describes a list of candidate digits is changed.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-        </member>
-        <member name="P:Sudoku.Diff.Results.ChangedCandidateDiffResult.NotationPrefix">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.ChangedCandidateDiffResult.CellType">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.ChangedCandidateDiffResult.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.ChangedCandidateDiffResult.CellTypeString">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.ChangedCandidateDiffResult.Clone">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Diff.Results.ChangedDiffResult">
-            <summary>
-            Represents a difference that describes a type of digits (given, value or candidate) is changed.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-        </member>
-        <member name="M:Sudoku.Diff.Results.ChangedDiffResult.#ctor(Sudoku.Concepts.CandidateMap)">
-            <summary>
-            Represents a difference that describes a type of digits (given, value or candidate) is changed.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-        </member>
-        <member name="M:Sudoku.Diff.Results.ChangedDiffResult.Equals(Sudoku.Diff.DiffResult)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.ChangedDiffResult.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Diff.Results.ChangedGivenDiffResult">
-            <summary>
-            Represents a difference that describes a list of given digits is changed.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-        </member>
-        <member name="M:Sudoku.Diff.Results.ChangedGivenDiffResult.#ctor(Sudoku.Concepts.CandidateMap)">
-            <summary>
-            Represents a difference that describes a list of given digits is changed.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-        </member>
-        <member name="P:Sudoku.Diff.Results.ChangedGivenDiffResult.NotationPrefix">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.ChangedGivenDiffResult.CellType">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.ChangedGivenDiffResult.Type">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.ChangedGivenDiffResult.Clone">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Diff.Results.ChangedModifiableDiffResult">
-            <summary>
-            Represents a difference that describes a list of modifiable digits is changed.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-        </member>
-        <member name="M:Sudoku.Diff.Results.ChangedModifiableDiffResult.#ctor(Sudoku.Concepts.CandidateMap)">
-            <summary>
-            Represents a difference that describes a list of modifiable digits is changed.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-        </member>
-        <member name="P:Sudoku.Diff.Results.ChangedModifiableDiffResult.NotationPrefix">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.ChangedModifiableDiffResult.CellType">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.ChangedModifiableDiffResult.Type">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.ChangedModifiableDiffResult.Clone">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Diff.Results.NothingChangedDiffResult">
-            <summary>
-            Represents a result that describes two grids are same.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Diff.Results.NothingChangedDiffResult.#ctor">
-            <summary>
-            Represents a result that describes two grids are same.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Diff.Results.NothingChangedDiffResult.Notation">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.NothingChangedDiffResult.Type">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.NothingChangedDiffResult.Equals(Sudoku.Diff.DiffResult)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.NothingChangedDiffResult.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.NothingChangedDiffResult.Clone">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Diff.Results.RemoveCandidateDiffResult">
-            <summary>
-            Represents a difference that describes a list of candidate digits is removed.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-        </member>
-        <member name="M:Sudoku.Diff.Results.RemoveCandidateDiffResult.#ctor(Sudoku.Concepts.CandidateMap)">
-            <summary>
-            Represents a difference that describes a list of candidate digits is removed.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-        </member>
-        <member name="P:Sudoku.Diff.Results.RemoveCandidateDiffResult.NotationPrefix">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.RemoveCandidateDiffResult.CellType">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.RemoveCandidateDiffResult.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.RemoveCandidateDiffResult.CellTypeString">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.RemoveCandidateDiffResult.Clone">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Diff.Results.RemoveDiffResult">
-            <summary>
-            Represents a difference that describes a type of digits (given, value or candidate) is removed.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-        </member>
-        <member name="M:Sudoku.Diff.Results.RemoveDiffResult.#ctor(Sudoku.Concepts.CandidateMap)">
-            <summary>
-            Represents a difference that describes a type of digits (given, value or candidate) is removed.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-        </member>
-        <member name="M:Sudoku.Diff.Results.RemoveDiffResult.Equals(Sudoku.Diff.DiffResult)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.RemoveDiffResult.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Diff.Results.RemoveGivenDiffResult">
-            <summary>
-            Represents a difference that describes a list of given digits is removed.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-        </member>
-        <member name="M:Sudoku.Diff.Results.RemoveGivenDiffResult.#ctor(Sudoku.Concepts.CandidateMap)">
-            <summary>
-            Represents a difference that describes a list of given digits is removed.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-        </member>
-        <member name="P:Sudoku.Diff.Results.RemoveGivenDiffResult.NotationPrefix">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.RemoveGivenDiffResult.CellType">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.RemoveGivenDiffResult.Type">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.RemoveGivenDiffResult.Clone">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Diff.Results.RemoveModifiableDiffResult">
-            <summary>
-            Represents a difference that describes a list of modifiable digits is removed.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-        </member>
-        <member name="M:Sudoku.Diff.Results.RemoveModifiableDiffResult.#ctor(Sudoku.Concepts.CandidateMap)">
-            <summary>
-            Represents a difference that describes a list of modifiable digits is removed.
-            </summary>
-            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-        </member>
-        <member name="P:Sudoku.Diff.Results.RemoveModifiableDiffResult.NotationPrefix">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.RemoveModifiableDiffResult.CellType">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.RemoveModifiableDiffResult.Type">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.RemoveModifiableDiffResult.Clone">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Diff.Results.ResetDiffResult">
-            <summary>
-            Represents a difference result that describes candidates are reset.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Diff.Results.ResetDiffResult.#ctor">
-            <summary>
-            Represents a difference result that describes candidates are reset.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Diff.Results.ResetDiffResult.Notation">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.ResetDiffResult.Type">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.ResetDiffResult.Equals(Sudoku.Diff.DiffResult)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.ResetDiffResult.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Diff.Results.ResetDiffResult.Clone">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Diff.Results.UpdatedDiffResult">
-            <summary>
-            Represents a difference that describes a type of digits (given, value or candidate) is updated.
-            </summary>
-            <param name="candidates"><inheritdoc cref="P:Sudoku.Diff.Results.UpdatedDiffResult.Candidates" path="/summary"/></param>
-        </member>
-        <member name="M:Sudoku.Diff.Results.UpdatedDiffResult.#ctor(Sudoku.Concepts.CandidateMap)">
-            <summary>
-            Represents a difference that describes a type of digits (given, value or candidate) is updated.
-            </summary>
-            <param name="candidates"><inheritdoc cref="P:Sudoku.Diff.Results.UpdatedDiffResult.Candidates" path="/summary"/></param>
-        </member>
-        <member name="P:Sudoku.Diff.Results.UpdatedDiffResult.Candidates">
-            <summary>
-            Indicates the candidates to be updated.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Diff.Results.UpdatedDiffResult.NotationPrefix">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.UpdatedDiffResult.Notation">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Diff.Results.UpdatedDiffResult.CellType">
-            <summary>
-            Indicates the target cell type to be added.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Diff.Results.UpdatedDiffResult.CandidatesRawString">
-            <summary>
-            Indicates the candidates string.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Diff.Results.UpdatedDiffResult.CellTypeString">
-            <summary>
-            Indicates the target cell type string.
-            </summary>
-        </member>
         <member name="T:Sudoku.Drawing.DashArray">
             <summary>
             Defines a dash array of <see cref="T:System.Double"/> values. The values can be used in UI as dash array of a double collection.
@@ -13635,6 +13078,515 @@ if (unionInstance.TryGetValue(out int instance)
         </member>
         <member name="M:Sudoku.Generating.SelfReportingProgress`1.Report(`0)">
             <inheritdoc cref="M:System.Progress`1.OnReport(`0)"/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.Cases.AddCandidateGridDifference">
+            <summary>
+            Represents a difference that describes a list of candidate digits are added.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+            <param name="areCorrect"><inheritdoc path="/param[@name='areCorrect']"/></param>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.AddCandidateGridDifference.#ctor(Sudoku.Concepts.CandidateMap,System.Boolean)">
+            <summary>
+            Represents a difference that describes a list of candidate digits are added.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+            <param name="areCorrect"><inheritdoc path="/param[@name='areCorrect']"/></param>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.AddCandidateGridDifference.NotationPrefix">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.AddCandidateGridDifference.CellType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.AddCandidateGridDifference.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.AddCandidateGridDifference.CellTypeString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.AddCandidateGridDifference.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.Cases.AddGivenGridDifference">
+            <summary>
+            Represents a difference that describes a list of given digits are added.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+            <param name="areCorrect"><inheritdoc path="/param[@name='areCorrect']"/></param>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.AddGivenGridDifference.#ctor(Sudoku.Concepts.CandidateMap,System.Boolean)">
+            <summary>
+            Represents a difference that describes a list of given digits are added.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+            <param name="areCorrect"><inheritdoc path="/param[@name='areCorrect']"/></param>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.AddGivenGridDifference.NotationPrefix">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.AddGivenGridDifference.CellType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.AddGivenGridDifference.Type">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.AddGivenGridDifference.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.Cases.AddGridDifference">
+            <summary>
+            Represents a difference that describes a type of digits (given, value or candidate) is added.
+            </summary>
+            <param name="candidates">
+            <inheritdoc cref="M:Sudoku.GridDifferences.Cases.UpdatedGridDifference.#ctor(Sudoku.Concepts.CandidateMap)" path="/param[@name='candidates']"/>
+            </param>
+            <param name="areCorrect"><inheritdoc cref="P:Sudoku.GridDifferences.Cases.AddGridDifference.AreCorrect" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.AddGridDifference.#ctor(Sudoku.Concepts.CandidateMap,System.Boolean)">
+            <summary>
+            Represents a difference that describes a type of digits (given, value or candidate) is added.
+            </summary>
+            <param name="candidates">
+            <inheritdoc cref="M:Sudoku.GridDifferences.Cases.UpdatedGridDifference.#ctor(Sudoku.Concepts.CandidateMap)" path="/param[@name='candidates']"/>
+            </param>
+            <param name="areCorrect"><inheritdoc cref="P:Sudoku.GridDifferences.Cases.AddGridDifference.AreCorrect" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.AddGridDifference.AreCorrect">
+            <summary>
+            Indicates whether the digits are correct to be added.
+            </summary>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.AddGridDifference.Equals(Sudoku.GridDifferences.GridDifference)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.AddGridDifference.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.Cases.AddModifiableGridDifference">
+            <summary>
+            Represents a difference that describes a list of modifiable digits are added.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+            <param name="areCorrect"><inheritdoc path="/param[@name='areCorrect']"/></param>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.AddModifiableGridDifference.#ctor(Sudoku.Concepts.CandidateMap,System.Boolean)">
+            <summary>
+            Represents a difference that describes a list of modifiable digits are added.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+            <param name="areCorrect"><inheritdoc path="/param[@name='areCorrect']"/></param>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.AddModifiableGridDifference.NotationPrefix">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.AddModifiableGridDifference.CellType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.AddModifiableGridDifference.Type">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.AddModifiableGridDifference.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.Cases.ChangedCandidateGridDifference">
+            <summary>
+            Represents a difference that describes a list of candidate digits is changed.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.ChangedCandidateGridDifference.#ctor(Sudoku.Concepts.CandidateMap)">
+            <summary>
+            Represents a difference that describes a list of candidate digits is changed.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.ChangedCandidateGridDifference.NotationPrefix">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.ChangedCandidateGridDifference.CellType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.ChangedCandidateGridDifference.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.ChangedCandidateGridDifference.CellTypeString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.ChangedCandidateGridDifference.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.Cases.ChangedGivenGridDifference">
+            <summary>
+            Represents a difference that describes a list of given digits is changed.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.ChangedGivenGridDifference.#ctor(Sudoku.Concepts.CandidateMap)">
+            <summary>
+            Represents a difference that describes a list of given digits is changed.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.ChangedGivenGridDifference.NotationPrefix">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.ChangedGivenGridDifference.CellType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.ChangedGivenGridDifference.Type">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.ChangedGivenGridDifference.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.Cases.ChangedGridDifference">
+            <summary>
+            Represents a difference that describes a type of digits (given, value or candidate) is changed.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.ChangedGridDifference.#ctor(Sudoku.Concepts.CandidateMap)">
+            <summary>
+            Represents a difference that describes a type of digits (given, value or candidate) is changed.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.ChangedGridDifference.Equals(Sudoku.GridDifferences.GridDifference)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.ChangedGridDifference.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.Cases.ChangedModifiableGridDifference">
+            <summary>
+            Represents a difference that describes a list of modifiable digits is changed.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.ChangedModifiableGridDifference.#ctor(Sudoku.Concepts.CandidateMap)">
+            <summary>
+            Represents a difference that describes a list of modifiable digits is changed.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.ChangedModifiableGridDifference.NotationPrefix">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.ChangedModifiableGridDifference.CellType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.ChangedModifiableGridDifference.Type">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.ChangedModifiableGridDifference.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.Cases.NothingChangedGridDifference">
+            <summary>
+            Represents a result that describes two grids are same.
+            </summary>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.NothingChangedGridDifference.#ctor">
+            <summary>
+            Represents a result that describes two grids are same.
+            </summary>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.NothingChangedGridDifference.Notation">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.NothingChangedGridDifference.Type">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.NothingChangedGridDifference.Equals(Sudoku.GridDifferences.GridDifference)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.NothingChangedGridDifference.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.NothingChangedGridDifference.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.Cases.RemoveCandidateGridDifference">
+            <summary>
+            Represents a difference that describes a list of candidate digits is removed.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.RemoveCandidateGridDifference.#ctor(Sudoku.Concepts.CandidateMap)">
+            <summary>
+            Represents a difference that describes a list of candidate digits is removed.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.RemoveCandidateGridDifference.NotationPrefix">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.RemoveCandidateGridDifference.CellType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.RemoveCandidateGridDifference.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.RemoveCandidateGridDifference.CellTypeString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.RemoveCandidateGridDifference.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.Cases.RemoveGivenGridDifference">
+            <summary>
+            Represents a difference that describes a list of given digits is removed.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.RemoveGivenGridDifference.#ctor(Sudoku.Concepts.CandidateMap)">
+            <summary>
+            Represents a difference that describes a list of given digits is removed.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.RemoveGivenGridDifference.NotationPrefix">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.RemoveGivenGridDifference.CellType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.RemoveGivenGridDifference.Type">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.RemoveGivenGridDifference.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.Cases.RemoveGridDifference">
+            <summary>
+            Represents a difference that describes a type of digits (given, value or candidate) is removed.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.RemoveGridDifference.#ctor(Sudoku.Concepts.CandidateMap)">
+            <summary>
+            Represents a difference that describes a type of digits (given, value or candidate) is removed.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.RemoveGridDifference.Equals(Sudoku.GridDifferences.GridDifference)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.RemoveGridDifference.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.Cases.RemoveModifiableGridDifference">
+            <summary>
+            Represents a difference that describes a list of modifiable digits is removed.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.RemoveModifiableGridDifference.#ctor(Sudoku.Concepts.CandidateMap)">
+            <summary>
+            Represents a difference that describes a list of modifiable digits is removed.
+            </summary>
+            <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.RemoveModifiableGridDifference.NotationPrefix">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.RemoveModifiableGridDifference.CellType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.RemoveModifiableGridDifference.Type">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.RemoveModifiableGridDifference.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.Cases.ResetGridDifference">
+            <summary>
+            Represents a difference result that describes candidates are reset.
+            </summary>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.ResetGridDifference.#ctor">
+            <summary>
+            Represents a difference result that describes candidates are reset.
+            </summary>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.ResetGridDifference.Notation">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.ResetGridDifference.Type">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.ResetGridDifference.Equals(Sudoku.GridDifferences.GridDifference)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.ResetGridDifference.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.ResetGridDifference.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.Cases.UpdatedGridDifference">
+            <summary>
+            Represents a difference that describes a type of digits (given, value or candidate) is updated.
+            </summary>
+            <param name="candidates"><inheritdoc cref="P:Sudoku.GridDifferences.Cases.UpdatedGridDifference.Candidates" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.GridDifferences.Cases.UpdatedGridDifference.#ctor(Sudoku.Concepts.CandidateMap)">
+            <summary>
+            Represents a difference that describes a type of digits (given, value or candidate) is updated.
+            </summary>
+            <param name="candidates"><inheritdoc cref="P:Sudoku.GridDifferences.Cases.UpdatedGridDifference.Candidates" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.UpdatedGridDifference.Candidates">
+            <summary>
+            Indicates the candidates to be updated.
+            </summary>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.UpdatedGridDifference.NotationPrefix">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.UpdatedGridDifference.Notation">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.UpdatedGridDifference.CellType">
+            <summary>
+            Indicates the target cell type to be added.
+            </summary>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.UpdatedGridDifference.CandidatesRawString">
+            <summary>
+            Indicates the candidates string.
+            </summary>
+        </member>
+        <member name="P:Sudoku.GridDifferences.Cases.UpdatedGridDifference.CellTypeString">
+            <summary>
+            Indicates the target cell type string.
+            </summary>
+        </member>
+        <member name="T:Sudoku.GridDifferences.GridDifference">
+            <summary>
+            Represents a kind of difference between grids.
+            </summary>
+        </member>
+        <member name="P:Sudoku.GridDifferences.GridDifference.NotationPrefix">
+            <summary>
+            Indicates the notation prefix.
+            </summary>
+        </member>
+        <member name="P:Sudoku.GridDifferences.GridDifference.Notation">
+            <summary>
+            Indicates the simplified notation of the current difference result.
+            </summary>
+        </member>
+        <member name="P:Sudoku.GridDifferences.GridDifference.Type">
+            <summary>
+            Indicates the type of the difference.
+            </summary>
+        </member>
+        <member name="P:Sudoku.GridDifferences.GridDifference.EqualityContract">
+            <summary>
+            Indicates the target type.
+            </summary>
+        </member>
+        <member name="M:Sudoku.GridDifferences.GridDifference.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.GridDifference.Equals(Sudoku.GridDifferences.GridDifference)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.GridDifference.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.GridDifference.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.GridDifference.System#ICloneable#Clone">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.GridDifference.op_Equality(Sudoku.GridDifferences.GridDifference,Sudoku.GridDifferences.GridDifference)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.GridDifferences.GridDifference.op_Inequality(Sudoku.GridDifferences.GridDifference,Sudoku.GridDifferences.GridDifference)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.GridDifferenceAnalysis">
+            <summary>
+            Provides a way to analyze difference between grids.
+            </summary>
+        </member>
+        <member name="M:Sudoku.GridDifferences.GridDifferenceAnalysis.TryGetDifference(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,Sudoku.GridDifferences.GridDifference@)">
+            <summary>
+            Try to analyze difference between two grids if they have a same initial grid (with same digits from given cells).
+            </summary>
+            <param name="left">Indicates the first grid to be checked.</param>
+            <param name="right">Indicates the second grid to be checked.</param>
+            <param name="result">A <see cref="T:Sudoku.GridDifferences.GridDifference"/> result indicating the difference result.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating whether two grids have a same initial grid.</returns>
+            <remarks>
+            It's not necessary to check validity of two grids <paramref name="left"/> and <paramref name="right"/> in this method,
+            but it might be failed to check in some difference cases; no exceptions will be thrown in this method,
+            except for some severe errors should be reported.
+            </remarks>
+        </member>
+        <member name="T:Sudoku.GridDifferences.GridDifferenceType">
+            <summary>
+            Represents a difference type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.GridDifferences.GridDifferenceType.NothingChanged">
+            <summary>
+            Indicates two grids are same.
+            </summary>
+        </member>
+        <member name="F:Sudoku.GridDifferences.GridDifferenceType.AddGiven">
+            <summary>
+            Indicates given digits are added.
+            </summary>
+        </member>
+        <member name="F:Sudoku.GridDifferences.GridDifferenceType.AddModifiable">
+            <summary>
+            Indicates modifiable digits are added.
+            </summary>
+        </member>
+        <member name="F:Sudoku.GridDifferences.GridDifferenceType.AddCandidate">
+            <summary>
+            Indicates candidate digits are added.
+            </summary>
+        </member>
+        <member name="F:Sudoku.GridDifferences.GridDifferenceType.RemoveGiven">
+            <summary>
+            Indicates given digits are removed.
+            </summary>
+        </member>
+        <member name="F:Sudoku.GridDifferences.GridDifferenceType.RemoveModifiable">
+            <summary>
+            Indicates modifiable digits are removed.
+            </summary>
+        </member>
+        <member name="F:Sudoku.GridDifferences.GridDifferenceType.RemoveCandidate">
+            <summary>
+            Indicates candidate digits are removed.
+            </summary>
+        </member>
+        <member name="F:Sudoku.GridDifferences.GridDifferenceType.ChangedGiven">
+            <summary>
+            Indicates given digits are changed.
+            </summary>
+        </member>
+        <member name="F:Sudoku.GridDifferences.GridDifferenceType.ChangedModifiable">
+            <summary>
+            Indicates modifiable digits are changed.
+            </summary>
+        </member>
+        <member name="F:Sudoku.GridDifferences.GridDifferenceType.ChangedCandidate">
+            <summary>
+            Indicates candidate digits are changed.
+            </summary>
+        </member>
+        <member name="F:Sudoku.GridDifferences.GridDifferenceType.Reset">
+            <summary>
+            Indicates the second grid is the reset grid of the first one.
+            </summary>
         </member>
         <member name="T:Sudoku.IO.FileDeduplicator">
             <summary>

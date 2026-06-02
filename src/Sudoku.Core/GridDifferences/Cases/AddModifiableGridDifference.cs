@@ -1,4 +1,4 @@
-namespace Sudoku.Diff.Results;
+namespace Sudoku.GridDifferences.Cases;
 
 /// <summary>
 /// Represents a difference that describes a list of modifiable digits are added.
@@ -6,7 +6,7 @@ namespace Sudoku.Diff.Results;
 /// <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
 /// <param name="areCorrect"><inheritdoc path="/param[@name='areCorrect']"/></param>
 [method: JsonConstructor]
-public sealed class AddModifiableDiffResult(CandidateMap candidates, bool areCorrect) : AddDiffResult(candidates, areCorrect)
+public sealed class AddModifiableGridDifference(CandidateMap candidates, bool areCorrect) : AddGridDifference(candidates, areCorrect)
 {
 	/// <inheritdoc/>
 	public override string NotationPrefix => "M+";
@@ -15,9 +15,9 @@ public sealed class AddModifiableDiffResult(CandidateMap candidates, bool areCor
 	public override CellState CellType => CellState.Modifiable;
 
 	/// <inheritdoc/>
-	public override DiffType Type => DiffType.AddModifiable;
+	public override GridDifferenceType Type => GridDifferenceType.AddModifiable;
 
 
 	/// <inheritdoc/>
-	public override AddModifiableDiffResult Clone() => new(Candidates, AreCorrect);
+	public override AddModifiableGridDifference Clone() => new(Candidates, AreCorrect);
 }

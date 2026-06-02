@@ -1,11 +1,11 @@
-namespace Sudoku.Diff.Results;
+namespace Sudoku.GridDifferences.Cases;
 
 /// <summary>
 /// Represents a difference that describes a list of given digits is removed.
 /// </summary>
 /// <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
 [method: JsonConstructor]
-public sealed class RemoveGivenDiffResult(CandidateMap candidates) : RemoveDiffResult(candidates)
+public sealed class RemoveGivenGridDifference(CandidateMap candidates) : RemoveGridDifference(candidates)
 {
 	/// <inheritdoc/>
 	public override string NotationPrefix => "G-";
@@ -14,9 +14,9 @@ public sealed class RemoveGivenDiffResult(CandidateMap candidates) : RemoveDiffR
 	public override CellState CellType => CellState.Given;
 
 	/// <inheritdoc/>
-	public override DiffType Type => DiffType.RemoveGiven;
+	public override GridDifferenceType Type => GridDifferenceType.RemoveGiven;
 
 
 	/// <inheritdoc/>
-	public override RemoveGivenDiffResult Clone() => new(Candidates);
+	public override RemoveGivenGridDifference Clone() => new(Candidates);
 }

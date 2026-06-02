@@ -53,7 +53,7 @@ This repository is created for the following users:
   * Difficulty rating
   * Step-by-step analysis
   * Bottleneck analysis
-  * Diff analysis & technique usage analysis
+  * Grid difference analysis & technique usage analysis
   * Specialized supports on direct & Snyder's techniques
   * Partial implementation on some extremely hard techniques
   * Rank analysis (rank, eliminations, permutations, etc.)

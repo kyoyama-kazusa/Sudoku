@@ -1,11 +1,11 @@
-namespace Sudoku.Diff.Results;
+namespace Sudoku.GridDifferences.Cases;
 
 /// <summary>
 /// Represents a difference that describes a list of candidate digits is changed.
 /// </summary>
 /// <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
 [method: JsonConstructor]
-public sealed class ChangedCandidateDiffResult(CandidateMap candidates) : ChangedDiffResult(candidates)
+public sealed class ChangedCandidateGridDifference(CandidateMap candidates) : ChangedGridDifference(candidates)
 {
 	/// <inheritdoc/>
 	public override string NotationPrefix => "C^";
@@ -14,12 +14,12 @@ public sealed class ChangedCandidateDiffResult(CandidateMap candidates) : Change
 	public override CellState CellType => CellState.Given;
 
 	/// <inheritdoc/>
-	public override DiffType Type => DiffType.ChangedGiven;
+	public override GridDifferenceType Type => GridDifferenceType.ChangedGiven;
 
 	/// <inheritdoc/>
 	protected override string CellTypeString => "Candidate";
 
 
 	/// <inheritdoc/>
-	public override ChangedCandidateDiffResult Clone() => new(Candidates);
+	public override ChangedCandidateGridDifference Clone() => new(Candidates);
 }

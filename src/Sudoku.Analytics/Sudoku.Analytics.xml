@@ -29225,39 +29225,6 @@
             <inheritdoc/>
             <exception cref="T:System.NotSupportedException">Not supported. Always thrown.</exception>
         </member>
-        <member name="T:Sudoku.Diff.DiffTechniqueAnalysis">
-            <summary>
-            Provides a way to analyze technique usages on difference between two grids.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Diff.DiffTechniqueAnalysis.TryAnalyzeTechnique(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,Sudoku.Analytics.Collector,Sudoku.Analytics.Step@)">
-            <inheritdoc cref="M:Sudoku.Diff.DiffTechniqueAnalysis.&lt;G&gt;$E25ADDC593CEDFD1EA006EC186C1D196.TryAnalyzeTechnique(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,Sudoku.Analytics.Collector,Sudoku.Analytics.Step@)"/>
-        </member>
-        <member name="T:Sudoku.Diff.DiffTechniqueAnalysis.&lt;G&gt;$E25ADDC593CEDFD1EA006EC186C1D196.&lt;M&gt;$E25ADDC593CEDFD1EA006EC186C1D196">
-            <target name="container">
-				<summary>
-					<para>
-						Represents a nested <see langword="extension" /> block that includes extension members
-						that allows you using instance or static member reference syntax to visit them, avoiding some verbose referencing syntax
-						like <c>BlahBlahExtension.Method(InstanceMember)</c>, extending from extension methods introduced in C# 3.
-					</para>
-					<para>
-						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
-					</para>
-				</summary>
-			</target>
-        </member>
-        <member name="M:Sudoku.Diff.DiffTechniqueAnalysis.&lt;G&gt;$E25ADDC593CEDFD1EA006EC186C1D196.TryAnalyzeTechnique(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,Sudoku.Analytics.Collector,Sudoku.Analytics.Step@)">
-            <summary>
-            Try to analyze technique used that causes <paramref name="left"/> changing into <paramref name="right"/>.
-            </summary>
-            <param name="left">The first grid to be checked.</param>
-            <param name="right">The second grid to be checked.</param>
-            <param name="collector">The collector instance that is used for collecting found steps.</param>
-            <param name="step">The step.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating whether such step can be inferred.</returns>
-        </member>
         <member name="T:Sudoku.Filtering.BetweenRule">
             <summary>
             Represents a between rule.
@@ -30874,6 +30841,40 @@
         </member>
         <member name="M:Sudoku.Generating.Qualified.TechniqueGenerator.TryGenerateUnique(Sudoku.Concepts.Grid@,System.Threading.CancellationToken)">
             <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.GridDifferenceTechniqueAnalysis">
+            <summary>
+            Provides a way to analyze technique usages on difference between two grids.
+            </summary>
+        </member>
+        <member name="M:Sudoku.GridDifferences.GridDifferenceTechniqueAnalysis.TryGetDifferenceTechnique(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,Sudoku.Analytics.Collector,Sudoku.Analytics.Step@)">
+            <inheritdoc cref="M:Sudoku.GridDifferences.GridDifferenceTechniqueAnalysis.&lt;G&gt;$04A15BE5B33C014161176FAF4386E140.TryGetDifferenceTechnique(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,Sudoku.Analytics.Collector,Sudoku.Analytics.Step@)"/>
+        </member>
+        <member name="T:Sudoku.GridDifferences.GridDifferenceTechniqueAnalysis.&lt;G&gt;$04A15BE5B33C014161176FAF4386E140.&lt;M&gt;$F655306BCD4307BE253CEA4F5FB8B804">
+            <target name="container">
+				<summary>
+					<para>
+						Represents a nested <see langword="extension" /> block that includes extension members
+						that allows you using instance or static member reference syntax to visit them, avoiding some verbose referencing syntax
+						like <c>BlahBlahExtension.Method(InstanceMember)</c>, extending from extension methods introduced in C# 3.
+					</para>
+					<para>
+						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+					</para>
+				</summary>
+			</target>
+        </member>
+        <member name="M:Sudoku.GridDifferences.GridDifferenceTechniqueAnalysis.&lt;G&gt;$04A15BE5B33C014161176FAF4386E140.TryGetDifferenceTechnique(Sudoku.Concepts.Grid@,Sudoku.Concepts.Grid@,Sudoku.Analytics.Collector,Sudoku.Analytics.Step@)">
+            <summary>
+            Try to analyze technique used that causes a difference produced from <paramref name="left"/>,
+            changing into <paramref name="right"/>.
+            </summary>
+            <param name="left">The first grid to be checked.</param>
+            <param name="right">The second grid to be checked.</param>
+            <param name="collector">The collector instance that is used for collecting found steps.</param>
+            <param name="step">The step.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating whether such step can be inferred.</returns>
         </member>
         <member name="T:Sudoku.Linq.StepCollectionExtensions">
             <summary>

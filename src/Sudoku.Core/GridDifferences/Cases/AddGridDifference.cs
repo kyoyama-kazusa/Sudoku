@@ -1,13 +1,13 @@
-namespace Sudoku.Diff.Results;
+namespace Sudoku.GridDifferences.Cases;
 
 /// <summary>
 /// Represents a difference that describes a type of digits (given, value or candidate) is added.
 /// </summary>
 /// <param name="candidates">
-/// <inheritdoc cref="UpdatedDiffResult(CandidateMap)" path="/param[@name='candidates']"/>
+/// <inheritdoc cref="UpdatedGridDifference(CandidateMap)" path="/param[@name='candidates']"/>
 /// </param>
 /// <param name="areCorrect"><inheritdoc cref="AreCorrect" path="/summary"/></param>
-public abstract class AddDiffResult(CandidateMap candidates, bool areCorrect) : UpdatedDiffResult(candidates)
+public abstract class AddGridDifference(CandidateMap candidates, bool areCorrect) : UpdatedGridDifference(candidates)
 {
 	/// <summary>
 	/// Indicates whether the digits are correct to be added.
@@ -16,8 +16,8 @@ public abstract class AddDiffResult(CandidateMap candidates, bool areCorrect) : 
 
 
 	/// <inheritdoc/>
-	public sealed override bool Equals([NotNullWhen(true)] DiffResult? other)
-		=> other is AddDiffResult comparer
+	public sealed override bool Equals([NotNullWhen(true)] GridDifference? other)
+		=> other is AddGridDifference comparer
 		&& Candidates == comparer.Candidates && AreCorrect == comparer.AreCorrect
 		&& EqualityContract == comparer.EqualityContract;
 

@@ -1,4 +1,4 @@
-namespace Sudoku.Diff.Results;
+namespace Sudoku.GridDifferences.Cases;
 
 /// <summary>
 /// Represents a difference that describes a list of candidate digits are added.
@@ -6,7 +6,7 @@ namespace Sudoku.Diff.Results;
 /// <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
 /// <param name="areCorrect"><inheritdoc path="/param[@name='areCorrect']"/></param>
 [method: JsonConstructor]
-public sealed class AddCandidateDiffResult(CandidateMap candidates, bool areCorrect) : AddDiffResult(candidates, areCorrect)
+public sealed class AddCandidateGridDifference(CandidateMap candidates, bool areCorrect) : AddGridDifference(candidates, areCorrect)
 {
 	/// <inheritdoc/>
 	public override string NotationPrefix => "C+";
@@ -15,12 +15,12 @@ public sealed class AddCandidateDiffResult(CandidateMap candidates, bool areCorr
 	public override CellState CellType => CellState.Empty;
 
 	/// <inheritdoc/>
-	public override DiffType Type => DiffType.AddCandidate;
+	public override GridDifferenceType Type => GridDifferenceType.AddCandidate;
 
 	/// <inheritdoc/>
 	protected override string CellTypeString => nameof(Candidate);
 
 
 	/// <inheritdoc/>
-	public override AddCandidateDiffResult Clone() => new(Candidates, AreCorrect);
+	public override AddCandidateGridDifference Clone() => new(Candidates, AreCorrect);
 }

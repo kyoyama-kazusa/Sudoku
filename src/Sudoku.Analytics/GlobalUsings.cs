@@ -50,7 +50,7 @@ global using Sudoku.Concepts.Supersymmetry;
 global using Sudoku.Concepts.Symmetry;
 global using Sudoku.Concepts.ValueConversions;
 global using Sudoku.Descriptors;
-global using Sudoku.Diff.Results;
+global using Sudoku.GridDifferences.Cases;
 global using Sudoku.Drawing;
 global using Sudoku.Drawing.Nodes;
 global using Sudoku.Filtering;

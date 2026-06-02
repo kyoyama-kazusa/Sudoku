@@ -1,9 +1,9 @@
-namespace Sudoku.Diff;
+namespace Sudoku.GridDifferences;
 
 /// <summary>
 /// Represents a difference type.
 /// </summary>
-public enum DiffType
+public enum GridDifferenceType
 {
 	/// <summary>
 	/// Indicates two grids are same.
