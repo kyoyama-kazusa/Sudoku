@@ -307,11 +307,8 @@ public abstract partial class SusserGridConverter : IGridConverter
 					}
 					case var collection:
 					{
-						var hashSet = new HashSet<Match>(
-							collection,
-							EqualityComparer<Match>.Create(static (l, r) => (l?.Length ?? 0) == (r?.Length ?? 0), static v => v.Length)
-						);
-						switch (hashSet)
+						var equalityComparer = EqualityComparer<Match>.Create(equals, getHashCode);
+						switch (new HashSet<Match>(collection, equalityComparer))
 						{
 							case { Count: 1 } set when set.First() is { Length: var firstLength }:
 							{
@@ -352,6 +349,11 @@ public abstract partial class SusserGridConverter : IGridConverter
 							}
 						}
 						break;
+
+
+						bool equals(Match? l, Match? r) => (l?.Length ?? 0) == (r?.Length ?? 0);
+
+						int getHashCode(Match v) => v.Length;
 					}
 				}
 
