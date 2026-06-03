@@ -558,7 +558,7 @@ public struct MarkerGrid : InlineArrayGridBase
 			{
 				d2 = rng.NextDigit();
 			} while (d1 == d2);
-			current = current.SwapDigit(d1, d2);
+			current.SwapDigit(d1, d2);
 		}
 		return current;
 	}
