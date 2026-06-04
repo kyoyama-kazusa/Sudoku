@@ -79,7 +79,7 @@ public readonly struct HamiltonianCycle(Cell[] cells) :
 		}
 
 		// Check for the next position; if the collection only contains one element, it cannot be a loop.
-		// Just throw IndexOutOfRangeException, ignoring such invalid case.
+		// Just throw <see cref="IndexOutOfRangeException"/>, ignoring such invalid case.
 		var nextCell = _cells[1];
 		var previous = other._cells[(otherStartIndex >= 1 ? otherStartIndex : otherStartIndex + _cells.Length) - 1];
 		var next = other._cells[(otherStartIndex + 1) % _cells.Length];
