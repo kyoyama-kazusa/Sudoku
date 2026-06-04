@@ -194,19 +194,19 @@ public readonly struct HouseDigitIdentifier(House house, Digit digit) :
 
 	/// <inheritdoc/>
 	public static HouseDigitIdentifier operator +(HouseDigitIdentifier left, byte right)
-		=> unchecked((HouseDigitIdentifier)((left._mask + right) % MaxRawValue));
+		=> unchecked((HouseDigitIdentifier)(byte)((left._mask + right) % MaxRawValue));
 
 	/// <inheritdoc/>
 	public static HouseDigitIdentifier operator checked +(HouseDigitIdentifier left, byte right)
-		=> right is >= 0 and < MaxRawValue ? checked((HouseDigitIdentifier)(left._mask + right)) : throw new OverflowException();
+		=> right is >= 0 and < MaxRawValue ? checked((HouseDigitIdentifier)(byte)(left._mask + right)) : throw new OverflowException();
 
 	/// <inheritdoc/>
 	public static HouseDigitIdentifier operator -(HouseDigitIdentifier left, byte right)
-		=> unchecked((HouseDigitIdentifier)((left._mask + MaxRawValue - right % MaxRawValue) % MaxRawValue));
+		=> unchecked((HouseDigitIdentifier)(byte)((left._mask + MaxRawValue - right % MaxRawValue) % MaxRawValue));
 
 	/// <inheritdoc/>
 	public static HouseDigitIdentifier operator checked -(HouseDigitIdentifier left, byte right)
-		=> right is >= 0 and < MaxRawValue ? checked((HouseDigitIdentifier)(left._mask - right)) : throw new OverflowException();
+		=> right is >= 0 and < MaxRawValue ? checked((HouseDigitIdentifier)(byte)(left._mask - right)) : throw new OverflowException();
 
 
 	/// <summary>
