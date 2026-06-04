@@ -254,6 +254,31 @@
             <summary>
             Indicates the pearl step.
             </summary>
+            <remarks>
+            This property is only meaningful when the puzzle has been solved.
+            It is computed as follows:
+            <list type="number">
+            <item>
+            If the puzzle is not solved, or if every recorded step is either a <see cref="T:Sudoku.Analytics.Steps.FullHouseStep"/>
+            or a <see cref="T:Sudoku.Analytics.Steps.HiddenSingleStep"/> with <see cref="P:Sudoku.Analytics.Steps.HiddenSingleStep.House"/> &lt; 9 (i.e. hidden single in block),
+            the result is <see langword="null"/>.
+            </item>
+            <item>
+            If all steps are <see cref="T:Sudoku.Analytics.Steps.SingleStep"/> instances, the property returns the first step that is not a hidden single in block.
+            </item>
+            <item>
+            Otherwise, the property finds the first step that is not a <see cref="T:Sudoku.Analytics.Steps.SingleStep"/>,
+            and the first step that is a <see cref="T:Sudoku.Analytics.Steps.SingleStep"/>.
+            </item>
+            <item>
+            If a non-first <see cref="T:Sudoku.Analytics.Steps.SingleStep"/> exists,
+            the property returns the step with the maximum difficulty in the range between those two positions.
+            </item>
+            <item>
+            If the first <see cref="T:Sudoku.Analytics.Steps.SingleStep"/> is at index 0, the property falls back to the first step.
+            </item>
+            </list>
+            </remarks>
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.DiamondStep">
             <summary>

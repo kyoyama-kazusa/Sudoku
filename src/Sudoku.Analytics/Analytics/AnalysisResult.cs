@@ -258,22 +258,40 @@ public sealed partial record AnalysisResult(in Grid Puzzle) :
 	/// <summary>
 	/// Indicates the pearl step.
 	/// </summary>
+	/// <remarks>
+	/// This property is only meaningful when the puzzle has been solved.
+	/// It is computed as follows:
+	/// <list type="number">
+	/// <item>
+	/// If the puzzle is not solved, or if every recorded step is either a <see cref="FullHouseStep"/>
+	/// or a <see cref="HiddenSingleStep"/> with <see cref="HiddenSingleStep.House"/> &lt; 9 (i.e. hidden single in block),
+	/// the result is <see langword="null"/>.
+	/// </item>
+	/// <item>
+	/// If all steps are <see cref="SingleStep"/> instances, the property returns the first step that is not a hidden single in block.
+	/// </item>
+	/// <item>
+	/// Otherwise, the property finds the first step that is not a <see cref="SingleStep"/>,
+	/// and the first step that is a <see cref="SingleStep"/>.
+	/// </item>
+	/// <item>
+	/// If a non-first <see cref="SingleStep"/> exists,
+	/// the property returns the step with the maximum difficulty in the range between those two positions.
+	/// </item>
+	/// <item>
+	/// If the first <see cref="SingleStep"/> is at index 0, the property falls back to the first step.
+	/// </item>
+	/// </list>
+	/// </remarks>
 	public Step? PearlStep
 		=> IsSolved && !StepsSpan.All(static s => s is FullHouseStep or HiddenSingleStep { House: < 9 })
 			? StepsSpan.AllAre<Step, SingleStep>()
-				// If a puzzle can be solved using only singles, just check for the first step not hidden single in block.
 				? StepsSpan.First(static s => s is not HiddenSingleStep { House: < 9 })
-				// Otherwise, an deletion step should be chosen. There're two cases:
-				//    1) If the first step is a single, just return it as the diamond difficulty.
-				//    2) If the first step is not a single, find for the first step that is a single,
-				//       and check the maximum difficulty rating of the span of steps
-				//       between the first step and the first single step.
 				: StepsSpan.FirstIndex(static s => s is not SingleStep) is var a
 					? StepsSpan.FirstIndex(static s => s is SingleStep) is var b and not 0
 						? StepsSpan[a..b].MaxBy(static s => s.Difficulty)
 						: StepsSpan[0]
 					: null
-			// No diamond step exist in all steps are hidden singles in block.
 			: null;
 
 	/// <summary>
