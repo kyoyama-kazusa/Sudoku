@@ -216,7 +216,7 @@ public static class DeadlyPatternChecker
 	/// This method will help you find a contradiction of deadly pattern if you assign a value into a cell.
 	/// For example, the following grid shows two extended rectangles:
 	/// <code><![CDATA[
-	/// ,---------------,--------------------,--------------,
+	/// .---------------,--------------------,--------------.
 	/// | 7    2    8   | 3       59    59   | 4    1   6   |
 	/// | 4    5   *19  |*127     127   6    | 3   *29  8   |
 	/// | 16   3   *169 |*12      4     8    | 7   *29  5   |
