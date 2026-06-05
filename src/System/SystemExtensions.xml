@@ -1844,6 +1844,24 @@
         <member name="M:System.DelegateExtensions.get_YCombinator``2(System.Func{System.Func{``0,``1},System.Func{``0,``1}})">
             <inheritdoc cref="P:System.DelegateExtensions.&lt;G&gt;$4D1B29D5E773FD86A73C5CE64E7A5F70`2.YCombinator"/>
         </member>
+        <member name="M:System.DelegateExtensions.op_OnesComplement(System.Func{System.Boolean})">
+            <inheritdoc cref="M:System.DelegateExtensions.&lt;G&gt;$F830E484A8557A46F6358729AAF16684.op_OnesComplement(System.Func{System.Boolean})"/>
+        </member>
+        <member name="M:System.DelegateExtensions.op_OnesComplement``1(System.Func{``0,System.Boolean})">
+            <inheritdoc cref="M:System.DelegateExtensions.&lt;G&gt;$94B97C6A6CE284CAA7E9F2B8D9E91D8A`1.op_OnesComplement(System.Func{`0,System.Boolean})"/>
+        </member>
+        <member name="M:System.DelegateExtensions.op_OnesComplement``2(System.Func{``0,``1,System.Boolean})">
+            <inheritdoc cref="M:System.DelegateExtensions.&lt;G&gt;$5C7E1527E4534E05D5ED66E44226D034`2.op_OnesComplement(System.Func{`0,`1,System.Boolean})"/>
+        </member>
+        <member name="M:System.DelegateExtensions.op_OnesComplement``3(System.Func{``0,``1,``2,System.Boolean})">
+            <inheritdoc cref="M:System.DelegateExtensions.&lt;G&gt;$FE7C98FEE7FF5EA6DC315C263EDA7E10`3.op_OnesComplement(System.Func{`0,`1,`2,System.Boolean})"/>
+        </member>
+        <member name="M:System.DelegateExtensions.op_OnesComplement``4(System.Func{``0,``1,``2,``3,System.Boolean})">
+            <inheritdoc cref="M:System.DelegateExtensions.&lt;G&gt;$384009C3FB72F2CBFF664A620E0850E9`4.op_OnesComplement(System.Func{`0,`1,`2,`3,System.Boolean})"/>
+        </member>
+        <member name="M:System.DelegateExtensions.op_OnesComplement``1(System.Predicate{``0})">
+            <inheritdoc cref="M:System.DelegateExtensions.&lt;G&gt;$56DDBCAD0FF751AFD33EEA5E0FA3BF0B`1.op_OnesComplement(System.Predicate{`0})"/>
+        </member>
         <member name="T:System.DelegateExtensions.&lt;G&gt;$B5EDD37094405E2F71002D8BA2403DF0.&lt;M&gt;$042F7CA5E7E8882088C6D22D59151DC0">
             <target name="container">
 				<summary>
@@ -1968,6 +1986,118 @@
             ]]></code>
             </summary>
             <returns>A function that creates a nesting lambda that is a recursive lambda.</returns>
+        </member>
+        <member name="T:System.DelegateExtensions.&lt;G&gt;$F830E484A8557A46F6358729AAF16684.&lt;M&gt;$E018C5C2EC464BD1CAF935C314F0015D">
+            <target name="container">
+				<summary>
+					<para>
+						Represents a nested <see langword="extension" /> block that includes extension members
+						that allows you using instance or static member reference syntax to visit them, avoiding some verbose referencing syntax
+						like <c>BlahBlahExtension.Method(InstanceMember)</c>, extending from extension methods introduced in C# 3.
+					</para>
+					<para>
+						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+					</para>
+				</summary>
+			</target>
+        </member>
+        <member name="M:System.DelegateExtensions.&lt;G&gt;$F830E484A8557A46F6358729AAF16684.op_OnesComplement(System.Func{System.Boolean})">
+            <summary>
+            Negates the logic of the specified method.
+            </summary>
+            <param name="value">The original method.</param>
+            <returns>A new method that returns the negated value of <paramref name="value"/>.</returns>
+        </member>
+        <member name="T:System.DelegateExtensions.&lt;G&gt;$94B97C6A6CE284CAA7E9F2B8D9E91D8A`1.&lt;M&gt;$6D93A83D6C6B6A728DE282DF25B64B41">
+            <target name="container">
+				<summary>
+					<para>
+						Represents a nested <see langword="extension" /> block that includes extension members
+						that allows you using instance or static member reference syntax to visit them, avoiding some verbose referencing syntax
+						like <c>BlahBlahExtension.Method(InstanceMember)</c>, extending from extension methods introduced in C# 3.
+					</para>
+					<para>
+						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+					</para>
+				</summary>
+			</target>
+        </member>
+        <member name="M:System.DelegateExtensions.&lt;G&gt;$94B97C6A6CE284CAA7E9F2B8D9E91D8A`1.op_OnesComplement(System.Func{`0,System.Boolean})">
+            <inheritdoc cref="M:System.DelegateExtensions.&lt;G&gt;$F830E484A8557A46F6358729AAF16684.op_OnesComplement(System.Func{System.Boolean})"/>
+        </member>
+        <member name="T:System.DelegateExtensions.&lt;G&gt;$5C7E1527E4534E05D5ED66E44226D034`2.&lt;M&gt;$C150E41A036B2830AEE247480098658F">
+            <target name="container">
+				<summary>
+					<para>
+						Represents a nested <see langword="extension" /> block that includes extension members
+						that allows you using instance or static member reference syntax to visit them, avoiding some verbose referencing syntax
+						like <c>BlahBlahExtension.Method(InstanceMember)</c>, extending from extension methods introduced in C# 3.
+					</para>
+					<para>
+						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+					</para>
+				</summary>
+			</target>
+        </member>
+        <member name="M:System.DelegateExtensions.&lt;G&gt;$5C7E1527E4534E05D5ED66E44226D034`2.op_OnesComplement(System.Func{`0,`1,System.Boolean})">
+            <inheritdoc cref="M:System.DelegateExtensions.&lt;G&gt;$F830E484A8557A46F6358729AAF16684.op_OnesComplement(System.Func{System.Boolean})"/>
+        </member>
+        <member name="T:System.DelegateExtensions.&lt;G&gt;$FE7C98FEE7FF5EA6DC315C263EDA7E10`3.&lt;M&gt;$9CC597C099BB57E3DCBBEFA5EE306B21">
+            <target name="container">
+				<summary>
+					<para>
+						Represents a nested <see langword="extension" /> block that includes extension members
+						that allows you using instance or static member reference syntax to visit them, avoiding some verbose referencing syntax
+						like <c>BlahBlahExtension.Method(InstanceMember)</c>, extending from extension methods introduced in C# 3.
+					</para>
+					<para>
+						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+					</para>
+				</summary>
+			</target>
+        </member>
+        <member name="M:System.DelegateExtensions.&lt;G&gt;$FE7C98FEE7FF5EA6DC315C263EDA7E10`3.op_OnesComplement(System.Func{`0,`1,`2,System.Boolean})">
+            <inheritdoc cref="M:System.DelegateExtensions.&lt;G&gt;$F830E484A8557A46F6358729AAF16684.op_OnesComplement(System.Func{System.Boolean})"/>
+        </member>
+        <member name="T:System.DelegateExtensions.&lt;G&gt;$384009C3FB72F2CBFF664A620E0850E9`4.&lt;M&gt;$A1CF793E98243E03041A8EFC72758B8D">
+            <target name="container">
+				<summary>
+					<para>
+						Represents a nested <see langword="extension" /> block that includes extension members
+						that allows you using instance or static member reference syntax to visit them, avoiding some verbose referencing syntax
+						like <c>BlahBlahExtension.Method(InstanceMember)</c>, extending from extension methods introduced in C# 3.
+					</para>
+					<para>
+						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+					</para>
+				</summary>
+			</target>
+        </member>
+        <member name="M:System.DelegateExtensions.&lt;G&gt;$384009C3FB72F2CBFF664A620E0850E9`4.op_OnesComplement(System.Func{`0,`1,`2,`3,System.Boolean})">
+            <inheritdoc cref="M:System.DelegateExtensions.&lt;G&gt;$F830E484A8557A46F6358729AAF16684.op_OnesComplement(System.Func{System.Boolean})"/>
+        </member>
+        <member name="T:System.DelegateExtensions.&lt;G&gt;$56DDBCAD0FF751AFD33EEA5E0FA3BF0B`1.&lt;M&gt;$C30F931C963EAF1828840970C69A3E82">
+            <target name="container">
+				<summary>
+					<para>
+						Represents a nested <see langword="extension" /> block that includes extension members
+						that allows you using instance or static member reference syntax to visit them, avoiding some verbose referencing syntax
+						like <c>BlahBlahExtension.Method(InstanceMember)</c>, extending from extension methods introduced in C# 3.
+					</para>
+					<para>
+						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+					</para>
+				</summary>
+			</target>
+        </member>
+        <member name="M:System.DelegateExtensions.&lt;G&gt;$56DDBCAD0FF751AFD33EEA5E0FA3BF0B`1.op_OnesComplement(System.Predicate{`0})">
+            <inheritdoc cref="M:System.DelegateExtensions.&lt;G&gt;$F830E484A8557A46F6358729AAF16684.op_OnesComplement(System.Func{System.Boolean})"/>
         </member>
         <member name="T:System.Diagnostics.CodeAnalysis.InterceptorMethodCallerAttribute">
             <summary>

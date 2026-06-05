@@ -285,11 +285,11 @@ public sealed partial record AnalysisResult(in Grid Puzzle) :
 	/// <seealso cref="HiddenSingleStep.House"/>
 	/// <seealso cref="SingleStep"/>
 	public Step? PearlStep
-		=> IsSolved && !StepsSpan.All(static s => s is FullHouseStep or HiddenSingleStep { House: < 9 })
+		=> IsSolved && !StepsSpan.All(StepIsEitherFullHouseOrHiddenSingleBlock)
 			? StepsSpan.AllAre<Step, SingleStep>()
-				? StepsSpan.First(static s => s is not HiddenSingleStep { House: < 9 })
-				: StepsSpan.FindIndex(static s => s is not SingleStep) is var a
-					? StepsSpan.FindIndex(static s => s is SingleStep) is var b and not 0
+				? StepsSpan.First(~StepIsHiddenSingleBlock)
+				: StepsSpan.FindIndex(~StepIsSingle) is var a
+					? StepsSpan.FindIndex(StepIsSingle) is var b and not 0
 						? StepsSpan[a..b].MaxBy(static s => s.Difficulty)
 						: StepsSpan[0]
 					: null
@@ -321,13 +321,34 @@ public sealed partial record AnalysisResult(in Grid Puzzle) :
 	/// The backing property of <see cref="GridsSpan"/>, providing raw values of grids to use.
 	/// </summary>
 	/// <seealso cref="GridsSpan"/>
+	[EditorBrowsable(EditorBrowsableState.Advanced)]
 	internal Grid[]? InterimGrids { get; init; }
 
 	/// <summary>
 	/// The backing property of <see cref="StepsSpan"/>, provdining raw values of steps to use.
 	/// </summary>
 	/// <seealso cref="StepsSpan"/>
+	[EditorBrowsable(EditorBrowsableState.Advanced)]
 	internal Step[]? InterimSteps { get; init; }
+
+	/// <summary>
+	/// Returns a predicate that checks whether a step is either hidden single in block or full house.
+	/// </summary>
+	[EditorBrowsable(EditorBrowsableState.Advanced)]
+	internal Func<Step, bool> StepIsEitherFullHouseOrHiddenSingleBlock
+		=> static s => s is FullHouseStep or HiddenSingleStep { House: < 9 };
+
+	/// <summary>
+	/// Returns a predicate that checks whether a step is hidden single in block.
+	/// </summary>
+	[EditorBrowsable(EditorBrowsableState.Advanced)]
+	internal Func<Step, bool> StepIsHiddenSingleBlock => static s => s is not HiddenSingleStep { House: < 9 };
+
+	/// <summary>
+	/// Returns a predicate that checks whether a step is single (hidden single, naked single or full house).
+	/// </summary>
+	[EditorBrowsable(EditorBrowsableState.Advanced)]
+	internal Func<Step, bool> StepIsSingle => static s => s is SingleStep;
 
 	/// <inheritdoc/>
 	int IReadOnlyCollection<KeyValuePair<Grid, Step>>.Count => Span.Length;

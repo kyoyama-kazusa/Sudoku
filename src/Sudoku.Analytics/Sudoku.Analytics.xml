@@ -315,6 +315,21 @@
             </summary>
             <seealso cref="P:Sudoku.Analytics.AnalysisResult.StepsSpan"/>
         </member>
+        <member name="P:Sudoku.Analytics.AnalysisResult.StepIsEitherFullHouseOrHiddenSingleBlock">
+            <summary>
+            Returns a predicate that checks whether a step is either hidden single in block or full house.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.AnalysisResult.StepIsHiddenSingleBlock">
+            <summary>
+            Returns a predicate that checks whether a step is hidden single in block.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Analytics.AnalysisResult.StepIsSingle">
+            <summary>
+            Returns a predicate that checks whether a step is single (hidden single, naked single or full house).
+            </summary>
+        </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.System#Collections#Generic#IReadOnlyCollection{System#Collections#Generic#KeyValuePair{Sudoku#Concepts#Grid,Sudoku#Analytics#Step}}#Count">
             <inheritdoc/>
         </member>
