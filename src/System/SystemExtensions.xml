@@ -4,93 +4,6 @@
         <name>SystemExtensions</name>
     </assembly>
     <members>
-        <member name="T:System.ActivatorExtensions">
-            <summary>
-            Provides extension methods on <see cref="T:System.Activator"/>.
-            </summary>
-            <seealso cref="T:System.Activator"/>
-        </member>
-        <member name="M:System.ActivatorExtensions.Create(System.Type,System.Type[],System.Object[])">
-            <inheritdoc cref="M:System.ActivatorExtensions.&lt;G&gt;$119B4280B5D795848DADCC49E81553B2.Create(System.Type,System.Type[],System.Object[])"/>
-        </member>
-        <member name="M:System.ActivatorExtensions.Create``1(System.Type[],System.Object[])">
-            <inheritdoc cref="M:System.ActivatorExtensions.&lt;G&gt;$119B4280B5D795848DADCC49E81553B2.Create``1(System.Type[],System.Object[])"/>
-        </member>
-        <member name="M:System.ActivatorExtensions.Create``2(``1)">
-            <inheritdoc cref="M:System.ActivatorExtensions.&lt;G&gt;$119B4280B5D795848DADCC49E81553B2.Create``2(``1)"/>
-        </member>
-        <member name="M:System.ActivatorExtensions.Create``3(``1,``2)">
-            <inheritdoc cref="M:System.ActivatorExtensions.&lt;G&gt;$119B4280B5D795848DADCC49E81553B2.Create``3(``1,``2)"/>
-        </member>
-        <member name="M:System.ActivatorExtensions.Create``4(``1,``2,``3)">
-            <inheritdoc cref="M:System.ActivatorExtensions.&lt;G&gt;$119B4280B5D795848DADCC49E81553B2.Create``4(``1,``2,``3)"/>
-        </member>
-        <member name="M:System.ActivatorExtensions.Create``5(``1,``2,``3,``4)">
-            <inheritdoc cref="M:System.ActivatorExtensions.&lt;G&gt;$119B4280B5D795848DADCC49E81553B2.Create``5(``1,``2,``3,``4)"/>
-        </member>
-        <member name="T:System.ActivatorExtensions.&lt;G&gt;$119B4280B5D795848DADCC49E81553B2.&lt;M&gt;$638764BB5347C32D4F8D7942E1F94B2A">
-            <target name="container">
-				<summary>
-					<para>
-						Represents a nested <see langword="extension" /> block that includes extension members
-						that allows you using instance or static member reference syntax to visit them, avoiding some verbose referencing syntax
-						like <c>BlahBlahExtension.Method(InstanceMember)</c>, extending from extension methods introduced in C# 3.
-					</para>
-					<para>
-						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
-					</para>
-				</summary>
-			</target>
-        </member>
-        <member name="M:System.ActivatorExtensions.&lt;G&gt;$119B4280B5D795848DADCC49E81553B2.Create(System.Type,System.Type[],System.Object[])">
-            <summary>
-            Creates an instance of specified type, with parameter types specified.
-            </summary>
-            <param name="type">The type of instance to create.</param>
-            <param name="parameterTypes">Types of parameters.</param>
-            <param name="arguments">The parameter values.</param>
-            <returns>The instance.</returns>
-        </member>
-        <member name="M:System.ActivatorExtensions.&lt;G&gt;$119B4280B5D795848DADCC49E81553B2.Create``1(System.Type[],System.Object[])">
-            <summary>
-            Creates an instance of specified type, with parameter types specified.
-            </summary>
-            <typeparam name="T">The type of instance to create.</typeparam>
-            <param name="parameterTypes">Types of parameters.</param>
-            <param name="arguments">The parameter values.</param>
-            <returns>The instance.</returns>
-        </member>
-        <member name="M:System.ActivatorExtensions.&lt;G&gt;$119B4280B5D795848DADCC49E81553B2.Create``2(``1)">
-            <summary>
-            Creates an instance of specified type, with parameter types specified.
-            </summary>
-            <typeparam name="T">The type of instance to create.</typeparam>
-            <typeparam name="TArg">The type of argument.</typeparam>
-            <param name="arg">The parameter value.</param>
-            <returns>The instance.</returns>
-        </member>
-        <member name="M:System.ActivatorExtensions.&lt;G&gt;$119B4280B5D795848DADCC49E81553B2.Create``3(``1,``2)">
-            <inheritdoc cref="M:System.ActivatorExtensions.Create``5(``1,``2,``3,``4)"/>
-        </member>
-        <member name="M:System.ActivatorExtensions.&lt;G&gt;$119B4280B5D795848DADCC49E81553B2.Create``4(``1,``2,``3)">
-            <inheritdoc cref="M:System.ActivatorExtensions.Create``5(``1,``2,``3,``4)"/>
-        </member>
-        <member name="M:System.ActivatorExtensions.&lt;G&gt;$119B4280B5D795848DADCC49E81553B2.Create``5(``1,``2,``3,``4)">
-            <summary>
-            Creates an instance of specified type, with parameter types specified.
-            </summary>
-            <typeparam name="T">The type of instance to create.</typeparam>
-            <typeparam name="TArg1">The type of argument #1.</typeparam>
-            <typeparam name="TArg2">The type of argument #2.</typeparam>
-            <typeparam name="TArg3">The type of argument #3.</typeparam>
-            <typeparam name="TArg4">The type of argument #4.</typeparam>
-            <param name="arg1">The parameter value #1.</param>
-            <param name="arg2">The parameter value #2.</param>
-            <param name="arg3">The parameter value #3.</param>
-            <param name="arg4">The parameter value #4.</param>
-            <returns>The instance.</returns>
-        </member>
         <member name="T:System.ArrayInitializer`1">
             <summary>
             Represents a method that initializes for an element of type <typeparamref name="T"/>?,
@@ -2443,6 +2356,20 @@
             <param name="expression">The expression.</param>
             <param name="failedExpressionString">The string to the argument <paramref name="expression"/>.</param>
             <exception cref="T:System.InvalidOperationException">Throws when assertion is failed.</exception>
+        </member>
+        <member name="T:System.ExceptionConstructorAccessor`1">
+            <summary>
+            Provides an unsafe accessor type of type <typeparamref name="TException"/>.
+            </summary>
+            <typeparam name="TException">The type of exception.</typeparam>
+        </member>
+        <member name="M:System.ExceptionConstructorAccessor`1.CreateInstance(System.String)">
+            <summary>
+            Calls <typeparamref name="TException"/>.<see langword="new"/>(<see cref="T:System.String"/>) to create an instance
+            via the specified <see cref="T:System.String"/> value.
+            </summary>
+            <param name="message">The message.</param>
+            <returns>The instance created.</returns>
         </member>
         <member name="T:System.FloatingPointExtensions">
             <summary>

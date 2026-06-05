@@ -24,9 +24,26 @@ public static class ExceptionExtensions
 		{
 			if (!expression)
 			{
-				var expr = $"The specified expression is failed to be checked: '{failedExpressionString}'.";
-				throw Activator.Create<TException, string>(expr)!;
+				throw ExceptionConstructorAccessor<TException>.CreateInstance(
+					$"The specified expression is failed to be checked: '{failedExpressionString}'."
+				)!;
 			}
 		}
 	}
+}
+
+/// <summary>
+/// Provides an unsafe accessor type of type <typeparamref name="TException"/>.
+/// </summary>
+/// <typeparam name="TException">The type of exception.</typeparam>
+file static class ExceptionConstructorAccessor<TException> where TException : SystemException
+{
+	/// <summary>
+	/// Calls <typeparamref name="TException"/>.<see langword="new"/>(<see cref="string"/>) to create an instance
+	/// via the specified <see cref="string"/> value.
+	/// </summary>
+	/// <param name="message">The message.</param>
+	/// <returns>The instance created.</returns>
+	[UnsafeAccessor(UnsafeAccessorKind.Constructor)]
+	public static extern TException CreateInstance(string? message);
 }
