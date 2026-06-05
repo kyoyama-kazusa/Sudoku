@@ -207,17 +207,14 @@ public sealed partial record AnalysisResult(in Grid Puzzle) :
 	public TimeSpan ElapsedTime { get; init; }
 
 	/// <summary>
-	/// Returns a <see cref="ReadOnlySpan{T}"/> of <see cref="Grid"/> instances,
-	/// whose internal values come from <see cref="InterimGrids"/>.
+	/// Indicates the grid interims, which are produced from <see cref="Puzzle"/>, solved step by step.
 	/// </summary>
-	/// <seealso cref="InterimGrids"/>
+	/// <seealso cref="Puzzle"/>
 	public ReadOnlySpan<Grid> GridsSpan => InterimGrids;
 
 	/// <summary>
-	/// Returns a <see cref="ReadOnlySpan{T}"/> of <see cref="Step"/> instances,
-	/// whose internal values come from <see cref="InterimSteps"/>.
+	/// Indicates the steps produced after a puzzle having been solved.
 	/// </summary>
-	/// <seealso cref="InterimSteps"/>
 	public ReadOnlySpan<Step> StepsSpan => InterimSteps;
 
 	/// <summary>
@@ -321,15 +318,15 @@ public sealed partial record AnalysisResult(in Grid Puzzle) :
 	public Exception? UnhandledException { get; init; }
 
 	/// <summary>
-	/// Indicates a list, whose element is the intermediate grid for each step.
+	/// The backing property of <see cref="GridsSpan"/>, providing raw values of grids to use.
 	/// </summary>
-	/// <seealso cref="InterimSteps"/>
+	/// <seealso cref="GridsSpan"/>
 	internal Grid[]? InterimGrids { get; init; }
 
 	/// <summary>
-	/// Indicates all solving steps that the solver has recorded.
+	/// The backing property of <see cref="StepsSpan"/>, provdining raw values of steps to use.
 	/// </summary>
-	/// <seealso cref="InterimGrids"/>
+	/// <seealso cref="StepsSpan"/>
 	internal Step[]? InterimSteps { get; init; }
 
 	/// <inheritdoc/>

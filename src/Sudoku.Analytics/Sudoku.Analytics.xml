@@ -203,17 +203,14 @@
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.GridsSpan">
             <summary>
-            Returns a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:Sudoku.Concepts.Grid"/> instances,
-            whose internal values come from <see cref="P:Sudoku.Analytics.AnalysisResult.InterimGrids"/>.
+            Indicates the grid interims, which are produced from <see cref="P:Sudoku.Analytics.AnalysisResult.Puzzle"/>, solved step by step.
             </summary>
-            <seealso cref="P:Sudoku.Analytics.AnalysisResult.InterimGrids"/>
+            <seealso cref="P:Sudoku.Analytics.AnalysisResult.Puzzle"/>
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.StepsSpan">
             <summary>
-            Returns a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:Sudoku.Analytics.Step"/> instances,
-            whose internal values come from <see cref="P:Sudoku.Analytics.AnalysisResult.InterimSteps"/>.
+            Indicates the steps produced after a puzzle having been solved.
             </summary>
-            <seealso cref="P:Sudoku.Analytics.AnalysisResult.InterimSteps"/>
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.WrongStep">
             <summary>
@@ -308,15 +305,15 @@
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.InterimGrids">
             <summary>
-            Indicates a list, whose element is the intermediate grid for each step.
+            The backing property of <see cref="P:Sudoku.Analytics.AnalysisResult.GridsSpan"/>, providing raw values of grids to use.
             </summary>
-            <seealso cref="P:Sudoku.Analytics.AnalysisResult.InterimSteps"/>
+            <seealso cref="P:Sudoku.Analytics.AnalysisResult.GridsSpan"/>
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.InterimSteps">
             <summary>
-            Indicates all solving steps that the solver has recorded.
+            The backing property of <see cref="P:Sudoku.Analytics.AnalysisResult.StepsSpan"/>, provdining raw values of steps to use.
             </summary>
-            <seealso cref="P:Sudoku.Analytics.AnalysisResult.InterimGrids"/>
+            <seealso cref="P:Sudoku.Analytics.AnalysisResult.StepsSpan"/>
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.System#Collections#Generic#IReadOnlyCollection{System#Collections#Generic#KeyValuePair{Sudoku#Concepts#Grid,Sudoku#Analytics#Step}}#Count">
             <inheritdoc/>
