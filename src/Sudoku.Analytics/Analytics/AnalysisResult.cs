@@ -283,6 +283,10 @@ public sealed partial record AnalysisResult(in Grid Puzzle) :
 	/// </item>
 	/// </list>
 	/// </remarks>
+	/// <seealso cref="FullHouseStep"/>
+	/// <seealso cref="HiddenSingleStep"/>
+	/// <seealso cref="HiddenSingleStep.House"/>
+	/// <seealso cref="SingleStep"/>
 	public Step? PearlStep
 		=> IsSolved && !StepsSpan.All(static s => s is FullHouseStep or HiddenSingleStep { House: < 9 })
 			? StepsSpan.AllAre<Step, SingleStep>()

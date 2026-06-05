@@ -279,6 +279,10 @@
             </item>
             </list>
             </remarks>
+            <seealso cref="T:Sudoku.Analytics.Steps.FullHouseStep"/>
+            <seealso cref="T:Sudoku.Analytics.Steps.HiddenSingleStep"/>
+            <seealso cref="P:Sudoku.Analytics.Steps.HiddenSingleStep.House"/>
+            <seealso cref="T:Sudoku.Analytics.Steps.SingleStep"/>
         </member>
         <member name="P:Sudoku.Analytics.AnalysisResult.DiamondStep">
             <summary>
