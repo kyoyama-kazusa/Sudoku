@@ -10627,9 +10627,6 @@
         <member name="M:System.SequenceExtensions.op_OnesComplement``1(System.ReadOnlyMemory{``0})">
             <inheritdoc cref="M:System.SequenceExtensions.&lt;G&gt;$3387D7F181FA234A9158DADA9224047F`1.op_OnesComplement(System.ReadOnlyMemory{`0})"/>
         </member>
-        <member name="M:System.SequenceExtensions.FirstIndex``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
-            <inheritdoc cref="M:System.SequenceExtensions.&lt;G&gt;$CCC6C15EC93AA06816794B41FF241F94`1.FirstIndex(System.Func{`0,System.Boolean})"/>
-        </member>
         <member name="M:System.SequenceExtensions.LastIndex``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
             <inheritdoc cref="M:System.SequenceExtensions.&lt;G&gt;$CCC6C15EC93AA06816794B41FF241F94`1.LastIndex(System.Func{`0,System.Boolean})"/>
         </member>
@@ -10886,15 +10883,6 @@
 			</target>
             <typeparam name="T">The type of each element.</typeparam>
             <param name="this">The current instance.</param>
-        </member>
-        <member name="M:System.SequenceExtensions.&lt;G&gt;$CCC6C15EC93AA06816794B41FF241F94`1.FirstIndex(System.Func{`0,System.Boolean})">
-            <summary>
-            Finds the first element satisfying the specified condition, and return its corresponding index.
-            </summary>
-            <param name="predicate">The condition.</param>
-            <returns>
-            An <see cref="T:System.Int32"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
-            </returns>
         </member>
         <member name="M:System.SequenceExtensions.&lt;G&gt;$CCC6C15EC93AA06816794B41FF241F94`1.LastIndex(System.Func{`0,System.Boolean})">
             <summary>

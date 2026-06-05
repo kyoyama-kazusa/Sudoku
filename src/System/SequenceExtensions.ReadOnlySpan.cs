@@ -10,25 +10,6 @@ public partial class SequenceExtensions
 	extension<T>(ReadOnlySpan<T> @this)
 	{
 		/// <summary>
-		/// Finds the first element satisfying the specified condition, and return its corresponding index.
-		/// </summary>
-		/// <param name="predicate">The condition.</param>
-		/// <returns>
-		/// An <see cref="int"/> indicating the found element. -1 returns if the sequence has no element satisfying the condition.
-		/// </returns>
-		public int FirstIndex(Func<T, bool> predicate)
-		{
-			for (var i = 0; i < @this.Length; i++)
-			{
-				if (predicate(@this[i]))
-				{
-					return i;
-				}
-			}
-			return -1;
-		}
-
-		/// <summary>
 		/// Finds the last element satisfying the specified condition, and return its corresponding index.
 		/// </summary>
 		/// <param name="predicate">The condition.</param>

@@ -291,8 +291,8 @@ public sealed partial record AnalysisResult(in Grid Puzzle) :
 		=> IsSolved && !StepsSpan.All(static s => s is FullHouseStep or HiddenSingleStep { House: < 9 })
 			? StepsSpan.AllAre<Step, SingleStep>()
 				? StepsSpan.First(static s => s is not HiddenSingleStep { House: < 9 })
-				: StepsSpan.FirstIndex(static s => s is not SingleStep) is var a
-					? StepsSpan.FirstIndex(static s => s is SingleStep) is var b and not 0
+				: StepsSpan.FindIndex(static s => s is not SingleStep) is var a
+					? StepsSpan.FindIndex(static s => s is SingleStep) is var b and not 0
 						? StepsSpan[a..b].MaxBy(static s => s.Difficulty)
 						: StepsSpan[0]
 					: null
