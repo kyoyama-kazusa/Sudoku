@@ -1914,7 +1914,7 @@
             <summary>
             Represents an exception that describes for a field in <see cref="T:Sudoku.Analytics.Categorization.Technique"/> is missing for difficulty level attribute.
             </summary>
-            <param name="_memberName">The field name.</param>
+            <param name="memberName">The field name.</param>
             <seealso cref="T:Sudoku.Analytics.Categorization.Technique"/>
             <seealso cref="T:Sudoku.Analytics.DifficultyLevel"/>
             <seealso cref="T:Sudoku.Analytics.Categorization.TechniqueMetadataAttribute"/>
@@ -1923,19 +1923,33 @@
             <summary>
             Represents an exception that describes for a field in <see cref="T:Sudoku.Analytics.Categorization.Technique"/> is missing for difficulty level attribute.
             </summary>
-            <param name="_memberName">The field name.</param>
+            <param name="memberName">The field name.</param>
             <seealso cref="T:Sudoku.Analytics.Categorization.Technique"/>
             <seealso cref="T:Sudoku.Analytics.DifficultyLevel"/>
             <seealso cref="T:Sudoku.Analytics.Categorization.TechniqueMetadataAttribute"/>
         </member>
-        <member name="P:Sudoku.Analytics.Categorization.MissingDifficultyLevelException.Message">
+        <member name="T:Sudoku.Analytics.Categorization.MissingRequiredResourceMemberException">
+            <summary>
+            Represents an exception type that describes an error when a resource is missing.
+            </summary>
+            <param name="_resourceKey">The resource key.</param>
+            <param name="_memberName">The member name.</param>
+        </member>
+        <member name="M:Sudoku.Analytics.Categorization.MissingRequiredResourceMemberException.#ctor(System.String,System.String)">
+            <summary>
+            Represents an exception type that describes an error when a resource is missing.
+            </summary>
+            <param name="_resourceKey">The resource key.</param>
+            <param name="_memberName">The member name.</param>
+        </member>
+        <member name="P:Sudoku.Analytics.Categorization.MissingRequiredResourceMemberException.Message">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Categorization.MissingTechniqueGroupException">
             <summary>
             Represents an exception thrown when a field in <see cref="T:Sudoku.Analytics.Categorization.Technique"/> is missing for technique group attribute.
             </summary>
-            <param name="_memberName">Indicates the field name.</param>
+            <param name="memberName">Indicates the field name.</param>
             <seealso cref="T:Sudoku.Analytics.Categorization.Technique"/>
             <seealso cref="T:Sudoku.Analytics.Categorization.TechniqueGroup"/>
             <seealso cref="T:Sudoku.Analytics.Categorization.TechniqueMetadataAttribute"/>
@@ -1944,13 +1958,10 @@
             <summary>
             Represents an exception thrown when a field in <see cref="T:Sudoku.Analytics.Categorization.Technique"/> is missing for technique group attribute.
             </summary>
-            <param name="_memberName">Indicates the field name.</param>
+            <param name="memberName">Indicates the field name.</param>
             <seealso cref="T:Sudoku.Analytics.Categorization.Technique"/>
             <seealso cref="T:Sudoku.Analytics.Categorization.TechniqueGroup"/>
             <seealso cref="T:Sudoku.Analytics.Categorization.TechniqueMetadataAttribute"/>
-        </member>
-        <member name="P:Sudoku.Analytics.Categorization.MissingTechniqueGroupException.Message">
-            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Analytics.Categorization.Technique">
             <summary>
