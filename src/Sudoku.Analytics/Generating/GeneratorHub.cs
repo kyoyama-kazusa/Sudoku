@@ -80,17 +80,17 @@ public static partial class GeneratorHub
 		{
 			var specializedConditions = (
 				HasFullHouseConstraint:
-					constraints.OfType<PrimarySingleConstraint>() is [{ Primary: SingleTechniqueFlag.FullHouse }],
+					constraints.OfTypeSingleOrDefault<PrimarySingleConstraint>() is { Primary: SingleTechniqueFlag.FullHouse },
 				HasNakedSingleConstraint:
-					constraints.OfType<PrimarySingleConstraint>() is [{ Primary: SingleTechniqueFlag.NakedSingle }],
+					constraints.OfTypeSingleOrDefault<PrimarySingleConstraint>() is { Primary: SingleTechniqueFlag.NakedSingle },
 				HasFullHouseConstraintInTechniqueSet:
-					constraints.OfType<TechniqueSetConstraint>() is [{ Techniques: [Technique.FullHouse] }],
+					constraints.OfTypeSingleOrDefault<TechniqueSetConstraint>() is { Techniques: [Technique.FullHouse] },
 				HasNakedSingleConstraintInTechniqueSet:
-					constraints.OfType<TechniqueSetConstraint>() is [{ Techniques: [Technique.NakedSingle] }],
+					constraints.OfTypeSingleOrDefault<TechniqueSetConstraint>() is { Techniques: [Technique.NakedSingle] },
 				HasIttoryuConstraint:
-					constraints.OfType<IttoryuConstraint>() is [{ Operator: ComparisonOperator.Equality, Rounds: 1 }],
+					constraints.OfTypeSingleOrDefault<IttoryuConstraint>() is { Operator: ComparisonOperator.Equality, Rounds: 1 },
 				HasMissingDigitConstraint:
-					constraints.OfType<MissingDigitConstraint>() is [{ Digit: not -1 }],
+					constraints.OfTypeSingleOrDefault<MissingDigitConstraint>() is { Digit: not -1 },
 				HasMissingHouseConstraint:
 					constraints.Has<EmptyHousesCountConstraint>()
 			);

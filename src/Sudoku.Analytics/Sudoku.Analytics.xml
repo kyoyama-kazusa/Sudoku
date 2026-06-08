@@ -29517,6 +29517,24 @@
         <member name="M:Sudoku.Filtering.ConstraintCollection.Select``1(System.Func{Sudoku.Filtering.Constraint,``0})">
             <inheritdoc cref="M:System.Linq.Providers.ISelectMethod`2.Select``1(System.Func{`1,``0})"/>
         </member>
+        <member name="M:Sudoku.Filtering.ConstraintCollection.OfTypeSingle``1">
+            <summary>
+            Finds for the constraints that are of type <typeparamref name="TConstraint"/>.
+            If multiple constraints or no constraints are found, an exception will be thrown; otherwise, the only value will be returned.
+            </summary>
+            <typeparam name="TConstraint">The type of desired constraint.</typeparam>
+            <returns>The constraint found.</returns>
+            <exception cref="T:System.InvalidOperationException">Throws when multiple or no values matched.</exception>
+        </member>
+        <member name="M:Sudoku.Filtering.ConstraintCollection.OfTypeSingleOrDefault``1">
+            <summary>
+            Finds for the constraints that are of type <typeparamref name="TConstraint"/>.
+            If multiple constraints are found or no constraints are found, <see langword="null"/> will be returned;
+            otherwise, the only value.
+            </summary>
+            <typeparam name="TConstraint">The type of desired constraint.</typeparam>
+            <returns>The constraint found.</returns>
+        </member>
         <member name="M:Sudoku.Filtering.ConstraintCollection.System#ICloneable#Clone">
             <inheritdoc/>
         </member>

@@ -144,6 +144,54 @@ public sealed class ConstraintCollection :
 		return result.AsSpan();
 	}
 
+	/// <summary>
+	/// Finds for the constraints that are of type <typeparamref name="TConstraint"/>.
+	/// If multiple constraints or no constraints are found, an exception will be thrown; otherwise, the only value will be returned.
+	/// </summary>
+	/// <typeparam name="TConstraint">The type of desired constraint.</typeparam>
+	/// <returns>The constraint found.</returns>
+	/// <exception cref="InvalidOperationException">Throws when multiple or no values matched.</exception>
+	public TConstraint OfTypeSingle<TConstraint>() where TConstraint : Constraint
+	{
+		var result = new List<TConstraint>(2);
+		foreach (var element in this)
+		{
+			if (element is TConstraint constraint)
+			{
+				result.Add(constraint);
+				if (result.Count == 2)
+				{
+					throw new InvalidOperationException("Multiple matches found.");
+				}
+			}
+		}
+		return result is [var onlyValue] ? onlyValue : throw new InvalidOperationException();
+	}
+
+	/// <summary>
+	/// Finds for the constraints that are of type <typeparamref name="TConstraint"/>.
+	/// If multiple constraints are found or no constraints are found, <see langword="null"/> will be returned;
+	/// otherwise, the only value.
+	/// </summary>
+	/// <typeparam name="TConstraint">The type of desired constraint.</typeparam>
+	/// <returns>The constraint found.</returns>
+	public TConstraint? OfTypeSingleOrDefault<TConstraint>() where TConstraint : Constraint
+	{
+		var result = new List<TConstraint>(2);
+		foreach (var element in this)
+		{
+			if (element is TConstraint constraint)
+			{
+				result.Add(constraint);
+				if (result.Count == 2)
+				{
+					return null;
+				}
+			}
+		}
+		return result is [var onlyValue] ? onlyValue : null;
+	}
+
 	/// <inheritdoc/>
 	object ICloneable.Clone() => Clone();
 

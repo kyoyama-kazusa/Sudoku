@@ -30,7 +30,7 @@ public partial class GeneratorHub
 	private static partial void Transformer_MissingDigit(ref Grid grid, ConstraintCollection constraints, object? variable)
 	{
 		var digit = (int)variable!;
-		var desiredDigit = constraints.OfType<MissingDigitConstraint>()[0].Digit;
+		var desiredDigit = constraints.OfTypeSingle<MissingDigitConstraint>().Digit;
 		if (desiredDigit != digit)
 		{
 			grid.SwapDigit(digit, desiredDigit);
