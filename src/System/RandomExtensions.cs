@@ -34,7 +34,7 @@ public static class RandomExtensions
 		/// <param name="values">The values.</param>
 		/// <returns>The chosen element.</returns>
 		/// <exception cref="InvalidOperationException">Throws when the specified collection is empty.</exception>
-		public T Choose<T>(ReadOnlySpan<T> values) => values[@this.Next(0, values.Length)];
+		public ref readonly T Choose<T>(ReadOnlySpan<T> values) => ref values[@this.Next(0, values.Length)];
 
 		/// <summary>
 		/// Randomly select one element from the collection, with possibility specified by normalizer function.
