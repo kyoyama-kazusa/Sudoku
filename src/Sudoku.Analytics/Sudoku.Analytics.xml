@@ -30493,29 +30493,80 @@
             Represents an entry point for generating puzzles with mixed configuration.
             </summary>
         </member>
-        <member name="M:Sudoku.Generating.GeneratorHub.GenerateAsync``1(System.Boolean,System.Func{Sudoku.Filtering.ConstraintCollection},System.Func{Sudoku.Filtering.ConstraintCollection,Sudoku.Analytics.DifficultyLevel},System.Func{Sudoku.Analytics.DifficultyLevel,Sudoku.Analytics.Analyzer},System.Func{Sudoku.Analytics.Ittoryu.DisorderedIttoryuFinder},System.Action{System.Threading.CancellationTokenSource},System.Action,System.Action,System.Func{Sudoku.Analytics.Bottlenecks.BottleneckFilter[]},System.Action{``0},Sudoku.Generating.GridStateChanger{Sudoku.Analytics.Analyzer},System.Action{System.String})">
+        <member name="M:Sudoku.Generating.GeneratorHub.GenerateAsync``1(System.Boolean,Sudoku.Generating.IGeneratorDriver{``0})">
             <summary>
             Provides a way to generate a puzzle in asynchronous environment.
             </summary>
             <typeparam name="TProgressDataProvider">The type of progress data provider.</typeparam>
             <param name="onlyGenerateOne">Indicates whether the method only generate one puzzle and return.</param>
-            <param name="constraintsCreator">The method that create constraints.</param>
-            <param name="difficultyLevelCreator">The method that create a difficulty level.</param>
-            <param name="analyzerCreator">The method that create a analyzer.</param>
-            <param name="ittoryuFinderCreator">The method that create a ittoryu finder.</param>
-            <param name="cancellationTokenSourceAssigner">The assigner operation for <see cref="T:System.Threading.CancellationTokenSource"/> object.</param>
-            <param name="stateInitializer">The state-initialization operation.</param>
-            <param name="stateRecoverer">The state-recoverage operation.</param>
-            <param name="bottleneckFiltersCreator">The bottleneck filters creator.</param>
-            <param name="reportAction">The progress-report action.</param>
-            <param name="gridStateChanger">The grid state changer.</param>
-            <param name="gridTextConsumer">The grid text consumer, triggered on each puzzle generated.</param>
+            <param name="generatorDriver">The generator driver.</param>
             <returns>A task that encapsulates asynchronous operation.</returns>
             <exception cref="T:System.OperationCanceledException">Throws when operation canceled.</exception>
         </member>
         <member name="M:Sudoku.Generating.GeneratorHub.HandlerCore``1(System.Int32@,System.Int32@,Sudoku.Filtering.ConstraintCollection,,,,System.Action{``0},Sudoku.Analytics.Analyzer,Sudoku.Analytics.Ittoryu.DisorderedIttoryuFinder,Sudoku.Analytics.Bottlenecks.BottleneckFilter[],System.Threading.CancellationToken)">
             <summary>
             The backing handler.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Generating.IGeneratorDriver`1">
+            <summary>
+            Provides a driver object that registers a complex generator.
+            </summary>
+            <typeparam name="TProgressDataProvider">The type of progress data provider.</typeparam>
+        </member>
+        <member name="P:Sudoku.Generating.IGeneratorDriver`1.ConstraintsCreator">
+            <summary>
+            The method that create constraints.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Generating.IGeneratorDriver`1.DifficultyLevelCreator">
+            <summary>
+            The method that create a difficulty level.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Generating.IGeneratorDriver`1.AnalyzerCreator">
+            <summary>
+            The method that create a analyzer.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Generating.IGeneratorDriver`1.IttoryuFinderCreator">
+            <summary>
+            The method that create a ittoryu finder.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Generating.IGeneratorDriver`1.CancellationTokenSourceAssigner">
+            <summary>
+            The assigner operation for <see cref="T:System.Threading.CancellationTokenSource"/> object.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Generating.IGeneratorDriver`1.StateInitializer">
+            <summary>
+            The state-initialization operation.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Generating.IGeneratorDriver`1.StateFinalizer">
+            <summary>
+            The state finalizer operation.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Generating.IGeneratorDriver`1.BottleneckFiltersCreator">
+            <summary>
+            The bottleneck filters creator.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Generating.IGeneratorDriver`1.ReportAction">
+            <summary>
+            The progress-report action.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Generating.IGeneratorDriver`1.GridStateChanger">
+            <summary>
+            The grid state changer.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Generating.IGeneratorDriver`1.GridTextConsumer">
+            <summary>
+            The grid text consumer, triggered after each puzzle generated.
             </summary>
         </member>
         <member name="T:Sudoku.Generating.Qualified.ComplexSingleGenerator">

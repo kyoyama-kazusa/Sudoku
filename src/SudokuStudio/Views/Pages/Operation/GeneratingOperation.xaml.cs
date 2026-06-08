@@ -75,45 +75,48 @@ public sealed partial class GeneratingOperation : Page, IOperationProviderPage
 		where TProgressDataProvider : struct, IEquatable<TProgressDataProvider>, IProgressDataProvider<TProgressDataProvider>
 	{
 		var processingText = SR.Get("AnalyzePage_GeneratorIsProcessing", App.CurrentCulture);
-		await GeneratorHub.GenerateAsync<TProgressDataProvider>(
-			onlyGenerateOne: onlyGenerateOne,
-			constraintsCreator: () => Application.CurrentApp.Preference.ConstraintPreferences.Constraints,
-			difficultyLevelCreator: constraints =>
+		await GeneratorHub.GenerateAsync(
+			onlyGenerateOne,
+			new GeneratorDriver<TProgressDataProvider>
 			{
-				var difficultyLevels = from c in constraints.OfType<DifficultyLevelConstraint>() select c.DifficultyLevel;
-				return difficultyLevels is [var dl] ? dl : default;
-			},
-			analyzerCreator: difficultyLevel => Application.CurrentApp.GetAnalyzerConfigured(BasePage.SudokuPane, difficultyLevel),
-			ittoryuFinderCreator: () => new DisorderedIttoryuFinder(TechniqueSet.IttoryuTechniques),
-			cancellationTokenSourceAssigner: cts => BasePage._ctsForAnalyzingRelatedOperations = cts,
-			stateInitializer: () =>
-			{
-				BasePage.IsGeneratorLaunched = true;
-				BasePage.ClearAnalyzeTabsData();
-			},
-			stateRecoverer: () =>
-			{
-				BasePage._ctsForAnalyzingRelatedOperations = null;
-				BasePage.IsGeneratorLaunched = false;
-			},
-			bottleneckFiltersCreator: () =>
-			{
-				var analysisPref = Application.CurrentApp.Preference.AnalysisPreferences;
-				return [
-					new(TechniqueType.Direct, analysisPref.DirectModeBottleneckType),
-					new(TechniqueType.Snyder, analysisPref.PartialMarkingModeBottleneckType),
-					new(TechniqueType.Advanced, analysisPref.FullMarkingModeBottleneckType)
-				];
-			},
-			reportAction: progress => DispatcherQueue.TryEnqueue(
-				() =>
+				ConstraintsCreator = static () => Application.CurrentApp.Preference.ConstraintPreferences.Constraints,
+				DifficultyLevelCreator = static constraints =>
 				{
-					BasePage.AnalyzeProgressLabel.Text = processingText;
-					BasePage.AnalyzeStepSearcherNameLabel.Text = progress.ToDisplayString();
-				}
-			),
-			gridStateChanger: gridStateChanger,
-			gridTextConsumer: gridTextConsumer
+					var difficultyLevels = from c in constraints.OfType<DifficultyLevelConstraint>() select c.DifficultyLevel;
+					return difficultyLevels is [var dl] ? dl : default;
+				},
+				AnalyzerCreator = difficultyLevel => Application.CurrentApp.GetAnalyzerConfigured(BasePage.SudokuPane, difficultyLevel),
+				IttoryuFinderCreator = static () => new DisorderedIttoryuFinder(TechniqueSet.IttoryuTechniques),
+				CancellationTokenSourceAssigner = cts => BasePage._ctsForAnalyzingRelatedOperations = cts,
+				StateInitializer = () =>
+				{
+					BasePage.IsGeneratorLaunched = true;
+					BasePage.ClearAnalyzeTabsData();
+				},
+				StateFinalizer = () =>
+				{
+					BasePage._ctsForAnalyzingRelatedOperations = null;
+					BasePage.IsGeneratorLaunched = false;
+				},
+				BottleneckFiltersCreator = static () =>
+				{
+					var analysisPref = Application.CurrentApp.Preference.AnalysisPreferences;
+					return [
+						new(TechniqueType.Direct, analysisPref.DirectModeBottleneckType),
+						new(TechniqueType.Snyder, analysisPref.PartialMarkingModeBottleneckType),
+						new(TechniqueType.Advanced, analysisPref.FullMarkingModeBottleneckType)
+					];
+				},
+				ReportAction = progress => DispatcherQueue.TryEnqueue(
+					() =>
+					{
+						BasePage.AnalyzeProgressLabel.Text = processingText;
+						BasePage.AnalyzeStepSearcherNameLabel.Text = progress.ToDisplayString();
+					}
+				),
+				GridStateChanger = gridStateChanger,
+				GridTextConsumer = gridTextConsumer
+			}
 		);
 	}
 
@@ -325,4 +328,49 @@ public sealed partial class GeneratingOperation : Page, IOperationProviderPage
 			}
 		);
 	}
+}
+
+/// <summary>
+/// Provides a generator driver instance.
+/// </summary>
+/// <typeparam name="TProgressDataProvider">The type of progress data provider.</typeparam>
+file sealed class GeneratorDriver<TProgressDataProvider> : IGeneratorDriver<TProgressDataProvider>
+	where TProgressDataProvider :
+		struct,
+		IEquatable<TProgressDataProvider>,
+		IProgressDataProvider<TProgressDataProvider>,
+		allows ref struct
+{
+	/// <inheritdoc/>
+	public required Func<ConstraintCollection> ConstraintsCreator { get; init; }
+
+	/// <inheritdoc/>
+	public required Func<ConstraintCollection, DifficultyLevel> DifficultyLevelCreator { get; init; }
+
+	/// <inheritdoc/>
+	public required Func<DifficultyLevel, Analyzer> AnalyzerCreator { get; init; }
+
+	/// <inheritdoc/>
+	public required Func<DisorderedIttoryuFinder> IttoryuFinderCreator { get; init; }
+
+	/// <inheritdoc/>
+	public required Action<CancellationTokenSource> CancellationTokenSourceAssigner { get; init; }
+
+	/// <inheritdoc/>
+	public required Action StateInitializer { get; init; }
+
+	/// <inheritdoc/>
+	public required Action StateFinalizer { get; init; }
+
+	/// <inheritdoc/>
+	public required Func<BottleneckFilter[]> BottleneckFiltersCreator { get; init; }
+
+	/// <inheritdoc/>
+	public required Action<TProgressDataProvider> ReportAction { get; init; }
+
+	/// <inheritdoc/>
+	public required GridStateChanger<Analyzer>? GridStateChanger { get; init; }
+
+	/// <inheritdoc/>
+	public required Action<string>? GridTextConsumer { get; init; }
 }

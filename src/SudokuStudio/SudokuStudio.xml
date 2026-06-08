@@ -15835,6 +15835,45 @@
             GetBindingConnector(int connectionId, object target)
             </summary>
         </member>
+        <member name="T:SudokuStudio.Views.Pages.Operation.GeneratorDriver`1">
+            <summary>
+            Provides a generator driver instance.
+            </summary>
+            <typeparam name="TProgressDataProvider">The type of progress data provider.</typeparam>
+        </member>
+        <member name="P:SudokuStudio.Views.Pages.Operation.GeneratorDriver`1.ConstraintsCreator">
+            <inheritdoc/>
+        </member>
+        <member name="P:SudokuStudio.Views.Pages.Operation.GeneratorDriver`1.DifficultyLevelCreator">
+            <inheritdoc/>
+        </member>
+        <member name="P:SudokuStudio.Views.Pages.Operation.GeneratorDriver`1.AnalyzerCreator">
+            <inheritdoc/>
+        </member>
+        <member name="P:SudokuStudio.Views.Pages.Operation.GeneratorDriver`1.IttoryuFinderCreator">
+            <inheritdoc/>
+        </member>
+        <member name="P:SudokuStudio.Views.Pages.Operation.GeneratorDriver`1.CancellationTokenSourceAssigner">
+            <inheritdoc/>
+        </member>
+        <member name="P:SudokuStudio.Views.Pages.Operation.GeneratorDriver`1.StateInitializer">
+            <inheritdoc/>
+        </member>
+        <member name="P:SudokuStudio.Views.Pages.Operation.GeneratorDriver`1.StateFinalizer">
+            <inheritdoc/>
+        </member>
+        <member name="P:SudokuStudio.Views.Pages.Operation.GeneratorDriver`1.BottleneckFiltersCreator">
+            <inheritdoc/>
+        </member>
+        <member name="P:SudokuStudio.Views.Pages.Operation.GeneratorDriver`1.ReportAction">
+            <inheritdoc/>
+        </member>
+        <member name="P:SudokuStudio.Views.Pages.Operation.GeneratorDriver`1.GridStateChanger">
+            <inheritdoc/>
+        </member>
+        <member name="P:SudokuStudio.Views.Pages.Operation.GeneratorDriver`1.GridTextConsumer">
+            <inheritdoc/>
+        </member>
         <member name="T:SudokuStudio.Views.Pages.Operation.PrintingOperation">
             <summary>
             Represents printing operation.

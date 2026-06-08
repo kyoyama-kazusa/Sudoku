@@ -10,48 +10,25 @@ public static partial class GeneratorHub
 	/// </summary>
 	/// <typeparam name="TProgressDataProvider">The type of progress data provider.</typeparam>
 	/// <param name="onlyGenerateOne">Indicates whether the method only generate one puzzle and return.</param>
-	/// <param name="constraintsCreator">The method that create constraints.</param>
-	/// <param name="difficultyLevelCreator">The method that create a difficulty level.</param>
-	/// <param name="analyzerCreator">The method that create a analyzer.</param>
-	/// <param name="ittoryuFinderCreator">The method that create a ittoryu finder.</param>
-	/// <param name="cancellationTokenSourceAssigner">The assigner operation for <see cref="CancellationTokenSource"/> object.</param>
-	/// <param name="stateInitializer">The state-initialization operation.</param>
-	/// <param name="stateRecoverer">The state-recoverage operation.</param>
-	/// <param name="bottleneckFiltersCreator">The bottleneck filters creator.</param>
-	/// <param name="reportAction">The progress-report action.</param>
-	/// <param name="gridStateChanger">The grid state changer.</param>
-	/// <param name="gridTextConsumer">The grid text consumer, triggered on each puzzle generated.</param>
+	/// <param name="generatorDriver">The generator driver.</param>
 	/// <returns>A task that encapsulates asynchronous operation.</returns>
 	/// <exception cref="OperationCanceledException">Throws when operation canceled.</exception>
-	public static async Task GenerateAsync<TProgressDataProvider>(
-		bool onlyGenerateOne,
-		Func<ConstraintCollection> constraintsCreator,
-		Func<ConstraintCollection, DifficultyLevel> difficultyLevelCreator,
-		Func<DifficultyLevel, Analyzer> analyzerCreator,
-		Func<DisorderedIttoryuFinder> ittoryuFinderCreator,
-		Action<CancellationTokenSource> cancellationTokenSourceAssigner,
-		Action stateInitializer,
-		Action stateRecoverer,
-		Func<BottleneckFilter[]> bottleneckFiltersCreator,
-		Action<TProgressDataProvider> reportAction,
-		GridStateChanger<Analyzer>? gridStateChanger,
-		Action<string>? gridTextConsumer
-	)
+	public static async Task GenerateAsync<TProgressDataProvider>(bool onlyGenerateOne, IGeneratorDriver<TProgressDataProvider> generatorDriver)
 		where TProgressDataProvider : struct, IEquatable<TProgressDataProvider>, IProgressDataProvider<TProgressDataProvider>
 	{
 		// State initializer.
-		stateInitializer();
+		generatorDriver.StateInitializer();
 
 		// Cancellation token source assigner.
 		using var cts = new CancellationTokenSource();
-		cancellationTokenSourceAssigner(cts);
+		generatorDriver.CancellationTokenSourceAssigner(cts);
 
 		// Core operations.
-		var filters = bottleneckFiltersCreator();
-		var constraints = constraintsCreator();
-		var difficultyLevel = difficultyLevelCreator(constraints);
-		var analyzer = analyzerCreator(difficultyLevel);
-		var ittoryuFinder = ittoryuFinderCreator();
+		var filters = generatorDriver.BottleneckFiltersCreator();
+		var constraints = generatorDriver.ConstraintsCreator();
+		var difficultyLevel = generatorDriver.DifficultyLevelCreator(constraints);
+		var analyzer = generatorDriver.AnalyzerCreator(difficultyLevel);
+		var ittoryuFinder = generatorDriver.IttoryuFinderCreator();
 		var (generatingCount, generatingFilteredCount) = (0, 0);
 		if (onlyGenerateOne)
 		{
@@ -59,8 +36,8 @@ public static partial class GeneratorHub
 			{
 				case ({ IsUndefined: false } grid, false):
 				{
-					gridStateChanger?.Invoke(ref grid, analyzer);
-					gridTextConsumer?.Invoke(grid.ToString("#"));
+					generatorDriver.GridStateChanger?.Invoke(ref grid, analyzer);
+					generatorDriver.GridTextConsumer?.Invoke(grid.ToString("#"));
 					break;
 				}
 				case (_, true):
@@ -77,8 +54,8 @@ public static partial class GeneratorHub
 				{
 					case ({ IsUndefined: false } grid, false):
 					{
-						gridStateChanger?.Invoke(ref grid, analyzer);
-						gridTextConsumer?.Invoke(grid.ToString("#"));
+						generatorDriver.GridStateChanger?.Invoke(ref grid, analyzer);
+						generatorDriver.GridTextConsumer?.Invoke(grid.ToString("#"));
 
 						generatingFilteredCount++;
 						continue;
@@ -96,7 +73,7 @@ public static partial class GeneratorHub
 		}
 
 		// State recoverer.
-		stateRecoverer();
+		generatorDriver.StateFinalizer();
 
 
 		unsafe (Grid TargetGrid, bool IsCanceled) taskEntry()
@@ -130,17 +107,13 @@ public static partial class GeneratorHub
 					{ HasMissingHouseConstraint: true } => &Optimizer_EmptyHouses,
 					_ => &DefaultGenerator
 				},
-				specializedConditions switch
-				{
-					{ HasMissingDigitConstraint: true, HasIttoryuConstraint: false } => &TransformChecker_MissingDigit,
-					_ => null
-				},
-				specializedConditions switch
-				{
-					{ HasMissingDigitConstraint: true, HasIttoryuConstraint: false } => &Transformer_MissingDigit,
-					_ => null
-				},
-				reportAction,
+				specializedConditions is { HasMissingDigitConstraint: true, HasIttoryuConstraint: false }
+					? &TransformChecker_MissingDigit
+					: null,
+				specializedConditions is { HasMissingDigitConstraint: true, HasIttoryuConstraint: false }
+					? &Transformer_MissingDigit
+					: null,
+				generatorDriver.ReportAction,
 				specializedConditions is { HasNakedSingleConstraint: true } or { HasNakedSingleConstraintInTechniqueSet: true }
 					? analyzer.WithOptions(analyzer.Options with { PrimarySingle = SingleTechniqueFlag.NakedSingle })
 					: analyzer,
