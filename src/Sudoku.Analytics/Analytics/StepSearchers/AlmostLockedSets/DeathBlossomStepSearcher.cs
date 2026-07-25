@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers;
+﻿namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with a <b>Death Blossom</b> step searcher.
@@ -300,7 +300,7 @@ public sealed partial class DeathBlossomStepSearcher : StepSearcher
 		ref StepAnalysisContext context,
 		in Grid grid,
 		Cell pivot,
-		scoped Span<int> alsReferenceTable,
+		scoped ReadOnlySpan<int> alsReferenceTable,
 		ReadOnlySpan<AlmostLockedSetPattern> alses,
 		Mask[] playgroundCached,
 		List<NormalDeathBlossomStep> accumulator
@@ -428,7 +428,7 @@ public sealed partial class DeathBlossomStepSearcher : StepSearcher
 		in Grid grid,
 		House house,
 		Mask disappearedDigitsMask,
-		scoped Span<int> alsReferenceTable,
+		scoped ReadOnlySpan<int> alsReferenceTable,
 		ReadOnlySpan<AlmostLockedSetPattern> alses,
 		Mask[] playgroundCached,
 		HashSet<HouseDeathBlossomStep> accumulator
@@ -571,9 +571,9 @@ public sealed partial class DeathBlossomStepSearcher : StepSearcher
 		scoped Span<Cell> usedIndex,
 		scoped Span<Cell> selectedAlsEntryCell,
 		int satisfiedSize,
-		scoped Span<Mask> selectedCellDigitsMask,
+		scoped ReadOnlySpan<Mask> selectedCellDigitsMask,
 		Digit wrongDigit,
-		scoped Span<Candidate> alsReferenceTable,
+		scoped ReadOnlySpan<Candidate> alsReferenceTable,
 		SortedSet<NTimesAlmostLockedSetsDeathBlossomStep> accumulator
 	)
 	{

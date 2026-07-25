@@ -15490,17 +15490,17 @@
             </para>
             </remarks>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.DeathBlossomStepSearcher.CreateStep_NormalType(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.Grid@,System.Int32,System.Span{System.Int32},System.ReadOnlySpan{Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern},System.Int16[],System.Collections.Generic.List{Sudoku.Analytics.Steps.NormalDeathBlossomStep})">
+        <member name="M:Sudoku.Analytics.StepSearchers.DeathBlossomStepSearcher.CreateStep_NormalType(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.Grid@,System.Int32,System.ReadOnlySpan{System.Int32},System.ReadOnlySpan{Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern},System.Int16[],System.Collections.Generic.List{Sudoku.Analytics.Steps.NormalDeathBlossomStep})">
             <summary>
             Create a <see cref="T:Sudoku.Analytics.Steps.NormalDeathBlossomStep"/> instance and add it into the accumulator.
             </summary>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.DeathBlossomStepSearcher.CreateStep_HouseType(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.Grid@,System.Int32,System.Int16,System.Span{System.Int32},System.ReadOnlySpan{Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern},System.Int16[],System.Collections.Generic.HashSet{Sudoku.Analytics.Steps.HouseDeathBlossomStep})">
+        <member name="M:Sudoku.Analytics.StepSearchers.DeathBlossomStepSearcher.CreateStep_HouseType(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.Grid@,System.Int32,System.Int16,System.ReadOnlySpan{System.Int32},System.ReadOnlySpan{Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern},System.Int16[],System.Collections.Generic.HashSet{Sudoku.Analytics.Steps.HouseDeathBlossomStep})">
             <summary>
             Create a <see cref="T:Sudoku.Analytics.Steps.HouseDeathBlossomStep"/> instance and add it into the accumulator.
             </summary>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.DeathBlossomStepSearcher.CreateStep_NTimesAlsType(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern},System.Span{Sudoku.Concepts.CellMap},System.Span{System.Int32},System.Span{System.Int32},System.Int32,System.Span{System.Int16},System.Int32,System.Span{System.Int32},System.Collections.Generic.SortedSet{Sudoku.Analytics.Steps.NTimesAlmostLockedSetsDeathBlossomStep})">
+        <member name="M:Sudoku.Analytics.StepSearchers.DeathBlossomStepSearcher.CreateStep_NTimesAlsType(Sudoku.Analytics.StepAnalysisContext@,Sudoku.Concepts.Grid@,System.ReadOnlySpan{Sudoku.Analytics.Construction.Patterns.AlmostLockedSetPattern},System.Span{Sudoku.Concepts.CellMap},System.Span{System.Int32},System.Span{System.Int32},System.Int32,System.ReadOnlySpan{System.Int16},System.Int32,System.ReadOnlySpan{System.Int32},System.Collections.Generic.SortedSet{Sudoku.Analytics.Steps.NTimesAlmostLockedSetsDeathBlossomStep})">
             <summary>
             Search for A^nLS blooming type, and create a <see cref="T:Sudoku.Analytics.Steps.NTimesAlmostLockedSetsDeathBlossomStep"/> instance
             and add it into the accumulator if worth.
@@ -18333,7 +18333,7 @@
         <member name="M:Sudoku.Analytics.StepSearchers.AntiGurthSymmetricalPlacementStepSearcher.Collect(Sudoku.Analytics.StepAnalysisContext@)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.AntiGurthSymmetricalPlacementStepSearcher.GetHighlightCells(Sudoku.Concepts.Grid@,System.Collections.Generic.List{Sudoku.Drawing.Nodes.CellViewNode},System.Span{System.Nullable{System.Int32}})">
+        <member name="M:Sudoku.Analytics.StepSearchers.AntiGurthSymmetricalPlacementStepSearcher.GetHighlightCells(Sudoku.Concepts.Grid@,System.Collections.Generic.List{Sudoku.Drawing.Nodes.CellViewNode},System.ReadOnlySpan{System.Nullable{System.Int32}})">
             <summary>
             Records all possible highlight cells.
             </summary>
@@ -18381,7 +18381,7 @@
             <param name="context">The context.</param>
             <returns>A correct step if found; otherwise, <see langword="null"/>.</returns>
         </member>
-        <member name="M:Sudoku.Analytics.StepSearchers.AntiGurthSymmetricalPlacementStepSearcher.AreAllDigitsPaired(Sudoku.Concepts.Grid@,System.Span{System.Nullable{System.Int32}})">
+        <member name="M:Sudoku.Analytics.StepSearchers.AntiGurthSymmetricalPlacementStepSearcher.AreAllDigitsPaired(Sudoku.Concepts.Grid@,System.ReadOnlySpan{System.Nullable{System.Int32}})">
             <summary>
             Check for mapping list, determining whether all digits are self-paired or non-self-paired.
             </summary>

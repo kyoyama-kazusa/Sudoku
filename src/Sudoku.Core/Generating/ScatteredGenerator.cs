@@ -1,4 +1,4 @@
-namespace Sudoku.Generating;
+﻿namespace Sudoku.Generating;
 
 /// <summary>
 /// Defines a puzzle generator that makes distribution of givens to be scattered.
@@ -170,7 +170,7 @@ public readonly ref struct ScatteredGenerator() : IGenerator<Grid>
 	/// <param name="gridString">The pointer that points to a grid.</param>
 	/// <param name="cell">The cell.</param>
 	/// <returns>A <see cref="bool"/> value indicating that.</returns>
-	private static bool CheckDuplicate(Span<char> gridString, Cell cell)
+	private static bool CheckDuplicate(ReadOnlySpan<char> gridString, Cell cell)
 	{
 		var value = gridString[cell];
 		foreach (var peer in Peer.PeersMap[cell])

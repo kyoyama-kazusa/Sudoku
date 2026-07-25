@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.StepSearchers;
+﻿namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with a <b>Gurth's Symmetrical Placement</b> step searcher.
@@ -59,7 +59,7 @@ public sealed unsafe partial class AntiGurthSymmetricalPlacementStepSearcher : S
 	/// <param name="grid">The grid as reference.</param>
 	/// <param name="cellOffsets">The target collection.</param>
 	/// <param name="mapping">The mapping relation.</param>
-	private static void GetHighlightCells(in Grid grid, List<CellViewNode> cellOffsets, Span<Digit?> mapping)
+	private static void GetHighlightCells(in Grid grid, List<CellViewNode> cellOffsets, ReadOnlySpan<Digit?> mapping)
 	{
 		var colorIndices = (stackalloc Digit[9]);
 		for (var (digit, colorIndexCurrent, digitsMaskBucket) = (0, 0, (Mask)0); digit < 9; digit++)
@@ -702,7 +702,7 @@ public sealed unsafe partial class AntiGurthSymmetricalPlacementStepSearcher : S
 	/// <param name="grid">The grid.</param>
 	/// <param name="mapping">Mapping digits.</param>
 	/// <returns>A <see cref="bool"/> result.</returns>
-	private static bool AreAllDigitsPaired(in Grid grid, Span<Digit?> mapping)
+	private static bool AreAllDigitsPaired(in Grid grid, ReadOnlySpan<Digit?> mapping)
 	{
 		for (var digit = 0; digit < 9; digit++)
 		{

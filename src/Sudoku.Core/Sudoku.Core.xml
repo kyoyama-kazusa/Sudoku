@@ -13054,7 +13054,7 @@ if (unionInstance.TryGetValue(out int instance)
             </summary>
             <param name="pattern">The pointer that points to an array of the pattern values.</param>
         </member>
-        <member name="M:Sudoku.Generating.ScatteredGenerator.CheckDuplicate(System.Span{System.Char},System.Int32)">
+        <member name="M:Sudoku.Generating.ScatteredGenerator.CheckDuplicate(System.ReadOnlySpan{System.Char},System.Int32)">
             <summary>
             Check whether the digit in its peer cells has duplicate ones.
             </summary>
