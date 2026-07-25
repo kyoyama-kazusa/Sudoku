@@ -45,5 +45,5 @@ file static class ExceptionConstructorAccessor<TException> where TException : Sy
 	/// <param name="message">The message.</param>
 	/// <returns>The instance created.</returns>
 	[UnsafeAccessor(UnsafeAccessorKind.Constructor)]
-	public static extern TException CreateInstance(string? message);
+	public static extern safe TException CreateInstance(string? message);
 }

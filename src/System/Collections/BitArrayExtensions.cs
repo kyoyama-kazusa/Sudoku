@@ -321,5 +321,5 @@ file static class Entry
 	///     path="//g/dotnet/version[@value='8']/feature[@name='unsafe-accessor']/target[@name='field-related-method']"/>
 	/// </remarks>
 	[UnsafeAccessor(UnsafeAccessorKind.Field, Name = LibraryIdentifiers.BitArray_Array)]
-	public static extern ref byte[] GetArrayField(BitArray @this);
+	public static extern safe ref byte[] GetArrayField(BitArray @this);
 }

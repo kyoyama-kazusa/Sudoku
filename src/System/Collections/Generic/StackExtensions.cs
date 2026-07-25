@@ -86,7 +86,7 @@ file static class StackEntry<T>
 	///     path="//g/dotnet/version[@value='8']/feature[@name='unsafe-accessor']/target[@name='field-related-method']"/>
 	/// </remarks>
 	[UnsafeAccessor(UnsafeAccessorKind.Field, Name = LibraryIdentifiers.Stack_Array)]
-	public static extern ref T[] GetArray(Stack<T> @this);
+	public static extern safe ref T[] GetArray(Stack<T> @this);
 
 	/// <summary>
 	/// Try to get the backing field <c>_size</c> of a <see cref="Stack{T}"/>.
@@ -102,5 +102,5 @@ file static class StackEntry<T>
 	///     path="//g/dotnet/version[@value='8']/feature[@name='unsafe-accessor']/target[@name='field-related-method']"/>
 	/// </remarks>
 	[UnsafeAccessor(UnsafeAccessorKind.Field, Name = LibraryIdentifiers.List_Size)]
-	public static extern ref int GetCount(Stack<T> @this);
+	public static extern safe ref int GetCount(Stack<T> @this);
 }

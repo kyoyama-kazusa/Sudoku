@@ -28,6 +28,6 @@ file static class Program
 
 
 		[DllImport("Microsoft.ui.xaml", EntryPoint = "XamlCheckProcessRequirements")]
-		static extern void checkProcessRequirements();
+		static extern unsafe void checkProcessRequirements();
 	}
 }

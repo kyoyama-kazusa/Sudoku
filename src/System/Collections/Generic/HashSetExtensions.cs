@@ -1,4 +1,4 @@
-﻿namespace System.Collections.Generic;
+namespace System.Collections.Generic;
 
 /// <summary>
 /// Provides with extension methods on <see cref="HashSet{T}"/>.
@@ -92,7 +92,7 @@ file static class Entry<T>
 	///     path="//g/dotnet/version[@value='8']/feature[@name='unsafe-accessor']/target[@name='others']"/>
 	/// </remarks>
 	[UnsafeAccessor(UnsafeAccessorKind.Method, Name = nameof(AddIfNotPresent))]
-	public static extern bool AddIfNotPresent(HashSet<T> @this, T value, out int location);
+	public static extern safe bool AddIfNotPresent(HashSet<T> @this, T value, out int location);
 
 
 	/// <summary>
@@ -118,6 +118,6 @@ file static class Entry<T>
 		///     path="//g/dotnet/version[@value='8']/feature[@name='unsafe-accessor']/target[@type='struct']"/>
 		/// </remarks>
 		[UnsafeAccessor(UnsafeAccessorKind.Field, Name = LibraryIdentifiers.Enumerator_Current)]
-		public static extern ref T GetCurrentFieldRef(ref HashSet<T>.Enumerator @this);
+		public static extern safe ref T GetCurrentFieldRef(ref HashSet<T>.Enumerator @this);
 	}
 }

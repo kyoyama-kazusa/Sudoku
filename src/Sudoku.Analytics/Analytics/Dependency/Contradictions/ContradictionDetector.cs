@@ -237,5 +237,5 @@ public static class ContradictionDetector
 	/// <param name="cell">The cell.</param>
 	/// <returns>The mask of mask bits, unshifted.</returns>
 	[UnsafeAccessor(UnsafeAccessorKind.Method, Name = "GetHeaderBits")]
-	private static extern Mask GetHeaderBits(ref readonly Grid grid, Cell cell);
+	private static extern safe Mask GetHeaderBits(ref readonly Grid grid, Cell cell);
 }

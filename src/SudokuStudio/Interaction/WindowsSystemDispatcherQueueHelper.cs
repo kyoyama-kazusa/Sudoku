@@ -74,7 +74,7 @@ internal sealed partial class WindowsSystemDispatcherQueueHelper
 	/// </para>
 	/// </remarks>
 	[DllImport("CoreMessaging")]
-	private static extern int CreateDispatcherQueueController(
+	private static extern unsafe int CreateDispatcherQueueController(
 		[In]
 		DispatcherQueueOptions options,
 

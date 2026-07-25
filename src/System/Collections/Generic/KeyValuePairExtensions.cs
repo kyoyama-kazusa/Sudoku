@@ -81,7 +81,7 @@ file sealed class Entry<TKey, TValue>
 	///     path="//g/dotnet/version[@value='8']/feature[@name='unsafe-accessor']/target[@type='struct']"/>
 	/// </remarks>
 	[UnsafeAccessor(UnsafeAccessorKind.Field, Name = LibraryIdentifiers.KeyValuePair_Key)]
-	public static extern ref TKey GetKey(ref readonly KeyValuePair<TKey, TValue> @this);
+	public static extern safe ref TKey GetKey(ref readonly KeyValuePair<TKey, TValue> @this);
 
 	/// <summary>
 	/// Try to fetch the internal field <c>value</c> in type <see cref="KeyValuePair{TKey, TValue}"/>.
@@ -100,5 +100,5 @@ file sealed class Entry<TKey, TValue>
 	///     path="//g/dotnet/version[@value='8']/feature[@name='unsafe-accessor']/target[@type='struct']"/>
 	/// </remarks>
 	[UnsafeAccessor(UnsafeAccessorKind.Field, Name = LibraryIdentifiers.KeyValuePair_Value)]
-	public static extern ref TValue GetValue(ref readonly KeyValuePair<TKey, TValue> @this);
+	public static extern safe ref TValue GetValue(ref readonly KeyValuePair<TKey, TValue> @this);
 }

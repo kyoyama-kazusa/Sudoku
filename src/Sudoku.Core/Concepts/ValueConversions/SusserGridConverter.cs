@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Concepts.ValueConversions;
+namespace Sudoku.Concepts.ValueConversions;
 
 /// <summary>
 /// Represents Susser grid converter.
@@ -166,7 +166,7 @@ public abstract partial class SusserGridConverter : IGridConverter
 
 
 		[UnsafeAccessor(UnsafeAccessorKind.Field, Name = $"<{nameof(WithCandidates)}>k__BackingField")]
-		static extern ref bool set_WithCandidates(SusserGridConverter @this);
+		static extern safe ref bool set_WithCandidates(SusserGridConverter @this);
 
 		string b(in TGrid grid)
 		{

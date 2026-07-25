@@ -175,7 +175,7 @@ file sealed class Entry<T>
 	///     path="//g/dotnet/version[@value='8']/feature[@name='unsafe-accessor']/target[@name='field-related-method']"/>
 	/// </remarks>
 	[UnsafeAccessor(UnsafeAccessorKind.Field, Name = LibraryIdentifiers.List_Size)]
-	public static extern ref int GetSize(List<T> @this);
+	public static extern safe ref int GetSize(List<T> @this);
 
 	/// <summary>
 	/// Try to fetch the internal field <c>_version</c> in type <see cref="List{T}"/>.
@@ -191,7 +191,7 @@ file sealed class Entry<T>
 	///     path="//g/dotnet/version[@value='8']/feature[@name='unsafe-accessor']/target[@name='field-related-method']"/>
 	/// </remarks>
 	[UnsafeAccessor(UnsafeAccessorKind.Field, Name = LibraryIdentifiers.List_Version)]
-	public static extern ref int GetVersion(List<T> @this);
+	public static extern safe ref int GetVersion(List<T> @this);
 
 	/// <summary>
 	/// Try to fetch the internal reference to the first <typeparamref name="T"/> in a <see cref="List{T}"/>.
@@ -207,5 +207,5 @@ file sealed class Entry<T>
 	///     path="//g/dotnet/version[@value='8']/feature[@name='unsafe-accessor']/target[@name='field-related-method']"/>
 	/// </remarks>
 	[UnsafeAccessor(UnsafeAccessorKind.Field, Name = LibraryIdentifiers.List_Items)]
-	public static extern ref T[] GetItems(List<T> @this);
+	public static extern safe ref T[] GetItems(List<T> @this);
 }
