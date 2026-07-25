@@ -12,7 +12,7 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
 /// <param name="isAvoidable"><inheritdoc cref="IsAvoidable" path="/summary"/></param>
 /// <param name="absoluteOffset"><inheritdoc cref="AbsoluteOffset" path="/summary"/></param>
-public abstract class UniqueRectangleStep(
+public closed class UniqueRectangleStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,

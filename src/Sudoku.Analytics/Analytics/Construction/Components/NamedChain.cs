@@ -11,7 +11,7 @@ namespace Sudoku.Analytics.Construction.Components;
 /// <param name="isLoop"><inheritdoc cref="Chain(Node, bool, bool, bool)" path="/param[@name='isLoop']"/></param>
 /// <seealso cref="AlternatingInferenceChain"/>
 /// <seealso cref="ContinuousNiceLoop"/>
-public abstract class NamedChain(Node lastNode, bool isLoop) : Chain(lastNode, isLoop, true)
+public closed class NamedChain(Node lastNode, bool isLoop) : Chain(lastNode, isLoop, true)
 {
 	/// <inheritdoc/>
 	public sealed override bool IsNamed => true;

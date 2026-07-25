@@ -4,7 +4,7 @@ namespace Sudoku.GridDifferences.Cases;
 /// Represents a difference that describes a type of digits (given, value or candidate) is changed.
 /// </summary>
 /// <param name="candidates"><inheritdoc path="/param[@name='candidates']"/></param>
-public abstract class ChangedGridDifference(CandidateMap candidates) : UpdatedGridDifference(candidates)
+public closed class ChangedGridDifference(CandidateMap candidates) : UpdatedGridDifference(candidates)
 {
 	/// <inheritdoc/>
 	public sealed override bool Equals([NotNullWhen(true)] GridDifference? other)

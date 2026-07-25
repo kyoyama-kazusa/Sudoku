@@ -3,7 +3,7 @@ namespace Sudoku.Analytics.StepSearcherHelpers.Chaining.Rules;
 /// <summary>
 /// Represents a chaining rule on AUR rule.
 /// </summary>
-public abstract class UniqueRectangleChainingRule : ChainingRule
+public closed class UniqueRectangleChainingRule : ChainingRule
 {
 	/// <inheritdoc/>
 	public sealed override void GetViewNodes(

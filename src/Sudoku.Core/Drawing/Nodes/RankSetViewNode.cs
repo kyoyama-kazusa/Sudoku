@@ -5,7 +5,7 @@ namespace Sudoku.Drawing.Nodes;
 /// </summary>
 /// <param name="identifier"><inheritdoc cref="ViewNode.Identifier" path="/summary"/></param>
 /// <param name="space"><inheritdoc cref="Space" path="/summary"/></param>
-public abstract class RankSetViewNode(ColorDescriptor identifier, Space space) : ViewNode(identifier), ILinkViewNode
+public closed class RankSetViewNode(ColorDescriptor identifier, Space space) : ViewNode(identifier), ILinkViewNode
 {
 	/// <summary>
 	/// Indicates whether the rank set is a truth.

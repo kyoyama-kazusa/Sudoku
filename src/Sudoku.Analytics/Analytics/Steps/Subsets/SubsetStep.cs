@@ -9,7 +9,7 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="house"><inheritdoc cref="House" path="/summary"/></param>
 /// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
 /// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
-public abstract class SubsetStep(
+public closed class SubsetStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,

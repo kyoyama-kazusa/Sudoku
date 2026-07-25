@@ -6,7 +6,7 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="conclusions"><inheritdoc cref="Step.Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Step.Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
-public abstract class MiscellaneousDeadlyPatternStep(ReadOnlyMemory<Conclusion> conclusions, View[]? views, StepGathererOptions options) :
+public closed class MiscellaneousDeadlyPatternStep(ReadOnlyMemory<Conclusion> conclusions, View[]? views, StepGathererOptions options) :
 	DeadlyPatternStep(conclusions, views, options)
 {
 	/// <inheritdoc/>

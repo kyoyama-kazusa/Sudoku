@@ -9,7 +9,7 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="cell"><inheritdoc cref="Cell" path="/summary"/></param>
 /// <param name="digit"><inheritdoc cref="Digit" path="/summary"/></param>
 /// <param name="subtype"><inheritdoc cref="Subtype" path="/summary"/></param>
-public abstract class SingleStep(
+public closed class SingleStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,

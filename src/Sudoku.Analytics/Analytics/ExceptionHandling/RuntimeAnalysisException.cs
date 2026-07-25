@@ -5,7 +5,7 @@ namespace Sudoku.Analytics.ExceptionHandling;
 /// </summary>
 /// <param name="grid"><inheritdoc cref="InvalidGrid" path="/summary"/></param>
 /// <seealso cref="Analyzer"/>
-public abstract class RuntimeAnalysisException(in Grid grid) : Exception
+public closed class RuntimeAnalysisException(in Grid grid) : Exception
 {
 	/// <inheritdoc/>
 	public abstract override string Message { get; }

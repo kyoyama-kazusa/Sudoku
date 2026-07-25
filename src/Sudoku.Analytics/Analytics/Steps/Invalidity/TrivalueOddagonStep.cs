@@ -9,7 +9,7 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="blocks"><inheritdoc cref="Blocks" path="/summary"/></param>
 /// <param name="pattern"><inheritdoc cref="Pattern" path="/summary"/></param>
 /// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
-public abstract class TrivalueOddagonStep(
+public closed class TrivalueOddagonStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,

@@ -4,7 +4,7 @@ namespace Sudoku.Filtering.Constraints;
 /// Represents a constraint that checks with quantifiers (i.e. "any" or "all").
 /// </summary>
 /// <param name="constraints"><inheritdoc cref="Constraints" path="/summary"/></param>
-public abstract class QuantifierConstraint(params ConstraintCollection constraints) : Constraint
+public closed class QuantifierConstraint(params ConstraintCollection constraints) : Constraint
 {
 	/// <summary>
 	/// Indicates the constraints.

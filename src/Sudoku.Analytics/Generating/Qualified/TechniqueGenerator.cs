@@ -3,7 +3,7 @@ namespace Sudoku.Generating.Qualified;
 /// <summary>
 /// Represents a generator type that can generate puzzles with the specified technique used.
 /// </summary>
-public abstract class TechniqueGenerator : ITechniqueGenerator
+public closed class TechniqueGenerator : ITechniqueGenerator
 {
 	/// <summary>
 	/// Indicates the random number generator.

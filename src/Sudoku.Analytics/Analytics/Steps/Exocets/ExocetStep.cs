@@ -11,7 +11,7 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="targetCells"><inheritdoc cref="TargetCells" path="/summary"/></param>
 /// <param name="endoTargetCells"><inheritdoc cref="EndoTargetCells" path="/summary"/></param>
 /// <param name="crosslineCells"><inheritdoc cref="CrosslineCells" path="/summary"/></param>
-public abstract class ExocetStep(
+public closed class ExocetStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,

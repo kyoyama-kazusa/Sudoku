@@ -3,7 +3,7 @@ namespace SudokuStudio.Configuration;
 /// <summary>
 /// Defines a preference group that contains a list of preference items that can be serialized and deserialized by JSON.
 /// </summary>
-public abstract class PreferenceGroup : DependencyObject
+public closed class PreferenceGroup : DependencyObject
 {
 	/// <summary>
 	/// Try to cover the preference from the specified instance <paramref name="other"/>.

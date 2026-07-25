@@ -4,7 +4,7 @@ namespace Sudoku.Filtering.Constraints;
 /// Represents a constraint that only checks for one constraint.
 /// </summary>
 /// <param name="constraint"><inheritdoc cref="Constraint" path="/summary"/></param>
-public abstract class UnaryLogicalConstraint(Constraint constraint) : LogicalConstraint
+public closed class UnaryLogicalConstraint(Constraint constraint) : LogicalConstraint
 {
 	/// <summary>
 	/// Indicates the constraint.

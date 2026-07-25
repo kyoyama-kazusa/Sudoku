@@ -8,7 +8,7 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="loop"><inheritdoc cref="Loop" path="/summary"/></param>
 /// <param name="guardians"><inheritdoc cref="Guardians" path="/summary"/></param>
-public abstract class BrokenLoopStep(
+public closed class BrokenLoopStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,

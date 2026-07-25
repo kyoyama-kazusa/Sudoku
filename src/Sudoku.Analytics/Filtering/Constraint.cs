@@ -30,7 +30,7 @@ namespace Sudoku.Filtering;
 [JsonDerivedType(typeof(TechniqueGroupCountConstraint), nameof(TechniqueGroupCountConstraint))]
 [JsonDerivedType(typeof(TechniquePrecedenceConstraint), nameof(TechniquePrecedenceConstraint))]
 [JsonDerivedType(typeof(TechniqueSetConstraint), nameof(TechniqueSetConstraint))]
-public abstract class Constraint : IEquatable<Constraint>, IEqualityOperators<Constraint, Constraint, bool>
+public closed class Constraint : IEquatable<Constraint>, IEqualityOperators<Constraint, Constraint, bool>
 {
 	/// <summary>
 	/// Indicates whether the constraint should be negated.

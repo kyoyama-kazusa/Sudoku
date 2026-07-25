@@ -3,7 +3,7 @@ namespace Sudoku.Generating.Qualified;
 /// <summary>
 /// Represents a generator that supports generating for puzzles that can be solved by <b>only</b> using Direct Single techniques.
 /// </summary>
-public abstract class PrimaryGenerator : TechniqueGenerator, IJustOneCellGenerator
+public closed class PrimaryGenerator : TechniqueGenerator, IJustOneCellGenerator
 {
 	/// <summary>
 	/// Indicates center houses.

@@ -3,7 +3,7 @@ namespace Sudoku.Analytics.Construction;
 /// <summary>
 /// Represents a pattern that describes a technique, describing cells and digits used in a puzzle.
 /// </summary>
-public abstract class Pattern :
+public closed class Pattern :
 	ICloneable,
 	IConstructible<PatternType>,
 	IEquatable<Pattern>,

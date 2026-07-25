@@ -5,7 +5,7 @@ namespace Sudoku.CommandLine;
 /// </summary>
 /// <param name="name">The name.</param>
 /// <param name="description">The description.</param>
-public abstract class CommandBase(string name, string description) : Command(name, description)
+public closed class CommandBase(string name, string description) : Command(name, description)
 {
 	/// <summary>
 	/// Indicates whether the command has sub-commands.

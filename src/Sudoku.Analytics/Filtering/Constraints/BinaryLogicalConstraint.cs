@@ -5,7 +5,7 @@ namespace Sudoku.Filtering.Constraints;
 /// </summary>
 /// <param name="constraint1"><inheritdoc cref="Constraint1" path="/summary"/></param>
 /// <param name="constraint2"><inheritdoc cref="Constraint2" path="/summary"/></param>
-public abstract class BinaryLogicalConstraint(Constraint constraint1, Constraint constraint2) : LogicalConstraint
+public closed class BinaryLogicalConstraint(Constraint constraint1, Constraint constraint2) : LogicalConstraint
 {
 	/// <summary>
 	/// Indicates the constraint #1.

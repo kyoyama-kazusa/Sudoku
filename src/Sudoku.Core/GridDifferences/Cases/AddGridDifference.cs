@@ -7,7 +7,7 @@ namespace Sudoku.GridDifferences.Cases;
 /// <inheritdoc cref="UpdatedGridDifference(CandidateMap)" path="/param[@name='candidates']"/>
 /// </param>
 /// <param name="areCorrect"><inheritdoc cref="AreCorrect" path="/summary"/></param>
-public abstract class AddGridDifference(CandidateMap candidates, bool areCorrect) : UpdatedGridDifference(candidates)
+public closed class AddGridDifference(CandidateMap candidates, bool areCorrect) : UpdatedGridDifference(candidates)
 {
 	/// <summary>
 	/// Indicates whether the digits are correct to be added.

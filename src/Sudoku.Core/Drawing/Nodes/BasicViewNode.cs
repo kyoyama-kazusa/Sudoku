@@ -4,4 +4,4 @@ namespace Sudoku.Drawing.Nodes;
 /// Defines a basic view node type that provides with basic displaying elements from a grid.
 /// </summary>
 /// <param name="identifier"><inheritdoc/></param>
-public abstract class BasicViewNode(ColorDescriptor identifier) : ViewNode(identifier);
+public closed class BasicViewNode(ColorDescriptor identifier) : ViewNode(identifier);

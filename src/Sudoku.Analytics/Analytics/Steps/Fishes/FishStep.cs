@@ -12,7 +12,7 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="fins"><inheritdoc cref="Fins" path="/summary"/></param>
 /// <param name="isSashimi"><inheritdoc cref="IsSashimi" path="/summary"/></param>
 /// <param name="isSiamese"><inheritdoc cref="IsSiamese" path="/summary"/></param>
-public abstract class FishStep(
+public closed class FishStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,

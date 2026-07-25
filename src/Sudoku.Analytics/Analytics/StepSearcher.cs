@@ -7,7 +7,7 @@ namespace Sudoku.Analytics;
 /// <param name="level"><inheritdoc cref="Level" path="/summary"/></param>
 /// <param name="runningArea"><inheritdoc cref="RunningArea" path="/summary"/></param>
 /// <seealso cref="Step"/>
-public abstract class StepSearcher(int priority, int level, StepSearcherRunningArea runningArea = StepSearcherRunningArea.Both) :
+public closed class StepSearcher(int priority, int level, StepSearcherRunningArea runningArea = StepSearcherRunningArea.Both) :
 	IComparable<StepSearcher>,
 	IComparisonOperators<StepSearcher, StepSearcher, bool>,
 	IEquatable<StepSearcher>,

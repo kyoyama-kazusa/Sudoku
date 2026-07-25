@@ -8,7 +8,7 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="options"><inheritdoc cref="Step.Options" path="/summary"/></param>
 /// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
 /// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
-public abstract class UniqueMatrixStep(
+public closed class UniqueMatrixStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,

@@ -10,7 +10,7 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="houses"><inheritdoc cref="QiuDeadlyPatternStep.Houses" path="/summary"/></param>
 /// <param name="corner1"><inheritdoc cref="QiuDeadlyPatternStep.Corner1" path="/summary"/></param>
 /// <param name="corner2"><inheritdoc cref="QiuDeadlyPatternStep.Corner2" path="/summary"/></param>
-public abstract class QiuDeadlyPatternExternalTypeStep(
+public closed class QiuDeadlyPatternExternalTypeStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,

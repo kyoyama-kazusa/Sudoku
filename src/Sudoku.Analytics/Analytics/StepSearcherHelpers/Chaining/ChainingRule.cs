@@ -4,7 +4,7 @@ namespace Sudoku.Analytics.StepSearcherHelpers.Chaining;
 /// Represents a rule that make inferences (strong or weak) between two <see cref="Node"/> instances.
 /// </summary>
 /// <seealso cref="Node"/>
-public abstract class ChainingRule
+public closed class ChainingRule
 {
 	/// <summary>
 	/// Indicates the elementary link types.

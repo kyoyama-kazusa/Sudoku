@@ -3,7 +3,7 @@ namespace Sudoku.Drawing.Parsing;
 /// <summary>
 /// Represents a parser type that parses arguments for one kind of drawing item.
 /// </summary>
-internal abstract class ArgumentParser
+internal closed class ArgumentParser
 {
 	/// <summary>
 	/// Try to parse the arguments and return a list of <see cref="ViewNode"/> instances indicating the result,

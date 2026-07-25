@@ -5,7 +5,7 @@ namespace Sudoku.Drawing.Nodes;
 /// </summary>
 /// <param name="identifier"><inheritdoc cref="ViewNode(ColorDescriptor)"/></param>
 /// <param name="cell"><inheritdoc cref="Cell" path="/summary"/></param>
-public abstract class IconViewNode(ColorDescriptor identifier, Cell cell) : ViewNode(identifier)
+public closed class IconViewNode(ColorDescriptor identifier, Cell cell) : ViewNode(identifier)
 {
 	/// <summary>
 	/// The cell.

@@ -3,7 +3,7 @@ namespace Sudoku.Drawing.Parsing;
 /// <summary>
 /// Represents rank set argument parser.
 /// </summary>
-internal abstract class RankSetArgumentParser : ArgumentParser
+internal closed class RankSetArgumentParser : ArgumentParser
 {
 	/// <summary>
 	/// Indicates whether the parser is truth-based.

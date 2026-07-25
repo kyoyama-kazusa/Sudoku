@@ -9,7 +9,7 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="loopCells"><inheritdoc cref="LoopCells" path="/summary"/></param>
 /// <param name="digit1"><inheritdoc cref="Digit1" path="/summary"/></param>
 /// <param name="digit2"><inheritdoc cref="Digit2" path="/summary"/></param>
-public abstract class BivalueOddagonStep(
+public closed class BivalueOddagonStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,

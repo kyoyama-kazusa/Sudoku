@@ -5,7 +5,7 @@ namespace Sudoku.Analytics.Categorization;
 /// </summary>
 /// <param name="_resourceKey">The resource key.</param>
 /// <param name="_memberName">The member name.</param>
-public abstract class MissingRequiredResourceMemberException(string _resourceKey, string _memberName) : Exception
+public closed class MissingRequiredResourceMemberException(string _resourceKey, string _memberName) : Exception
 {
 	/// <inheritdoc/>
 	public sealed override string Message => string.Format(SR.Get(_resourceKey), _memberName);

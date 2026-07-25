@@ -10,7 +10,7 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="digit2"><inheritdoc cref="Digit2" path="/summary"/></param>
 /// <param name="loop"><inheritdoc cref="Loop" path="/summary"/></param>
 /// <param name="loopPath"><inheritdoc cref="LoopPath" path="/summary"/></param>
-public abstract class UniqueLoopStep(
+public closed class UniqueLoopStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,

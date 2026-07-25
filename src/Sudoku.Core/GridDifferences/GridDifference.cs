@@ -15,7 +15,7 @@ namespace Sudoku.GridDifferences;
 [JsonDerivedType(typeof(ChangedGivenGridDifference), (int)GridDifferenceType.ChangedGiven)]
 [JsonDerivedType(typeof(ChangedModifiableGridDifference), (int)GridDifferenceType.ChangedModifiable)]
 [JsonDerivedType(typeof(ChangedCandidateGridDifference), (int)GridDifferenceType.ChangedCandidate)]
-public abstract class GridDifference :
+public closed class GridDifference :
 	ICloneable,
 	IEquatable<GridDifference>,
 	IEqualityOperators<GridDifference, GridDifference, bool>

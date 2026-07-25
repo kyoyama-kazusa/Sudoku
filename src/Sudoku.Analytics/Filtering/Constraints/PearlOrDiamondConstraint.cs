@@ -4,7 +4,7 @@ namespace Sudoku.Filtering.Constraints;
 /// Represents a constraint that checks for pearl or diamond property.
 /// </summary>
 /// <param name="checkPearl"><inheritdoc cref="CheckPearl" path="/summary"/></param>
-public abstract class PearlOrDiamondConstraint(bool checkPearl) : Constraint
+public closed class PearlOrDiamondConstraint(bool checkPearl) : Constraint
 {
 	/// <summary>
 	/// Indicates whether the puzzle should be pearl or diamond.

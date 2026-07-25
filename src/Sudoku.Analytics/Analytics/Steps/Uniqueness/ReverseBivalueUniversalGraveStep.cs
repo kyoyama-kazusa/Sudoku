@@ -10,7 +10,7 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="digit2"><inheritdoc cref="Digit2" path="/summary"/></param>
 /// <param name="pattern"><inheritdoc cref="CompletePattern" path="/summary"/></param>
 /// <param name="emptyCells"><inheritdoc cref="EmptyCells" path="/summary"/></param>
-public abstract class ReverseBivalueUniversalGraveStep(
+public closed class ReverseBivalueUniversalGraveStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,

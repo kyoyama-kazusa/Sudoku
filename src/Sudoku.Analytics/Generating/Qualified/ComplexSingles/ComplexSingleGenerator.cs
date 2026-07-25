@@ -3,7 +3,7 @@ namespace Sudoku.Generating.Qualified;
 /// <summary>
 /// Represents a generator type that can generate puzzles with complex single techniques.
 /// </summary>
-public abstract class ComplexSingleGenerator : TechniqueGenerator, IJustOneCellGenerator
+public closed class ComplexSingleGenerator : TechniqueGenerator, IJustOneCellGenerator
 {
 	/// <summary>
 	/// Indicates the backing analyzer.

@@ -7,7 +7,7 @@ namespace Sudoku.Analytics;
 /// <param name="conclusions"><inheritdoc cref="Conclusions" path="/summary"/></param>
 /// <param name="views"><inheritdoc cref="Views" path="/summary"/></param>
 /// <param name="options"><inheritdoc cref="Options" path="/summary"/></param>
-public abstract class Step(ReadOnlyMemory<Conclusion> conclusions, View[]? views, StepGathererOptions options) :
+public closed class Step(ReadOnlyMemory<Conclusion> conclusions, View[]? views, StepGathererOptions options) :
 	IComparable<Step>,
 	IComparisonOperators<Step, Step, bool>,
 	IDrawable,

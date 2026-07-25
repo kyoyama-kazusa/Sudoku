@@ -22,7 +22,7 @@ namespace Sudoku.Drawing;
 [JsonDerivedType(typeof(HeartViewNode), 16)]
 [JsonDerivedType(typeof(TruthSpaceViewNode), 20)]
 [JsonDerivedType(typeof(LinkSpaceViewNode), 21)]
-public abstract class ViewNode(ColorDescriptor identifier) :
+public closed class ViewNode(ColorDescriptor identifier) :
 	ICloneable,
 	IEquatable<ViewNode>,
 	IEqualityOperators<ViewNode, ViewNode, bool>

@@ -4,7 +4,7 @@ namespace Sudoku.Analytics.StepSearcherHelpers;
 /// Represents a type that creates some members helping for target <see cref="StepSearcher"/> instances.
 /// </summary>
 /// <seealso cref="StepSearcher"/>
-internal abstract class StepSearcherHelper
+internal closed class StepSearcherHelper
 {
 	/// <summary>
 	/// Indicates supported step searcher types.

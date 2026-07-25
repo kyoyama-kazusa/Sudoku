@@ -5,7 +5,7 @@ namespace Sudoku.Analytics.Construction.Components;
 /// </summary>
 /// <typeparam name="TSelf"><include file="../../global-doc-comments.xml" path="/g/self-type-constraint"/></typeparam>
 /// <typeparam name="TKey">The type of the distinction key.</typeparam>
-public abstract class DeathBlossomBranchCollection<TSelf, TKey> :
+public closed class DeathBlossomBranchCollection<TSelf, TKey> :
 	Dictionary<TKey, AlmostLockedSetPattern>,
 	IComponent,
 	IEquatable<TSelf>

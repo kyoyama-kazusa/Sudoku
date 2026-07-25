@@ -4,7 +4,7 @@ namespace System.Resources;
 /// Represents an exception type that relates to resource dictionary.
 /// </summary>
 /// <param name="assembly"><inheritdoc cref="_assembly" path="/summary"/></param>
-public abstract class ResourceException(Assembly? assembly) : Exception
+public closed class ResourceException(Assembly? assembly) : Exception
 {
 	/// <summary>
 	/// Indicates the target assembly.

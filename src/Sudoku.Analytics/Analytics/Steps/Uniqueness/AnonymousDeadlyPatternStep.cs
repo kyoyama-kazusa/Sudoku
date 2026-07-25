@@ -9,7 +9,7 @@ namespace Sudoku.Analytics.Steps;
 /// <param name="digitsMask"><inheritdoc cref="DigitsMask" path="/summary"/></param>
 /// <param name="cells"><inheritdoc cref="Cells" path="/summary"/></param>
 /// <param name="technique"><inheritdoc cref="Code" path="/summary"/></param>
-public abstract class AnonymousDeadlyPatternStep(
+public closed class AnonymousDeadlyPatternStep(
 	ReadOnlyMemory<Conclusion> conclusions,
 	View[]? views,
 	StepGathererOptions options,

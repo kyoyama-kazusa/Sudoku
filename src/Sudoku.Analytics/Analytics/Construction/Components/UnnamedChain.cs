@@ -7,7 +7,7 @@ namespace Sudoku.Analytics.Construction.Components;
 /// <param name="isDynamicChaining">
 /// <inheritdoc cref="Chain(Node, bool, bool, bool)" path="/param[@name='isDynamicChaining']"/>
 /// </param>
-public abstract class UnnamedChain(Node lastNode, bool isDynamicChaining = false) : Chain(lastNode, false, false, isDynamicChaining)
+public closed class UnnamedChain(Node lastNode, bool isDynamicChaining = false) : Chain(lastNode, false, false, isDynamicChaining)
 {
 	/// <inheritdoc/>
 	public sealed override bool IsNamed => false;

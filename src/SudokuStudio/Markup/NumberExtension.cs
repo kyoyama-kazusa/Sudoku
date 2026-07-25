@@ -6,7 +6,7 @@ namespace SudokuStudio.Markup;
 /// </summary>
 /// <typeparam name="TNumber">The type of the number.</typeparam>
 [ContentProperty(Name = nameof(Value))]
-public abstract class NumberExtension<TNumber> : MarkupExtension where TNumber : unmanaged, INumber<TNumber>
+public closed class NumberExtension<TNumber> : MarkupExtension where TNumber : unmanaged, INumber<TNumber>
 {
 	/// <summary>
 	/// Indicates the parsed string.
