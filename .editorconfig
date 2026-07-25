@@ -431,7 +431,7 @@ dotnet_style_prefer_foreach_explicit_cast_in_source = when_strongly_typed
 dotnet_diagnostic.IDE0380.severity = none
 
 # IDE0410: Use labeled jump statement
-dotnet_diagnostic.IDE0410.severity = warning
+dotnet_diagnostic.IDE0410.severity = suggestion
 
 
 # CA1000: Do not declare static members on generic types
