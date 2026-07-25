@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Categorization;
+﻿namespace Sudoku.Analytics.Categorization;
 
 /// <summary>
 /// Provides with extension methods on <see cref="TechniqueSet"/>.
@@ -78,8 +78,7 @@ public static class TechniqueSetExtensions
 								commonAncestors.Add(type.BaseType!);
 							}
 
-							if (commonAncestors.Count == 1 && commonAncestors.First() is var result
-								&& result != typeof(Step) && result != typeof(object))
+							if (commonAncestors is [var result, ..] && result != typeof(Step) && result != typeof(object))
 							{
 								return result;
 							}

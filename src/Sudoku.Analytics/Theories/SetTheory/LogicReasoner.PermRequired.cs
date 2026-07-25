@@ -82,7 +82,7 @@ public partial class LogicReasoner
 			}
 
 			sublogics = resultViews;
-			return rankList.Count == 1 ? rankList.First() : (int[])[.. rankList];
+			return rankList is [var singleElement] ? singleElement : (int[])[.. rankList];
 		}
 
 		/// <inheritdoc cref="LogicReasoner.GetAssignedCount(ref readonly Logic)"/>

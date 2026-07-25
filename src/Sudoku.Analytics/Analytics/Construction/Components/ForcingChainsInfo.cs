@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.Construction.Components;
+﻿namespace Sudoku.Analytics.Construction.Components;
 
 /// <summary>
 /// Represents a pair of data on a certain <see cref="Node"/>, describing all possible <see cref="Node"/> instances
@@ -19,7 +19,7 @@ public readonly partial record struct ForcingChainsInfo(HashSet<Node> OnNodes, H
 	/// <summary>
 	/// Indicates the start node.
 	/// </summary>
-	public Node StartNode => OnNodes.First().Root;
+	public Node StartNode => OnNodes[0].Root;
 
 	/// <inheritdoc/>
 	ComponentType IComponent.Type => ComponentType.ForcingChains;

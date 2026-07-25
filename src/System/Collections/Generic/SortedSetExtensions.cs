@@ -14,6 +14,31 @@ public static class SortedSetExtensions
 	extension<T>(SortedSet<T> @this)
 	{
 		/// <summary>
+		/// Gets the specified element at the desired index on the order of default adding.
+		/// </summary>
+		/// <param name="index">The desired index.</param>
+		/// <returns>The target element at the specified index.</returns>
+		public T this[int index]
+		{
+			get
+			{
+				var count = @this.Count;
+				if (index < 0 || index >= count)
+				{
+					throw new IndexOutOfRangeException();
+				}
+
+				using var enumerator = @this.GetEnumerator();
+				for (var i = 0; i <= index; i++)
+				{
+					enumerator.MoveNext();
+				}
+				return enumerator.Current;
+			}
+		}
+
+
+		/// <summary>
 		/// Adds the elements into the collection.
 		/// </summary>
 		/// <param name="values">The elements to be added.</param>

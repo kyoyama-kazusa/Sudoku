@@ -691,11 +691,38 @@
             </param>
             <returns>The <see cref="T:System.String"/> representation.</returns>
         </member>
+        <member name="T:System.Collections.Generic.EnumerableExtensions">
+            <summary>
+            Provides extension members on both <see cref="T:System.Collections.IEnumerable"/> and <see cref="T:System.Collections.Generic.IEnumerable`1"/> values.
+            </summary>
+            <seealso cref="T:System.Collections.IEnumerable"/>
+            <seealso cref="T:System.Collections.Generic.IEnumerable`1"/>
+        </member>
+        <member name="M:System.Collections.Generic.EnumerableExtensions.get_Item``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <inheritdoc cref="P:System.Collections.Generic.EnumerableExtensions.&lt;G&gt;$E09FCB5EB13C1AE2FC524F6744DE5322`1.Item(System.Int32)"/>
+        </member>
+        <member name="T:System.Collections.Generic.EnumerableExtensions.&lt;G&gt;$E09FCB5EB13C1AE2FC524F6744DE5322`1.&lt;M&gt;$4682AFC9469976CF854DD8E6DA5A92DE">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.Generic.IEnumerable`1"/> instances.
+            </summary>
+            <typeparam name="T">The type of each element.</typeparam>
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:System.Collections.Generic.EnumerableExtensions.&lt;G&gt;$E09FCB5EB13C1AE2FC524F6744DE5322`1.Item(System.Int32)">
+            <summary>
+            Gets the specified element at the desired index on the order of default adding.
+            </summary>
+            <param name="index">The desired index.</param>
+            <returns>The target element at the specified index.</returns>
+        </member>
         <member name="T:System.Collections.Generic.HashSetExtensions">
             <summary>
             Provides with extension methods on <see cref="T:System.Collections.Generic.HashSet`1"/>.
             </summary>
             <seealso cref="T:System.Collections.Generic.HashSet`1"/>
+        </member>
+        <member name="M:System.Collections.Generic.HashSetExtensions.get_Item``1(System.Collections.Generic.HashSet{``0},System.Int32)">
+            <inheritdoc cref="P:System.Collections.Generic.HashSetExtensions.&lt;G&gt;$48D993973B7F81786721B9597BB507D2`1.Item(System.Int32)"/>
         </member>
         <member name="M:System.Collections.Generic.HashSetExtensions.AddRef``1(System.Collections.Generic.HashSet{``0},``0@)">
             <inheritdoc cref="M:System.Collections.Generic.HashSetExtensions.&lt;G&gt;$48D993973B7F81786721B9597BB507D2`1.AddRef(`0@)"/>
@@ -722,6 +749,13 @@
 			</target>
             <typeparam name="T">The type of each value in the collection.</typeparam>
             <param name="this">The current instance.</param>
+        </member>
+        <member name="P:System.Collections.Generic.HashSetExtensions.&lt;G&gt;$48D993973B7F81786721B9597BB507D2`1.Item(System.Int32)">
+            <summary>
+            Gets the specified element at the desired index on the order of default adding.
+            </summary>
+            <param name="index">The desired index.</param>
+            <returns>The target element at the specified index.</returns>
         </member>
         <member name="M:System.Collections.Generic.HashSetExtensions.&lt;G&gt;$48D993973B7F81786721B9597BB507D2`1.AddRef(`0@)">
             <summary>
@@ -1469,6 +1503,9 @@
             </summary>
             <seealso cref="T:System.Collections.Generic.SortedSet`1"/>
         </member>
+        <member name="M:System.Collections.Generic.SortedSetExtensions.get_Item``1(System.Collections.Generic.SortedSet{``0},System.Int32)">
+            <inheritdoc cref="P:System.Collections.Generic.SortedSetExtensions.&lt;G&gt;$F1C0CBBD0AD4EAFCC53922F46F921833`1.Item(System.Int32)"/>
+        </member>
         <member name="M:System.Collections.Generic.SortedSetExtensions.AddRange``1(System.Collections.Generic.SortedSet{``0},System.ReadOnlySpan{``0})">
             <inheritdoc cref="M:System.Collections.Generic.SortedSetExtensions.&lt;G&gt;$F1C0CBBD0AD4EAFCC53922F46F921833`1.AddRange(System.ReadOnlySpan{`0})"/>
         </member>
@@ -1491,6 +1528,13 @@
 			</target>
             <typeparam name="T">The type of each value.</typeparam>
             <param name="this">The current instance.</param>
+        </member>
+        <member name="P:System.Collections.Generic.SortedSetExtensions.&lt;G&gt;$F1C0CBBD0AD4EAFCC53922F46F921833`1.Item(System.Int32)">
+            <summary>
+            Gets the specified element at the desired index on the order of default adding.
+            </summary>
+            <param name="index">The desired index.</param>
+            <returns>The target element at the specified index.</returns>
         </member>
         <member name="M:System.Collections.Generic.SortedSetExtensions.&lt;G&gt;$F1C0CBBD0AD4EAFCC53922F46F921833`1.AddRange(System.ReadOnlySpan{`0})">
             <summary>
@@ -3494,9 +3538,6 @@
             </summary>
             <seealso cref="T:System.Collections.Generic.Dictionary`2"/>
         </member>
-        <member name="M:System.Linq.DictionaryEnumerable.get_Item``2(System.Collections.Generic.Dictionary{``0,``1},System.Int32)">
-            <inheritdoc cref="P:System.Linq.DictionaryEnumerable.&lt;G&gt;$E42DFDC8D24EBEA929FB244FBCDF3D61`2.Item(System.Int32)"/>
-        </member>
         <member name="M:System.Linq.DictionaryEnumerable.ElementAt``2(System.Collections.Generic.Dictionary{``0,``1},System.Int32)">
             <inheritdoc cref="M:System.Linq.DictionaryEnumerable.&lt;G&gt;$E42DFDC8D24EBEA929FB244FBCDF3D61`2.ElementAt(System.Int32)"/>
         </member>
@@ -3535,9 +3576,6 @@
             <typeparam name="TKey">The type of key.</typeparam>
             <typeparam name="TValue">The type of value.</typeparam>
             <param name="source">The source collection.</param>
-        </member>
-        <member name="P:System.Linq.DictionaryEnumerable.&lt;G&gt;$E42DFDC8D24EBEA929FB244FBCDF3D61`2.Item(System.Int32)">
-            <inheritdoc cref="M:System.Linq.Enumerable.ElementAt``1(System.Collections.Generic.IEnumerable{``0},System.Int32)"/>
         </member>
         <member name="M:System.Linq.DictionaryEnumerable.&lt;G&gt;$E42DFDC8D24EBEA929FB244FBCDF3D61`2.ElementAt(System.Int32)">
             <inheritdoc cref="M:System.Linq.Enumerable.ElementAt``1(System.Collections.Generic.IEnumerable{``0},System.Int32)"/>
@@ -4157,9 +4195,6 @@
             </summary>
             <seealso cref="T:System.Collections.Generic.HashSet`1"/>
         </member>
-        <member name="M:System.Linq.HashSetEnumerable.First``1(System.Collections.Generic.HashSet{``0})">
-            <inheritdoc cref="M:System.Linq.HashSetEnumerable.&lt;G&gt;$48D993973B7F81786721B9597BB507D2`1.First"/>
-        </member>
         <member name="M:System.Linq.HashSetEnumerable.First``1(System.Collections.Generic.HashSet{``0},System.Func{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.HashSetEnumerable.&lt;G&gt;$48D993973B7F81786721B9597BB507D2`1.First(System.Func{`0,System.Boolean})"/>
         </member>
@@ -4185,13 +4220,6 @@
 			</target>
             <typeparam name="TSource">The type of source elements.</typeparam>
             <param name="source">The source collection.</param>
-        </member>
-        <member name="M:System.Linq.HashSetEnumerable.&lt;G&gt;$48D993973B7F81786721B9597BB507D2`1.First">
-            <summary>
-            Indicates the first element of the collection.
-            </summary>
-            <returns>The first element of the collection.</returns>
-            <exception cref="T:System.InvalidOperationException">Throws when the collection contains no elements.</exception>
         </member>
         <member name="M:System.Linq.HashSetEnumerable.&lt;G&gt;$48D993973B7F81786721B9597BB507D2`1.First(System.Func{`0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.Enumerable.First``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})"/>

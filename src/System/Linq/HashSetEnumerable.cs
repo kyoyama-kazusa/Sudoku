@@ -1,4 +1,4 @@
-namespace System.Linq;
+﻿namespace System.Linq;
 
 /// <summary>
 /// Represents LINQ methods used by <see cref="HashSet{T}"/> instances.
@@ -13,19 +13,6 @@ public static class HashSetEnumerable
 	/// <param name="source">The source collection.</param>
 	extension<TSource>(HashSet<TSource> source)
 	{
-		/// <summary>
-		/// Indicates the first element of the collection.
-		/// </summary>
-		/// <returns>The first element of the collection.</returns>
-		/// <exception cref="InvalidOperationException">Throws when the collection contains no elements.</exception>
-		public TSource First()
-		{
-			using var enumerator = source.GetEnumerator();
-			return enumerator.MoveNext()
-				? enumerator.Current
-				: throw new InvalidOperationException(SR.ExceptionMessage("NoElementsFoundInCollection"));
-		}
-
 		/// <inheritdoc cref="Enumerable.First{TSource}(IEnumerable{TSource}, Func{TSource, bool})"/>
 		public TSource First(Func<TSource, bool> predicate)
 		{
@@ -40,7 +27,7 @@ public static class HashSetEnumerable
 		}
 
 		/// <inheritdoc cref="Enumerable.FirstOrDefault{TSource}(IEnumerable{TSource})"/>
-		public TSource? FirstOrDefault() => source.Count == 0 ? default : source.First();
+		public TSource? FirstOrDefault() => source.Count == 0 ? default : source[0];
 
 		/// <inheritdoc cref="Enumerable.FirstOrDefault{TSource}(IEnumerable{TSource}, Func{TSource, bool})"/>
 		public TSource? FirstOrDefault(Func<TSource, bool> predicate)

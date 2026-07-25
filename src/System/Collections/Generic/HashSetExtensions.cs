@@ -1,4 +1,4 @@
-namespace System.Collections.Generic;
+﻿namespace System.Collections.Generic;
 
 /// <summary>
 /// Provides with extension methods on <see cref="HashSet{T}"/>.
@@ -13,6 +13,30 @@ public static class HashSetExtensions
 	/// <param name="this">The current instance.</param>
 	extension<T>(HashSet<T> @this)
 	{
+		/// <summary>
+		/// Gets the specified element at the desired index on the order of default adding.
+		/// </summary>
+		/// <param name="index">The desired index.</param>
+		/// <returns>The target element at the specified index.</returns>
+		public T this[int index]
+		{
+			get
+			{
+				if (index < 0 || index >= @this.Count)
+				{
+					throw new IndexOutOfRangeException();
+				}
+
+				using var enumerator = @this.GetEnumerator();
+				for (var i = 0; i <= index; i++)
+				{
+					enumerator.MoveNext();
+				}
+				return enumerator.Current;
+			}
+		}
+
+
 		/// <summary>
 		/// Add a new instance into the collection.
 		/// </summary>

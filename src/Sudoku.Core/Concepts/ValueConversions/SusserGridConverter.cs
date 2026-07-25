@@ -1,4 +1,4 @@
-namespace Sudoku.Concepts.ValueConversions;
+﻿namespace Sudoku.Concepts.ValueConversions;
 
 /// <summary>
 /// Represents Susser grid converter.
@@ -310,7 +310,7 @@ public abstract partial class SusserGridConverter : IGridConverter
 						var equalityComparer = EqualityComparer<Match>.Create(equals, getHashCode);
 						switch (new HashSet<Match>(collection, equalityComparer))
 						{
-							case { Count: 1 } set when set.First() is { Length: var firstLength }:
+							case [{ Length: var firstLength }]:
 							{
 								// All matches are same-length.
 								for (var j = 0; j < 9;)

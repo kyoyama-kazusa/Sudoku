@@ -1,4 +1,4 @@
-namespace Sudoku.Drawing;
+﻿namespace Sudoku.Drawing;
 
 /// <summary>
 /// Provides with a data structure that displays a view for basic information.
@@ -205,7 +205,7 @@ public sealed class View :
 	}
 
 	/// <inheritdoc/>
-	ViewNode IFirstLastMethod<View, ViewNode>.First() => this.First();
+	ViewNode IFirstLastMethod<View, ViewNode>.First() => this[0];
 
 	/// <inheritdoc/>
 	ViewNode IFirstLastMethod<View, ViewNode>.First(Func<ViewNode, bool> predicate) => First(predicate);
