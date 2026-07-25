@@ -48,6 +48,7 @@ public readonly struct Factor(string resourceKey, string[] parameterNames, Type 
 			foreach (var parameterName in ParameterNames)
 			{
 				var found = false;
+			checking_for_property_info_list_loop:
 				foreach (var propertyInfoList in propertyInfoDictionary.Values)
 				{
 					switch (Array.FindAll(propertyInfoList, p => nameMatcher(p.Name, parameterName)))
@@ -56,7 +57,7 @@ public readonly struct Factor(string resourceKey, string[] parameterNames, Type 
 						{
 							matchPropertyInfoList.Add(match);
 							found = true;
-							goto NextMatch;
+							break checking_for_property_info_list_loop;
 						}
 						case [var firstMatch, .. { Length: not 0 }] matches:
 						{
@@ -69,12 +70,11 @@ public readonly struct Factor(string resourceKey, string[] parameterNames, Type 
 									: firstMatch // The arbitrary one in matched set will be selected.
 							);
 							found = true;
-							goto NextMatch;
+							break checking_for_property_info_list_loop;
 						}
 					}
 				}
 
-			NextMatch:
 				if (!found)
 				{
 					throw new FactorResourceMismatchedException();

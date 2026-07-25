@@ -37591,6 +37591,9 @@
             </summary>
             <param name="value">The pair of <see cref="T:System.Int32"/> values.</param>
         </member>
+        <member name="P:Sudoku.Theories.SetTheory.AssignedCount.Value">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Theories.SetTheory.AssignedCount.IsStable">
             <summary>
             Indicates whether the pattern is stable.
@@ -37600,9 +37603,6 @@
             <summary>
             Indicates the delta value.
             </summary>
-        </member>
-        <member name="P:Sudoku.Theories.SetTheory.AssignedCount.System#Runtime#CompilerServices#IUnion#Value">
-            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Theories.SetTheory.AssignedCount.TryGetValue(System.Int32@)">
             <summary>
@@ -38081,13 +38081,13 @@
             </summary>
             <param name="values">A sequence of rank values.</param>
         </member>
+        <member name="P:Sudoku.Theories.SetTheory.Rank.Value">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Theories.SetTheory.Rank.IsConsistent">
             <summary>
             Represents a flag, meaning whether the rank is consistent or not.
             </summary>
-        </member>
-        <member name="P:Sudoku.Theories.SetTheory.Rank.System#Runtime#CompilerServices#IUnion#Value">
-            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Theories.SetTheory.Rank.InconsistentRanksOrdered">
             <summary>

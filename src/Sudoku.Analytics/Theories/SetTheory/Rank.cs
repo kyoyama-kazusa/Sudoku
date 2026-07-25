@@ -45,15 +45,15 @@ public readonly struct Rank : IEquatable<Rank>, IEqualityOperators<Rank, Rank, b
 	}
 
 
+	/// <inheritdoc/>
+	public object? Value => IsConsistent ? _consistentRank.Value : _inconsistentRank;
+
 	/// <summary>
 	/// Represents a flag, meaning whether the rank is consistent or not.
 	/// </summary>
 	[MemberNotNullWhen(true, nameof(_consistentRank))]
 	[MemberNotNullWhen(false, nameof(_inconsistentRank), nameof(InconsistentRanksOrdered))]
 	public bool IsConsistent { get; }
-
-	/// <inheritdoc/>
-	object? IUnion.Value => IsConsistent ? _consistentRank.Value : _inconsistentRank;
 
 	/// <summary>
 	/// Represents ordered collection of inconsistent rank values.

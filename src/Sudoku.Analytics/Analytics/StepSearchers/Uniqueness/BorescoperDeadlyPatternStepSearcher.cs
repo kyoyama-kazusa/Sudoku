@@ -340,26 +340,20 @@ public sealed partial class BorescoperDeadlyPatternStepSearcher : StepSearcher
 				// Iterate on each combination.
 				// Only one digit should be eliminated, and other digits should form a "conjugate house".
 				// In a so-called conjugate house, the digits can only appear in these cells in this house.
+			loop_combination:
 				foreach (var combination in (tempMask & orMask).AllSets & currentMap.Count - 1)
 				{
 					var combinationMask = (Mask)0;
 					var combinationMap = CellMap.Empty;
-					var flag = false;
 					foreach (var digit in combination)
 					{
 						if (ValuesMap[digit] && HousesMap[houseIndex])
 						{
-							flag = true;
-							break;
+							continue loop_combination;
 						}
 
 						combinationMask |= (Mask)(1 << digit);
 						combinationMap |= CandidatesMap[digit] & HousesMap[houseIndex];
-					}
-					if (flag)
-					{
-						// The house contains digit value, which is not a normal pattern.
-						continue;
 					}
 
 					if (combinationMap != currentMap)

@@ -806,25 +806,17 @@ public sealed partial class AnonymousDeadlyPatternStepSearcher : StepSearcher
 				// Now we have a standard 3 * 3 cells.
 
 				// We should remove out 2 cells from the pattern. Iterate on all pair combinations of 9 cells.
+			loop_pair:
 				foreach (ref readonly var pair in originalPatternCells & 2)
 				{
 					// Remove out those two.
 					var patternCells = originalPatternCells & ~pair;
-
-					// Check whether all houses the pattern spanned have at least 2 cells or not.
-					var isFailed = false;
 					foreach (var house in patternCells.Houses)
 					{
 						if ((HousesMap[house] & patternCells).Count == 1)
 						{
-							isFailed = true;
-							break;
+							continue loop_pair;
 						}
-					}
-					if (isFailed)
-					{
-						// Skip for this combination.
-						continue;
 					}
 
 					// Add result into collection.

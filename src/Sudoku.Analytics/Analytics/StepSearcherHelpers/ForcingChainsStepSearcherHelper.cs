@@ -105,6 +105,7 @@ internal abstract class ForcingChainsStepSearcherHelper : ChainingStepSearcherHe
 
 		var nodesSupposedOn = new HashSet<Node>(ChainingComparers.NodeMapComparer);
 		var nodesSupposedOff = new HashSet<Node>(ChainingComparers.NodeMapComparer);
+	chaining_bfs_loop:
 		while (pendingNodesSupposedOn.Count != 0 || pendingNodesSupposedOff.Count != 0)
 		{
 			if (pendingNodesSupposedOn.Count != 0)
@@ -118,7 +119,7 @@ internal abstract class ForcingChainsStepSearcherHelper : ChainingStepSearcherHe
 						if (nodesSupposedOn.Contains(~nextNode))
 						{
 							// Contradiction is found.
-							goto ReturnResult;
+							break chaining_bfs_loop;
 						}
 
 						if (nodesSupposedOff.Add(nextNode))
@@ -139,7 +140,7 @@ internal abstract class ForcingChainsStepSearcherHelper : ChainingStepSearcherHe
 						if (nodesSupposedOff.Contains(~nextNode))
 						{
 							// Contradiction is found.
-							goto ReturnResult;
+							break chaining_bfs_loop;
 						}
 
 						if (nodesSupposedOn.Add(nextNode))
@@ -151,8 +152,6 @@ internal abstract class ForcingChainsStepSearcherHelper : ChainingStepSearcherHe
 			}
 		}
 
-	ReturnResult:
-		// Returns the found result.
 		return new(nodesSupposedOn, nodesSupposedOff);
 	}
 }

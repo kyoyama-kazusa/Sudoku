@@ -382,6 +382,7 @@ public sealed class CachedMethodGenerator : IIncrementalGenerator
 								// Check whether the referenced method declaration has instance member accessing.
 								// If so, we should replace them with '@this.' invocation (or disallow now).
 								var hasThisMemberAccessing = false;
+							loop_tempNode:
 								foreach (var tempNode in referencedMethodDeclaration.DescendantNodes().OfType<MemberAccessExpressionSyntax>())
 								{
 									// Detect 'this.' references has two cases:
@@ -399,7 +400,7 @@ public sealed class CachedMethodGenerator : IIncrementalGenerator
 											when SymbolEqualityComparer.Default.Equals(memberContainingType, containingType):
 											{
 												hasThisMemberAccessing = true;
-												goto CheckThisOrBaseExpression;
+												break loop_tempNode;
 											}
 										}
 									}
@@ -409,8 +410,7 @@ public sealed class CachedMethodGenerator : IIncrementalGenerator
 									}
 								}
 
-							CheckThisOrBaseExpression:
-								if (hasThisMemberAccessing)
+							if (hasThisMemberAccessing)
 								{
 									// Today I won't handle this because it is too complex to be checked...
 									return Diagnostic.Create(IC0106, identifierToken.GetLocation(), messageArgs: null);

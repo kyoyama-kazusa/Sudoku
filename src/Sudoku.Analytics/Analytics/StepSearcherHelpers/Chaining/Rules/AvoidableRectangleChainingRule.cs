@@ -28,6 +28,7 @@ public sealed class AvoidableRectangleChainingRule : ChainingRule
 		{
 			var urCells = pattern.AsCellMap();
 			var (modifiableCellsInPattern, emptyCellsInPattern, isValid) = (CellMap.Empty, CellMap.Empty, true);
+		loop_cell:
 			foreach (var cell in urCells)
 			{
 				switch (grid.GetState(cell))
@@ -40,7 +41,7 @@ public sealed class AvoidableRectangleChainingRule : ChainingRule
 					case CellState.Given:
 					{
 						isValid = false;
-						goto OutsideValidityCheck;
+						break loop_cell;
 					}
 					default:
 					{
@@ -49,7 +50,6 @@ public sealed class AvoidableRectangleChainingRule : ChainingRule
 					}
 				}
 			}
-		OutsideValidityCheck:
 			if (!isValid || modifiableCellsInPattern.Count != 2 || emptyCellsInPattern.Count != 2)
 			{
 				continue;

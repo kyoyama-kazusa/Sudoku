@@ -216,6 +216,7 @@ public sealed class MinlexFinder
 						toColsInStack[6 + BestTripletPermutation.Perm[colsPerm2][1]] = toTriplets[2] + 1;
 						toColsInStack[6 + BestTripletPermutation.Perm[colsPerm2][2]] = toTriplets[2] + 2;
 						var (labelPerm, nextFreeLabel, setCellsCount) = (new int[10], 1, 0);
+					loop_toRow:
 						for (var toRow = 0; toRow < 9; toRow++)
 						{
 							ref readonly var rowGivens = ref pair[target.IsTransposed].Digits[target.MapRowsBackward[toRow] * 9];
@@ -233,7 +234,7 @@ public sealed class MinlexFinder
 								}
 								if (labelPerm[fromDigit] > minlex[toRow * 9 + col])
 								{
-									goto NextColsPerm;
+									break loop_toRow;
 								}
 
 								setCellsCount++;
@@ -281,7 +282,6 @@ public sealed class MinlexFinder
 								}
 							}
 						}
-					NextColsPerm:;
 					}
 				}
 			}
@@ -294,7 +294,7 @@ public sealed class MinlexFinder
 	}
 
 	/// <inheritdoc cref="Find(string)"/>
-	public Grid Find(in Grid grid) => grid.ToString("0") | Find | &Grid.Parse;
+	public unsafe Grid Find(in Grid grid) => grid.ToString("0") | Find | &Grid.Parse;
 
 	/// <summary>
 	/// Finds the minimum lexicographical form of the source grid code.

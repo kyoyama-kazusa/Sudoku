@@ -325,6 +325,7 @@ public sealed class Analyzer : StepGatherer
 			string progressedStepSearcherName;
 			foreach (var searcher in stepSearchers)
 			{
+			searcher_branches:
 				switch (playground, solution, searcher, this)
 				{
 					case ({ IsSukaku: true }, _, { Metadata.SupportsSukaku: false }, _):
@@ -427,7 +428,7 @@ public sealed class Analyzer : StepGatherer
 							}
 						}
 
-						goto MakeProgress;
+						break searcher_branches;
 					}
 					case (_, _, BruteForceStepSearcher, { RandomizedChoosing: true }):
 					{
@@ -453,7 +454,7 @@ public sealed class Analyzer : StepGatherer
 							return result;
 						}
 
-						goto MakeProgress;
+						break searcher_branches;
 					}
 					case (_, _, not BruteForceStepSearcher, { IsFullApplying: true } or { RandomizedChoosing: true }):
 					{
@@ -501,7 +502,7 @@ public sealed class Analyzer : StepGatherer
 
 						// The puzzle has not been finished, we should turn to the first step finder
 						// to continue solving puzzle.
-						goto MakeProgress;
+						break searcher_branches;
 					}
 					default:
 					{
@@ -529,13 +530,12 @@ public sealed class Analyzer : StepGatherer
 
 								// The puzzle has not been finished, we should turn to the first step finder
 								// to continue solving puzzle.
-								goto MakeProgress;
+								break searcher_branches;
 							}
 						}
 					}
 				}
 
-			MakeProgress:
 				progressedStepSearcherName = searcher.ToString(Options.CurrentCulture);
 				goto ReportStateAndTryNextStep;
 			}
@@ -610,7 +610,7 @@ public sealed class Analyzer : StepGatherer
 				}
 
 				var atLeastOneConclusionIsWorth = false;
-				foreach (var (t, c, d) in step.Conclusions)
+			current_loop: foreach (var (t, c, d) in step.Conclusions)
 				{
 					switch (t)
 					{
@@ -619,12 +619,11 @@ public sealed class Analyzer : StepGatherer
 						{
 							atLeastOneConclusionIsWorth = true;
 
-							goto FinalCheck;
+							break current_loop;
 						}
 					}
 				}
 
-			FinalCheck:
 				if (atLeastOneConclusionIsWorth)
 				{
 					steppingGrids.AddRef(playground);

@@ -89,18 +89,19 @@ public sealed record CnfFormula(int VariablesCount) : IEnumerable<ReadOnlyMemory
 		}
 
 		var sb = new StringBuilder();
+	loop_i:
 		for (var i = 0; i < Clauses.Count; i++)
 		{
 			var clause = Clauses[i].Span;
 			if (!appendOrFailed(sb, '('))
 			{
-				goto Return;
+				break loop_i;
 			}
 			if (clause.Length == 0)
 			{
 				if (!appendOrFailed(sb, Bottom))
 				{
-					goto Return;
+					break loop_i;
 				}
 			}
 			else
@@ -112,39 +113,38 @@ public sealed record CnfFormula(int VariablesCount) : IEnumerable<ReadOnlyMemory
 					{
 						if (!appendOrFailed(sb, Not))
 						{
-							goto Return;
+							break loop_i;
 						}
 					}
 
 					if (!appendOrFailed(sb, getVariableName(Math.Abs(literal))))
 					{
-						goto Return;
+						break loop_i;
 					}
 
 					if (j + 1 < clause.Length)
 					{
 						if (!appendOrFailed(sb, Or))
 						{
-							goto Return;
+							break loop_i;
 						}
 					}
 				}
 			}
 			if (!appendOrFailed(sb, ')'))
 			{
-				goto Return;
+				break loop_i;
 			}
 
 			if (i + 1 < Clauses.Count)
 			{
 				if (!appendOrFailed(sb, And))
 				{
-					goto Return;
+					break loop_i;
 				}
 			}
 		}
 
-	Return:
 		return sb.ToString();
 
 

@@ -88,6 +88,7 @@ file sealed class Converter : JsonConverter<DashArray>
 		}
 
 		var targetCollection = new List<double>();
+	loop_readerRead:
 		while (reader.Read())
 		{
 			switch (reader.TokenType)
@@ -121,7 +122,7 @@ file sealed class Converter : JsonConverter<DashArray>
 				}
 				case JsonTokenType.EndArray:
 				{
-					goto ReturnValue;
+					break loop_readerRead;
 				}
 				default:
 				{
@@ -130,7 +131,6 @@ file sealed class Converter : JsonConverter<DashArray>
 			}
 		}
 
-	ReturnValue:
 		return [.. targetCollection];
 	}
 

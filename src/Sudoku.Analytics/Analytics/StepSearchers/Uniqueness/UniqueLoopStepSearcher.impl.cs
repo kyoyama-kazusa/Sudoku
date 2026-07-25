@@ -444,6 +444,7 @@ public partial class UniqueLoopStepSearcher
 
 				// Iterate cells.
 				// There are two ways to check: clockwise and counter-clockwise.
+			loop_isClockwise:
 				foreach (var isClockwise in (true, false))
 				{
 					// Construct an array to be iterated.
@@ -465,9 +466,6 @@ public partial class UniqueLoopStepSearcher
 
 						int makeDecrement(int i) => (i <= 1 ? i + pathLength : i) - 1;
 					}
-
-					// Suppose it is true, and fill digits through the path, to determine whether the loop can be filled completely.
-					var isFailed = false;
 					var conjugatePairsUsed = new List<Conjugate>();
 					for (
 						var (i, thisDigit, nextDigit) = (0, digit, theOtherDigit);
@@ -511,14 +509,7 @@ public partial class UniqueLoopStepSearcher
 						{
 							continue;
 						}
-
-						// Neither cases are not successful.
-						isFailed = true;
-						break;
-					}
-					if (isFailed)
-					{
-						continue;
+						continue loop_isClockwise;
 					}
 
 					if (conjugatePairsUsed.Count == 0)

@@ -85,12 +85,13 @@ public sealed class Collector : StepGatherer
 			var (l, bag, currentSearcherIndex) = (defaultLevel, new List<Step>(), 0);
 			foreach (var searcher in possibleStepSearchers)
 			{
+			searcher_branches:
 				switch (searcher)
 				{
 					case { RunningArea: var runningArea } when !runningArea.HasFlag(StepSearcherRunningArea.Collecting):
 					case { Metadata.SupportsSukaku: false } when puzzle.IsSukaku:
 					{
-						goto ReportProgress;
+						break searcher_branches;
 					}
 					case { Level: var currentLevel }:
 					{
@@ -107,7 +108,7 @@ public sealed class Collector : StepGatherer
 							}
 							default:
 							{
-								goto ReportProgress;
+								break searcher_branches;
 							}
 						}
 
@@ -120,7 +121,7 @@ public sealed class Collector : StepGatherer
 						searcher.Collect(ref context);
 						if (accumulator.Count == 0)
 						{
-							goto ReportProgress;
+							break searcher_branches;
 						}
 
 						l = currentLevel;
@@ -129,8 +130,7 @@ public sealed class Collector : StepGatherer
 					}
 				}
 
-			// Report the progress if worth.
-			ReportProgress:
+				// Report the progress if worth.
 				progress?.Report(new(searcher.ToString(Options.CurrentCulture), ++currentSearcherIndex / (double)totalSearchersCount));
 			}
 

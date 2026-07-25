@@ -33,6 +33,7 @@ public sealed partial class WhipStepSearcher : StepSearcher
 		foreach (var cell in EmptyCells)
 		{
 			// Iterate on the case that means whether the searcher supports for grouped whip (g-whip).
+		loop_groupedWhip:
 			foreach (var groupedWhip in (false, true))
 			{
 				var trueDigit = Solution.IsUndefined ? -1 : Solution.GetDigit(cell);
@@ -76,73 +77,19 @@ public sealed partial class WhipStepSearcher : StepSearcher
 							}
 
 							context.Accumulator.Add(step);
-							goto NextCandidate;
+							break loop_groupedWhip;
 						}
 
 						// Add all found conclusion into the pending queue.
+					loop_assignment:
 						foreach (var assignment in currentNode.AvailableAssignments)
 						{
-							#region Description to optimization, and a problem that I want you to consider and solve it
-							// Check whether the current found assignment indeed exists in ancestor nodes.
-							// If so, such conclusion should not be used as children nodes of the current node.
-							//
-							// But... why we should check for this?
-							// For example, if node A can make 3 new conclusions B, C and D,
-							// we'll know that the parent of nodes B, C and D is A.
-							// However, due to branching rules, if C or D cannot be appeared in the branch A -> B
-							// because C or D is a children of A, not B. We should ignore C and D if checking for branch A -> B.
-							//
-							//           A
-							//           |
-							//      /----|----\
-							//     B     C     D
-							//    / \
-							//   E   F
-							//
-							// In the diagram, the grid state at conclusion E can also produce new conclusions C, D and F,
-							// and F grid state can also produce steps C, D and E.
-							// We should ignore all the other conclusions that don't exist in the branch A -> B -> E
-							// (conclusions C, D and F) and A -> B -> F (conclusions C, D and E).
-							//
-							// In order to find minimal path, we may not iterate on all possible paths.
-							// There's a one way to reduce path length.
-							//
-							//           A
-							//           |
-							//      /----|----\
-							//     B     C     D
-							//    / \
-							//   E   F
-							//
-							// Also, in the diagram, we can know there're 4 possible paths:
-							//
-							//   * A-B-E
-							//   * A-B-F
-							//   * A-C
-							//   * A-D
-							//
-							// But, if we can find that both paths A-C and B-E in path A-B-E produces same interim candidates,
-							// we'll know that in fact A-C is a better choice than A-B-E,
-							// because A-C has a shorter path to reach same whip node.
-							// However, due to design of this algorithm, we'll return if any one possible path is found.
-							// This means, if A-B-E is encountered before A-C, this algorithm will ignore better paths like A-C.
-							// To fix this issue, we should check for all conclusions produced here instead,
-							// in order to choose a shorter one without ignoring the other paths A-C and A-D
-							// while searching A-B-E and A-B-F.
-							#endregion
-
-							var isParentNodeContainsSuchAssignment = false;
 							for (var parentNode = currentNode.Parent; parentNode is not null; parentNode = parentNode.Parent)
 							{
 								if (parentNode.AvailableAssignments.Span.Contains(assignment))
 								{
-									isParentNodeContainsSuchAssignment = true;
-									break;
+									continue loop_assignment;
 								}
-							}
-							if (isParentNodeContainsSuchAssignment)
-							{
-								continue;
 							}
 
 							var nextNode = WhipNode.Create(new(assignment), currentNode);
@@ -152,8 +99,6 @@ public sealed partial class WhipStepSearcher : StepSearcher
 					}
 				}
 			}
-
-		NextCandidate:;
 		}
 
 		// No conclusions found, or just find for all possible steps. Return null.

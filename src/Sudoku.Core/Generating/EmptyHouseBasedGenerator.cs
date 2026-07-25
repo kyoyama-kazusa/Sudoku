@@ -129,6 +129,7 @@ public ref partial struct EmptyHouseBasedGenerator() : IGenerator<Grid>
 
 			// Fetch the number of empty houses set.
 			var hasUniqueSolutionAfterClearingValuesFromSpecifiedHouses = true;
+		loop_i:
 			for (var i = 0; i < 3; i++)
 			{
 				var l = localPairs + i;
@@ -194,7 +195,7 @@ public ref partial struct EmptyHouseBasedGenerator() : IGenerator<Grid>
 					if (!_solver.CheckValidity(_newValidSudoku.ToString("!0")))
 					{
 						hasUniqueSolutionAfterClearingValuesFromSpecifiedHouses = false;
-						goto CheckFlag;
+						break loop_i;
 					}
 
 					previousHousesMask |= 1 << house;
@@ -205,7 +206,6 @@ public ref partial struct EmptyHouseBasedGenerator() : IGenerator<Grid>
 					}
 				}
 			}
-		CheckFlag:
 			if (!hasUniqueSolutionAfterClearingValuesFromSpecifiedHouses)
 			{
 				continue;
@@ -300,6 +300,7 @@ public ref partial struct EmptyHouseBasedGenerator() : IGenerator<Grid>
 
 		// First set a new empty Sudoku.
 		(_stack[0].SudokuGrid, _stack[0].Cell, var level) = (Grid.Empty, -1, 0);
+	outer_while_loop:
 		while (true)
 		{
 			// Get the next unsolved cell according to _generateIndices.
@@ -333,9 +334,6 @@ public ref partial struct EmptyHouseBasedGenerator() : IGenerator<Grid>
 			{
 				return false;
 			}
-
-			// Go to the next level.
-			var done = false;
 			do
 			{
 				// This loop runs as long as the next candidate tried produces an invalid sudoku or until all candidates have been tried.
@@ -345,14 +343,8 @@ public ref partial struct EmptyHouseBasedGenerator() : IGenerator<Grid>
 					level--;
 					if (level <= 0)
 					{
-						// No level with candidates left.
-						done = true;
-						break;
+						break outer_while_loop;
 					}
-				}
-				if (done)
-				{
-					break;
 				}
 
 				// Try the next candidate.
@@ -374,10 +366,6 @@ public ref partial struct EmptyHouseBasedGenerator() : IGenerator<Grid>
 					break;
 				}
 			} while (true);
-			if (done)
-			{
-				break;
-			}
 		}
 		return false;
 

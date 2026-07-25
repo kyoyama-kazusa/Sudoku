@@ -58,6 +58,7 @@ public readonly ref struct Cluster(in Grid grid, Digit digit, scoped in CellMap 
 				ref readonly var firstParityPair = ref parities[0];
 				var parity1 = firstParityPair.On.Cells;
 				var parity2 = firstParityPair.Off.Cells;
+			loop_i:
 				for (var i = 0; i < 2; i++)
 				{
 					// Check whether there're two or more cells lying in a same house.
@@ -68,13 +69,10 @@ public readonly ref struct Cluster(in Grid grid, Digit digit, scoped in CellMap 
 						{
 							// All this parity is incorrect, and the other one is correct.
 							result |= parity;
-							goto NextComponent;
+							break loop_i;
 						}
 					}
 				}
-
-			NextComponent:
-				;
 			}
 			return result;
 		}

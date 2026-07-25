@@ -575,6 +575,7 @@ internal sealed class DynamicForcingChainsStepSearcherHelper : ForcingChainsStep
 		var nodesSupposedOff = new HashSet<Node>(ChainingComparers.NodeMapComparer);
 		(startNode.IsOn ? nodesSupposedOn : nodesSupposedOff).Add(startNode);
 
+	chaining_bfs_loop:
 		while (pendingNodesSupposedOn.Count != 0 || pendingNodesSupposedOff.Count != 0)
 		{
 			if (pendingNodesSupposedOn.Count != 0)
@@ -588,7 +589,7 @@ internal sealed class DynamicForcingChainsStepSearcherHelper : ForcingChainsStep
 						{
 							// Contradiction is found.
 							contradiction = (nextNodeNegated, node);
-							goto ReturnResult;
+							break chaining_bfs_loop;
 						}
 
 						if (nodesSupposedOff.Add(node))
@@ -613,7 +614,7 @@ internal sealed class DynamicForcingChainsStepSearcherHelper : ForcingChainsStep
 						{
 							// Contradiction is found.
 							contradiction = (node, nextNodeNegated);
-							goto ReturnResult;
+							break chaining_bfs_loop;
 						}
 
 						if (nodesSupposedOn.Add(node))
@@ -625,8 +626,6 @@ internal sealed class DynamicForcingChainsStepSearcherHelper : ForcingChainsStep
 			}
 		}
 
-	ReturnResult:
-		// Returns the found result.
 		return new(nodesSupposedOn, nodesSupposedOff);
 	}
 

@@ -321,6 +321,7 @@ public static class BraidAnalysis
 			var hiddenDictionary = new Dictionary<Strand, Mask>();
 
 			// Now find for hidden rules.
+		loop_digit:
 			for (var digit = 0; digit < 9; digit++)
 			{
 				var lastAppearedStrand = default(Strand?);
@@ -333,7 +334,7 @@ public static class BraidAnalysis
 						{
 							// The digit can be appeared in at least 2 strands.
 							// We cannot determine which one is correct.
-							goto NextDigit;
+							continue loop_digit;
 						}
 
 						// Otherwise, assign it into temporary variable.
@@ -353,9 +354,6 @@ public static class BraidAnalysis
 				{
 					hiddenDictionary[onlyStrand] |= mask;
 				}
-
-			NextDigit:
-				;
 			}
 
 			// Infer braiding types.

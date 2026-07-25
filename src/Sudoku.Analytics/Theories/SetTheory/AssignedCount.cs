@@ -27,6 +27,9 @@ public readonly record struct AssignedCount(int Min, int Max) : IEqualityOperato
 	}
 
 
+	/// <inheritdoc/>
+	public object? Value => IsStable ? Min : (Min, Max);
+
 	/// <summary>
 	/// Indicates whether the pattern is stable.
 	/// </summary>
@@ -36,9 +39,6 @@ public readonly record struct AssignedCount(int Min, int Max) : IEqualityOperato
 	/// Indicates the delta value.
 	/// </summary>
 	public int Delta => Max - Min;
-
-	/// <inheritdoc/>
-	object? IUnion.Value => IsStable ? Min : (Min, Max);
 
 
 	/// <summary>

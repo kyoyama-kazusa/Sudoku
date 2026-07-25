@@ -173,6 +173,7 @@ public sealed partial class ComplexSingleStepSearcher : StepSearcher
 				{
 					// A step will be valid if it has new conclusions that recorded steps don't have.
 					var isValid = true;
+				loop_indirectStep:
 					foreach (var indirectStep in indirectSteps)
 					{
 						foreach (var interimStepGroup in interimSteps)
@@ -182,12 +183,11 @@ public sealed partial class ComplexSingleStepSearcher : StepSearcher
 								if (interimStep.ConclusionText == indirectStep.ConclusionText)
 								{
 									isValid = false;
-									goto ValidityCheck;
+									break loop_indirectStep;
 								}
 							}
 						}
 					}
-				ValidityCheck:
 					if (!isValid)
 					{
 						continue;

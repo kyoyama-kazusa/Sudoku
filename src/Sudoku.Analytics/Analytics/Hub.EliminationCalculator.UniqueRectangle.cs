@@ -172,6 +172,7 @@ public partial class Hub
 
 				// Iterate two states.
 				var result = new HashSet<Conclusion>();
+			checking_for_map_pair_loop:
 				foreach (ref readonly var mapPair in ((map1, map2), (map2, map1)))
 				{
 					ref readonly var internalSide = ref mapPair.Item1;
@@ -251,7 +252,7 @@ public partial class Hub
 							// The pattern doesn't consider for eliminations now due to complexity.
 							default:
 							{
-								goto FastFail;
+								continue checking_for_map_pair_loop;
 							}
 
 							// There's one intersection cell. Sketch:
@@ -268,7 +269,7 @@ public partial class Hub
 								if (BitOperations.TrailingZeroCount(digitsMaskOnAbcCell) == digit)
 								{
 									// Invalid.
-									goto FastFail;
+									continue checking_for_map_pair_loop;
 								}
 
 								// We can know that the cell can be filled only 'b' now.
@@ -284,7 +285,7 @@ public partial class Hub
 								// and the two cells cannot be filled with the other digits of 'a' or 'b'.
 								if (abxCells is not [var abxCell])
 								{
-									goto FastFail;
+									continue checking_for_map_pair_loop;
 								}
 
 								foreach (var otherDigit in (Mask)(grid.GetCandidates(abxCell) & ~comparer))
@@ -308,9 +309,6 @@ public partial class Hub
 					{
 						result.Add(new(Elimination, candidate));
 					}
-
-				FastFail:
-					;
 				}
 
 				return result.AsSpan();

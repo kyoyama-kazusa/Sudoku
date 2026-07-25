@@ -152,6 +152,7 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 								}
 
 								// Iterate on each segment, to get all possible cases.
+							loop_baseCells:
 								foreach (ref readonly var baseCells in baseEmptyCellsToBeIterated & baseSize)
 								{
 									if (housesEmptyCells & baseCells)
@@ -168,51 +169,29 @@ public sealed partial class ExocetStepSearcher : StepSearcher
 
 									// Check whether all cross-line lines contains at least one digit appeared in base cells.
 									var crossline = housesCells & ~chuteCells;
-									var atLeastOneLineContainNoDigitsAppearedInBase = false;
 									foreach (var line in isRow ? crossline.RowMask << 9 : crossline.ColumnMask << 18)
 									{
 										var lineMask = grid[HousesMap[line] & crossline & EmptyCells];
 										if ((lineMask & baseCellsDigitsMask) == 0)
 										{
-											atLeastOneLineContainNoDigitsAppearedInBase = true;
-											break;
+											continue loop_baseCells;
 										}
 									}
-									if (atLeastOneLineContainNoDigitsAppearedInBase)
-									{
-										continue;
-									}
-
-									// Check whether escape cells contain any digits appeared in base. If so, invalid.
-									var escapeCellsContainValueCellsDigitAppearedInBaseCells = false;
 									foreach (var cell in housesCells & ~crossline & ~EmptyCells)
 									{
 										if ((baseCellsDigitsMask >> grid.GetDigit(cell) & 1) != 0)
 										{
-											escapeCellsContainValueCellsDigitAppearedInBaseCells = true;
-											break;
+											continue loop_baseCells;
 										}
-									}
-									if (escapeCellsContainValueCellsDigitAppearedInBaseCells)
-									{
-										continue;
 									}
 
 									var groupsOfTargetCells = targetCells.GroupTargets(housesMask);
-
-									// Check whether all groups of target cells don't exceed the maximum limit, 2 cells.
-									var containsAtLeastOneGroupMoreThanTwoCells = false;
 									foreach (ref readonly var element in groupsOfTargetCells)
 									{
 										if (element.Count > 2)
 										{
-											containsAtLeastOneGroupMoreThanTwoCells = true;
-											break;
+											continue loop_baseCells;
 										}
-									}
-									if (containsAtLeastOneGroupMoreThanTwoCells)
-									{
-										continue;
 									}
 
 									// Check whether target cells don't share a same block.

@@ -88,6 +88,7 @@ public static class ContradictionDetector
 			// Check house.
 			for (var digit = 0; digit < 9; digit++)
 			{
+			loop_house:
 				for (var house = 0; house < 27; house++)
 				{
 					var count = 0;
@@ -96,7 +97,7 @@ public static class ContradictionDetector
 						var cellState = grid.GetState(cell);
 						if (grid.GetDigit(cell) == digit)
 						{
-							goto NextHouse;
+							continue loop_house;
 						}
 						if (grid.Exists(cell, digit) is true)
 						{
@@ -107,8 +108,6 @@ public static class ContradictionDetector
 					{
 						return true;
 					}
-
-				NextHouse:;
 				}
 			}
 			return false;
@@ -151,6 +150,7 @@ public static class ContradictionDetector
 		for (var digit = 0; digit < 9; digit++)
 		{
 			// Iterate on each house.
+		loop_house:
 			for (var house = 0; house < 27; house++)
 			{
 				var count = 0;
@@ -160,7 +160,7 @@ public static class ContradictionDetector
 					var cellState = grid.GetState(cell);
 					if (grid.GetDigit(cell) == digit)
 					{
-						goto NextHouse;
+						continue loop_house;
 					}
 					if (grid.Exists(cell, digit) is true)
 					{
@@ -176,8 +176,6 @@ public static class ContradictionDetector
 				{
 					result.Add(new(firstFoundCell * 9 + digit));
 				}
-
-			NextHouse:;
 			}
 		}
 	}

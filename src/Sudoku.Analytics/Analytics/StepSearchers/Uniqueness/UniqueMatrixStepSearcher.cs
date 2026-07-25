@@ -315,6 +315,7 @@ public sealed partial class UniqueMatrixStepSearcher : StepSearcher
 			}
 
 			var (d1, d2, count, conjugateMap) = (-1, -1, 0, HousesMap[house] & pattern);
+		loop_digit:
 			foreach (var digit in digits)
 			{
 				if ((conjugateMap | HousesMap[house] & CandidatesMap[digit]) == conjugateMap)
@@ -329,13 +330,12 @@ public sealed partial class UniqueMatrixStepSearcher : StepSearcher
 						case 1:
 						{
 							d2 = digit;
-							goto Finally;
+							break loop_digit;
 						}
 					}
 				}
 			}
 
-		Finally:
 			var comparer = (Mask)(1 << d1 | 1 << d2);
 			var otherDigitsMask = (Mask)(digitsMask & ~comparer);
 			var conclusions = new List<Conclusion>();

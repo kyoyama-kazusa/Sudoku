@@ -88,6 +88,7 @@ public sealed partial class MultifishStepSearcher : StepSearcher
 					foreach (var h in Digits & houseOffsetsSize)
 					{
 						// Iterate main line type. The multifish "bones" should be either in rows or in columns.
+					loop_isRow:
 						foreach (var isRow in (true, false))
 						{
 							var chosenHouseOffsets = Mask.Create(h);
@@ -125,7 +126,7 @@ public sealed partial class MultifishStepSearcher : StepSearcher
 								if (BitOperations.PopCount((uint)rcTruthsCurrentHouse) < 2)
 								{
 									// We cannot choose such houses with specified line type.
-									goto NextLineTypeCase;
+									continue loop_isRow;
 								}
 
 								availableDigitsMask |= rcTruthsCurrentHouse;
@@ -421,6 +422,7 @@ public sealed partial class MultifishStepSearcher : StepSearcher
 								{
 									// Add block truths.
 									var blockMask = cellLinks.BlockMask;
+								loop_block:
 									foreach (var block in blockMask)
 									{
 										var chuteRow = block / 3 * 3 + 9;
@@ -465,18 +467,14 @@ public sealed partial class MultifishStepSearcher : StepSearcher
 											rct[block] |= Mask.Create(digitCombination);
 											if (linksCount == truthsCount)
 											{
-												goto ExitForAdjustmentPhase2;
+												break loop_block;
 											}
 											else
 											{
-												goto NextBlock;
+												continue loop_block;
 											}
 										}
-
-									NextBlock:;
 									}
-
-								ExitForAdjustmentPhase2:;
 								}
 
 								// Adjust links phase 3.
@@ -830,8 +828,6 @@ public sealed partial class MultifishStepSearcher : StepSearcher
 							}
 
 							accumulator.Add(step);
-
-						NextLineTypeCase:;
 						}
 					}
 				}

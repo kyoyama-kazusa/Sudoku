@@ -62,6 +62,7 @@ public sealed partial class RegularWingStepSearcher : StepSearcher
 					// Check duplicate.
 					// If two cells contain same candidates, the wing can't be formed.
 					var flag = false;
+				loop_i:
 					for (var (i, length) = (0, cells.Count); i < length - 1; i++)
 					{
 						for (var j = i + 1; j < length; j++)
@@ -69,12 +70,11 @@ public sealed partial class RegularWingStepSearcher : StepSearcher
 							if (grid[cells[i]] == grid[cells[j]])
 							{
 								flag = true;
-								goto CheckWhetherTwoCellsContainSameCandidateKind;
+								break loop_i;
 							}
 						}
 					}
 
-				CheckWhetherTwoCellsContainSameCandidateKind:
 					if (flag)
 					{
 						continue;
