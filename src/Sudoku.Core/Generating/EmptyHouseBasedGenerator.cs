@@ -1,4 +1,4 @@
-#define ENABLE_VERIFICATION_ON_BLOCK_COMBINATION
+﻿#define ENABLE_VERIFICATION_ON_BLOCK_COMBINATION
 
 namespace Sudoku.Generating;
 
@@ -348,7 +348,7 @@ public ref partial struct EmptyHouseBasedGenerator() : IGenerator<Grid>
 				}
 
 				// Try the next candidate.
-				var nextCandidate = _stack[level].Candidates.SetAt(_stack[level].CandidateIndex++);
+				var nextCandidate = _stack[level].Candidates[_stack[level].CandidateIndex++];
 
 				// Start with a fresh sudoku.
 				ref var targetGrid = ref _stack[level].SudokuGrid;

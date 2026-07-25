@@ -1,4 +1,4 @@
-namespace Sudoku.Concepts;
+﻿namespace Sudoku.Concepts;
 
 /// <summary>
 /// Represents a set of <see cref="Segment"/> instances.
@@ -61,7 +61,7 @@ public partial struct SegmentCollection :
 	{
 		get
 		{
-			var targetIndex = _mask.SetAt(index);
+			var targetIndex = _mask[index];
 			return targetIndex == -1 ? throw new IndexOutOfRangeException() : (Segment)targetIndex;
 		}
 	}

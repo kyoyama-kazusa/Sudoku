@@ -8053,6 +8053,9 @@
         <member name="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.SByte)">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$49699017F639EF34A5A9E25ACB3E4B14.AllSets"/>
         </member>
+        <member name="M:System.Numerics.BitOperationsExtensions.get_Item(System.SByte,System.Int32)">
+            <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$49699017F639EF34A5A9E25ACB3E4B14.Item(System.Int32)"/>
+        </member>
         <member name="M:System.Numerics.BitOperationsExtensions.SetAt(System.SByte,System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$49699017F639EF34A5A9E25ACB3E4B14.SetAt(System.Int32)"/>
         </member>
@@ -8061,6 +8064,9 @@
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.Byte)">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$984646E5C90D4BE007AAE446F159AC52.AllSets"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions.get_Item(System.Byte,System.Int32)">
+            <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$984646E5C90D4BE007AAE446F159AC52.Item(System.Int32)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.GetNextSet(System.Byte,System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$984646E5C90D4BE007AAE446F159AC52.GetNextSet(System.Int32)"/>
@@ -8080,6 +8086,9 @@
         <member name="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.Int16)">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$390DAE713F975834EF0C1ED2BEC2DBAC.AllSets"/>
         </member>
+        <member name="M:System.Numerics.BitOperationsExtensions.get_Item(System.Int16,System.Int32)">
+            <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$390DAE713F975834EF0C1ED2BEC2DBAC.Item(System.Int32)"/>
+        </member>
         <member name="M:System.Numerics.BitOperationsExtensions.GetNextSet(System.Int16,System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$390DAE713F975834EF0C1ED2BEC2DBAC.GetNextSet(System.Int32)"/>
         </member>
@@ -8098,6 +8107,9 @@
         <member name="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.UInt16)">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$B7387B77E15A9DBF0D30EA969A07D0DD.AllSets"/>
         </member>
+        <member name="M:System.Numerics.BitOperationsExtensions.get_Item(System.UInt16,System.Int32)">
+            <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$B7387B77E15A9DBF0D30EA969A07D0DD.Item(System.Int32)"/>
+        </member>
         <member name="M:System.Numerics.BitOperationsExtensions.SetAt(System.UInt16,System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$B7387B77E15A9DBF0D30EA969A07D0DD.SetAt(System.Int32)"/>
         </member>
@@ -8106,6 +8118,9 @@
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.Int32)">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$BA41CFE2B5EDAEB8C1B9062F59ED4D69.AllSets"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions.get_Item(System.Int32,System.Int32)">
+            <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$BA41CFE2B5EDAEB8C1B9062F59ED4D69.Item(System.Int32)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.GetNextSet(System.Int32,System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$BA41CFE2B5EDAEB8C1B9062F59ED4D69.GetNextSet(System.Int32)"/>
@@ -8125,6 +8140,9 @@
         <member name="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.UInt32)">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$59D1B7AA0B822E2E4777E961258AA046.AllSets"/>
         </member>
+        <member name="M:System.Numerics.BitOperationsExtensions.get_Item(System.UInt32,System.Int32)">
+            <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$59D1B7AA0B822E2E4777E961258AA046.Item(System.Int32)"/>
+        </member>
         <member name="M:System.Numerics.BitOperationsExtensions.SetAt(System.UInt32,System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$59D1B7AA0B822E2E4777E961258AA046.SetAt(System.Int32)"/>
         </member>
@@ -8133,6 +8151,9 @@
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.Int64)">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$E8CA98ACBCAEE63BB261A3FD4AF31675.AllSets"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions.get_Item(System.Int64,System.Int32)">
+            <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$E8CA98ACBCAEE63BB261A3FD4AF31675.Item(System.Int32)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.GetNextSet(System.Int64,System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$E8CA98ACBCAEE63BB261A3FD4AF31675.GetNextSet(System.Int32)"/>
@@ -8152,6 +8173,9 @@
         <member name="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.UInt64)">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$CC86B4FD6473E1534D8E28315C194AD4.AllSets"/>
         </member>
+        <member name="M:System.Numerics.BitOperationsExtensions.get_Item(System.UInt64,System.Int32)">
+            <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$CC86B4FD6473E1534D8E28315C194AD4.Item(System.Int32)"/>
+        </member>
         <member name="M:System.Numerics.BitOperationsExtensions.SetAt(System.UInt64,System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$CC86B4FD6473E1534D8E28315C194AD4.SetAt(System.Int32)"/>
         </member>
@@ -8160,6 +8184,9 @@
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.Int128)">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$5ED66C098E3621CB8F6F82C9303FECA7.AllSets"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions.get_Item(System.Int128,System.Int32)">
+            <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$5ED66C098E3621CB8F6F82C9303FECA7.Item(System.Int32)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.SetAt(System.Int128,System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$5ED66C098E3621CB8F6F82C9303FECA7.SetAt(System.Int32)"/>
@@ -8178,6 +8205,9 @@
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.get_AllSets(System.IntPtr)">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$4F373AFAABDD639AB83427B59F106A43.AllSets"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions.get_Item(System.IntPtr,System.Int32)">
+            <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$4F373AFAABDD639AB83427B59F106A43.Item(System.Int32)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.SetAt(System.IntPtr,System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$4F373AFAABDD639AB83427B59F106A43.SetAt(System.Int32)"/>
@@ -8199,6 +8229,9 @@
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.get_AllSets``1(``0)">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$588A1EAEEEB2BFC33F729C78B21D6BEB`1.AllSets"/>
+        </member>
+        <member name="M:System.Numerics.BitOperationsExtensions.get_Item``1(``0,System.Int32)">
+            <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$588A1EAEEEB2BFC33F729C78B21D6BEB`1.Item(System.Int32)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.GetEnumerator``1(``0)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$B5716EECC652A20B2E3594FC042D97D3`1.GetEnumerator"/>
@@ -8236,6 +8269,9 @@
             Indicates all positions (indices) whose corresponding bits are set 1.
             </summary>
         </member>
+        <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$49699017F639EF34A5A9E25ACB3E4B14.Item(System.Int32)">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
+        </member>
         <member name="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$49699017F639EF34A5A9E25ACB3E4B14.SetAt(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
         </member>
@@ -8263,6 +8299,9 @@
         </member>
         <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$984646E5C90D4BE007AAE446F159AC52.AllSets">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$49699017F639EF34A5A9E25ACB3E4B14.AllSets"/>
+        </member>
+        <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$984646E5C90D4BE007AAE446F159AC52.Item(System.Int32)">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$984646E5C90D4BE007AAE446F159AC52.GetNextSet(System.Int32)">
             <summary>
@@ -8341,6 +8380,9 @@
         <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$390DAE713F975834EF0C1ED2BEC2DBAC.AllSets">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$49699017F639EF34A5A9E25ACB3E4B14.AllSets"/>
         </member>
+        <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$390DAE713F975834EF0C1ED2BEC2DBAC.Item(System.Int32)">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
+        </member>
         <member name="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$390DAE713F975834EF0C1ED2BEC2DBAC.GetNextSet(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetNextSet(System.Byte,System.Int32)"/>
         </member>
@@ -8391,6 +8433,9 @@
         <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$B7387B77E15A9DBF0D30EA969A07D0DD.AllSets">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$49699017F639EF34A5A9E25ACB3E4B14.AllSets"/>
         </member>
+        <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$B7387B77E15A9DBF0D30EA969A07D0DD.Item(System.Int32)">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
+        </member>
         <member name="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$B7387B77E15A9DBF0D30EA969A07D0DD.SetAt(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
         </member>
@@ -8415,6 +8460,9 @@
         </member>
         <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$BA41CFE2B5EDAEB8C1B9062F59ED4D69.AllSets">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$49699017F639EF34A5A9E25ACB3E4B14.AllSets"/>
+        </member>
+        <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$BA41CFE2B5EDAEB8C1B9062F59ED4D69.Item(System.Int32)">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$BA41CFE2B5EDAEB8C1B9062F59ED4D69.GetNextSet(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetNextSet(System.Byte,System.Int32)"/>
@@ -8466,6 +8514,9 @@
         <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$59D1B7AA0B822E2E4777E961258AA046.AllSets">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$49699017F639EF34A5A9E25ACB3E4B14.AllSets"/>
         </member>
+        <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$59D1B7AA0B822E2E4777E961258AA046.Item(System.Int32)">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
+        </member>
         <member name="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$59D1B7AA0B822E2E4777E961258AA046.SetAt(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
         </member>
@@ -8490,6 +8541,9 @@
         </member>
         <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$E8CA98ACBCAEE63BB261A3FD4AF31675.AllSets">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$49699017F639EF34A5A9E25ACB3E4B14.AllSets"/>
+        </member>
+        <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$E8CA98ACBCAEE63BB261A3FD4AF31675.Item(System.Int32)">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$E8CA98ACBCAEE63BB261A3FD4AF31675.GetNextSet(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.GetNextSet(System.Byte,System.Int32)"/>
@@ -8541,6 +8595,9 @@
         <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$CC86B4FD6473E1534D8E28315C194AD4.AllSets">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$49699017F639EF34A5A9E25ACB3E4B14.AllSets"/>
         </member>
+        <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$CC86B4FD6473E1534D8E28315C194AD4.Item(System.Int32)">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
+        </member>
         <member name="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$CC86B4FD6473E1534D8E28315C194AD4.SetAt(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
         </member>
@@ -8565,6 +8622,9 @@
         </member>
         <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$5ED66C098E3621CB8F6F82C9303FECA7.AllSets">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$49699017F639EF34A5A9E25ACB3E4B14.AllSets"/>
+        </member>
+        <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$5ED66C098E3621CB8F6F82C9303FECA7.Item(System.Int32)">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$5ED66C098E3621CB8F6F82C9303FECA7.SetAt(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
@@ -8615,6 +8675,9 @@
         </member>
         <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$4F373AFAABDD639AB83427B59F106A43.AllSets">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$49699017F639EF34A5A9E25ACB3E4B14.AllSets"/>
+        </member>
+        <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$4F373AFAABDD639AB83427B59F106A43.Item(System.Int32)">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
         </member>
         <member name="M:System.Numerics.BitOperationsExtensions.&lt;G&gt;$4F373AFAABDD639AB83427B59F106A43.SetAt(System.Int32)">
             <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
@@ -8686,6 +8749,9 @@
         </member>
         <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$588A1EAEEEB2BFC33F729C78B21D6BEB`1.AllSets">
             <inheritdoc cref="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$49699017F639EF34A5A9E25ACB3E4B14.AllSets"/>
+        </member>
+        <member name="P:System.Numerics.BitOperationsExtensions.&lt;G&gt;$588A1EAEEEB2BFC33F729C78B21D6BEB`1.Item(System.Int32)">
+            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.Byte,System.Int32)"/>
         </member>
         <member name="T:System.Numerics.BitOperationsExtensions.&lt;G&gt;$B5716EECC652A20B2E3594FC042D97D3`1.&lt;M&gt;$404453B8A04214717EC15F3355742F4B">
             <target name="container">

@@ -1,4 +1,4 @@
-namespace Sudoku.Concepts;
+﻿namespace Sudoku.Concepts;
 
 using CellMapBase = IBitStateMap<CellMap, Cell>;
 
@@ -415,11 +415,11 @@ public partial struct CellMap : CellMapBase
 			var lowPopCount = PopCount((ulong)low);
 			if (index < lowPopCount)
 			{
-				return low.SetAt(index);
+				return low[index];
 			}
 
 			var highIndex = index - lowPopCount;
-			return high.SetAt(highIndex) + Shifting;
+			return high[highIndex] + Shifting;
 		}
 	}
 

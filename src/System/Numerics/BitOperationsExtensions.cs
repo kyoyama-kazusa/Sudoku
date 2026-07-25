@@ -1,4 +1,4 @@
-namespace System.Numerics;
+﻿namespace System.Numerics;
 
 /// <summary>
 /// Provides extension methods on <see cref="BitOperations"/>.
@@ -59,6 +59,10 @@ public static partial class BitOperationsExtensions
 
 
 		/// <inheritdoc cref="SetAt(byte, int)"/>
+		public int this[int order] => @this.SetAt(order);
+
+
+		/// <inheritdoc cref="SetAt(byte, int)"/>
 		[OverloadResolutionPriority(2)]
 		public int SetAt(int order) => ((uint)@this).SetAt(order);
 
@@ -94,6 +98,14 @@ public static partial class BitOperationsExtensions
 				}
 				return result;
 			}
+		}
+
+
+		/// <inheritdoc cref="SetAt(byte, int)"/>
+		public int this[int order]
+		{
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			get => @this.SetAt(order);
 		}
 
 
@@ -207,6 +219,14 @@ public static partial class BitOperationsExtensions
 		}
 
 
+		/// <inheritdoc cref="SetAt(byte, int)"/>
+		public int this[int order]
+		{
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			get => @this.SetAt(order);
+		}
+
+
 		/// <inheritdoc cref="GetNextSet(byte, int)"/>
 		public int GetNextSet(int index)
 		{
@@ -292,6 +312,14 @@ public static partial class BitOperationsExtensions
 
 
 		/// <inheritdoc cref="SetAt(byte, int)"/>
+		public int this[int order]
+		{
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			get => @this.SetAt(order);
+		}
+
+
+		/// <inheritdoc cref="SetAt(byte, int)"/>
 		[OverloadResolutionPriority(2)]
 		public int SetAt(int order) => ((uint)@this).SetAt(order);
 
@@ -324,6 +352,14 @@ public static partial class BitOperationsExtensions
 				}
 				return result;
 			}
+		}
+
+
+		/// <inheritdoc cref="SetAt(byte, int)"/>
+		public int this[int order]
+		{
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			get => @this.SetAt(order);
 		}
 
 
@@ -413,6 +449,14 @@ public static partial class BitOperationsExtensions
 
 
 		/// <inheritdoc cref="SetAt(byte, int)"/>
+		public int this[int order]
+		{
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			get => @this.SetAt(order);
+		}
+
+
+		/// <inheritdoc cref="SetAt(byte, int)"/>
 		[OverloadResolutionPriority(2)]
 		public int SetAt(int order)
 		{
@@ -463,6 +507,15 @@ public static partial class BitOperationsExtensions
 				return result;
 			}
 		}
+
+
+		/// <inheritdoc cref="SetAt(byte, int)"/>
+		public int this[int order]
+		{
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			get => @this.SetAt(order);
+		}
+
 
 		/// <inheritdoc cref="GetNextSet(byte, int)"/>
 		public int GetNextSet(int index)
@@ -551,6 +604,14 @@ public static partial class BitOperationsExtensions
 
 
 		/// <inheritdoc cref="SetAt(byte, int)"/>
+		public int this[int order]
+		{
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			get => @this.SetAt(order);
+		}
+
+
+		/// <inheritdoc cref="SetAt(byte, int)"/>
 		[OverloadResolutionPriority(2)]
 		public int SetAt(int order)
 		{
@@ -633,6 +694,14 @@ public static partial class BitOperationsExtensions
 				}
 				return result;
 			}
+		}
+
+
+		/// <inheritdoc cref="SetAt(byte, int)"/>
+		public int this[int order]
+		{
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			get => @this.SetAt(order);
 		}
 
 
@@ -725,6 +794,14 @@ public static partial class BitOperationsExtensions
 				}
 				return result;
 			}
+		}
+
+
+		/// <inheritdoc cref="SetAt(byte, int)"/>
+		public int this[int order]
+		{
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			get => @this.SetAt(order);
 		}
 
 
@@ -840,6 +917,14 @@ public static partial class BitOperationsExtensions
 				}
 				return result;
 			}
+		}
+
+
+		/// <inheritdoc cref="SetAt(byte, int)"/>
+		public int this[int order]
+		{
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			get => @this.SetAt(order);
 		}
 	}
 

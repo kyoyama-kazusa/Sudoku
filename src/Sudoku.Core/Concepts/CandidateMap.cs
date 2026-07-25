@@ -1,4 +1,4 @@
-namespace Sudoku.Concepts;
+﻿namespace Sudoku.Concepts;
 
 using CandidateMapBase = IBitStateMap<CandidateMap, Candidate>;
 
@@ -252,7 +252,7 @@ public partial struct CandidateMap : CandidateMapBase
 				var bits = _bits[i];
 				var z = bmi2IsSupported
 					? TrailingZeroCount(Bmi2.X64.ParallelBitDeposit(1UL << index - popCountSum, (ulong)bits))
-					: bits.SetAt(index - popCountSum);
+					: bits[index - popCountSum];
 				switch (bmi2IsSupported)
 				{
 					case true when z != FallbackConstants.@long:

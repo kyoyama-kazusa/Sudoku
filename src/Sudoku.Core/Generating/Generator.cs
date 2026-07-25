@@ -1,4 +1,4 @@
-// Copyright (C) 2008-12 Bernhard Hobiger
+﻿// Copyright (C) 2008-12 Bernhard Hobiger
 // 
 // HoDoKu is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -291,7 +291,7 @@ public ref struct Generator : IGenerator<Grid>
 				}
 
 				// Try the next candidate.
-				var nextCandidate = _stack[level].Candidates.SetAt(_stack[level].CandidateIndex++);
+				var nextCandidate = _stack[level].Candidates[_stack[level].CandidateIndex++];
 
 				// Start with a fresh sudoku.
 				ref var targetGrid = ref _stack[level].SudokuGrid;

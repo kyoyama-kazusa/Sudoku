@@ -1,4 +1,4 @@
-namespace System.Numerics;
+﻿namespace System.Numerics;
 
 /// <summary>
 /// Represents an enumerator that iterates bits over an <see cref="nint"/> or <see cref="nuint"/> value.
@@ -20,7 +20,7 @@ public ref struct NumericIntPtrEnumerator(nint _value) : IBitEnumerator
 
 
 	/// <inheritdoc cref="BitOperationsExtensions.SetAt(uint, int)"/>
-	public readonly int this[int index] => _value.SetAt(index);
+	public readonly int this[int index] => _value[index];
 
 
 	/// <inheritdoc cref="IEnumerator.MoveNext"/>
