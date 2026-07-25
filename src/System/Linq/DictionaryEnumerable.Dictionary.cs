@@ -1,4 +1,4 @@
-namespace System.Linq;
+﻿namespace System.Linq;
 
 public partial class DictionaryEnumerable
 {
@@ -10,6 +10,10 @@ public partial class DictionaryEnumerable
 	/// <param name="source">The source collection.</param>
 	extension<TKey, TValue>(Dictionary<TKey, TValue> source) where TKey : notnull
 	{
+		/// <inheritdoc cref="Enumerable.ElementAt{TSource}(IEnumerable{TSource}, int)"/>
+		public KeyValuePair<TKey, TValue> this[int index] => source.ElementAt(index);
+
+
 		/// <inheritdoc cref="Enumerable.ElementAt{TSource}(IEnumerable{TSource}, int)"/>
 		public KeyValuePair<TKey, TValue> ElementAt(int index)
 		{
@@ -24,10 +28,6 @@ public partial class DictionaryEnumerable
 			}
 			throw new IndexOutOfRangeException();
 		}
-
-		/// <inheritdoc cref="Enumerable.ElementAt{TSource}(IEnumerable{TSource}, Index)"/>
-		public KeyValuePair<TKey, TValue> ElementAt(Index index)
-			=> source.ElementAt(index.GetOffset(source.Count));
 	}
 
 	/// <include

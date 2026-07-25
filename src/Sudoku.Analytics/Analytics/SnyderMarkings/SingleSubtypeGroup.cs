@@ -1,4 +1,4 @@
-namespace Sudoku.Analytics.SnyderMarkings;
+﻿namespace Sudoku.Analytics.SnyderMarkings;
 
 /// <summary>
 /// Represents a group of <see cref="SingleSubtype"/> instances.
@@ -62,7 +62,7 @@ public readonly struct SingleSubtypeGroup(ReadOnlyMemory<SingleSubtype> _values)
 	/// </summary>
 	/// <param name="index">The desired index.</param>
 	/// <returns>A <see cref="SingleSubtype"/> instance as result.</returns>
-	public SingleSubtype this[int index] => _values.ElementAt(index);
+	public SingleSubtype this[int index] => _values[index];
 
 
 	/// <inheritdoc/>

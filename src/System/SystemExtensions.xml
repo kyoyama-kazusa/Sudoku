@@ -3494,11 +3494,11 @@
             </summary>
             <seealso cref="T:System.Collections.Generic.Dictionary`2"/>
         </member>
+        <member name="M:System.Linq.DictionaryEnumerable.get_Item``2(System.Collections.Generic.Dictionary{``0,``1},System.Int32)">
+            <inheritdoc cref="P:System.Linq.DictionaryEnumerable.&lt;G&gt;$E42DFDC8D24EBEA929FB244FBCDF3D61`2.Item(System.Int32)"/>
+        </member>
         <member name="M:System.Linq.DictionaryEnumerable.ElementAt``2(System.Collections.Generic.Dictionary{``0,``1},System.Int32)">
             <inheritdoc cref="M:System.Linq.DictionaryEnumerable.&lt;G&gt;$E42DFDC8D24EBEA929FB244FBCDF3D61`2.ElementAt(System.Int32)"/>
-        </member>
-        <member name="M:System.Linq.DictionaryEnumerable.ElementAt``2(System.Collections.Generic.Dictionary{``0,``1},System.Index)">
-            <inheritdoc cref="M:System.Linq.DictionaryEnumerable.&lt;G&gt;$E42DFDC8D24EBEA929FB244FBCDF3D61`2.ElementAt(System.Index)"/>
         </member>
         <member name="M:System.Linq.DictionaryEnumerable.MaxByValue``2(System.Collections.Generic.Dictionary{``0,``1})">
             <inheritdoc cref="M:System.Linq.DictionaryEnumerable.&lt;G&gt;$2F4F47585A1BDDE61FFADE89EDF534AD`2.MaxByValue"/>
@@ -3536,11 +3536,11 @@
             <typeparam name="TValue">The type of value.</typeparam>
             <param name="source">The source collection.</param>
         </member>
-        <member name="M:System.Linq.DictionaryEnumerable.&lt;G&gt;$E42DFDC8D24EBEA929FB244FBCDF3D61`2.ElementAt(System.Int32)">
+        <member name="P:System.Linq.DictionaryEnumerable.&lt;G&gt;$E42DFDC8D24EBEA929FB244FBCDF3D61`2.Item(System.Int32)">
             <inheritdoc cref="M:System.Linq.Enumerable.ElementAt``1(System.Collections.Generic.IEnumerable{``0},System.Int32)"/>
         </member>
-        <member name="M:System.Linq.DictionaryEnumerable.&lt;G&gt;$E42DFDC8D24EBEA929FB244FBCDF3D61`2.ElementAt(System.Index)">
-            <inheritdoc cref="M:System.Linq.Enumerable.ElementAt``1(System.Collections.Generic.IEnumerable{``0},System.Index)"/>
+        <member name="M:System.Linq.DictionaryEnumerable.&lt;G&gt;$E42DFDC8D24EBEA929FB244FBCDF3D61`2.ElementAt(System.Int32)">
+            <inheritdoc cref="M:System.Linq.Enumerable.ElementAt``1(System.Collections.Generic.IEnumerable{``0},System.Int32)"/>
         </member>
         <member name="T:System.Linq.DictionaryEnumerable.&lt;G&gt;$2F4F47585A1BDDE61FFADE89EDF534AD`2.&lt;M&gt;$DDD9451E932CC6B41C18E050A7FAA36E">
             <target name="container">
@@ -10735,11 +10735,11 @@
         <member name="M:System.SequenceExtensions.GetExtractedCombinations``1(``0[][])">
             <inheritdoc cref="M:System.SequenceExtensions.&lt;G&gt;$30F7396F22D90EF3E519A5758B9EA8F2`1.GetExtractedCombinations"/>
         </member>
+        <member name="M:System.SequenceExtensions.get_Item``1(System.ReadOnlyMemory{``0},System.Int32)">
+            <inheritdoc cref="P:System.SequenceExtensions.&lt;G&gt;$3387D7F181FA234A9158DADA9224047F`1.Item(System.Int32)"/>
+        </member>
         <member name="M:System.SequenceExtensions.ElementAt``1(System.ReadOnlyMemory{``0},System.Int32)">
             <inheritdoc cref="M:System.SequenceExtensions.&lt;G&gt;$3387D7F181FA234A9158DADA9224047F`1.ElementAt(System.Int32)"/>
-        </member>
-        <member name="M:System.SequenceExtensions.ElementAt``1(System.ReadOnlyMemory{``0},System.Index)">
-            <inheritdoc cref="M:System.SequenceExtensions.&lt;G&gt;$3387D7F181FA234A9158DADA9224047F`1.ElementAt(System.Index)"/>
         </member>
         <member name="M:System.SequenceExtensions.GetEnumerator``1(System.ReadOnlyMemory{``0})">
             <inheritdoc cref="M:System.SequenceExtensions.&lt;G&gt;$3387D7F181FA234A9158DADA9224047F`1.GetEnumerator"/>
@@ -10960,15 +10960,19 @@
             <typeparam name="T">The type of each element.</typeparam>
             <param name="this">The current instance.</param>
         </member>
+        <member name="P:System.SequenceExtensions.&lt;G&gt;$3387D7F181FA234A9158DADA9224047F`1.Item(System.Int32)">
+            <summary>
+            Gets the element at the specified index.
+            </summary>
+            <param name="index">The desired index.</param>
+            <returns>The reference to the element at the specified index.</returns>
+        </member>
         <member name="M:System.SequenceExtensions.&lt;G&gt;$3387D7F181FA234A9158DADA9224047F`1.ElementAt(System.Int32)">
             <summary>
             Fetch the element at the specified index inside a <see cref="T:System.ReadOnlyMemory`1"/>.
             </summary>
             <param name="index">The desired index.</param>
             <returns>The reference to the element at the specified index.</returns>
-        </member>
-        <member name="M:System.SequenceExtensions.&lt;G&gt;$3387D7F181FA234A9158DADA9224047F`1.ElementAt(System.Index)">
-            <inheritdoc cref="M:System.SequenceExtensions.ElementAt``1(System.ReadOnlyMemory{``0},System.Int32)"/>
         </member>
         <member name="M:System.SequenceExtensions.&lt;G&gt;$3387D7F181FA234A9158DADA9224047F`1.GetEnumerator">
             <summary>
