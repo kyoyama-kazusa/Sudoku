@@ -14,6 +14,9 @@
 		<LangVersion>preview</LangVersion>
 		<Nullable>enable</Nullable>
 
+		<!--Allows building Windows-targeting projects (e.g. SudokuStudio) on non-Windows systems.-->
+		<EnableWindowsTargeting>true</EnableWindowsTargeting>
+
 		<!--Compilation Features-->
 		<Features>strict</Features>
 		<CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
