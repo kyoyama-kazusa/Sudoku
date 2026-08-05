@@ -17,6 +17,13 @@ global.json
 settings.VisualStudio.json
 src/ConsoleTest/
 
+# External native dependency binaries (downloaded by scripts/fetch-clingo.sh / .ps1)
+miscellaneous/dll/clingo/linux-x64/
+miscellaneous/dll/clingo/linux-arm64/
+miscellaneous/dll/clingo/win-x64/
+miscellaneous/dll/clingo/osx-x64/
+miscellaneous/dll/clingo/osx-arm64/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

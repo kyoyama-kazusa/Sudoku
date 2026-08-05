@@ -31,6 +31,30 @@
 		<ProjectReference Include="..\System\SystemExtensions.csproj" />
 	</ItemGroup>
 
+	<!-- Copies the native shared library from miscellaneous/dll/clingo to the output directory (silently skipped if not downloaded; the DllImport resolver of ClingoInterop falls back to the system search) -->
+	<ItemGroup>
+		<None
+			Include="../../miscellaneous/dll/clingo/win-x64/clingo.dll"
+			Link="clingo.dll" CopyToOutputDirectory="PreserveNewest"
+			Condition="'$(OS)' == 'Windows_NT' and Exists('../../miscellaneous/dll/clingo/win-x64/clingo.dll')" />
+		<None
+			Include="../../miscellaneous/dll/clingo/linux-x64/libclingo.so"
+			Link="libclingo.so" CopyToOutputDirectory="PreserveNewest"
+			Condition="$([MSBuild]::IsOSPlatform('Linux')) and Exists('../../miscellaneous/dll/clingo/linux-x64/libclingo.so')" />
+		<None
+			Include="../../miscellaneous/dll/clingo/linux-arm64/libclingo.so"
+			Link="libclingo.so" CopyToOutputDirectory="PreserveNewest"
+			Condition="$([MSBuild]::IsOSPlatform('Linux')) and Exists('../../miscellaneous/dll/clingo/linux-arm64/libclingo.so')" />
+		<None
+			Include="../../miscellaneous/dll/clingo/osx-x64/libclingo.dylib"
+			Link="libclingo.dylib" CopyToOutputDirectory="PreserveNewest"
+			Condition="$([MSBuild]::IsOSPlatform('OSX')) and Exists('../../miscellaneous/dll/clingo/osx-x64/libclingo.dylib')" />
+		<None
+			Include="../../miscellaneous/dll/clingo/osx-arm64/libclingo.dylib"
+			Link="libclingo.dylib" CopyToOutputDirectory="PreserveNewest"
+			Condition="$([MSBuild]::IsOSPlatform('OSX')) and Exists('../../miscellaneous/dll/clingo/osx-arm64/libclingo.dylib')" />
+	</ItemGroup>
+
 	<ItemGroup>
 		<Compile Update="Resources\CoreResources.Designer.cs">
 			<DesignTime>True</DesignTime>
