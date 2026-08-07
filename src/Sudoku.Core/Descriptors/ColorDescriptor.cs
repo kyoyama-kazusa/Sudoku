@@ -22,10 +22,10 @@ namespace Sudoku.Descriptors;
 /// <seealso cref="ColorDescriptorAlias"/>
 [JsonConverter(typeof(Converter))]
 [Union]
-public readonly struct ColorDescriptor(long mask) :
+public readonly partial struct ColorDescriptor(long mask) :
+	ColorDescriptor.IUnionMembers,
 	IEquatable<ColorDescriptor>,
-	IEqualityOperators<ColorDescriptor, ColorDescriptor, bool>,
-	IUnion
+	IEqualityOperators<ColorDescriptor, ColorDescriptor, bool>
 {
 	/// <summary>
 	/// Indicates the shift bits amount.
@@ -38,7 +38,7 @@ public readonly struct ColorDescriptor(long mask) :
 	/// </summary>
 	/// <param name="id">The ID value.</param>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public ColorDescriptor(int id) : this((long)ColorDescriptorType.Id << TypeShift | (long)id)
+	private ColorDescriptor(int id) : this((long)ColorDescriptorType.Id << TypeShift | (long)id)
 	{
 	}
 
@@ -47,7 +47,7 @@ public readonly struct ColorDescriptor(long mask) :
 	/// </summary>
 	/// <param name="value">The value.</param>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public ColorDescriptor((byte A, byte R, byte G, byte B) value) :
+	private ColorDescriptor((byte A, byte R, byte G, byte B) value) :
 		// Explicitly cast into <see cref="uint"/> to prevent negative-bit extension.
 		this((long)ColorDescriptorType.Argb << TypeShift | (uint)(value.A << 24 | value.R << 16 | value.G << 8 | value.B))
 	{
@@ -58,7 +58,7 @@ public readonly struct ColorDescriptor(long mask) :
 	/// </summary>
 	/// <param name="item">The well-known item.</param>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public ColorDescriptor(ColorDescriptorAlias item) : this((long)ColorDescriptorType.Alias << TypeShift | (long)item)
+	private ColorDescriptor(ColorDescriptorAlias item) : this((long)ColorDescriptorType.Alias << TypeShift | (long)item)
 	{
 	}
 
@@ -89,57 +89,6 @@ public readonly struct ColorDescriptor(long mask) :
 	public long Mask { get; } = mask;
 
 
-	/// <include
-	///     file="../../global-doc-comments.xml"
-	///     path="/g/csharp15/feature[@name='union']/target[@name='try-get-value-method']"/>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public bool TryGetValue(out int value)
-	{
-		if (Type == ColorDescriptorType.Id)
-		{
-			value = (int)ValueMask;
-			return true;
-		}
-		value = default;
-		return false;
-	}
-
-	/// <include
-	///     file="../../global-doc-comments.xml"
-	///     path="/g/csharp15/feature[@name='union']/target[@name='try-get-value-method']"/>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public bool TryGetValue(out (byte A, byte R, byte G, byte B) value)
-	{
-		if (Type == ColorDescriptorType.Argb)
-		{
-			var argbMask = (uint)(Mask & uint.MaxValue);
-			value = (
-				(byte)(argbMask >>> 24 & 255),
-				(byte)(argbMask >>> 16 & 255),
-				(byte)(argbMask >>> 8 & 255),
-				(byte)(argbMask & 255)
-			);
-			return true;
-		}
-		value = default;
-		return false;
-	}
-
-	/// <include
-	///     file="../../global-doc-comments.xml"
-	///     path="/g/csharp15/feature[@name='union']/target[@name='try-get-value-method']"/>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public bool TryGetValue(out ColorDescriptorAlias value)
-	{
-		if (Type == ColorDescriptorType.Alias)
-		{
-			value = (ColorDescriptorAlias)ValueMask;
-			return true;
-		}
-		value = default;
-		return false;
-	}
-
 	/// <inheritdoc/>
 	public override bool Equals([NotNullWhen(true)] object? obj) => obj is ColorDescriptor comparer && Equals(comparer);
 
@@ -158,6 +107,48 @@ public readonly struct ColorDescriptor(long mask) :
 			ColorDescriptorAlias v => v.ToString(),
 			_ => string.Empty
 		};
+
+	/// <inheritdoc/>
+	bool IUnionMembers.TryGetValue(out int value)
+	{
+		if (Type == ColorDescriptorType.Id)
+		{
+			value = (int)ValueMask;
+			return true;
+		}
+		value = default;
+		return false;
+	}
+
+	/// <inheritdoc/>
+	bool IUnionMembers.TryGetValue(out (byte A, byte R, byte G, byte B) value)
+	{
+		if (Type == ColorDescriptorType.Argb)
+		{
+			var argbMask = (uint)(Mask & uint.MaxValue);
+			value = (
+				(byte)(argbMask >>> 24 & 255),
+				(byte)(argbMask >>> 16 & 255),
+				(byte)(argbMask >>> 8 & 255),
+				(byte)(argbMask & 255)
+			);
+			return true;
+		}
+		value = default;
+		return false;
+	}
+
+	/// <inheritdoc/>
+	bool IUnionMembers.TryGetValue(out ColorDescriptorAlias value)
+	{
+		if (Type == ColorDescriptorType.Alias)
+		{
+			value = (ColorDescriptorAlias)ValueMask;
+			return true;
+		}
+		value = default;
+		return false;
+	}
 
 
 	/// <inheritdoc/>

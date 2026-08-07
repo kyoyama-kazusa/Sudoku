@@ -489,6 +489,19 @@ if (unionInstance.TryGetValue(out int instance)
 					</para>
 				</remarks>
 			</target>
+			<target name="union-interface">
+				<summary>
+					Represents the union-member provider for a union type.
+				</summary>
+				<remarks>
+					When a <see langword="union"/>-like type directly declares an interface named <see cref="IUnionMembers"/>,
+					the C# compiler treats that interface as the <see langword="union"/> member provider for the
+					enclosing type and looks up the union's creation members and
+					<see cref="T:System.Runtime.CompilerServices.IUnion.Value"/> (and, optionally, non-boxing access members) on this
+					interface instead of on the union type itself.
+				</remarks>
+				<seealso cref="T:System.Runtime.CompilerServices.IUnion.Value"/>
+			</target>
 		</feature>
 	</csharp15>
 

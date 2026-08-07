@@ -10909,117 +10909,6 @@
             Indicates the whole 64-bit mask.
             </summary>
         </member>
-        <member name="M:Sudoku.Descriptors.ColorDescriptor.TryGetValue(System.Int32@)">
-            <target name="try-get-value-method">
-				<summary>
-					Check whether the current type represents for the value of the same type
-					with the single parameter <paramref name="value" /> or not.
-					If so, this method will return <see langword="true" />, with the parameter <paramref name="value" />
-					having been assigned with such value; otherwise, <see langword="false" />.
-				</summary>
-				<param name="value">The value (assigned when return value becomes <see langword="true" />.</param>
-				<returns>
-					A <see cref="T:System.Boolean" /> value indicating whether the current instance represents
-					for the value of the same type with the parameter <paramref name="value" />.
-				</returns>
-				<remarks>
-					<para>
-						C# 15 introduces feature "Union", allowing defining a <see langword="struct" /> or a <see langword="class" />
-						to be union-like type. A <see langword="union" /> type is a type that is marked
-						with modifier <see langword="union" />, with a single data member <c>Value</c> indicating the backing value.
-					</para>
-					<para>
-						However, by design, this property is of type <see cref="T:System.Object" /> when multiple unrelated types
-						defined in a <see langword="union" />, which may cause boxing and unboxing operations.
-					</para>
-					<para>
-						This method is designed to solve the problem. If the backing value is defined with customized logic,
-						we can avoid such boxing and unboxing operations. For example, the following code:
-						<code><![CDATA[
-if (unionInstance is int instance)
-    // ...]]></code>
-						will be translated into:
-						<code><![CDATA[
-if (unionInstance.TryGetValue(out int instance)
-    // ...]]></code>
-					</para>
-				</remarks>
-			</target>
-        </member>
-        <member name="M:Sudoku.Descriptors.ColorDescriptor.TryGetValue(System.ValueTuple{System.Byte,System.Byte,System.Byte,System.Byte}@)">
-            <target name="try-get-value-method">
-				<summary>
-					Check whether the current type represents for the value of the same type
-					with the single parameter <paramref name="value" /> or not.
-					If so, this method will return <see langword="true" />, with the parameter <paramref name="value" />
-					having been assigned with such value; otherwise, <see langword="false" />.
-				</summary>
-				<param name="value">The value (assigned when return value becomes <see langword="true" />.</param>
-				<returns>
-					A <see cref="T:System.Boolean" /> value indicating whether the current instance represents
-					for the value of the same type with the parameter <paramref name="value" />.
-				</returns>
-				<remarks>
-					<para>
-						C# 15 introduces feature "Union", allowing defining a <see langword="struct" /> or a <see langword="class" />
-						to be union-like type. A <see langword="union" /> type is a type that is marked
-						with modifier <see langword="union" />, with a single data member <c>Value</c> indicating the backing value.
-					</para>
-					<para>
-						However, by design, this property is of type <see cref="T:System.Object" /> when multiple unrelated types
-						defined in a <see langword="union" />, which may cause boxing and unboxing operations.
-					</para>
-					<para>
-						This method is designed to solve the problem. If the backing value is defined with customized logic,
-						we can avoid such boxing and unboxing operations. For example, the following code:
-						<code><![CDATA[
-if (unionInstance is int instance)
-    // ...]]></code>
-						will be translated into:
-						<code><![CDATA[
-if (unionInstance.TryGetValue(out int instance)
-    // ...]]></code>
-					</para>
-				</remarks>
-			</target>
-        </member>
-        <member name="M:Sudoku.Descriptors.ColorDescriptor.TryGetValue(Sudoku.Descriptors.ColorDescriptorAlias@)">
-            <target name="try-get-value-method">
-				<summary>
-					Check whether the current type represents for the value of the same type
-					with the single parameter <paramref name="value" /> or not.
-					If so, this method will return <see langword="true" />, with the parameter <paramref name="value" />
-					having been assigned with such value; otherwise, <see langword="false" />.
-				</summary>
-				<param name="value">The value (assigned when return value becomes <see langword="true" />.</param>
-				<returns>
-					A <see cref="T:System.Boolean" /> value indicating whether the current instance represents
-					for the value of the same type with the parameter <paramref name="value" />.
-				</returns>
-				<remarks>
-					<para>
-						C# 15 introduces feature "Union", allowing defining a <see langword="struct" /> or a <see langword="class" />
-						to be union-like type. A <see langword="union" /> type is a type that is marked
-						with modifier <see langword="union" />, with a single data member <c>Value</c> indicating the backing value.
-					</para>
-					<para>
-						However, by design, this property is of type <see cref="T:System.Object" /> when multiple unrelated types
-						defined in a <see langword="union" />, which may cause boxing and unboxing operations.
-					</para>
-					<para>
-						This method is designed to solve the problem. If the backing value is defined with customized logic,
-						we can avoid such boxing and unboxing operations. For example, the following code:
-						<code><![CDATA[
-if (unionInstance is int instance)
-    // ...]]></code>
-						will be translated into:
-						<code><![CDATA[
-if (unionInstance.TryGetValue(out int instance)
-    // ...]]></code>
-					</para>
-				</remarks>
-			</target>
-        </member>
         <member name="M:Sudoku.Descriptors.ColorDescriptor.Equals(System.Object)">
             <inheritdoc/>
         </member>
@@ -11032,11 +10921,168 @@ if (unionInstance.TryGetValue(out int instance)
         <member name="M:Sudoku.Descriptors.ColorDescriptor.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
+        <member name="M:Sudoku.Descriptors.ColorDescriptor.Sudoku#Descriptors#ColorDescriptor#IUnionMembers#TryGetValue(System.Int32@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Descriptors.ColorDescriptor.Sudoku#Descriptors#ColorDescriptor#IUnionMembers#TryGetValue(System.ValueTuple{System.Byte,System.Byte,System.Byte,System.Byte}@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Descriptors.ColorDescriptor.Sudoku#Descriptors#ColorDescriptor#IUnionMembers#TryGetValue(Sudoku.Descriptors.ColorDescriptorAlias@)">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Descriptors.ColorDescriptor.op_Equality(Sudoku.Descriptors.ColorDescriptor,Sudoku.Descriptors.ColorDescriptor)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Descriptors.ColorDescriptor.op_Inequality(Sudoku.Descriptors.ColorDescriptor,Sudoku.Descriptors.ColorDescriptor)">
             <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Descriptors.ColorDescriptor.IUnionMembers">
+            <target name="union-interface">
+				<summary>
+					Represents the union-member provider for a union type.
+				</summary>
+				<remarks>
+					When a <see langword="union" />-like type directly declares an interface named <see cref="T:Sudoku.Descriptors.ColorDescriptor.IUnionMembers" />,
+					the C# compiler treats that interface as the <see langword="union" /> member provider for the
+					enclosing type and looks up the union's creation members and
+					<see cref="T:System.Runtime.CompilerServices.IUnion.Value" /> (and, optionally, non-boxing access members) on this
+					interface instead of on the union type itself.
+				</remarks>
+				<seealso cref="T:System.Runtime.CompilerServices.IUnion.Value" />
+			</target>
+        </member>
+        <member name="M:Sudoku.Descriptors.ColorDescriptor.IUnionMembers.TryGetValue(System.Int32@)">
+            <target name="try-get-value-method">
+				<summary>
+					Check whether the current type represents for the value of the same type
+					with the single parameter <paramref name="value" /> or not.
+					If so, this method will return <see langword="true" />, with the parameter <paramref name="value" />
+					having been assigned with such value; otherwise, <see langword="false" />.
+				</summary>
+				<param name="value">The value (assigned when return value becomes <see langword="true" />.</param>
+				<returns>
+					A <see cref="T:System.Boolean" /> value indicating whether the current instance represents
+					for the value of the same type with the parameter <paramref name="value" />.
+				</returns>
+				<remarks>
+					<para>
+						C# 15 introduces feature "Union", allowing defining a <see langword="struct" /> or a <see langword="class" />
+						to be union-like type. A <see langword="union" /> type is a type that is marked
+						with modifier <see langword="union" />, with a single data member <c>Value</c> indicating the backing value.
+					</para>
+					<para>
+						However, by design, this property is of type <see cref="T:System.Object" /> when multiple unrelated types
+						defined in a <see langword="union" />, which may cause boxing and unboxing operations.
+					</para>
+					<para>
+						This method is designed to solve the problem. If the backing value is defined with customized logic,
+						we can avoid such boxing and unboxing operations. For example, the following code:
+						<code><![CDATA[
+if (unionInstance is int instance)
+    // ...]]></code>
+						will be translated into:
+						<code><![CDATA[
+if (unionInstance.TryGetValue(out int instance)
+    // ...]]></code>
+					</para>
+				</remarks>
+			</target>
+        </member>
+        <member name="M:Sudoku.Descriptors.ColorDescriptor.IUnionMembers.TryGetValue(System.ValueTuple{System.Byte,System.Byte,System.Byte,System.Byte}@)">
+            <target name="try-get-value-method">
+				<summary>
+					Check whether the current type represents for the value of the same type
+					with the single parameter <paramref name="value" /> or not.
+					If so, this method will return <see langword="true" />, with the parameter <paramref name="value" />
+					having been assigned with such value; otherwise, <see langword="false" />.
+				</summary>
+				<param name="value">The value (assigned when return value becomes <see langword="true" />.</param>
+				<returns>
+					A <see cref="T:System.Boolean" /> value indicating whether the current instance represents
+					for the value of the same type with the parameter <paramref name="value" />.
+				</returns>
+				<remarks>
+					<para>
+						C# 15 introduces feature "Union", allowing defining a <see langword="struct" /> or a <see langword="class" />
+						to be union-like type. A <see langword="union" /> type is a type that is marked
+						with modifier <see langword="union" />, with a single data member <c>Value</c> indicating the backing value.
+					</para>
+					<para>
+						However, by design, this property is of type <see cref="T:System.Object" /> when multiple unrelated types
+						defined in a <see langword="union" />, which may cause boxing and unboxing operations.
+					</para>
+					<para>
+						This method is designed to solve the problem. If the backing value is defined with customized logic,
+						we can avoid such boxing and unboxing operations. For example, the following code:
+						<code><![CDATA[
+if (unionInstance is int instance)
+    // ...]]></code>
+						will be translated into:
+						<code><![CDATA[
+if (unionInstance.TryGetValue(out int instance)
+    // ...]]></code>
+					</para>
+				</remarks>
+			</target>
+        </member>
+        <member name="M:Sudoku.Descriptors.ColorDescriptor.IUnionMembers.TryGetValue(Sudoku.Descriptors.ColorDescriptorAlias@)">
+            <target name="try-get-value-method">
+				<summary>
+					Check whether the current type represents for the value of the same type
+					with the single parameter <paramref name="value" /> or not.
+					If so, this method will return <see langword="true" />, with the parameter <paramref name="value" />
+					having been assigned with such value; otherwise, <see langword="false" />.
+				</summary>
+				<param name="value">The value (assigned when return value becomes <see langword="true" />.</param>
+				<returns>
+					A <see cref="T:System.Boolean" /> value indicating whether the current instance represents
+					for the value of the same type with the parameter <paramref name="value" />.
+				</returns>
+				<remarks>
+					<para>
+						C# 15 introduces feature "Union", allowing defining a <see langword="struct" /> or a <see langword="class" />
+						to be union-like type. A <see langword="union" /> type is a type that is marked
+						with modifier <see langword="union" />, with a single data member <c>Value</c> indicating the backing value.
+					</para>
+					<para>
+						However, by design, this property is of type <see cref="T:System.Object" /> when multiple unrelated types
+						defined in a <see langword="union" />, which may cause boxing and unboxing operations.
+					</para>
+					<para>
+						This method is designed to solve the problem. If the backing value is defined with customized logic,
+						we can avoid such boxing and unboxing operations. For example, the following code:
+						<code><![CDATA[
+if (unionInstance is int instance)
+    // ...]]></code>
+						will be translated into:
+						<code><![CDATA[
+if (unionInstance.TryGetValue(out int instance)
+    // ...]]></code>
+					</para>
+				</remarks>
+			</target>
+        </member>
+        <member name="M:Sudoku.Descriptors.ColorDescriptor.IUnionMembers.Create(System.Int32)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Descriptors.ColorDescriptor"/> instance via the specified <see cref="T:System.Int32"/> value indicating ID.
+            </summary>
+            <param name="id">The ID value.</param>
+            <returns>The <see cref="T:Sudoku.Descriptors.ColorDescriptor"/> instance created.</returns>
+        </member>
+        <member name="M:Sudoku.Descriptors.ColorDescriptor.IUnionMembers.Create(System.ValueTuple{System.Byte,System.Byte,System.Byte,System.Byte})">
+            <summary>
+            Creates a <see cref="T:Sudoku.Descriptors.ColorDescriptor"/> instance via the specified quadruple of ARGB values.
+            </summary>
+            <param name="value">The quadruple of ARGB values.</param>
+            <returns>The <see cref="T:Sudoku.Descriptors.ColorDescriptor"/> instance created.</returns>
+        </member>
+        <member name="M:Sudoku.Descriptors.ColorDescriptor.IUnionMembers.Create(Sudoku.Descriptors.ColorDescriptorAlias)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Descriptors.ColorDescriptor"/> instance via the specified <see cref="T:Sudoku.Descriptors.ColorDescriptorAlias"/> value
+            indicating item.
+            </summary>
+            <param name="item">The aliased item.</param>
+            <returns>The <see cref="T:Sudoku.Descriptors.ColorDescriptor"/> instance created.</returns>
         </member>
         <member name="T:Sudoku.Descriptors.Converter">
             <summary>

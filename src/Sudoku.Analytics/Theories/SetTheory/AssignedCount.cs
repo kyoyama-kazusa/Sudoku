@@ -8,28 +8,10 @@ namespace Sudoku.Theories.SetTheory;
 /// <param name="Max">Indicates the maximum number of a permutation.</param>
 /// <seealso cref="LogicReasoner.GetAssignedCount(ref readonly Logic)"/>
 [Union]
-public readonly record struct AssignedCount(int Min, int Max) : IEqualityOperators<AssignedCount, AssignedCount, bool>, IUnion
+public readonly partial record struct AssignedCount(int Min, int Max) :
+	AssignedCount.IUnionMembers,
+	IEqualityOperators<AssignedCount, AssignedCount, bool>
 {
-	/// <summary>
-	/// Initializes a <see cref="AssignedCount"/> instance via an <see cref="int"/> value.
-	/// </summary>
-	/// <param name="value">The value.</param>
-	public AssignedCount(int value) : this(value, value)
-	{
-	}
-
-	/// <summary>
-	/// Initializes a <see cref="AssignedCount"/> instance via a pair of <see cref="int"/> values.
-	/// </summary>
-	/// <param name="value">The pair of <see cref="int"/> values.</param>
-	public AssignedCount((int Min, int Max) value) : this(value.Min, value.Max)
-	{
-	}
-
-
-	/// <inheritdoc/>
-	public object? Value => IsStable ? Min : (Min, Max);
-
 	/// <summary>
 	/// Indicates whether the pattern is stable.
 	/// </summary>
@@ -40,13 +22,15 @@ public readonly record struct AssignedCount(int Min, int Max) : IEqualityOperato
 	/// </summary>
 	public int Delta => Max - Min;
 
+	/// <inheritdoc/>
+	object? IUnion.Value => IsStable ? Min : (Min, Max);
 
-	/// <summary>
-	/// Try to get an <see cref="int"/> value if available.
-	/// </summary>
-	/// <param name="value">The value.</param>
-	/// <returns>A <see cref="bool"/> result.</returns>
-	public bool TryGetValue(out int value)
+
+	/// <inheritdoc cref="object.ToString"/>
+	public override string ToString() => IsStable ? Min.ToString() : (Min, Max).ToString();
+
+	/// <inheritdoc/>
+	bool IUnionMembers.TryGetValue(out int value)
 	{
 		if (IsStable)
 		{
@@ -57,12 +41,8 @@ public readonly record struct AssignedCount(int Min, int Max) : IEqualityOperato
 		return false;
 	}
 
-	/// <summary>
-	/// Try to get a pair of <see cref="int"/> values if available.
-	/// </summary>
-	/// <param name="value">The pair of values.</param>
-	/// <returns>A <see cref="bool"/> result.</returns>
-	public bool TryGetValue(out (int Min, int Max) value)
+	/// <inheritdoc/>
+	bool IUnionMembers.TryGetValue(out (int Min, int Max) value)
 	{
 		if (IsStable)
 		{
@@ -72,7 +52,4 @@ public readonly record struct AssignedCount(int Min, int Max) : IEqualityOperato
 		value = (Min, Max);
 		return true;
 	}
-
-	/// <inheritdoc cref="object.ToString"/>
-	public override string ToString() => IsStable ? Min.ToString() : (Min, Max).ToString();
 }

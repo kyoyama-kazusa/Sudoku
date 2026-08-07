@@ -37579,21 +37579,6 @@
         <member name="P:Sudoku.Theories.SetTheory.AssignedCount.Max">
             <summary>Indicates the maximum number of a permutation.</summary>
         </member>
-        <member name="M:Sudoku.Theories.SetTheory.AssignedCount.#ctor(System.Int32)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Theories.SetTheory.AssignedCount"/> instance via an <see cref="T:System.Int32"/> value.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="M:Sudoku.Theories.SetTheory.AssignedCount.#ctor(System.ValueTuple{System.Int32,System.Int32})">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Theories.SetTheory.AssignedCount"/> instance via a pair of <see cref="T:System.Int32"/> values.
-            </summary>
-            <param name="value">The pair of <see cref="T:System.Int32"/> values.</param>
-        </member>
-        <member name="P:Sudoku.Theories.SetTheory.AssignedCount.Value">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Theories.SetTheory.AssignedCount.IsStable">
             <summary>
             Indicates whether the pattern is stable.
@@ -37604,22 +37589,121 @@
             Indicates the delta value.
             </summary>
         </member>
-        <member name="M:Sudoku.Theories.SetTheory.AssignedCount.TryGetValue(System.Int32@)">
-            <summary>
-            Try to get an <see cref="T:System.Int32"/> value if available.
-            </summary>
-            <param name="value">The value.</param>
-            <returns>A <see cref="T:System.Boolean"/> result.</returns>
-        </member>
-        <member name="M:Sudoku.Theories.SetTheory.AssignedCount.TryGetValue(System.ValueTuple{System.Int32,System.Int32}@)">
-            <summary>
-            Try to get a pair of <see cref="T:System.Int32"/> values if available.
-            </summary>
-            <param name="value">The pair of values.</param>
-            <returns>A <see cref="T:System.Boolean"/> result.</returns>
+        <member name="P:Sudoku.Theories.SetTheory.AssignedCount.System#Runtime#CompilerServices#IUnion#Value">
+            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Theories.SetTheory.AssignedCount.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:Sudoku.Theories.SetTheory.AssignedCount.Sudoku#Theories#SetTheory#AssignedCount#IUnionMembers#TryGetValue(System.Int32@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Theories.SetTheory.AssignedCount.Sudoku#Theories#SetTheory#AssignedCount#IUnionMembers#TryGetValue(System.ValueTuple{System.Int32,System.Int32}@)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Theories.SetTheory.AssignedCount.IUnionMembers">
+            <target name="union-interface">
+				<summary>
+					Represents the union-member provider for a union type.
+				</summary>
+				<remarks>
+					When a <see langword="union" />-like type directly declares an interface named <see cref="T:Sudoku.Theories.SetTheory.AssignedCount.IUnionMembers" />,
+					the C# compiler treats that interface as the <see langword="union" /> member provider for the
+					enclosing type and looks up the union's creation members and
+					<see cref="T:System.Runtime.CompilerServices.IUnion.Value" /> (and, optionally, non-boxing access members) on this
+					interface instead of on the union type itself.
+				</remarks>
+				<seealso cref="T:System.Runtime.CompilerServices.IUnion.Value" />
+			</target>
+        </member>
+        <member name="M:Sudoku.Theories.SetTheory.AssignedCount.IUnionMembers.TryGetValue(System.Int32@)">
+            <target name="try-get-value-method">
+				<summary>
+					Check whether the current type represents for the value of the same type
+					with the single parameter <paramref name="value" /> or not.
+					If so, this method will return <see langword="true" />, with the parameter <paramref name="value" />
+					having been assigned with such value; otherwise, <see langword="false" />.
+				</summary>
+				<param name="value">The value (assigned when return value becomes <see langword="true" />.</param>
+				<returns>
+					A <see cref="T:System.Boolean" /> value indicating whether the current instance represents
+					for the value of the same type with the parameter <paramref name="value" />.
+				</returns>
+				<remarks>
+					<para>
+						C# 15 introduces feature "Union", allowing defining a <see langword="struct" /> or a <see langword="class" />
+						to be union-like type. A <see langword="union" /> type is a type that is marked
+						with modifier <see langword="union" />, with a single data member <c>Value</c> indicating the backing value.
+					</para>
+					<para>
+						However, by design, this property is of type <see cref="T:System.Object" /> when multiple unrelated types
+						defined in a <see langword="union" />, which may cause boxing and unboxing operations.
+					</para>
+					<para>
+						This method is designed to solve the problem. If the backing value is defined with customized logic,
+						we can avoid such boxing and unboxing operations. For example, the following code:
+						<code><![CDATA[
+if (unionInstance is int instance)
+    // ...]]></code>
+						will be translated into:
+						<code><![CDATA[
+if (unionInstance.TryGetValue(out int instance)
+    // ...]]></code>
+					</para>
+				</remarks>
+			</target>
+        </member>
+        <member name="M:Sudoku.Theories.SetTheory.AssignedCount.IUnionMembers.TryGetValue(System.ValueTuple{System.Int32,System.Int32}@)">
+            <target name="try-get-value-method">
+				<summary>
+					Check whether the current type represents for the value of the same type
+					with the single parameter <paramref name="value" /> or not.
+					If so, this method will return <see langword="true" />, with the parameter <paramref name="value" />
+					having been assigned with such value; otherwise, <see langword="false" />.
+				</summary>
+				<param name="value">The value (assigned when return value becomes <see langword="true" />.</param>
+				<returns>
+					A <see cref="T:System.Boolean" /> value indicating whether the current instance represents
+					for the value of the same type with the parameter <paramref name="value" />.
+				</returns>
+				<remarks>
+					<para>
+						C# 15 introduces feature "Union", allowing defining a <see langword="struct" /> or a <see langword="class" />
+						to be union-like type. A <see langword="union" /> type is a type that is marked
+						with modifier <see langword="union" />, with a single data member <c>Value</c> indicating the backing value.
+					</para>
+					<para>
+						However, by design, this property is of type <see cref="T:System.Object" /> when multiple unrelated types
+						defined in a <see langword="union" />, which may cause boxing and unboxing operations.
+					</para>
+					<para>
+						This method is designed to solve the problem. If the backing value is defined with customized logic,
+						we can avoid such boxing and unboxing operations. For example, the following code:
+						<code><![CDATA[
+if (unionInstance is int instance)
+    // ...]]></code>
+						will be translated into:
+						<code><![CDATA[
+if (unionInstance.TryGetValue(out int instance)
+    // ...]]></code>
+					</para>
+				</remarks>
+			</target>
+        </member>
+        <member name="M:Sudoku.Theories.SetTheory.AssignedCount.IUnionMembers.Create(System.Int32)">
+            <summary>
+            Creates an <see cref="T:Sudoku.Theories.SetTheory.AssignedCount"/> instance via the specified value of type <see cref="T:System.Int32"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>An <see cref="T:Sudoku.Theories.SetTheory.AssignedCount"/> instance created.</returns>
+        </member>
+        <member name="M:Sudoku.Theories.SetTheory.AssignedCount.IUnionMembers.Create(System.ValueTuple{System.Int32,System.Int32})">
+            <summary>
+            Creates an <see cref="T:Sudoku.Theories.SetTheory.AssignedCount"/> instance via the specified value of type
+            <see cref="T:System.ValueTuple`2"/> of types <see cref="T:System.Int32"/> (min value) and <see cref="T:System.Int32"/> (max value).
+            </summary>
+            <param name="value">The value.</param>
+            <returns>An <see cref="T:Sudoku.Theories.SetTheory.AssignedCount"/> instance created.</returns>
         </member>
         <member name="T:Sudoku.Theories.SetTheory.CoveredSetsCount">
             <summary>
@@ -38081,7 +38165,7 @@
             </summary>
             <param name="values">A sequence of rank values.</param>
         </member>
-        <member name="P:Sudoku.Theories.SetTheory.Rank.Value">
+        <member name="P:Sudoku.Theories.SetTheory.Rank.System#Runtime#CompilerServices#IUnion#Value">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Theories.SetTheory.Rank.IsConsistent">
@@ -38100,20 +38184,6 @@
         <member name="M:Sudoku.Theories.SetTheory.Rank.Equals(Sudoku.Theories.SetTheory.Rank)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Theories.SetTheory.Rank.TryGetValue(System.Int32@)">
-            <summary>
-            Check whether the current type holds consistent rank or not.
-            </summary>
-            <param name="value">The target rank value.</param>
-            <returns>A <see cref="T:System.Boolean"/> result.</returns>
-        </member>
-        <member name="M:Sudoku.Theories.SetTheory.Rank.TryGetValue(System.Int32[]@)">
-            <summary>
-            Check whether the current type holds inconsistent rank or not.
-            </summary>
-            <param name="value">The target rank value.</param>
-            <returns>A <see cref="T:System.Boolean"/> result.</returns>
-        </member>
         <member name="M:Sudoku.Theories.SetTheory.Rank.GetHashCode">
             <inheritdoc/>
         </member>
@@ -38126,11 +38196,120 @@
         <member name="M:Sudoku.Theories.SetTheory.Rank.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
+        <member name="M:Sudoku.Theories.SetTheory.Rank.Sudoku#Theories#SetTheory#Rank#IUnionMembers#TryGetValue(System.Int32@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Theories.SetTheory.Rank.Sudoku#Theories#SetTheory#Rank#IUnionMembers#TryGetValue(System.Int32[]@)">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Theories.SetTheory.Rank.op_Equality(Sudoku.Theories.SetTheory.Rank,Sudoku.Theories.SetTheory.Rank)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Theories.SetTheory.Rank.op_Inequality(Sudoku.Theories.SetTheory.Rank,Sudoku.Theories.SetTheory.Rank)">
             <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Theories.SetTheory.Rank.IUnionMembers">
+            <target name="union-interface">
+				<summary>
+					Represents the union-member provider for a union type.
+				</summary>
+				<remarks>
+					When a <see langword="union" />-like type directly declares an interface named <see cref="T:Sudoku.Theories.SetTheory.Rank.IUnionMembers" />,
+					the C# compiler treats that interface as the <see langword="union" /> member provider for the
+					enclosing type and looks up the union's creation members and
+					<see cref="T:System.Runtime.CompilerServices.IUnion.Value" /> (and, optionally, non-boxing access members) on this
+					interface instead of on the union type itself.
+				</remarks>
+				<seealso cref="T:System.Runtime.CompilerServices.IUnion.Value" />
+			</target>
+        </member>
+        <member name="M:Sudoku.Theories.SetTheory.Rank.IUnionMembers.TryGetValue(System.Int32@)">
+            <target name="try-get-value-method">
+				<summary>
+					Check whether the current type represents for the value of the same type
+					with the single parameter <paramref name="value" /> or not.
+					If so, this method will return <see langword="true" />, with the parameter <paramref name="value" />
+					having been assigned with such value; otherwise, <see langword="false" />.
+				</summary>
+				<param name="value">The value (assigned when return value becomes <see langword="true" />.</param>
+				<returns>
+					A <see cref="T:System.Boolean" /> value indicating whether the current instance represents
+					for the value of the same type with the parameter <paramref name="value" />.
+				</returns>
+				<remarks>
+					<para>
+						C# 15 introduces feature "Union", allowing defining a <see langword="struct" /> or a <see langword="class" />
+						to be union-like type. A <see langword="union" /> type is a type that is marked
+						with modifier <see langword="union" />, with a single data member <c>Value</c> indicating the backing value.
+					</para>
+					<para>
+						However, by design, this property is of type <see cref="T:System.Object" /> when multiple unrelated types
+						defined in a <see langword="union" />, which may cause boxing and unboxing operations.
+					</para>
+					<para>
+						This method is designed to solve the problem. If the backing value is defined with customized logic,
+						we can avoid such boxing and unboxing operations. For example, the following code:
+						<code><![CDATA[
+if (unionInstance is int instance)
+    // ...]]></code>
+						will be translated into:
+						<code><![CDATA[
+if (unionInstance.TryGetValue(out int instance)
+    // ...]]></code>
+					</para>
+				</remarks>
+			</target>
+        </member>
+        <member name="M:Sudoku.Theories.SetTheory.Rank.IUnionMembers.TryGetValue(System.Int32[]@)">
+            <target name="try-get-value-method">
+				<summary>
+					Check whether the current type represents for the value of the same type
+					with the single parameter <paramref name="value" /> or not.
+					If so, this method will return <see langword="true" />, with the parameter <paramref name="value" />
+					having been assigned with such value; otherwise, <see langword="false" />.
+				</summary>
+				<param name="value">The value (assigned when return value becomes <see langword="true" />.</param>
+				<returns>
+					A <see cref="T:System.Boolean" /> value indicating whether the current instance represents
+					for the value of the same type with the parameter <paramref name="value" />.
+				</returns>
+				<remarks>
+					<para>
+						C# 15 introduces feature "Union", allowing defining a <see langword="struct" /> or a <see langword="class" />
+						to be union-like type. A <see langword="union" /> type is a type that is marked
+						with modifier <see langword="union" />, with a single data member <c>Value</c> indicating the backing value.
+					</para>
+					<para>
+						However, by design, this property is of type <see cref="T:System.Object" /> when multiple unrelated types
+						defined in a <see langword="union" />, which may cause boxing and unboxing operations.
+					</para>
+					<para>
+						This method is designed to solve the problem. If the backing value is defined with customized logic,
+						we can avoid such boxing and unboxing operations. For example, the following code:
+						<code><![CDATA[
+if (unionInstance is int instance)
+    // ...]]></code>
+						will be translated into:
+						<code><![CDATA[
+if (unionInstance.TryGetValue(out int instance)
+    // ...]]></code>
+					</para>
+				</remarks>
+			</target>
+        </member>
+        <member name="M:Sudoku.Theories.SetTheory.Rank.IUnionMembers.Create(System.Int32)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Theories.SetTheory.Rank"/> instance via the specified rank value as absolute one.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The <see cref="T:Sudoku.Theories.SetTheory.Rank"/> value created.</returns>
+        </member>
+        <member name="M:Sudoku.Theories.SetTheory.Rank.IUnionMembers.Create(System.Int32[])">
+            <summary>
+            Creates a <see cref="T:Sudoku.Theories.SetTheory.Rank"/> instance via the specified array of values as sequenced one.
+            </summary>
+            <param name="values">The values.</param>
+            <returns>The <see cref="T:Sudoku.Theories.SetTheory.Rank"/> value created.</returns>
         </member>
         <member name="T:Sudoku.Theories.SetTheory.SetTheoryColumnHeader">
             <summary>
