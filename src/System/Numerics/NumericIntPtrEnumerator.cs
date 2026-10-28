@@ -1,4 +1,4 @@
-﻿namespace System.Numerics;
+namespace System.Numerics;
 
 /// <summary>
 /// Represents an enumerator that iterates bits over an <see cref="nint"/> or <see cref="nuint"/> value.
@@ -24,7 +24,7 @@ public ref struct NumericIntPtrEnumerator(nint _value) : IBitEnumerator
 
 
 	/// <inheritdoc cref="IEnumerator.MoveNext"/>
-	public unsafe bool MoveNext()
+	public bool MoveNext()
 	{
 		while (++Current < sizeof(nuint) << 3)
 		{
