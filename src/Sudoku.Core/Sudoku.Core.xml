@@ -10899,14 +10899,14 @@
             Indicates the mask that only represents color data.
             </summary>
         </member>
-        <member name="P:Sudoku.Descriptors.ColorDescriptor.Type">
-            <summary>
-            Indicates the type of the color identifier.
-            </summary>
-        </member>
         <member name="P:Sudoku.Descriptors.ColorDescriptor.Mask">
             <summary>
             Indicates the whole 64-bit mask.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Descriptors.ColorDescriptor.Type">
+            <summary>
+            Indicates the type of the color identifier.
             </summary>
         </member>
         <member name="M:Sudoku.Descriptors.ColorDescriptor.Equals(System.Object)">

@@ -9,6 +9,7 @@ public partial class SpanEnumerable
 	/// <param name="source">The source collection.</param>
 	extension<TSource>(ReadOnlySpan<TSource> source) where TSource : IComparisonOperators<TSource, TSource, bool>, IMinMaxValue<TSource>
 	{
+#if false
 		/// <inheritdoc cref="IMinMaxMethod{TSelf, TSource}.Min()"/>
 		public TSource Min()
 		{
@@ -36,6 +37,7 @@ public partial class SpanEnumerable
 			}
 			return result;
 		}
+#endif
 
 		/// <summary>
 		/// Gets the maximum value of the sequence, and ignore elements to be compared if they are not satisfy the specified condition.
@@ -141,7 +143,7 @@ public partial class SpanEnumerable
 			return result;
 		}
 
-		/// <inheritdoc cref="Min{TSource, TKey}(ReadOnlySpan{TSource}, Func{TSource, TKey})"/>
+		/// <inheritdoc cref="Enumerable.Min{TSource, TKey}(IEnumerable{TSource}, Func{TSource, TKey})"/>
 		public unsafe TKey? MinUnsafe(delegate*<TSource, TKey> selector)
 		{
 			var result = TKey.MaxValue;
@@ -156,7 +158,7 @@ public partial class SpanEnumerable
 			return result;
 		}
 
-		/// <inheritdoc cref="Max{TSource, TInterim}(ReadOnlySpan{TSource}, Func{TSource, TInterim})"/>
+		/// <inheritdoc cref="Enumerable.Max{TSource, TKey}(IEnumerable{TSource}, Func{TSource, TKey})"/>
 		public unsafe TKey MaxUnsafe(delegate*<TSource, TKey> selector)
 		{
 			var result = TKey.MinValue;

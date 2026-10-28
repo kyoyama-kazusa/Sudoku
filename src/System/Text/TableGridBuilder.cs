@@ -47,7 +47,7 @@ public static class TableGridBuilder
 			foreach (var width in columnWidths)
 			{
 				// Adjust for vertical padding.
-				sbBorder.Append(new string(options.Horizontal[0], width + options.Vertical.Length * 2));
+				sbBorder.Append(options.Horizontal[0], width + options.Vertical.Length * 2);
 				sbBorder.Append(options.Corner);
 			}
 			borderLine = sbBorder.ToString();
@@ -74,7 +74,7 @@ public static class TableGridBuilder
 				var cell = c < row.Length ? row[c] : string.Empty;
 				var pad = columnWidths[c] - GetDisplayWidth(cell);
 
-				line.Append(' ').Append(cell).Append(new string(' ', pad)).Append(' ');
+				line.Append(' ').Append(cell).Append(' ', pad).Append(' ');
 				if (options.PrintBorders)
 				{
 					line.Append(options.Vertical);

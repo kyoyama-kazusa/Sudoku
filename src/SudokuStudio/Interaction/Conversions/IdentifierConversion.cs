@@ -11,7 +11,7 @@ internal static class IdentifierConversion
 		var uiPref = Application.CurrentApp.Preference.UIPreferences;
 		return id switch
 		{
-			(byte a, byte r, byte g, byte b) => Color.FromArgb(a, r, g, b),
+			ValueTuple<byte, byte, byte, byte> and (byte a, byte r, byte g, byte b) => Color.FromArgb(a, r, g, b),
 			int idValue when getValueById(idValue, out var color) => color,
 			ColorDescriptorAlias namedKind => namedKind switch
 			{

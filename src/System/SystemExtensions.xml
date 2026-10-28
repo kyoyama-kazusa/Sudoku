@@ -5777,12 +5777,6 @@
         <member name="M:System.Linq.SpanEnumerable.Where``1(System.ReadOnlySpan{``0},System.Func{``0,System.Int32,System.Boolean})">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.&lt;G&gt;$CCC6C15EC93AA06816794B41FF241F94`1.Where(System.Func{`0,System.Int32,System.Boolean})"/>
         </member>
-        <member name="M:System.Linq.SpanEnumerable.Min``1(System.ReadOnlySpan{``0})">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.&lt;G&gt;$9B32EBE4F7135650D6B2B0B731223DE0`1.Min"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.Max``1(System.ReadOnlySpan{``0})">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.&lt;G&gt;$9B32EBE4F7135650D6B2B0B731223DE0`1.Max"/>
-        </member>
         <member name="M:System.Linq.SpanEnumerable.MaxIf``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.&lt;G&gt;$9B32EBE4F7135650D6B2B0B731223DE0`1.MaxIf(System.Func{`0,System.Boolean})"/>
         </member>
@@ -6417,12 +6411,6 @@
             <typeparam name="TSource">The type of source elements.</typeparam>
             <param name="source">The source collection.</param>
         </member>
-        <member name="M:System.Linq.SpanEnumerable.&lt;G&gt;$9B32EBE4F7135650D6B2B0B731223DE0`1.Min">
-            <inheritdoc cref="M:System.Linq.Providers.IMinMaxMethod`2.Min"/>
-        </member>
-        <member name="M:System.Linq.SpanEnumerable.&lt;G&gt;$9B32EBE4F7135650D6B2B0B731223DE0`1.Max">
-            <inheritdoc cref="M:System.Linq.Providers.IMinMaxMethod`2.Max"/>
-        </member>
         <member name="M:System.Linq.SpanEnumerable.&lt;G&gt;$9B32EBE4F7135650D6B2B0B731223DE0`1.MaxIf(System.Func{`0,System.Boolean})">
             <summary>
             Gets the maximum value of the sequence, and ignore elements to be compared if they are not satisfy the specified condition.
@@ -6469,10 +6457,10 @@
             <inheritdoc cref="M:System.Linq.Providers.IMinMaxMethod`2.MaxBy``1(System.Func{`1,``0})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.&lt;G&gt;$A0A93ED0BFFB79236E8549E26C68A70E`2.MinUnsafe()">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.Min``2(System.ReadOnlySpan{``0},System.Func{``0,``1})"/>
+            <inheritdoc cref="M:System.Linq.Enumerable.Min``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
         </member>
         <member name="M:System.Linq.SpanEnumerable.&lt;G&gt;$A0A93ED0BFFB79236E8549E26C68A70E`2.MaxUnsafe()">
-            <inheritdoc cref="M:System.Linq.SpanEnumerable.Max``2(System.ReadOnlySpan{``0},System.Func{``0,``1})"/>
+            <inheritdoc cref="M:System.Linq.Enumerable.Max``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
         </member>
         <member name="T:System.Linq.SpanEnumerable.&lt;G&gt;$F368733711600E661078C53D2C8B3C54`1.&lt;M&gt;$F5C6868450D09C1AF65FDD8CAB816AD1">
             <target name="container">

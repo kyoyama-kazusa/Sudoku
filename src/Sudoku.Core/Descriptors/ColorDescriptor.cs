@@ -79,14 +79,14 @@ public readonly partial struct ColorDescriptor(long mask) :
 	public long ValueMask => Mask & (1L << TypeShift) - 1;
 
 	/// <summary>
-	/// Indicates the type of the color identifier.
-	/// </summary>
-	public ColorDescriptorType Type => (ColorDescriptorType)(Mask >>> TypeShift);
-
-	/// <summary>
 	/// Indicates the whole 64-bit mask.
 	/// </summary>
 	public long Mask { get; } = mask;
+
+	/// <summary>
+	/// Indicates the type of the color identifier.
+	/// </summary>
+	public ColorDescriptorType Type => (ColorDescriptorType)(Mask >>> TypeShift);
 
 
 	/// <inheritdoc/>
@@ -237,7 +237,7 @@ file sealed class Converter : JsonConverter<ColorDescriptor>
 	{
 		switch (value)
 		{
-			case (byte a, byte r, byte g, byte b):
+			case ValueTuple<byte, byte, byte, byte> and (byte a, byte r, byte g, byte b):
 			{
 				writer.WriteStartArray();
 				writer.WriteNumberValue(a);

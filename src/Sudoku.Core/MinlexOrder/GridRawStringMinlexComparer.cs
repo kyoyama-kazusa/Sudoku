@@ -13,7 +13,7 @@ public sealed class GridRawStringMinlexComparer : IComparer<string>
 
 
 	/// <inheritdoc/>
-	public int Compare(string? x, string? y)
+	public unsafe int Compare(string? x, string? y)
 		=> (x, y) switch
 		{
 			(null, null) => 0,

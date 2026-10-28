@@ -58,7 +58,7 @@ public static class GridSnyderExtensions
 					var gridResetCandidates = @this.ResetCandidatesGrid;
 					foreach (var step in Collector.Collect(gridResetCandidates))
 					{
-						if (step.Code.ToString() | &SnyderTechnique.Parse | (f => techniques.HasFlag(f)))
+						if (unsafe(step.Code.ToString() | &SnyderTechnique.Parse | (f => techniques.HasFlag(f))))
 						{
 							gridResetCandidates.Apply(step);
 						}
