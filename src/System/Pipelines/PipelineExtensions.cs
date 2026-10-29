@@ -71,7 +71,7 @@ public static class Pipeline
 		public static TResult operator |(T left, Func<T, TResult> right) => right(left);
 
 		/// <inheritdoc cref="extension{T, TResult}(T).op_BitwiseOr(T, Func{T, TResult})"/>
-		public static unsafe TResult operator |(T left, delegate*<T, TResult> right) => right(left);
+		public static TResult operator |(T left, delegate*<T, TResult> right) => unsafe (right(left));
 	}
 
 	/// <include
@@ -91,8 +91,8 @@ public static class Pipeline
 		public static TResult operator |(ValueTuple<T1, T2> left, Func<T1, T2, TResult> right) => right(left.Item1, left.Item2);
 
 		/// <inheritdoc cref="extension{T1, T2, TResult}(ValueTuple{T1, T2}).op_BitwiseOr(ValueTuple{T1, T2}, Func{T1, T2, TResult})"/>
-		public static unsafe TResult operator |(ValueTuple<T1, T2> left, delegate*<T1, T2, TResult> right)
-			=> right(left.Item1, left.Item2);
+		public static TResult operator |(ValueTuple<T1, T2> left, delegate*<T1, T2, TResult> right)
+			=> unsafe (right(left.Item1, left.Item2));
 	}
 
 	/// <include
@@ -114,8 +114,8 @@ public static class Pipeline
 			=> right(left.Item1, left.Item2, left.Item3);
 
 		/// <inheritdoc cref="extension{T1, T2, T3, TResult}(ValueTuple{T1, T2, T3}).op_BitwiseOr(ValueTuple{T1, T2, T3}, Func{T1, T2, T3, TResult})"/>
-		public static unsafe TResult operator |(ValueTuple<T1, T2, T3> left, delegate*<T1, T2, T3, TResult> right)
-			=> right(left.Item1, left.Item2, left.Item3);
+		public static TResult operator |(ValueTuple<T1, T2, T3> left, delegate*<T1, T2, T3, TResult> right)
+			=> unsafe (right(left.Item1, left.Item2, left.Item3));
 	}
 
 	/// <include

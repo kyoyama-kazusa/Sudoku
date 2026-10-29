@@ -42,7 +42,7 @@ public sealed class ArrayGrouping<TSource, TKey>(TSource[] elements, TKey key) :
 		=> other is not null && ReferenceEquals(_elements, other._elements) && Key.Equals(other.Key);
 
 	/// <inheritdoc/>
-	public override unsafe int GetHashCode() => HashCode.Combine(Key, (nint)Unsafe.AsPointer(ref _elements[0]));
+	public override int GetHashCode() => HashCode.Combine(Key, (nint)Unsafe.AsPointer(ref _elements[0]));
 
 	/// <inheritdoc/>
 	public override string ToString()

@@ -72,17 +72,20 @@ public sealed class DancingLinksSolver : ISolutionEnumerableSolver<DancingLinksS
 	public bool? Solve(Digit[] grid, out Grid result) => Solve(Grid.Create(grid), out result);
 
 	/// <inheritdoc/>
-	unsafe void ISolutionEnumerableSolver<DancingLinksSolver>.EnumerateSolutionsCore(in Grid grid, CancellationToken cancellationToken)
+	void ISolutionEnumerableSolver<DancingLinksSolver>.EnumerateSolutionsCore(in Grid grid, CancellationToken cancellationToken)
 	{
 		_root = DancingLink.Entry.Create(grid);
-		Search(Action.DoNothingMethodPtr, &r);
-
-
-		static bool r(DancingLinksSolver @this, Stack<DancingLinkNode> resultNodes)
+		unsafe
 		{
-			var newFoundGrid = ToGrid(resultNodes);
-			@this.SolutionFound?.Invoke(@this, new(newFoundGrid));
-			return true;
+			Search(Action.DoNothingMethodPtr, &r);
+
+
+			static bool r(DancingLinksSolver @this, Stack<DancingLinkNode> resultNodes)
+			{
+				var newFoundGrid = ToGrid(resultNodes);
+				@this.SolutionFound?.Invoke(@this, new(newFoundGrid));
+				return true;
+			}
 		}
 	}
 

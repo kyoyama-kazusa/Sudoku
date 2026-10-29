@@ -707,7 +707,7 @@ public static partial class BitOperationsExtensions
 
 		/// <inheritdoc cref="SetAt(byte, int)"/>
 		[OverloadResolutionPriority(2)]
-		public unsafe int SetAt(int order)
+		public int SetAt(int order)
 		{
 			for (int i = 0, count = -1; i < sizeof(Int128) << 3; i++, @this >>= 1)
 			{
@@ -753,7 +753,7 @@ public static partial class BitOperationsExtensions
 
 		/// <inheritdoc cref="SetAt(byte, int)"/>
 		[OverloadResolutionPriority(2)]
-		public unsafe int SetAt(int order)
+		public int SetAt(int order)
 		{
 			for (int i = 0, count = -1; i < sizeof(UInt128) << 3; i++, @this >>= 1)
 			{
@@ -879,7 +879,7 @@ public static partial class BitOperationsExtensions
 	{
 		/// <inheritdoc cref="SetAt(byte, int)"/>
 		[OverloadResolutionPriority(1)]
-		public unsafe int SetAt(int order)
+		public int SetAt(int order)
 		{
 			for (int i = 0, count = -1; i < sizeof(T) << 3; i++, @this >>= 1)
 			{
@@ -936,7 +936,7 @@ public static partial class BitOperationsExtensions
 	{
 		/// <inheritdoc cref="GetEnumerator(sbyte)"/>
 		[OverloadResolutionPriority(1)]
-		public unsafe GenericIntegerEnumerator<T> GetEnumerator() => new(@this, sizeof(T) << 3);
+		public GenericIntegerEnumerator<T> GetEnumerator() => new(@this, sizeof(T) << 3);
 	}
 
 	/// <include

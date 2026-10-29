@@ -33,7 +33,7 @@ public static class ExceptionExtensions
 }
 
 /// <summary>
-/// Provides an unsafe accessor type of type <typeparamref name="TException"/>.
+/// Provides an accessor type of type <typeparamref name="TException"/>.
 /// </summary>
 /// <typeparam name="TException">The type of exception.</typeparam>
 file static class ExceptionConstructorAccessor<TException> where TException : SystemException

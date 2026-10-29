@@ -23,11 +23,11 @@ public partial class SpanEnumerable
 		}
 
 		/// <inheritdoc cref="Any{TSource}(ReadOnlySpan{TSource}, Func{TSource, bool})"/>
-		public unsafe bool AnyUnsafe(delegate*<TSource, bool> match)
+		public bool AnyUnsafe(delegate*<TSource, bool> match)
 		{
 			foreach (var element in source)
 			{
-				if (match(element))
+				if (unsafe (match(element)))
 				{
 					return true;
 				}
@@ -49,11 +49,11 @@ public partial class SpanEnumerable
 		}
 
 		/// <inheritdoc cref="All{TSource}(ReadOnlySpan{TSource}, Func{TSource, bool})"/>
-		public unsafe bool AllUnsafe(delegate*<TSource, bool> match)
+		public bool AllUnsafe(delegate*<TSource, bool> match)
 		{
 			foreach (var element in source)
 			{
-				if (!match(element))
+				if (!unsafe (match(element)))
 				{
 					return false;
 				}

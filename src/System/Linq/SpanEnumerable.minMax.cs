@@ -144,12 +144,12 @@ public partial class SpanEnumerable
 		}
 
 		/// <inheritdoc cref="Enumerable.Min{TSource, TKey}(IEnumerable{TSource}, Func{TSource, TKey})"/>
-		public unsafe TKey? MinUnsafe(delegate*<TSource, TKey> selector)
+		public TKey? MinUnsafe(delegate*<TSource, TKey> selector)
 		{
 			var result = TKey.MaxValue;
 			foreach (var element in source)
 			{
-				var elementCasted = selector(element);
+				var elementCasted = unsafe (selector(element));
 				if (elementCasted <= result)
 				{
 					result = elementCasted;
@@ -159,12 +159,12 @@ public partial class SpanEnumerable
 		}
 
 		/// <inheritdoc cref="Enumerable.Max{TSource, TKey}(IEnumerable{TSource}, Func{TSource, TKey})"/>
-		public unsafe TKey MaxUnsafe(delegate*<TSource, TKey> selector)
+		public TKey MaxUnsafe(delegate*<TSource, TKey> selector)
 		{
 			var result = TKey.MinValue;
 			foreach (var element in source)
 			{
-				var elementCasted = selector(element);
+				var elementCasted = unsafe (selector(element));
 				if (elementCasted >= result)
 				{
 					result = elementCasted;

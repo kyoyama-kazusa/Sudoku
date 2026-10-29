@@ -46,12 +46,12 @@ public partial class SpanEnumerable
 		}
 
 		/// <inheritdoc cref="Sum{TSource, TKey}(ReadOnlySpan{TSource}, Func{TSource, TKey})"/>
-		public unsafe TKey SumUnsafe(delegate*<TSource, TKey> selector)
+		public TKey SumUnsafe(delegate*<TSource, TKey> selector)
 		{
 			var result = TKey.AdditiveIdentity;
 			foreach (var element in source)
 			{
-				result += selector(element);
+				result += unsafe (selector(element));
 			}
 			return result;
 		}

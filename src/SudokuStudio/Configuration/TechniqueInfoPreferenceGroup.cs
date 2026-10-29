@@ -52,18 +52,21 @@ public sealed partial class TechniqueInfoPreferenceGroup : PreferenceGroup
 	/// </summary>
 	/// <param name="technique">The technique.</param>
 	/// <param name="value">The rating value to be set.</param>
-	public unsafe void AppendOrUpdateRating(Technique technique, int value)
+	public void AppendOrUpdateRating(Technique technique, int value)
 	{
-		AppendOrUpdateValue(technique, value, &dataCreator, &dataModifier);
-
-
-		static TechniqueData dataCreator(Technique technique, int value)
+		unsafe
 		{
-			technique.GetDefaultRating(out var directRating);
-			return new(value, directRating, technique.DifficultyLevel);
-		}
+			AppendOrUpdateValue(technique, value, &dataCreator, &dataModifier);
 
-		static TechniqueData dataModifier(in TechniqueData data, int value) => data with { Rating = value };
+
+			static TechniqueData dataCreator(Technique technique, int value)
+			{
+				technique.GetDefaultRating(out var directRating);
+				return new(value, directRating, technique.DifficultyLevel);
+			}
+
+			static TechniqueData dataModifier(in TechniqueData data, int value) => data with { Rating = value };
+		}
 	}
 
 	/// <summary>
@@ -71,15 +74,18 @@ public sealed partial class TechniqueInfoPreferenceGroup : PreferenceGroup
 	/// </summary>
 	/// <param name="technique">The technique.</param>
 	/// <param name="value">The rating value to be set.</param>
-	public unsafe void AppendOrUpdateDirectRating(Technique technique, int value)
+	public void AppendOrUpdateDirectRating(Technique technique, int value)
 	{
-		AppendOrUpdateValue(technique, value, &dataCreator, &dataModifier);
+		unsafe
+		{
+			AppendOrUpdateValue(technique, value, &dataCreator, &dataModifier);
 
 
-		static TechniqueData dataCreator(Technique technique, int value)
-			=> new(technique.GetDefaultRating(out _), value, technique.DifficultyLevel);
+			static TechniqueData dataCreator(Technique technique, int value)
+				=> new(technique.GetDefaultRating(out _), value, technique.DifficultyLevel);
 
-		static TechniqueData dataModifier(in TechniqueData data, int value) => data with { DirectRating = value };
+			static TechniqueData dataModifier(in TechniqueData data, int value) => data with { DirectRating = value };
+		}
 	}
 
 	/// <summary>
@@ -87,18 +93,21 @@ public sealed partial class TechniqueInfoPreferenceGroup : PreferenceGroup
 	/// </summary>
 	/// <param name="technique">The technique.</param>
 	/// <param name="value">The difficulty level to be set.</param>
-	public unsafe void AppendOrUpdateDifficultyLevel(Technique technique, DifficultyLevel value)
+	public void AppendOrUpdateDifficultyLevel(Technique technique, DifficultyLevel value)
 	{
-		AppendOrUpdateValue(technique, value, &dataCreator, &dataModifier);
-
-
-		static TechniqueData dataCreator(Technique technique, DifficultyLevel value)
+		unsafe
 		{
-			var rating = technique.GetDefaultRating(out var directRating);
-			return new(rating, directRating, value);
-		}
+			AppendOrUpdateValue(technique, value, &dataCreator, &dataModifier);
 
-		static TechniqueData dataModifier(in TechniqueData data, DifficultyLevel value) => data with { Level = value };
+
+			static TechniqueData dataCreator(Technique technique, DifficultyLevel value)
+			{
+				var rating = technique.GetDefaultRating(out var directRating);
+				return new(rating, directRating, value);
+			}
+
+			static TechniqueData dataModifier(in TechniqueData data, DifficultyLevel value) => data with { Level = value };
+		}
 	}
 
 
@@ -110,7 +119,7 @@ public sealed partial class TechniqueInfoPreferenceGroup : PreferenceGroup
 	/// <param name="value">The value to be set.</param>
 	/// <param name="dataCreator">The data creator method that will be called when the collection doesn't contain the technique.</param>
 	/// <param name="dataModifier">The data modifier method that will be called when the collection contains the technique.</param>
-	private unsafe void AppendOrUpdateValue<T>(
+	private void AppendOrUpdateValue<T>(
 		Technique technique,
 		T value,
 		delegate*<Technique, T, TechniqueData> dataCreator,
@@ -121,7 +130,7 @@ public sealed partial class TechniqueInfoPreferenceGroup : PreferenceGroup
 		var isNullRef = Unsafe.IsNullRef(in data);
 		var a = valueUpdaterWhenNullRef;
 		var b = valueUpdaterWhenNotNullRef;
-		(isNullRef ? a : b)(ref data, isNullRef ? dataCreator(technique, value) : dataModifier(data, value));
+		(isNullRef ? a : b)(ref data, unsafe (isNullRef ? dataCreator(technique, value) : dataModifier(data, value)));
 
 
 		void valueUpdaterWhenNullRef(ref TechniqueData data, TechniqueData newData) => CustomizedTechniqueData.Add(technique, newData);

@@ -17,14 +17,14 @@ public sealed partial class BitwiseSolver : ISolutionEnumerableSolver<BitwiseSol
 	/// <summary>
 	/// Stack to store current and previous states.
 	/// </summary>
-	private readonly BitwiseSolverState[] _stack = new BitwiseSolverState[50];
+	private readonly safe BitwiseSolverState[] _stack = new BitwiseSolverState[50];
 
 
 	/// <summary>
 	/// Nasty global flag telling if <see cref="ApplySingleOrEmptyCells"/> found anything.
 	/// </summary>
 	/// <seealso cref="ApplySingleOrEmptyCells"/>
-	private bool _singleApplied;
+	private safe bool _singleApplied;
 
 	/// <summary>
 	/// Pointer to where to store the first solution. This value can be <see langword="null"/>.
@@ -38,31 +38,31 @@ public sealed partial class BitwiseSolver : ISolutionEnumerableSolver<BitwiseSol
 	/// <summary>
 	/// Indicates the number of solutions found so far.
 	/// </summary>
-	private long _numSolutions;
+	private safe long _numSolutions;
 
 	/// <summary>
 	/// Indicates the number of solutions you want to search.
 	/// Assign <see cref="int.MaxValue"/> if you want to find all possible solutions,
 	/// and assign 2 if you only want to check validity of the puzzle (if 2 solutions found, the puzzle will become invalid).
 	/// </summary>
-	private long _limitSolutions;
+	private safe long _limitSolutions;
 
 	/// <summary>
 	/// Pointer to the currently active slot.
 	/// </summary>
-	private BitwiseSolverState* _g;
+	private safe BitwiseSolverState* _g;
 
 
 	/// <inheritdoc/>
-	public string? UriLink => null;
+	public safe string? UriLink => null;
 
 
 	/// <inheritdoc/>
-	public event EventHandler<BitwiseSolver, SolverSolutionFoundEventArgs>? SolutionFound;
+	public safe event EventHandler<BitwiseSolver, SolverSolutionFoundEventArgs>? SolutionFound;
 
 
 	/// <inheritdoc/>
-	public unsafe bool? Solve(in Grid grid, out Grid result)
+	public safe bool? Solve(in Grid grid, out Grid result)
 	{
 		ClearStack();
 		var puzzleStr = grid.ToString();
@@ -70,7 +70,7 @@ public sealed partial class BitwiseSolver : ISolutionEnumerableSolver<BitwiseSol
 		long solutions;
 		fixed (char* pPuzzleStr = puzzleStr)
 		{
-			solutions = InternalSolve(pPuzzleStr, solutionStr, 2);
+			solutions = unsafe (InternalSolve(pPuzzleStr, solutionStr, 2));
 		}
 
 		Unsafe.SkipInit(out result);
@@ -90,13 +90,13 @@ public sealed partial class BitwiseSolver : ISolutionEnumerableSolver<BitwiseSol
 	/// <param name="solution">The solution. The value can be <see langword="null"/> if it is expected to be discarded.</param>
 	/// <param name="limit">The limit of solutions to be checked.</param>
 	/// <returns>A <see cref="long"/> value indicating the number of solutions.</returns>
-	public unsafe long SolveString([NotNull, DisallowNull] char* puzzle, [MaybeNull, AllowNull] char* solution, int limit)
+	public safe long SolveString([NotNull, DisallowNull] char* puzzle, [MaybeNull, AllowNull] char* solution, int limit)
 	{
 		ArgumentNullException.ThrowIfNull(puzzle);
 
 		ClearStack();
 		var solutionStr = stackalloc char[BufferLength];
-		var solutionsCount = InternalSolve(puzzle, solutionStr, limit);
+		var solutionsCount = unsafe (InternalSolve(puzzle, solutionStr, limit));
 		if (solution != null)
 		{
 			Unsafe.CopyBlock(solution, solutionStr, sizeof(char) * BufferLength);
@@ -105,13 +105,13 @@ public sealed partial class BitwiseSolver : ISolutionEnumerableSolver<BitwiseSol
 	}
 
 	/// <inheritdoc cref="SolveString(char*, char*, int)"/>
-	public unsafe long SolveString(string puzzle, [MaybeNull, AllowNull] char* solution, int limit)
+	public safe long SolveString(string puzzle, [MaybeNull, AllowNull] char* solution, int limit)
 	{
 		ClearStack();
 		fixed (char* p = puzzle)
 		{
 			var solutionStr = stackalloc char[BufferLength];
-			var result = InternalSolve(p, solutionStr, limit);
+			var result = unsafe (InternalSolve(p, solutionStr, limit));
 			if (solution != null)
 			{
 				Unsafe.CopyBlock(solution, solutionStr, sizeof(char) * BufferLength);
@@ -128,19 +128,19 @@ public sealed partial class BitwiseSolver : ISolutionEnumerableSolver<BitwiseSol
 	/// <exception cref="ArgumentNullException">
 	/// Throws when the argument <paramref name="grid"/> is <see langword="null"/>.
 	/// </exception>
-	public unsafe bool CheckValidity([NotNull, DisallowNull] char* grid)
+	public safe bool CheckValidity([NotNull, DisallowNull] char* grid)
 	{
 		ArgumentNullException.ThrowIfNull(grid);
 		ClearStack();
-		return InternalSolve(grid, null, 2) == 1;
+		return unsafe (InternalSolve(grid, null, 2)) == 1;
 	}
 
 	/// <inheritdoc cref="CheckValidity(char*)"/>
-	public unsafe bool CheckValidity(string grid)
+	public safe bool CheckValidity(string grid)
 	{
 		fixed (char* pGrid = grid)
 		{
-			return CheckValidity(pGrid);
+			return unsafe (CheckValidity(pGrid));
 		}
 	}
 
@@ -150,7 +150,7 @@ public sealed partial class BitwiseSolver : ISolutionEnumerableSolver<BitwiseSol
 	/// <param name="puzzle">The puzzle to solve.</param>
 	/// <returns>The solution. If failed to solve, <see cref="Grid.Undefined"/>.</returns>
 	/// <seealso cref="Grid.Undefined"/>
-	public unsafe Grid Solve(in Grid puzzle) => Solve(puzzle, out var result) is true ? result : Grid.Undefined;
+	public safe Grid Solve(in Grid puzzle) => Solve(puzzle, out var result) is true ? result : Grid.Undefined;
 
 	/// <inheritdoc/>
 	unsafe void ISolutionEnumerableSolver<BitwiseSolver>.EnumerateSolutionsCore(in Grid grid, CancellationToken cancellationToken)
@@ -933,7 +933,8 @@ public sealed partial class BitwiseSolver : ISolutionEnumerableSolver<BitwiseSol
 	/// Throws when the argument <paramref name="ptr"/> is <see langword="null"/>.
 	/// </exception>
 	/// <remarks>
-	/// In C#, this function is unsafe because the implementation of <see cref="string"/> types between C and C# is totally different.
+	/// In C#, this function is <see langword="unsafe"/> because the implementation of <see cref="string"/> types
+	/// between C and C# is totally different.
 	/// In C, <see cref="string"/> is like a <see cref="char"/>* or a <see cref="char"/>[],
 	/// they ends with the terminator symbol <c>'\0'</c>; however, C# not.
 	/// </remarks>

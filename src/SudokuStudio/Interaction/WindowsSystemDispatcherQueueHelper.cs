@@ -16,7 +16,7 @@ internal sealed partial class WindowsSystemDispatcherQueueHelper
 	/// <summary>
 	/// Try ensure controller is not <see langword="null"/> and initialize options.
 	/// </summary>
-	public unsafe void EnsureWindowsSystemDispatcherQueueController()
+	public void EnsureWindowsSystemDispatcherQueueController()
 	{
 		if (DispatcherQueue.GetForCurrentThread() is not null)
 		{

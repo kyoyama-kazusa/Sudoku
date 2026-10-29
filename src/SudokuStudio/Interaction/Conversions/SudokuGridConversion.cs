@@ -34,7 +34,7 @@ internal static class SudokuGridConversion
 		};
 	}
 
-	public static unsafe string GetPuzzleUniqueness(Grid grid)
+	public static string GetPuzzleUniqueness(Grid grid)
 	{
 		if (grid.IsUndefined)
 		{
@@ -50,7 +50,7 @@ internal static class SudokuGridConversion
 		var hasNoGivenCells = grid.GivenCellsCount == 0;
 		var str = hasNoGivenCells ? grid.ToString($"!{character}") : grid.ToString();
 		return SR.Get(
-			Solver.Value!.SolveString(str, null, 2) switch
+			unsafe (Solver.Value!.SolveString(str, null, 2)) switch
 			{
 				0 => "AnalyzePage_PuzzleHasNoSolution",
 				1 => hasNoGivenCells ? "AnalyzePage_PuzzleHasUniqueSolutionButUnfixed" : "AnalyzePage_PuzzleHasUniqueSolution",

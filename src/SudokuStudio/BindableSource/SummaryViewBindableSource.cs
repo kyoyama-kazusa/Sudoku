@@ -114,7 +114,7 @@ internal sealed class SummaryViewBindableSource : INotifyPropertyChanged
 			return pref.GetRating(step.Code) switch { { } v => v, _ => step.Difficulty } / pref.RatingScale;
 		}
 
-		static unsafe SummaryViewBindableSource[] g(ReadOnlySpan<Step> steps, TechniqueInfoPreferenceGroup pref)
+		static SummaryViewBindableSource[] g(ReadOnlySpan<Step> steps, TechniqueInfoPreferenceGroup pref)
 		{
 			var stepsSortedByName = new List<Step>();
 			stepsSortedByName.AddRange(steps);
@@ -141,8 +141,8 @@ internal sealed class SummaryViewBindableSource : INotifyPropertyChanged
 				{
 					TechniqueName = stepGroup.Key,
 					DifficultyLevel = DifficultyLevel.MergeFlags([.. difficultyLevels]),
-					TotalDifficulty = stepGroupArray.SumUnsafe(&r),
-					MaxDifficulty = stepGroupArray.MaxUnsafe(&r),
+					TotalDifficulty = unsafe (stepGroupArray.SumUnsafe(&r)),
+					MaxDifficulty = unsafe (stepGroupArray.MaxUnsafe(&r)),
 					CountOfSteps = stepGroupArray.Length
 				}
 			];

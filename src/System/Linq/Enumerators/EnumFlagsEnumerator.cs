@@ -31,7 +31,7 @@ public ref struct EnumFlagsEnumerator<TEnum>(TEnum baseField) : IEnumerator<TEnu
 
 
 	/// <inheritdoc cref="IEnumerator.MoveNext"/>
-	public unsafe bool MoveNext()
+	public bool MoveNext()
 	{
 		var size = sizeof(TEnum);
 		for (var index = _index + 1; index < _fields.Length; index++)

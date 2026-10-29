@@ -12,7 +12,7 @@ public partial class DelegateExtensions
 		/// Indicates the pointer to method <see cref="SelfMethod{T}(T)"/>.
 		/// </summary>
 		/// <seealso cref="SelfMethod{T}(T)"/>
-		public static unsafe delegate*<T, T> SelfMethodPtr => &SelfMethod;
+		public static delegate*<T, T> SelfMethodPtr => &SelfMethod;
 
 		/// <summary>
 		/// Creates a <see cref="Func{T, TResult}"/> instance that directly returns parameter.

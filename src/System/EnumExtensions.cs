@@ -129,7 +129,7 @@ public static class EnumExtensions
 		/// </summary>
 		/// <param name="flags">The flags.</param>
 		/// <returns>The merged value.</returns>
-		public static unsafe T MergeFlags(ReadOnlySpan<T> flags)
+		public static T MergeFlags(ReadOnlySpan<T> flags)
 		{
 			switch (sizeof(T))
 			{

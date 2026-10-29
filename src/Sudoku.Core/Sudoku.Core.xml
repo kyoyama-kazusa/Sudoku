@@ -16162,7 +16162,8 @@ if (unionInstance.TryGetValue(out int instance)
             Throws when the argument <paramref name="ptr"/> is <see langword="null"/>.
             </exception>
             <remarks>
-            In C#, this function is unsafe because the implementation of <see cref="T:System.String"/> types between C and C# is totally different.
+            In C#, this function is <see langword="unsafe"/> because the implementation of <see cref="T:System.String"/> types
+            between C and C# is totally different.
             In C, <see cref="T:System.String"/> is like a <see cref="T:System.Char"/>* or a <see cref="T:System.Char"/>[],
             they ends with the terminator symbol <c>'\0'</c>; however, C# not.
             </remarks>

@@ -16,5 +16,5 @@ public static class Span
 	public static Span<T> Create<T>(scoped ref T value, int length) => MemoryMarshal.CreateSpan(ref value, length);
 
 	/// <inheritdoc cref="Create{T}(ref T, int)"/>
-	public static unsafe Span<T> Create<T>(T* value, int length) => MemoryMarshal.CreateSpan(ref *value, length);
+	public static Span<T> Create<T>(T* value, int length) => MemoryMarshal.CreateSpan(ref unsafe (*value), length);
 }

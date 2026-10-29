@@ -35,7 +35,7 @@ public ref struct VariableExtractor(int literalLength, int formattedCount, strin
 	/// <summary>
 	/// Indicates the string variable pointers.
 	/// </summary>
-	private readonly unsafe string?*[] _pointers = new string*[formattedCount]!;
+	private readonly safe string?*[] _pointers = new string*[formattedCount]!;
 
 	/// <summary>
 	/// Indicates the backing builder object.
@@ -58,10 +58,10 @@ public ref struct VariableExtractor(int literalLength, int formattedCount, strin
 	/// Appends a variable into the collection, recording its variable pointer (address).
 	/// </summary>
 	/// <param name="variable">The reference to the variable.</param>
-	public unsafe void AppendFormatted(in string? variable)
+	public void AppendFormatted(in string? variable)
 	{
 		_builder.Append(PlaceholderReservedCharacter);
-		_pointers[_index++] = (string?*)Unsafe.AsPointer(ref Unsafe.AsRef(in variable));
+		unsafe (_pointers[_index++]) = (string?*)Unsafe.AsPointer(ref Unsafe.AsRef(in variable));
 	}
 
 	/// <inheritdoc cref="object.ToString"/>
@@ -74,7 +74,7 @@ public ref struct VariableExtractor(int literalLength, int formattedCount, strin
 	/// <param name="original">Indicates the original text.</param>
 	/// <param name="extractor">Indicates the interpolated string that inserts custom variables to be parsed.</param>
 	/// <exception cref="InvalidOperationException">Throws when the text is invalid to be checked.</exception>
-	public static unsafe void Assign(string original, [InterpolatedStringHandlerArgument(nameof(original))] in VariableExtractor extractor)
+	public static void Assign(string original, [InterpolatedStringHandlerArgument(nameof(original))] in VariableExtractor extractor)
 	{
 		var newString = extractor._builder.ToString();
 		var parts = newString.Split(PlaceholderReservedCharacter);
@@ -99,7 +99,7 @@ public ref struct VariableExtractor(int literalLength, int formattedCount, strin
 		for (var i = 1; i < groups.Count; i++)
 		{
 			// Assign string to property.
-			Unsafe.AsRef<string?>(extractor._pointers[i - 1]) = groups[i].Value;
+			Unsafe.AsRef<string?>(unsafe (extractor._pointers[i - 1])) = groups[i].Value;
 		}
 	}
 }

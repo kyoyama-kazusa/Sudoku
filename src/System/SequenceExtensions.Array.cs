@@ -143,7 +143,7 @@ public partial class SequenceExtensions
 		/// <typeparam name="T">The type of each element.</typeparam>
 		/// <param name="array">The array.</param>
 		/// <returns>The <see cref="Span{T}"/> casted.</returns>
-		public static unsafe Span<T> AsSpanUnsafe<T>(T[,] array)
+		public static Span<T> AsSpanUnsafe<T>(T[,] array)
 		{
 			fixed (T* ptr = &array[0, 0])
 			{
@@ -157,7 +157,7 @@ public partial class SequenceExtensions
 		/// <typeparam name="T">The type of each element.</typeparam>
 		/// <param name="array">The array.</param>
 		/// <returns>The <see cref="Span{T}"/> casted.</returns>
-		public static unsafe Span<T> AsSpanUnsafe<T>(T[,,] array)
+		public static Span<T> AsSpanUnsafe<T>(T[,,] array)
 		{
 			fixed (T* ptr = &array[0, 0, 0])
 			{
@@ -171,7 +171,7 @@ public partial class SequenceExtensions
 		/// <typeparam name="T">The type of each element.</typeparam>
 		/// <param name="array">The multiple dimensional array to be reinterpreted.</param>
 		/// <returns>A <see cref="Span{T}"/> instance.</returns>
-		public static unsafe Span<T> AsSpanUnsafe<T>(Array array) where T : unmanaged
+		public static Span<T> AsSpanUnsafe<T>(Array array) where T : unmanaged
 		{
 			// Calculate total number of elements.
 			// In multiple dimensional array, the result will be the production of lengths from all dimensions.

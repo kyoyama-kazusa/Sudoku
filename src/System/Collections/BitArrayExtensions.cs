@@ -49,7 +49,7 @@ public static class BitArrayExtensions
 
 
 				[SuppressMessage("Style", "IDE0002:Simplify Member Access", Justification = "<Pending>")]
-				static unsafe int popcnt_Avx2(byte[] data)
+				static int popcnt_Avx2(byte[] data)
 				{
 					var length = data.Length;
 					var i = 0;
@@ -87,7 +87,7 @@ public static class BitArrayExtensions
 					return sum;
 				}
 
-				static unsafe int popcnt_Sse2(byte[] data)
+				static int popcnt_Sse2(byte[] data)
 				{
 					var length = data.Length;
 					var i = 0;
@@ -114,7 +114,7 @@ public static class BitArrayExtensions
 					return sum;
 				}
 
-				static unsafe int popcnt_Popcnt(byte[] data)
+				static int popcnt_Popcnt(byte[] data)
 				{
 					var i = 0;
 					var sum = 0;

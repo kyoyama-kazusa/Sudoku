@@ -52,7 +52,7 @@ public readonly struct SpanGrouping<TSource, TKey>(TSource[] elements, TKey key)
 	public bool Equals(SpanGrouping<TSource, TKey> other) => ReferenceEquals(_elements, other._elements) && Key.Equals(other.Key);
 
 	/// <inheritdoc cref="object.GetHashCode"/>
-	public override unsafe int GetHashCode() => HashCode.Combine(Key, (nint)Unsafe.AsPointer(ref _elements[0]));
+	public override int GetHashCode() => HashCode.Combine(Key, (nint)Unsafe.AsPointer(ref _elements[0]));
 
 	/// <inheritdoc cref="object.ToString"/>
 	public override string ToString()

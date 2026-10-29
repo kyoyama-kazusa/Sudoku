@@ -1105,7 +1105,7 @@ public partial class GeneratedPuzzleConstraintPage
 	/// <param name="control">The control to be operated.</param>
 	/// <param name="valueToCompare">The value to compare.</param>
 	/// <param name="constraintCallback">The constraint callback method.</param>
-	private static unsafe void EnumBinder<TControl, TItemControl, TEnum>(TControl control, TEnum valueToCompare, Action<TEnum> constraintCallback)
+	private static void EnumBinder<TControl, TItemControl, TEnum>(TControl control, TEnum valueToCompare, Action<TEnum> constraintCallback)
 		where TControl : Selector
 		where TItemControl : SelectorItem
 		where TEnum : unmanaged, Enum

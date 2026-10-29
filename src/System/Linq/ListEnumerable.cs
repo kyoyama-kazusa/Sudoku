@@ -32,12 +32,12 @@ public static class ListEnumerable
 		}
 
 		/// <inheritdoc cref="extension{TSource}(List{TSource}).Count(Func{TSource, bool})"/>
-		public unsafe int CountUnsafe(delegate*<TSource, bool> predicate)
+		public int CountUnsafe(delegate*<TSource, bool> predicate)
 		{
 			var result = 0;
 			foreach (var element in source)
 			{
-				if (predicate(element))
+				if (unsafe (predicate(element)))
 				{
 					result++;
 				}

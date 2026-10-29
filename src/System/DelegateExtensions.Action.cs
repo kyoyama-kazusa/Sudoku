@@ -11,7 +11,7 @@ public partial class DelegateExtensions
 		/// Represents pointer to <see cref="DoNothingMethod"/>.
 		/// </summary>
 		/// <seealso cref="DoNothingMethod"/>
-		public static unsafe delegate*<void> DoNothingMethodPtr => &DoNothingMethod;
+		public static delegate*<void> DoNothingMethodPtr => &DoNothingMethod;
 
 		/// <summary>
 		/// Creates an <see cref="Action"/> instance that do nothing.
