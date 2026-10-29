@@ -9097,7 +9097,7 @@
             <inheritdoc/>
         </member>
         <member name="P:System.Numerics.NumericIntPtrEnumerator.Item(System.Int32)">
-            <inheritdoc cref="M:System.Numerics.BitOperationsExtensions.SetAt(System.UInt32,System.Int32)"/>
+            <inheritdoc/>
         </member>
         <member name="M:System.Numerics.NumericIntPtrEnumerator.MoveNext">
             <inheritdoc cref="M:System.Collections.IEnumerator.MoveNext"/>

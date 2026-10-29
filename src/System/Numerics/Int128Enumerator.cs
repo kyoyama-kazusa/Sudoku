@@ -21,7 +21,7 @@ public ref struct Int128Enumerator(Int128 _value) : IBitEnumerator
 
 
 	/// <inheritdoc/>
-	public readonly int this[int index] => _value.SetAt(index);
+	public readonly int this[int index] => _value[index];
 
 
 	/// <inheritdoc cref="IEnumerator.MoveNext"/>

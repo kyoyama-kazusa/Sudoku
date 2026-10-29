@@ -19,7 +19,7 @@ public ref struct NumericIntPtrEnumerator(nint _value) : IBitEnumerator
 	readonly object IEnumerator.Current => Current;
 
 
-	/// <inheritdoc cref="BitOperationsExtensions.SetAt(uint, int)"/>
+	/// <inheritdoc/>
 	public readonly int this[int index] => _value[index];
 
 

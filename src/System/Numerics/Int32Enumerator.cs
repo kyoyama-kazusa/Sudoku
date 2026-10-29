@@ -20,7 +20,7 @@ public ref struct Int32Enumerator(int _value) : IBitEnumerator
 
 
 	/// <inheritdoc/>
-	public readonly int this[int index] => _value.SetAt(index);
+	public readonly int this[int index] => _value[index];
 
 
 	/// <inheritdoc cref="IEnumerator.MoveNext"/>

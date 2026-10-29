@@ -20,7 +20,7 @@ public ref struct Int64Enumerator(long _value) : IBitEnumerator
 
 
 	/// <inheritdoc/>
-	public readonly int this[int index] => _value.SetAt(index);
+	public readonly int this[int index] => _value[index];
 
 
 	/// <inheritdoc cref="IEnumerator.MoveNext"/>
