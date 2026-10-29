@@ -231,7 +231,7 @@ public static class ContradictionDetector
 	}
 
 	/// <summary>
-	/// An unsafe entry to method <c>GetHeaderBits</c> defined in type <see cref="Grid"/>.
+	/// An entry to method <c>GetHeaderBits</c> defined in type <see cref="Grid"/>.
 	/// </summary>
 	/// <param name="grid">The grid.</param>
 	/// <param name="cell">The cell.</param>

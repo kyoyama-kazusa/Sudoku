@@ -36,14 +36,17 @@ public sealed class DancingLinksSolver : ISolutionEnumerableSolver<DancingLinksS
 
 
 	/// <inheritdoc/>
-	public unsafe bool? Solve(in Grid grid, out Grid result)
+	public bool? Solve(in Grid grid, out Grid result)
 	{
 		_solutionCount = 0;
 
 		try
 		{
 			_root = DancingLink.Entry.Create(grid);
-			Search(&g, &r);
+			unsafe
+			{
+				Search(&g, &r);
+			}
 
 			(result, var @return) = _solutionCount == 0 ? (Grid.Undefined, (bool?)null) : (_solution, true);
 			return @return;
@@ -89,21 +92,24 @@ public sealed class DancingLinksSolver : ISolutionEnumerableSolver<DancingLinksS
 	/// <param name="multipleSolutionGuard">A method that guards the case that multiple solutions (at least 2) are found.</param>
 	/// <param name="resultTargeting">A method that assigns or consume the result raw value.</param>
 	/// <exception cref="InvalidOperationException">Throws when the puzzle has multiple solutions.</exception>
-	private unsafe void Search(
+	private void Search(
 		delegate*<void> multipleSolutionGuard,
 		delegate*<DancingLinksSolver, Stack<DancingLinkNode>, bool> resultTargeting
 	)
 	{
 		if (_solutionCount > 1)
 		{
-			multipleSolutionGuard();
+			unsafe
+			{
+				multipleSolutionGuard();
+			}
 		}
 
 		Debug.Assert(_root is not null);
 		if (ReferenceEquals(_root.Right, _root))
 		{
 			// All columns were removed!
-			if (resultTargeting(this, _answerNodesStack))
+			if (unsafe (resultTargeting(this, _answerNodesStack)))
 			{
 				_solutionCount++;
 			}
@@ -121,7 +127,10 @@ public sealed class DancingLinksSolver : ISolutionEnumerableSolver<DancingLinksS
 				Cover(j.Column!);
 			}
 
-			Search(multipleSolutionGuard, resultTargeting);
+			unsafe
+			{
+				Search(multipleSolutionGuard, resultTargeting);
+			}
 
 			r = _answerNodesStack.Pop();
 			c = r.Column;

@@ -221,7 +221,7 @@ public sealed record K9Converter(
 			};
 
 
-			unsafe string toString(ReadOnlySpan<Conclusion> c)
+			string toString(ReadOnlySpan<Conclusion> c)
 			{
 				var conclusions = new Conclusion[c.Length];
 				Unsafe.CopyBlock(

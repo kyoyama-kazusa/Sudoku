@@ -13,17 +13,17 @@ public partial class MinlexRanker
 			/// <summary>
 			/// The <c>b1</c> field.
 			/// </summary>
-			public unsafe fixed sbyte b1[27];
+			public safe fixed sbyte b1[27];
 
 			/// <summary>
 			/// The <c>r4</c> field.
 			/// </summary>
-			public unsafe fixed sbyte r4[9];
+			public safe fixed sbyte r4[9];
 
 			/// <summary>
 			/// The <c>rx</c> field.
 			/// </summary>
-			public unsafe fixed sbyte rx[45];
+			public safe fixed sbyte rx[45];
 		}
 	}
 }

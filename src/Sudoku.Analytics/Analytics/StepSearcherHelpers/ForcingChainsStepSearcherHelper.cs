@@ -20,7 +20,7 @@ internal closed class ForcingChainsStepSearcherHelper : ChainingStepSearcherHelp
 	/// </param>
 	/// <param name="stepCreator">The creator method that can create a chain step.</param>
 	/// <returns>The first found step.</returns>
-	protected static unsafe Step? CollectGeneralizedMultipleCore<TMultipleForcingChains, TMultipleForcingChainsStep>(
+	protected static Step? CollectGeneralizedMultipleCore<TMultipleForcingChains, TMultipleForcingChainsStep>(
 		ref StepAnalysisContext context,
 		SortedSet<ChainStep> accumulator,
 		bool allowsAdvancedLinks,
@@ -40,7 +40,7 @@ internal closed class ForcingChainsStepSearcherHelper : ChainingStepSearcherHelp
 			out var supportedRules
 		);
 
-		foreach (var chain in chainsCollector(context.Grid, context.OnlyFindOne))
+		foreach (var chain in unsafe (chainsCollector(context.Grid, context.OnlyFindOne)))
 		{
 			if (onlyFindFinnedChain && chain.TryCastToFinnedChain(out var finnedChain, out var f))
 			{
@@ -53,7 +53,7 @@ internal closed class ForcingChainsStepSearcherHelper : ChainingStepSearcherHelp
 					context.Options,
 					finnedChain,
 					fins,
-					componentCreator(chain)
+					unsafe (componentCreator(chain))
 				);
 				if (finnedChain.IsStrictlyGrouped ^ allowsAdvancedLinks)
 				{
@@ -71,7 +71,7 @@ internal closed class ForcingChainsStepSearcherHelper : ChainingStepSearcherHelp
 
 			if (!onlyFindFinnedChain)
 			{
-				var rfcStep = stepCreator(chain, grid, in context, supportedRules);
+				var rfcStep = unsafe (stepCreator(chain, grid, in context, supportedRules));
 				if (context.OnlyFindOne)
 				{
 					return rfcStep;

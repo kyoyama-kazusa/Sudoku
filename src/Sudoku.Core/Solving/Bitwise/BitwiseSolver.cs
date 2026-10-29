@@ -12,7 +12,7 @@ namespace Sudoku.Solving.Bitwise;
 /// This type is thread-unsafe. If you want to use this type in multi-threading, please use <see langword="lock"/> statement.
 /// </b></para>
 /// </remarks>
-public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<BitwiseSolver>
+public sealed partial class BitwiseSolver : ISolutionEnumerableSolver<BitwiseSolver>
 {
 	/// <summary>
 	/// Stack to store current and previous states.
@@ -29,7 +29,11 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// <summary>
 	/// Pointer to where to store the first solution. This value can be <see langword="null"/>.
 	/// </summary>
-	private char* _solution;
+	/// <safety>
+	/// This field stores a sequence of characters, with terminal character <c>'\0'</c>.
+	/// This field becomes <see langword="safe"/> if and only if it'll be replaced with another non-<see langword="null"/> pointer.
+	/// </safety>
+	private unsafe char* _solution;
 
 	/// <summary>
 	/// Indicates the number of solutions found so far.
@@ -58,7 +62,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 
 
 	/// <inheritdoc/>
-	public bool? Solve(in Grid grid, out Grid result)
+	public unsafe bool? Solve(in Grid grid, out Grid result)
 	{
 		ClearStack();
 		var puzzleStr = grid.ToString();
@@ -86,7 +90,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// <param name="solution">The solution. The value can be <see langword="null"/> if it is expected to be discarded.</param>
 	/// <param name="limit">The limit of solutions to be checked.</param>
 	/// <returns>A <see cref="long"/> value indicating the number of solutions.</returns>
-	public long SolveString([NotNull, DisallowNull] char* puzzle, [MaybeNull, AllowNull] char* solution, int limit)
+	public unsafe long SolveString([NotNull, DisallowNull] char* puzzle, [MaybeNull, AllowNull] char* solution, int limit)
 	{
 		ArgumentNullException.ThrowIfNull(puzzle);
 
@@ -101,7 +105,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	}
 
 	/// <inheritdoc cref="SolveString(char*, char*, int)"/>
-	public long SolveString(string puzzle, [MaybeNull, AllowNull] char* solution, int limit)
+	public unsafe long SolveString(string puzzle, [MaybeNull, AllowNull] char* solution, int limit)
 	{
 		ClearStack();
 		fixed (char* p = puzzle)
@@ -124,7 +128,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// <exception cref="ArgumentNullException">
 	/// Throws when the argument <paramref name="grid"/> is <see langword="null"/>.
 	/// </exception>
-	public bool CheckValidity([NotNull, DisallowNull] char* grid)
+	public unsafe bool CheckValidity([NotNull, DisallowNull] char* grid)
 	{
 		ArgumentNullException.ThrowIfNull(grid);
 		ClearStack();
@@ -132,7 +136,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	}
 
 	/// <inheritdoc cref="CheckValidity(char*)"/>
-	public bool CheckValidity(string grid)
+	public unsafe bool CheckValidity(string grid)
 	{
 		fixed (char* pGrid = grid)
 		{
@@ -146,17 +150,17 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// <param name="puzzle">The puzzle to solve.</param>
 	/// <returns>The solution. If failed to solve, <see cref="Grid.Undefined"/>.</returns>
 	/// <seealso cref="Grid.Undefined"/>
-	public Grid Solve(in Grid puzzle) => Solve(puzzle, out var result) is true ? result : Grid.Undefined;
+	public unsafe Grid Solve(in Grid puzzle) => Solve(puzzle, out var result) is true ? result : Grid.Undefined;
 
 	/// <inheritdoc/>
-	void ISolutionEnumerableSolver<BitwiseSolver>.EnumerateSolutionsCore(in Grid grid, CancellationToken cancellationToken)
+	unsafe void ISolutionEnumerableSolver<BitwiseSolver>.EnumerateSolutionsCore(in Grid grid, CancellationToken cancellationToken)
 		=> SolveString(grid.ToString("0"), null, int.MaxValue);
 
 	/// <summary>
 	/// To clear the field <see cref="_stack"/>.
 	/// </summary>
 	/// <seealso cref="_stack"/>
-	private void ClearStack() => Array.Clear(_stack);
+	private unsafe void ClearStack() => Array.Clear(_stack);
 
 	/// <summary>
 	/// Set a cell as solved - used in <see cref="InitSudoku"/>.
@@ -164,7 +168,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// <param name="cell">The cell.</param>
 	/// <param name="digit">The digit.</param>
 	/// <returns>The <see cref="bool"/> result.</returns>
-	private bool SetSolvedDigit(Cell cell, Digit digit)
+	private unsafe bool SetSolvedDigit(Cell cell, Digit digit)
 	{
 		var subBand = (int)Cell2Floor[cell];
 		var band = Digit2BaseBand[digit] + subBand;
@@ -201,7 +205,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// <param name="cell">The cell.</param>
 	/// <param name="digit">The digit.</param>
 	/// <returns>The <see cref="bool"/> result.</returns>
-	private bool EliminateDigit(Cell cell, Digit digit)
+	private unsafe bool EliminateDigit(Cell cell, Digit digit)
 	{
 		var subBand = Cell2Floor[cell];
 		var band = Digit2BaseBand[digit] + subBand;
@@ -222,7 +226,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// <param name="band">The band.</param>
 	/// <param name="mask">The mask.</param>
 	/// <returns>The <see cref="bool"/> result.</returns>
-	private bool SetSolvedMask(int band, uint mask)
+	private unsafe bool SetSolvedMask(int band, uint mask)
 	{
 		if ((_g->Bands[band] & mask) == 0)
 		{
@@ -240,7 +244,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// </summary>
 	/// <param name="puzzle">The pointer that points to a puzzle buffer.</param>
 	/// <returns>The <see cref="bool"/> result.</returns>
-	private bool InitSudoku(char* puzzle)
+	private unsafe bool InitSudoku(char* puzzle)
 	{
 		fixed (BitwiseSolverState* g = _stack)
 		{
@@ -313,7 +317,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// </summary>
 	/// <returns>The <see cref="bool"/> value.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveOptimization)]
-	private bool Update()
+	private unsafe bool Update()
 	{
 		uint shrink = 1, a, b, c, cl;
 		while (shrink != 0)
@@ -608,7 +612,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// </summary>
 	/// <returns>A <see cref="bool"/> result.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveOptimization)]
-	private bool ApplySingleOrEmptyCells()
+	private unsafe bool ApplySingleOrEmptyCells()
 	{
 		_singleApplied = false;
 		for (var subBand = 0; subBand < 3; subBand++)
@@ -689,7 +693,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// <param name="solutionPtr">The pointer to the solution string.</param>
 	/// <param name="limit">The limitation for the number of all final solutions.</param>
 	/// <returns>The number of solutions found.</returns>
-	private long InternalSolve(char* puzzle, char* solutionPtr, int limit)
+	private unsafe long InternalSolve(char* puzzle, char* solutionPtr, int limit)
 	{
 		_numSolutions = 0;
 		_limitSolutions = limit;
@@ -723,7 +727,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// The solution pointer. <b>The buffer should be at least <see cref="BufferLength"/>
 	/// of value of length.</b>
 	/// </param>
-	private void ExtractSolution(char* solution)
+	private unsafe void ExtractSolution(char* solution)
 	{
 		if (_limitSolutions == int.MaxValue)
 		{
@@ -763,7 +767,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// Try both options for cells with exactly two pencil marks.
 	/// </summary>
 	/// <returns>A <see cref="bool"/> result.</returns>
-	private bool GuessBiValueInCell()
+	private unsafe bool GuessBiValueInCell()
 	{
 		// Uses pairs map, set in ApplySingleOrEmptyCells
 		for (var subBand = 0; subBand < 3; subBand++)
@@ -814,7 +818,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// <summary>
 	/// Guess all possibilities in first unsolved cell.
 	/// </summary>
-	private void GuessFirstCell()
+	private unsafe void GuessFirstCell()
 	{
 		// Kind of dumb, but _way_ fast code.
 		for (var subBand = 0; subBand < 3; subBand++)
@@ -851,7 +855,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// <summary>
 	/// Either already solved, or guess and recurse.
 	/// </summary>
-	private void Guess()
+	private unsafe void Guess()
 	{
 		if ((_g->UnsolvedRows[0] | _g->UnsolvedRows[1] | _g->UnsolvedRows[2]) == 0)
 		{
@@ -874,7 +878,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// </summary>
 	/// <returns>A <see cref="byte"/> result.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveOptimization)]
-	private byte FullUpdate()
+	private unsafe byte FullUpdate()
 	{
 		if (_numSolutions >= _limitSolutions)
 		{
@@ -918,7 +922,7 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// </summary>
 	/// <param name="map">The map.</param>
 	/// <returns>The position.</returns>
-	private static byte BitPos(uint map) => MultiplyDeBruijnBitPosition32[map * 0x077CB531U >> 27];
+	private static safe byte BitPos(uint map) => MultiplyDeBruijnBitPosition32[map * 0x077CB531U >> 27];
 
 	/// <summary>
 	/// Get the length of the specified string which is represented by a <see cref="char"/>*.
@@ -929,13 +933,11 @@ public sealed unsafe partial class BitwiseSolver : ISolutionEnumerableSolver<Bit
 	/// Throws when the argument <paramref name="ptr"/> is <see langword="null"/>.
 	/// </exception>
 	/// <remarks>
-	/// In C#, this function is unsafe because the implementation of
-	/// <see cref="string"/> types between C and C# is totally different.
-	/// In C, <see cref="string"/> is like a <see cref="char"/>* or a
-	/// <see cref="char"/>[], they ends with the terminator symbol <c>'\0'</c>.
-	/// However, C# not.
+	/// In C#, this function is unsafe because the implementation of <see cref="string"/> types between C and C# is totally different.
+	/// In C, <see cref="string"/> is like a <see cref="char"/>* or a <see cref="char"/>[],
+	/// they ends with the terminator symbol <c>'\0'</c>; however, C# not.
 	/// </remarks>
-	private static int StringLengthOf(char* ptr)
+	private static unsafe int StringLengthOf(char* ptr)
 	{
 		ArgumentNullException.ThrowIfNull(ptr);
 

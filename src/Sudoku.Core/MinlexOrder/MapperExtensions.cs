@@ -16,14 +16,14 @@ internal static class MapperExtensions
 		/// Converts <see cref="Mapper"/> and <see cref="MinlexCandidate"/> into a readable <see cref="Transform"/> instance.
 		/// </summary>
 		/// <seealso cref="MinlexCandidate"/>
-		public unsafe Transform FromMapper(in MinlexCandidate cand)
+		public Transform FromMapper(in MinlexCandidate cand)
 		{
 			// Use MapRowsBackward (canonicalRow -> sourceRow).
 			var rows = new RowIndex[9];
 			Array.Fill(rows, -1);
 			for (var r = 0; r < 9; r++)
 			{
-				rows[r] = cand.MapRowsBackward[r] is var sr and >= 0 ? sr : -1;
+				rows[r] = unsafe (cand.MapRowsBackward[r]) is var sr and >= 0 ? sr : -1;
 			}
 
 			// Scan map.Cell to infer columns (and cross-check rows if candidate inconsistent).
@@ -32,7 +32,7 @@ internal static class MapperExtensions
 			var transpose = cand.IsTransposed != 0;
 			for (var s = 0; s < 81; s++)
 			{
-				var canon = mapper.Cell[s];
+				var canon = unsafe (mapper.Cell[s]);
 				if (canon >= MinlexFinder.EmptyCellPlaceholder)
 				{
 					continue; // Masked / Non-given.
@@ -71,7 +71,7 @@ internal static class MapperExtensions
 			var digits = (stackalloc Digit[10]);
 			for (var i = 0; i < 10; i++)
 			{
-				digits[i] = mapper.Label[i] - 1;
+				digits[i] = unsafe (mapper.Label[i]) - 1;
 			}
 
 			return new(
@@ -86,7 +86,7 @@ internal static class MapperExtensions
 		/// Converts <see cref="Mapper"/> into <see cref="Transform"/>, without using <see cref="MinlexCandidate"/>.
 		/// This method will do a heuristics search, trying to infer target grid with ordering of "fitness" of transformations.
 		/// </summary>
-		public unsafe Transform FromMapperInfer()
+		public Transform FromMapperInfer()
 		{
 			// Quick heuristics: count how many cell mappings are consistent with "no-transpose".
 			var score_NotTransposed = 0;
@@ -102,7 +102,7 @@ internal static class MapperExtensions
 
 			for (var cell = 0; cell < 81; cell++)
 			{
-				var canonicalCell = mapper.Cell[cell];
+				var canonicalCell = unsafe (mapper.Cell[cell]);
 				if (canonicalCell >= MinlexFinder.EmptyCellPlaceholder)
 				{
 					continue;
@@ -141,7 +141,7 @@ internal static class MapperExtensions
 			var digits = (stackalloc Digit[10]);
 			for (var i = 0; i < 10; i++)
 			{
-				digits[i] = mapper.Label[i] - 1;
+				digits[i] = unsafe (mapper.Label[i]) - 1;
 			}
 			return score_NotTransposed >= score_Transposed
 				? new(

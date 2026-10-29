@@ -249,25 +249,25 @@ public partial struct Grid : InlineArrayGridBase
 	}
 
 	/// <inheritdoc/>
-	public readonly unsafe CellMap GivenCells => GridBase.GetMap(this, &Grid.IsGivenCell);
+	public readonly CellMap GivenCells => unsafe (GridBase.GetMap(this, &Grid.IsGivenCell));
 
 	/// <inheritdoc/>
-	public readonly unsafe CellMap ModifiableCells => GridBase.GetMap(this, &Grid.IsModifiableCell);
+	public readonly CellMap ModifiableCells => unsafe (GridBase.GetMap(this, &Grid.IsModifiableCell));
 
 	/// <inheritdoc/>
-	public readonly unsafe CellMap EmptyCells => GridBase.GetMap(this, &Grid.IsEmptyCell);
+	public readonly CellMap EmptyCells => unsafe (GridBase.GetMap(this, &Grid.IsEmptyCell));
 
 	/// <inheritdoc/>
-	public readonly unsafe CellMap BivalueCells => GridBase.GetMap(this, &Grid.IsBivalueCell);
+	public readonly CellMap BivalueCells => unsafe (GridBase.GetMap(this, &Grid.IsBivalueCell));
 
 	/// <inheritdoc/>
-	public readonly unsafe ReadOnlySpan<CellMap> CandidatesMap => GridBase.GetMaps(this, &Grid.ExistsInCandidatesMap);
+	public readonly ReadOnlySpan<CellMap> CandidatesMap => unsafe (GridBase.GetMaps(this, &Grid.ExistsInCandidatesMap));
 
 	/// <inheritdoc/>
-	public readonly unsafe ReadOnlySpan<CellMap> DigitsMap => GridBase.GetMaps(this, &Grid.ExistsInDigitsMap);
+	public readonly ReadOnlySpan<CellMap> DigitsMap => unsafe (GridBase.GetMaps(this, &Grid.ExistsInDigitsMap));
 
 	/// <inheritdoc/>
-	public readonly unsafe ReadOnlySpan<CellMap> ValuesMap => GridBase.GetMaps(this, &Grid.ExistsInValuesMap);
+	public readonly ReadOnlySpan<CellMap> ValuesMap => unsafe (GridBase.GetMaps(this, &Grid.ExistsInValuesMap));
 
 	/// <inheritdoc/>
 	public readonly ReadOnlySpan<Candidate> Candidates
@@ -398,7 +398,7 @@ public partial struct Grid : InlineArrayGridBase
 	}
 
 	/// <inheritdoc/>
-	public readonly unsafe Mask this[in CellMap cells, bool withValueCells, MaskAggregator aggregator = MaskAggregator.Or]
+	public readonly Mask this[in CellMap cells, bool withValueCells, MaskAggregator aggregator = MaskAggregator.Or]
 	{
 		get
 		{
@@ -418,7 +418,10 @@ public partial struct Grid : InlineArrayGridBase
 			{
 				if (withValueCells || GetState(cell) == CellState.Empty)
 				{
-					mergingFunctionPtr(ref result, this, cell);
+					unsafe
+					{
+						mergingFunctionPtr(ref result, this, cell);
+					}
 				}
 			}
 			return (Mask)(result & MaxCandidatesMask);
@@ -464,7 +467,7 @@ public partial struct Grid : InlineArrayGridBase
 	public readonly override bool Equals([NotNullWhen(true)] object? obj) => obj is Grid comparer && Equals(comparer);
 
 	/// <inheritdoc cref="IEquatable{T}.Equals(T)"/>
-	public readonly unsafe bool Equals(in Grid other)
+	public readonly bool Equals(in Grid other)
 	{
 		if (Avx2.IsSupported || Sse2.IsSupported)
 		{

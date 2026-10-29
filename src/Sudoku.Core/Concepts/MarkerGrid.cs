@@ -152,25 +152,25 @@ public struct MarkerGrid : InlineArrayGridBase
 	}
 
 	/// <inheritdoc/>
-	public readonly unsafe CellMap GivenCells => GridBase.GetMap(this, &MarkerGrid.IsGivenCell);
+	public readonly CellMap GivenCells => unsafe (GridBase.GetMap(this, &MarkerGrid.IsGivenCell));
 
 	/// <inheritdoc/>
-	public readonly unsafe CellMap ModifiableCells => GridBase.GetMap(this, &MarkerGrid.IsModifiableCell);
+	public readonly CellMap ModifiableCells => unsafe (GridBase.GetMap(this, &MarkerGrid.IsModifiableCell));
 
 	/// <inheritdoc/>
-	public readonly unsafe CellMap EmptyCells => GridBase.GetMap(this, &MarkerGrid.IsEmptyCell);
+	public readonly CellMap EmptyCells => unsafe (GridBase.GetMap(this, &MarkerGrid.IsEmptyCell));
 
 	/// <inheritdoc/>
-	public readonly unsafe CellMap BivalueCells => GridBase.GetMap(this, &MarkerGrid.IsBivalueCell);
+	public readonly CellMap BivalueCells => unsafe (GridBase.GetMap(this, &MarkerGrid.IsBivalueCell));
 
 	/// <inheritdoc/>
-	public readonly unsafe ReadOnlySpan<CellMap> CandidatesMap => GridBase.GetMaps(this, &MarkerGrid.ExistsInCandidatesMap);
+	public readonly ReadOnlySpan<CellMap> CandidatesMap => unsafe (GridBase.GetMaps(this, &MarkerGrid.ExistsInCandidatesMap));
 
 	/// <inheritdoc/>
-	public readonly unsafe ReadOnlySpan<CellMap> DigitsMap => GridBase.GetMaps(this, &MarkerGrid.ExistsInDigitsMap);
+	public readonly ReadOnlySpan<CellMap> DigitsMap => unsafe (GridBase.GetMaps(this, &MarkerGrid.ExistsInDigitsMap));
 
 	/// <inheritdoc/>
-	public readonly unsafe ReadOnlySpan<CellMap> ValuesMap => GridBase.GetMaps(this, &MarkerGrid.ExistsInValuesMap);
+	public readonly ReadOnlySpan<CellMap> ValuesMap => unsafe (GridBase.GetMaps(this, &MarkerGrid.ExistsInValuesMap));
 
 	/// <inheritdoc/>
 	public readonly ReadOnlySpan<Candidate> Candidates
@@ -275,7 +275,7 @@ public struct MarkerGrid : InlineArrayGridBase
 	}
 
 	/// <inheritdoc/>
-	public readonly unsafe Mask this[in CellMap cells, bool withValueCells, MaskAggregator aggregator = MaskAggregator.Or]
+	public readonly Mask this[in CellMap cells, bool withValueCells, MaskAggregator aggregator = MaskAggregator.Or]
 	{
 		get
 		{
@@ -295,7 +295,10 @@ public struct MarkerGrid : InlineArrayGridBase
 			{
 				if (withValueCells || GetState(cell) == CellState.Empty)
 				{
-					mergingFunctionPtr(ref result, this, cell);
+					unsafe
+					{
+						mergingFunctionPtr(ref result, this, cell);
+					}
 				}
 			}
 			return (Mask)(result & Grid.MaxCandidatesMask);

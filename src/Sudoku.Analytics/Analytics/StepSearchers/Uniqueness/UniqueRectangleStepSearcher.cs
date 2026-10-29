@@ -452,9 +452,9 @@ public sealed partial class UniqueRectangleStepSearcher : StepSearcher
 	/// candidates used in the current UR pattern. If and only if the full pattern uses 8 candidates
 	/// colored with normal one, the pattern will be complete.
 	/// </remarks>
-	private static unsafe bool IsIncompleteValid(bool arMode, bool allowIncomplete, List<CandidateViewNode> list, out bool isIncomplete)
+	private static bool IsIncompleteValid(bool arMode, bool allowIncomplete, List<CandidateViewNode> list, out bool isIncomplete)
 	{
-		isIncomplete = !allowIncomplete && list.CountUnsafe(&nodeChecker) != 8 || allowIncomplete;
+		isIncomplete = !allowIncomplete && unsafe (list.CountUnsafe(&nodeChecker)) != 8 || allowIncomplete;
 		return !arMode && isIncomplete || arMode;
 
 

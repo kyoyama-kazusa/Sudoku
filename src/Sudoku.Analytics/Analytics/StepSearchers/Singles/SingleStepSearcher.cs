@@ -39,7 +39,7 @@ public sealed partial class SingleStepSearcher : StepSearcher
 	/// <summary>
 	/// Represents a field that stores different ordering on calculating single techniques.
 	/// </summary>
-	private static readonly unsafe delegate*<SingleStepSearcher, ref StepAnalysisContext, in Grid, Step?>[]
+	private static readonly safe delegate*<SingleStepSearcher, ref StepAnalysisContext, in Grid, Step?>[]
 		MethodOrder_EnableFullHouseButIndirect = [&CheckFullHouse, &CheckNakedSingle, &CheckHiddenSingle],
 		MethodOrder_EnableFullHouseAndDirect = [&CheckFullHouse, &CheckHiddenSingle, &CheckNakedSingle],
 		MethodOrder_DisableFullHouseButIndirect = [&CheckNakedSingle, &CheckHiddenSingle],
@@ -313,22 +313,25 @@ public sealed partial class SingleStepSearcher : StepSearcher
 	/// <summary>
 	/// Checks for single steps using non-ittoryu mode.
 	/// </summary>
-	private unsafe Step? Collect_NonIttoryuMode(ref StepAnalysisContext context)
+	private Step? Collect_NonIttoryuMode(ref StepAnalysisContext context)
 	{
 		ref readonly var grid = ref context.Grid;
 
 		// Please note that, by default we should start with hidden singles. However, if a user has set the option
 		// that a step searcher should distinct with direct mode and indirect mode (i.e. all candidates are displayed),
 		// we should start with a naked single because they are "direct" in such mode.
-		foreach (var method in (EnableFullHouse, !context.Options.IsDirectMode) switch
+		var methods = unsafe (
+			(EnableFullHouse, !context.Options.IsDirectMode) switch
+			{
+				(true, true) => MethodOrder_EnableFullHouseButIndirect,
+				(true, _) => MethodOrder_EnableFullHouseAndDirect,
+				(_, true) => MethodOrder_DisableFullHouseButIndirect,
+				_ => MethodOrder_DisableFullHouseAndDirect
+			}
+		);
+		foreach (var method in methods)
 		{
-			(true, true) => MethodOrder_EnableFullHouseButIndirect,
-			(true, _) => MethodOrder_EnableFullHouseAndDirect,
-			(_, true) => MethodOrder_DisableFullHouseButIndirect,
-			_ => MethodOrder_DisableFullHouseAndDirect
-		})
-		{
-			if (method(this, ref context, grid) is { } step)
+			if (unsafe (method(this, ref context, grid)) is { } step)
 			{
 				return step;
 			}

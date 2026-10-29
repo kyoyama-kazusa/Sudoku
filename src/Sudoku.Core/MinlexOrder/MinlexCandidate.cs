@@ -13,12 +13,12 @@ internal struct MinlexCandidate
 	/// <summary>
 	/// Indicates the map bits on forward rows.
 	/// </summary>
-	public unsafe fixed sbyte MapRowsForward[9];
+	public safe fixed sbyte MapRowsForward[9];
 
 	/// <summary>
 	/// Indicates the map bits on backward rows.
 	/// </summary>
-	public unsafe fixed sbyte MapRowsBackward[9];
+	public safe fixed sbyte MapRowsBackward[9];
 
 	/// <summary>
 	/// Indicates the stack permutation.
@@ -28,7 +28,7 @@ internal struct MinlexCandidate
 	/// <summary>
 	/// Indicates mask bit values for column permutation.
 	/// </summary>
-	public unsafe fixed byte ColumnsPermutationMask[3];
+	public safe fixed byte ColumnsPermutationMask[3];
 
 
 	/// <summary>
@@ -41,29 +41,29 @@ internal struct MinlexCandidate
 	/// </summary>
 	/// <param name="transpose">The value for transpose flag. The value can only be 0 or 1.</param>
 	/// <param name="topRow">The top row used.</param>
-	public unsafe MinlexCandidate(sbyte transpose, int topRow) : this()
+	public MinlexCandidate(sbyte transpose, int topRow) : this()
 	{
 		IsTransposed = transpose;
-		MapRowsForward[topRow] = 0;
-		MapRowsBackward[0] = (sbyte)topRow;
+		unsafe (MapRowsForward[topRow]) = 0;
+		unsafe (MapRowsBackward[0]) = (sbyte)topRow;
 	}
 
 
 	/// <summary>
 	/// Represents an empty <see cref="MinlexCandidate"/> instance.
 	/// </summary>
-	public static unsafe MinlexCandidate Empty
+	public static MinlexCandidate Empty
 	{
 		get
 		{
 			var result = default(MinlexCandidate) with { IsTransposed = 0, StacksPermutation = 63 };
 			for (var i = 0; i < 9; i++)
 			{
-				result.MapRowsForward[i] = -1;
-				result.MapRowsBackward[i] = -1;
+				unsafe (result.MapRowsForward[i]) = -1;
+				unsafe (result.MapRowsBackward[i]) = -1;
 				if (i < 3)
 				{
-					result.ColumnsPermutationMask[i] = 63;
+					unsafe (result.ColumnsPermutationMask[i]) = 63;
 				}
 			}
 			return result;
@@ -78,11 +78,11 @@ internal struct MinlexCandidate
 	/// <param name="topKey">Indicates the top key.</param>
 	/// <param name="results">Indicates the results.</param>
 	/// <param name="resultCount">The result count.</param>
-	public readonly unsafe void ExpandStacks(ReadOnlySpan<GridPattern> pair, int topKey, Span<MinlexCandidate> results, ref int resultCount)
+	public readonly void ExpandStacks(ReadOnlySpan<GridPattern> pair, int topKey, Span<MinlexCandidate> results, ref int resultCount)
 	{
 		// For a top row, obtain stack and columns permutations.
 		ref readonly var gr = ref pair[IsTransposed];
-		var rowGivens = gr.Rows[MapRowsBackward[0]];
+		var rowGivens = unsafe (gr.Rows[MapRowsBackward[0]]);
 		var toTriplets = (stackalloc int[3]);
 		for (var stackPerm = 0; stackPerm < 6; stackPerm++)
 		{
@@ -112,14 +112,17 @@ internal struct MinlexCandidate
 			ref var result = ref results[resultCount++];
 			result = this;
 			result.StacksPermutation = (byte)stackPerm;
-			result.ColumnsPermutationMask[0] = (byte)bt0.ResultMask;
-			result.ColumnsPermutationMask[1] = (byte)bt1.ResultMask;
-			result.ColumnsPermutationMask[2] = (byte)bt2.ResultMask;
+			unsafe
+			{
+				result.ColumnsPermutationMask[0] = (byte)bt0.ResultMask;
+				result.ColumnsPermutationMask[1] = (byte)bt1.ResultMask;
+				result.ColumnsPermutationMask[2] = (byte)bt2.ResultMask;
+			}
 		}
 	}
 
 	/// <inheritdoc cref="object.ToString"/>
-	public readonly override unsafe string ToString()
+	public readonly override string ToString()
 	{
 		var sb = new StringBuilder();
 		sb.Append(IsTransposed);
@@ -127,7 +130,7 @@ internal struct MinlexCandidate
 		sb.Append('[');
 		for (var i = 0; i < 9; i++)
 		{
-			sb.Append(MapRowsForward[i]);
+			sb.Append(unsafe (MapRowsForward[i]));
 			sb.Append(',');
 		}
 		sb.Append(']');
@@ -135,7 +138,7 @@ internal struct MinlexCandidate
 		sb.Append('[');
 		for (var i = 0; i < 9; i++)
 		{
-			sb.Append(MapRowsBackward[i]);
+			sb.Append(unsafe (MapRowsBackward[i]));
 			sb.Append(',');
 		}
 		sb.Append(']');
@@ -145,7 +148,7 @@ internal struct MinlexCandidate
 		sb.Append('[');
 		for (var i = 0; i < 3; i++)
 		{
-			sb.Append(ColumnsPermutationMask[i]);
+			sb.Append(unsafe (ColumnsPermutationMask[i]));
 			sb.Append(',');
 		}
 		sb.Append(']');

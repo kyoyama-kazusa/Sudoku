@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Generating;
+namespace Sudoku.Generating;
 
 /// <summary>
 /// Defines a puzzle generator that makes distribution of givens to be scattered.
@@ -30,7 +30,7 @@ public readonly ref struct ScatteredGenerator() : IGenerator<Grid>
 
 
 	/// <inheritdoc/>
-	public unsafe Grid Generate(IProgress<GeneratorProgress>? progress = null, CancellationToken cancellationToken = default)
+	public Grid Generate(IProgress<GeneratorProgress>? progress = null, CancellationToken cancellationToken = default)
 	{
 		var puzzleString = (stackalloc char[82]);
 		var solutionString = (stackalloc char[82]);
@@ -55,17 +55,17 @@ public readonly ref struct ScatteredGenerator() : IGenerator<Grid>
 					for (var cell = 0; cell < 81; cell++)
 					{
 						var p = holeCells[cell];
-						var temp = pSolutionString[p];
-						pSolutionString[p] = '0';
+						var temp = unsafe (pSolutionString[p]);
+						unsafe (pSolutionString[p]) = '0';
 
-						if (!_solver.CheckValidity(pSolutionString))
+						if (!unsafe (_solver.CheckValidity(pSolutionString)))
 						{
 							// Reset the value.
-							pSolutionString[p] = temp;
+							unsafe (pSolutionString[p]) = temp;
 						}
 					}
 
-					if (_solver.CheckValidity(pSolutionString) && Grid.Parse(new string(pSolutionString)) is var grid)
+					if (unsafe (_solver.CheckValidity(pSolutionString)) && Grid.Parse(new string(pSolutionString)) is var grid)
 					{
 						return grid;
 					}
@@ -89,7 +89,7 @@ public readonly ref struct ScatteredGenerator() : IGenerator<Grid>
 	/// <param name="solutionString">
 	/// The pointer that points to the solution. The result value will be changed here.
 	/// </param>
-	private unsafe void GenerateAnswerGrid(Span<char> puzzleString, Span<char> solutionString)
+	private void GenerateAnswerGrid(Span<char> puzzleString, ReadOnlySpan<char> solutionString)
 	{
 		do
 		{
@@ -118,10 +118,8 @@ public readonly ref struct ScatteredGenerator() : IGenerator<Grid>
 				} while (CheckDuplicate(puzzleString, cell));
 			}
 		} while (
-			_solver.SolveString(
-				(char*)Unsafe.AsPointer(ref puzzleString[0]),
-				(char*)Unsafe.AsPointer(ref solutionString[0]),
-				2
+			unsafe (
+				_solver.SolveString((char*)Unsafe.AsPointer(in puzzleString[0]), (char*)Unsafe.AsPointer(in solutionString[0]), 2)
 			) == 0
 		);
 	}

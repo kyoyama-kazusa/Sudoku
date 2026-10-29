@@ -77,7 +77,7 @@ internal sealed class LibraryFileReader : IAsyncDisposable
 	/// </summary>
 	/// <returns>The number of lines.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveOptimization)]
-	public unsafe ulong CountLines()
+	public ulong CountLines()
 	{
 		const int MegaByte = 1024 * 1024;
 		var lineCount = 0UL;

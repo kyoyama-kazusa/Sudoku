@@ -10629,7 +10629,7 @@
         </member>
         <member name="M:Sudoku.Analytics.Dependency.Contradictions.ContradictionDetector.GetHeaderBits(Sudoku.Concepts.Grid@,System.Int32)">
             <summary>
-            An unsafe entry to method <c>GetHeaderBits</c> defined in type <see cref="T:Sudoku.Concepts.Grid"/>.
+            An entry to method <c>GetHeaderBits</c> defined in type <see cref="T:Sudoku.Concepts.Grid"/>.
             </summary>
             <param name="grid">The grid.</param>
             <param name="cell">The cell.</param>

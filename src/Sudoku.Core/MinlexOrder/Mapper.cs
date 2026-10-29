@@ -8,10 +8,10 @@ internal struct Mapper
 	/// <summary>
 	/// Indicates the cell <see cref="byte"/> values.
 	/// </summary>
-	public unsafe fixed byte Cell[81];
+	public safe fixed byte Cell[81];
 
 	/// <summary>
 	/// Indicates the label <see cref="byte"/> values.
 	/// </summary>
-	public unsafe fixed byte Label[10];
+	public safe fixed byte Label[10];
 }

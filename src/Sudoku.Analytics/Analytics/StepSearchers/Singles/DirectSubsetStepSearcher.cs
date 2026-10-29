@@ -23,7 +23,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 	/// <summary>
 	/// Represents a method set.
 	/// </summary>
-	private static readonly unsafe delegate*<DirectSubsetStepSearcher, HashSet<DirectSubsetStep>, ref StepAnalysisContext, in Grid, int, bool, in CellMap, ReadOnlySpan<CellMap>, DirectSubsetStep?>[]
+	private static readonly safe delegate*<DirectSubsetStepSearcher, HashSet<DirectSubsetStep>, ref StepAnalysisContext, in Grid, int, bool, in CellMap, ReadOnlySpan<CellMap>, DirectSubsetStep?>[]
 		MethodSet1 = [&HiddenSubset, &NakedSubset],
 		MethodSet2 = [&NakedSubset, &HiddenSubset];
 
@@ -67,7 +67,7 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 
 
 	/// <inheritdoc/>
-	protected internal override unsafe Step? Collect(ref StepAnalysisContext context)
+	protected internal override Step? Collect(ref StepAnalysisContext context)
 	{
 		ref readonly var grid = ref context.Grid;
 		var emptyCells = grid.EmptyCells;
@@ -83,16 +83,18 @@ public sealed partial class DirectSubsetStepSearcher : StepSearcher
 		emptyCells &= ~nakedSingleCells;
 
 		var accumulator = new HashSet<DirectSubsetStep>();
-		var methodSet = context.Options.IsDirectMode ? MethodSet1 : MethodSet2;
+		var methodSet = unsafe (context.Options.IsDirectMode ? MethodSet1 : MethodSet2);
 		foreach (var searchingForLocked in (true, false))
 		{
 			for (var size = 2; size <= (searchingForLocked ? 3 : 4); size++)
 			{
-				if (methodSet[0](this, accumulator, ref context, grid, size, searchingForLocked, emptyCells, candidatesMap) is { } step1)
+				if (unsafe (methodSet[0](this, accumulator, ref context, grid, size, searchingForLocked, emptyCells, candidatesMap))
+					is { } step1)
 				{
 					return step1;
 				}
-				if (methodSet[1](this, accumulator, ref context, grid, size, searchingForLocked, emptyCells, candidatesMap) is { } step2)
+				if (unsafe (methodSet[1](this, accumulator, ref context, grid, size, searchingForLocked, emptyCells, candidatesMap))
+					is { } step2)
 				{
 					return step2;
 				}

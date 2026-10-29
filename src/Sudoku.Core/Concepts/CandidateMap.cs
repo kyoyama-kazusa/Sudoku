@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Concepts;
+namespace Sudoku.Concepts;
 
 using CandidateMapBase = IBitStateMap<CandidateMap, Candidate>;
 
@@ -956,7 +956,7 @@ public partial struct CandidateMap : CandidateMapBase
 	}
 
 	/// <inheritdoc/>
-	public static unsafe ReadOnlySpan<CandidateMap> operator &(in CandidateMap map, int subsetSize)
+	public static ReadOnlySpan<CandidateMap> operator &(in CandidateMap map, int subsetSize)
 	{
 		if (subsetSize == 0 || subsetSize > map.Count)
 		{
@@ -995,7 +995,7 @@ public partial struct CandidateMap : CandidateMapBase
 		{
 			for (var i = last; i >= index; i--)
 			{
-				buffer[index - 1] = i - 1;
+				unsafe (buffer[index - 1]) = i - 1;
 				if (index > 1)
 				{
 					e(result, size, i - 1, index - 1, offsets, addingAction);
@@ -1005,7 +1005,7 @@ public partial struct CandidateMap : CandidateMapBase
 					var temp = new Candidate[size];
 					for (var j = 0; j < size; j++)
 					{
-						temp[j] = offsets[buffer[j]];
+						temp[j] = offsets[unsafe (buffer[j])];
 					}
 					addingAction(result, temp);
 				}

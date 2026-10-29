@@ -76,7 +76,7 @@ public static partial class GeneratorHub
 		generatorDriver.StateFinalizer();
 
 
-		unsafe (Grid TargetGrid, bool IsCanceled) taskEntry()
+		(Grid TargetGrid, bool IsCanceled) taskEntry()
 		{
 			var specializedConditions = (
 				HasFullHouseConstraint:
@@ -94,32 +94,34 @@ public static partial class GeneratorHub
 				HasMissingHouseConstraint:
 					constraints.Has<EmptyHousesCountConstraint>()
 			);
-			var result = HandlerCore(
-				ref generatingCount,
-				ref generatingFilteredCount,
-				constraints,
-				specializedConditions switch
-				{
-					{ HasFullHouseConstraint: true } or { HasFullHouseConstraintInTechniqueSet: true } => &Optimizer_FullHouseOnly,
-					{ HasNakedSingleConstraint: true } or { HasNakedSingleConstraintInTechniqueSet: true } => &Optimizer_NakedSingleOnly,
-					{ HasIttoryuConstraint: true } => &Optimizer_IttoryuMode,
-					{ HasMissingDigitConstraint: true, HasIttoryuConstraint: false } => &Optimizer_MissingDigit,
-					{ HasMissingHouseConstraint: true } => &Optimizer_EmptyHouses,
-					_ => &DefaultGenerator
-				},
-				specializedConditions is { HasMissingDigitConstraint: true, HasIttoryuConstraint: false }
-					? &TransformChecker_MissingDigit
-					: null,
-				specializedConditions is { HasMissingDigitConstraint: true, HasIttoryuConstraint: false }
-					? &Transformer_MissingDigit
-					: null,
-				generatorDriver.ReportAction,
-				specializedConditions is { HasNakedSingleConstraint: true } or { HasNakedSingleConstraintInTechniqueSet: true }
-					? analyzer.WithOptions(analyzer.Options with { PrimarySingle = SingleTechniqueFlag.NakedSingle })
-					: analyzer,
-				ittoryuFinder,
-				filters,
-				cts.Token
+			var result = unsafe (
+				HandlerCore(
+					ref generatingCount,
+					ref generatingFilteredCount,
+					constraints,
+					specializedConditions switch
+					{
+						{ HasFullHouseConstraint: true } or { HasFullHouseConstraintInTechniqueSet: true } => &Optimizer_FullHouseOnly,
+						{ HasNakedSingleConstraint: true } or { HasNakedSingleConstraintInTechniqueSet: true } => &Optimizer_NakedSingleOnly,
+						{ HasIttoryuConstraint: true } => &Optimizer_IttoryuMode,
+						{ HasMissingDigitConstraint: true, HasIttoryuConstraint: false } => &Optimizer_MissingDigit,
+						{ HasMissingHouseConstraint: true } => &Optimizer_EmptyHouses,
+						_ => &DefaultGenerator
+					},
+					specializedConditions is { HasMissingDigitConstraint: true, HasIttoryuConstraint: false }
+						? &TransformChecker_MissingDigit
+						: null,
+					specializedConditions is { HasMissingDigitConstraint: true, HasIttoryuConstraint: false }
+						? &Transformer_MissingDigit
+						: null,
+					generatorDriver.ReportAction,
+					specializedConditions is { HasNakedSingleConstraint: true } or { HasNakedSingleConstraintInTechniqueSet: true }
+						? analyzer.WithOptions(analyzer.Options with { PrimarySingle = SingleTechniqueFlag.NakedSingle })
+						: analyzer,
+					ittoryuFinder,
+					filters,
+					cts.Token
+				)
 			);
 			return (result, cts.Token.IsCancellationRequested);
 		}
@@ -128,7 +130,7 @@ public static partial class GeneratorHub
 	/// <summary>
 	/// The backing handler.
 	/// </summary>
-	private static unsafe Grid HandlerCore<TProgressDataProvider>(
+	private static Grid HandlerCore<TProgressDataProvider>(
 		ref int generatingCount,
 		ref int generatingFilteredCount,
 		ConstraintCollection constraints,
@@ -161,16 +163,19 @@ public static partial class GeneratorHub
 		while (true)
 		{
 			var chosenSymmetricType = symmetries.Length == 0 ? SymmetricType.None : rng.Choose(symmetries);
-			var grid = gridCreator(givensCount, chosenSymmetricType, constraints, cancellationToken);
+			var grid = unsafe (gridCreator(givensCount, chosenSymmetricType, constraints, cancellationToken));
 			if (grid.IsEmpty || analyzer.Analyze(grid, cancellationToken: cancellationToken) is not { IsSolved: true } analysisResult)
 			{
 				goto ReportState;
 			}
 
 			// Transform if worth. This transform rules may conflict with other rules so be careful to use this.
-			if (gridTransformingChecker != null && gridTransformingChecker(grid, out var outVariable) && gridTransformer != null)
+			if (gridTransformingChecker != null && unsafe (gridTransformingChecker(grid, out var outVariable)) && gridTransformer != null)
 			{
-				gridTransformer(ref grid, constraints, outVariable);
+				unsafe
+				{
+					gridTransformer(ref grid, constraints, outVariable);
+				}
 			}
 
 			if (constraints.IsValidFor(new(grid, analysisResult)))

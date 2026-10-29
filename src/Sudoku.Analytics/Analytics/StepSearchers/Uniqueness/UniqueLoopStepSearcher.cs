@@ -22,7 +22,7 @@ public sealed partial class UniqueLoopStepSearcher : StepSearcher
 	/// <summary>
 	/// Indicates the type checkers.
 	/// </summary>
-	private static readonly unsafe delegate*<SortedSet<UniqueLoopStep>, in Grid, ref StepAnalysisContext, Digit, Digit, in CellMap, in CellMap, Mask, Cell[], UniqueLoopStep?>[] TypeCheckers = [
+	private static readonly safe delegate*<SortedSet<UniqueLoopStep>, in Grid, ref StepAnalysisContext, Digit, Digit, in CellMap, in CellMap, Mask, Cell[], UniqueLoopStep?>[] TypeCheckers = [
 		&CheckType1,
 		&CheckType2,
 		&CheckType3,
@@ -39,7 +39,7 @@ public sealed partial class UniqueLoopStepSearcher : StepSearcher
 
 
 	/// <inheritdoc/>
-	protected internal override unsafe Step? Collect(ref StepAnalysisContext context)
+	protected internal override Step? Collect(ref StepAnalysisContext context)
 	{
 		// Now iterate on each bi-value cells as the start cell to get all possible unique loops,
 		// making it the start point to execute the recursion.
@@ -54,14 +54,14 @@ public sealed partial class UniqueLoopStepSearcher : StepSearcher
 			}
 
 			var d1 = BitOperations.PopTwo((uint)comparer, out var d2);
-			for (var i = 0; i < TypeCheckers.Length; i++)
+			for (var i = 0; i < unsafe (TypeCheckers).Length; i++)
 			{
-				if (!SearchExtendedTypes && i == TypeCheckers.Length - 1)
+				if (!SearchExtendedTypes && i == unsafe (TypeCheckers).Length - 1)
 				{
 					continue;
 				}
 
-				if (TypeCheckers[i](tempAccumulator, grid, ref context, d1, d2, loop, extraCellsMap, comparer, path) is { } step)
+				if (unsafe (TypeCheckers[i](tempAccumulator, grid, ref context, d1, d2, loop, extraCellsMap, comparer, path)) is { } step)
 				{
 					return step;
 				}

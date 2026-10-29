@@ -14,6 +14,7 @@ namespace Sudoku.Solving.Asp;
 /// </para>
 /// </remarks>
 [SuppressMessage("Interoperability", "SYSLIB1054:Use 'LibraryImportAttribute' instead of 'DllImportAttribute' to generate P/Invoke marshalling code at compile time", Justification = "<Pending>")]
+[SuppressMessage("Interoperability", "CA1401:P/Invokes should not be visible", Justification = "<Pending>")]
 [SuppressMessage("Globalization", "CA2101:Specify marshaling for P/Invoke string arguments", Justification = "<Pending>")]
 public static class ClingoInterop
 {
@@ -44,7 +45,7 @@ public static class ClingoInterop
 	/// <remarks>
 	/// Annotated as a function pointer and converted to <see langword="void"/>* to finally get <see cref="nint"/>.
 	/// </remarks>
-	public static readonly unsafe nint NoOpLoggerPtr = (nint)(delegate* unmanaged[Cdecl]<uint, nint, nint, void>)&NoOpLogger;
+	public static readonly safe nint NoOpLoggerPtr = (nint)(delegate* unmanaged[Cdecl]<uint, nint, nint, void>)&NoOpLogger;
 
 
 	/// <summary>

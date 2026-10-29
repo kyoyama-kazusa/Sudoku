@@ -64,7 +64,7 @@ public static class GridTransformationExtensions
 		/// <param name="transformTypes">
 		/// The transform types can be applied.
 		/// </param>
-		public unsafe ref Grid Transform(TransformType transformTypes)
+		public ref Grid Transform(TransformType transformTypes)
 		{
 			if (transformTypes == TransformType.None)
 			{
@@ -74,8 +74,9 @@ public static class GridTransformationExtensions
 			var rng = Random.Shared;
 			foreach (var kind in transformTypes)
 			{
-				(
-					kind switch
+				unsafe
+				{
+					delegate*<Random, ref Grid, void> method = kind switch
 					{
 						TransformType.DigitSwap => &swapDigits,
 						TransformType.RowSwap => &swapRow,
@@ -87,10 +88,10 @@ public static class GridTransformationExtensions
 						TransformType.MirrorDiagonal => &mirrorDiagonal,
 						TransformType.MirrorAntidiagonal => &mirrorAntidiagonal,
 						TransformType.RotateClockwise => &rotateClockwise,
-						TransformType.RotateCounterclockwise => &rotateCounterclockwise,
-						_ => default(delegate*<Random, ref Grid, void>)
-					}
-				)(rng, ref @this);
+						TransformType.RotateCounterclockwise => &rotateCounterclockwise
+					};
+					method(rng, ref @this);
+				}
 			}
 			return ref @this;
 

@@ -12738,7 +12738,7 @@ if (unionInstance.TryGetValue(out int instance)
         </member>
         <member name="T:Sudoku.Generating.LocalPair">
             <summary>
-            To simplify for loop, we use a temporary type to construct values into a sequence of unsafe values.
+            To simplify for loop, we use a temporary type to construct values into a sequence of values.
             </summary>
         </member>
         <member name="F:Sudoku.Generating.LocalPair.HouseType">
@@ -13079,7 +13079,7 @@ if (unionInstance.TryGetValue(out int instance)
         <member name="M:Sudoku.Generating.ScatteredGenerator.Generate(System.IProgress{Sudoku.Generating.GeneratorProgress},System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Generating.ScatteredGenerator.GenerateAnswerGrid(System.Span{System.Char},System.Span{System.Char})">
+        <member name="M:Sudoku.Generating.ScatteredGenerator.GenerateAnswerGrid(System.Span{System.Char},System.ReadOnlySpan{System.Char})">
             <summary>
             Generates the answer sudoku grid via the specified puzzle and the solution variable pointer.
             </summary>
@@ -15989,6 +15989,10 @@ if (unionInstance.TryGetValue(out int instance)
             <summary>
             Pointer to where to store the first solution. This value can be <see langword="null"/>.
             </summary>
+            <safety>
+            This field stores a sequence of characters, with terminal character <c>'\0'</c>.
+            This field becomes <see langword="safe"/> if and only if it'll be replaced with another non-<see langword="null"/> pointer.
+            </safety>
         </member>
         <member name="F:Sudoku.Solving.Bitwise.BitwiseSolver._numSolutions">
             <summary>
@@ -16158,11 +16162,9 @@ if (unionInstance.TryGetValue(out int instance)
             Throws when the argument <paramref name="ptr"/> is <see langword="null"/>.
             </exception>
             <remarks>
-            In C#, this function is unsafe because the implementation of
-            <see cref="T:System.String"/> types between C and C# is totally different.
-            In C, <see cref="T:System.String"/> is like a <see cref="T:System.Char"/>* or a
-            <see cref="T:System.Char"/>[], they ends with the terminator symbol <c>'\0'</c>.
-            However, C# not.
+            In C#, this function is unsafe because the implementation of <see cref="T:System.String"/> types between C and C# is totally different.
+            In C, <see cref="T:System.String"/> is like a <see cref="T:System.Char"/>* or a <see cref="T:System.Char"/>[],
+            they ends with the terminator symbol <c>'\0'</c>; however, C# not.
             </remarks>
         </member>
         <member name="T:Sudoku.Solving.Bitwise.BitwiseSolverState">

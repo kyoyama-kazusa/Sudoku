@@ -210,7 +210,7 @@ public sealed record RxCyConverter(
 			};
 
 
-			unsafe string toString(ReadOnlySpan<Conclusion> c)
+			string toString(ReadOnlySpan<Conclusion> c)
 			{
 				var conclusions = new Conclusion[c.Length];
 				Unsafe.CopyBlock(

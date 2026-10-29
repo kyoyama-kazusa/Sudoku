@@ -1,4 +1,4 @@
-﻿#define ENABLE_VERIFICATION_ON_BLOCK_COMBINATION
+#define ENABLE_VERIFICATION_ON_BLOCK_COMBINATION
 
 namespace Sudoku.Generating;
 
@@ -82,7 +82,7 @@ public ref partial struct EmptyHouseBasedGenerator() : IGenerator<Grid>
 	/// If a deletion produces a grid with more than one solution it is of course undone.
 	/// </summary>
 	/// <inheritdoc cref="Generate(CancellationToken)"/>
-	private unsafe bool GenerateInitPos(CancellationToken cancellationToken = default)
+	private bool GenerateInitPos(CancellationToken cancellationToken = default)
 	{
 		var bitsMap = new Dictionary<HouseType, int>(3)
 		{
@@ -96,9 +96,9 @@ public ref partial struct EmptyHouseBasedGenerator() : IGenerator<Grid>
 		var columnIndices = SpanEnumerable.Range(18, 9).ToArray().AsSpan();
 		var localPairs = stackalloc LocalPair[]
 		{
-			new() { HouseType = HouseType.Block, HouseIndices = &blockIndices },
-			new() { HouseType = HouseType.Row, HouseIndices = &rowIndices },
-			new() { HouseType = HouseType.Column, HouseIndices = &columnIndices }
+			unsafe (new() { HouseType = HouseType.Block, HouseIndices = &blockIndices }),
+			unsafe (new() { HouseType = HouseType.Row, HouseIndices = &rowIndices }),
+			unsafe (new() { HouseType = HouseType.Column, HouseIndices = &columnIndices })
 		};
 
 		var patternTestTimes = -1;
@@ -133,15 +133,15 @@ public ref partial struct EmptyHouseBasedGenerator() : IGenerator<Grid>
 			for (var i = 0; i < 3; i++)
 			{
 				var l = localPairs + i;
-				if (bitsMap[l->HouseType] == 0)
+				if (bitsMap[unsafe (l->HouseType)] == 0)
 				{
 					// Skip for the unset house types.
 					continue;
 				}
 
-				_rng.Shuffle(*l->HouseIndices);
+				_rng.Shuffle(unsafe (*l->HouseIndices));
 				var (previousHousesMask, j) = (0, 0);
-				foreach (var house in *l->HouseIndices)
+				foreach (var house in unsafe (*l->HouseIndices))
 				{
 					// Check whether the house selected will directly cause multiple solutions.
 					// If so, we should skip for the house.
@@ -199,7 +199,7 @@ public ref partial struct EmptyHouseBasedGenerator() : IGenerator<Grid>
 					}
 
 					previousHousesMask |= 1 << house;
-					if (++j >= bitsMap[l->HouseType])
+					if (++j >= bitsMap[unsafe (l->HouseType)])
 					{
 						// Enough houses are cleared.
 						break;
@@ -442,7 +442,7 @@ public ref partial struct EmptyHouseBasedGenerator() : IGenerator<Grid>
 }
 
 /// <summary>
-/// To simplify for loop, we use a temporary type to construct values into a sequence of unsafe values.
+/// To simplify for loop, we use a temporary type to construct values into a sequence of values.
 /// </summary>
 file ref struct LocalPair
 {
@@ -454,5 +454,5 @@ file ref struct LocalPair
 	/// <summary>
 	/// Indicates the target house indices.
 	/// </summary>
-	public unsafe Span<int>* HouseIndices;
+	public safe Span<int>* HouseIndices;
 }

@@ -107,13 +107,16 @@ public sealed partial class GuardianStepSearcher : StepSearcher
 	/// <returns>
 	/// Returns a list of array of candidates used in the loop, as the data of possible found loops.
 	/// </returns>
-	private static unsafe GuardianPattern[] CollectGuardianLoops(Digit digit)
+	private static GuardianPattern[] CollectGuardianLoops(Digit digit)
 	{
 		static bool predicate(in CellMap loop) => loop.Count is var l && (l & 1) != 0 && l >= 5;
 		var result = new HashSet<GuardianPattern>();
 		foreach (var cell in CandidatesMap[digit])
 		{
-			dfs(cell, cell, 0, cell.AsCellMap(), CellMap.Empty, digit, &predicate, result);
+			unsafe
+			{
+				dfs(cell, cell, 0, cell.AsCellMap(), CellMap.Empty, digit, &predicate, result);
+			}
 		}
 		return [.. result];
 
@@ -160,7 +163,7 @@ public sealed partial class GuardianStepSearcher : StepSearcher
 					}
 
 					var tempGuardians = (CandidatesMap[digit] & HousesMap[house]) - tempCell - lastCell;
-					if (tempCell == startCell && condition(currentLoop)
+					if (tempCell == startCell && unsafe (condition(currentLoop))
 						&& !!((currentGuardians | tempGuardians).PeerIntersection & CandidatesMap[digit]))
 					{
 						result.Add(new(currentLoop, currentGuardians | tempGuardians, digit));
@@ -176,16 +179,19 @@ public sealed partial class GuardianStepSearcher : StepSearcher
 						continue;
 					}
 
-					dfs(
-						startCell,
-						tempCell,
-						lastHouse | housesUsed,
-						currentLoop + tempCell,
-						currentGuardians | tempGuardians,
-						digit,
-						condition,
-						result
-					);
+					unsafe
+					{
+						dfs(
+							startCell,
+							tempCell,
+							lastHouse | housesUsed,
+							currentLoop + tempCell,
+							currentGuardians | tempGuardians,
+							digit,
+							condition,
+							result
+						);
+					}
 				}
 			}
 		}

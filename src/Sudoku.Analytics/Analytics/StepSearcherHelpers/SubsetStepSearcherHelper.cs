@@ -8,7 +8,7 @@ internal sealed class SubsetStepSearcherHelper : StepSearcherHelper
 	/// <summary>
 	/// Represents a method set.
 	/// </summary>
-	private static readonly unsafe delegate*<ref StepAnalysisContext, in Grid, in CellMap, ReadOnlySpan<CellMap>, int, bool, Step?>[]
+	private static readonly safe delegate*<ref StepAnalysisContext, in Grid, in CellMap, ReadOnlySpan<CellMap>, int, bool, Step?>[]
 		MethodSet1 = [&HiddenSubset, &NakedSubset],
 		MethodSet2 = [&NakedSubset, &HiddenSubset];
 
@@ -24,7 +24,7 @@ internal sealed class SubsetStepSearcherHelper : StepSearcherHelper
 	/// <param name="searchingForLocked">Indicates whether the module only searches for locked subsets.</param>
 	/// <param name="context">The context.</param>
 	/// <returns>The collected steps.</returns>
-	public static unsafe Step? CollectCore(bool searchingForLocked, ref StepAnalysisContext context)
+	public static Step? CollectCore(bool searchingForLocked, ref StepAnalysisContext context)
 	{
 		ref readonly var grid = ref context.Grid;
 		var emptyCellsForGrid = grid.EmptyCells;
@@ -39,12 +39,12 @@ internal sealed class SubsetStepSearcherHelper : StepSearcherHelper
 		}
 		emptyCellsForGrid &= ~nakedSingleCells;
 
-		var methodSet = context.Options.IsDirectMode ? MethodSet1 : MethodSet2;
+		var methodSet = unsafe (context.Options.IsDirectMode ? MethodSet1 : MethodSet2);
 		for (var size = 2; size <= (searchingForLocked ? 3 : 4); size++)
 		{
 			for (var i = 0; i < 2; i++)
 			{
-				if (methodSet[i](ref context, grid, emptyCellsForGrid, candidatesMapForGrid, size, searchingForLocked) is { } step)
+				if (unsafe (methodSet[i](ref context, grid, emptyCellsForGrid, candidatesMapForGrid, size, searchingForLocked)) is { } step)
 				{
 					return step;
 				}

@@ -17,21 +17,23 @@ internal sealed class BivalueUniversalGraveForcingChainsStepSearcherHelper : For
 	/// <param name="allowsAdvancedLinks">Indicates whether the method allows advanced links.</param>
 	/// <param name="onlyFindFinnedChain">Indicates whether the method only finds for (grouped) finned chains.</param>
 	/// <returns>The first found step.</returns>
-	public static unsafe Step? CollectCore(
+	public static Step? CollectCore(
 		ref StepAnalysisContext context,
 		SortedSet<ChainStep> accumulator,
 		bool allowsAdvancedLinks,
 		bool onlyFindFinnedChain
 	)
 	{
-		return CollectGeneralizedMultipleCore(
-			ref context,
-			accumulator,
-			allowsAdvancedLinks,
-			onlyFindFinnedChain,
-			&component,
-			&CollectBivalueUniversalGraveMultipleForcingChains,
-			&stepCreator
+		return unsafe (
+			CollectGeneralizedMultipleCore(
+				ref context,
+				accumulator,
+				allowsAdvancedLinks,
+				onlyFindFinnedChain,
+				&component,
+				&CollectBivalueUniversalGraveMultipleForcingChains,
+				&stepCreator
+			)
 		);
 
 
@@ -42,10 +44,7 @@ internal sealed class BivalueUniversalGraveForcingChainsStepSearcherHelper : For
 			in Grid grid,
 			ref readonly StepAnalysisContext context,
 			ChainingRuleCollection supportedRules
-		) => new(
-			chain.Conclusions,
-			((IForcingChains)chain).GetViews(grid, chain.Conclusions, supportedRules), context.Options, chain
-		);
+		) => new(chain.Conclusions, ((IForcingChains)chain).GetViews(grid, chain.Conclusions, supportedRules), context.Options, chain);
 	}
 
 	/// <summary>

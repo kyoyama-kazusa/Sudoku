@@ -8,7 +8,7 @@ internal sealed class SymmetricalPlacementStepSearcherHelper : StepSearcherHelpe
 	/// <summary>
 	/// The internal methods.
 	/// </summary>
-	private static readonly unsafe delegate*<in Grid, out SymmetricType, out ReadOnlySpan<Digit?>, out Mask, bool>[] Checkers =
+	private static readonly safe delegate*<in Grid, out SymmetricType, out ReadOnlySpan<Digit?>, out Mask, bool>[] Checkers =
 		[&Diagonal, &AntiDiagonal, &Central];
 
 
@@ -23,16 +23,16 @@ internal sealed class SymmetricalPlacementStepSearcherHelper : StepSearcherHelpe
 	/// <param name="mappingDigits">The mapping digits.</param>
 	/// <param name="selfPairedDigitsMask">The self-paired digits.</param>
 	/// <returns>Symmetric types.</returns>
-	public static unsafe SymmetricType GetSymmetry(in Grid grid, out ReadOnlySpan<Digit?> mappingDigits, out Mask selfPairedDigitsMask)
+	public static SymmetricType GetSymmetry(in Grid grid, out ReadOnlySpan<Digit?> mappingDigits, out Mask selfPairedDigitsMask)
 	{
 		if (!grid.IsStandard || grid.Uniqueness != Uniqueness.Unique)
 		{
 			goto FastFail;
 		}
 
-		foreach (var checker in Checkers)
+		foreach (var checker in unsafe (Checkers))
 		{
-			if (checker(grid, out var symmetricType, out mappingDigits, out selfPairedDigitsMask))
+			if (unsafe (checker(grid, out var symmetricType, out mappingDigits, out selfPairedDigitsMask)))
 			{
 				return symmetricType;
 			}
@@ -56,7 +56,7 @@ internal sealed class SymmetricalPlacementStepSearcherHelper : StepSearcherHelpe
 	/// Throws when the argument <paramref name="symmetricType"/> is not <see cref="SymmetricType.Central"/>,
 	/// <see cref="SymmetricType.Diagonal"/> or	<see cref="SymmetricType.AntiDiagonal"/>.
 	/// </exception>
-	public static unsafe bool IsSymmetricalPlacement(
+	public static bool IsSymmetricalPlacement(
 		in Grid grid,
 		SymmetricType symmetricType,
 		out ReadOnlySpan<Digit?> mappingDigits,
@@ -69,7 +69,7 @@ internal sealed class SymmetricalPlacementStepSearcherHelper : StepSearcherHelpe
 		}
 
 		var index = symmetricType switch { SymmetricType.Diagonal => 0, SymmetricType.AntiDiagonal => 1, _ => 2 };
-		return Checkers[index](grid, out _, out mappingDigits, out selfPairedDigitsMask);
+		return unsafe (Checkers[index](grid, out _, out mappingDigits, out selfPairedDigitsMask));
 	}
 
 	/// <summary>

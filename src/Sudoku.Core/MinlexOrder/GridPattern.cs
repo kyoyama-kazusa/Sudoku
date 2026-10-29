@@ -36,22 +36,22 @@ internal struct GridPattern
 	/// <summary>
 	/// Indicates the rows.
 	/// </summary>
-	public unsafe fixed int Rows[9];
+	public safe fixed int Rows[9];
 
 	/// <summary>
 	/// Indicates the digit.
 	/// </summary>
-	public unsafe fixed int Digits[81];
+	public safe fixed int Digits[81];
 
 
 	/// <inheritdoc cref="object.ToString"/>
-	public readonly override unsafe string ToString()
+	public readonly override string ToString()
 	{
 		var sb = new StringBuilder();
 		sb.Append('[');
 		for (var i = 0; i < 9; i++)
 		{
-			sb.Append(Rows[i]);
+			sb.Append(unsafe (Rows[i]));
 			sb.Append(',');
 		}
 		sb.Append("]...");
@@ -63,19 +63,19 @@ internal struct GridPattern
 	/// </summary>
 	/// <param name="p">The grid pattern instance.</param>
 	/// <returns>The score value calculated.</returns>
-	public static unsafe int BestTopRowScore(in GridPattern p)
+	public static int BestTopRowScore(in GridPattern p)
 	{
 		// Returns the smallest row after canonicalization of each row independently.
 		Mask x;
-		var amin = MinCanNineBits[p.Rows[0]];
-		if (amin > (x = MinCanNineBits[p.Rows[1]])) { amin = x; }
-		if (amin > (x = MinCanNineBits[p.Rows[2]])) { amin = x; }
-		if (amin > (x = MinCanNineBits[p.Rows[3]])) { amin = x; }
-		if (amin > (x = MinCanNineBits[p.Rows[4]])) { amin = x; }
-		if (amin > (x = MinCanNineBits[p.Rows[5]])) { amin = x; }
-		if (amin > (x = MinCanNineBits[p.Rows[6]])) { amin = x; }
-		if (amin > (x = MinCanNineBits[p.Rows[7]])) { amin = x; }
-		if (amin > (x = MinCanNineBits[p.Rows[8]])) { amin = x; }
+		var amin = MinCanNineBits[unsafe (p.Rows[0])];
+		if (amin > (x = MinCanNineBits[unsafe (p.Rows[1])])) { amin = x; }
+		if (amin > (x = MinCanNineBits[unsafe (p.Rows[2])])) { amin = x; }
+		if (amin > (x = MinCanNineBits[unsafe (p.Rows[3])])) { amin = x; }
+		if (amin > (x = MinCanNineBits[unsafe (p.Rows[4])])) { amin = x; }
+		if (amin > (x = MinCanNineBits[unsafe (p.Rows[5])])) { amin = x; }
+		if (amin > (x = MinCanNineBits[unsafe (p.Rows[6])])) { amin = x; }
+		if (amin > (x = MinCanNineBits[unsafe (p.Rows[7])])) { amin = x; }
+		if (amin > (x = MinCanNineBits[unsafe (p.Rows[8])])) { amin = x; }
 		return amin;
 	}
 
@@ -85,7 +85,7 @@ internal struct GridPattern
 	/// <param name="grid">Indicates the grid code to be used.</param>
 	/// <param name="resultPair">Indicates the 2 <see cref="GridPattern"/> instances for normal and transposed cases.</param>
 	/// <returns>An <see cref="int"/> value indicating the number of given cells.</returns>
-	public static unsafe int FromString(string grid, out ReadOnlySpan<GridPattern> resultPair)
+	public static int FromString(string grid, out ReadOnlySpan<GridPattern> resultPair)
 	{
 		var pair = new GridPattern[2];
 		ref var normal = ref pair[0];
@@ -93,15 +93,18 @@ internal struct GridPattern
 
 		var src = 0; // Pointer to a character in the given text.
 		var result = 0;
-		transposed.Rows[0] = 0;
-		transposed.Rows[1] = 0;
-		transposed.Rows[2] = 0;
-		transposed.Rows[3] = 0;
-		transposed.Rows[4] = 0;
-		transposed.Rows[5] = 0;
-		transposed.Rows[6] = 0;
-		transposed.Rows[7] = 0;
-		transposed.Rows[8] = 0;
+		unsafe
+		{
+			transposed.Rows[0] = 0;
+			transposed.Rows[1] = 0;
+			transposed.Rows[2] = 0;
+			transposed.Rows[3] = 0;
+			transposed.Rows[4] = 0;
+			transposed.Rows[5] = 0;
+			transposed.Rows[6] = 0;
+			transposed.Rows[7] = 0;
+			transposed.Rows[8] = 0;
+		}
 
 		for (var row = 0; row < 9; row++)
 		{
@@ -113,18 +116,18 @@ internal struct GridPattern
 				{
 					result++;
 					r |= 1 << (8 - col); // Most significant bit is for c0, less significant for c8.
-					transposed.Rows[col] |= 1 << (8 - row);
-					normal.Digits[row * 9 + col] = transposed.Digits[col * 9 + row] = c - '0';
+					unsafe (transposed.Rows[col]) |= 1 << (8 - row);
+					unsafe (normal.Digits[row * 9 + col]) = unsafe (transposed.Digits[col * 9 + row]) = c - '0';
 				}
 				else
 				{
-					normal.Digits[row * 9 + col] = transposed.Digits[col * 9 + row] = 0;
+					unsafe (normal.Digits[row * 9 + col]) = unsafe (transposed.Digits[col * 9 + row]) = 0;
 				}
 
 				src++; // Move to next char.
 			}
 
-			normal.Rows[row] = r;
+			unsafe (normal.Rows[row]) = r;
 		}
 
 		resultPair = pair;

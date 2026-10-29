@@ -22,7 +22,7 @@ public sealed partial class BraidAnalysisLiteStepSearcher : StepSearcher
 
 
 	/// <inheritdoc/>
-	protected internal override unsafe Step? Collect(ref StepAnalysisContext context)
+	protected internal override Step? Collect(ref StepAnalysisContext context)
 	{
 		ref readonly var grid = ref context.Grid;
 		var cellsGroup = stackalloc CellMap*[3];
@@ -41,12 +41,15 @@ public sealed partial class BraidAnalysisLiteStepSearcher : StepSearcher
 				var cells1 = chuteCells[indices[0]];
 				var cells2 = chuteCells[indices[1]];
 				var cells3 = chuteCells[indices[2]];
-				cellsGroup[0] = &cells1;
-				cellsGroup[1] = &cells2;
-				cellsGroup[2] = &cells3;
+				unsafe
+				{
+					cellsGroup[0] = &cells1;
+					cellsGroup[1] = &cells2;
+					cellsGroup[2] = &cells3;
+				}
 
 				// Check whether every segment has enough cells to be iterated.
-				if (!CheckWhetherEverySegmentHasAtLeastTwoEmptyCells(grid, cellsGroup, chuteCells, indices))
+				if (!unsafe (CheckWhetherEverySegmentHasAtLeastTwoEmptyCells(grid, cellsGroup, chuteCells, indices)))
 				{
 					continue;
 				}
@@ -107,7 +110,7 @@ public sealed partial class BraidAnalysisLiteStepSearcher : StepSearcher
 							// and the number of digits are at least 3 (having enough digits to be checked).
 
 							// Check whether the cell group is valid or not.
-							if (!CheckWhetherAll3TransitionPathsDifferentStartAreOkay(grid, digitsMask, transitionPath, cellsGroup))
+							if (!unsafe (CheckWhetherAll3TransitionPathsDifferentStartAreOkay(grid, digitsMask, transitionPath, cellsGroup)))
 							{
 								continue;
 							}
@@ -232,7 +235,7 @@ public sealed partial class BraidAnalysisLiteStepSearcher : StepSearcher
 	/// <param name="chuteCells">The chute cells.</param>
 	/// <param name="indices">The chosen chute indices.</param>
 	/// <returns>A <see cref="bool"/> result.</returns>
-	private static unsafe bool CheckWhetherEverySegmentHasAtLeastTwoEmptyCells(
+	private static bool CheckWhetherEverySegmentHasAtLeastTwoEmptyCells(
 		in Grid grid,
 		CellMap** cellsGroup,
 		ReadOnlySpan<CellMap> chuteCells,
@@ -242,7 +245,7 @@ public sealed partial class BraidAnalysisLiteStepSearcher : StepSearcher
 		// Check whether all 3 segments contain at least 2 empty cells.
 		for (var i = 0; i < 3; i++)
 		{
-			ref var cellsToCheck = ref *cellsGroup[i];
+			ref var cellsToCheck = ref unsafe (*cellsGroup[i]);
 			var counter = 0;
 			foreach (var cell in chuteCells[indices[i]])
 			{
@@ -267,7 +270,7 @@ public sealed partial class BraidAnalysisLiteStepSearcher : StepSearcher
 	/// <param name="transitionPath">The transition path array.</param>
 	/// <param name="cellsGroup">The cells group array.</param>
 	/// <returns>A <see cref="bool"/> result.</returns>
-	private static unsafe bool CheckWhetherAll3TransitionPathsDifferentStartAreOkay(
+	private static bool CheckWhetherAll3TransitionPathsDifferentStartAreOkay(
 		in Grid grid,
 		Mask digitsMask,
 		CellMap** transitionPath,
@@ -299,10 +302,13 @@ public sealed partial class BraidAnalysisLiteStepSearcher : StepSearcher
 			var eitherCaseIsValid = false;
 			for (var internalCaseIndex = 0; internalCaseIndex < 2; internalCaseIndex++)
 			{
-				var i = globalCaseIndex * 2 + internalCaseIndex;
-				transitionPath[0] = cellsGroup[TransitionIndices[i][0]];
-				transitionPath[1] = cellsGroup[TransitionIndices[i][1]];
-				transitionPath[2] = cellsGroup[TransitionIndices[i][2]];
+				unsafe
+				{
+					var i = globalCaseIndex * 2 + internalCaseIndex;
+					transitionPath[0] = cellsGroup[TransitionIndices[i][0]];
+					transitionPath[1] = cellsGroup[TransitionIndices[i][1]];
+					transitionPath[2] = cellsGroup[TransitionIndices[i][2]];
+				}
 
 				// Let's start at 'transitionPath[0]', supposing a digit to be filled,
 				// and check full path '[0] -> [1] -> [2]'.
@@ -312,8 +318,8 @@ public sealed partial class BraidAnalysisLiteStepSearcher : StepSearcher
 				foreach (var digit in digitsMask)
 				{
 					// Check both cases [0] -> [1] and [1] -> [2].
-					if (!checkSubcase(in *transitionPath[0], in *transitionPath[1], digit)
-						|| !checkSubcase(in *transitionPath[1], in *transitionPath[2], digit))
+					if (!checkSubcase(in unsafe (*transitionPath[0]), in unsafe (*transitionPath[1]), digit)
+						|| !checkSubcase(in unsafe (*transitionPath[1]), in unsafe (*transitionPath[2]), digit))
 					{
 						// Such digit is invalid.
 						// But we expect all digits should be passed to be checked - so invalid.

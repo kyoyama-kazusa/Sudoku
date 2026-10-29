@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Concepts;
+namespace Sudoku.Concepts;
 
 using CellMapBase = IBitStateMap<CellMap, Cell>;
 
@@ -1011,7 +1011,7 @@ public partial struct CellMap : CellMapBase
 	public static CellMap operator ^(in CellMap left, in CellMap right) => CellMap.Create(left._vector ^ right._vector);
 
 	/// <inheritdoc/>
-	public static unsafe ReadOnlySpan<CellMap> operator &(in CellMap map, int subsetSize)
+	public static ReadOnlySpan<CellMap> operator &(in CellMap map, int subsetSize)
 	{
 		if (subsetSize == 0 || subsetSize > map.Count)
 		{
@@ -1050,7 +1050,7 @@ public partial struct CellMap : CellMapBase
 		{
 			for (var i = last; i >= index; i--)
 			{
-				buffer[index - 1] = i - 1;
+				unsafe (buffer[index - 1]) = i - 1;
 				if (index > 1)
 				{
 					e(result, size, i - 1, index - 1, offsets, addingAction);
@@ -1060,7 +1060,7 @@ public partial struct CellMap : CellMapBase
 					var temp = new Cell[size];
 					for (var j = 0; j < size; j++)
 					{
-						temp[j] = offsets[buffer[j]];
+						temp[j] = offsets[unsafe (buffer[j])];
 					}
 					addingAction(result, temp);
 				}

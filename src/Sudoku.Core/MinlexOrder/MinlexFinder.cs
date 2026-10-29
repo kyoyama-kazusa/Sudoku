@@ -23,7 +23,7 @@ public sealed class MinlexFinder
 
 
 	/// <inheritdoc cref="Find(string, out Transform)"/>
-	public unsafe string Find(string grid)
+	public string Find(string grid)
 	{
 		_mappers.Clear();
 
@@ -55,7 +55,7 @@ public sealed class MinlexFinder
 
 			for (var topRow = 0; topRow < 9; topRow++)
 			{
-				if (GridPattern.MinCanNineBits[pair[nowTransposed].Rows[topRow]] <= minTopRowScore)
+				if (GridPattern.MinCanNineBits[unsafe (pair[nowTransposed].Rows[topRow])] <= minTopRowScore)
 				{
 					// Here we have a top row candidate.
 					// In the empty template fix only the transposition and row 0.
@@ -77,69 +77,75 @@ public sealed class MinlexFinder
 			var (bestTriplets0, bestTriplets1, bestTriplets2, rowInBand) = (7, 7, 7, toRow % 3);
 			for (var caseIndex = 0; caseIndex < casesCount; caseIndex++)
 			{
-				ref readonly var old = ref Unsafe.Add(ref currentCandidates, caseIndex);
-				var (startRow, endRow) = rowInBand != 0 && old.MapRowsBackward[3 * (toRow / 3)] / 3 is var band
-					? (band * 3, (band + 1) * 3) // Combine with unmapped rows from the same band.
-					: (0, 9); // Try any unmapped row.
-
-				for (var fromRow = startRow; fromRow < endRow; fromRow++)
+				unsafe
 				{
-					if (old.MapRowsForward[fromRow] >= 0)
-					{
-						// Skip previously mapped rows.
-						continue;
-					}
+					ref readonly var old = ref Unsafe.Add(ref currentCandidates, caseIndex);
+					var (startRow, endRow) = rowInBand != 0 && old.MapRowsBackward[3 * (toRow / 3)] / 3 is var band
+						? (band * 3, (band + 1) * 3) // Combine with unmapped rows from the same band.
+						: (0, 9); // Try any unmapped row.
 
-					var toTriplets = new int[3];
-					var rowGivens = pair[old.IsTransposed].Rows[fromRow]; // Stacks unmapped.
-					toTriplets[BestTripletPermutation.Perm[old.StacksPermutation][0]] = rowGivens >> 6;
-					toTriplets[BestTripletPermutation.Perm[old.StacksPermutation][1]] = (rowGivens >> 3) & 7;
-					toTriplets[BestTripletPermutation.Perm[old.StacksPermutation][2]] = rowGivens & 7;
-					ref readonly var bt0 = ref BestTripletPermutation.BestTripletPermutations[toTriplets[0]][old.ColumnsPermutationMask[0]];
-					if (bt0.BestResult > bestTriplets0)
+					for (var fromRow = startRow; fromRow < endRow; fromRow++)
 					{
-						continue;
-					}
+						if (old.MapRowsForward[fromRow] >= 0)
+						{
+							// Skip previously mapped rows.
+							continue;
+						}
 
-					if (bt0.BestResult < bestTriplets0)
-					{
-						nextCandidatesCount = 0;
-						bestTriplets0 = bt0.BestResult;
-						bestTriplets1 = 7;
-						bestTriplets2 = 7;
-					}
-					ref readonly var bt1 = ref BestTripletPermutation.BestTripletPermutations[toTriplets[1]][old.ColumnsPermutationMask[1]];
-					if (bt1.BestResult > bestTriplets1)
-					{
-						continue;
-					}
+						var toTriplets = new int[3];
+						var rowGivens = pair[old.IsTransposed].Rows[fromRow]; // Stacks unmapped.
+						toTriplets[BestTripletPermutation.Perm[old.StacksPermutation][0]] = rowGivens >> 6;
+						toTriplets[BestTripletPermutation.Perm[old.StacksPermutation][1]] = (rowGivens >> 3) & 7;
+						toTriplets[BestTripletPermutation.Perm[old.StacksPermutation][2]] = rowGivens & 7;
+						ref readonly var bt0 = ref BestTripletPermutation.BestTripletPermutations[toTriplets[0]]
+							[old.ColumnsPermutationMask[0]];
+						if (bt0.BestResult > bestTriplets0)
+						{
+							continue;
+						}
 
-					if (bt1.BestResult < bestTriplets1)
-					{
-						nextCandidatesCount = 0;
-						bestTriplets1 = bt1.BestResult;
-						bestTriplets2 = 7;
-					}
-					ref readonly var bt2 = ref BestTripletPermutation.BestTripletPermutations[toTriplets[2]][old.ColumnsPermutationMask[2]];
-					if (bt2.BestResult > bestTriplets2)
-					{
-						continue;
-					}
+						if (bt0.BestResult < bestTriplets0)
+						{
+							nextCandidatesCount = 0;
+							bestTriplets0 = bt0.BestResult;
+							bestTriplets1 = 7;
+							bestTriplets2 = 7;
+						}
+						ref readonly var bt1 = ref BestTripletPermutation.BestTripletPermutations[toTriplets[1]]
+							[old.ColumnsPermutationMask[1]];
+						if (bt1.BestResult > bestTriplets1)
+						{
+							continue;
+						}
 
-					if (bt2.BestResult < bestTriplets2)
-					{
-						nextCandidatesCount = 0;
-						bestTriplets2 = bt2.BestResult;
-					}
+						if (bt1.BestResult < bestTriplets1)
+						{
+							nextCandidatesCount = 0;
+							bestTriplets1 = bt1.BestResult;
+							bestTriplets2 = 7;
+						}
+						ref readonly var bt2 = ref BestTripletPermutation.BestTripletPermutations[toTriplets[2]]
+							[old.ColumnsPermutationMask[2]];
+						if (bt2.BestResult > bestTriplets2)
+						{
+							continue;
+						}
 
-					// Tests passed, output the new candidate.
-					ref var next = ref Unsafe.Add(ref nextCandidates, nextCandidatesCount++);
-					next = old;
-					next.MapRowsForward[fromRow] = (sbyte)toRow;
-					next.MapRowsBackward[toRow] = (sbyte)fromRow;
-					next.ColumnsPermutationMask[0] = (byte)bt0.ResultMask;
-					next.ColumnsPermutationMask[1] = (byte)bt1.ResultMask;
-					next.ColumnsPermutationMask[2] = (byte)bt2.ResultMask;
+						if (bt2.BestResult < bestTriplets2)
+						{
+							nextCandidatesCount = 0;
+							bestTriplets2 = bt2.BestResult;
+						}
+
+						// Tests passed, output the new candidate.
+						ref var next = ref Unsafe.Add(ref nextCandidates, nextCandidatesCount++);
+						next = old;
+						next.MapRowsForward[fromRow] = (sbyte)toRow;
+						next.MapRowsBackward[toRow] = (sbyte)fromRow;
+						next.ColumnsPermutationMask[0] = (byte)bt0.ResultMask;
+						next.ColumnsPermutationMask[1] = (byte)bt1.ResultMask;
+						next.ColumnsPermutationMask[2] = (byte)bt2.ResultMask;
+					}
 				}
 			}
 
@@ -186,7 +192,7 @@ public sealed class MinlexFinder
 			toTriplets[BestTripletPermutation.Perm[target.StacksPermutation][2]] = 6;
 			for (var colsPerm0 = 0; colsPerm0 < 6; colsPerm0++)
 			{
-				if (((target.ColumnsPermutationMask[0] >> colsPerm0) & 1) == 0)
+				if (((unsafe (target.ColumnsPermutationMask[0]) >> colsPerm0) & 1) == 0)
 				{
 					continue;
 				}
@@ -197,7 +203,7 @@ public sealed class MinlexFinder
 				toColsInStack[BestTripletPermutation.Perm[colsPerm0][2]] = toTriplets[0] + 2;
 				for (var colsPerm1 = 0; colsPerm1 < 6; colsPerm1++)
 				{
-					if (((target.ColumnsPermutationMask[1] >> colsPerm1) & 1) == 0)
+					if (((unsafe (target.ColumnsPermutationMask[1]) >> colsPerm1) & 1) == 0)
 					{
 						continue;
 					}
@@ -207,7 +213,7 @@ public sealed class MinlexFinder
 					toColsInStack[3 + BestTripletPermutation.Perm[colsPerm1][2]] = toTriplets[1] + 2;
 					for (var colsPerm2 = 0; colsPerm2 < 6; colsPerm2++)
 					{
-						if (((target.ColumnsPermutationMask[2] >> colsPerm2) & 1) == 0)
+						if (((unsafe (target.ColumnsPermutationMask[2]) >> colsPerm2) & 1) == 0)
 						{
 							continue;
 						}
@@ -219,7 +225,7 @@ public sealed class MinlexFinder
 					loop_toRow:
 						for (var toRow = 0; toRow < 9; toRow++)
 						{
-							ref readonly var rowGivens = ref pair[target.IsTransposed].Digits[target.MapRowsBackward[toRow] * 9];
+							ref readonly var rowGivens = ref unsafe (pair[target.IsTransposed].Digits[target.MapRowsBackward[toRow] * 9]);
 							for (var col = 0; col < 9; col++)
 							{
 								var fromDigit = Unsafe.Add(ref Unsafe.AsRef(in rowGivens), toColsInStack[col]);
@@ -259,25 +265,29 @@ public sealed class MinlexFinder
 									{
 										for (var c = 0; c < 9; c++)
 										{
-											var src = target.IsTransposed != 0
-												? target.MapRowsBackward[r] + 9 * toColsInStack[c]
-												: target.MapRowsBackward[r] * 9 + toColsInStack[c];
+											var src = unsafe (
+												target.IsTransposed != 0
+													? target.MapRowsBackward[r] + 9 * toColsInStack[c]
+													: target.MapRowsBackward[r] * 9 + toColsInStack[c]
+											);
 
 											// Map all non-givens to 'EmptyCellPlaceholder', this masking irrelevant permutations.
-											map.Cell[src] = (byte)(minlex[r * 9 + c] != 0 ? r * 9 + c : EmptyCellPlaceholder);
+											unsafe (map.Cell[src]) = (byte)(minlex[r * 9 + c] != 0 ? r * 9 + c : EmptyCellPlaceholder);
 										}
 									}
-									for (var d = 0; d < 10; d++)
+									unsafe
 									{
-										map.Label[d] = 0;
-									}
+										for (var d = 0; d < 10; d++)
+										{
+											map.Label[d] = 0;
+										}
+										for (var d = 0; d < 10; d++)
+										{
+											map.Label[labelPerm[d]] = (byte)d;
+										}
 
-									for (var d = 0; d < 10; d++)
-									{
-										map.Label[labelPerm[d]] = (byte)d;
+										map.Label[0] = 0;
 									}
-
-									map.Label[0] = 0;
 									_mappers.AddRef(map); // Will automatically ignore duplicates.
 								}
 							}
@@ -294,7 +304,7 @@ public sealed class MinlexFinder
 	}
 
 	/// <inheritdoc cref="Find(string)"/>
-	public unsafe Grid Find(in Grid grid) => grid.ToString("0") | Find | &Grid.Parse;
+	public Grid Find(in Grid grid) => unsafe (grid.ToString("0") | Find | &Grid.Parse);
 
 	/// <summary>
 	/// Finds the minimum lexicographical form of the source grid code.
@@ -332,7 +342,7 @@ public sealed class MinlexFinder
 	/// <param name="minlex">The min-lex grid string.</param>
 	/// <returns>The target string.</returns>
 	/// <exception cref="InvalidOperationException">Throws when label is invalid.</exception>
-	internal unsafe string ReconstructOriginal(in Mapper mapper, string minlex)
+	internal string ReconstructOriginal(in Mapper mapper, string minlex)
 	{
 		var inversed = (stackalloc int[81]);
 		inversed.Fill(-1);
@@ -340,7 +350,7 @@ public sealed class MinlexFinder
 		{
 			for (var source = 0; source < 81; source++)
 			{
-				var c = cells[source];
+				var c = unsafe (cells[source]);
 				if (c < EmptyCellPlaceholder)
 				{
 					inversed[c] = source;
@@ -375,7 +385,7 @@ public sealed class MinlexFinder
 						throw new InvalidOperationException("bad canonical label");
 					}
 
-					var origDigit = labels[label]; // map.Label[labelIndex] = original digit.
+					var origDigit = unsafe (labels[label]); // map.Label[labelIndex] = original digit.
 					resultCharacters[dst] = origDigit == 0 ? '0' : (char)('0' + origDigit);
 				}
 			}

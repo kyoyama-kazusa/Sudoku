@@ -13,12 +13,12 @@ public sealed class GridRawStringMinlexComparer : IComparer<string>
 
 
 	/// <inheritdoc/>
-	public unsafe int Compare(string? x, string? y)
+	public int Compare(string? x, string? y)
 		=> (x, y) switch
 		{
 			(null, null) => 0,
 			(null, not null) => -1,
 			(not null, null) => 1,
-			_ => (x | _finder.Find | &MinlexRanker.GetRank, y | _finder.Find | &MinlexRanker.GetRank) | &ulong.CompareTo
+			_ => unsafe ((x | _finder.Find | &MinlexRanker.GetRank, y | _finder.Find | &MinlexRanker.GetRank) | &ulong.CompareTo)
 		};
 }

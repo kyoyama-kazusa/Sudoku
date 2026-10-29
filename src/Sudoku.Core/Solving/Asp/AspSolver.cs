@@ -47,7 +47,7 @@ public sealed class AspSolver : ISolver
 		{
 			var args = new[] { "--models=0" };
 			ClingoInterop.ThrowOnError(ClingoInterop.ClingoControlNew(args, (nuint)args.Length, ClingoInterop.NoOpLoggerPtr, 0, 20, out control));
-			ClingoInterop.ThrowOnError(ClingoInterop.ClingoControlAdd(control, "base", [], 0, GenerateFacts(grid) + Program));
+			ClingoInterop.ThrowOnError(ClingoInterop.ClingoControlAdd(control, "base", [], 0, $"{GenerateFacts(grid)}{Program}"));
 
 			var parts = new Part[] { new() { Name = "base", Parameters = 0, Size = 0 } };
 			ClingoInterop.ThrowOnError(ClingoInterop.ClingoControlGround(control, parts, (nuint)parts.Length, 0, 0));

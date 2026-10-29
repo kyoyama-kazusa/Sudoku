@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Analytics.StepSearchers;
+namespace Sudoku.Analytics.StepSearchers;
 
 /// <summary>
 /// Provides with a <b>Gurth's Symmetrical Placement</b> step searcher.
@@ -11,12 +11,12 @@
 	"StepSearcherName_AntiGurthSymmetricalPlacementStepSearcher",
 	Technique.AntiGurthSymmetricalPlacement,
 	IsCachingSafe = true)]
-public sealed unsafe partial class AntiGurthSymmetricalPlacementStepSearcher : StepSearcher
+public sealed partial class AntiGurthSymmetricalPlacementStepSearcher : StepSearcher
 {
 	/// <summary>
 	/// Indicates the functions that are searchers for subtypes.
 	/// </summary>
-	private static readonly delegate*<in Grid, ref StepAnalysisContext, AntiGurthSymmetricalPlacementStep?>[] AntiTypeCheckers =
+	private static readonly safe delegate*<in Grid, ref StepAnalysisContext, AntiGurthSymmetricalPlacementStep?>[] AntiTypeCheckers =
 		[&Diagonal, &Antidiagonal, &XAxis, &YAxis, &Central];
 
 
@@ -37,9 +37,9 @@ public sealed unsafe partial class AntiGurthSymmetricalPlacementStepSearcher : S
 		//   3 - Diagonal / Antidiagonal
 
 		// Do check.
-		foreach (var checker in AntiTypeCheckers)
+		foreach (var checker in unsafe (AntiTypeCheckers))
 		{
-			if (checker(grid, ref context) is not { } antiTypeStep)
+			if (unsafe (checker(grid, ref context)) is not { } antiTypeStep)
 			{
 				continue;
 			}

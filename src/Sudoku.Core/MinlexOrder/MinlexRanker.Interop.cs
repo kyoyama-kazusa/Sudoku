@@ -65,7 +65,7 @@ public partial class MinlexRanker
 		/// <seealso cref="SkvcatSetModeGetVCDESK(int, out VCDESC*)"/>
 		[LibraryImport("skvcat.dll")]
 		[UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-		public static partial int SkvcatSetChangeMode(int mode);
+		public static safe partial int SkvcatSetChangeMode(int mode);
 
 		/// <summary>
 		/// Try to get rank from a min-lex grid specified as characters.
@@ -85,6 +85,6 @@ public partial class MinlexRanker
 		/// <seealso cref="SkvcatSetModeGetVCDESK(int, out VCDESC*)"/>
 		[LibraryImport("skvcat.dll")]
 		[UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-		public static partial int SkvcatFinSolForRank(ulong rank);
+		public static safe partial int SkvcatFinSolForRank(ulong rank);
 	}
 }

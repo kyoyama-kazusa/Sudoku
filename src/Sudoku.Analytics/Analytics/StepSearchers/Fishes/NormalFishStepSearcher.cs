@@ -69,7 +69,7 @@ public sealed partial class NormalFishStepSearcher : StepSearcher
 
 
 	/// <inheritdoc/>
-	protected internal override unsafe Step? Collect(ref StepAnalysisContext context)
+	protected internal override Step? Collect(ref StepAnalysisContext context)
 	{
 		var r = stackalloc House*[9];
 		var c = stackalloc House*[9];
@@ -90,29 +90,32 @@ public sealed partial class NormalFishStepSearcher : StepSearcher
 			{
 				if (HousesMap[house] & CandidatesMap[digit])
 				{
-					if (house < 18)
+					unsafe
 					{
-						if (r[digit] == null)
+						if (house < 18)
 						{
-							var ptr = stackalloc House[10];
-							Unsafe.InitBlock(ptr, 0, 10 * sizeof(House));
+							if (r[digit] == null)
+							{
+								var ptr = stackalloc House[10];
+								Unsafe.InitBlock(ptr, 0, 10 * sizeof(House));
 
-							r[digit] = ptr;
+								r[digit] = ptr;
+							}
+
+							r[digit][++r[digit][0]] = house;
 						}
-
-						r[digit][++r[digit][0]] = house;
-					}
-					else
-					{
-						if (c[digit] == null)
+						else
 						{
-							var ptr = stackalloc House[10];
-							Unsafe.InitBlock(ptr, 0, 10 * sizeof(House));
+							if (c[digit] == null)
+							{
+								var ptr = stackalloc House[10];
+								Unsafe.InitBlock(ptr, 0, 10 * sizeof(House));
 
-							c[digit] = ptr;
+								c[digit] = ptr;
+							}
+
+							c[digit][++c[digit][0]] = house;
 						}
-
-						c[digit][++c[digit][0]] = house;
 					}
 				}
 			}
@@ -121,10 +124,13 @@ public sealed partial class NormalFishStepSearcher : StepSearcher
 		// Core invocation.
 		for (var size = 2; size <= 4; size++)
 		{
-			Collect(accumulator, grid, ref context, size, r, c, false, true);
-			Collect(accumulator, grid, ref context, size, r, c, false, false);
-			Collect(accumulator, grid, ref context, size, r, c, true, true);
-			Collect(accumulator, grid, ref context, size, r, c, true, false);
+			unsafe
+			{
+				Collect(accumulator, grid, ref context, size, r, c, false, true);
+				Collect(accumulator, grid, ref context, size, r, c, false, false);
+				Collect(accumulator, grid, ref context, size, r, c, true, true);
+				Collect(accumulator, grid, ref context, size, r, c, true, false);
+			}
 		}
 
 		// For Siamese fish, we should manually deal with them.
@@ -163,7 +169,7 @@ public sealed partial class NormalFishStepSearcher : StepSearcher
 	/// </param>
 	/// <returns>The first found step.</returns>
 	[InterceptorMethodCaller]
-	private unsafe void Collect(
+	private void Collect(
 		List<FishStep> accumulator,
 		in Grid grid,
 		ref StepAnalysisContext context,
@@ -178,9 +184,9 @@ public sealed partial class NormalFishStepSearcher : StepSearcher
 		for (var digit = 0; digit < 9; digit++)
 		{
 			// Check the validity of the distribution for the current digit.
-			var pBase = searchRow ? r[digit] : c[digit];
-			var pCover = searchRow ? c[digit] : r[digit];
-			if (pBase == null || pBase[0] <= size)
+			var pBase = unsafe (searchRow ? r[digit] : c[digit]);
+			var pCover = unsafe (searchRow ? c[digit] : r[digit]);
+			if (pBase == null || unsafe (pBase[0]) <= size)
 			{
 				continue;
 			}
