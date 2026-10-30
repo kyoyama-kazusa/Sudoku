@@ -873,7 +873,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -944,7 +945,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -984,7 +986,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -1011,7 +1014,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -1052,7 +1056,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -1318,7 +1323,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -1411,7 +1417,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -3958,7 +3965,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -4443,7 +4451,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -5029,7 +5038,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -5074,7 +5084,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -6241,7 +6252,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -6501,7 +6513,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -7427,7 +7440,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -10805,7 +10819,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -11250,7 +11265,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -11272,7 +11288,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -12056,7 +12073,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -12082,7 +12100,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -12189,7 +12208,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -12225,7 +12245,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -12682,7 +12703,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -12715,7 +12737,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -12991,7 +13014,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -13436,7 +13460,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -13652,7 +13677,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -14152,7 +14178,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -14292,7 +14319,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -14340,7 +14368,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -14370,7 +14399,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -14574,7 +14604,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -15180,7 +15211,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -19384,7 +19416,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -19410,7 +19443,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -19478,7 +19512,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -28901,7 +28936,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -29362,7 +29398,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -30981,7 +31018,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
@@ -31015,7 +31053,8 @@
 					</para>
 					<para>
 						Different with extension methods, an <see langword="extension" /> block can declare multiple different kinds of members,
-						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators.
+						rather than only methods, instance methods. C# 14 has already brought properties, methods and operators,
+						and C# 15 has brought indexers.
 					</para>
 				</summary>
 			</target>
