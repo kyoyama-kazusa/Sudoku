@@ -15804,11 +15804,39 @@ if (unionInstance.TryGetValue(out int instance)
         </member>
         <member name="F:Sudoku.Solving.Asp.ClingoInterop.NoOpLoggerPtr">
             <summary>
-            The function pointer of <see cref="M:Sudoku.Solving.Asp.ClingoInterop.NoOpLogger(System.UInt32,System.IntPtr,System.IntPtr)"/>, which can be passed as the <c>logger</c> parameter to <see cref="M:Sudoku.Solving.Asp.ClingoInterop.ClingoControlNew(System.String[],System.UIntPtr,System.IntPtr,System.IntPtr,System.UInt32,System.IntPtr@)"/>.
+            The function pointer of <see cref="M:Sudoku.Solving.Asp.ClingoInterop.NoOpLogger(System.UInt32,System.IntPtr,System.IntPtr)"/>, which can be passed as the <c>logger</c> parameter
+            to <see cref="M:Sudoku.Solving.Asp.ClingoInterop.ClingoControlNew(System.String[],System.UIntPtr,System.IntPtr,System.IntPtr,System.UInt32,System.IntPtr@)"/>.
             </summary>
             <remarks>
-            Annotated as a function pointer and converted to <see langword="void"/>* to finally get <see cref="T:System.IntPtr"/>.
+            <para>
+            <c>NoOpLogger</c> is exposed to native code through <see cref="T:System.Runtime.InteropServices.UnmanagedCallersOnlyAttribute"/>.
+            This is a reverse P/Invoke: native code calls into managed code.
+            Therefore, <see cref="T:System.Runtime.CompilerServices.CallConvSuppressGCTransition"/> is intentionally not used.
+            That calling convention is meaningful for a managed-to-unmanaged transition,
+            where it skips the cooperative-to-preemptive GC transition before invoking a native function.
+            It does not disable garbage collection, make memory unmanaged, or remove the runtime work required to enter a managed callback.
+            </para>
+            <para>
+            Adding <see cref="T:System.Runtime.CompilerServices.CallConvSuppressGCTransition"/> here would not provide the expected optimization on CoreCLR:
+            the reverse P/Invoke entry and exit handling is still required. It would also misrepresent the callback contract.
+            Suppressed transitions are only valid for very short, nonblocking native functions that do not call managed code,
+            acquire locks, throw exceptions, or otherwise interact with the runtime.
+            Invalid use can cause GC starvation, data corruption, or fatal runtime errors.
+            </para>
+            <para>
+            The <see cref="T:System.Runtime.CompilerServices.CallConvCdecl"/> annotation must match the native callback declaration
+            and should be retained when targeting 32-bit Windows.
+            The returned pointer must only be invoked by native code; an <see cref="T:System.Runtime.InteropServices.UnmanagedCallersOnlyAttribute"/> method
+            must not be called from managed code.
+            Since <see cref="T:System.IntPtr"/> is the C# alias for <see cref="T:System.IntPtr"/>,
+            this value can be passed directly to native APIs that accept <see cref="T:System.IntPtr"/>.
+            </para>
             </remarks>
+            <seealso cref="M:Sudoku.Solving.Asp.ClingoInterop.ClingoControlNew(System.String[],System.UIntPtr,System.IntPtr,System.IntPtr,System.UInt32,System.IntPtr@)"/>
+            <seealso cref="T:System.Runtime.InteropServices.UnmanagedCallersOnlyAttribute"/>
+            <seealso cref="T:System.Runtime.CompilerServices.CallConvSuppressGCTransition"/>
+            <seealso cref="T:System.Runtime.CompilerServices.CallConvCdecl"/>
+            <seealso cref="T:System.IntPtr"/>
         </member>
         <member name="M:Sudoku.Solving.Asp.ClingoInterop.#cctor">
             <summary>

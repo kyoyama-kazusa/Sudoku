@@ -40,11 +40,39 @@ public static class ClingoInterop
 
 
 	/// <summary>
-	/// The function pointer of <see cref="NoOpLogger"/>, which can be passed as the <c>logger</c> parameter to <see cref="ClingoControlNew"/>.
+	/// The function pointer of <see cref="NoOpLogger"/>, which can be passed as the <c>logger</c> parameter
+	/// to <see cref="ClingoControlNew"/>.
 	/// </summary>
 	/// <remarks>
-	/// Annotated as a function pointer and converted to <see langword="void"/>* to finally get <see cref="nint"/>.
+	/// <para>
+	/// <c>NoOpLogger</c> is exposed to native code through <see cref="UnmanagedCallersOnlyAttribute"/>.
+	/// This is a reverse P/Invoke: native code calls into managed code.
+	/// Therefore, <see cref="CallConvSuppressGCTransition"/> is intentionally not used.
+	/// That calling convention is meaningful for a managed-to-unmanaged transition,
+	/// where it skips the cooperative-to-preemptive GC transition before invoking a native function.
+	/// It does not disable garbage collection, make memory unmanaged, or remove the runtime work required to enter a managed callback.
+	/// </para>
+	/// <para>
+	/// Adding <see cref="CallConvSuppressGCTransition"/> here would not provide the expected optimization on CoreCLR:
+	/// the reverse P/Invoke entry and exit handling is still required. It would also misrepresent the callback contract.
+	/// Suppressed transitions are only valid for very short, nonblocking native functions that do not call managed code,
+	/// acquire locks, throw exceptions, or otherwise interact with the runtime.
+	/// Invalid use can cause GC starvation, data corruption, or fatal runtime errors.
+	/// </para>
+	/// <para>
+	/// The <see cref="CallConvCdecl"/> annotation must match the native callback declaration
+	/// and should be retained when targeting 32-bit Windows.
+	/// The returned pointer must only be invoked by native code; an <see cref="UnmanagedCallersOnlyAttribute"/> method
+	/// must not be called from managed code.
+	/// Since <see cref="nint"/> is the C# alias for <see cref="IntPtr"/>,
+	/// this value can be passed directly to native APIs that accept <see cref="IntPtr"/>.
+	/// </para>
 	/// </remarks>
+	/// <seealso cref="ClingoControlNew"/>
+	/// <seealso cref="UnmanagedCallersOnlyAttribute"/>
+	/// <seealso cref="CallConvSuppressGCTransition"/>
+	/// <seealso cref="CallConvCdecl"/>
+	/// <seealso cref="nint"/>
 	public static readonly safe nint NoOpLoggerPtr = (nint)(delegate* unmanaged[Cdecl]<uint, nint, nint, void>)&NoOpLogger;
 
 

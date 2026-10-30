@@ -20,7 +20,8 @@ public sealed class AspSolver : ISolver
 	/// <summary>
 	/// The ASP program encoding of the sudoku rules (9x9).
 	/// </summary>
-	private const string Program = """
+	private const string Program =
+		"""
 		row(1..9).  col(1..9).  num(1..9).
 		1 { cell(R, C, N) : num(N) } 1 :- row(R), col(C).
 		:- row(R), num(N), #count { C : cell(R, C, N) } != 1.
